@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE Association SYSTEM "jbo_03_01.dtd">
+<!---->
+<Association
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="GlProjectGlVoucherLinesProjectIdAsso"
+  Version="12.1.3.10.47"
+  InheritPersonalization="merge">
+  <DesignTime>
+    <Attr Name="_isCodegen" Value="true"/>
+  </DesignTime>
+  <AssociationEnd
+    Name="GlProjects"
+    Cardinality="1"
+    Source="true"
+    Owner="erpfms.modelfms.fmseo.GlProjects"
+    LockLevel="NONE">
+    <DesignTime>
+      <Attr Name="_aggregation" Value="0"/>
+      <Attr Name="_finderName" Value="GlProjects"/>
+      <Attr Name="_foreignKey" Value="erpfms.modelfms.fmseo.GlProjects.PkProjects"/>
+      <Attr Name="_isUpdateable" Value="true"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="erpfms.modelfms.fmseo.GlProjects.ProjectSno"/>
+    </AttrArray>
+  </AssociationEnd>
+  <AssociationEnd
+    Name="GlVoucherLines"
+    Cardinality="-1"
+    Owner="erpfms.modelfms.fmseo.GlVoucherLines">
+    <DesignTime>
+      <Attr Name="_aggregation" Value="0"/>
+      <Attr Name="_finderName" Value="GlVoucherLines"/>
+      <Attr Name="_foreignKey" Value="erpfms.modelfms.fmseo.GlVoucherLines.fk_GlVoucherLines2"/>
+      <Attr Name="_isUpdateable" Value="true"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="erpfms.modelfms.fmseo.GlVoucherLines.ProjectSno"/>
+    </AttrArray>
+  </AssociationEnd>
+</Association>

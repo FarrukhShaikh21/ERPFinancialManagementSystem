@@ -1,0 +1,306 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE ViewObject SYSTEM "jbo_03_01.dtd">
+<!---->
+<ViewObject
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="SysUserVoucherTypeByCompanyAccessQVO"
+  Version="12.1.3.10.47"
+  InheritPersonalization="merge"
+  BindingStyle="JDBC"
+  CustomQuery="true"
+  PageIterMode="Full">
+  <DesignTime>
+    <Attr Name="_isExpertMode" Value="true"/>
+  </DesignTime>
+  <Properties>
+    <SchemaBasedProperties>
+      <LABEL
+        ResId="erpfms.modelfms.fmsqvo.SysUserVoucherTypeByCompanyAccessQVO_LABEL"/>
+    </SchemaBasedProperties>
+  </Properties>
+  <Variable
+    Name="P_ADF_USER_ID"
+    Kind="where"
+    Type="java.lang.Integer">
+    <AttrArray Name="ExtendedDataInts">
+      <Item Value="1"/>
+      <Item Value="3"/>
+      <Item Value="5"/>
+      <Item Value="7"/>
+      <Item Value="11"/>
+      <Item Value="12"/>
+      <Item Value="15"/>
+      <Item Value="17"/>
+    </AttrArray>
+    <TransientExpression
+      Name="expression"><![CDATA[erpglobals.modelglobals.ERPGlobalPLSQLClass.doGetModelUserSno()]]></TransientExpression>
+    <Properties>
+      <SchemaBasedProperties>
+        <DISPLAYHINT
+          Value="Hide"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </Variable>
+  <Variable
+    Name="P_ADF_COMPANY_ID"
+    Kind="where"
+    Type="java.lang.Integer">
+    <AttrArray Name="ExtendedDataInts">
+      <Item Value="0"/>
+      <Item Value="4"/>
+      <Item Value="8"/>
+      <Item Value="9"/>
+      <Item Value="13"/>
+      <Item Value="14"/>
+    </AttrArray>
+    <Properties>
+      <SchemaBasedProperties>
+        <DISPLAYHINT
+          Value="Hide"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </Variable>
+  <Variable
+    Name="P_ADF_GLOBAL_COMPANY_ID"
+    Kind="where"
+    Type="java.lang.Integer">
+    <AttrArray Name="ExtendedDataInts">
+      <Item Value="2"/>
+      <Item Value="6"/>
+      <Item Value="10"/>
+      <Item Value="16"/>
+    </AttrArray>
+    <TransientExpression
+      trustMode="untrusted"
+      Name="expression"><![CDATA[erpglobals.modelglobals.ERPGlobalPLSQLClass.doGetModelGlobalDefCompany()]]></TransientExpression>
+    <Properties>
+      <SchemaBasedProperties>
+        <DISPLAYHINT
+          Value="Hide"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </Variable>
+  <SQLQuery><![CDATA[/*user has multiple company rights and voucher checking is  allowed*/     
+SELECT  vt.voucher_type_id,        
+        vt.voucher_type_name,        
+        vt.voucher_type_code ,       
+        vt.voucher_category_sno       
+FROM    gl_user_voucher_type uvt,        
+        gl_voucher_types vt        
+where   uvt.company_id=?  /*0*/        
+and     vt.is_active='Y'     
+and     uvt.is_active='Y'     
+and     vt.voucher_type_id=uvt.voucher_type_id      
+and     vt.company_id=uvt.company_id     
+AND   EXISTS(SELECT ''         
+             FROM   gl_coa_user_company COA        
+             WHERE  COA.IS_ACTIVE='Y'        
+             AND    COA.COMPANY_ID=vt.COMPANY_ID        
+             AND    COA.USER_ID=? /*1*/        
+             AND    COA.GLOBAL_COMPANY_ID=vt.GLOBAL_COMPANY_ID        
+             )       
+and     1<     
+           (     
+           select count(1)     
+           from   gl_coa_user_company coac     
+           where  coac.global_company_id=?/*2*/     
+           and    coac.is_active='Y'     
+           and    coac.user_id=?/*3*/       
+           )     
+     
+and     'N'= ( select gp.parameter_value         
+             from   gl_parameter gp         
+             where  gp.parameter_id='ALL_VT_WHEN_NO_ENTRY'         
+             and    gp.company_id=vt.company_id        
+             )                
+union     
+/*multiple company assignments to user and multiple voucher assignment to user     
+and voucher rights not required     
+*/     
+SELECT  vt.voucher_type_id,        
+        vt.voucher_type_name,        
+        vt.voucher_type_code ,       
+        vt.voucher_category_sno       
+FROM    gl_voucher_types vt        
+where   vt.is_active='Y'     
+and     vt.company_id=? /*4*/    
+AND   EXISTS(SELECT ''         
+             FROM   gl_coa_user_company COA        
+             WHERE  COA.IS_ACTIVE='Y'        
+             AND    COA.COMPANY_ID=vt.COMPANY_ID        
+             AND    COA.USER_ID=? /*5*/        
+             AND    COA.GLOBAL_COMPANY_ID=vt.GLOBAL_COMPANY_ID        
+             )       
+and     1 <     
+           (     
+           select count(1)     
+           from   gl_coa_user_company coac     
+           where  coac.global_company_id=?/*6*/     
+           and    coac.is_active='Y'     
+           and    coac.user_id=?/*7*/       
+           )     
+and     'Y'= ( select gp.parameter_value         
+             from   gl_parameter gp         
+             where  gp.parameter_id='ALL_VT_WHEN_NO_ENTRY'         
+             and    gp.company_id=vt.company_id        
+             )                  
+union      
+/*signe company and rights checking is disable */     
+SELECT  vt.voucher_type_id,        
+        vt.voucher_type_name,        
+        vt.voucher_type_code ,       
+        vt.voucher_category_sno       
+FROM    gl_voucher_types  vt        
+where   vt.is_active='Y' 
+and     (vt.company_id=? /*8*/   or ? =-1/*9*/)    
+and     'Y'= ( select gp.parameter_value         
+               from   gl_parameter gp         
+               where  gp.parameter_id='ALL_VT_WHEN_NO_ENTRY'         
+               and    gp.company_id=vt.company_id        
+             )     
+and     1 =     
+           (     
+           select count(1)     
+           from   gl_coa_user_company coac     
+           where  coac.global_company_id=?/*10*/     
+           and    coac.is_active='Y'     
+           and    coac.user_id=?/*11*/       
+           )     
+AND   EXISTS(SELECT ''         
+             FROM   gl_coa_user_company COA        
+             WHERE  COA.IS_ACTIVE='Y'        
+             AND    COA.COMPANY_ID=vt.COMPANY_ID        
+             AND    COA.USER_ID=? /*12*/        
+             AND    COA.GLOBAL_COMPANY_ID=vt.GLOBAL_COMPANY_ID        
+             )     
+UNION     
+/*ONE COMPANY AND RIGHTS REQUIRED TO BE CHECKED*/     
+SELECT  vt.voucher_type_id,        
+        vt.voucher_type_name,        
+        vt.voucher_type_code ,       
+        vt.voucher_category_sno       
+FROM    gl_user_voucher_type uvt,        
+        gl_voucher_types vt        
+where   vt.is_active='Y'     
+and     uvt.is_active='Y'     
+and     vt.voucher_type_id=uvt.voucher_type_id      
+and     vt.company_id=uvt.company_id  
+and     (vt.company_id=? /*13*/   or ? =-1/*14*/)  
+AND   EXISTS(SELECT ''         
+             FROM   gl_coa_user_company COA        
+             WHERE  COA.IS_ACTIVE='Y'        
+             AND    COA.COMPANY_ID=vt.COMPANY_ID        
+             AND    COA.USER_ID=? /*15*/        
+             AND    COA.GLOBAL_COMPANY_ID=vt.GLOBAL_COMPANY_ID        
+             )       
+and     1=     
+           (     
+           select count(1)     
+           from   gl_coa_user_company coac     
+           where  coac.global_company_id=?/*16*/     
+           and    coac.is_active='Y'     
+           and    coac.user_id=?/*17*/       
+           )     
+     
+and     'N'= ( select gp.parameter_value         
+             from   gl_parameter gp         
+             where  gp.parameter_id='ALL_VT_WHEN_NO_ENTRY'         
+             and    gp.company_id=vt.company_id        
+             )]]></SQLQuery>
+  <ViewAttribute
+    Name="VoucherTypeId"
+    IsUpdateable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Type="java.lang.Integer"
+    ColumnType="INTEGER"
+    AliasName="voucher_type_id"
+    Expression="voucher_type_id"
+    SQLType="INTEGER">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="11"/>
+    </DesignTime>
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="erpfms.modelfms.fmsqvo.SysUserVoucherTypeByCompanyAccessQVO.VoucherTypeId_LABEL"/>
+        <DISPLAYWIDTH
+          Value="20"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="VoucherTypeName"
+    IsUpdateable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Precision="100"
+    Type="java.lang.String"
+    ColumnType="VARCHAR"
+    AliasName="voucher_type_name"
+    Expression="voucher_type_name"
+    SQLType="VARCHAR">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="100"/>
+    </DesignTime>
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="erpfms.modelfms.fmsqvo.SysUserVoucherTypeByCompanyAccessQVO.VoucherTypeName_LABEL"/>
+        <DISPLAYWIDTH
+          Value="20"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="VoucherTypeCode"
+    IsUpdateable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Type="java.lang.Integer"
+    ColumnType="INT"
+    AliasName="voucher_type_code"
+    Expression="voucher_type_code"
+    SQLType="INTEGER">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="11"/>
+    </DesignTime>
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="erpfms.modelfms.fmsqvo.SysUserVoucherTypeByCompanyAccessQVO.VoucherTypeCode_LABEL"/>
+        <DISPLAYWIDTH
+          Value="20"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="VoucherCategorySno"
+    IsUpdateable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Type="java.lang.Integer"
+    ColumnType="INT"
+    AliasName="voucher_category_sno"
+    Expression="voucher_category_sno"
+    SQLType="INTEGER">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="11"/>
+    </DesignTime>
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="erpfms.modelfms.fmsqvo.SysUserVoucherTypeByCompanyAccessQVO.VoucherCategorySno_LABEL"/>
+        <DISPLAYWIDTH
+          Value="20"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <AttrArray Name="KeyAttributes">
+    <Item Value="VoucherTypeId"/>
+  </AttrArray>
+  <ResourceBundle>
+    <PropertiesBundle
+      PropertiesFile="erpfms.modelfms.ModelFMSBundle"/>
+  </ResourceBundle>
+</ViewObject>

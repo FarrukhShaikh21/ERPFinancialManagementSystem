@@ -1,0 +1,40 @@
+@charset "UTF-8";
+body {
+    margin: 0;
+}
+
+.info_message {
+    display: none;
+    width: 100%;
+    height: 51px;
+    position: absolute;
+    top: 0;
+    position: fixed;
+    z-index: 50000;
+    margin: 0;
+    padding: 0;
+}
+
+.center_auto {
+    margin: 0 auto;
+    width: 80%;
+    padding: 15px 25px;
+}
+
+.info_message .message_area {
+    float: right;
+    width: 100%;
+    text-align: center;
+}
+
+.info_message {
+    background: lightblue;
+    opacity: 0.8;
+    filter: alpha(opacity=80);
+    /* For IE8 and earlier */
+}
+
+.info_message .message_area {
+    font: bold 14px arial;
+    color: blue;
+}

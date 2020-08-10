@@ -1,0 +1,1089 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<adfc-config xmlns="http://xmlns.oracle.com/adf/controller" version="1.2">
+  <task-flow-definition id="ERPBTFFMS">
+    <default-activity>doSetFMSErpApplicationGlobals</default-activity>
+    <data-control-scope>
+      <shared/>
+    </data-control-scope>
+    <input-parameter-definition id="__17">
+      <name>P_ADF_USER_SNO</name>
+      <value>#{pageFlowScope.OracleERPBean.ERPuserId}</value>
+      <class>erpfms.viewfms.ERPFMSClass</class>
+    </input-parameter-definition>
+    <input-parameter-definition id="__18">
+      <name>P_ADF_USER_CODE</name>
+      <value>#{pageFlowScope.OracleERPBean.ERPuserCode}</value>
+      <class>erpfms.viewfms.ERPFMSClass</class>
+    </input-parameter-definition>
+    <input-parameter-definition id="__19">
+      <name>P_ADF_USER_ATTRIBUTE</name>
+      <value>#{pageFlowScope.OracleERPBean.ERPUserAttributes}</value>
+      <class>erpfms.viewfms.ERPFMSClass</class>
+    </input-parameter-definition>
+    <managed-bean id="__1">
+      <managed-bean-name>OracleERPBean</managed-bean-name>
+      <managed-bean-class>erpfms.viewfms.ERPFMSClass</managed-bean-class>
+      <managed-bean-scope>pageFlow</managed-bean-scope>
+    </managed-bean>
+    <managed-bean id="__16">
+      <managed-bean-name>ERPMainTempBean</managed-bean-name>
+      <managed-bean-class>erptemplate.viewtemp.ERPTEMPClass</managed-bean-class>
+      <managed-bean-scope>pageFlow</managed-bean-scope>
+    </managed-bean>
+    <exception-handler>FMSExceptionHandler</exception-handler>
+    <method-call id="doSetFMSErpApplicationGlobals">
+      <method>#{pageFlowScope.OracleERPBean.doSetFMSErpApplicationGlobals}</method>
+      <outcome>
+        <fixed-outcome>ERP-FMS-DOGOTO-MAIN</fixed-outcome>
+      </outcome>
+    </method-call>
+    <view id="FMSMain">
+      <page>/FMSMain.jsf</page>
+    </view>
+    <method-call id="doFMSGotoErpActivity">
+      <method>#{pageFlowScope.ERPMainTempBean.doGotoErpActivity}</method>
+      <outcome>
+        <to-string/>
+      </outcome>
+    </method-call>
+    <view id="FMS_0001">
+      <page>/FMS_0001.jsf</page>
+    </view>
+    <method-call id="ExecuteWithParams">
+      <method>#{bindings.ExecuteWithParams.execute}</method>
+      <outcome>
+        <fixed-outcome>ExecuteWithParams</fixed-outcome>
+      </outcome>
+    </method-call>
+    <method-call id="ERP-FMS-REPORT-ExecuteWithParams">
+      <method>#{bindings.ExecuteWithParams.execute}</method>
+      <outcome>
+        <fixed-outcome>ExecuteWithParams</fixed-outcome>
+      </outcome>
+    </method-call>
+    <method-call id="ERP-FMS-TRANS-ExecuteWithParams">
+      <method>#{bindings.ExecuteWithParams.execute}</method>
+      <outcome>
+        <fixed-outcome>ExecuteWithParams</fixed-outcome>
+      </outcome>
+    </method-call>
+    <method-call id="doSetFMSNullActivityDescription">
+      <method>#{pageFlowScope.ERPMainTempBean.doSetActivityDescriptionNull}</method>
+      <outcome>
+        <fixed-outcome>ERP-FMS-EXIT-GOTO-MAIN</fixed-outcome>
+      </outcome>
+    </method-call>
+    <view id="FMS_0001_EDIT">
+      <page>/FMS_0001_EDIT.jsf</page>
+    </view>
+    <method-call id="ERPEDITFMS_0001ExecuteWithParameter">
+      <method>#{bindings.ExecuteWithParams.execute}</method>
+      <outcome>
+        <fixed-outcome>ExecuteWithParams</fixed-outcome>
+      </outcome>
+    </method-call>
+    <method-call id="ERPEDITFMS_0001CompanyExeWithPara">
+      <method>#{bindings.ExecuteWithParams.execute}</method>
+      <outcome>
+        <fixed-outcome>ExecuteWithParamsCompanyWise</fixed-outcome>
+      </outcome>
+    </method-call>
+    <view id="FMS_0002">
+      <page>/FMS_0002.jsf</page>
+    </view>
+    <method-call id="FMS_0002ExecuteWithParaCompanyWiseVC">
+      <method>#{bindings.ExecuteWithParams.execute}</method>
+      <outcome>
+        <fixed-outcome>FMS_0002ComanyWiseExecuteWithParams</fixed-outcome>
+      </outcome>
+    </method-call>
+    <view id="FMS_0002_EDIT">
+      <page>/FMS_0002_EDIT.jsf</page>
+    </view>
+    <task-flow-return id="taskFlowReturn1">
+      <outcome>
+        <name>taskFlowReturn1</name>
+      </outcome>
+    </task-flow-return>
+    <method-call id="ExecuteWithParamsCoaUser">
+      <method>#{bindings.ExecuteWithParams.execute}</method>
+      <outcome>
+        <fixed-outcome>ExecuteWithParams</fixed-outcome>
+      </outcome>
+    </method-call>
+    <method-call id="ExecuteWithParamsCOAUserForAssignWise">
+      <method>#{bindings.ExecuteWithParams.execute}</method>
+      <outcome>
+        <fixed-outcome>ExecuteWithParamsCOAUserForAssignWise</fixed-outcome>
+      </outcome>
+    </method-call>
+    <view id="FMS_0003">
+      <page>/FMS_0003.jsf</page>
+    </view>
+    <view id="FMS_0003_EDIT">
+      <page>/FMS_0003_EDIT.jsf</page>
+    </view>
+    <method-call id="AdminCompanyExecuteWithParams">
+      <method>#{bindings.ExecuteWithParams.execute}</method>
+      <outcome>
+        <fixed-outcome>AdminCompanyExecuteWithParams</fixed-outcome>
+      </outcome>
+    </method-call>
+    <view id="FMSExceptionHandler">
+      <page>/FMSExceptionHandler.jsf</page>
+    </view>
+    <view id="FMS_0003_EDIT_EDIT">
+      <page>/FMS_0003_EDIT_EDIT.jsf</page>
+    </view>
+    <method-call id="FMS_0003_CreateInsert">
+      <method>#{bindings.CreateInsert.execute}</method>
+      <outcome>
+        <fixed-outcome>FMS_0003_CreateInsert</fixed-outcome>
+      </outcome>
+    </method-call>
+    <method-call id="AdminChartOfAcctROByCompany">
+      <method>#{bindings.ExecuteWithParams.execute}</method>
+      <outcome>
+        <fixed-outcome>AdminChartOfAcctROByCompany</fixed-outcome>
+      </outcome>
+    </method-call>
+    <method-call id="ExecuteWithParamsGLCOASearch">
+      <method>#{bindings.ExecuteWithParams.execute}</method>
+      <outcome>
+        <fixed-outcome>ExecuteWithParamsGLCOASearch</fixed-outcome>
+      </outcome>
+    </method-call>
+    <method-call id="ExecuteGLCOASearch">
+      <method>#{bindings.Execute.execute}</method>
+      <outcome>
+        <fixed-outcome>ExecuteGLCOASearch</fixed-outcome>
+      </outcome>
+    </method-call>
+    <method-call id="ExecuteAdminCompanyRO">
+      <method>#{bindings.Execute.execute}</method>
+      <outcome>
+        <fixed-outcome>ExecuteAdminCompanyRO</fixed-outcome>
+      </outcome>
+    </method-call>
+    <view id="FMS_0004">
+      <page>/FMS_0004.jsf</page>
+    </view>
+    <method-call id="ExecuteFISYearCompanyRO">
+      <method>#{bindings.Execute.execute}</method>
+      <outcome>
+        <fixed-outcome>ExecuteFosUearCompRO</fixed-outcome>
+      </outcome>
+    </method-call>
+    <view id="FMS_0004_EDIT">
+      <page>/FMS_0004_EDIT.jsf</page>
+    </view>
+    <method-call id="ExeWithParaCompanyFisYear">
+      <method>#{bindings.ExecuteWithParams.execute}</method>
+      <outcome>
+        <fixed-outcome>DO-ACT-QUERY-FMS_0004</fixed-outcome>
+      </outcome>
+    </method-call>
+    <view id="FMS_0004_EDIT_EDIT">
+      <page>/FMS_0004_EDIT_EDIT.jsf</page>
+    </view>
+    <method-call id="FiscalYearByCompExecuteWithPara">
+      <method>#{bindings.ExecuteWithParams.execute}</method>
+      <outcome>
+        <fixed-outcome>FiscalYearByCompExecuteWithPara</fixed-outcome>
+      </outcome>
+    </method-call>
+    <method-call id="CreateWithParaGLFiscalYear">
+      <method>#{bindings.CreateWithParams.execute}</method>
+      <outcome>
+        <fixed-outcome>ERPADDFISCALYEAR</fixed-outcome>
+      </outcome>
+    </method-call>
+    <method-call id="ExecuteGLFisYearByCompany">
+      <method>#{bindings.ExecuteWithParams.execute}</method>
+      <outcome>
+        <fixed-outcome>ExecuteGLFisYearByCompany</fixed-outcome>
+      </outcome>
+    </method-call>
+    <method-call id="ExecuteFiscalYear">
+      <method>#{bindings.Execute.execute}</method>
+      <outcome>
+        <fixed-outcome>ExecuteFiscalYear</fixed-outcome>
+      </outcome>
+    </method-call>
+    <view id="FMS_0005">
+      <page>/FMS_0005.jsf</page>
+    </view>
+    <method-call id="GLVoucherHeaderExecute">
+      <method>#{bindings.Execute.execute}</method>
+      <outcome>
+        <fixed-outcome>GLVoucherHeaderExecute</fixed-outcome>
+      </outcome>
+    </method-call>
+    <view id="FMS_0005_EDIT">
+      <page>/FMS_0005_EDIT.jsf</page>
+    </view>
+    <method-call id="GLVoucherHeadCreateIns">
+      <method>#{bindings.CreateWithParams.execute}</method>
+      <outcome>
+        <fixed-outcome>ERPADDFMS_0005</fixed-outcome>
+      </outcome>
+    </method-call>
+    <method-call id="GLVoucherHeaderQuery">
+      <method>#{bindings.Execute.execute}</method>
+      <outcome>
+        <fixed-outcome>ExecuteQueryVoucherRO</fixed-outcome>
+      </outcome>
+    </method-call>
+    <method-call id="ExecuteParaByVoucher">
+      <method>#{bindings.ExecuteWithParams.execute}</method>
+      <outcome>
+        <fixed-outcome>DO-ACT-QUERY-FMS_0005</fixed-outcome>
+      </outcome>
+    </method-call>
+    <method-call id="ERPdoInsertAccessDepartment">
+      <method>#{bindings.ERPdoInsertAccessDepartment.execute}</method>
+      <outcome>
+        <fixed-outcome>ERPdoInsertAccessDepartment</fixed-outcome>
+      </outcome>
+    </method-call>
+    <method-call id="executeEmptyRowSetVoucherLines">
+      <method>#{bindings.executeEmptyRowSet.execute}</method>
+      <outcome>
+        <fixed-outcome>executeEmptyRowSetVoucherLines</fixed-outcome>
+      </outcome>
+    </method-call>
+    <view id="FMS_0006">
+      <page>/FMS_0006.jsf</page>
+    </view>
+    <method-call id="Execute">
+      <method>#{bindings.Execute.execute}</method>
+      <outcome>
+        <fixed-outcome>Execute</fixed-outcome>
+      </outcome>
+    </method-call>
+    <method-call id="AdminCompanyFMS_0006">
+      <method>#{bindings.Execute.execute}</method>
+      <outcome>
+        <fixed-outcome>AdminCompanyFMS_0006</fixed-outcome>
+      </outcome>
+    </method-call>
+    <view id="FMS_0006_EDIT">
+      <page>/FMS_0006_EDIT.jsf</page>
+    </view>
+    <method-call id="ExecuteWithParaByCompFMS_0006_EDIT">
+      <method>#{bindings.ExecuteWithParams.execute}</method>
+      <outcome>
+        <fixed-outcome>DO-ACT-QUERY-FMS_0006</fixed-outcome>
+      </outcome>
+    </method-call>
+    <method-call id="ExecuteWithParCompanyFMS_0006">
+      <method>#{bindings.ExecuteWithParams.execute}</method>
+      <outcome>
+        <fixed-outcome>ExecuteWithParCompanyFMS_0006</fixed-outcome>
+      </outcome>
+    </method-call>
+    <view id="FMS_0007">
+      <page>/FMS_0007.jsf</page>
+    </view>
+    <method-call id="AdminCompanyFMS_0007">
+      <method>#{bindings.Execute.execute}</method>
+      <outcome>
+        <fixed-outcome>AdminCompanyFMS_0007</fixed-outcome>
+      </outcome>
+    </method-call>
+    <view id="FMS_0007_EDIT">
+      <page>/FMS_0007_EDIT.jsf</page>
+    </view>
+    <view id="FMS_0007_EDIT_EDIT">
+      <page>/FMS_0007_EDIT_EDIT.jsf</page>
+    </view>
+    <method-call id="ExecuteCompanyByCompFMS_0007">
+      <method>#{bindings.ExecuteWithParams.execute}</method>
+      <outcome>
+        <fixed-outcome>ExecuteCompanyByCompFMS_0007</fixed-outcome>
+      </outcome>
+    </method-call>
+    <method-call id="ExeWithParaVoucherTypeByCompFMS_0007">
+      <method>#{bindings.ExecuteWithParams.execute}</method>
+      <outcome>
+        <fixed-outcome>ExeWithParaVoucherTypeByCompFMS_0007</fixed-outcome>
+      </outcome>
+    </method-call>
+    <method-call id="ExeWithParaVouchTypeByCompFMS_0007">
+      <method>#{bindings.ExecuteWithParams.execute}</method>
+      <outcome>
+        <fixed-outcome>ExecuteWithParams</fixed-outcome>
+      </outcome>
+    </method-call>
+    <method-call id="ExecuteWithAvailableUserEDIT_EDIT">
+      <method>#{bindings.ExecuteWithParams.execute}</method>
+      <outcome>
+        <fixed-outcome>ExecuteWithAvailableUserEDIT_EDIT</fixed-outcome>
+      </outcome>
+    </method-call>
+    <method-call id="ExeParaGLVoucherTypeByVTypeID">
+      <method>#{bindings.ExecuteWithParams.execute}</method>
+      <outcome>
+        <fixed-outcome>ExeParaGLVoucherTypeByVTypeID</fixed-outcome>
+      </outcome>
+    </method-call>
+    <task-flow-return id="ERPFMSRETURN">
+      <outcome>
+        <name>ERPFMSRETURN</name>
+      </outcome>
+    </task-flow-return>
+    <method-call id="ErpFMSdoInsertAccessableCompany">
+      <method>#{bindings.ErpdoInsertAccessableCompany.execute}</method>
+      <outcome>
+        <fixed-outcome>ErpdoInsertAccessableCompany</fixed-outcome>
+      </outcome>
+    </method-call>
+    <view id="FMS_0008">
+      <page>/FMS_0008.jsf</page>
+    </view>
+    <view id="FMS_0009">
+      <page>/FMS_0009.jsf</page>
+    </view>
+    <method-call id="GLProjectsCompanyExecuteQuery">
+      <method>#{bindings.Execute.execute}</method>
+      <outcome>
+        <fixed-outcome>DO-ACT-QUERY-FMS_0009</fixed-outcome>
+      </outcome>
+    </method-call>
+    <view id="FMS_0009_EDIT">
+      <page>/FMS_0009_EDIT.jsf</page>
+    </view>
+    <method-call id="ExeWithParaProjectIDCompany">
+      <method>#{bindings.ExecuteWithParams.execute}</method>
+      <outcome>
+        <fixed-outcome>DO-ACT-QUERY-FMS_0009</fixed-outcome>
+      </outcome>
+    </method-call>
+    <method-call id="ExeGlProjectCompWise">
+      <method>#{bindings.ExecuteWithParams.execute}</method>
+      <outcome>
+        <fixed-outcome>DO-ACT-QUERY-FMS_0009</fixed-outcome>
+      </outcome>
+    </method-call>
+    <view id="FMS_0010">
+      <page>/FMS_0010.jsf</page>
+    </view>
+    <method-call id="ExelGlBatchSetupCompany">
+      <method>#{bindings.Execute.execute}</method>
+      <outcome>
+        <fixed-outcome>ExelGlBatchSetupCompany</fixed-outcome>
+      </outcome>
+    </method-call>
+    <view id="FMS_0010_EDIT">
+      <page>/FMS_0010_EDIT.jsf</page>
+    </view>
+    <method-call id="ExeBatchSetupByCompanyQuery">
+      <method>#{bindings.ExecuteWithParams.execute}</method>
+      <outcome>
+        <fixed-outcome>DO-ACT-QUERY-FMS_0010</fixed-outcome>
+      </outcome>
+    </method-call>
+    <method-call id="ExeGlBatchCompanyByPara">
+      <method>#{bindings.ExecuteWithParams.execute}</method>
+      <outcome>
+        <fixed-outcome>ExeGlBatchCompanyByPara</fixed-outcome>
+      </outcome>
+    </method-call>
+    <view id="FMS_0011">
+      <page>/FMS_0011.jsf</page>
+    </view>
+    <method-call id="ExeAdminCompanyExeFMS_0011">
+      <method>#{bindings.Execute.execute}</method>
+      <outcome>
+        <fixed-outcome>ExeAdminCompanyExeFMS_0011</fixed-outcome>
+      </outcome>
+    </method-call>
+    <view id="FMS_0011_EDIT">
+      <page>/FMS_0011_EDIT.jsf</page>
+    </view>
+    <method-call id="ExeAdminCompByCompany">
+      <method>#{bindings.ExecuteWithParams.execute}</method>
+      <outcome>
+        <fixed-outcome>DO-ACT-QUERY-FMS_0011</fixed-outcome>
+      </outcome>
+    </method-call>
+    <view id="FMS_0011_EDIT_EDIT">
+      <page>/FMS_0011_EDIT_EDIT.jsf</page>
+    </view>
+    <method-call id="ExePeriodForAssign">
+      <method>#{bindings.ExecuteWithParams.execute}</method>
+      <outcome>
+        <fixed-outcome>ExePeriodForAssign</fixed-outcome>
+      </outcome>
+    </method-call>
+    <method-call id="ExeUsersForPeriodAssign">
+      <method>#{bindings.ExecuteWithParams.execute}</method>
+      <outcome>
+        <fixed-outcome>ExeUsersForPeriodAssign</fixed-outcome>
+      </outcome>
+    </method-call>
+    <method-call id="ExeUserPeriodRights">
+      <method>#{bindings.ExecuteWithParams.execute}</method>
+      <outcome>
+        <fixed-outcome>ExeUserPeriodRights</fixed-outcome>
+      </outcome>
+    </method-call>
+    <method-call id="ExeCOAUserByCompanyForRights">
+      <method>#{bindings.ExecuteWithParams.execute}</method>
+      <outcome>
+        <fixed-outcome>DO-ACT-QUERY-FMS_0011</fixed-outcome>
+      </outcome>
+    </method-call>
+    <task-flow-return id="ERPFMSLOGOUT">
+      <outcome>
+        <name>ERPFMSLOGOUT</name>
+      </outcome>
+    </task-flow-return>
+    <task-flow-call id="ERPCHPWDBTF">
+      <task-flow-reference>
+        <document>/WEB-INF/ERPCHPWDBTF.xml</document>
+        <id>ERPCHPWDBTF</id>
+      </task-flow-reference>
+      <input-parameter id="__183">
+        <name>P_ADF_USER_ID</name>
+        <value>#{pageFlowScope.OracleERPBean.ERPuserId}</value>
+      </input-parameter>
+      <input-parameter id="__184">
+        <name>P_ADF_USER_CODE</name>
+        <value>#{pageFlowScope.OracleERPBean.ERPuserCode}</value>
+      </input-parameter>
+      <input-parameter id="__185">
+        <name>P_ADF_USER_ATTRIBUTE</name>
+        <value>#{pageFlowScope.OracleERPBean.ERPUserAttributes}</value>
+      </input-parameter>
+    </task-flow-call>
+    <control-flow-rule id="__8">
+      <from-activity-id>doFMSGotoErpActivity</from-activity-id>
+      <control-flow-case id="__9">
+        <from-outcome>ERP-ACT-FMS_0001</from-outcome>
+        <to-activity-id>FMS_0001</to-activity-id>
+      </control-flow-case>
+      <control-flow-case id="__32">
+        <from-outcome>ERP-ACT-FMS_0002</from-outcome>
+        <to-activity-id>FMS_0002</to-activity-id>
+      </control-flow-case>
+      <control-flow-case id="__43">
+        <from-outcome>ERP-ACT-FMS_0003</from-outcome>
+        <to-activity-id>ExecuteAdminCompanyRO</to-activity-id>
+      </control-flow-case>
+      <control-flow-case id="__64">
+        <from-outcome>ERP-ACT-FMS_0004</from-outcome>
+        <to-activity-id>ExecuteFISYearCompanyRO</to-activity-id>
+      </control-flow-case>
+      <control-flow-case id="__85">
+        <from-outcome>ERP-ACT-FMS_0005</from-outcome>
+        <to-activity-id>GLVoucherHeaderExecute</to-activity-id>
+      </control-flow-case>
+      <control-flow-case id="__103">
+        <from-outcome>ERP-ACT-FMS_0006</from-outcome>
+        <to-activity-id>AdminCompanyFMS_0006</to-activity-id>
+      </control-flow-case>
+      <control-flow-case id="__114">
+        <from-outcome>ERP-ACT-FMS_0007</from-outcome>
+        <to-activity-id>AdminCompanyFMS_0007</to-activity-id>
+      </control-flow-case>
+      <control-flow-case id="__136">
+        <from-outcome>ERP-ACT-FMS_0008</from-outcome>
+        <to-activity-id>FMS_0008</to-activity-id>
+      </control-flow-case>
+      <control-flow-case id="__137">
+        <from-outcome>ERP-ACT-FMS_0009</from-outcome>
+        <to-activity-id>GLProjectsCompanyExecuteQuery</to-activity-id>
+      </control-flow-case>
+      <control-flow-case id="__148">
+        <from-outcome>ERP-ACT-FMS_0010</from-outcome>
+        <to-activity-id>ExelGlBatchSetupCompany</to-activity-id>
+      </control-flow-case>
+      <control-flow-case id="__159">
+        <from-outcome>ERP-ACT-FMS_0011</from-outcome>
+        <to-activity-id>ExeAdminCompanyExeFMS_0011</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__12">
+      <from-activity-id>*</from-activity-id>
+      <control-flow-case id="__13">
+        <from-outcome>doStartERPTaskFlow</from-outcome>
+        <to-activity-id>ErpFMSdoInsertAccessableCompany</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__4">
+      <from-activity-id>ExecuteWithParams</from-activity-id>
+      <control-flow-case id="__5">
+        <from-outcome>ExecuteWithParams</from-outcome>
+        <to-activity-id>ERP-FMS-REPORT-ExecuteWithParams</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__6">
+      <from-activity-id>doSetFMSErpApplicationGlobals</from-activity-id>
+      <control-flow-case id="__7">
+        <from-outcome>ERP-FMS-DOGOTO-MAIN</from-outcome>
+        <to-activity-id>ERPdoInsertAccessDepartment</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__10">
+      <from-activity-id>ERP-FMS-REPORT-ExecuteWithParams</from-activity-id>
+      <control-flow-case id="__11">
+        <from-outcome>ExecuteWithParams</from-outcome>
+        <to-activity-id>ERP-FMS-TRANS-ExecuteWithParams</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__20">
+      <from-activity-id>ERP-FMS-TRANS-ExecuteWithParams</from-activity-id>
+      <control-flow-case id="__21">
+        <from-outcome>ExecuteWithParams</from-outcome>
+        <to-activity-id>FMSMain</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__2">
+      <from-activity-id>*</from-activity-id>
+      <control-flow-case id="__3">
+        <from-outcome>ERPACTEXITFORM</from-outcome>
+        <to-activity-id>doSetFMSNullActivityDescription</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__22">
+      <from-activity-id>doSetFMSNullActivityDescription</from-activity-id>
+      <control-flow-case id="__23">
+        <from-outcome>ERP-FMS-EXIT-GOTO-MAIN</from-outcome>
+        <to-activity-id>FMSMain</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__24">
+      <from-activity-id>FMS_0001</from-activity-id>
+      <control-flow-case id="__25">
+        <from-outcome>ERPEDITFMS_0001</from-outcome>
+        <to-activity-id>ERPEDITFMS_0001ExecuteWithParameter</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__26">
+      <from-activity-id>ERPEDITFMS_0001ExecuteWithParameter</from-activity-id>
+      <control-flow-case id="__27">
+        <from-outcome>ExecuteWithParams</from-outcome>
+        <to-activity-id>ERPEDITFMS_0001CompanyExeWithPara</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__28">
+      <from-activity-id>FMS_0001_EDIT</from-activity-id>
+      <control-flow-case id="__29">
+        <from-outcome>ERPBACKCRUD</from-outcome>
+        <to-activity-id>FMS_0001</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__30">
+      <from-activity-id>ERPEDITFMS_0001CompanyExeWithPara</from-activity-id>
+      <control-flow-case id="__31">
+        <from-outcome>ExecuteWithParamsCompanyWise</from-outcome>
+        <to-activity-id>FMS_0001_EDIT</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__33">
+      <from-activity-id>FMS_0002</from-activity-id>
+      <control-flow-case id="__34">
+        <from-outcome>ERPEDITFMS_0002</from-outcome>
+        <to-activity-id>FMS_0002ExecuteWithParaCompanyWiseVC</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__35">
+      <from-activity-id>FMS_0002ExecuteWithParaCompanyWiseVC</from-activity-id>
+      <control-flow-case id="__36">
+        <from-outcome>FMS_0002ComanyWiseExecuteWithParams</from-outcome>
+        <to-activity-id>ExecuteWithParamsCoaUser</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__37">
+      <from-activity-id>FMS_0002_EDIT</from-activity-id>
+      <control-flow-case id="__38">
+        <from-outcome>ERPBACKCRUD</from-outcome>
+        <to-activity-id>FMS_0002</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__39">
+      <from-activity-id>ExecuteWithParamsCoaUser</from-activity-id>
+      <control-flow-case id="__40">
+        <from-outcome>ExecuteWithParams</from-outcome>
+        <to-activity-id>ExecuteWithParamsCOAUserForAssignWise</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__41">
+      <from-activity-id>ExecuteWithParamsCOAUserForAssignWise</from-activity-id>
+      <control-flow-case id="__42">
+        <from-outcome>ExecuteWithParamsCOAUserForAssignWise</from-outcome>
+        <to-activity-id>FMS_0002_EDIT</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__44">
+      <from-activity-id>FMS_0003</from-activity-id>
+      <control-flow-case id="__45">
+        <from-outcome>ERPEDITFMS_0003</from-outcome>
+        <to-activity-id>AdminCompanyExecuteWithParams</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__46">
+      <from-activity-id>AdminCompanyExecuteWithParams</from-activity-id>
+      <control-flow-case id="__47">
+        <from-outcome>AdminCompanyExecuteWithParams</from-outcome>
+        <to-activity-id>AdminChartOfAcctROByCompany</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__48">
+      <from-activity-id>FMS_0003_EDIT</from-activity-id>
+      <control-flow-case id="__49">
+        <from-outcome>ERPBACKCRUD</from-outcome>
+        <to-activity-id>FMS_0003</to-activity-id>
+      </control-flow-case>
+      <control-flow-case id="__50">
+        <from-outcome>ERPEDITEDITFMS_0003</from-outcome>
+        <to-activity-id>FMS_0003_EDIT_EDIT</to-activity-id>
+      </control-flow-case>
+      <control-flow-case id="__53">
+        <from-outcome>ERPADDFMS_0003</from-outcome>
+        <to-activity-id>FMS_0003_CreateInsert</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__51">
+      <from-activity-id>FMS_0003_EDIT_EDIT</from-activity-id>
+      <control-flow-case id="__52">
+        <from-outcome>ERPBACKCRUD</from-outcome>
+        <to-activity-id>ExecuteGLCOASearch</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__54">
+      <from-activity-id>FMS_0003_CreateInsert</from-activity-id>
+      <control-flow-case id="__55">
+        <from-outcome>FMS_0003_CreateInsert</from-outcome>
+        <to-activity-id>FMS_0003_EDIT_EDIT</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__56">
+      <from-activity-id>AdminChartOfAcctROByCompany</from-activity-id>
+      <control-flow-case id="__57">
+        <from-outcome>AdminChartOfAcctROByCompany</from-outcome>
+        <to-activity-id>ExecuteWithParamsGLCOASearch</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__58">
+      <from-activity-id>ExecuteWithParamsGLCOASearch</from-activity-id>
+      <control-flow-case id="__59">
+        <from-outcome>ExecuteWithParamsGLCOASearch</from-outcome>
+        <to-activity-id>FMS_0003_EDIT</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__60">
+      <from-activity-id>ExecuteGLCOASearch</from-activity-id>
+      <control-flow-case id="__61">
+        <from-outcome>ExecuteGLCOASearch</from-outcome>
+        <to-activity-id>FMS_0003_EDIT</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__62">
+      <from-activity-id>ExecuteAdminCompanyRO</from-activity-id>
+      <control-flow-case id="__63">
+        <from-outcome>ExecuteAdminCompanyRO</from-outcome>
+        <to-activity-id>FMS_0003</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__65">
+      <from-activity-id>ExecuteFISYearCompanyRO</from-activity-id>
+      <control-flow-case id="__66">
+        <from-outcome>ExecuteFosUearCompRO</from-outcome>
+        <to-activity-id>FMS_0004</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__67">
+      <from-activity-id>FMS_0004</from-activity-id>
+      <control-flow-case id="__68">
+        <from-outcome>DO-ACT-QUERY-FMS_0004</from-outcome>
+        <to-activity-id>ExeWithParaCompanyFisYear</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__69">
+      <from-activity-id>ExeWithParaCompanyFisYear</from-activity-id>
+      <control-flow-case id="__70">
+        <from-outcome>DO-ACT-QUERY-FMS_0004</from-outcome>
+        <to-activity-id>ExecuteGLFisYearByCompany</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__71">
+      <from-activity-id>FMS_0004_EDIT</from-activity-id>
+      <control-flow-case id="__72">
+        <from-outcome>DO-ACT-QUERY-FISCAL-YEAR-BY-FISCAL-YEAR-SNO</from-outcome>
+        <to-activity-id>FiscalYearByCompExecuteWithPara</to-activity-id>
+      </control-flow-case>
+      <control-flow-case id="__75">
+        <from-outcome>ERPADDFMS_0004_EDIT_EDIT</from-outcome>
+        <to-activity-id>CreateWithParaGLFiscalYear</to-activity-id>
+      </control-flow-case>
+      <control-flow-case id="__80">
+        <from-outcome>ERPBACKCRUD</from-outcome>
+        <to-activity-id>FMS_0004</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__73">
+      <from-activity-id>FiscalYearByCompExecuteWithPara</from-activity-id>
+      <control-flow-case id="__74">
+        <from-outcome>FiscalYearByCompExecuteWithPara</from-outcome>
+        <to-activity-id>FMS_0004_EDIT_EDIT</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__76">
+      <from-activity-id>CreateWithParaGLFiscalYear</from-activity-id>
+      <control-flow-case id="__77">
+        <from-outcome>ERPADDFISCALYEAR</from-outcome>
+        <to-activity-id>FMS_0004_EDIT_EDIT</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__78">
+      <from-activity-id>FMS_0004_EDIT_EDIT</from-activity-id>
+      <control-flow-case id="__79">
+        <from-outcome>ERPBACKCRUD</from-outcome>
+        <to-activity-id>ExecuteFiscalYear</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__81">
+      <from-activity-id>ExecuteGLFisYearByCompany</from-activity-id>
+      <control-flow-case id="__82">
+        <from-outcome>ExecuteGLFisYearByCompany</from-outcome>
+        <to-activity-id>FMS_0004_EDIT</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__83">
+      <from-activity-id>ExecuteFiscalYear</from-activity-id>
+      <control-flow-case id="__84">
+        <from-outcome>ExecuteFiscalYear</from-outcome>
+        <to-activity-id>FMS_0004_EDIT</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__86">
+      <from-activity-id>GLVoucherHeaderExecute</from-activity-id>
+      <control-flow-case id="__87">
+        <from-outcome>GLVoucherHeaderExecute</from-outcome>
+        <to-activity-id>FMS_0005</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__88">
+      <from-activity-id>FMS_0005</from-activity-id>
+      <control-flow-case id="__89">
+        <from-outcome>ERPADDFMS_0005</from-outcome>
+        <to-activity-id>GLVoucherHeadCreateIns</to-activity-id>
+      </control-flow-case>
+      <control-flow-case id="__96">
+        <from-outcome>DO-ACT-QUERY-FMS_0005</from-outcome>
+        <to-activity-id>ExecuteParaByVoucher</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__90">
+      <from-activity-id>GLVoucherHeadCreateIns</from-activity-id>
+      <control-flow-case id="__91">
+        <from-outcome>ERPADDFMS_0005</from-outcome>
+        <to-activity-id>executeEmptyRowSetVoucherLines</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__92">
+      <from-activity-id>FMS_0005_EDIT</from-activity-id>
+      <control-flow-case id="__93">
+        <from-outcome>ERPBACKCRUD</from-outcome>
+        <to-activity-id>GLVoucherHeaderQuery</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__94">
+      <from-activity-id>GLVoucherHeaderQuery</from-activity-id>
+      <control-flow-case id="__95">
+        <from-outcome>ExecuteQueryVoucherRO</from-outcome>
+        <to-activity-id>FMS_0005</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__97">
+      <from-activity-id>ExecuteParaByVoucher</from-activity-id>
+      <control-flow-case id="__98">
+        <from-outcome>DO-ACT-QUERY-FMS_0005</from-outcome>
+        <to-activity-id>FMS_0005_EDIT</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__99">
+      <from-activity-id>ERPdoInsertAccessDepartment</from-activity-id>
+      <control-flow-case id="__100">
+        <from-outcome>ERPdoInsertAccessDepartment</from-outcome>
+        <to-activity-id>ExecuteWithParams</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__101">
+      <from-activity-id>executeEmptyRowSetVoucherLines</from-activity-id>
+      <control-flow-case id="__102">
+        <from-outcome>executeEmptyRowSetVoucherLines</from-outcome>
+        <to-activity-id>FMS_0005_EDIT</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__104">
+      <from-activity-id>AdminCompanyFMS_0006</from-activity-id>
+      <control-flow-case id="__105">
+        <from-outcome>AdminCompanyFMS_0006</from-outcome>
+        <to-activity-id>FMS_0006</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__106">
+      <from-activity-id>FMS_0006</from-activity-id>
+      <control-flow-case id="__107">
+        <from-outcome>DO-ACT-QUERY-FMS_0006</from-outcome>
+        <to-activity-id>ExecuteWithParCompanyFMS_0006</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__108">
+      <from-activity-id>ExecuteWithParaByCompFMS_0006_EDIT</from-activity-id>
+      <control-flow-case id="__109">
+        <from-outcome>DO-ACT-QUERY-FMS_0006</from-outcome>
+        <to-activity-id>FMS_0006_EDIT</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__110">
+      <from-activity-id>FMS_0006_EDIT</from-activity-id>
+      <control-flow-case id="__111">
+        <from-outcome>ERPBACKCRUD</from-outcome>
+        <to-activity-id>FMS_0006</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__112">
+      <from-activity-id>ExecuteWithParCompanyFMS_0006</from-activity-id>
+      <control-flow-case id="__113">
+        <from-outcome>ExecuteWithParCompanyFMS_0006</from-outcome>
+        <to-activity-id>ExecuteWithParaByCompFMS_0006_EDIT</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__115">
+      <from-activity-id>AdminCompanyFMS_0007</from-activity-id>
+      <control-flow-case id="__116">
+        <from-outcome>AdminCompanyFMS_0007</from-outcome>
+        <to-activity-id>FMS_0007</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__117">
+      <from-activity-id>FMS_0007</from-activity-id>
+      <control-flow-case id="__118">
+        <from-outcome>DO-ACT-QUERY-FMS_0007</from-outcome>
+        <to-activity-id>ExecuteCompanyByCompFMS_0007</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__121">
+      <from-activity-id>FMS_0007_EDIT</from-activity-id>
+      <control-flow-case id="__122">
+        <from-outcome>DO-ACT-QUERY-FMS_0007_EDIT</from-outcome>
+        <to-activity-id>ExeWithParaVouchTypeByCompFMS_0007</to-activity-id>
+      </control-flow-case>
+      <control-flow-case id="__125">
+        <from-outcome>ERPBACKCRUD</from-outcome>
+        <to-activity-id>FMS_0007</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__126">
+      <from-activity-id>FMS_0007_EDIT_EDIT</from-activity-id>
+      <control-flow-case id="__127">
+        <from-outcome>ERPBACKCRUD</from-outcome>
+        <to-activity-id>FMS_0007_EDIT</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__130">
+      <from-activity-id>ExecuteCompanyByCompFMS_0007</from-activity-id>
+      <control-flow-case id="__131">
+        <from-outcome>ExecuteCompanyByCompFMS_0007</from-outcome>
+        <to-activity-id>ExeWithParaVoucherTypeByCompFMS_0007</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__134">
+      <from-activity-id>ExeWithParaVoucherTypeByCompFMS_0007</from-activity-id>
+      <control-flow-case id="__135">
+        <from-outcome>ExeWithParaVoucherTypeByCompFMS_0007</from-outcome>
+        <to-activity-id>FMS_0007_EDIT</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__119">
+      <from-activity-id>ExeWithParaVouchTypeByCompFMS_0007</from-activity-id>
+      <control-flow-case id="__120">
+        <from-outcome>ExecuteWithParams</from-outcome>
+        <to-activity-id>ExecuteWithAvailableUserEDIT_EDIT</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__123">
+      <from-activity-id>ExecuteWithAvailableUserEDIT_EDIT</from-activity-id>
+      <control-flow-case id="__124">
+        <from-outcome>ExecuteWithAvailableUserEDIT_EDIT</from-outcome>
+        <to-activity-id>ExeParaGLVoucherTypeByVTypeID</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__128">
+      <from-activity-id>ExeParaGLVoucherTypeByVTypeID</from-activity-id>
+      <control-flow-case id="__129">
+        <from-outcome>ExeParaGLVoucherTypeByVTypeID</from-outcome>
+        <to-activity-id>FMS_0007_EDIT_EDIT</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__132">
+      <from-activity-id>FMSMain</from-activity-id>
+      <control-flow-case id="__133">
+        <from-outcome>ERPACTEXITTASKFLOW</from-outcome>
+        <to-activity-id>ERPFMSRETURN</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__14">
+      <from-activity-id>ErpFMSdoInsertAccessableCompany</from-activity-id>
+      <control-flow-case id="__15">
+        <from-outcome>ErpdoInsertAccessableCompany</from-outcome>
+        <to-activity-id>doFMSGotoErpActivity</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__138">
+      <from-activity-id>GLProjectsCompanyExecuteQuery</from-activity-id>
+      <control-flow-case id="__139">
+        <from-outcome>DO-ACT-QUERY-FMS_0009</from-outcome>
+        <to-activity-id>FMS_0009</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__140">
+      <from-activity-id>FMS_0009</from-activity-id>
+      <control-flow-case id="__141">
+        <from-outcome>DO-ACT-QUERY-FMS_0009</from-outcome>
+        <to-activity-id>ExeWithParaProjectIDCompany</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__142">
+      <from-activity-id>FMS_0009_EDIT</from-activity-id>
+      <control-flow-case id="__143">
+        <from-outcome>ERPBACKCRUD</from-outcome>
+        <to-activity-id>FMS_0009</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__144">
+      <from-activity-id>ExeWithParaProjectIDCompany</from-activity-id>
+      <control-flow-case id="__145">
+        <from-outcome>DO-ACT-QUERY-FMS_0009</from-outcome>
+        <to-activity-id>ExeGlProjectCompWise</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__146">
+      <from-activity-id>ExeGlProjectCompWise</from-activity-id>
+      <control-flow-case id="__147">
+        <from-outcome>DO-ACT-QUERY-FMS_0009</from-outcome>
+        <to-activity-id>FMS_0009_EDIT</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__149">
+      <from-activity-id>ExelGlBatchSetupCompany</from-activity-id>
+      <control-flow-case id="__150">
+        <from-outcome>ExelGlBatchSetupCompany</from-outcome>
+        <to-activity-id>FMS_0010</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__151">
+      <from-activity-id>FMS_0010</from-activity-id>
+      <control-flow-case id="__152">
+        <from-outcome>DO-ACT-QUERY-FMS_0010</from-outcome>
+        <to-activity-id>ExeGlBatchCompanyByPara</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__153">
+      <from-activity-id>ExeBatchSetupByCompanyQuery</from-activity-id>
+      <control-flow-case id="__154">
+        <from-outcome>DO-ACT-QUERY-FMS_0010</from-outcome>
+        <to-activity-id>FMS_0010_EDIT</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__155">
+      <from-activity-id>ExeGlBatchCompanyByPara</from-activity-id>
+      <control-flow-case id="__156">
+        <from-outcome>ExeGlBatchCompanyByPara</from-outcome>
+        <to-activity-id>ExeBatchSetupByCompanyQuery</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__157">
+      <from-activity-id>FMS_0010_EDIT</from-activity-id>
+      <control-flow-case id="__158">
+        <from-outcome>ERPBACKCRUD</from-outcome>
+        <to-activity-id>FMS_0010</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__160">
+      <from-activity-id>ExeAdminCompanyExeFMS_0011</from-activity-id>
+      <control-flow-case id="__161">
+        <from-outcome>ExeAdminCompanyExeFMS_0011</from-outcome>
+        <to-activity-id>FMS_0011</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__162">
+      <from-activity-id>FMS_0011</from-activity-id>
+      <control-flow-case id="__163">
+        <from-outcome>DO-ACT-QUERY-FMS_0011</from-outcome>
+        <to-activity-id>ExeAdminCompByCompany</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__164">
+      <from-activity-id>ExeAdminCompByCompany</from-activity-id>
+      <control-flow-case id="__165">
+        <from-outcome>DO-ACT-QUERY-FMS_0011</from-outcome>
+        <to-activity-id>ExeCOAUserByCompanyForRights</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__166">
+      <from-activity-id>FMS_0011_EDIT</from-activity-id>
+      <control-flow-case id="__167">
+        <from-outcome>ERPBACKCRUD</from-outcome>
+        <to-activity-id>FMS_0011</to-activity-id>
+      </control-flow-case>
+      <control-flow-case id="__170">
+        <from-outcome>DO-ACT-QUERY-FMS_0011_EDIT_EDIT</from-outcome>
+        <to-activity-id>ExeUserPeriodRights</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__171">
+      <from-activity-id>FMS_0011_EDIT_EDIT</from-activity-id>
+      <control-flow-case id="__172">
+        <from-outcome>ERPBACKCRUD</from-outcome>
+        <to-activity-id>FMS_0011_EDIT</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__173">
+      <from-activity-id>ExePeriodForAssign</from-activity-id>
+      <control-flow-case id="__174">
+        <from-outcome>ExePeriodForAssign</from-outcome>
+        <to-activity-id>FMS_0011_EDIT_EDIT</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__175">
+      <from-activity-id>ExeUsersForPeriodAssign</from-activity-id>
+      <control-flow-case id="__176">
+        <from-outcome>ExeUsersForPeriodAssign</from-outcome>
+        <to-activity-id>ExePeriodForAssign</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__177">
+      <from-activity-id>ExeUserPeriodRights</from-activity-id>
+      <control-flow-case id="__178">
+        <from-outcome>ExeUserPeriodRights</from-outcome>
+        <to-activity-id>ExeUsersForPeriodAssign</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__179">
+      <from-activity-id>ExeCOAUserByCompanyForRights</from-activity-id>
+      <control-flow-case id="__180">
+        <from-outcome>DO-ACT-QUERY-FMS_0011</from-outcome>
+        <to-activity-id>FMS_0011_EDIT</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__169">
+      <from-activity-id>*</from-activity-id>
+      <control-flow-case id="__181">
+        <from-outcome>ERPLOGOUTAPP</from-outcome>
+        <to-activity-id>ERPFMSLOGOUT</to-activity-id>
+      </control-flow-case>
+      <control-flow-case id="__182">
+        <from-outcome>ERPLCHANGEPWD</from-outcome>
+        <to-activity-id>ERPCHPWDBTF</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <visibility>
+      <url-invoke-allowed/>
+    </visibility>
+  </task-flow-definition>
+</adfc-config>

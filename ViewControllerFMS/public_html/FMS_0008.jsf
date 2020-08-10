@@ -1,0 +1,945 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE html>
+<f:view xmlns:f="http://java.sun.com/jsf/core" xmlns:af="http://xmlns.oracle.com/adf/faces/rich">
+  <af:document title="FMS_0008.jsf" id="d1">
+    <af:messages id="m1"/>
+    <af:form id="f1">
+      <af:pageTemplate viewId="/ERPTemplate.jsf" value="#{bindings.ptb1}" id="pt1">
+        <f:facet name="ERPMain">
+          <af:decorativeBox id="db1">
+            <f:facet name="center">
+              <af:panelGroupLayout id="pgl1" layout="scroll">
+                <af:panelBox text="Report Parameter" id="pb1" showDisclosure="false"
+                             binding="#{pageFlowScope.OracleERPBean.erpReportBoxForm}">
+                  <f:facet name="toolbar"/>
+                  <af:inputComboboxListOfValues id="txtActionNameId"
+                                                popupTitle="Search and Select: #{bindings.txtActionName.hints.label}"
+                                                value="#{bindings.txtActionName.inputValue}"
+                                                label="#{bindings.txtActionName.hints.label}"
+                                                model="#{bindings.txtActionName.listOfValuesModel}"
+                                                required="#{bindings.txtActionName.hints.mandatory}"
+                                                columns="#{bindings.txtActionName.hints.displayWidth}"
+                                                shortDesc="#{bindings.txtActionName.hints.tooltip}" autoSubmit="true"
+                                                valueChangeListener="#{pageFlowScope.OracleERPBean.doErpFinanceReportAction}">
+                    <f:validator binding="#{bindings.txtActionName.validator}"/>
+                    <af:autoSuggestBehavior maxSuggestedItems="5" smartList="#{bindings.txtActionName.smartList}"
+                                            suggestedItems="#{bindings.txtActionName.suggestedItems}"
+                                            suggestItems="#{bindings.txtActionName.suggestItems}"/>
+                  </af:inputComboboxListOfValues>
+                  <af:inputText value="#{bindings.UiComponentSno.inputValue}"
+                                label="#{bindings.UiComponentSno.hints.label}"
+                                required="#{bindings.UiComponentSno.hints.mandatory}"
+                                columns="#{bindings.UiComponentSno.hints.displayWidth}"
+                                maximumLength="#{bindings.UiComponentSno.hints.precision}"
+                                shortDesc="#{bindings.UiComponentSno.hints.tooltip}" id="it4" rendered="false">
+                    <f:validator binding="#{bindings.UiComponentSno.validator}"/>
+                    <af:convertNumber groupingUsed="false" pattern="#{bindings.UiComponentSno.format}"/>
+                  </af:inputText>
+                  <af:inputText value="#{bindings.ReportsParameterSno.inputValue}"
+                                label="#{bindings.ReportsParameterSno.hints.label}"
+                                required="#{bindings.ReportsParameterSno.hints.mandatory}"
+                                columns="#{bindings.ReportsParameterSno.hints.displayWidth}"
+                                maximumLength="#{bindings.ReportsParameterSno.hints.precision}"
+                                shortDesc="#{bindings.ReportsParameterSno.hints.tooltip}" id="it1" rendered="false">
+                    <f:validator binding="#{bindings.ReportsParameterSno.validator}"/>
+                    <af:convertNumber groupingUsed="false" pattern="#{bindings.ReportsParameterSno.format}"/>
+                  </af:inputText>
+                  <af:inputText value="#{bindings.txtReportExeName.inputValue}"
+                                label="#{bindings.txtReportExeName.hints.label}"
+                                required="#{bindings.txtReportExeName.hints.mandatory}"
+                                columns="#{bindings.txtReportExeName.hints.displayWidth}"
+                                maximumLength="#{bindings.txtReportExeName.hints.precision}"
+                                shortDesc="#{bindings.txtReportExeName.hints.tooltip}" id="it42" rendered="false"
+                                binding="#{pageFlowScope.OracleERPBean.erpReportName}">
+                    <f:validator binding="#{bindings.txtReportExeName.validator}"/>
+                  </af:inputText>
+                  <af:inputText value="#{bindings.txtReportHeaderSno.inputValue}"
+                                label="#{bindings.txtReportHeaderSno.hints.label}"
+                                required="#{bindings.txtReportHeaderSno.hints.mandatory}"
+                                columns="#{bindings.txtReportHeaderSno.hints.displayWidth}"
+                                maximumLength="#{bindings.txtReportHeaderSno.hints.precision}"
+                                shortDesc="#{bindings.txtReportHeaderSno.hints.tooltip}" id="it40"
+                                binding="#{pageFlowScope.OracleERPBean.erpReportHeaderSno}" rendered="false">
+                    <f:validator binding="#{bindings.txtReportHeaderSno.validator}"/>
+                    <af:convertNumber groupingUsed="false" pattern="#{bindings.txtReportHeaderSno.format}"/>
+                  </af:inputText>
+                  <af:panelGridLayout id="pgl2" partialTriggers="txtActionNameId">
+                    <af:gridRow marginTop="5px" height="auto" marginBottom="5px" id="gr1">
+                      <af:gridCell marginStart="5px" width="45%" id="gc1" halign="stretch" styleClass="AFStretchWidth"
+                                   valign="stretch" marginEnd="5px">
+                        <af:panelBox text="Global Hierarchy" id="pb2" showDisclosure="false"
+                                     visible="#{bindings.txtActionName.inputValue!=null}"
+                                     partialTriggers="txtActionNameId">
+                          <f:facet name="toolbar"/>
+                          <af:panelFormLayout id="pfl1" partialTriggers="txtActionNameId">
+                            <f:facet name="footer"/>
+                            <af:inputText value="#{bindings.CompanyTypeSno.inputValue}"
+                                          label="#{bindings.CompanyTypeSno.hints.label}"
+                                          required="#{bindings.CompanyTypeSno.hints.mandatory}"
+                                          columns="#{bindings.CompanyTypeSno.hints.displayWidth}"
+                                          maximumLength="#{bindings.CompanyTypeSno.hints.precision}"
+                                          shortDesc="#{bindings.CompanyTypeSno.hints.tooltip}" id="it23"
+                                          rendered="false">
+                              <f:validator binding="#{bindings.CompanyTypeSno.validator}"/>
+                              <af:convertNumber groupingUsed="false" pattern="#{bindings.CompanyTypeSno.format}"/>
+                            </af:inputText>
+                            <af:inputText value="#{bindings.txtLevelOneCompanyID.inputValue}"
+                                          label="#{bindings.txtLevelOneCompanyID.hints.label}"
+                                          required="#{bindings.txtLevelOneCompanyID.hints.mandatory}"
+                                          columns="#{bindings.txtLevelOneCompanyID.hints.displayWidth}"
+                                          maximumLength="#{bindings.txtLevelOneCompanyID.hints.precision}"
+                                          shortDesc="#{bindings.txtLevelOneCompanyID.hints.tooltip}" id="it6"
+                                          rendered="false" visible="#{bindings.txtActionName.inputValue!=null}">
+                              <f:validator binding="#{bindings.txtLevelOneCompanyID.validator}"/>
+                              <af:convertNumber groupingUsed="false" pattern="#{bindings.txtLevelOneCompanyID.format}"/>
+                            </af:inputText>
+                            <af:inputComboboxListOfValues id="txtLevelOneCompanyNameId"
+                                                          popupTitle="Search and Select: #{bindings.txtLevelOneCompanyName.hints.label}"
+                                                          value="#{bindings.txtLevelOneCompanyName.inputValue}"
+                                                          label="#{bindings.txtLevelOneCompanyName.hints.label}"
+                                                          model="#{bindings.txtLevelOneCompanyName.listOfValuesModel}"
+                                                          required="#{bindings.txtLevelOneCompanyName.hints.mandatory}"
+                                                          columns="#{bindings.txtLevelOneCompanyName.hints.displayWidth}"
+                                                          shortDesc="#{bindings.txtLevelOneCompanyName.hints.tooltip}"
+                                                          autoSubmit="true" visible="false"
+                                                          partialTriggers="txtActionNameId">
+                              <f:validator binding="#{bindings.txtLevelOneCompanyName.validator}"/>
+                            </af:inputComboboxListOfValues>
+                            <af:inputText value="#{bindings.txtLevelTwoCompanyID.inputValue}"
+                                          label="#{bindings.txtLevelTwoCompanyID.hints.label}"
+                                          required="#{bindings.txtLevelTwoCompanyID.hints.mandatory}"
+                                          columns="#{bindings.txtLevelTwoCompanyID.hints.displayWidth}"
+                                          maximumLength="#{bindings.txtLevelTwoCompanyID.hints.precision}"
+                                          shortDesc="#{bindings.txtLevelTwoCompanyID.hints.tooltip}" id="it7"
+                                          rendered="false">
+                              <f:validator binding="#{bindings.txtLevelTwoCompanyID.validator}"/>
+                              <af:convertNumber groupingUsed="false" pattern="#{bindings.txtLevelTwoCompanyID.format}"/>
+                            </af:inputText>
+                            <af:inputComboboxListOfValues id="txtLevelTwoCompanyNameId"
+                                                          popupTitle="Search and Select: #{bindings.txtLevelTwoCompanyName.hints.label}"
+                                                          value="#{bindings.txtLevelTwoCompanyName.inputValue}"
+                                                          label="#{bindings.txtLevelTwoCompanyName.hints.label}"
+                                                          model="#{bindings.txtLevelTwoCompanyName.listOfValuesModel}"
+                                                          required="#{bindings.txtLevelTwoCompanyName.hints.mandatory}"
+                                                          columns="#{bindings.txtLevelTwoCompanyName.hints.displayWidth}"
+                                                          shortDesc="#{bindings.txtLevelTwoCompanyName.hints.tooltip}"
+                                                          autoSubmit="true"
+                                                          partialTriggers="txtLevelOneCompanyNameId txtActionNameId"
+                                                          visible="false">
+                              <f:validator binding="#{bindings.txtLevelTwoCompanyName.validator}"/>
+                            </af:inputComboboxListOfValues>
+                            <af:inputText value="#{bindings.txtLevelThreeCompanyID.inputValue}"
+                                          label="#{bindings.txtLevelThreeCompanyID.hints.label}"
+                                          required="#{bindings.txtLevelThreeCompanyID.hints.mandatory}"
+                                          columns="#{bindings.txtLevelThreeCompanyID.hints.displayWidth}"
+                                          maximumLength="#{bindings.txtLevelThreeCompanyID.hints.precision}"
+                                          shortDesc="#{bindings.txtLevelThreeCompanyID.hints.tooltip}" id="it8"
+                                          rendered="false">
+                              <f:validator binding="#{bindings.txtLevelThreeCompanyID.validator}"/>
+                              <af:convertNumber groupingUsed="false"
+                                                pattern="#{bindings.txtLevelThreeCompanyID.format}"/>
+                            </af:inputText>
+                            <af:inputComboboxListOfValues id="txtLevelThreeCompanyNameId"
+                                                          popupTitle="Search and Select: #{bindings.txtLevelThreeCompanyName.hints.label}"
+                                                          value="#{bindings.txtLevelThreeCompanyName.inputValue}"
+                                                          label="#{bindings.txtLevelThreeCompanyName.hints.label}"
+                                                          model="#{bindings.txtLevelThreeCompanyName.listOfValuesModel}"
+                                                          required="#{bindings.txtLevelThreeCompanyName.hints.mandatory}"
+                                                          columns="#{bindings.txtLevelThreeCompanyName.hints.displayWidth}"
+                                                          shortDesc="#{bindings.txtLevelThreeCompanyName.hints.tooltip}"
+                                                          autoSubmit="true"
+                                                          partialTriggers="txtLevelOneCompanyNameId txtLevelTwoCompanyNameId txtActionNameId"
+                                                          visible="false">
+                              <f:validator binding="#{bindings.txtLevelThreeCompanyName.validator}"/>
+                            </af:inputComboboxListOfValues>
+                            <af:inputText value="#{bindings.txtLevelFourCompanyID.inputValue}"
+                                          label="#{bindings.txtLevelFourCompanyID.hints.label}"
+                                          required="#{bindings.txtLevelFourCompanyID.hints.mandatory}"
+                                          columns="#{bindings.txtLevelFourCompanyID.hints.displayWidth}"
+                                          maximumLength="#{bindings.txtLevelFourCompanyID.hints.precision}"
+                                          shortDesc="#{bindings.txtLevelFourCompanyID.hints.tooltip}" id="it9"
+                                          rendered="false">
+                              <f:validator binding="#{bindings.txtLevelFourCompanyID.validator}"/>
+                              <af:convertNumber groupingUsed="false"
+                                                pattern="#{bindings.txtLevelFourCompanyID.format}"/>
+                            </af:inputText>
+                            <af:inputComboboxListOfValues id="txtLevelFourCompanyNameId"
+                                                          popupTitle="Search and Select: #{bindings.txtLevelFourCompanyName.hints.label}"
+                                                          value="#{bindings.txtLevelFourCompanyName.inputValue}"
+                                                          label="#{bindings.txtLevelFourCompanyName.hints.label}"
+                                                          model="#{bindings.txtLevelFourCompanyName.listOfValuesModel}"
+                                                          required="#{bindings.txtLevelFourCompanyName.hints.mandatory}"
+                                                          columns="#{bindings.txtLevelFourCompanyName.hints.displayWidth}"
+                                                          shortDesc="#{bindings.txtLevelFourCompanyName.hints.tooltip}"
+                                                          autoSubmit="true"
+                                                          partialTriggers="txtLevelOneCompanyNameId txtLevelTwoCompanyNameId txtLevelThreeCompanyNameId txtActionNameId"
+                                                          visible="false">
+                              <f:validator binding="#{bindings.txtLevelFourCompanyName.validator}"/>
+                            </af:inputComboboxListOfValues>
+                            <af:inputText value="#{bindings.txtLevelFiveCompanyID.inputValue}"
+                                          label="#{bindings.txtLevelFiveCompanyID.hints.label}"
+                                          required="#{bindings.txtLevelFiveCompanyID.hints.mandatory}"
+                                          columns="#{bindings.txtLevelFiveCompanyID.hints.displayWidth}"
+                                          maximumLength="#{bindings.txtLevelFiveCompanyID.hints.precision}"
+                                          shortDesc="#{bindings.txtLevelFiveCompanyID.hints.tooltip}" id="it10"
+                                          rendered="false">
+                              <f:validator binding="#{bindings.txtLevelFiveCompanyID.validator}"/>
+                              <af:convertNumber groupingUsed="false"
+                                                pattern="#{bindings.txtLevelFiveCompanyID.format}"/>
+                            </af:inputText>
+                            <af:inputComboboxListOfValues id="txtLevelFiveCompanyNameId"
+                                                          popupTitle="Search and Select: #{bindings.txtLevelFiveCompanyName.hints.label}"
+                                                          value="#{bindings.txtLevelFiveCompanyName.inputValue}"
+                                                          label="#{bindings.txtLevelFiveCompanyName.hints.label}"
+                                                          model="#{bindings.txtLevelFiveCompanyName.listOfValuesModel}"
+                                                          required="#{bindings.txtLevelFiveCompanyName.hints.mandatory}"
+                                                          columns="#{bindings.txtLevelFiveCompanyName.hints.displayWidth}"
+                                                          shortDesc="#{bindings.txtLevelFiveCompanyName.hints.tooltip}"
+                                                          autoSubmit="true"
+                                                          partialTriggers="txtLevelTenCompanyNameId txtLevelNineCompanyNameId txtLevelEightCompanyNameId txtLevelSevenCompanyNameId txtLevelSixCompanyNameId txtLevelFiveCompanyNameId txtLevelFourCompanyNameId txtLevelThreeCompanyNameId txtLevelTwoCompanyNameId txtLevelOneCompanyNameId txtActionNameId"
+                                                          visible="false">
+                              <f:validator binding="#{bindings.txtLevelFiveCompanyName.validator}"/>
+                            </af:inputComboboxListOfValues>
+                            <af:inputText value="#{bindings.txtLevelSixCompanyID.inputValue}"
+                                          label="#{bindings.txtLevelSixCompanyID.hints.label}"
+                                          required="#{bindings.txtLevelSixCompanyID.hints.mandatory}"
+                                          columns="#{bindings.txtLevelSixCompanyID.hints.displayWidth}"
+                                          maximumLength="#{bindings.txtLevelSixCompanyID.hints.precision}"
+                                          shortDesc="#{bindings.txtLevelSixCompanyID.hints.tooltip}" id="it11"
+                                          rendered="false">
+                              <f:validator binding="#{bindings.txtLevelSixCompanyID.validator}"/>
+                              <af:convertNumber groupingUsed="false" pattern="#{bindings.txtLevelSixCompanyID.format}"/>
+                            </af:inputText>
+                            <af:inputComboboxListOfValues id="txtLevelSixCompanyNameId"
+                                                          popupTitle="Search and Select: #{bindings.txtLevelSixCompanyName.hints.label}"
+                                                          value="#{bindings.txtLevelSixCompanyName.inputValue}"
+                                                          label="#{bindings.txtLevelSixCompanyName.hints.label}"
+                                                          model="#{bindings.txtLevelSixCompanyName.listOfValuesModel}"
+                                                          required="#{bindings.txtLevelSixCompanyName.hints.mandatory}"
+                                                          columns="#{bindings.txtLevelSixCompanyName.hints.displayWidth}"
+                                                          shortDesc="#{bindings.txtLevelSixCompanyName.hints.tooltip}"
+                                                          autoSubmit="true"
+                                                          partialTriggers="txtLevelTenCompanyNameId txtLevelNineCompanyNameId txtLevelEightCompanyNameId txtLevelSevenCompanyNameId txtLevelSixCompanyNameId txtLevelFiveCompanyNameId txtLevelFourCompanyNameId txtLevelThreeCompanyNameId txtLevelTwoCompanyNameId txtLevelOneCompanyNameId txtActionNameId"
+                                                          visible="false">
+                              <f:validator binding="#{bindings.txtLevelSixCompanyName.validator}"/>
+                            </af:inputComboboxListOfValues>
+                            <af:inputText value="#{bindings.txtLevelSevenCompanyID.inputValue}"
+                                          label="#{bindings.txtLevelSevenCompanyID.hints.label}"
+                                          required="#{bindings.txtLevelSevenCompanyID.hints.mandatory}"
+                                          columns="#{bindings.txtLevelSevenCompanyID.hints.displayWidth}"
+                                          maximumLength="#{bindings.txtLevelSevenCompanyID.hints.precision}"
+                                          shortDesc="#{bindings.txtLevelSevenCompanyID.hints.tooltip}" id="it12"
+                                          rendered="false">
+                              <f:validator binding="#{bindings.txtLevelSevenCompanyID.validator}"/>
+                              <af:convertNumber groupingUsed="false"
+                                                pattern="#{bindings.txtLevelSevenCompanyID.format}"/>
+                            </af:inputText>
+                            <af:inputComboboxListOfValues id="txtLevelSevenCompanyNameId"
+                                                          popupTitle="Search and Select: #{bindings.txtLevelSevenCompanyName.hints.label}"
+                                                          value="#{bindings.txtLevelSevenCompanyName.inputValue}"
+                                                          label="#{bindings.txtLevelSevenCompanyName.hints.label}"
+                                                          model="#{bindings.txtLevelSevenCompanyName.listOfValuesModel}"
+                                                          required="#{bindings.txtLevelSevenCompanyName.hints.mandatory}"
+                                                          columns="#{bindings.txtLevelSevenCompanyName.hints.displayWidth}"
+                                                          shortDesc="#{bindings.txtLevelSevenCompanyName.hints.tooltip}"
+                                                          autoSubmit="true"
+                                                          partialTriggers="txtLevelOneCompanyNameId txtLevelTwoCompanyNameId txtLevelThreeCompanyNameId txtLevelFourCompanyNameId txtLevelFiveCompanyNameId txtLevelSixCompanyNameId txtActionNameId"
+                                                          visible="false">
+                              <f:validator binding="#{bindings.txtLevelSevenCompanyName.validator}"/>
+                            </af:inputComboboxListOfValues>
+                            <af:inputText value="#{bindings.txtLevelEightCompanyID.inputValue}"
+                                          label="#{bindings.txtLevelEightCompanyID.hints.label}"
+                                          required="#{bindings.txtLevelEightCompanyID.hints.mandatory}"
+                                          columns="#{bindings.txtLevelEightCompanyID.hints.displayWidth}"
+                                          maximumLength="#{bindings.txtLevelEightCompanyID.hints.precision}"
+                                          shortDesc="#{bindings.txtLevelEightCompanyID.hints.tooltip}" id="it13"
+                                          rendered="false">
+                              <f:validator binding="#{bindings.txtLevelEightCompanyID.validator}"/>
+                              <af:convertNumber groupingUsed="false"
+                                                pattern="#{bindings.txtLevelEightCompanyID.format}"/>
+                            </af:inputText>
+                            <af:inputComboboxListOfValues id="txtLevelEightCompanyNameId"
+                                                          popupTitle="Search and Select: #{bindings.txtLevelEightCompanyName.hints.label}"
+                                                          value="#{bindings.txtLevelEightCompanyName.inputValue}"
+                                                          label="#{bindings.txtLevelEightCompanyName.hints.label}"
+                                                          model="#{bindings.txtLevelEightCompanyName.listOfValuesModel}"
+                                                          required="#{bindings.txtLevelEightCompanyName.hints.mandatory}"
+                                                          columns="#{bindings.txtLevelEightCompanyName.hints.displayWidth}"
+                                                          shortDesc="#{bindings.txtLevelEightCompanyName.hints.tooltip}"
+                                                          autoSubmit="true"
+                                                          partialTriggers="txtLevelOneCompanyNameId txtLevelTwoCompanyNameId txtLevelThreeCompanyNameId txtLevelFourCompanyNameId txtLevelFiveCompanyNameId txtLevelSixCompanyNameId txtLevelSevenCompanyNameId txtActionNameId"
+                                                          visible="false">
+                              <f:validator binding="#{bindings.txtLevelEightCompanyName.validator}"/>
+                            </af:inputComboboxListOfValues>
+                            <af:inputText value="#{bindings.txtLevelNineCompanyID.inputValue}"
+                                          label="#{bindings.txtLevelNineCompanyID.hints.label}"
+                                          required="#{bindings.txtLevelNineCompanyID.hints.mandatory}"
+                                          columns="#{bindings.txtLevelNineCompanyID.hints.displayWidth}"
+                                          maximumLength="#{bindings.txtLevelNineCompanyID.hints.precision}"
+                                          shortDesc="#{bindings.txtLevelNineCompanyID.hints.tooltip}" id="it14"
+                                          rendered="false">
+                              <f:validator binding="#{bindings.txtLevelNineCompanyID.validator}"/>
+                              <af:convertNumber groupingUsed="false"
+                                                pattern="#{bindings.txtLevelNineCompanyID.format}"/>
+                            </af:inputText>
+                            <af:inputComboboxListOfValues id="txtLevelNineCompanyNameId"
+                                                          popupTitle="Search and Select: #{bindings.txtLevelNineCompanyName.hints.label}"
+                                                          value="#{bindings.txtLevelNineCompanyName.inputValue}"
+                                                          label="#{bindings.txtLevelNineCompanyName.hints.label}"
+                                                          model="#{bindings.txtLevelNineCompanyName.listOfValuesModel}"
+                                                          required="#{bindings.txtLevelNineCompanyName.hints.mandatory}"
+                                                          columns="#{bindings.txtLevelNineCompanyName.hints.displayWidth}"
+                                                          shortDesc="#{bindings.txtLevelNineCompanyName.hints.tooltip}"
+                                                          autoSubmit="true"
+                                                          partialTriggers="txtLevelOneCompanyNameId txtLevelTwoCompanyNameId txtLevelThreeCompanyNameId txtLevelFourCompanyNameId txtLevelFiveCompanyNameId txtLevelSixCompanyNameId txtLevelSevenCompanyNameId txtLevelEightCompanyNameId txtActionNameId"
+                                                          visible="false">
+                              <f:validator binding="#{bindings.txtLevelNineCompanyName.validator}"/>
+                            </af:inputComboboxListOfValues>
+                            <af:inputText value="#{bindings.txtLevelTenCompanyID.inputValue}"
+                                          label="#{bindings.txtLevelTenCompanyID.hints.label}"
+                                          required="#{bindings.txtLevelTenCompanyID.hints.mandatory}"
+                                          columns="#{bindings.txtLevelTenCompanyID.hints.displayWidth}"
+                                          maximumLength="#{bindings.txtLevelTenCompanyID.hints.precision}"
+                                          shortDesc="#{bindings.txtLevelTenCompanyID.hints.tooltip}" id="it15"
+                                          rendered="false">
+                              <f:validator binding="#{bindings.txtLevelTenCompanyID.validator}"/>
+                              <af:convertNumber groupingUsed="false" pattern="#{bindings.txtLevelTenCompanyID.format}"/>
+                            </af:inputText>
+                            <af:inputComboboxListOfValues id="txtLevelTenCompanyNameId"
+                                                          popupTitle="Search and Select: #{bindings.txtLevelTenCompanyName.hints.label}"
+                                                          value="#{bindings.txtLevelTenCompanyName.inputValue}"
+                                                          label="#{bindings.txtLevelTenCompanyName.hints.label}"
+                                                          model="#{bindings.txtLevelTenCompanyName.listOfValuesModel}"
+                                                          required="#{bindings.txtLevelTenCompanyName.hints.mandatory}"
+                                                          columns="#{bindings.txtLevelTenCompanyName.hints.displayWidth}"
+                                                          shortDesc="#{bindings.txtLevelTenCompanyName.hints.tooltip}"
+                                                          autoSubmit="true"
+                                                          partialTriggers="txtLevelOneCompanyNameId txtLevelTwoCompanyNameId txtLevelThreeCompanyNameId txtLevelFourCompanyNameId txtLevelFiveCompanyNameId txtLevelSixCompanyNameId txtLevelSevenCompanyNameId txtLevelEightCompanyNameId txtLevelNineCompanyNameId txtActionNameId"
+                                                          visible="false">
+                              <f:validator binding="#{bindings.txtLevelTenCompanyName.validator}"/>
+                            </af:inputComboboxListOfValues>
+                            <af:inputText value="#{bindings.txtLocationId.inputValue}"
+                                          required="#{bindings.txtLocationId.hints.mandatory}"
+                                          columns="#{bindings.txtLocationId.hints.displayWidth}"
+                                          maximumLength="#{bindings.txtLocationId.hints.precision}"
+                                          shortDesc="#{bindings.txtLocationId.hints.tooltip}" id="it3"
+                                          label="#{bindings.txtLocationId.hints.label}" rendered="false">
+                              <f:validator binding="#{bindings.txtLocationId.validator}"/>
+                              <af:convertNumber groupingUsed="false" pattern="#{bindings.txtLocationId.format}"/>
+                            </af:inputText>
+                            <af:inputComboboxListOfValues id="txtLocationNameId"
+                                                          popupTitle="Search and Select: #{bindings.txtLocationName.hints.label}"
+                                                          value="#{bindings.txtLocationName.inputValue}"
+                                                          label="#{bindings.txtLocationName.hints.label}"
+                                                          model="#{bindings.txtLocationName.listOfValuesModel}"
+                                                          required="#{bindings.txtLocationName.hints.mandatory}"
+                                                          columns="#{bindings.txtLocationName.hints.displayWidth}"
+                                                          shortDesc="#{bindings.txtLocationName.hints.tooltip}"
+                                                          partialTriggers="txtLevelOneCompanyNameId txtLevelTwoCompanyNameId txtLevelThreeCompanyNameId txtLevelFourCompanyNameId txtLevelFiveCompanyNameId txtLevelSixCompanyNameId txtLevelSevenCompanyNameId txtLevelEightCompanyNameId txtLevelNineCompanyNameId txtLevelTenCompanyNameId txtActionNameId"
+                                                          visible="false" autoSubmit="true">
+                              <f:validator binding="#{bindings.txtLocationName.validator}"/>
+                            </af:inputComboboxListOfValues>
+                            <af:inputText value="#{bindings.txtCompanyTypeId.inputValue}"
+                                          label="#{bindings.txtCompanyTypeId.hints.label}"
+                                          required="#{bindings.txtCompanyTypeId.hints.mandatory}"
+                                          columns="#{bindings.txtCompanyTypeId.hints.displayWidth}"
+                                          maximumLength="#{bindings.txtCompanyTypeId.hints.precision}"
+                                          shortDesc="#{bindings.txtCompanyTypeId.hints.tooltip}" id="it22"
+                                          partialTriggers="txtLevelTenCompanyNameId txtLevelNineCompanyNameId txtLevelEightCompanyNameId txtLevelSevenCompanyNameId txtLevelSixCompanyNameId txtLevelFiveCompanyNameId txtLevelFourCompanyNameId txtLevelThreeCompanyNameId txtLevelTwoCompanyNameId txtLevelOneCompanyNameId"
+                                          rendered="false">
+                              <f:validator binding="#{bindings.txtCompanyTypeId.validator}"/>
+                              <af:convertNumber groupingUsed="false" pattern="#{bindings.txtCompanyTypeId.format}"/>
+                            </af:inputText>
+                            <af:inputText value="#{bindings.txtTypeLevel.inputValue}"
+                                          label="#{bindings.txtTypeLevel.hints.label}"
+                                          required="#{bindings.txtTypeLevel.hints.mandatory}"
+                                          columns="#{bindings.txtTypeLevel.hints.displayWidth}"
+                                          maximumLength="#{bindings.txtTypeLevel.hints.precision}"
+                                          shortDesc="#{bindings.txtTypeLevel.hints.tooltip}" id="it20"
+                                          partialTriggers="txtLevelOneCompanyNameId txtLevelTwoCompanyNameId txtLevelThreeCompanyNameId txtLevelFourCompanyNameId txtLevelFiveCompanyNameId txtLevelSixCompanyNameId txtLevelSevenCompanyNameId txtLevelEightCompanyNameId txtLevelNineCompanyNameId txtLevelTenCompanyNameId txtLocationNameId"
+                                          rendered="false">
+                              <f:validator binding="#{bindings.txtTypeLevel.validator}"/>
+                              <af:convertNumber groupingUsed="false" pattern="#{bindings.txtTypeLevel.format}"/>
+                            </af:inputText>
+                            <af:inputText value="#{bindings.txtDefinedCompanyTypeSno.inputValue}"
+                                          label="#{bindings.txtDefinedCompanyTypeSno.hints.label}"
+                                          required="#{bindings.txtDefinedCompanyTypeSno.hints.mandatory}"
+                                          columns="#{bindings.txtDefinedCompanyTypeSno.hints.displayWidth}"
+                                          maximumLength="#{bindings.txtDefinedCompanyTypeSno.hints.precision}"
+                                          shortDesc="#{bindings.txtDefinedCompanyTypeSno.hints.tooltip}" id="it17"
+                                          rendered="false">
+                              <f:validator binding="#{bindings.txtDefinedCompanyTypeSno.validator}"/>
+                              <af:convertNumber groupingUsed="false"
+                                                pattern="#{bindings.txtDefinedCompanyTypeSno.format}"/>
+                            </af:inputText>
+                            <af:inputText value="#{bindings.txtMaxTypeLevel.inputValue}"
+                                          label="#{bindings.txtMaxTypeLevel.hints.label}"
+                                          required="#{bindings.txtMaxTypeLevel.hints.mandatory}"
+                                          columns="#{bindings.txtMaxTypeLevel.hints.displayWidth}"
+                                          maximumLength="#{bindings.txtMaxTypeLevel.hints.precision}"
+                                          shortDesc="#{bindings.txtMaxTypeLevel.hints.tooltip}" id="it5"
+                                          rendered="false" binding="#{pageFlowScope.OracleERPBean.erpMaxOrgLevel}">
+                              <f:validator binding="#{bindings.txtMaxTypeLevel.validator}"/>
+                              <af:convertNumber groupingUsed="false" pattern="#{bindings.txtMaxTypeLevel.format}"/>
+                            </af:inputText>
+                            <af:inputText value="#{bindings.txtGlobalHierarchyPath.inputValue}"
+                                          label="#{bindings.txtGlobalHierarchyPath.hints.label}"
+                                          required="#{bindings.txtGlobalHierarchyPath.hints.mandatory}"
+                                          columns="#{bindings.txtGlobalHierarchyPath.hints.displayWidth}"
+                                          maximumLength="#{bindings.txtGlobalHierarchyPath.hints.precision}"
+                                          shortDesc="#{bindings.txtGlobalHierarchyPath.hints.tooltip}" id="it35"
+                                          rendered="false">
+                              <f:validator binding="#{bindings.txtGlobalHierarchyPath.validator}"/>
+                            </af:inputText>
+                            <af:inputText value="#{bindings.txtGlobalTypeHierarchyPath.inputValue}"
+                                          label="#{bindings.txtGlobalTypeHierarchyPath.hints.label}"
+                                          required="#{bindings.txtGlobalTypeHierarchyPath.hints.mandatory}"
+                                          columns="#{bindings.txtGlobalTypeHierarchyPath.hints.displayWidth}"
+                                          maximumLength="#{bindings.txtGlobalTypeHierarchyPath.hints.precision}"
+                                          shortDesc="#{bindings.txtGlobalTypeHierarchyPath.hints.tooltip}" id="it38"
+                                          rendered="false">
+                              <f:validator binding="#{bindings.txtGlobalTypeHierarchyPath.validator}"/>
+                            </af:inputText>
+                          </af:panelFormLayout>
+                        </af:panelBox>
+                      </af:gridCell>
+                      <af:gridCell marginStart="5px" width="55%" marginEnd="5px" id="gc2" halign="stretch"
+                                   valign="stretch">
+                        <af:panelBox text="Organization Hierarchy" id="pb3" showDisclosure="false"
+                                     partialTriggers="txtActionNameId"
+                                     visible="#{bindings.txtActionName.inputValue!=null}">
+                          <f:facet name="toolbar"/>
+                          <af:panelFormLayout id="pfl2">
+                            <f:facet name="footer"/>
+                            <af:inputText value="#{bindings.txtLevelOneDepartmentID.inputValue}"
+                                          label="#{bindings.txtLevelOneDepartmentID.hints.label}"
+                                          required="#{bindings.txtLevelOneDepartmentID.hints.mandatory}"
+                                          columns="#{bindings.txtLevelOneDepartmentID.hints.displayWidth}"
+                                          maximumLength="#{bindings.txtLevelOneDepartmentID.hints.precision}"
+                                          shortDesc="#{bindings.txtLevelOneDepartmentID.hints.tooltip}" id="it24"
+                                          rendered="false">
+                              <f:validator binding="#{bindings.txtLevelOneDepartmentID.validator}"/>
+                              <af:convertNumber groupingUsed="false"
+                                                pattern="#{bindings.txtLevelOneDepartmentID.format}"/>
+                            </af:inputText>
+                            <af:inputComboboxListOfValues id="txtLevelOneDepartmentNameId"
+                                                          popupTitle="Search and Select: #{bindings.txtLevelOneDepartmentName.hints.label}"
+                                                          value="#{bindings.txtLevelOneDepartmentName.inputValue}"
+                                                          label="#{bindings.txtLevelOneDepartmentName.hints.label}"
+                                                          model="#{bindings.txtLevelOneDepartmentName.listOfValuesModel}"
+                                                          required="#{bindings.txtLevelOneDepartmentName.hints.mandatory}"
+                                                          columns="#{bindings.txtLevelOneDepartmentName.hints.displayWidth}"
+                                                          shortDesc="#{bindings.txtLevelOneDepartmentName.hints.tooltip}"
+                                                          autoSubmit="true" partialTriggers="txtActionNameId"
+                                                          visible="false">
+                              <f:validator binding="#{bindings.txtLevelOneDepartmentName.validator}"/>
+                            </af:inputComboboxListOfValues>
+                            <af:inputText value="#{bindings.txtLevelTwoDepartmentID.inputValue}"
+                                          label="#{bindings.txtLevelTwoDepartmentID.hints.label}"
+                                          required="#{bindings.txtLevelTwoDepartmentID.hints.mandatory}"
+                                          columns="#{bindings.txtLevelTwoDepartmentID.hints.displayWidth}"
+                                          maximumLength="#{bindings.txtLevelTwoDepartmentID.hints.precision}"
+                                          shortDesc="#{bindings.txtLevelTwoDepartmentID.hints.tooltip}" id="it25"
+                                          rendered="false">
+                              <f:validator binding="#{bindings.txtLevelTwoDepartmentID.validator}"/>
+                              <af:convertNumber groupingUsed="false"
+                                                pattern="#{bindings.txtLevelTwoDepartmentID.format}"/>
+                            </af:inputText>
+                            <af:inputComboboxListOfValues id="txtLevelTwoDepartmenNameId"
+                                                          popupTitle="Search and Select: #{bindings.txtLevelTwoDepartmenName.hints.label}"
+                                                          value="#{bindings.txtLevelTwoDepartmenName.inputValue}"
+                                                          label="#{bindings.txtLevelTwoDepartmenName.hints.label}"
+                                                          model="#{bindings.txtLevelTwoDepartmenName.listOfValuesModel}"
+                                                          required="#{bindings.txtLevelTwoDepartmenName.hints.mandatory}"
+                                                          columns="#{bindings.txtLevelTwoDepartmenName.hints.displayWidth}"
+                                                          shortDesc="#{bindings.txtLevelTwoDepartmenName.hints.tooltip}"
+                                                          partialTriggers="txtActionNameId txtLevelOneDepartmentNameId"
+                                                          autoSubmit="true" visible="false">
+                              <f:validator binding="#{bindings.txtLevelTwoDepartmenName.validator}"/>
+                            </af:inputComboboxListOfValues>
+                            <af:inputText value="#{bindings.txtLevelThreeDepartmentID.inputValue}"
+                                          label="#{bindings.txtLevelThreeDepartmentID.hints.label}"
+                                          required="#{bindings.txtLevelThreeDepartmentID.hints.mandatory}"
+                                          columns="#{bindings.txtLevelThreeDepartmentID.hints.displayWidth}"
+                                          maximumLength="#{bindings.txtLevelThreeDepartmentID.hints.precision}"
+                                          shortDesc="#{bindings.txtLevelThreeDepartmentID.hints.tooltip}" id="it26"
+                                          rendered="false">
+                              <f:validator binding="#{bindings.txtLevelThreeDepartmentID.validator}"/>
+                              <af:convertNumber groupingUsed="false"
+                                                pattern="#{bindings.txtLevelThreeDepartmentID.format}"/>
+                            </af:inputText>
+                            <af:inputComboboxListOfValues id="txtLevelThreeDepartmentNameId"
+                                                          popupTitle="Search and Select: #{bindings.txtLevelThreeDepartmentName.hints.label}"
+                                                          value="#{bindings.txtLevelThreeDepartmentName.inputValue}"
+                                                          label="#{bindings.txtLevelThreeDepartmentName.hints.label}"
+                                                          model="#{bindings.txtLevelThreeDepartmentName.listOfValuesModel}"
+                                                          required="#{bindings.txtLevelThreeDepartmentName.hints.mandatory}"
+                                                          columns="#{bindings.txtLevelThreeDepartmentName.hints.displayWidth}"
+                                                          shortDesc="#{bindings.txtLevelThreeDepartmentName.hints.tooltip}"
+                                                          partialTriggers="txtLevelOneDepartmentNameId txtLevelTwoDepartmenNameId txtActionNameId"
+                                                          autoSubmit="true" visible="false">
+                              <f:validator binding="#{bindings.txtLevelThreeDepartmentName.validator}"/>
+                            </af:inputComboboxListOfValues>
+                            <af:inputText value="#{bindings.txtLevelFourDepartmentID.inputValue}"
+                                          label="#{bindings.txtLevelFourDepartmentID.hints.label}"
+                                          required="#{bindings.txtLevelFourDepartmentID.hints.mandatory}"
+                                          columns="#{bindings.txtLevelFourDepartmentID.hints.displayWidth}"
+                                          maximumLength="#{bindings.txtLevelFourDepartmentID.hints.precision}"
+                                          shortDesc="#{bindings.txtLevelFourDepartmentID.hints.tooltip}" id="it27"
+                                          rendered="false"
+                                          partialTriggers="txtLevelOneDepartmentNameId txtLevelTwoDepartmenNameId txtLevelThreeDepartmentNameId txtActionNameId">
+                              <f:validator binding="#{bindings.txtLevelFourDepartmentID.validator}"/>
+                              <af:convertNumber groupingUsed="false"
+                                                pattern="#{bindings.txtLevelFourDepartmentID.format}"/>
+                            </af:inputText>
+                            <af:inputComboboxListOfValues id="txtLevelFourDepartmentNameId"
+                                                          popupTitle="Search and Select: #{bindings.txtLevelFourDepartmentName.hints.label}"
+                                                          value="#{bindings.txtLevelFourDepartmentName.inputValue}"
+                                                          label="#{bindings.txtLevelFourDepartmentName.hints.label}"
+                                                          model="#{bindings.txtLevelFourDepartmentName.listOfValuesModel}"
+                                                          required="#{bindings.txtLevelFourDepartmentName.hints.mandatory}"
+                                                          columns="#{bindings.txtLevelFourDepartmentName.hints.displayWidth}"
+                                                          shortDesc="#{bindings.txtLevelFourDepartmentName.hints.tooltip}"
+                                                          autoSubmit="true"
+                                                          partialTriggers="txtLevelThreeDepartmentNameId txtLevelTwoDepartmenNameId txtLevelOneDepartmentNameId txtActionNameId"
+                                                          visible="false">
+                              <f:validator binding="#{bindings.txtLevelFourDepartmentName.validator}"/>
+                            </af:inputComboboxListOfValues>
+                            <af:inputText value="#{bindings.txtLevelFiveDepartmentID.inputValue}"
+                                          label="#{bindings.txtLevelFiveDepartmentID.hints.label}"
+                                          required="#{bindings.txtLevelFiveDepartmentID.hints.mandatory}"
+                                          columns="#{bindings.txtLevelFiveDepartmentID.hints.displayWidth}"
+                                          maximumLength="#{bindings.txtLevelFiveDepartmentID.hints.precision}"
+                                          shortDesc="#{bindings.txtLevelFiveDepartmentID.hints.tooltip}" id="it28"
+                                          rendered="false">
+                              <f:validator binding="#{bindings.txtLevelFiveDepartmentID.validator}"/>
+                              <af:convertNumber groupingUsed="false"
+                                                pattern="#{bindings.txtLevelFiveDepartmentID.format}"/>
+                            </af:inputText>
+                            <af:inputComboboxListOfValues id="txtLevelFiveDepartmentNameId"
+                                                          popupTitle="Search and Select: #{bindings.txtLevelFiveDepartmentName.hints.label}"
+                                                          value="#{bindings.txtLevelFiveDepartmentName.inputValue}"
+                                                          label="#{bindings.txtLevelFiveDepartmentName.hints.label}"
+                                                          model="#{bindings.txtLevelFiveDepartmentName.listOfValuesModel}"
+                                                          required="#{bindings.txtLevelFiveDepartmentName.hints.mandatory}"
+                                                          columns="#{bindings.txtLevelFiveDepartmentName.hints.displayWidth}"
+                                                          shortDesc="#{bindings.txtLevelFiveDepartmentName.hints.tooltip}"
+                                                          partialTriggers="txtLevelFourDepartmentNameId txtLevelThreeDepartmentNameId txtLevelTwoDepartmenNameId txtLevelOneDepartmentNameId txtActionNameId"
+                                                          visible="false">
+                              <f:validator binding="#{bindings.txtLevelFiveDepartmentName.validator}"/>
+                            </af:inputComboboxListOfValues>
+                            <af:inputText value="#{bindings.txtLevelSixDepartmentID.inputValue}"
+                                          label="#{bindings.txtLevelSixDepartmentID.hints.label}"
+                                          required="#{bindings.txtLevelSixDepartmentID.hints.mandatory}"
+                                          columns="#{bindings.txtLevelSixDepartmentID.hints.displayWidth}"
+                                          maximumLength="#{bindings.txtLevelSixDepartmentID.hints.precision}"
+                                          shortDesc="#{bindings.txtLevelSixDepartmentID.hints.tooltip}" id="it29"
+                                          rendered="false">
+                              <f:validator binding="#{bindings.txtLevelSixDepartmentID.validator}"/>
+                              <af:convertNumber groupingUsed="false"
+                                                pattern="#{bindings.txtLevelSixDepartmentID.format}"/>
+                            </af:inputText>
+                            <af:inputComboboxListOfValues id="txtLevelSixDepartmentNameId"
+                                                          popupTitle="Search and Select: #{bindings.txtLevelSixDepartmentName.hints.label}"
+                                                          value="#{bindings.txtLevelSixDepartmentName.inputValue}"
+                                                          label="#{bindings.txtLevelSixDepartmentName.hints.label}"
+                                                          model="#{bindings.txtLevelSixDepartmentName.listOfValuesModel}"
+                                                          required="#{bindings.txtLevelSixDepartmentName.hints.mandatory}"
+                                                          columns="#{bindings.txtLevelSixDepartmentName.hints.displayWidth}"
+                                                          shortDesc="#{bindings.txtLevelSixDepartmentName.hints.tooltip}"
+                                                          partialTriggers="txtLevelFiveDepartmentNameId txtLevelOneDepartmentNameId txtLevelTwoDepartmenNameId txtLevelThreeDepartmentNameId txtLevelFourDepartmentNameId txtActionNameId"
+                                                          visible="false">
+                              <f:validator binding="#{bindings.txtLevelSixDepartmentName.validator}"/>
+                            </af:inputComboboxListOfValues>
+                            <af:inputText value="#{bindings.txtLevelSevenDepartmentID.inputValue}"
+                                          label="#{bindings.txtLevelSevenDepartmentID.hints.label}"
+                                          required="#{bindings.txtLevelSevenDepartmentID.hints.mandatory}"
+                                          columns="#{bindings.txtLevelSevenDepartmentID.hints.displayWidth}"
+                                          maximumLength="#{bindings.txtLevelSevenDepartmentID.hints.precision}"
+                                          shortDesc="#{bindings.txtLevelSevenDepartmentID.hints.tooltip}" id="it30"
+                                          rendered="false" autoSubmit="true">
+                              <f:validator binding="#{bindings.txtLevelSevenDepartmentID.validator}"/>
+                              <af:convertNumber groupingUsed="false"
+                                                pattern="#{bindings.txtLevelSevenDepartmentID.format}"/>
+                            </af:inputText>
+                            <af:inputComboboxListOfValues id="txtLevelSevenDepartmentNameId"
+                                                          popupTitle="Search and Select: #{bindings.txtLevelSevenDepartmentName.hints.label}"
+                                                          value="#{bindings.txtLevelSevenDepartmentName.inputValue}"
+                                                          label="#{bindings.txtLevelSevenDepartmentName.hints.label}"
+                                                          model="#{bindings.txtLevelSevenDepartmentName.listOfValuesModel}"
+                                                          required="#{bindings.txtLevelSevenDepartmentName.hints.mandatory}"
+                                                          columns="#{bindings.txtLevelSevenDepartmentName.hints.displayWidth}"
+                                                          shortDesc="#{bindings.txtLevelSevenDepartmentName.hints.tooltip}"
+                                                          partialTriggers="txtLevelSixDepartmentNameId txtLevelFiveDepartmentNameId txtLevelFourDepartmentNameId txtLevelThreeDepartmentNameId txtLevelTwoDepartmenNameId txtLevelOneDepartmentNameId txtActionNameId "
+                                                          visible="false">
+                              <f:validator binding="#{bindings.txtLevelSevenDepartmentName.validator}"/>
+                            </af:inputComboboxListOfValues>
+                            <af:inputText value="#{bindings.txtLevelEightDepartmentID.inputValue}"
+                                          label="#{bindings.txtLevelEightDepartmentID.hints.label}"
+                                          required="#{bindings.txtLevelEightDepartmentID.hints.mandatory}"
+                                          columns="#{bindings.txtLevelEightDepartmentID.hints.displayWidth}"
+                                          maximumLength="#{bindings.txtLevelEightDepartmentID.hints.precision}"
+                                          shortDesc="#{bindings.txtLevelEightDepartmentID.hints.tooltip}" id="it31"
+                                          rendered="false">
+                              <f:validator binding="#{bindings.txtLevelEightDepartmentID.validator}"/>
+                              <af:convertNumber groupingUsed="false"
+                                                pattern="#{bindings.txtLevelEightDepartmentID.format}"/>
+                            </af:inputText>
+                            <af:inputComboboxListOfValues id="txtLevelEightDepartmentNameId"
+                                                          popupTitle="Search and Select: #{bindings.txtLevelEightDepartmentName.hints.label}"
+                                                          value="#{bindings.txtLevelEightDepartmentName.inputValue}"
+                                                          label="#{bindings.txtLevelEightDepartmentName.hints.label}"
+                                                          model="#{bindings.txtLevelEightDepartmentName.listOfValuesModel}"
+                                                          required="#{bindings.txtLevelEightDepartmentName.hints.mandatory}"
+                                                          columns="#{bindings.txtLevelEightDepartmentName.hints.displayWidth}"
+                                                          shortDesc="#{bindings.txtLevelEightDepartmentName.hints.tooltip}"
+                                                          partialTriggers="txtLevelSevenDepartmentNameId txtLevelSixDepartmentNameId txtLevelFiveDepartmentNameId txtLevelFourDepartmentNameId txtLevelThreeDepartmentNameId txtLevelTwoDepartmenNameId txtLevelOneDepartmentNameId txtActionNameId"
+                                                          autoSubmit="true" visible="false">
+                              <f:validator binding="#{bindings.txtLevelEightDepartmentName.validator}"/>
+                            </af:inputComboboxListOfValues>
+                            <af:inputText value="#{bindings.txtLevelNineDepartmentID.inputValue}"
+                                          label="#{bindings.txtLevelNineDepartmentID.hints.label}"
+                                          required="#{bindings.txtLevelNineDepartmentID.hints.mandatory}"
+                                          columns="#{bindings.txtLevelNineDepartmentID.hints.displayWidth}"
+                                          maximumLength="#{bindings.txtLevelNineDepartmentID.hints.precision}"
+                                          shortDesc="#{bindings.txtLevelNineDepartmentID.hints.tooltip}" id="it32"
+                                          rendered="false">
+                              <f:validator binding="#{bindings.txtLevelNineDepartmentID.validator}"/>
+                              <af:convertNumber groupingUsed="false"
+                                                pattern="#{bindings.txtLevelNineDepartmentID.format}"/>
+                            </af:inputText>
+                            <af:inputComboboxListOfValues id="txtLevelNineDepartmentNameId"
+                                                          popupTitle="Search and Select: #{bindings.txtLevelNineDepartmentName.hints.label}"
+                                                          value="#{bindings.txtLevelNineDepartmentName.inputValue}"
+                                                          label="#{bindings.txtLevelNineDepartmentName.hints.label}"
+                                                          model="#{bindings.txtLevelNineDepartmentName.listOfValuesModel}"
+                                                          required="#{bindings.txtLevelNineDepartmentName.hints.mandatory}"
+                                                          columns="#{bindings.txtLevelNineDepartmentName.hints.displayWidth}"
+                                                          shortDesc="#{bindings.txtLevelNineDepartmentName.hints.tooltip}"
+                                                          partialTriggers="txtLevelEightDepartmentNameId txtLevelSevenDepartmentNameId txtLevelSixDepartmentNameId txtLevelFiveDepartmentNameId txtLevelFourDepartmentNameId txtLevelThreeDepartmentNameId txtLevelTwoDepartmenNameId txtLevelOneDepartmentNameId txtActionNameId"
+                                                          autoSubmit="true" visible="false">
+                              <f:validator binding="#{bindings.txtLevelNineDepartmentName.validator}"/>
+                            </af:inputComboboxListOfValues>
+                            <af:inputText value="#{bindings.txtLevelTenDepartmentID.inputValue}"
+                                          label="#{bindings.txtLevelTenDepartmentID.hints.label}"
+                                          required="#{bindings.txtLevelTenDepartmentID.hints.mandatory}"
+                                          columns="#{bindings.txtLevelTenDepartmentID.hints.displayWidth}"
+                                          maximumLength="#{bindings.txtLevelTenDepartmentID.hints.precision}"
+                                          shortDesc="#{bindings.txtLevelTenDepartmentID.hints.tooltip}" id="it33"
+                                          rendered="false">
+                              <f:validator binding="#{bindings.txtLevelTenDepartmentID.validator}"/>
+                              <af:convertNumber groupingUsed="false"
+                                                pattern="#{bindings.txtLevelTenDepartmentID.format}"/>
+                            </af:inputText>
+                            <af:inputComboboxListOfValues id="txtLevelTenDepartmentNameId"
+                                                          popupTitle="Search and Select: #{bindings.txtLevelTenDepartmentName.hints.label}"
+                                                          value="#{bindings.txtLevelTenDepartmentName.inputValue}"
+                                                          label="#{bindings.txtLevelTenDepartmentName.hints.label}"
+                                                          model="#{bindings.txtLevelTenDepartmentName.listOfValuesModel}"
+                                                          required="#{bindings.txtLevelTenDepartmentName.hints.mandatory}"
+                                                          columns="#{bindings.txtLevelTenDepartmentName.hints.displayWidth}"
+                                                          shortDesc="#{bindings.txtLevelTenDepartmentName.hints.tooltip}"
+                                                          autoSubmit="true" visible="false">
+                              <f:validator binding="#{bindings.txtLevelTenDepartmentName.validator}"/>
+                            </af:inputComboboxListOfValues>
+                            <af:inputText value="#{bindings.txtDepartmentID.inputValue}"
+                                          label="#{bindings.txtDepartmentID.hints.label}"
+                                          required="#{bindings.txtDepartmentID.hints.mandatory}"
+                                          columns="#{bindings.txtDepartmentID.hints.displayWidth}"
+                                          maximumLength="#{bindings.txtDepartmentID.hints.precision}"
+                                          shortDesc="#{bindings.txtDepartmentID.hints.tooltip}" id="it34"
+                                          rendered="false">
+                              <f:validator binding="#{bindings.txtDepartmentID.validator}"/>
+                              <af:convertNumber groupingUsed="false" pattern="#{bindings.txtDepartmentID.format}"/>
+                            </af:inputText>
+                            <af:inputComboboxListOfValues id="txtDepartmentNameId"
+                                                          popupTitle="Search and Select: #{bindings.txtDepartmentName.hints.label}"
+                                                          value="#{bindings.txtDepartmentName.inputValue}"
+                                                          label="#{bindings.txtDepartmentName.hints.label}"
+                                                          model="#{bindings.txtDepartmentName.listOfValuesModel}"
+                                                          required="#{bindings.txtDepartmentName.hints.mandatory}"
+                                                          columns="#{bindings.txtDepartmentName.hints.displayWidth}"
+                                                          shortDesc="#{bindings.txtDepartmentName.hints.tooltip}"
+                                                          autoSubmit="true"
+                                                          partialTriggers="txtActionNameId txtLevelOneDepartmentNameId txtLevelTwoDepartmenNameId txtLevelThreeDepartmentNameId txtLevelFourDepartmentNameId txtLevelFiveDepartmentNameId txtLevelSixDepartmentNameId txtLevelSevenDepartmentNameId txtLevelEightDepartmentNameId txtLevelNineDepartmentNameId txtLevelTenDepartmentNameId"
+                                                          visible="false">
+                              <f:validator binding="#{bindings.txtDepartmentName.validator}"/>
+                            </af:inputComboboxListOfValues>
+                            <af:inputText value="#{bindings.txtOrgMaxTypeLevel.inputValue}"
+                                          label="#{bindings.txtOrgMaxTypeLevel.hints.label}"
+                                          required="#{bindings.txtOrgMaxTypeLevel.hints.mandatory}"
+                                          columns="#{bindings.txtOrgMaxTypeLevel.hints.displayWidth}"
+                                          maximumLength="#{bindings.txtOrgMaxTypeLevel.hints.precision}"
+                                          shortDesc="#{bindings.txtOrgMaxTypeLevel.hints.tooltip}" id="it36"
+                                          rendered="false">
+                              <f:validator binding="#{bindings.txtOrgMaxTypeLevel.validator}"/>
+                              <af:convertNumber groupingUsed="false" pattern="#{bindings.txtOrgMaxTypeLevel.format}"/>
+                            </af:inputText>
+                            <af:inputText value="#{bindings.txtOrganizationHierarchyPath.inputValue}"
+                                          label="#{bindings.txtOrganizationHierarchyPath.hints.label}"
+                                          required="#{bindings.txtOrganizationHierarchyPath.hints.mandatory}"
+                                          columns="#{bindings.txtOrganizationHierarchyPath.hints.displayWidth}"
+                                          maximumLength="#{bindings.txtOrganizationHierarchyPath.hints.precision}"
+                                          shortDesc="#{bindings.txtOrganizationHierarchyPath.hints.tooltip}" id="it37"
+                                          rendered="false">
+                              <f:validator binding="#{bindings.txtOrganizationHierarchyPath.validator}"/>
+                            </af:inputText>
+                            <af:inputText value="#{bindings.txtOrganizationTypeHierarchyPath.inputValue}"
+                                          label="#{bindings.txtOrganizationTypeHierarchyPath.hints.label}"
+                                          required="#{bindings.txtOrganizationTypeHierarchyPath.hints.mandatory}"
+                                          columns="#{bindings.txtOrganizationTypeHierarchyPath.hints.displayWidth}"
+                                          maximumLength="#{bindings.txtOrganizationTypeHierarchyPath.hints.precision}"
+                                          shortDesc="#{bindings.txtOrganizationTypeHierarchyPath.hints.tooltip}"
+                                          id="it39" rendered="false">
+                              <f:validator binding="#{bindings.txtOrganizationTypeHierarchyPath.validator}"/>
+                            </af:inputText>
+                          </af:panelFormLayout>
+                        </af:panelBox>
+                      </af:gridCell>
+                    </af:gridRow>
+                  </af:panelGridLayout>
+                </af:panelBox>
+                <af:panelFormLayout id="pfl3" binding="#{pageFlowScope.OracleERPBean.erpReportForm}"
+                                    visible="#{bindings.txtActionName.inputValue!=null}"
+                                    partialTriggers="txtActionNameId" rows="4" maxColumns="2">
+                  <f:facet name="footer">
+                    <af:button text="Execute " id="b1" action="#{pageFlowScope.OracleERPBean.doErpExecuteReport}"/>
+                  </f:facet>
+                  <af:inputText value="#{bindings.txtTotalCompanyAccess.inputValue}"
+                                label="#{bindings.txtTotalCompanyAccess.hints.label}"
+                                required="#{bindings.txtTotalCompanyAccess.hints.mandatory}"
+                                columns="#{bindings.txtTotalCompanyAccess.hints.displayWidth}"
+                                maximumLength="#{bindings.txtTotalCompanyAccess.hints.precision}"
+                                shortDesc="#{bindings.txtTotalCompanyAccess.hints.tooltip}" id="it41" rendered="false">
+                    <f:validator binding="#{bindings.txtTotalCompanyAccess.validator}"/>
+                    <af:convertNumber groupingUsed="false" pattern="#{bindings.txtTotalCompanyAccess.format}"/>
+                  </af:inputText>
+                  <af:selectOneChoice value="#{bindings.txtCompanyID.inputValue}" label="#{bindings.txtCompanyID.label}"
+                                      required="#{bindings.txtCompanyID.hints.mandatory}"
+                                      shortDesc="#{bindings.txtCompanyID.hints.tooltip}" id="soc2"
+                                      partialTriggers="txtLevelOneCompanyNameId txtLevelTwoCompanyNameId txtLevelThreeCompanyNameId txtLevelFourCompanyNameId txtLevelFiveCompanyNameId txtLevelSixCompanyNameId txtLevelSevenCompanyNameId txtLevelEightCompanyNameId txtLevelNineCompanyNameId txtLevelTenCompanyNameId txtActionNameId"
+                                      autoSubmit="true"
+                                      visible="#{bindings.txtCompanyTypeId.inputValue==null &amp;&amp; bindings.txtActionName.inputValue!=null &amp;&amp; bindings.txtTotalCompanyAccess.inputValue >1 &amp;&amp; pageFlowScope.OracleERPBean.erpShowCompany=='Y'}"
+                                      contentStyle="width:100%">
+                    <f:selectItems value="#{bindings.txtCompanyID.items}" id="si2"/>
+                    <f:validator binding="#{bindings.txtCompanyID.validator}"/>
+                  </af:selectOneChoice>
+                  <af:inputDate value="#{bindings.txtFromDate.inputValue}" label="#{bindings.txtFromDate.hints.label}"
+                                required="#{bindings.txtFromDate.hints.mandatory}"
+                                columns="#{bindings.txtFromDate.hints.displayWidth}"
+                                shortDesc="#{bindings.txtFromDate.hints.tooltip}" id="id1" contentStyle="width:90%"
+                                visible="false" autoSubmit="true">
+                    <f:validator binding="#{bindings.txtFromDate.validator}"/>
+                    <af:convertDateTime pattern="#{bindings.txtFromDate.format}"/>
+                  </af:inputDate>
+                  <af:inputDate value="#{bindings.txtToDate.inputValue}" label="#{bindings.txtToDate.hints.label}"
+                                required="#{bindings.txtToDate.hints.mandatory}"
+                                columns="#{bindings.txtToDate.hints.displayWidth}"
+                                shortDesc="#{bindings.txtToDate.hints.tooltip}" id="id2" contentStyle="width:90%"
+                                visible="false" autoSubmit="true">
+                    <f:validator binding="#{bindings.txtToDate.validator}"/>
+                    <af:convertDateTime pattern="#{bindings.txtToDate.format}"/>
+                  </af:inputDate>
+                  <af:inputComboboxListOfValues id="txtFiscalYearNameId"
+                                                popupTitle="Search and Select: #{bindings.txtFiscalYearName.hints.label}"
+                                                value="#{bindings.txtFiscalYearName.inputValue}"
+                                                label="#{bindings.txtFiscalYearName.hints.label}"
+                                                model="#{bindings.txtFiscalYearName.listOfValuesModel}"
+                                                required="#{bindings.txtFiscalYearName.hints.mandatory}"
+                                                columns="#{bindings.txtFiscalYearName.hints.displayWidth}"
+                                                shortDesc="#{bindings.txtFiscalYearName.hints.tooltip}"
+                                                autoSubmit="true" partialTriggers="soc2" visible="false">
+                    <f:validator binding="#{bindings.txtFiscalYearName.validator}"/>
+                  </af:inputComboboxListOfValues>
+                  <af:inputComboboxListOfValues id="txtPeriodNameId"
+                                                popupTitle="Search and Select: #{bindings.txtPeriodName.hints.label}"
+                                                value="#{bindings.txtPeriodName.inputValue}"
+                                                label="#{bindings.txtPeriodName.hints.label}"
+                                                model="#{bindings.txtPeriodName.listOfValuesModel}"
+                                                required="#{bindings.txtPeriodName.hints.mandatory}"
+                                                columns="#{bindings.txtPeriodName.hints.displayWidth}"
+                                                shortDesc="#{bindings.txtPeriodName.hints.tooltip}"
+                                                partialTriggers="txtLevelOneCompanyNameId txtLevelTwoCompanyNameId txtLevelThreeCompanyNameId txtLevelFourCompanyNameId txtLevelFiveCompanyNameId txtLevelSixCompanyNameId txtLevelSevenCompanyNameId txtLevelEightCompanyNameId txtLevelNineCompanyNameId txtLevelTenCompanyNameId txtFiscalYearNameId soc2"
+                                                autoSubmit="true" visible="false">
+                    <f:validator binding="#{bindings.txtPeriodName.validator}"/>
+                  </af:inputComboboxListOfValues>
+                  <af:inputComboboxListOfValues id="iclov2"
+                                                popupTitle="Search and Select: #{bindings.txtProjectName.hints.label}"
+                                                value="#{bindings.txtProjectName.inputValue}"
+                                                label="#{bindings.txtProjectName.hints.label}"
+                                                model="#{bindings.txtProjectName.listOfValuesModel}"
+                                                required="#{bindings.txtProjectName.hints.mandatory}"
+                                                columns="#{bindings.txtProjectName.hints.displayWidth}"
+                                                shortDesc="#{bindings.txtProjectName.hints.tooltip}"
+                                                partialTriggers="txtLevelOneCompanyNameId txtLevelTwoCompanyNameId txtLevelThreeCompanyNameId txtLevelFourCompanyNameId txtLevelFiveCompanyNameId txtLevelSixCompanyNameId txtLevelSevenCompanyNameId txtLevelEightCompanyNameId txtLevelNineCompanyNameId txtLevelTenCompanyNameId txtFiscalYearNameId soc2" visible="false">
+                    <f:validator binding="#{bindings.txtProjectName.validator}"/>
+                  </af:inputComboboxListOfValues>
+                  <af:inputComboboxListOfValues id="txtBatchNameId"
+                                                popupTitle="Search and Select: #{bindings.txtBatchName.hints.label}"
+                                                value="#{bindings.txtBatchName.inputValue}"
+                                                label="#{bindings.txtBatchName.hints.label}"
+                                                model="#{bindings.txtBatchName.listOfValuesModel}"
+                                                required="#{bindings.txtBatchName.hints.mandatory}"
+                                                columns="#{bindings.txtBatchName.hints.displayWidth}"
+                                                shortDesc="#{bindings.txtBatchName.hints.tooltip}"
+                                                partialTriggers="txtLevelOneCompanyNameId txtLevelTwoCompanyNameId txtLevelThreeCompanyNameId txtLevelFourCompanyNameId txtLevelFiveCompanyNameId txtLevelSixCompanyNameId txtLevelSevenCompanyNameId txtLevelEightCompanyNameId txtLevelNineCompanyNameId txtLevelTenCompanyNameId txtFiscalYearNameId soc2" visible="false">
+                    <f:validator binding="#{bindings.txtBatchName.validator}"/>
+                  </af:inputComboboxListOfValues>
+                  <af:inputComboboxListOfValues id="txtVoucherTypeNameId"
+                                                popupTitle="Search and Select: #{bindings.txtVoucherTypeName.hints.label}"
+                                                value="#{bindings.txtVoucherTypeName.inputValue}"
+                                                label="#{bindings.txtVoucherTypeName.hints.label}"
+                                                model="#{bindings.txtVoucherTypeName.listOfValuesModel}"
+                                                required="#{bindings.txtVoucherTypeName.hints.mandatory}"
+                                                columns="#{bindings.txtVoucherTypeName.hints.displayWidth}"
+                                                shortDesc="#{bindings.txtVoucherTypeName.hints.tooltip}"
+                                                partialTriggers="txtLevelOneCompanyNameId txtLevelTwoCompanyNameId txtLevelThreeCompanyNameId txtLevelFourCompanyNameId txtLevelFiveCompanyNameId txtLevelSixCompanyNameId txtLevelSevenCompanyNameId txtLevelEightCompanyNameId txtLevelNineCompanyNameId txtLevelTenCompanyNameId soc2" visible="false">
+                    <f:validator binding="#{bindings.txtVoucherTypeName.validator}"/>
+                  </af:inputComboboxListOfValues>
+                  <af:inputComboboxListOfValues id="txtFromCOADescriptionId"
+                                                popupTitle="Search and Select: #{bindings.txtFromCOADescription.hints.label}"
+                                                value="#{bindings.txtFromCOADescription.inputValue}"
+                                                label="#{bindings.txtFromCOADescription.hints.label}"
+                                                model="#{bindings.txtFromCOADescription.listOfValuesModel}"
+                                                required="#{bindings.txtFromCOADescription.hints.mandatory}"
+                                                columns="#{bindings.txtFromCOADescription.hints.displayWidth}"
+                                                shortDesc="#{bindings.txtFromCOADescription.hints.tooltip}"
+                                                partialTriggers="txtLevelOneCompanyNameId txtLevelTwoCompanyNameId txtLevelThreeCompanyNameId txtLevelFourCompanyNameId txtLevelFiveCompanyNameId txtLevelSixCompanyNameId txtLevelSevenCompanyNameId txtLevelEightCompanyNameId txtLevelNineCompanyNameId txtLevelTenCompanyNameId soc2"
+                                                visible="false">
+                    <f:validator binding="#{bindings.txtFromCOADescription.validator}"/>
+                  </af:inputComboboxListOfValues>
+                  <af:inputComboboxListOfValues id="txtToCOADescriptionId"
+                                                popupTitle="Search and Select: #{bindings.txtToCOADescription.hints.label}"
+                                                value="#{bindings.txtToCOADescription.inputValue}"
+                                                label="#{bindings.txtToCOADescription.hints.label}"
+                                                model="#{bindings.txtToCOADescription.listOfValuesModel}"
+                                                required="#{bindings.txtToCOADescription.hints.mandatory}"
+                                                columns="#{bindings.txtToCOADescription.hints.displayWidth}"
+                                                shortDesc="#{bindings.txtToCOADescription.hints.tooltip}"
+                                                partialTriggers="txtLevelOneCompanyNameId txtLevelTwoCompanyNameId txtLevelThreeCompanyNameId txtLevelFourCompanyNameId txtLevelFiveCompanyNameId txtLevelSixCompanyNameId txtLevelSevenCompanyNameId txtLevelEightCompanyNameId txtLevelNineCompanyNameId txtLevelTenCompanyNameId soc2"
+                                                visible="false">
+                    <f:validator binding="#{bindings.txtToCOADescription.validator}"/>
+                  </af:inputComboboxListOfValues>
+                  <af:inputText value="#{bindings.txtToCOAHierarchyPath.inputValue}"
+                                label="#{bindings.txtToCOAHierarchyPath.hints.label}"
+                                required="#{bindings.txtToCOAHierarchyPath.hints.mandatory}"
+                                columns="#{bindings.txtToCOAHierarchyPath.hints.displayWidth}"
+                                maximumLength="#{bindings.txtToCOAHierarchyPath.hints.precision}"
+                                shortDesc="#{bindings.txtToCOAHierarchyPath.hints.tooltip}" id="it48" rendered="false">
+                    <f:validator binding="#{bindings.txtToCOAHierarchyPath.validator}"/>
+                  </af:inputText>
+                  <af:inputText value="#{bindings.txtToCOAID.inputValue}" label="#{bindings.txtToCOAID.hints.label}"
+                                required="#{bindings.txtToCOAID.hints.mandatory}"
+                                columns="#{bindings.txtToCOAID.hints.displayWidth}"
+                                maximumLength="#{bindings.txtToCOAID.hints.precision}"
+                                shortDesc="#{bindings.txtToCOAID.hints.tooltip}" id="it47" rendered="false">
+                    <f:validator binding="#{bindings.txtToCOAID.validator}"/>
+                    <af:convertNumber groupingUsed="false" pattern="#{bindings.txtToCOAID.format}"/>
+                  </af:inputText>
+                  <af:inputText value="#{bindings.txtToCOALevel.inputValue}"
+                                label="#{bindings.txtToCOALevel.hints.label}"
+                                required="#{bindings.txtToCOALevel.hints.mandatory}"
+                                columns="#{bindings.txtToCOALevel.hints.displayWidth}"
+                                maximumLength="#{bindings.txtToCOALevel.hints.precision}"
+                                shortDesc="#{bindings.txtToCOALevel.hints.tooltip}" id="it49" rendered="false">
+                    <f:validator binding="#{bindings.txtToCOALevel.validator}"/>
+                    <af:convertNumber groupingUsed="false" pattern="#{bindings.txtToCOALevel.format}"/>
+                  </af:inputText>
+                  <af:inputText value="#{bindings.txtToCOAHierarchyPath.inputValue}"
+                                label="#{bindings.txtToCOAHierarchyPath.hints.label}"
+                                required="#{bindings.txtToCOAHierarchyPath.hints.mandatory}"
+                                columns="#{bindings.txtToCOAHierarchyPath.hints.displayWidth}"
+                                maximumLength="#{bindings.txtToCOAHierarchyPath.hints.precision}"
+                                shortDesc="#{bindings.txtToCOAHierarchyPath.hints.tooltip}" id="it46" rendered="false">
+                    <f:validator binding="#{bindings.txtToCOAHierarchyPath.validator}"/>
+                  </af:inputText>
+                  <af:inputText value="#{bindings.txtFromCOALevel.inputValue}"
+                                label="#{bindings.txtFromCOALevel.hints.label}"
+                                required="#{bindings.txtFromCOALevel.hints.mandatory}"
+                                columns="#{bindings.txtFromCOALevel.hints.displayWidth}"
+                                maximumLength="#{bindings.txtFromCOALevel.hints.precision}"
+                                shortDesc="#{bindings.txtFromCOALevel.hints.tooltip}" id="it45" rendered="false">
+                    <f:validator binding="#{bindings.txtFromCOALevel.validator}"/>
+                    <af:convertNumber groupingUsed="false" pattern="#{bindings.txtFromCOALevel.format}"/>
+                  </af:inputText>
+                  <af:inputText value="#{bindings.txtFromCOAHierarchyPath.inputValue}"
+                                label="#{bindings.txtFromCOAHierarchyPath.hints.label}"
+                                required="#{bindings.txtFromCOAHierarchyPath.hints.mandatory}"
+                                columns="#{bindings.txtFromCOAHierarchyPath.hints.displayWidth}"
+                                maximumLength="#{bindings.txtFromCOAHierarchyPath.hints.precision}"
+                                shortDesc="#{bindings.txtFromCOAHierarchyPath.hints.tooltip}" id="it44"
+                                rendered="false">
+                    <f:validator binding="#{bindings.txtFromCOAHierarchyPath.validator}"/>
+                  </af:inputText>
+                  <af:inputText value="#{bindings.txtFromCOAID.inputValue}" label="#{bindings.txtFromCOAID.hints.label}"
+                                required="#{bindings.txtFromCOAID.hints.mandatory}"
+                                columns="#{bindings.txtFromCOAID.hints.displayWidth}"
+                                maximumLength="#{bindings.txtFromCOAID.hints.precision}"
+                                shortDesc="#{bindings.txtFromCOAID.hints.tooltip}" id="it43" rendered="false">
+                    <f:validator binding="#{bindings.txtFromCOAID.validator}"/>
+                    <af:convertNumber groupingUsed="false" pattern="#{bindings.txtFromCOAID.format}"/>
+                  </af:inputText>
+                  <af:inputText value="#{bindings.txtProjectId.inputValue}" label="#{bindings.txtProjectId.hints.label}"
+                                required="#{bindings.txtProjectId.hints.mandatory}"
+                                columns="#{bindings.txtProjectId.hints.displayWidth}"
+                                maximumLength="#{bindings.txtProjectId.hints.precision}"
+                                shortDesc="#{bindings.txtProjectId.hints.tooltip}" id="it16" rendered="false">
+                    <f:validator binding="#{bindings.txtProjectId.validator}"/>
+                    <af:convertNumber groupingUsed="false" pattern="#{bindings.txtProjectId.format}"/>
+                  </af:inputText>
+                  <af:inputText value="#{bindings.txtVoucherTypeID.inputValue}"
+                                label="#{bindings.txtVoucherTypeID.hints.label}"
+                                required="#{bindings.txtVoucherTypeID.hints.mandatory}"
+                                columns="#{bindings.txtVoucherTypeID.hints.displayWidth}"
+                                maximumLength="#{bindings.txtVoucherTypeID.hints.precision}"
+                                shortDesc="#{bindings.txtVoucherTypeID.hints.tooltip}" id="it21" partialTriggers="soc2"
+                                rendered="false">
+                    <f:validator binding="#{bindings.txtVoucherTypeID.validator}"/>
+                    <af:convertNumber groupingUsed="false" pattern="#{bindings.txtVoucherTypeID.format}"/>
+                  </af:inputText>
+                  <af:inputText value="#{bindings.txtBatchID.inputValue}" label="#{bindings.txtBatchID.hints.label}"
+                                required="#{bindings.txtBatchID.hints.mandatory}"
+                                columns="#{bindings.txtBatchID.hints.displayWidth}"
+                                maximumLength="#{bindings.txtBatchID.hints.precision}"
+                                shortDesc="#{bindings.txtBatchID.hints.tooltip}" id="it18" rendered="false">
+                    <f:validator binding="#{bindings.txtBatchID.validator}"/>
+                    <af:convertNumber groupingUsed="false" pattern="#{bindings.txtBatchID.format}"/>
+                  </af:inputText>
+                  <af:inputText value="#{bindings.txtFiscalYearSno.inputValue}"
+                                label="#{bindings.txtFiscalYearSno.hints.label}"
+                                required="#{bindings.txtFiscalYearSno.hints.mandatory}"
+                                columns="#{bindings.txtFiscalYearSno.hints.displayWidth}"
+                                maximumLength="#{bindings.txtFiscalYearSno.hints.precision}"
+                                shortDesc="#{bindings.txtFiscalYearSno.hints.tooltip}" id="it2" rendered="false">
+                    <f:validator binding="#{bindings.txtFiscalYearSno.validator}"/>
+                    <af:convertNumber groupingUsed="false" pattern="#{bindings.txtFiscalYearSno.format}"/>
+                  </af:inputText>
+                  <af:inputText value="#{bindings.txtPeriodID.inputValue}" label="#{bindings.txtPeriodID.hints.label}"
+                                required="#{bindings.txtPeriodID.hints.mandatory}"
+                                columns="#{bindings.txtPeriodID.hints.displayWidth}"
+                                maximumLength="#{bindings.txtPeriodID.hints.precision}"
+                                shortDesc="#{bindings.txtPeriodID.hints.tooltip}" id="it19" rendered="false">
+                    <f:validator binding="#{bindings.txtPeriodID.validator}"/>
+                    <af:convertNumber groupingUsed="false" pattern="#{bindings.txtPeriodID.format}"/>
+                  </af:inputText>
+                </af:panelFormLayout>
+              </af:panelGroupLayout>
+            </f:facet>
+          </af:decorativeBox>
+        </f:facet>
+        <f:facet name="ERPLeft"/>
+        <f:facet name="ERPToolbar">
+          <af:toolbar id="t1">
+            <af:link id="l2" icon="#{resource['images:imgExitForm.png']}" iconPosition="top"
+                     partialSubmit="true" action="ERPACTEXITFORM"/>
+            <af:link actionListener="#{bindings.Rollback.execute}" immediate="true" id="l1"
+                     icon="#{resource['images:imgUndo.png']}" iconPosition="top">
+              <af:resetActionListener/>
+              <af:setActionListener from="#{''}" to="#{bindings.txtActionName.inputValue}"/>
+            </af:link>
+          </af:toolbar>
+        </f:facet>
+      </af:pageTemplate>
+    </af:form>
+  </af:document>
+</f:view>

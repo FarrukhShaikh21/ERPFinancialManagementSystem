@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE ViewObject SYSTEM "jbo_03_01.dtd">
+<!---->
+<ViewObject
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="GlVoucherCategoryVO"
+  Version="12.1.3.10.47"
+  InheritPersonalization="merge"
+  SelectListFlags="1"
+  FromListFlags="1"
+  WhereFlags="1"
+  BindingStyle="JDBC"
+  CustomQuery="false"
+  SelectAllAttributes="false"
+  PageIterMode="Full">
+  <EntityUsage
+    Name="GlVoucherCategory"
+    Entity="erpfms.modelfms.fmseo.GlVoucherCategory"/>
+  <ViewAttribute
+    Name="VoucherCategorySno"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="VoucherCategorySno"
+    EntityUsage="GlVoucherCategory"
+    AliasName="VOUCHER_CATEGORY_SNO"/>
+  <ViewAttribute
+    Name="VoucherCategoryName"
+    PrecisionRule="true"
+    EntityAttrName="VoucherCategoryName"
+    EntityUsage="GlVoucherCategory"
+    AliasName="VOUCHER_CATEGORY_NAME"/>
+  <ViewAttribute
+    Name="CreatedBy"
+    PrecisionRule="true"
+    EntityAttrName="CreatedBy"
+    EntityUsage="GlVoucherCategory"
+    AliasName="CREATED_BY"/>
+  <ViewAttribute
+    Name="CreatedDate"
+    PrecisionRule="true"
+    EntityAttrName="CreatedDate"
+    EntityUsage="GlVoucherCategory"
+    AliasName="CREATED_DATE"/>
+  <ViewAttribute
+    Name="LastUpdatedBy"
+    PrecisionRule="true"
+    EntityAttrName="LastUpdatedBy"
+    EntityUsage="GlVoucherCategory"
+    AliasName="LAST_UPDATED_BY"/>
+  <ViewAttribute
+    Name="LastUpdatedDate"
+    PrecisionRule="true"
+    EntityAttrName="LastUpdatedDate"
+    EntityUsage="GlVoucherCategory"
+    AliasName="LAST_UPDATED_DATE"/>
+</ViewObject>

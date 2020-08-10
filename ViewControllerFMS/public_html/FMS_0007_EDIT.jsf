@@ -1,0 +1,162 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE html>
+<f:view xmlns:f="http://java.sun.com/jsf/core" xmlns:af="http://xmlns.oracle.com/adf/faces/rich">
+    <af:document title="FMS_0006_EDIT.jsf" id="d1">
+        <af:messages id="m1"/>
+        <af:form id="f1">
+            <af:decorativeBox id="db2" dimensionsFrom="parent">
+                <f:facet name="center">
+                    <af:decorativeBox id="db1" dimensionsFrom="parent">
+                        <f:facet name="center">
+                            <af:panelGridLayout id="pgl3" partialTriggers="l4">
+                                <af:gridRow marginTop="5px" height="auto" id="gr5">
+                                    <af:gridCell marginStart="5px" width="100%" marginEnd="5px" id="gc5">
+                                        <af:panelFormLayout id="pfl1" rows="1" maxColumns="4">
+                                            <af:inputText value="#{bindings.CompCode.inputValue}"
+                                                          label="#{bindings.CompCode.hints.label}"
+                                                          required="#{bindings.CompCode.hints.mandatory}"
+                                                          columns="#{bindings.CompCode.hints.displayWidth}"
+                                                          maximumLength="#{bindings.CompCode.hints.precision}"
+                                                          shortDesc="#{bindings.CompCode.hints.tooltip}" id="it1"
+                                                          rendered="false" readOnly="true">
+                                                <f:validator binding="#{bindings.CompCode.validator}"/>
+                                                <af:convertNumber groupingUsed="false"
+                                                                  pattern="#{bindings.CompCode.format}"/>
+                                            </af:inputText>
+                                            <af:inputText value="#{bindings.CompanyName.inputValue}"
+                                                          label="#{bindings.CompanyName.hints.label}"
+                                                          required="#{bindings.CompanyName.hints.mandatory}"
+                                                          columns="#{bindings.CompanyName.hints.displayWidth}"
+                                                          maximumLength="#{bindings.CompanyName.hints.precision}"
+                                                          shortDesc="#{bindings.CompanyName.hints.tooltip}" id="it2"
+                                                          readOnly="true">
+                                                <f:validator binding="#{bindings.CompanyName.validator}"/>
+                                            </af:inputText>
+                                            <af:inputText value="#{bindings.CompanyShortName.inputValue}"
+                                                          label="#{bindings.CompanyShortName.hints.label}"
+                                                          required="#{bindings.CompanyShortName.hints.mandatory}"
+                                                          columns="#{bindings.CompanyShortName.hints.displayWidth}"
+                                                          maximumLength="#{bindings.CompanyShortName.hints.precision}"
+                                                          shortDesc="#{bindings.CompanyShortName.hints.tooltip}"
+                                                          id="it3" readOnly="true">
+                                                <f:validator binding="#{bindings.CompanyShortName.validator}"/>
+                                            </af:inputText>
+                                            <af:inputText value="#{bindings.CompanyShortCode.inputValue}"
+                                                          label="#{bindings.CompanyShortCode.hints.label}"
+                                                          required="#{bindings.CompanyShortCode.hints.mandatory}"
+                                                          columns="#{bindings.CompanyShortCode.hints.displayWidth}"
+                                                          maximumLength="#{bindings.CompanyShortCode.hints.precision}"
+                                                          shortDesc="#{bindings.CompanyShortCode.hints.tooltip}"
+                                                          id="it4" readOnly="true">
+                                                <f:validator binding="#{bindings.CompanyShortCode.validator}"/>
+                                                <af:convertNumber groupingUsed="false"
+                                                                  pattern="#{bindings.CompanyShortCode.format}"/>
+                                            </af:inputText>
+                                            <af:inputComboboxListOfValues id="txtCountryNameId"
+                                                                          popupTitle="Search and Select: #{bindings.txtCountryName.hints.label}"
+                                                                          value="#{bindings.txtCountryName.inputValue}"
+                                                                          label="#{bindings.txtCountryName.hints.label}"
+                                                                          model="#{bindings.txtCountryName.listOfValuesModel}"
+                                                                          required="#{bindings.txtCountryName.hints.mandatory}"
+                                                                          columns="#{bindings.txtCountryName.hints.displayWidth}"
+                                                                          shortDesc="#{bindings.txtCountryName.hints.tooltip}"
+                                                                          readOnly="true">
+                                                <f:validator binding="#{bindings.txtCountryName.validator}"/>
+                                            </af:inputComboboxListOfValues>
+                                        </af:panelFormLayout>
+                                    </af:gridCell>
+                                </af:gridRow>
+                                <af:gridRow marginTop="5px" height="auto" marginBottom="5px" id="gr6">
+                                    <af:gridCell marginStart="5px" width="100%" marginEnd="5px" id="gc6"
+                                                 halign="stretch" valign="stretch">
+                                        <af:inputText value="#{bindings.VoucherTypeId.inputValue}"
+                                                      label="#{bindings.VoucherTypeId.hints.label}"
+                                                      required="#{bindings.VoucherTypeId.hints.mandatory}"
+                                                      columns="#{bindings.VoucherTypeId.hints.displayWidth}"
+                                                      maximumLength="#{bindings.VoucherTypeId.hints.precision}"
+                                                      shortDesc="#{bindings.VoucherTypeId.hints.tooltip}" id="it5"
+                                                      rendered="false">
+                                            <f:validator binding="#{bindings.VoucherTypeId.validator}"/>
+                                            <af:convertNumber groupingUsed="false"
+                                                              pattern="#{bindings.VoucherTypeId.format}"/>
+                                        </af:inputText>
+                                        <af:listView value="#{bindings.GlVoucherTypesUserAccessRO.collectionModel}"
+                                                     var="item"
+                                                     emptyText="#{bindings.GlVoucherTypesUserAccessRO.viewable ? 'No data to display.' : 'Access Denied.'}"
+                                                     fetchSize="#{bindings.GlVoucherTypesUserAccessRO.rangeSize}"
+                                                     id="lv1" selection="single" styleClass="WBDisplayBlockCenter"
+                                                     selectedRowKeys="#{bindings.GlVoucherTypesUserAccessRO.collectionModel.selectedRow}"
+                                                     selectionListener="#{bindings.GlVoucherTypesUserAccessRO.treeModel.makeCurrent}">
+                                            <af:listItem id="li1"
+                                                         styleClass="WBDisplayBlock WBDisplayBlockPadding WBDisplayBlockCenterUndo">
+                                                <af:panelGroupLayout id="pgl2" layout="vertical"
+                                                                     styleClass="WBCardSize">
+                                                    <af:panelGridLayout id="pgl1">
+                                                        <af:gridRow marginTop="5px" height="auto" id="gr1">
+                                                            <af:gridCell marginStart="5px" width="100%" marginEnd="5px"
+                                                                         id="gc1"
+                                                                         styleClass="AFStretchWidth ERPHeroBackground">
+                                                                <af:panelGroupLayout id="pgl6" layout="horizontal">
+                                                                    <af:link id="l1" partialSubmit="true"
+                                                                             action="DO-ACT-QUERY-FMS_0007_EDIT"
+                                                                             icon="#{resource['images:imgView.png']}"
+                                                                             styleClass="ERPHeroBannerFont ERPLink"/>
+                                                                    <af:outputFormatted value="#{item.bindings.VoucherTypeName.inputValue}"
+                                                                                        id="of3"
+                                                                                        styleClass="ERPHeroBannerFont"/>
+                                                                </af:panelGroupLayout>
+                                                            </af:gridCell>
+                                                        </af:gridRow>
+                                                        <af:gridRow marginTop="5px" height="auto" marginBottom="5px"
+                                                                    id="gr2">
+                                                            <af:gridCell marginStart="5px" width="100%" marginEnd="5px"
+                                                                         id="gc2">
+                                                                <af:panelGroupLayout id="pgl7" layout="horizontal">
+                                                                    <af:image source="#{resource['images:imgDocumentNumber.png']}"
+                                                                              id="i1"/>
+                                                                    <af:outputFormatted value="#{item.bindings.VoucherTypeCode.inputValue}"
+                                                                                        id="of2"
+                                                                                        styleClass="ERPHeroDetailColor"/>
+                                                                    <f:facet name="separator">
+                                                                        <af:spacer width="10" height="10" id="s2"/>
+                                                                    </f:facet>
+                                                                </af:panelGroupLayout>
+                                                            </af:gridCell>
+                                                        </af:gridRow>
+                                                    </af:panelGridLayout>
+                                                </af:panelGroupLayout>
+                                            </af:listItem>
+                                        </af:listView>
+                                    </af:gridCell>
+                                </af:gridRow>
+                            </af:panelGridLayout>
+                        </f:facet>
+                        <f:facet name="top">
+                            <af:panelGridLayout id="pgl4" dimensionsFrom="parent">
+                                <af:gridRow marginTop="5px" height="auto" marginBottom="5px" id="gr7">
+                                    <af:gridCell marginStart="5px" width="50%" id="gc7"/>
+                                    <af:gridCell marginStart="5px" width="50%" marginEnd="5px" id="gc8" halign="end">
+                                        <af:panelGroupLayout id="pgl5" layout="horizontal" halign="end">
+                                            <af:link id="l4" icon="#{resource['images:imgCloseDialog.png']}"
+                                                     action="#{pageFlowScope.OracleERPBean.doBackFromEdit}" text="Close" iconPosition="top"
+                                                     partialSubmit="true"/>
+                                            <f:facet name="separator">
+                                                <af:spacer width="10" height="10" id="s1"/>
+                                            </f:facet>
+                                        </af:panelGroupLayout>
+                                    </af:gridCell>
+                                </af:gridRow>
+                            </af:panelGridLayout>
+                        </f:facet>
+                    </af:decorativeBox>
+                </f:facet>
+                <f:facet name="top"/>
+            </af:decorativeBox>
+        </af:form>
+        <f:facet name="metaContainer">
+            <af:resource type="javascript" source="/resources/js/ERPFMSJavaScript.js"/>
+            <af:resource type="css" source="/resources/css/ERPFMSStyleSheet.css"/>
+            <af:resource type="javascript" source="http://code.jquery.com/jquery-1.10.2.js"/>
+        </f:facet>
+    </af:document>
+</f:view>

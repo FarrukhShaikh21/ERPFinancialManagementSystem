@@ -1,0 +1,249 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE ViewObject SYSTEM "jbo_03_01.dtd">
+<!---->
+<ViewObject
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="GlChartOfAccountsForFMSReportQVO"
+  Version="12.1.3.10.47"
+  InheritPersonalization="merge"
+  BindingStyle="JDBC"
+  CustomQuery="true"
+  PageIterMode="Full">
+  <DesignTime>
+    <Attr Name="_isExpertMode" Value="true"/>
+  </DesignTime>
+  <Properties>
+    <SchemaBasedProperties>
+      <LABEL
+        ResId="erpfms.modelfms.fmsqvo.GlChartOfAccountsForFMSReportQVO_LABEL"/>
+    </SchemaBasedProperties>
+  </Properties>
+  <Variable
+    Name="P_ADF_COMPANY_ID"
+    Kind="where"
+    Type="java.lang.Integer">
+    <AttrArray Name="ExtendedDataInts">
+      <Item Value="1"/>
+      <Item Value="2"/>
+      <Item Value="6"/>
+    </AttrArray>
+    <Properties>
+      <SchemaBasedProperties>
+        <DISPLAYHINT
+          Value="Hide"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </Variable>
+  <Variable
+    Name="P_ADF_GLOBAL_COMPANY_ID"
+    Kind="where"
+    Type="java.lang.Integer">
+    <AttrArray Name="ExtendedDataInts">
+      <Item Value="0"/>
+      <Item Value="5"/>
+    </AttrArray>
+    <Properties>
+      <SchemaBasedProperties>
+        <DISPLAYHINT
+          Value="Hide"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </Variable>
+  <Variable
+    Name="P_ADF_USER_ID"
+    Kind="where"
+    Type="java.lang.Integer">
+    <AttrArray Name="ExtendedDataInts">
+      <Item Value="3"/>
+      <Item Value="4"/>
+      <Item Value="7"/>
+    </AttrArray>
+    <Properties>
+      <SchemaBasedProperties>
+        <DISPLAYHINT
+          Value="Hide"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </Variable>
+  <SQLQuery><![CDATA[select  coa.chart_of_account_id,     
+		coa.chart_of_account_code,     
+		coa.description,     
+        coa.parent_chart_of_account_id,     
+        coa.level_no  , 
+        coa.coa_hierarchy_path 
+from  gl_chart_of_accounts coa     
+where coa.is_active='Y'   
+and   coa.global_company_id=?/*0*/ 
+and  (coa.company_id=? /*1*/   or ?=-1/*2*/  )  
+and    1 = (select  count(coau.coa_user_company_sno)  
+			from    gl_coa_user_company coau      
+             where 	coau.is_active='Y'     
+             and  	coau.user_id=? /*3*/    
+             and  	coau.global_company_id=coau.global_company_id     
+			) 
+and  exists (select ''     
+         from   gl_coa_user_company coau     
+             where  coau.is_active='Y'    
+             and  coau.user_id=?  /*4*/  
+             and  coau.company_id=coa.company_id 
+             )               
+union all     
+select  coa.chart_of_account_id,     
+		coa.chart_of_account_code,     
+		coa.description,     
+        coa.parent_chart_of_account_id,     
+        coa.level_no  , 
+        coa.coa_hierarchy_path 
+from  gl_chart_of_accounts coa    
+where coa.is_active='Y'     
+and   coa.global_company_id=? /*5*/    
+and   coa.company_id=?/*6*/     
+and   1 < (select count(coau.coa_user_company_sno)      
+          from   gl_coa_user_company coau      
+              where  coau.is_active='Y'     
+              and coa.global_company_id=coau.global_company_id     
+              and coau.user_id=?/*7*/    
+		  )]]></SQLQuery>
+  <ViewAttribute
+    Name="ChartOfAccountId"
+    IsUpdateable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Type="java.lang.Integer"
+    ColumnType="INTEGER"
+    AliasName="chart_of_account_id"
+    Expression="chart_of_account_id"
+    SQLType="NUMERIC">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="11"/>
+    </DesignTime>
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="erpfms.modelfms.fmsqvo.GlChartOfAccountsForFMSReportQVO.ChartOfAccountId_LABEL"/>
+        <DISPLAYWIDTH
+          Value="20"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="ChartOfAccountCode"
+    IsUpdateable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Precision="50"
+    Type="java.lang.String"
+    ColumnType="VARCHAR"
+    AliasName="chart_of_account_code"
+    Expression="chart_of_account_code"
+    SQLType="VARCHAR">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="50"/>
+    </DesignTime>
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="erpfms.modelfms.fmsqvo.GlChartOfAccountsForFMSReportQVO.ChartOfAccountCode_LABEL"/>
+        <DISPLAYWIDTH
+          Value="20"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="Description"
+    IsUpdateable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Precision="200"
+    Type="java.lang.String"
+    ColumnType="VARCHAR"
+    AliasName="description"
+    Expression="description"
+    SQLType="VARCHAR">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="200"/>
+    </DesignTime>
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="erpfms.modelfms.fmsqvo.GlChartOfAccountsForFMSReportQVO.Description_LABEL"/>
+        <DISPLAYWIDTH
+          Value="20"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="ParentChartOfAccountId"
+    IsUpdateable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Type="java.lang.Integer"
+    ColumnType="INT"
+    AliasName="parent_chart_of_account_id"
+    Expression="parent_chart_of_account_id"
+    SQLType="NUMERIC">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="11"/>
+    </DesignTime>
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="erpfms.modelfms.fmsqvo.GlChartOfAccountsForFMSReportQVO.ParentChartOfAccountId_LABEL"/>
+        <DISPLAYWIDTH
+          Value="20"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="LevelNo"
+    IsUpdateable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Type="java.lang.Integer"
+    ColumnType="INT"
+    AliasName="level_no"
+    Expression="level_no"
+    SQLType="NUMERIC">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="11"/>
+    </DesignTime>
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="erpfms.modelfms.fmsqvo.GlChartOfAccountsForFMSReportQVO.LevelNo_LABEL"/>
+        <DISPLAYWIDTH
+          Value="20"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="CoaHierarchyPath"
+    IsUpdateable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Precision="200"
+    Type="java.lang.String"
+    ColumnType="VARCHAR"
+    AliasName="coa_hierarchy_path"
+    Expression="coa_hierarchy_path"
+    SQLType="VARCHAR">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="200"/>
+    </DesignTime>
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="erpfms.modelfms.fmsqvo.GlChartOfAccountsForFMSReportQVO.CoaHierarchyPath_LABEL"/>
+        <DISPLAYWIDTH
+          Value="20"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <AttrArray Name="KeyAttributes">
+    <Item Value="ChartOfAccountId"/>
+  </AttrArray>
+  <ResourceBundle>
+    <PropertiesBundle
+      PropertiesFile="erpfms.modelfms.ModelFMSBundle"/>
+  </ResourceBundle>
+</ViewObject>

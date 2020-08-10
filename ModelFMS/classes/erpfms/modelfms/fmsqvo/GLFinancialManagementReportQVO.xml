@@ -1,0 +1,4346 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE ViewObject SYSTEM "jbo_03_01.dtd">
+<!---->
+<ViewObject
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="GLFinancialManagementReportQVO"
+  Version="12.1.3.10.47"
+  InheritPersonalization="merge"
+  BindingStyle="OracleName"
+  CustomQuery="true"
+  PageIterMode="Full"
+  RowClass="erpfms.modelfms.fmsqvo.GLFinancialManagementReportQVORowImpl">
+  <DesignTime>
+    <Attr Name="_isExpertMode" Value="true"/>
+    <Attr Name="_codeGenFlag2" Value="Access"/>
+    <Attr Name="_isCodegen" Value="true"/>
+  </DesignTime>
+  <Properties>
+    <SchemaBasedProperties>
+      <LABEL
+        ResId="erpfms.modelfms.fmsqvo.GLFinancialManagementReportQVO_LABEL"/>
+    </SchemaBasedProperties>
+  </Properties>
+  <ViewAccessor
+    Name="AccSysModuleDetailVO"
+    ViewObjectName="erpadm.modeladm.admvo.SysModuleDetailVO"
+    RowLevelBinds="true"/>
+  <ViewAccessor
+    Name="AccERPVwSysUsersModuleReportQVO"
+    ViewObjectName="erpglobals.modelglobals.globalsqvo.ERPVwSysUsersModuleReportQVO"
+    RowLevelBinds="true">
+    <ParameterMap>
+      <PIMap Variable="P_ADF_MODULE_ID">
+        <TransientExpression><![CDATA["FMS"]]></TransientExpression>
+      </PIMap>
+      <PIMap Variable="P_ADF_USER_ID">
+        <TransientExpression><![CDATA[erpglobals.modelglobals.ERPGlobalPLSQLClass.doGetModelUserSno()]]></TransientExpression>
+      </PIMap>
+    </ParameterMap>
+  </ViewAccessor>
+  <ViewAccessor
+    Name="AccErpUserCompanyAccessQVO"
+    ViewObjectName="erpglobals.modelglobals.globalsqvo.ErpUserCompanyAccessQVO"
+    RowLevelBinds="true"/>
+  <ViewAccessor
+    Name="AccAdminCompanyVO"
+    ViewObjectName="erpadm.modeladm.admvo.AdminCompanyVO"
+    RowLevelBinds="true">
+    <ViewCriteriaUsage
+      Name="AdminCompanyByParentCompVC"
+      FullName="erpadm.modeladm.admvo.AdminCompanyVO.AdminCompanyByParentCompVC"/>
+    <ViewCriteriaUsage
+      Name="AdminCompanyCompanyAccessWiseVC"
+      FullName="erpadm.modeladm.admvo.AdminCompanyVO.AdminCompanyCompanyAccessWiseVC"/>
+    <ParameterMap>
+      <PIMap Variable="P_ADF_GLOBAL_COMPANY_CODE">
+        <TransientExpression><![CDATA[erpglobals.modelglobals.ERPGlobalPLSQLClass.doGetModelGlobalDefCompany()]]></TransientExpression>
+      </PIMap>
+      <PIMap Variable="P_ADF_PARENT_COMP_CODE">
+        <TransientExpression><![CDATA[txtParentForLastLevel==null?-1:txtParentForLastLevel]]></TransientExpression>
+      </PIMap>
+    </ParameterMap>
+  </ViewAccessor>
+  <ViewAccessor
+    Name="AccAdminCompanyDepartAccessVO"
+    ViewObjectName="erpadm.modeladm.admvo.AdminCompanyVO"
+    RowLevelBinds="true">
+    <ViewCriteriaUsage
+      Name="AdminCompanyByParentForCategoryVC"
+      FullName="erpadm.modeladm.admvo.AdminCompanyVO.AdminCompanyByParentForCategoryVC"/>
+    <ParameterMap>
+      <PIMap Variable="P_ADF_GLOBAL_COMPANY_CODE">
+        <TransientExpression
+          trustMode="untrusted"><![CDATA[erpglobals.modelglobals.ERPGlobalPLSQLClass.doGetModelUserSno()]]></TransientExpression>
+      </PIMap>
+      <PIMap Variable="P_ADF_PARENT_COMP_CODE">
+        <TransientExpression
+          trustMode="untrusted"><![CDATA[txtParentDepartForLastLevel==null?-1:txtParentDepartForLastLevel]]></TransientExpression>
+      </PIMap>
+    </ParameterMap>
+  </ViewAccessor>
+  <ViewAccessor
+    Name="AccAdminCompanyTypeLevelVO"
+    ViewObjectName="erpadm.modeladm.admvo.AdminCompanyTypeVO"
+    RowLevelBinds="true">
+    <ViewCriteriaUsage
+      Name="AdminCompanyTypeByCompanyGroupVC"
+      FullName="erpadm.modeladm.admvo.AdminCompanyTypeVO.AdminCompanyTypeByCompanyGroupVC"/>
+    <ViewCriteriaUsage
+      Name="AdminCompanyTypeCompanyWiseVC"
+      FullName="erpadm.modeladm.admvo.AdminCompanyTypeVO.AdminCompanyTypeCompanyWiseVC"/>
+    <ParameterMap>
+      <PIMap Variable="P_ADF_GLOBAL_COMPANY_ID">
+        <TransientExpression
+          trustMode="untrusted"><![CDATA[erpglobals.modelglobals.ERPGlobalPLSQLClass.doGetModelGlobalDefCompany()]]></TransientExpression>
+      </PIMap>
+      <PIMap Variable="P_ADF_COMPANY_GROUP_SNO">
+        <TransientExpression
+          trustMode="untrusted"><![CDATA[5]]></TransientExpression>
+      </PIMap>
+    </ParameterMap>
+  </ViewAccessor>
+  <ViewAccessor
+    Name="AccAdminCompanyByTypeVO"
+    ViewObjectName="erpadm.modeladm.admvo.AdminCompanyVO"
+    RowLevelBinds="true">
+    <ViewCriteriaUsage
+      Name="AdminCompanyVOByCompanyTypeVC"
+      FullName="erpadm.modeladm.admvo.AdminCompanyVO.AdminCompanyVOByCompanyTypeVC"/>
+    <ParameterMap>
+      <PIMap Variable="P_ADF_COPMANY_TYPE_SNO">
+        <TransientExpression><![CDATA[txtCompanyTypeID==null?-1:txtCompanyTypeID]]></TransientExpression>
+      </PIMap>
+    </ParameterMap>
+  </ViewAccessor>
+  <ViewAccessor
+    Name="AccAdminCompanyLevelOne"
+    ViewObjectName="erpadm.modeladm.admvo.AdminCompanyVO"
+    RowLevelBinds="true">
+    <ViewCriteriaUsage
+      Name="AdminCompanyByCompanyTypeLevelVC"
+      FullName="erpadm.modeladm.admvo.AdminCompanyVO.AdminCompanyByCompanyTypeLevelVC"/>
+    <ViewCriteriaUsage
+      Name="AdminCompanyByGlobalCompanyVC"
+      FullName="erpadm.modeladm.admvo.AdminCompanyVO.AdminCompanyByGlobalCompanyVC"/>
+    <ParameterMap>
+      <PIMap Variable="P_ADF_GLOBAL_COMPANY_CODE">
+        <TransientExpression><![CDATA[erpglobals.modelglobals.ERPGlobalPLSQLClass.doGetModelGlobalDefCompany()]]></TransientExpression>
+      </PIMap>
+      <PIMap Variable="P_ADF_TYPE_LEVEL">
+        <TransientExpression><![CDATA[1]]></TransientExpression>
+      </PIMap>
+    </ParameterMap>
+  </ViewAccessor>
+  <ViewAccessor
+    Name="AccAdminCompanyLevelTwo"
+    ViewObjectName="erpadm.modeladm.admvo.AdminCompanyVO"
+    RowLevelBinds="true">
+    <ViewCriteriaUsage
+      Name="AdminCompanyByCompanyGroupVC"
+      FullName="erpadm.modeladm.admvo.AdminCompanyVO.AdminCompanyByCompanyGroupVC"/>
+    <ViewCriteriaUsage
+      Name="AdminCompanyByParentForCategoryVC"
+      FullName="erpadm.modeladm.admvo.AdminCompanyVO.AdminCompanyByParentForCategoryVC"/>
+    <ParameterMap>
+      <PIMap Variable="P_ADF_GLOBAL_COMPANY_CODE">
+        <TransientExpression><![CDATA[erpglobals.modelglobals.ERPGlobalPLSQLClass.doGetModelGlobalDefCompany()]]></TransientExpression>
+      </PIMap>
+      <PIMap Variable="P_ADF_PARENT_COMP_CODE">
+        <TransientExpression><![CDATA[txtLevelOneCompanyID==null?-1:txtLevelOneCompanyID]]></TransientExpression>
+      </PIMap>
+      <PIMap Variable="P_ADF_COMPANY_GROUP_SNO">
+        <TransientExpression><![CDATA[5]]></TransientExpression>
+      </PIMap>
+    </ParameterMap>
+  </ViewAccessor>
+  <ViewAccessor
+    Name="AccAdminCompanyLevelThree"
+    ViewObjectName="erpadm.modeladm.admvo.AdminCompanyVO"
+    RowLevelBinds="true">
+    <ViewCriteriaUsage
+      Name="AdminCompanyByCompanyGroupVC"
+      FullName="erpadm.modeladm.admvo.AdminCompanyVO.AdminCompanyByCompanyGroupVC"/>
+    <ViewCriteriaUsage
+      Name="AdminCompanyByParentForCategoryVC"
+      FullName="erpadm.modeladm.admvo.AdminCompanyVO.AdminCompanyByParentForCategoryVC"/>
+    <ParameterMap>
+      <PIMap Variable="P_ADF_GLOBAL_COMPANY_CODE">
+        <TransientExpression><![CDATA[erpglobals.modelglobals.ERPGlobalPLSQLClass.doGetModelGlobalDefCompany()]]></TransientExpression>
+      </PIMap>
+      <PIMap Variable="P_ADF_PARENT_COMP_CODE">
+        <TransientExpression><![CDATA[txtLevelTwoCompanyID==null?-1:txtLevelTwoCompanyID]]></TransientExpression>
+      </PIMap>
+      <PIMap Variable="P_ADF_COMPANY_GROUP_SNO">
+        <TransientExpression><![CDATA[5]]></TransientExpression>
+      </PIMap>
+    </ParameterMap>
+  </ViewAccessor>
+  <ViewAccessor
+    Name="AccAdminCompanyLevelFour"
+    ViewObjectName="erpadm.modeladm.admvo.AdminCompanyVO"
+    RowLevelBinds="true">
+    <ViewCriteriaUsage
+      Name="AdminCompanyByCompanyGroupVC"
+      FullName="erpadm.modeladm.admvo.AdminCompanyVO.AdminCompanyByCompanyGroupVC"/>
+    <ViewCriteriaUsage
+      Name="AdminCompanyByParentForCategoryVC"
+      FullName="erpadm.modeladm.admvo.AdminCompanyVO.AdminCompanyByParentForCategoryVC"/>
+    <ParameterMap>
+      <PIMap Variable="P_ADF_GLOBAL_COMPANY_CODE">
+        <TransientExpression><![CDATA[erpglobals.modelglobals.ERPGlobalPLSQLClass.doGetModelGlobalDefCompany()]]></TransientExpression>
+      </PIMap>
+      <PIMap Variable="P_ADF_PARENT_COMP_CODE">
+        <TransientExpression><![CDATA[txtLevelThreeCompanyID==null?-1:txtLevelThreeCompanyID]]></TransientExpression>
+      </PIMap>
+      <PIMap Variable="P_ADF_COMPANY_GROUP_SNO">
+        <TransientExpression><![CDATA[5]]></TransientExpression>
+      </PIMap>
+    </ParameterMap>
+  </ViewAccessor>
+  <ViewAccessor
+    Name="AccAdminCompanyLevelFive"
+    ViewObjectName="erpadm.modeladm.admvo.AdminCompanyVO"
+    RowLevelBinds="true">
+    <ViewCriteriaUsage
+      Name="AdminCompanyByCompanyGroupVC"
+      FullName="erpadm.modeladm.admvo.AdminCompanyVO.AdminCompanyByCompanyGroupVC"/>
+    <ViewCriteriaUsage
+      Name="AdminCompanyByParentForCategoryVC"
+      FullName="erpadm.modeladm.admvo.AdminCompanyVO.AdminCompanyByParentForCategoryVC"/>
+    <ParameterMap>
+      <PIMap Variable="P_ADF_GLOBAL_COMPANY_CODE">
+        <TransientExpression><![CDATA[erpglobals.modelglobals.ERPGlobalPLSQLClass.doGetModelGlobalDefCompany()]]></TransientExpression>
+      </PIMap>
+      <PIMap Variable="P_ADF_PARENT_COMP_CODE">
+        <TransientExpression><![CDATA[txtLevelFourCompanyID==null?-1:txtLevelFourCompanyID]]></TransientExpression>
+      </PIMap>
+      <PIMap Variable="P_ADF_COMPANY_GROUP_SNO">
+        <TransientExpression><![CDATA[5]]></TransientExpression>
+      </PIMap>
+    </ParameterMap>
+  </ViewAccessor>
+  <ViewAccessor
+    Name="AccAdminCompanyLevelSix"
+    ViewObjectName="erpadm.modeladm.admvo.AdminCompanyVO"
+    RowLevelBinds="true">
+    <ViewCriteriaUsage
+      Name="AdminCompanyByCompanyGroupVC"
+      FullName="erpadm.modeladm.admvo.AdminCompanyVO.AdminCompanyByCompanyGroupVC"/>
+    <ViewCriteriaUsage
+      Name="AdminCompanyByParentForCategoryVC"
+      FullName="erpadm.modeladm.admvo.AdminCompanyVO.AdminCompanyByParentForCategoryVC"/>
+    <ParameterMap>
+      <PIMap Variable="P_ADF_GLOBAL_COMPANY_CODE">
+        <TransientExpression><![CDATA[erpglobals.modelglobals.ERPGlobalPLSQLClass.doGetModelGlobalDefCompany()]]></TransientExpression>
+      </PIMap>
+      <PIMap Variable="P_ADF_PARENT_COMP_CODE">
+        <TransientExpression><![CDATA[txtLevelFiveCompanyID==null?-1:txtLevelFiveCompanyID]]></TransientExpression>
+      </PIMap>
+      <PIMap Variable="P_ADF_COMPANY_GROUP_SNO">
+        <TransientExpression><![CDATA[5]]></TransientExpression>
+      </PIMap>
+    </ParameterMap>
+  </ViewAccessor>
+  <ViewAccessor
+    Name="AccAdminCompanyLevelSeven"
+    ViewObjectName="erpadm.modeladm.admvo.AdminCompanyVO"
+    RowLevelBinds="true">
+    <ViewCriteriaUsage
+      Name="AdminCompanyByCompanyGroupVC"
+      FullName="erpadm.modeladm.admvo.AdminCompanyVO.AdminCompanyByCompanyGroupVC"/>
+    <ViewCriteriaUsage
+      Name="AdminCompanyByParentForCategoryVC"
+      FullName="erpadm.modeladm.admvo.AdminCompanyVO.AdminCompanyByParentForCategoryVC"/>
+    <ParameterMap>
+      <PIMap Variable="P_ADF_GLOBAL_COMPANY_CODE">
+        <TransientExpression><![CDATA[erpglobals.modelglobals.ERPGlobalPLSQLClass.doGetModelGlobalDefCompany()]]></TransientExpression>
+      </PIMap>
+      <PIMap Variable="P_ADF_PARENT_COMP_CODE">
+        <TransientExpression><![CDATA[txtLevelSixCompanyID==null?-1:txtLevelSixCompanyID]]></TransientExpression>
+      </PIMap>
+      <PIMap Variable="P_ADF_COMPANY_GROUP_SNO">
+        <TransientExpression><![CDATA[5]]></TransientExpression>
+      </PIMap>
+    </ParameterMap>
+  </ViewAccessor>
+  <ViewAccessor
+    Name="AccAdminCompanyLevelEight"
+    ViewObjectName="erpadm.modeladm.admvo.AdminCompanyVO"
+    RowLevelBinds="true">
+    <ViewCriteriaUsage
+      Name="AdminCompanyByCompanyGroupVC"
+      FullName="erpadm.modeladm.admvo.AdminCompanyVO.AdminCompanyByCompanyGroupVC"/>
+    <ViewCriteriaUsage
+      Name="AdminCompanyByParentForCategoryVC"
+      FullName="erpadm.modeladm.admvo.AdminCompanyVO.AdminCompanyByParentForCategoryVC"/>
+    <ParameterMap>
+      <PIMap Variable="P_ADF_GLOBAL_COMPANY_CODE">
+        <TransientExpression><![CDATA[erpglobals.modelglobals.ERPGlobalPLSQLClass.doGetModelGlobalDefCompany()]]></TransientExpression>
+      </PIMap>
+      <PIMap Variable="P_ADF_PARENT_COMP_CODE">
+        <TransientExpression><![CDATA[txtLevelSevenCompanyID==null?-1:txtLevelSevenCompanyID]]></TransientExpression>
+      </PIMap>
+      <PIMap Variable="P_ADF_COMPANY_GROUP_SNO">
+        <TransientExpression><![CDATA[5]]></TransientExpression>
+      </PIMap>
+    </ParameterMap>
+  </ViewAccessor>
+  <ViewAccessor
+    Name="AccAdminCompanyLevelNine"
+    ViewObjectName="erpadm.modeladm.admvo.AdminCompanyVO"
+    RowLevelBinds="true">
+    <ViewCriteriaUsage
+      Name="AdminCompanyByCompanyGroupVC"
+      FullName="erpadm.modeladm.admvo.AdminCompanyVO.AdminCompanyByCompanyGroupVC"/>
+    <ViewCriteriaUsage
+      Name="AdminCompanyByParentForCategoryVC"
+      FullName="erpadm.modeladm.admvo.AdminCompanyVO.AdminCompanyByParentForCategoryVC"/>
+    <ParameterMap>
+      <PIMap Variable="P_ADF_GLOBAL_COMPANY_CODE">
+        <TransientExpression><![CDATA[erpglobals.modelglobals.ERPGlobalPLSQLClass.doGetModelGlobalDefCompany()]]></TransientExpression>
+      </PIMap>
+      <PIMap Variable="P_ADF_PARENT_COMP_CODE">
+        <TransientExpression><![CDATA[txtLevelEightCompanyID==null?-1:txtLevelEightCompanyID]]></TransientExpression>
+      </PIMap>
+      <PIMap Variable="P_ADF_COMPANY_GROUP_SNO">
+        <TransientExpression><![CDATA[5]]></TransientExpression>
+      </PIMap>
+    </ParameterMap>
+  </ViewAccessor>
+  <ViewAccessor
+    Name="AccAdminCompanyLevelTen"
+    ViewObjectName="erpadm.modeladm.admvo.AdminCompanyVO"
+    RowLevelBinds="true">
+    <ViewCriteriaUsage
+      Name="AdminCompanyByCompanyGroupVC"
+      FullName="erpadm.modeladm.admvo.AdminCompanyVO.AdminCompanyByCompanyGroupVC"/>
+    <ViewCriteriaUsage
+      Name="AdminCompanyByParentForCategoryVC"
+      FullName="erpadm.modeladm.admvo.AdminCompanyVO.AdminCompanyByParentForCategoryVC"/>
+    <ParameterMap>
+      <PIMap Variable="P_ADF_GLOBAL_COMPANY_CODE">
+        <TransientExpression><![CDATA[erpglobals.modelglobals.ERPGlobalPLSQLClass.doGetModelGlobalDefCompany()]]></TransientExpression>
+      </PIMap>
+      <PIMap Variable="P_ADF_PARENT_COMP_CODE">
+        <TransientExpression><![CDATA[txtLevelNineCompanyID==null?-1:txtLevelNineCompanyID]]></TransientExpression>
+      </PIMap>
+      <PIMap Variable="P_ADF_COMPANY_GROUP_SNO">
+        <TransientExpression><![CDATA[5]]></TransientExpression>
+      </PIMap>
+    </ParameterMap>
+  </ViewAccessor>
+  <ViewAccessor
+    Name="AccGlProjectsQVO"
+    ViewObjectName="erpfms.modelfms.fmsqvo.GlProjectsQVO"
+    RowLevelBinds="true">
+    <ParameterMap>
+      <PIMap Variable="P_ADF_COMPANY_ID">
+        <TransientExpression><![CDATA[txtCompanyID==null?-1:txtCompanyID]]></TransientExpression>
+      </PIMap>
+      <PIMap Variable="P_ADF_GLOBAL_COMPANY_ID">
+        <TransientExpression><![CDATA[erpglobals.modelglobals.ERPGlobalPLSQLClass.doGetModelGlobalDefCompany()]]></TransientExpression>
+      </PIMap>
+      <PIMap Variable="P_ADF_USER_ID">
+        <TransientExpression><![CDATA[erpglobals.modelglobals.ERPGlobalPLSQLClass.doGetModelUserSno()]]></TransientExpression>
+      </PIMap>
+    </ParameterMap>
+  </ViewAccessor>
+  <ViewAccessor
+    Name="AccSysSystemParameterVO"
+    ViewObjectName="erpadm.modeladm.admvo.SysSystemParameterVO"
+    RowLevelBinds="true">
+    <ViewCriteriaUsage
+      Name="SysSystemParameterByGlobalCompanyVC"
+      FullName="erpadm.modeladm.admvo.SysSystemParameterVO.SysSystemParameterByGlobalCompanyVC"/>
+    <ViewCriteriaUsage
+      Name="SysSystemParameterByParameterVC"
+      FullName="erpadm.modeladm.admvo.SysSystemParameterVO.SysSystemParameterByParameterVC"/>
+    <ParameterMap>
+      <PIMap Variable="P_ADF_GLOBAL_COMPANY_ID">
+        <TransientExpression><![CDATA[erpglobals.modelglobals.ERPGlobalPLSQLClass.doGetModelGlobalDefCompany()]]></TransientExpression>
+      </PIMap>
+      <PIMap Variable="P_ADF_PARAMETER_ID">
+        <TransientExpression><![CDATA["COMPANY_TYPE_SNO"]]></TransientExpression>
+      </PIMap>
+    </ParameterMap>
+  </ViewAccessor>
+  <ViewAccessor
+    Name="AccAdminCompanyForCopmanyVC"
+    ViewObjectName="erpadm.modeladm.admvo.AdminCompanyVO"
+    RowLevelBinds="true">
+    <ViewCriteriaUsage
+      Name="AdminCompanyByGlobalCompanyVC"
+      FullName="erpadm.modeladm.admvo.AdminCompanyVO.AdminCompanyByGlobalCompanyVC"/>
+    <ViewCriteriaUsage
+      Name="AdminCompanyVOByCompanyTypeVC"
+      FullName="erpadm.modeladm.admvo.AdminCompanyVO.AdminCompanyVOByCompanyTypeVC"/>
+    <ParameterMap>
+      <PIMap Variable="P_ADF_COPMANY_TYPE_SNO">
+        <TransientExpression><![CDATA[txtDefinedCompanyTypeSno==null?-1:txtDefinedCompanyTypeSno]]></TransientExpression>
+      </PIMap>
+      <PIMap Variable="P_ADF_GLOBAL_COMPANY_CODE">
+        <TransientExpression><![CDATA[erpglobals.modelglobals.ERPGlobalPLSQLClass.doGetModelGlobalDefCompany()]]></TransientExpression>
+      </PIMap>
+    </ParameterMap>
+  </ViewAccessor>
+  <ViewAccessor
+    Name="AccGlFiscalYearsQVO"
+    ViewObjectName="erpfms.modelfms.fmsqvo.GlFiscalYearsQVO"
+    RowLevelBinds="true">
+    <ParameterMap>
+      <PIMap Variable="P_ADF_COMPANY_ID">
+        <TransientExpression
+          trustMode="untrusted"><![CDATA[txtCompanyID==null?-1:txtCompanyID]]></TransientExpression>
+      </PIMap>
+    </ParameterMap>
+  </ViewAccessor>
+  <ViewAccessor
+    Name="AccGlPeriodsVO"
+    ViewObjectName="erpfms.modelfms.fmsvo.GlPeriodsVO"
+    RowLevelBinds="true">
+    <ViewCriteriaUsage
+      Name="GlPeriodsByFiscalYearVC"
+      FullName="erpfms.modelfms.fmsvo.GlPeriodsVO.GlPeriodsByFiscalYearVC"/>
+    <ParameterMap>
+      <PIMap Variable="P_ADF_FISCAL_YEAR_SNO">
+        <TransientExpression><![CDATA[txtFiscalYearSno==null?-1:txtFiscalYearSno]]></TransientExpression>
+      </PIMap>
+    </ParameterMap>
+  </ViewAccessor>
+  <ViewAccessor
+    Name="AccGlCoaUserCompanyVO"
+    ViewObjectName="erpfms.modelfms.fmsvo.GlCoaUserCompanyVO"
+    RowLevelBinds="true">
+    <ViewCriteriaUsage
+      Name="GlCoaUserCompanyActiveVC"
+      FullName="erpfms.modelfms.fmsvo.GlCoaUserCompanyVO.GlCoaUserCompanyActiveVC"/>
+    <ViewCriteriaUsage
+      Name="GlCoaUserCompanyByGlobalCompanyVC"
+      FullName="erpfms.modelfms.fmsvo.GlCoaUserCompanyVO.GlCoaUserCompanyByGlobalCompanyVC"/>
+    <ViewCriteriaUsage
+      Name="GlCoaUserCompanyByUserVC"
+      FullName="erpfms.modelfms.fmsvo.GlCoaUserCompanyVO.GlCoaUserCompanyByUserVC"/>
+    <ParameterMap>
+      <PIMap Variable="P_ADF_GLOBAL_COMPANY_ID">
+        <TransientExpression><![CDATA[erpglobals.modelglobals.ERPGlobalPLSQLClass.doGetModelGlobalDefCompany()]]></TransientExpression>
+      </PIMap>
+      <PIMap Variable="P_ADF_USER_ID">
+        <TransientExpression><![CDATA[erpglobals.modelglobals.ERPGlobalPLSQLClass.doGetModelUserSno()]]></TransientExpression>
+      </PIMap>
+    </ParameterMap>
+  </ViewAccessor>
+  <ViewAccessor
+    Name="AccGlBatchSetupQVO"
+    ViewObjectName="erpfms.modelfms.fmsqvo.GlBatchSetupQVO"
+    RowLevelBinds="true">
+    <ParameterMap>
+      <PIMap Variable="P_ADF_COMPANY_ID">
+        <TransientExpression><![CDATA[txtCompanyID==null?-1:txtCompanyID]]></TransientExpression>
+      </PIMap>
+      <PIMap Variable="P_ADF_GLOBAL_COMPANY_ID">
+        <TransientExpression
+          trustMode="untrusted"><![CDATA[erpglobals.modelglobals.ERPGlobalPLSQLClass.doGetModelGlobalDefCompany()]]></TransientExpression>
+      </PIMap>
+      <PIMap Variable="P_ADF_USER_ID">
+        <TransientExpression
+          trustMode="untrusted"><![CDATA[erpglobals.modelglobals.ERPGlobalPLSQLClass.doGetModelUserSno()]]></TransientExpression>
+      </PIMap>
+    </ParameterMap>
+  </ViewAccessor>
+  <ViewAccessor
+    Name="AccSysUserVoucherTypeByCompAccess"
+    ViewObjectName="erpfms.modelfms.fmsqvo.SysUserVoucherTypeByCompanyAccessQVO"
+    RowLevelBinds="true">
+    <ParameterMap>
+      <PIMap Variable="P_ADF_COMPANY_ID">
+        <TransientExpression
+          trustMode="untrusted"><![CDATA[txtCompanyID==null?-1:txtCompanyID]]></TransientExpression>
+      </PIMap>
+      <PIMap Variable="P_ADF_USER_ID">
+        <TransientExpression
+          trustMode="untrusted"><![CDATA[erpglobals.modelglobals.ERPGlobalPLSQLClass.doGetModelUserSno()]]></TransientExpression>
+      </PIMap>
+      <PIMap Variable="P_ADF_GLOBAL_COMPANY_ID">
+        <TransientExpression
+          trustMode="untrusted"><![CDATA[erpglobals.modelglobals.ERPGlobalPLSQLClass.doGetModelGlobalDefCompany()]]></TransientExpression>
+      </PIMap>
+    </ParameterMap>
+  </ViewAccessor>
+  <ViewAccessor
+    Name="AccAdminDepartmentLevelOne"
+    ViewObjectName="erpadm.modeladm.admvo.AdminCompanyVO"
+    RowLevelBinds="true">
+    <ViewCriteriaUsage
+      Name="AdminCompanyByCompanyTypeLevelVC"
+      FullName="erpadm.modeladm.admvo.AdminCompanyVO.AdminCompanyByCompanyTypeLevelVC"/>
+    <ViewCriteriaUsage
+      Name="AdminCompanyByGlobalCompanyVC"
+      FullName="erpadm.modeladm.admvo.AdminCompanyVO.AdminCompanyByGlobalCompanyVC"/>
+    <ParameterMap>
+      <PIMap Variable="P_ADF_GLOBAL_COMPANY_CODE">
+        <TransientExpression
+          trustMode="untrusted"><![CDATA[erpglobals.modelglobals.ERPGlobalPLSQLClass.doGetModelGlobalDefCompany()]]></TransientExpression>
+      </PIMap>
+      <PIMap Variable="P_ADF_TYPE_LEVEL">
+        <TransientExpression
+          trustMode="untrusted"><![CDATA[1]]></TransientExpression>
+      </PIMap>
+    </ParameterMap>
+  </ViewAccessor>
+  <ViewAccessor
+    Name="AccAdminDepartmentLevelTwo"
+    ViewObjectName="erpadm.modeladm.admvo.AdminCompanyVO"
+    RowLevelBinds="true">
+    <ViewCriteriaUsage
+      Name="AdminCompanyByCompanyGroupVC"
+      FullName="erpadm.modeladm.admvo.AdminCompanyVO.AdminCompanyByCompanyGroupVC"/>
+    <ViewCriteriaUsage
+      Name="AdminCompanyByParentForCategoryVC"
+      FullName="erpadm.modeladm.admvo.AdminCompanyVO.AdminCompanyByParentForCategoryVC"/>
+    <ParameterMap>
+      <PIMap Variable="P_ADF_GLOBAL_COMPANY_CODE">
+        <TransientExpression
+          trustMode="untrusted"><![CDATA[erpglobals.modelglobals.ERPGlobalPLSQLClass.doGetModelGlobalDefCompany()]]></TransientExpression>
+      </PIMap>
+      <PIMap Variable="P_ADF_PARENT_COMP_CODE">
+        <TransientExpression
+          trustMode="untrusted"><![CDATA[txtLevelOneDepartmentID==null?-1:txtLevelOneDepartmentID]]></TransientExpression>
+      </PIMap>
+      <PIMap Variable="P_ADF_COMPANY_GROUP_SNO">
+        <TransientExpression
+          trustMode="untrusted"><![CDATA[6]]></TransientExpression>
+      </PIMap>
+    </ParameterMap>
+  </ViewAccessor>
+  <ViewAccessor
+    Name="AccAdminDepartmentLevelThree"
+    ViewObjectName="erpadm.modeladm.admvo.AdminCompanyVO"
+    RowLevelBinds="true">
+    <ViewCriteriaUsage
+      Name="AdminCompanyByParentForCategoryVC"
+      FullName="erpadm.modeladm.admvo.AdminCompanyVO.AdminCompanyByParentForCategoryVC"/>
+    <ParameterMap>
+      <PIMap Variable="P_ADF_GLOBAL_COMPANY_CODE">
+        <TransientExpression
+          trustMode="untrusted"><![CDATA[erpglobals.modelglobals.ERPGlobalPLSQLClass.doGetModelGlobalDefCompany()]]></TransientExpression>
+      </PIMap>
+      <PIMap Variable="P_ADF_PARENT_COMP_CODE">
+        <TransientExpression
+          trustMode="untrusted"><![CDATA[txtLevelTwoDepartmentID==null?-1:txtLevelTwoDepartmentID]]></TransientExpression>
+      </PIMap>
+    </ParameterMap>
+  </ViewAccessor>
+  <ViewAccessor
+    Name="AccAdminDepartmentLevelFour"
+    ViewObjectName="erpadm.modeladm.admvo.AdminCompanyVO"
+    RowLevelBinds="true">
+    <ViewCriteriaUsage
+      Name="AdminCompanyByParentForCategoryVC"
+      FullName="erpadm.modeladm.admvo.AdminCompanyVO.AdminCompanyByParentForCategoryVC"/>
+    <ParameterMap>
+      <PIMap Variable="P_ADF_GLOBAL_COMPANY_CODE">
+        <TransientExpression
+          trustMode="untrusted"><![CDATA[erpglobals.modelglobals.ERPGlobalPLSQLClass.doGetModelGlobalDefCompany()]]></TransientExpression>
+      </PIMap>
+      <PIMap Variable="P_ADF_PARENT_COMP_CODE">
+        <TransientExpression
+          trustMode="untrusted"><![CDATA[txtLevelThreeDepartmentID==null?-1:txtLevelThreeDepartmentID]]></TransientExpression>
+      </PIMap>
+    </ParameterMap>
+  </ViewAccessor>
+  <ViewAccessor
+    Name="AccAdminDepartmentLevelFive"
+    ViewObjectName="erpadm.modeladm.admvo.AdminCompanyVO"
+    RowLevelBinds="true">
+    <ViewCriteriaUsage
+      Name="AdminCompanyByParentForCategoryVC"
+      FullName="erpadm.modeladm.admvo.AdminCompanyVO.AdminCompanyByParentForCategoryVC"/>
+    <ParameterMap>
+      <PIMap Variable="P_ADF_GLOBAL_COMPANY_CODE">
+        <TransientExpression
+          trustMode="untrusted"><![CDATA[erpglobals.modelglobals.ERPGlobalPLSQLClass.doGetModelGlobalDefCompany()]]></TransientExpression>
+      </PIMap>
+      <PIMap Variable="P_ADF_PARENT_COMP_CODE">
+        <TransientExpression
+          trustMode="untrusted"><![CDATA[txtLevelFourDepartmentID==null?-1:txtLevelFourDepartmentID]]></TransientExpression>
+      </PIMap>
+    </ParameterMap>
+  </ViewAccessor>
+  <ViewAccessor
+    Name="AccAdminDepartmentLevelSix"
+    ViewObjectName="erpadm.modeladm.admvo.AdminCompanyVO"
+    RowLevelBinds="true">
+    <ViewCriteriaUsage
+      Name="AdminCompanyByParentForCategoryVC"
+      FullName="erpadm.modeladm.admvo.AdminCompanyVO.AdminCompanyByParentForCategoryVC"/>
+    <ParameterMap>
+      <PIMap Variable="P_ADF_GLOBAL_COMPANY_CODE">
+        <TransientExpression
+          trustMode="untrusted"><![CDATA[erpglobals.modelglobals.ERPGlobalPLSQLClass.doGetModelGlobalDefCompany()]]></TransientExpression>
+      </PIMap>
+      <PIMap Variable="P_ADF_PARENT_COMP_CODE">
+        <TransientExpression
+          trustMode="untrusted"><![CDATA[txtLevelFiveDepartmentID==null?-1:txtLevelFiveDepartmentID]]></TransientExpression>
+      </PIMap>
+    </ParameterMap>
+  </ViewAccessor>
+  <ViewAccessor
+    Name="AccAdminDepartmentLevelSeven"
+    ViewObjectName="erpadm.modeladm.admvo.AdminCompanyVO"
+    RowLevelBinds="true">
+    <ViewCriteriaUsage
+      Name="AdminCompanyByParentForCategoryVC"
+      FullName="erpadm.modeladm.admvo.AdminCompanyVO.AdminCompanyByParentForCategoryVC"/>
+    <ParameterMap>
+      <PIMap Variable="P_ADF_GLOBAL_COMPANY_CODE">
+        <TransientExpression
+          trustMode="untrusted"><![CDATA[erpglobals.modelglobals.ERPGlobalPLSQLClass.doGetModelGlobalDefCompany()]]></TransientExpression>
+      </PIMap>
+      <PIMap Variable="P_ADF_PARENT_COMP_CODE">
+        <TransientExpression
+          trustMode="untrusted"><![CDATA[txtLevelSixDepartmentID==null?-1:txtLevelSixDepartmentID]]></TransientExpression>
+      </PIMap>
+    </ParameterMap>
+  </ViewAccessor>
+  <ViewAccessor
+    Name="AccAdminDepartmentLevelEight"
+    ViewObjectName="erpadm.modeladm.admvo.AdminCompanyVO"
+    RowLevelBinds="true">
+    <ViewCriteriaUsage
+      Name="AdminCompanyByParentForCategoryVC"
+      FullName="erpadm.modeladm.admvo.AdminCompanyVO.AdminCompanyByParentForCategoryVC"/>
+    <ParameterMap>
+      <PIMap Variable="P_ADF_GLOBAL_COMPANY_CODE">
+        <TransientExpression
+          trustMode="untrusted"><![CDATA[erpglobals.modelglobals.ERPGlobalPLSQLClass.doGetModelGlobalDefCompany()]]></TransientExpression>
+      </PIMap>
+      <PIMap Variable="P_ADF_PARENT_COMP_CODE">
+        <TransientExpression
+          trustMode="untrusted"><![CDATA[txtLevelSevenDepartmentID==null?-1:txtLevelSevenDepartmentID]]></TransientExpression>
+      </PIMap>
+    </ParameterMap>
+  </ViewAccessor>
+  <ViewAccessor
+    Name="AccAdminDepartmentLevelNine"
+    ViewObjectName="erpadm.modeladm.admvo.AdminCompanyVO"
+    RowLevelBinds="true">
+    <ViewCriteriaUsage
+      Name="AdminCompanyByParentForCategoryVC"
+      FullName="erpadm.modeladm.admvo.AdminCompanyVO.AdminCompanyByParentForCategoryVC"/>
+    <ParameterMap>
+      <PIMap Variable="P_ADF_GLOBAL_COMPANY_CODE">
+        <TransientExpression
+          trustMode="untrusted"><![CDATA[erpglobals.modelglobals.ERPGlobalPLSQLClass.doGetModelGlobalDefCompany()]]></TransientExpression>
+      </PIMap>
+      <PIMap Variable="P_ADF_PARENT_COMP_CODE">
+        <TransientExpression
+          trustMode="untrusted"><![CDATA[txtLevelEightDepartmentID==null?-1:txtLevelEightDepartmentID]]></TransientExpression>
+      </PIMap>
+    </ParameterMap>
+  </ViewAccessor>
+  <ViewAccessor
+    Name="AccAdminDepartmentLevelTen"
+    ViewObjectName="erpadm.modeladm.admvo.AdminCompanyVO"
+    RowLevelBinds="true">
+    <ViewCriteriaUsage
+      Name="AdminCompanyByParentForCategoryVC"
+      FullName="erpadm.modeladm.admvo.AdminCompanyVO.AdminCompanyByParentForCategoryVC"/>
+    <ParameterMap>
+      <PIMap Variable="P_ADF_GLOBAL_COMPANY_CODE">
+        <TransientExpression
+          trustMode="untrusted"><![CDATA[erpglobals.modelglobals.ERPGlobalPLSQLClass.doGetModelGlobalDefCompany()]]></TransientExpression>
+      </PIMap>
+      <PIMap Variable="P_ADF_PARENT_COMP_CODE">
+        <TransientExpression
+          trustMode="untrusted"><![CDATA[txtLevelNineDepartmentID==null?-1:txtLevelNineDepartmentID]]></TransientExpression>
+      </PIMap>
+    </ParameterMap>
+  </ViewAccessor>
+  <ViewAccessor
+    Name="AccAdminCompanyForHierarchy"
+    ViewObjectName="erpadm.modeladm.admvo.AdminCompanyVO"
+    RowLevelBinds="true">
+    <ViewCriteriaUsage
+      Name="AdminCompanyByCompCodeVC"
+      FullName="erpadm.modeladm.admvo.AdminCompanyVO.AdminCompanyByCompCodeVC"/>
+  </ViewAccessor>
+  <ViewAccessor
+    Name="AccAdminOrgCompanyTypeVO"
+    ViewObjectName="erpadm.modeladm.admvo.AdminCompanyTypeVO"
+    RowLevelBinds="true">
+    <ViewCriteriaUsage
+      Name="AdminCompanyTypeByCompanyGroupVC"
+      FullName="erpadm.modeladm.admvo.AdminCompanyTypeVO.AdminCompanyTypeByCompanyGroupVC"/>
+    <ViewCriteriaUsage
+      Name="AdminCompanyTypeCompanyWiseVC"
+      FullName="erpadm.modeladm.admvo.AdminCompanyTypeVO.AdminCompanyTypeCompanyWiseVC"/>
+    <ParameterMap>
+      <PIMap Variable="P_ADF_COMPANY_GROUP_SNO">
+        <TransientExpression
+          trustMode="untrusted"><![CDATA[6]]></TransientExpression>
+      </PIMap>
+      <PIMap Variable="P_ADF_GLOBAL_COMPANY_ID">
+        <TransientExpression
+          trustMode="untrusted"><![CDATA[erpglobals.modelglobals.ERPGlobalPLSQLClass.doGetModelGlobalDefCompany()]]></TransientExpression>
+      </PIMap>
+    </ParameterMap>
+  </ViewAccessor>
+  <ViewAccessor
+    Name="AccGlChartOfAccountsForFMSReportQVO"
+    ViewObjectName="erpfms.modelfms.fmsqvo.GlChartOfAccountsForFMSReportQVO"
+    RowLevelBinds="true">
+    <ParameterMap>
+      <PIMap Variable="P_ADF_COMPANY_ID">
+        <TransientExpression
+          trustMode="trusted"><![CDATA[txtCompanyID==null?-1:txtCompanyID]]></TransientExpression>
+      </PIMap>
+      <PIMap Variable="P_ADF_GLOBAL_COMPANY_ID">
+        <TransientExpression
+          trustMode="untrusted"><![CDATA[erpglobals.modelglobals.ERPGlobalPLSQLClass.doGetModelGlobalDefCompany()]]></TransientExpression>
+      </PIMap>
+      <PIMap Variable="P_ADF_USER_ID">
+        <TransientExpression
+          trustMode="trusted"><![CDATA[erpglobals.modelglobals.ERPGlobalPLSQLClass.doGetModelUserSno()]]></TransientExpression>
+      </PIMap>
+    </ParameterMap>
+  </ViewAccessor>
+  <ListBinding
+    Name="LovtxtLastLocationName"
+    ListVOName="AccAdminCompanyVO"
+    ListRangeSize="-1"
+    NullValueFlag="start"
+    NullValueId="${adfBundle['oracle.javatools.resourcebundle.SystemBundle']['NULL_VALUE_RESID']}"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="txtLocationName"/>
+    </AttrArray>
+    <AttrArray Name="AttrExpressions"/>
+    <AttrArray Name="DerivedAttrNames">
+      <Item Value="txtLocationId"/>
+      <Item Value="txtLocationTypeId"/>
+    </AttrArray>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="CompanyName"/>
+      <Item Value="CompCode"/>
+      <Item Value="CompanyTypeSno"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="CompanyName"/>
+      <Item Value="CompanyShortCode"/>
+      <Item Value="CompanyShortName"/>
+    </AttrArray>
+    <DisplayCriteria
+      Name="AdminCompanyFindVC"/>
+  </ListBinding>
+  <ListBinding
+    Name="LovtxtLevelOneCompanyName"
+    ListVOName="AccAdminCompanyLevelOne"
+    ListRangeSize="-1"
+    ComboRowCountHint="10"
+    NullValueFlag="none"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="txtLevelOneCompanyName"/>
+    </AttrArray>
+    <AttrArray Name="AttrExpressions"/>
+    <AttrArray Name="DerivedAttrNames">
+      <Item Value="txtLevelOneCompanyID"/>
+      <Item Value="txtLevelOneCompanyTypeID"/>
+      <Item Value="txtParentForLastLevel"/>
+    </AttrArray>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="CompanyName"/>
+      <Item Value="CompCode"/>
+      <Item Value="CompanyTypeSno"/>
+      <Item Value="CompCode"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="CompanyName"/>
+      <Item Value="CompanyShortCode"/>
+      <Item Value="CompanyShortName"/>
+    </AttrArray>
+    <DisplayCriteria
+      Name="AdminCompanyFindVC"/>
+  </ListBinding>
+  <ListBinding
+    Name="LovtxtLevelThreeCompanyName"
+    ListVOName="AccAdminCompanyLevelThree"
+    ListRangeSize="-1"
+    ComboRowCountHint="10"
+    NullValueFlag="none"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="txtLevelThreeCompanyName"/>
+    </AttrArray>
+    <AttrArray Name="AttrExpressions"/>
+    <AttrArray Name="DerivedAttrNames">
+      <Item Value="txtLevelThreeCompanyID"/>
+      <Item Value="txtParentForLastLevel"/>
+      <Item Value="txtLevelThreeCompanyTypeID"/>
+    </AttrArray>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="CompanyName"/>
+      <Item Value="CompCode"/>
+      <Item Value="CompCode"/>
+      <Item Value="CompanyTypeSno"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="CompanyName"/>
+      <Item Value="CompanyShortCode"/>
+      <Item Value="CompanyShortName"/>
+    </AttrArray>
+    <DisplayCriteria
+      Name="AdminCompanyFindVC"/>
+  </ListBinding>
+  <ListBinding
+    Name="LovtxtLevelFourCompanyName"
+    ListVOName="AccAdminCompanyLevelFour"
+    ListRangeSize="-1"
+    ComboRowCountHint="10"
+    NullValueFlag="none"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="txtLevelFourCompanyName"/>
+    </AttrArray>
+    <AttrArray Name="AttrExpressions"/>
+    <AttrArray Name="DerivedAttrNames">
+      <Item Value="txtLevelFourCompanyID"/>
+      <Item Value="txtParentForLastLevel"/>
+      <Item Value="txtLevelFourCompanyTypeID"/>
+    </AttrArray>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="CompanyName"/>
+      <Item Value="CompCode"/>
+      <Item Value="CompCode"/>
+      <Item Value="CompanyTypeSno"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="CompanyName"/>
+      <Item Value="CompanyShortCode"/>
+      <Item Value="CompanyShortName"/>
+    </AttrArray>
+    <DisplayCriteria
+      Name="AdminCompanyFindVC"/>
+  </ListBinding>
+  <ListBinding
+    Name="LovtxtLevelFiveCompanyName"
+    ListVOName="AccAdminCompanyLevelFive"
+    ListRangeSize="-1"
+    ComboRowCountHint="10"
+    NullValueFlag="none"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="txtLevelFiveCompanyName"/>
+    </AttrArray>
+    <AttrArray Name="AttrExpressions"/>
+    <AttrArray Name="DerivedAttrNames">
+      <Item Value="txtLevelFiveCompanyID"/>
+      <Item Value="txtParentForLastLevel"/>
+      <Item Value="txtLevelFiveCompanyTypeID"/>
+    </AttrArray>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="CompanyName"/>
+      <Item Value="CompCode"/>
+      <Item Value="CompCode"/>
+      <Item Value="CompanyTypeSno"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="CompanyName"/>
+      <Item Value="CompanyShortCode"/>
+      <Item Value="CompanyShortName"/>
+    </AttrArray>
+    <DisplayCriteria
+      Name="AdminCompanyFindVC"/>
+  </ListBinding>
+  <ListBinding
+    Name="LovtxtLevelSixCompanyName"
+    ListVOName="AccAdminCompanyLevelSix"
+    ListRangeSize="-1"
+    ComboRowCountHint="10"
+    NullValueFlag="none"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="txtLevelSixCompanyName"/>
+    </AttrArray>
+    <AttrArray Name="AttrExpressions"/>
+    <AttrArray Name="DerivedAttrNames">
+      <Item Value="txtLevelSixCompanyID"/>
+      <Item Value="txtParentForLastLevel"/>
+      <Item Value="txtLevelSixCompanyTypeID"/>
+    </AttrArray>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="CompanyName"/>
+      <Item Value="CompCode"/>
+      <Item Value="CompCode"/>
+      <Item Value="CompanyTypeSno"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="CompanyName"/>
+      <Item Value="CompanyShortCode"/>
+      <Item Value="CompanyShortName"/>
+    </AttrArray>
+    <DisplayCriteria
+      Name="AdminCompanyFindVC"/>
+  </ListBinding>
+  <ListBinding
+    Name="LovtxtLevelSevenCompanyName"
+    ListVOName="AccAdminCompanyLevelSeven"
+    ListRangeSize="-1"
+    ComboRowCountHint="10"
+    NullValueFlag="none"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="txtLevelSevenCompanyName"/>
+    </AttrArray>
+    <AttrArray Name="AttrExpressions"/>
+    <AttrArray Name="DerivedAttrNames">
+      <Item Value="txtLevelSevenCompanyID"/>
+      <Item Value="txtParentForLastLevel"/>
+      <Item Value="txtLevelSevenCompanyTypeID"/>
+    </AttrArray>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="CompanyName"/>
+      <Item Value="CompCode"/>
+      <Item Value="CompCode"/>
+      <Item Value="CompanyTypeSno"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="CompanyName"/>
+      <Item Value="CompanyShortCode"/>
+      <Item Value="CompanyShortName"/>
+    </AttrArray>
+    <DisplayCriteria
+      Name="AdminCompanyFindVC"/>
+  </ListBinding>
+  <ListBinding
+    Name="LovtxtLevelEightCompanyName"
+    ListVOName="AccAdminCompanyLevelEight"
+    ListRangeSize="-1"
+    ComboRowCountHint="10"
+    NullValueFlag="none"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="txtLevelEightCompanyName"/>
+    </AttrArray>
+    <AttrArray Name="AttrExpressions"/>
+    <AttrArray Name="DerivedAttrNames">
+      <Item Value="txtLevelEightCompanyID"/>
+      <Item Value="txtParentForLastLevel"/>
+      <Item Value="txtLevelEightCompanyTypeID"/>
+    </AttrArray>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="CompanyName"/>
+      <Item Value="CompCode"/>
+      <Item Value="CompCode"/>
+      <Item Value="CompanyTypeSno"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="CompanyName"/>
+      <Item Value="CompanyShortCode"/>
+      <Item Value="CompanyShortName"/>
+    </AttrArray>
+    <DisplayCriteria
+      Name="AdminCompanyFindVC"/>
+  </ListBinding>
+  <ListBinding
+    Name="LovtxtLevelNineCompanyName"
+    ListVOName="AccAdminCompanyLevelNine"
+    ListRangeSize="-1"
+    ComboRowCountHint="10"
+    NullValueFlag="none"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="txtLevelNineCompanyName"/>
+    </AttrArray>
+    <AttrArray Name="AttrExpressions"/>
+    <AttrArray Name="DerivedAttrNames">
+      <Item Value="txtLevelNineCompanyID"/>
+      <Item Value="txtParentForLastLevel"/>
+      <Item Value="txtLevelNineCompanyTypeID"/>
+    </AttrArray>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="CompanyName"/>
+      <Item Value="CompCode"/>
+      <Item Value="CompCode"/>
+      <Item Value="CompanyTypeSno"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="CompanyName"/>
+      <Item Value="CompanyShortCode"/>
+      <Item Value="CompanyShortName"/>
+    </AttrArray>
+    <DisplayCriteria
+      Name="AdminCompanyFindVC"/>
+  </ListBinding>
+  <ListBinding
+    Name="LovtxtLevelTenCompanyName"
+    ListVOName="AccAdminCompanyLevelTen"
+    ListRangeSize="-1"
+    ComboRowCountHint="10"
+    NullValueFlag="none"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="txtLevelTenCompanyName"/>
+    </AttrArray>
+    <AttrArray Name="AttrExpressions"/>
+    <AttrArray Name="DerivedAttrNames">
+      <Item Value="txtLevelTenCompanyID"/>
+      <Item Value="txtParentForLastLevel"/>
+      <Item Value="txtLevelTenCompanyTypeID"/>
+    </AttrArray>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="CompanyName"/>
+      <Item Value="CompCode"/>
+      <Item Value="CompCode"/>
+      <Item Value="CompanyTypeSno"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="CompanyName"/>
+      <Item Value="CompanyShortCode"/>
+      <Item Value="CompanyShortName"/>
+    </AttrArray>
+    <DisplayCriteria
+      Name="AdminCompanyFindVC"/>
+  </ListBinding>
+  <ListBinding
+    Name="LovtxtLevelTwoCompanyName"
+    ListVOName="AccAdminCompanyLevelTwo"
+    ListRangeSize="-1"
+    ComboRowCountHint="10"
+    NullValueFlag="none"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="txtLevelTwoCompanyName"/>
+    </AttrArray>
+    <AttrArray Name="AttrExpressions"/>
+    <AttrArray Name="DerivedAttrNames">
+      <Item Value="txtLevelTwoCompanyID"/>
+      <Item Value="txtParentForLastLevel"/>
+      <Item Value="txtLevelTwoCompanyTypeID"/>
+    </AttrArray>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="CompanyName"/>
+      <Item Value="CompCode"/>
+      <Item Value="CompCode"/>
+      <Item Value="CompanyTypeSno"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="CompanyName"/>
+      <Item Value="CompanyShortCode"/>
+      <Item Value="CompanyShortName"/>
+    </AttrArray>
+    <DisplayCriteria
+      Name="AdminCompanyFindVC"/>
+  </ListBinding>
+  <ListBinding
+    Name="LOV_txtProjectName"
+    ListVOName="AccGlProjectsQVO"
+    ListRangeSize="-1"
+    ComboRowCountHint="10"
+    NullValueFlag="none"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="txtProjectName"/>
+    </AttrArray>
+    <AttrArray Name="AttrExpressions"/>
+    <AttrArray Name="DerivedAttrNames">
+      <Item Value="txtProjectId"/>
+    </AttrArray>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="ProjectName"/>
+      <Item Value="ProjectSno"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="ProjectName"/>
+      <Item Value="ProjectCode"/>
+      <Item Value="ProjectShortName"/>
+    </AttrArray>
+    <DisplayCriteria/>
+  </ListBinding>
+  <ListBinding
+    Name="LovtxtCompanyID"
+    ListVOName="AccAdminCompanyForCopmanyVC"
+    ListRangeSize="-1"
+    NullValueFlag="none"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="txtCompanyID"/>
+    </AttrArray>
+    <AttrArray Name="AttrExpressions"/>
+    <AttrArray Name="DerivedAttrNames">
+      <Item Value="txtCompanyName"/>
+    </AttrArray>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="CompCode"/>
+      <Item Value="CompanyName"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="CompanyName"/>
+      <Item Value="CompanyShortCode"/>
+      <Item Value="CompanyShortName"/>
+    </AttrArray>
+    <DisplayCriteria/>
+  </ListBinding>
+  <ListBinding
+    Name="LovtxtFiscalYearName"
+    ListVOName="AccGlFiscalYearsQVO"
+    ListRangeSize="-1"
+    NullValueFlag="none"
+    MRUCount="0"
+    ComboRowCountHint="10">
+    <AttrArray Name="AttrNames">
+      <Item Value="txtFiscalYearName"/>
+    </AttrArray>
+    <AttrArray Name="AttrExpressions"/>
+    <AttrArray Name="DerivedAttrNames">
+      <Item Value="txtFiscalYearSno"/>
+    </AttrArray>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="YearDescription"/>
+      <Item Value="FiscalYearSno"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="YearDescription"/>
+      <Item Value="StartDate"/>
+      <Item Value="EndDate"/>
+    </AttrArray>
+    <DisplayCriteria/>
+  </ListBinding>
+  <ListBinding
+    Name="LovtxtPeriodName"
+    ListVOName="AccGlPeriodsVO"
+    ListRangeSize="-1"
+    ComboRowCountHint="10"
+    NullValueFlag="none"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="txtPeriodName"/>
+    </AttrArray>
+    <AttrArray Name="AttrExpressions"/>
+    <AttrArray Name="DerivedAttrNames">
+      <Item Value="txtPeriodID"/>
+    </AttrArray>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="PeriodName"/>
+      <Item Value="PeriodSno"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="PeriodName"/>
+      <Item Value="PeriodNo"/>
+      <Item Value="QuarterNo"/>
+    </AttrArray>
+    <DisplayCriteria
+      Name="GlPeriodsVOFindVC"/>
+  </ListBinding>
+  <ListBinding
+    Name="LovtxtBatchName"
+    ListVOName="AccGlBatchSetupQVO"
+    ListRangeSize="-1"
+    ComboRowCountHint="10"
+    NullValueFlag="none"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="txtBatchName"/>
+    </AttrArray>
+    <AttrArray Name="AttrExpressions"/>
+    <AttrArray Name="DerivedAttrNames">
+      <Item Value="txtBatchID"/>
+    </AttrArray>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="BatchDescription"/>
+      <Item Value="BatchId"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="BatchDescription"/>
+      <Item Value="BatchShortName"/>
+      <Item Value="BatchDate"/>
+    </AttrArray>
+    <DisplayCriteria/>
+  </ListBinding>
+  <ListBinding
+    Name="LovtxtVoucherTypeName"
+    ListVOName="AccSysUserVoucherTypeByCompAccess"
+    ListRangeSize="-1"
+    ComboRowCountHint="10"
+    NullValueFlag="none"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="txtVoucherTypeName"/>
+    </AttrArray>
+    <AttrArray Name="AttrExpressions"/>
+    <AttrArray Name="DerivedAttrNames">
+      <Item Value="txtVoucherTypeID"/>
+    </AttrArray>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="VoucherTypeName"/>
+      <Item Value="VoucherTypeId"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="VoucherTypeName"/>
+      <Item Value="VoucherTypeCode"/>
+    </AttrArray>
+    <DisplayCriteria/>
+  </ListBinding>
+  <ListBinding
+    Name="LovtxtLevelOneDepartmentName"
+    ListVOName="AccAdminDepartmentLevelOne"
+    ListRangeSize="-1"
+    ComboRowCountHint="10"
+    NullValueFlag="none"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="txtLevelOneDepartmentName"/>
+    </AttrArray>
+    <AttrArray Name="AttrExpressions"/>
+    <AttrArray Name="DerivedAttrNames">
+      <Item Value="txtLevelOneDepartmentID"/>
+      <Item Value="txtParentDepartForLastLevel"/>
+      <Item Value="txtLevelOneDepartmentTypeID"/>
+    </AttrArray>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="CompanyName"/>
+      <Item Value="CompCode"/>
+      <Item Value="CompCode"/>
+      <Item Value="CompanyTypeSno"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="CompanyName"/>
+      <Item Value="CompanyShortCode"/>
+      <Item Value="CompanyShortName"/>
+    </AttrArray>
+    <DisplayCriteria
+      Name="AdminCompanyFindVC"/>
+  </ListBinding>
+  <ListBinding
+    Name="LovtxtLevelTwoDepartmenName"
+    ListVOName="AccAdminDepartmentLevelTwo"
+    ListRangeSize="-1"
+    ComboRowCountHint="10"
+    NullValueFlag="none"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="txtLevelTwoDepartmenName"/>
+    </AttrArray>
+    <AttrArray Name="AttrExpressions"/>
+    <AttrArray Name="DerivedAttrNames">
+      <Item Value="txtLevelTwoDepartmentID"/>
+      <Item Value="txtParentDepartForLastLevel"/>
+      <Item Value="txtLevelTwoDepartmentTypeID"/>
+    </AttrArray>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="CompanyName"/>
+      <Item Value="CompCode"/>
+      <Item Value="CompCode"/>
+      <Item Value="CompanyTypeSno"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="CompanyName"/>
+      <Item Value="CompanyShortCode"/>
+      <Item Value="CompanyShortName"/>
+    </AttrArray>
+    <DisplayCriteria
+      Name="AdminCompanyFindVC"/>
+  </ListBinding>
+  <ListBinding
+    Name="LovtxtLevelThreeDepartmentName"
+    ListVOName="AccAdminDepartmentLevelThree"
+    ListRangeSize="-1"
+    ComboRowCountHint="10"
+    NullValueFlag="none"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="txtLevelThreeDepartmentName"/>
+    </AttrArray>
+    <AttrArray Name="AttrExpressions"/>
+    <AttrArray Name="DerivedAttrNames">
+      <Item Value="txtLevelThreeDepartmentID"/>
+      <Item Value="txtParentDepartForLastLevel"/>
+      <Item Value="txtLevelThreeDepartmentTypeID"/>
+    </AttrArray>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="CompanyName"/>
+      <Item Value="CompCode"/>
+      <Item Value="CompCode"/>
+      <Item Value="CompanyTypeSno"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="CompanyName"/>
+      <Item Value="CompanyShortCode"/>
+      <Item Value="CompanyShortName"/>
+    </AttrArray>
+    <DisplayCriteria
+      Name="AdminCompanyFindVC"/>
+  </ListBinding>
+  <ListBinding
+    Name="LovtxtLevelFourDepartmentName"
+    ListVOName="AccAdminDepartmentLevelFour"
+    ListRangeSize="-1"
+    ComboRowCountHint="10"
+    NullValueFlag="none"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="txtLevelFourDepartmentName"/>
+    </AttrArray>
+    <AttrArray Name="AttrExpressions"/>
+    <AttrArray Name="DerivedAttrNames">
+      <Item Value="txtLevelFourDepartmentID"/>
+      <Item Value="txtParentDepartForLastLevel"/>
+      <Item Value="txtLevelFourDepartmentTypeID"/>
+    </AttrArray>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="CompanyName"/>
+      <Item Value="CompCode"/>
+      <Item Value="CompCode"/>
+      <Item Value="CompanyTypeSno"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="CompanyName"/>
+      <Item Value="CompanyShortCode"/>
+      <Item Value="CompanyShortName"/>
+    </AttrArray>
+    <DisplayCriteria
+      Name="AdminCompanyFindVC"/>
+  </ListBinding>
+  <ListBinding
+    Name="LovtxtLevelFiveDepartmentName"
+    ListVOName="AccAdminDepartmentLevelFive"
+    ListRangeSize="-1"
+    ComboRowCountHint="10"
+    NullValueFlag="none"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="txtLevelFiveDepartmentName"/>
+    </AttrArray>
+    <AttrArray Name="AttrExpressions"/>
+    <AttrArray Name="DerivedAttrNames">
+      <Item Value="txtLevelFiveDepartmentID"/>
+      <Item Value="txtParentDepartForLastLevel"/>
+      <Item Value="txtLevelFiveDepartmentTypeID"/>
+    </AttrArray>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="CompanyName"/>
+      <Item Value="CompCode"/>
+      <Item Value="CompCode"/>
+      <Item Value="CompanyTypeSno"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="CompanyName"/>
+      <Item Value="CompanyShortCode"/>
+      <Item Value="CompanyShortName"/>
+    </AttrArray>
+    <DisplayCriteria
+      Name="AdminCompanyFindVC"/>
+  </ListBinding>
+  <ListBinding
+    Name="LovtxtLevelSixDepartmentName"
+    ListVOName="AccAdminDepartmentLevelSix"
+    ListRangeSize="-1"
+    ComboRowCountHint="10"
+    NullValueFlag="none"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="txtLevelSixDepartmentName"/>
+    </AttrArray>
+    <AttrArray Name="AttrExpressions"/>
+    <AttrArray Name="DerivedAttrNames">
+      <Item Value="txtLevelSixDepartmentID"/>
+      <Item Value="txtParentDepartForLastLevel"/>
+      <Item Value="txtLevelSixDepartmentTypeID"/>
+    </AttrArray>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="CompanyName"/>
+      <Item Value="CompCode"/>
+      <Item Value="CompCode"/>
+      <Item Value="CompanyTypeSno"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="CompanyName"/>
+      <Item Value="CompanyShortCode"/>
+      <Item Value="CompanyShortName"/>
+    </AttrArray>
+    <DisplayCriteria
+      Name="AdminCompanyFindVC"/>
+  </ListBinding>
+  <ListBinding
+    Name="LovtxtLevelSevenDepartmentName"
+    ListVOName="AccAdminDepartmentLevelSeven"
+    ListRangeSize="-1"
+    ComboRowCountHint="10"
+    NullValueFlag="none"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="txtLevelSevenDepartmentName"/>
+    </AttrArray>
+    <AttrArray Name="AttrExpressions"/>
+    <AttrArray Name="DerivedAttrNames">
+      <Item Value="txtLevelSevenDepartmentID"/>
+      <Item Value="txtParentDepartForLastLevel"/>
+      <Item Value="txtLevelSevenDepartmentTypeID"/>
+    </AttrArray>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="CompanyName"/>
+      <Item Value="CompCode"/>
+      <Item Value="CompCode"/>
+      <Item Value="CompanyTypeSno"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="CompanyName"/>
+      <Item Value="CompanyShortCode"/>
+      <Item Value="CompanyShortName"/>
+    </AttrArray>
+    <DisplayCriteria
+      Name="AdminCompanyFindVC"/>
+  </ListBinding>
+  <ListBinding
+    Name="LovtxtLevelEightDepartmentName"
+    ListVOName="AccAdminDepartmentLevelEight"
+    ListRangeSize="-1"
+    ComboRowCountHint="10"
+    NullValueFlag="none"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="txtLevelEightDepartmentName"/>
+    </AttrArray>
+    <AttrArray Name="AttrExpressions"/>
+    <AttrArray Name="DerivedAttrNames">
+      <Item Value="txtLevelEightDepartmentID"/>
+      <Item Value="txtParentDepartForLastLevel"/>
+      <Item Value="txtLevelEightDepartmentTypeID"/>
+    </AttrArray>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="CompanyName"/>
+      <Item Value="CompCode"/>
+      <Item Value="CompCode"/>
+      <Item Value="CompanyTypeSno"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="CompanyName"/>
+      <Item Value="CompanyShortCode"/>
+      <Item Value="CompanyShortName"/>
+    </AttrArray>
+    <DisplayCriteria
+      Name="AdminCompanyFindVC"/>
+  </ListBinding>
+  <ListBinding
+    Name="LovtxtLevelNineDepartmentName"
+    ListVOName="AccAdminDepartmentLevelNine"
+    ListRangeSize="-1"
+    ComboRowCountHint="10"
+    NullValueFlag="none"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="txtLevelNineDepartmentName"/>
+    </AttrArray>
+    <AttrArray Name="AttrExpressions"/>
+    <AttrArray Name="DerivedAttrNames">
+      <Item Value="txtParentDepartForLastLevel"/>
+      <Item Value="txtLevelNineDepartmentID"/>
+      <Item Value="txtLevelNineCompanyTypeID"/>
+    </AttrArray>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="CompanyName"/>
+      <Item Value="CompCode"/>
+      <Item Value="CompCode"/>
+      <Item Value="CompanyTypeSno"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="CompanyName"/>
+      <Item Value="CompanyShortCode"/>
+      <Item Value="CompanyShortName"/>
+    </AttrArray>
+    <DisplayCriteria
+      Name="AdminCompanyFindVC"/>
+  </ListBinding>
+  <ListBinding
+    Name="LovtxtLevelTenDepartmentName"
+    ListVOName="AccAdminDepartmentLevelTen"
+    ListRangeSize="-1"
+    ComboRowCountHint="10"
+    NullValueFlag="none"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="txtLevelTenDepartmentName"/>
+    </AttrArray>
+    <AttrArray Name="AttrExpressions"/>
+    <AttrArray Name="DerivedAttrNames">
+      <Item Value="txtLevelTenDepartmentID"/>
+      <Item Value="txtParentDepartForLastLevel"/>
+      <Item Value="txtLevelTenDepartmentTypeID"/>
+    </AttrArray>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="CompanyName"/>
+      <Item Value="CompCode"/>
+      <Item Value="CompCode"/>
+      <Item Value="CompanyTypeSno"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="CompanyName"/>
+      <Item Value="CompanyShortCode"/>
+      <Item Value="CompanyShortName"/>
+    </AttrArray>
+    <DisplayCriteria
+      Name="AdminCompanyFindVC"/>
+  </ListBinding>
+  <ListBinding
+    Name="LovtxtDepartmentName"
+    ListVOName="AccAdminCompanyDepartAccessVO"
+    ListRangeSize="-1"
+    ComboRowCountHint="10"
+    NullValueFlag="none"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="txtDepartmentName"/>
+    </AttrArray>
+    <AttrArray Name="AttrExpressions"/>
+    <AttrArray Name="DerivedAttrNames">
+      <Item Value="txtDepartmentID"/>
+      <Item Value="txtDepartmentTypeId"/>
+    </AttrArray>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="CompanyName"/>
+      <Item Value="CompCode"/>
+      <Item Value="CompanyTypeSno"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="CompanyName"/>
+      <Item Value="CompanyShortCode"/>
+      <Item Value="CompanyShortName"/>
+    </AttrArray>
+    <DisplayCriteria/>
+  </ListBinding>
+  <ListBinding
+    Name="LovtxtActionName"
+    ListVOName="AccERPVwSysUsersModuleReportQVO"
+    ListRangeSize="-1"
+    ComboRowCountHint="10"
+    NullValueFlag="none"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="txtActionName"/>
+    </AttrArray>
+    <AttrArray Name="AttrExpressions"/>
+    <AttrArray Name="DerivedAttrNames">
+      <Item Value="txtModuleAction"/>
+      <Item Value="txtReportExeName"/>
+    </AttrArray>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="ActionName"/>
+      <Item Value="ModuleAction"/>
+      <Item Value="ActionRuntime"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="ActionName"/>
+    </AttrArray>
+    <DisplayCriteria/>
+  </ListBinding>
+  <ListBinding
+    Name="LovtxtFromCOADescription"
+    ListVOName="AccGlChartOfAccountsForFMSReportQVO"
+    ListRangeSize="-1"
+    ComboRowCountHint="10"
+    NullValueFlag="none"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="txtFromCOADescription"/>
+    </AttrArray>
+    <AttrArray Name="AttrExpressions"/>
+    <AttrArray Name="DerivedAttrNames">
+      <Item Value="txtFromCOACode"/>
+      <Item Value="txtFromCOAID"/>
+      <Item Value="txtFromCOAHierarchyPath"/>
+      <Item Value="txtFromCOALevel"/>
+    </AttrArray>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="Description"/>
+      <Item Value="ChartOfAccountCode"/>
+      <Item Value="ChartOfAccountId"/>
+      <Item Value="CoaHierarchyPath"/>
+      <Item Value="LevelNo"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="Description"/>
+      <Item Value="ChartOfAccountCode"/>
+      <Item Value="LevelNo"/>
+    </AttrArray>
+    <DisplayCriteria/>
+  </ListBinding>
+  <ListBinding
+    Name="LovtxtToCOADescription"
+    ListVOName="AccGlChartOfAccountsForFMSReportQVO"
+    ListRangeSize="-1"
+    ComboRowCountHint="10"
+    NullValueFlag="none"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="txtToCOADescription"/>
+    </AttrArray>
+    <AttrArray Name="AttrExpressions"/>
+    <AttrArray Name="DerivedAttrNames">
+      <Item Value="txtToCOACode"/>
+      <Item Value="txtToCOAID"/>
+      <Item Value="txtToCOALevel"/>
+    </AttrArray>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="Description"/>
+      <Item Value="ChartOfAccountCode"/>
+      <Item Value="ChartOfAccountId"/>
+      <Item Value="LevelNo"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="Description"/>
+      <Item Value="ChartOfAccountCode"/>
+      <Item Value="LevelNo"/>
+    </AttrArray>
+    <DisplayCriteria/>
+  </ListBinding>
+  <SQLQuery><![CDATA[select 1 as pk from dual]]></SQLQuery>
+  <ViewAttribute
+    Name="Pk"
+    IsUpdateable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Type="java.lang.Integer"
+    ColumnType="BIGINT"
+    AliasName="pk"
+    Expression="pk"
+    SQLType="INTEGER">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="1"/>
+    </DesignTime>
+    <Properties>
+      <SchemaBasedProperties>
+        <DISPLAYWIDTH
+          Value="20"/>
+        <LABEL
+          ResId="erpfms.modelfms.fmsqvo.GLFinancialManagementReportQVO.Pk_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="txtLocationName"
+    IsSelected="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Precision="255"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    AliasName="VIEW_ATTR"
+    SQLType="VARCHAR"
+    LOVName="LovtxtLastLocationName">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="erpfms.modelfms.fmsqvo.GLFinancialManagementReportQVO.txtLocationName_LABEL"/>
+        <DISPLAYWIDTH
+          Value="20"/>
+        <CONTROLTYPE
+          Value="combo_lov"/>
+      </SchemaBasedProperties>
+    </Properties>
+    <Dependencies>
+      <Item
+        Value="txtLevelEightCompanyName"/>
+      <Item
+        Value="txtLevelFiveCompanyName"/>
+      <Item
+        Value="txtLevelFourCompanyName"/>
+      <Item
+        Value="txtLevelNineCompanyName"/>
+      <Item
+        Value="txtLevelOneCompanyName"/>
+      <Item
+        Value="txtLevelSevenCompanyName"/>
+      <Item
+        Value="txtLevelSixCompanyName"/>
+      <Item
+        Value="txtLevelTenCompanyName"/>
+      <Item
+        Value="txtLevelThreeCompanyName"/>
+      <Item
+        Value="txtLevelTwoCompanyName"/>
+      <Item
+        Value="txtModuleAction"/>
+    </Dependencies>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="txtLocationId"
+    IsSelected="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Type="java.math.BigDecimal"
+    ColumnType="INTEGER"
+    AliasName="VIEW_ATTR"
+    SQLType="NUMERIC">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="erpfms.modelfms.fmsqvo.GLFinancialManagementReportQVO.txtLocationId_LABEL"/>
+        <DISPLAYWIDTH
+          Value="20"/>
+      </SchemaBasedProperties>
+    </Properties>
+    <Dependencies>
+      <Item
+        Value="txtLevelEightCompanyName"/>
+      <Item
+        Value="txtLevelFiveCompanyName"/>
+      <Item
+        Value="txtLevelFourCompanyName"/>
+      <Item
+        Value="txtLevelNineCompanyName"/>
+      <Item
+        Value="txtLevelOneCompanyName"/>
+      <Item
+        Value="txtLevelSevenCompanyName"/>
+      <Item
+        Value="txtLevelSixCompanyName"/>
+      <Item
+        Value="txtLevelTenCompanyName"/>
+      <Item
+        Value="txtLevelThreeCompanyName"/>
+      <Item
+        Value="txtLevelTwoCompanyName"/>
+      <Item
+        Value="txtModuleAction"/>
+    </Dependencies>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="txtPeriodID"
+    IsSelected="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Type="java.lang.Integer"
+    ColumnType="INTEGER"
+    AliasName="VIEW_ATTR"
+    SQLType="INTEGER">
+    <Properties>
+      <SchemaBasedProperties>
+        <DISPLAYWIDTH
+          Value="20"/>
+        <LABEL
+          ResId="erpfms.modelfms.fmsqvo.GLFinancialManagementReportQVO.txtPeriodID_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+    <Dependencies>
+      <Item
+        Value="txtCompanyID"/>
+      <Item
+        Value="txtFiscalYearName"/>
+      <Item
+        Value="txtFiscalYearSno"/>
+    </Dependencies>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="txtPeriodName"
+    IsSelected="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Precision="255"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    AliasName="VIEW_ATTR"
+    SQLType="VARCHAR"
+    LOVName="LovtxtPeriodName">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="erpfms.modelfms.fmsqvo.GLFinancialManagementReportQVO.txtPeriodName_LABEL"/>
+        <DISPLAYWIDTH
+          Value="20"/>
+        <CONTROLTYPE
+          Value="combo_lov"/>
+      </SchemaBasedProperties>
+    </Properties>
+    <Dependencies>
+      <Item
+        Value="txtCompanyID"/>
+      <Item
+        Value="txtFiscalYearName"/>
+      <Item
+        Value="txtFiscalYearSno"/>
+    </Dependencies>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="txtReportHeaderSno"
+    IsSelected="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Type="java.lang.Integer"
+    ColumnType="INTEGER"
+    AliasName="VIEW_ATTR"
+    SQLType="INTEGER">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="erpfms.modelfms.fmsqvo.GLFinancialManagementReportQVO.txtReportHeaderSno_LABEL"/>
+        <DISPLAYWIDTH
+          Value="20"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="txtReportExeName"
+    IsSelected="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Precision="255"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    AliasName="VIEW_ATTR"
+    SQLType="VARCHAR">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="erpfms.modelfms.fmsqvo.GLFinancialManagementReportQVO.txtReportExeName_LABEL"/>
+        <DISPLAYWIDTH
+          Value="20"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="txtModuleAction"
+    IsSelected="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Precision="255"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    AliasName="VIEW_ATTR"
+    SQLType="VARCHAR">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="erpfms.modelfms.fmsqvo.GLFinancialManagementReportQVO.txtModuleAction_LABEL"/>
+        <DISPLAYWIDTH
+          Value="20"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="txtProjectName"
+    IsSelected="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Precision="255"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    AliasName="VIEW_ATTR"
+    SQLType="VARCHAR"
+    LOVName="LOV_txtProjectName">
+    <Properties>
+      <SchemaBasedProperties>
+        <CONTROLTYPE
+          Value="combo_lov"/>
+        <LABEL
+          ResId="erpfms.modelfms.fmsqvo.GLFinancialManagementReportQVO.txtProjectName_LABEL"/>
+        <DISPLAYWIDTH
+          Value="20"/>
+      </SchemaBasedProperties>
+    </Properties>
+    <Dependencies>
+      <Item
+        Value="txtCompanyID"/>
+    </Dependencies>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="txtProjectId"
+    IsSelected="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Type="java.lang.Integer"
+    ColumnType="INTEGER"
+    AliasName="VIEW_ATTR"
+    SQLType="INTEGER">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="erpfms.modelfms.fmsqvo.GLFinancialManagementReportQVO.txtProjectId_LABEL"/>
+        <DISPLAYWIDTH
+          Value="20"/>
+      </SchemaBasedProperties>
+    </Properties>
+    <Dependencies>
+      <Item
+        Value="txtCompanyID"/>
+    </Dependencies>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="txtBatchID"
+    IsSelected="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Type="java.lang.Integer"
+    ColumnType="INTEGER"
+    AliasName="VIEW_ATTR"
+    SQLType="INTEGER">
+    <Dependencies>
+      <Item
+        Value="txtCompanyID"/>
+    </Dependencies>
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="erpfms.modelfms.fmsqvo.GLFinancialManagementReportQVO.txtBatchID_LABEL"/>
+        <DISPLAYWIDTH
+          Value="20"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="txtBatchName"
+    IsSelected="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Precision="255"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    AliasName="VIEW_ATTR"
+    SQLType="VARCHAR"
+    LOVName="LovtxtBatchName">
+    <Dependencies>
+      <Item
+        Value="txtCompanyID"/>
+    </Dependencies>
+    <Properties>
+      <SchemaBasedProperties>
+        <CONTROLTYPE
+          Value="combo_lov"/>
+        <LABEL
+          ResId="erpfms.modelfms.fmsqvo.GLFinancialManagementReportQVO.txtBatchName_LABEL"/>
+        <DISPLAYWIDTH
+          Value="20"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="txtDepartmentID"
+    IsSelected="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Type="java.lang.Integer"
+    ColumnType="INTEGER"
+    AliasName="VIEW_ATTR"
+    SQLType="INTEGER">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="erpfms.modelfms.fmsqvo.GLFinancialManagementReportQVO.txtDepartmentID_LABEL"/>
+        <DISPLAYWIDTH
+          Value="20"/>
+      </SchemaBasedProperties>
+    </Properties>
+    <Dependencies>
+      <Item
+        Value="txtLevelEightDepartmentName"/>
+      <Item
+        Value="txtLevelFiveDepartmentName"/>
+      <Item
+        Value="txtLevelFourDepartmentName"/>
+      <Item
+        Value="txtLevelNineDepartmentName"/>
+      <Item
+        Value="txtLevelOneDepartmentName"/>
+      <Item
+        Value="txtLevelSevenDepartmentName"/>
+      <Item
+        Value="txtLevelSixDepartmentName"/>
+      <Item
+        Value="txtLevelTenDepartmentName"/>
+      <Item
+        Value="txtLevelThreeDepartmentName"/>
+      <Item
+        Value="txtModuleAction"/>
+    </Dependencies>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="txtDepartmentName"
+    IsSelected="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Precision="255"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    AliasName="VIEW_ATTR"
+    SQLType="VARCHAR"
+    LOVName="LovtxtDepartmentName">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="erpfms.modelfms.fmsqvo.GLFinancialManagementReportQVO.txtDepartmentName_LABEL"/>
+        <DISPLAYWIDTH
+          Value="20"/>
+        <CONTROLTYPE
+          Value="combo_lov"/>
+      </SchemaBasedProperties>
+    </Properties>
+    <Dependencies>
+      <Item
+        Value="txtLevelEightDepartmentName"/>
+      <Item
+        Value="txtLevelFiveDepartmentName"/>
+      <Item
+        Value="txtLevelFourDepartmentName"/>
+      <Item
+        Value="txtLevelNineDepartmentName"/>
+      <Item
+        Value="txtLevelOneDepartmentName"/>
+      <Item
+        Value="txtLevelSixDepartmentName"/>
+      <Item
+        Value="txtLevelTenDepartmentName"/>
+      <Item
+        Value="txtLevelThreeDepartmentName"/>
+      <Item
+        Value="txtLevelTwoDepartmenName"/>
+      <Item
+        Value="txtModuleAction"/>
+    </Dependencies>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="txtCompanyID"
+    IsSelected="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Type="java.math.BigDecimal"
+    ColumnType="NUMBER"
+    AliasName="VIEW_ATTR"
+    SQLType="NUMERIC"
+    LOVName="LovtxtCompanyID">
+    <Properties>
+      <SchemaBasedProperties>
+        <DISPLAYWIDTH
+          Value="20"/>
+        <LABEL
+          ResId="erpfms.modelfms.fmsqvo.GLFinancialManagementReportQVO.txtCompanyID_LABEL"/>
+        <CONTROLTYPE
+          Value="choice"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="txtCompanyName"
+    IsSelected="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Precision="255"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    AliasName="VIEW_ATTR"
+    SQLType="VARCHAR"/>
+  <ViewAttribute
+    Name="txtTypeLevel"
+    IsSelected="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Type="java.lang.Integer"
+    ColumnType="INTEGER"
+    AliasName="VIEW_ATTR"
+    SQLType="INTEGER">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="erpfms.modelfms.fmsqvo.GLFinancialManagementReportQVO.txtTypeLevel_LABEL"/>
+        <DISPLAYWIDTH
+          Value="20"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="txtMaxTypeLevel"
+    IsSelected="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Type="java.lang.Integer"
+    ColumnType="INTEGER"
+    AliasName="VIEW_ATTR"
+    SQLType="INTEGER">
+    <TransientExpression><![CDATA[AccAdminCompanyTypeLevelVO.executeQuery();
+return AccAdminCompanyTypeLevelVO?.max("TypeLevel");]]></TransientExpression>
+    <RecalcCondition><![CDATA[true]]></RecalcCondition>
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="erpfms.modelfms.fmsqvo.GLFinancialManagementReportQVO.txtMaxTypeLevel_LABEL"/>
+        <DISPLAYWIDTH
+          Value="20"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="txtLevelOneCompanyID"
+    IsSelected="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Type="java.math.BigDecimal"
+    ColumnType="NUMBER"
+    AliasName="VIEW_ATTR"
+    SQLType="NUMERIC">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="erpfms.modelfms.fmsqvo.GLFinancialManagementReportQVO.txtLevelOneCompanyID_LABEL"/>
+        <DISPLAYWIDTH
+          Value="20"/>
+      </SchemaBasedProperties>
+    </Properties>
+    <Dependencies>
+      <Item
+        Value="txtModuleAction"/>
+    </Dependencies>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="txtLevelOneCompanyName"
+    IsSelected="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Precision="255"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    AliasName="VIEW_ATTR"
+    SQLType="VARCHAR"
+    LOVName="LovtxtLevelOneCompanyName">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="erpfms.modelfms.fmsqvo.GLFinancialManagementReportQVO.txtLevelOneCompanyName_LABEL"/>
+        <DISPLAYWIDTH
+          Value="20"/>
+        <CONTROLTYPE
+          Value="combo_lov"/>
+      </SchemaBasedProperties>
+    </Properties>
+    <Dependencies>
+      <Item
+        Value="txtModuleAction"/>
+    </Dependencies>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="txtLevelTwoCompanyID"
+    IsSelected="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Type="java.math.BigDecimal"
+    ColumnType="INTEGER"
+    AliasName="VIEW_ATTR"
+    SQLType="NUMERIC">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="erpfms.modelfms.fmsqvo.GLFinancialManagementReportQVO.txtLevelTwoCompanyID_LABEL"/>
+        <DISPLAYWIDTH
+          Value="20"/>
+      </SchemaBasedProperties>
+    </Properties>
+    <Dependencies>
+      <Item
+        Value="txtLevelOneCompanyName"/>
+      <Item
+        Value="txtModuleAction"/>
+    </Dependencies>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="txtLevelTwoCompanyName"
+    IsSelected="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Precision="255"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    AliasName="VIEW_ATTR"
+    SQLType="VARCHAR"
+    LOVName="LovtxtLevelTwoCompanyName">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="erpfms.modelfms.fmsqvo.GLFinancialManagementReportQVO.txtLevelTwoCompanyName_LABEL"/>
+        <DISPLAYWIDTH
+          Value="20"/>
+        <CONTROLTYPE
+          Value="combo_lov"/>
+      </SchemaBasedProperties>
+    </Properties>
+    <Dependencies>
+      <Item
+        Value="txtLevelOneCompanyName"/>
+      <Item
+        Value="txtModuleAction"/>
+    </Dependencies>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="txtLevelThreeCompanyID"
+    IsSelected="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Type="java.math.BigDecimal"
+    ColumnType="INTEGER"
+    AliasName="VIEW_ATTR"
+    SQLType="NUMERIC">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="erpfms.modelfms.fmsqvo.GLFinancialManagementReportQVO.txtLevelThreeCompanyID_LABEL"/>
+        <DISPLAYWIDTH
+          Value="20"/>
+      </SchemaBasedProperties>
+    </Properties>
+    <Dependencies>
+      <Item
+        Value="txtLevelOneCompanyName"/>
+      <Item
+        Value="txtLevelTwoCompanyName"/>
+      <Item
+        Value="txtModuleAction"/>
+    </Dependencies>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="txtLevelThreeCompanyName"
+    IsSelected="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Precision="255"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    AliasName="VIEW_ATTR"
+    SQLType="VARCHAR"
+    LOVName="LovtxtLevelThreeCompanyName">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="erpfms.modelfms.fmsqvo.GLFinancialManagementReportQVO.txtLevelThreeCompanyName_LABEL"/>
+        <DISPLAYWIDTH
+          Value="20"/>
+        <CONTROLTYPE
+          Value="combo_lov"/>
+      </SchemaBasedProperties>
+    </Properties>
+    <Dependencies>
+      <Item
+        Value="txtLevelOneCompanyName"/>
+      <Item
+        Value="txtLevelTwoCompanyName"/>
+      <Item
+        Value="txtModuleAction"/>
+    </Dependencies>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="txtLevelFourCompanyID"
+    IsSelected="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Type="java.math.BigDecimal"
+    ColumnType="NUMBER"
+    AliasName="VIEW_ATTR"
+    SQLType="NUMERIC">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="erpfms.modelfms.fmsqvo.GLFinancialManagementReportQVO.txtLevelFourCompanyID_LABEL"/>
+        <DISPLAYWIDTH
+          Value="20"/>
+      </SchemaBasedProperties>
+    </Properties>
+    <Dependencies>
+      <Item
+        Value="txtLevelOneCompanyName"/>
+      <Item
+        Value="txtLevelThreeCompanyName"/>
+      <Item
+        Value="txtLevelTwoCompanyName"/>
+      <Item
+        Value="txtModuleAction"/>
+    </Dependencies>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="txtLevelFourCompanyName"
+    IsSelected="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Precision="255"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    AliasName="VIEW_ATTR"
+    SQLType="VARCHAR"
+    LOVName="LovtxtLevelFourCompanyName">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="erpfms.modelfms.fmsqvo.GLFinancialManagementReportQVO.txtLevelFourCompanyName_LABEL"/>
+        <DISPLAYWIDTH
+          Value="20"/>
+        <CONTROLTYPE
+          Value="combo_lov"/>
+      </SchemaBasedProperties>
+    </Properties>
+    <Dependencies>
+      <Item
+        Value="txtLevelOneCompanyName"/>
+      <Item
+        Value="txtLevelThreeCompanyName"/>
+      <Item
+        Value="txtLevelTwoCompanyName"/>
+      <Item
+        Value="txtModuleAction"/>
+    </Dependencies>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="txtLevelFiveCompanyName"
+    IsSelected="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Precision="255"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    AliasName="VIEW_ATTR"
+    SQLType="VARCHAR"
+    LOVName="LovtxtLevelFiveCompanyName">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="erpfms.modelfms.fmsqvo.GLFinancialManagementReportQVO.txtLevelFiveCompanyName_LABEL"/>
+        <DISPLAYWIDTH
+          Value="20"/>
+        <CONTROLTYPE
+          Value="combo_lov"/>
+      </SchemaBasedProperties>
+    </Properties>
+    <Dependencies>
+      <Item
+        Value="txtLevelFourCompanyName"/>
+      <Item
+        Value="txtLevelOneCompanyName"/>
+      <Item
+        Value="txtLevelThreeCompanyName"/>
+      <Item
+        Value="txtLevelTwoCompanyName"/>
+      <Item
+        Value="txtModuleAction"/>
+    </Dependencies>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="txtLevelFiveCompanyID"
+    IsSelected="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Type="java.math.BigDecimal"
+    ColumnType="NUMBER"
+    AliasName="VIEW_ATTR"
+    SQLType="NUMERIC">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="erpfms.modelfms.fmsqvo.GLFinancialManagementReportQVO.txtLevelFiveCompanyID_LABEL"/>
+        <DISPLAYWIDTH
+          Value="20"/>
+      </SchemaBasedProperties>
+    </Properties>
+    <Dependencies>
+      <Item
+        Value="txtLevelFourCompanyName"/>
+      <Item
+        Value="txtLevelOneCompanyName"/>
+      <Item
+        Value="txtLevelThreeCompanyName"/>
+      <Item
+        Value="txtLevelTwoCompanyName"/>
+      <Item
+        Value="txtModuleAction"/>
+    </Dependencies>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="txtLevelSixCompanyName"
+    IsSelected="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Precision="255"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    AliasName="VIEW_ATTR"
+    SQLType="VARCHAR"
+    LOVName="LovtxtLevelSixCompanyName">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="erpfms.modelfms.fmsqvo.GLFinancialManagementReportQVO.txtLevelSixCompanyName_LABEL"/>
+        <DISPLAYWIDTH
+          Value="20"/>
+        <CONTROLTYPE
+          Value="combo_lov"/>
+      </SchemaBasedProperties>
+    </Properties>
+    <Dependencies>
+      <Item
+        Value="txtLevelFiveCompanyName"/>
+      <Item
+        Value="txtLevelFourCompanyName"/>
+      <Item
+        Value="txtLevelOneCompanyName"/>
+      <Item
+        Value="txtLevelThreeCompanyName"/>
+      <Item
+        Value="txtLevelTwoCompanyName"/>
+      <Item
+        Value="txtModuleAction"/>
+    </Dependencies>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="txtLevelSixCompanyID"
+    IsSelected="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Type="java.math.BigDecimal"
+    ColumnType="NUMBER"
+    AliasName="VIEW_ATTR"
+    SQLType="NUMERIC">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="erpfms.modelfms.fmsqvo.GLFinancialManagementReportQVO.txtLevelSixCompanyID_LABEL"/>
+        <DISPLAYWIDTH
+          Value="20"/>
+      </SchemaBasedProperties>
+    </Properties>
+    <Dependencies>
+      <Item
+        Value="txtLevelFiveCompanyName"/>
+      <Item
+        Value="txtLevelFourCompanyName"/>
+      <Item
+        Value="txtLevelOneCompanyName"/>
+      <Item
+        Value="txtLevelThreeCompanyName"/>
+      <Item
+        Value="txtLevelTwoCompanyName"/>
+      <Item
+        Value="txtModuleAction"/>
+    </Dependencies>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="txtLevelSevenCompanyID"
+    IsSelected="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Type="java.math.BigDecimal"
+    ColumnType="NUMBER"
+    AliasName="VIEW_ATTR"
+    SQLType="NUMERIC">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="erpfms.modelfms.fmsqvo.GLFinancialManagementReportQVO.txtLevelSevenCompanyID_LABEL"/>
+        <DISPLAYWIDTH
+          Value="20"/>
+      </SchemaBasedProperties>
+    </Properties>
+    <Dependencies>
+      <Item
+        Value="txtLevelFiveCompanyName"/>
+      <Item
+        Value="txtLevelFourCompanyName"/>
+      <Item
+        Value="txtLevelOneCompanyName"/>
+      <Item
+        Value="txtLevelSixCompanyName"/>
+      <Item
+        Value="txtLevelThreeCompanyName"/>
+      <Item
+        Value="txtLevelTwoCompanyName"/>
+      <Item
+        Value="txtModuleAction"/>
+    </Dependencies>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="txtLevelSevenCompanyName"
+    IsSelected="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Precision="255"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    AliasName="VIEW_ATTR"
+    SQLType="VARCHAR"
+    LOVName="LovtxtLevelSevenCompanyName">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="erpfms.modelfms.fmsqvo.GLFinancialManagementReportQVO.txtLevelSevenCompanyName_LABEL"/>
+        <DISPLAYWIDTH
+          Value="20"/>
+        <CONTROLTYPE
+          Value="combo_lov"/>
+      </SchemaBasedProperties>
+    </Properties>
+    <Dependencies>
+      <Item
+        Value="txtLevelFiveCompanyName"/>
+      <Item
+        Value="txtLevelFourCompanyName"/>
+      <Item
+        Value="txtLevelOneCompanyName"/>
+      <Item
+        Value="txtLevelSixCompanyName"/>
+      <Item
+        Value="txtLevelThreeCompanyName"/>
+      <Item
+        Value="txtLevelTwoCompanyName"/>
+      <Item
+        Value="txtModuleAction"/>
+    </Dependencies>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="txtLevelEightCompanyName"
+    IsSelected="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Precision="255"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    AliasName="VIEW_ATTR"
+    SQLType="VARCHAR"
+    LOVName="LovtxtLevelEightCompanyName">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="erpfms.modelfms.fmsqvo.GLFinancialManagementReportQVO.txtLevelEightCompanyName_LABEL"/>
+        <DISPLAYWIDTH
+          Value="20"/>
+        <CONTROLTYPE
+          Value="combo_lov"/>
+      </SchemaBasedProperties>
+    </Properties>
+    <Dependencies>
+      <Item
+        Value="txtLevelFiveCompanyName"/>
+      <Item
+        Value="txtLevelFourCompanyName"/>
+      <Item
+        Value="txtLevelOneCompanyName"/>
+      <Item
+        Value="txtLevelSevenCompanyName"/>
+      <Item
+        Value="txtLevelSixCompanyName"/>
+      <Item
+        Value="txtLevelThreeCompanyName"/>
+      <Item
+        Value="txtLevelTwoCompanyName"/>
+      <Item
+        Value="txtModuleAction"/>
+    </Dependencies>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="txtLevelEightCompanyID"
+    IsSelected="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Type="java.math.BigDecimal"
+    ColumnType="NUMBER"
+    AliasName="VIEW_ATTR"
+    SQLType="NUMERIC">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="erpfms.modelfms.fmsqvo.GLFinancialManagementReportQVO.txtLevelEightCompanyID_LABEL"/>
+        <DISPLAYWIDTH
+          Value="20"/>
+      </SchemaBasedProperties>
+    </Properties>
+    <Dependencies>
+      <Item
+        Value="txtLevelFiveCompanyName"/>
+      <Item
+        Value="txtLevelFourCompanyName"/>
+      <Item
+        Value="txtLevelOneCompanyName"/>
+      <Item
+        Value="txtLevelSevenCompanyName"/>
+      <Item
+        Value="txtLevelSixCompanyName"/>
+      <Item
+        Value="txtLevelThreeCompanyName"/>
+      <Item
+        Value="txtLevelTwoCompanyName"/>
+      <Item
+        Value="txtModuleAction"/>
+    </Dependencies>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="txtLevelNineCompanyName"
+    IsSelected="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Precision="255"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    AliasName="VIEW_ATTR"
+    SQLType="VARCHAR"
+    LOVName="LovtxtLevelNineCompanyName">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="erpfms.modelfms.fmsqvo.GLFinancialManagementReportQVO.txtLevelNineCompanyName_LABEL"/>
+        <DISPLAYWIDTH
+          Value="20"/>
+        <CONTROLTYPE
+          Value="combo_lov"/>
+      </SchemaBasedProperties>
+    </Properties>
+    <Dependencies>
+      <Item
+        Value="txtLevelEightCompanyName"/>
+      <Item
+        Value="txtLevelFiveCompanyName"/>
+      <Item
+        Value="txtLevelFourCompanyName"/>
+      <Item
+        Value="txtLevelOneCompanyName"/>
+      <Item
+        Value="txtLevelSevenCompanyName"/>
+      <Item
+        Value="txtLevelSixCompanyName"/>
+      <Item
+        Value="txtLevelThreeCompanyName"/>
+      <Item
+        Value="txtLevelTwoCompanyName"/>
+      <Item
+        Value="txtModuleAction"/>
+    </Dependencies>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="txtLevelNineCompanyID"
+    IsSelected="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Type="java.math.BigDecimal"
+    ColumnType="NUMBER"
+    AliasName="VIEW_ATTR"
+    SQLType="NUMERIC">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="erpfms.modelfms.fmsqvo.GLFinancialManagementReportQVO.txtLevelNineCompanyID_LABEL"/>
+        <DISPLAYWIDTH
+          Value="20"/>
+      </SchemaBasedProperties>
+    </Properties>
+    <Dependencies>
+      <Item
+        Value="txtLevelEightCompanyName"/>
+      <Item
+        Value="txtLevelFiveCompanyName"/>
+      <Item
+        Value="txtLevelFourCompanyName"/>
+      <Item
+        Value="txtLevelOneCompanyName"/>
+      <Item
+        Value="txtLevelSevenCompanyName"/>
+      <Item
+        Value="txtLevelSixCompanyName"/>
+      <Item
+        Value="txtLevelThreeCompanyName"/>
+      <Item
+        Value="txtLevelTwoCompanyName"/>
+      <Item
+        Value="txtModuleAction"/>
+    </Dependencies>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="txtLevelTenCompanyID"
+    IsSelected="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Type="java.math.BigDecimal"
+    ColumnType="NUMBER"
+    AliasName="VIEW_ATTR"
+    SQLType="NUMERIC">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="erpfms.modelfms.fmsqvo.GLFinancialManagementReportQVO.txtLevelTenCompanyID_LABEL"/>
+        <DISPLAYWIDTH
+          Value="20"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="txtLevelTenCompanyName"
+    IsSelected="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Precision="255"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    AliasName="VIEW_ATTR"
+    SQLType="VARCHAR"
+    LOVName="LovtxtLevelTenCompanyName">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="erpfms.modelfms.fmsqvo.GLFinancialManagementReportQVO.txtLevelTenCompanyName_LABEL"/>
+        <DISPLAYWIDTH
+          Value="20"/>
+        <CONTROLTYPE
+          Value="combo_lov"/>
+      </SchemaBasedProperties>
+    </Properties>
+    <Dependencies>
+      <Item
+        Value="txtLevelEightCompanyName"/>
+      <Item
+        Value="txtLevelFiveCompanyName"/>
+      <Item
+        Value="txtLevelFourCompanyName"/>
+      <Item
+        Value="txtLevelNineCompanyName"/>
+      <Item
+        Value="txtLevelOneCompanyName"/>
+      <Item
+        Value="txtLevelSevenCompanyName"/>
+      <Item
+        Value="txtLevelSixCompanyName"/>
+      <Item
+        Value="txtLevelThreeCompanyName"/>
+      <Item
+        Value="txtLevelTwoCompanyName"/>
+    </Dependencies>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="txtParentForLastLevel"
+    IsSelected="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Type="java.math.BigDecimal"
+    ColumnType="NUMBER"
+    AliasName="VIEW_ATTR"
+    SQLType="NUMERIC">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="erpfms.modelfms.fmsqvo.GLFinancialManagementReportQVO.txtParentForLastLevel_LABEL"/>
+        <DISPLAYWIDTH
+          Value="20"/>
+      </SchemaBasedProperties>
+    </Properties>
+    <Dependencies>
+      <Item
+        Value="txtModuleAction"/>
+    </Dependencies>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="txtDefinedCompanyTypeSno"
+    IsUpdateable="false"
+    IsSelected="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Type="java.lang.Integer"
+    ColumnType="INTEGER"
+    AliasName="VIEW_ATTR"
+    SQLType="INTEGER">
+    <TransientExpression><![CDATA[AccSysSystemParameterVO?.executeQuery();
+return AccSysSystemParameterVO?.first().getAttribute("ParameterValue");]]></TransientExpression>
+    <RecalcCondition><![CDATA[true]]></RecalcCondition>
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="erpfms.modelfms.fmsqvo.GLFinancialManagementReportQVO.txtDefinedCompanyTypeSno_LABEL"/>
+        <DISPLAYWIDTH
+          Value="20"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="txtLevelOneCompanyTypeID"
+    IsSelected="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Type="java.lang.Integer"
+    ColumnType="INTEGER"
+    AliasName="VIEW_ATTR"
+    SQLType="INTEGER">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="erpfms.modelfms.fmsqvo.GLFinancialManagementReportQVO.txtLevelOneCompanyTypeID_LABEL"/>
+        <DISPLAYWIDTH
+          Value="20"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="txtLevelTwoCompanyTypeID"
+    IsSelected="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Type="java.lang.Integer"
+    ColumnType="INTEGER"
+    AliasName="VIEW_ATTR"
+    SQLType="INTEGER">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="erpfms.modelfms.fmsqvo.GLFinancialManagementReportQVO.txtLevelTwoCompanyTypeID_LABEL"/>
+        <DISPLAYWIDTH
+          Value="20"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="txtLevelThreeCompanyTypeID"
+    IsSelected="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Type="java.lang.Integer"
+    ColumnType="INTEGER"
+    AliasName="VIEW_ATTR"
+    SQLType="INTEGER">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="erpfms.modelfms.fmsqvo.GLFinancialManagementReportQVO.txtLevelThreeCompanyTypeID_LABEL"/>
+        <DISPLAYWIDTH
+          Value="20"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="txtLevelFourCompanyTypeID"
+    IsSelected="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Type="java.lang.Integer"
+    ColumnType="INTEGER"
+    AliasName="VIEW_ATTR"
+    SQLType="INTEGER">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="erpfms.modelfms.fmsqvo.GLFinancialManagementReportQVO.txtLevelFourCompanyTypeID_LABEL"/>
+        <DISPLAYWIDTH
+          Value="20"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="txtLevelFiveCompanyTypeID"
+    IsSelected="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Type="java.lang.Integer"
+    ColumnType="INTEGER"
+    AliasName="VIEW_ATTR"
+    SQLType="INTEGER">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="erpfms.modelfms.fmsqvo.GLFinancialManagementReportQVO.txtLevelFiveCompanyTypeID_LABEL"/>
+        <DISPLAYWIDTH
+          Value="20"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="txtLevelSixCompanyTypeID"
+    IsSelected="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Type="java.lang.Integer"
+    ColumnType="INTEGER"
+    AliasName="VIEW_ATTR"
+    SQLType="INTEGER">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="erpfms.modelfms.fmsqvo.GLFinancialManagementReportQVO.txtLevelSixCompanyTypeID_LABEL"/>
+        <DISPLAYWIDTH
+          Value="20"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="txtLevelSevenCompanyTypeID"
+    IsSelected="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Type="java.lang.Integer"
+    ColumnType="INTEGER"
+    AliasName="VIEW_ATTR"
+    SQLType="INTEGER">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="erpfms.modelfms.fmsqvo.GLFinancialManagementReportQVO.txtLevelSevenCompanyTypeID_LABEL"/>
+        <DISPLAYWIDTH
+          Value="20"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="txtLevelEightCompanyTypeID"
+    IsSelected="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Type="java.lang.Integer"
+    ColumnType="INTEGER"
+    AliasName="VIEW_ATTR"
+    SQLType="INTEGER">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="erpfms.modelfms.fmsqvo.GLFinancialManagementReportQVO.txtLevelEightCompanyTypeID_LABEL"/>
+        <DISPLAYWIDTH
+          Value="20"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="txtLevelNineCompanyTypeID"
+    IsSelected="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Type="java.lang.Integer"
+    ColumnType="INTEGER"
+    AliasName="VIEW_ATTR"
+    SQLType="INTEGER">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="erpfms.modelfms.fmsqvo.GLFinancialManagementReportQVO.txtLevelNineCompanyTypeID_LABEL"/>
+        <DISPLAYWIDTH
+          Value="20"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="txtLevelTenCompanyTypeID"
+    IsSelected="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Type="java.lang.Integer"
+    ColumnType="INTEGER"
+    AliasName="VIEW_ATTR"
+    SQLType="INTEGER">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="erpfms.modelfms.fmsqvo.GLFinancialManagementReportQVO.txtLevelTenCompanyTypeID_LABEL"/>
+        <DISPLAYWIDTH
+          Value="20"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="txtFiscalYearName"
+    IsSelected="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Precision="255"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    AliasName="VIEW_ATTR"
+    SQLType="VARCHAR"
+    LOVName="LovtxtFiscalYearName">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="erpfms.modelfms.fmsqvo.GLFinancialManagementReportQVO.txtFiscalYearName_LABEL"/>
+        <DISPLAYWIDTH
+          Value="20"/>
+        <CONTROLTYPE
+          Value="combo_lov"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="txtFiscalYearSno"
+    IsSelected="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Type="java.lang.Integer"
+    ColumnType="INTEGER"
+    AliasName="VIEW_ATTR"
+    SQLType="INTEGER">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="erpfms.modelfms.fmsqvo.GLFinancialManagementReportQVO.txtFiscalYearSno_LABEL"/>
+        <DISPLAYWIDTH
+          Value="20"/>
+      </SchemaBasedProperties>
+    </Properties>
+    <Dependencies>
+      <Item
+        Value="txtCompanyID"/>
+    </Dependencies>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="txtTotalCompanyAccess"
+    IsUpdateable="false"
+    IsSelected="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Type="java.lang.Integer"
+    ColumnType="INTEGER"
+    AliasName="VIEW_ATTR"
+    SQLType="INTEGER">
+    <TransientExpression><![CDATA[AccGlCoaUserCompanyVO.executeQuery();
+return AccGlCoaUserCompanyVO?.getEstimatedRowCount()]]></TransientExpression>
+    <RecalcCondition
+      trustMode="trusted"><![CDATA[true]]></RecalcCondition>
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="erpfms.modelfms.fmsqvo.GLFinancialManagementReportQVO.txtTotalCompanyAccess_LABEL"/>
+        <DISPLAYWIDTH
+          Value="20"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="txtVoucherTypeID"
+    IsSelected="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Type="java.lang.Integer"
+    ColumnType="INTEGER"
+    AliasName="VIEW_ATTR"
+    SQLType="INTEGER">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="erpfms.modelfms.fmsqvo.GLFinancialManagementReportQVO.txtVoucherTypeID_LABEL"/>
+        <DISPLAYWIDTH
+          Value="20"/>
+      </SchemaBasedProperties>
+    </Properties>
+    <Dependencies>
+      <Item
+        Value="txtCompanyID"/>
+    </Dependencies>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="txtVoucherTypeName"
+    IsSelected="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Precision="255"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    AliasName="VIEW_ATTR"
+    SQLType="VARCHAR"
+    LOVName="LovtxtVoucherTypeName">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="erpfms.modelfms.fmsqvo.GLFinancialManagementReportQVO.txtVoucherTypeName_LABEL"/>
+        <DISPLAYWIDTH
+          Value="20"/>
+        <CONTROLTYPE
+          Value="combo_lov"/>
+      </SchemaBasedProperties>
+    </Properties>
+    <Dependencies>
+      <Item
+        Value="txtCompanyID"/>
+    </Dependencies>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="txtCompanyTypeId"
+    IsSelected="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Type="java.lang.Integer"
+    ColumnType="INTEGER"
+    AliasName="VIEW_ATTR"
+    SQLType="INTEGER">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="erpfms.modelfms.fmsqvo.GLFinancialManagementReportQVO.txtCompanyTypeId_LABEL"/>
+        <DISPLAYWIDTH
+          Value="20"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="txtLevelOneDepartmentID"
+    IsSelected="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Type="java.math.BigDecimal"
+    ColumnType="NUMBER"
+    AliasName="VIEW_ATTR"
+    SQLType="NUMERIC">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="erpfms.modelfms.fmsqvo.GLFinancialManagementReportQVO.txtLevelOneDepartmentID_LABEL"/>
+        <DISPLAYWIDTH
+          Value="20"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="txtLevelOneDepartmentName"
+    IsSelected="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Precision="255"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    AliasName="VIEW_ATTR"
+    SQLType="VARCHAR"
+    LOVName="LovtxtLevelOneDepartmentName">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="erpfms.modelfms.fmsqvo.GLFinancialManagementReportQVO.txtLevelOneDepartmentName_LABEL"/>
+        <DISPLAYWIDTH
+          Value="20"/>
+        <CONTROLTYPE
+          Value="combo_lov"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="txtLevelTwoDepartmentID"
+    IsSelected="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Type="java.math.BigDecimal"
+    ColumnType="NUMBER"
+    AliasName="VIEW_ATTR"
+    SQLType="NUMERIC">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="erpfms.modelfms.fmsqvo.GLFinancialManagementReportQVO.txtLevelTwoDepartmentID_LABEL"/>
+        <DISPLAYWIDTH
+          Value="20"/>
+      </SchemaBasedProperties>
+    </Properties>
+    <Dependencies>
+      <Item
+        Value="txtLevelOneDepartmentName"/>
+      <Item
+        Value="txtModuleAction"/>
+    </Dependencies>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="txtLevelTwoDepartmenName"
+    IsSelected="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Precision="255"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    AliasName="VIEW_ATTR"
+    SQLType="VARCHAR"
+    LOVName="LovtxtLevelTwoDepartmenName">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="erpfms.modelfms.fmsqvo.GLFinancialManagementReportQVO.txtLevelTwoDepartmenName_LABEL"/>
+        <DISPLAYWIDTH
+          Value="20"/>
+        <CONTROLTYPE
+          Value="combo_lov"/>
+      </SchemaBasedProperties>
+    </Properties>
+    <Dependencies>
+      <Item
+        Value="txtLevelOneDepartmentName"/>
+      <Item
+        Value="txtModuleAction"/>
+    </Dependencies>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="txtLevelThreeDepartmentID"
+    IsSelected="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Type="java.math.BigDecimal"
+    ColumnType="NUMBER"
+    AliasName="VIEW_ATTR"
+    SQLType="NUMERIC">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="erpfms.modelfms.fmsqvo.GLFinancialManagementReportQVO.txtLevelThreeDepartmentID_LABEL"/>
+        <DISPLAYWIDTH
+          Value="20"/>
+      </SchemaBasedProperties>
+    </Properties>
+    <Dependencies>
+      <Item
+        Value="txtLevelOneDepartmentName"/>
+      <Item
+        Value="txtLevelTwoDepartmenName"/>
+      <Item
+        Value="txtModuleAction"/>
+    </Dependencies>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="txtLevelThreeDepartmentName"
+    IsSelected="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Precision="255"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    AliasName="VIEW_ATTR"
+    SQLType="VARCHAR"
+    LOVName="LovtxtLevelThreeDepartmentName">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="erpfms.modelfms.fmsqvo.GLFinancialManagementReportQVO.txtLevelThreeDepartmentName_LABEL"/>
+        <DISPLAYWIDTH
+          Value="20"/>
+        <CONTROLTYPE
+          Value="combo_lov"/>
+      </SchemaBasedProperties>
+    </Properties>
+    <Dependencies>
+      <Item
+        Value="txtLevelOneDepartmentName"/>
+      <Item
+        Value="txtLevelTwoDepartmenName"/>
+      <Item
+        Value="txtModuleAction"/>
+    </Dependencies>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="txtLevelFourDepartmentID"
+    IsSelected="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Type="java.math.BigDecimal"
+    ColumnType="NUMBER"
+    AliasName="VIEW_ATTR"
+    SQLType="NUMERIC">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="erpfms.modelfms.fmsqvo.GLFinancialManagementReportQVO.txtLevelFourDepartmentID_LABEL"/>
+        <DISPLAYWIDTH
+          Value="20"/>
+      </SchemaBasedProperties>
+    </Properties>
+    <Dependencies>
+      <Item
+        Value="txtLevelOneDepartmentName"/>
+      <Item
+        Value="txtLevelThreeDepartmentName"/>
+      <Item
+        Value="txtLevelTwoDepartmenName"/>
+      <Item
+        Value="txtModuleAction"/>
+    </Dependencies>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="txtLevelFourDepartmentName"
+    IsSelected="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Precision="255"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    AliasName="VIEW_ATTR"
+    SQLType="VARCHAR"
+    LOVName="LovtxtLevelFourDepartmentName">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="erpfms.modelfms.fmsqvo.GLFinancialManagementReportQVO.txtLevelFourDepartmentName_LABEL"/>
+        <DISPLAYWIDTH
+          Value="20"/>
+        <CONTROLTYPE
+          Value="combo_lov"/>
+      </SchemaBasedProperties>
+    </Properties>
+    <Dependencies>
+      <Item
+        Value="txtLevelOneDepartmentName"/>
+      <Item
+        Value="txtLevelThreeDepartmentName"/>
+      <Item
+        Value="txtLevelTwoDepartmenName"/>
+      <Item
+        Value="txtModuleAction"/>
+    </Dependencies>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="txtLevelFiveDepartmentName"
+    IsSelected="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Precision="255"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    AliasName="VIEW_ATTR"
+    SQLType="VARCHAR"
+    LOVName="LovtxtLevelFiveDepartmentName">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="erpfms.modelfms.fmsqvo.GLFinancialManagementReportQVO.txtLevelFiveDepartmentName_LABEL"/>
+        <DISPLAYWIDTH
+          Value="20"/>
+        <CONTROLTYPE
+          Value="combo_lov"/>
+      </SchemaBasedProperties>
+    </Properties>
+    <Dependencies>
+      <Item
+        Value="txtLevelFourDepartmentName"/>
+      <Item
+        Value="txtLevelOneDepartmentName"/>
+      <Item
+        Value="txtLevelThreeDepartmentName"/>
+      <Item
+        Value="txtLevelTwoDepartmenName"/>
+      <Item
+        Value="txtModuleAction"/>
+    </Dependencies>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="txtLevelFiveDepartmentID"
+    IsSelected="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Type="java.math.BigDecimal"
+    ColumnType="NUMBER"
+    AliasName="VIEW_ATTR"
+    SQLType="NUMERIC">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="erpfms.modelfms.fmsqvo.GLFinancialManagementReportQVO.txtLevelFiveDepartmentID_LABEL"/>
+        <DISPLAYWIDTH
+          Value="20"/>
+      </SchemaBasedProperties>
+    </Properties>
+    <Dependencies>
+      <Item
+        Value="txtLevelFourDepartmentName"/>
+      <Item
+        Value="txtLevelOneDepartmentName"/>
+      <Item
+        Value="txtLevelThreeDepartmentName"/>
+      <Item
+        Value="txtLevelTwoDepartmenName"/>
+      <Item
+        Value="txtModuleAction"/>
+    </Dependencies>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="txtLevelSixDepartmentName"
+    IsSelected="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Precision="255"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    AliasName="VIEW_ATTR"
+    SQLType="VARCHAR"
+    LOVName="LovtxtLevelSixDepartmentName">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="erpfms.modelfms.fmsqvo.GLFinancialManagementReportQVO.txtLevelSixDepartmentName_LABEL"/>
+        <DISPLAYWIDTH
+          Value="20"/>
+        <CONTROLTYPE
+          Value="combo_lov"/>
+      </SchemaBasedProperties>
+    </Properties>
+    <Dependencies>
+      <Item
+        Value="txtLevelFiveDepartmentName"/>
+      <Item
+        Value="txtLevelFourCompanyName"/>
+      <Item
+        Value="txtLevelOneDepartmentName"/>
+      <Item
+        Value="txtLevelThreeDepartmentName"/>
+      <Item
+        Value="txtLevelTwoDepartmenName"/>
+      <Item
+        Value="txtModuleAction"/>
+    </Dependencies>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="txtLevelSixDepartmentID"
+    IsSelected="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Type="java.math.BigDecimal"
+    ColumnType="NUMBER"
+    AliasName="VIEW_ATTR"
+    SQLType="NUMERIC">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="erpfms.modelfms.fmsqvo.GLFinancialManagementReportQVO.txtLevelSixDepartmentID_LABEL"/>
+        <DISPLAYWIDTH
+          Value="20"/>
+      </SchemaBasedProperties>
+    </Properties>
+    <Dependencies>
+      <Item
+        Value="txtLevelFiveDepartmentName"/>
+      <Item
+        Value="txtLevelFourDepartmentName"/>
+      <Item
+        Value="txtLevelOneDepartmentName"/>
+      <Item
+        Value="txtLevelThreeDepartmentName"/>
+      <Item
+        Value="txtLevelTwoDepartmenName"/>
+      <Item
+        Value="txtModuleAction"/>
+    </Dependencies>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="txtLevelSevenDepartmentName"
+    IsSelected="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Precision="255"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    AliasName="VIEW_ATTR"
+    SQLType="VARCHAR"
+    LOVName="LovtxtLevelSevenDepartmentName">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="erpfms.modelfms.fmsqvo.GLFinancialManagementReportQVO.txtLevelSevenDepartmentName_LABEL"/>
+        <DISPLAYWIDTH
+          Value="20"/>
+        <CONTROLTYPE
+          Value="combo_lov"/>
+      </SchemaBasedProperties>
+    </Properties>
+    <Dependencies>
+      <Item
+        Value="txtLevelFiveDepartmentName"/>
+      <Item
+        Value="txtLevelFourDepartmentName"/>
+      <Item
+        Value="txtLevelOneDepartmentName"/>
+      <Item
+        Value="txtLevelSixDepartmentName"/>
+      <Item
+        Value="txtLevelThreeCompanyName"/>
+      <Item
+        Value="txtLevelThreeDepartmentName"/>
+      <Item
+        Value="txtLevelTwoDepartmenName"/>
+      <Item
+        Value="txtModuleAction"/>
+    </Dependencies>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="txtParentDepartForLastLevel"
+    IsSelected="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Type="java.math.BigDecimal"
+    ColumnType="NUMBER"
+    AliasName="VIEW_ATTR"
+    SQLType="NUMERIC">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="erpfms.modelfms.fmsqvo.GLFinancialManagementReportQVO.txtParentDepartForLastLevel_LABEL"/>
+        <DISPLAYWIDTH
+          Value="20"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="txtLevelSevenDepartmentID"
+    IsSelected="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Type="java.math.BigDecimal"
+    ColumnType="NUMBER"
+    AliasName="VIEW_ATTR"
+    SQLType="NUMERIC">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="erpfms.modelfms.fmsqvo.GLFinancialManagementReportQVO.txtLevelSevenDepartmentID_LABEL"/>
+        <DISPLAYWIDTH
+          Value="20"/>
+      </SchemaBasedProperties>
+    </Properties>
+    <Dependencies>
+      <Item
+        Value="txtLevelFiveDepartmentName"/>
+      <Item
+        Value="txtLevelFourDepartmentName"/>
+      <Item
+        Value="txtLevelOneDepartmentName"/>
+      <Item
+        Value="txtLevelSixDepartmentName"/>
+      <Item
+        Value="txtLevelThreeDepartmentName"/>
+      <Item
+        Value="txtLevelTwoDepartmenName"/>
+      <Item
+        Value="txtModuleAction"/>
+    </Dependencies>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="txtLevelEightDepartmentName"
+    IsSelected="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Type="java.lang.String"
+    ColumnType="NUMBER"
+    AliasName="VIEW_ATTR"
+    SQLType="VARCHAR"
+    LOVName="LovtxtLevelEightDepartmentName">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="erpfms.modelfms.fmsqvo.GLFinancialManagementReportQVO.txtLevelEightDepartmentName_LABEL"/>
+        <DISPLAYWIDTH
+          Value="20"/>
+        <CONTROLTYPE
+          Value="combo_lov"/>
+      </SchemaBasedProperties>
+    </Properties>
+    <Dependencies>
+      <Item
+        Value="txtLevelFiveDepartmentName"/>
+      <Item
+        Value="txtLevelFourDepartmentName"/>
+      <Item
+        Value="txtLevelOneDepartmentName"/>
+      <Item
+        Value="txtLevelSevenDepartmentName"/>
+      <Item
+        Value="txtLevelSixDepartmentName"/>
+      <Item
+        Value="txtLevelThreeDepartmentName"/>
+      <Item
+        Value="txtLevelTwoDepartmenName"/>
+      <Item
+        Value="txtModuleAction"/>
+    </Dependencies>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="txtLevelEightDepartmentID"
+    IsSelected="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Type="java.math.BigDecimal"
+    ColumnType="NUMBER"
+    AliasName="VIEW_ATTR"
+    SQLType="NUMERIC">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="erpfms.modelfms.fmsqvo.GLFinancialManagementReportQVO.txtLevelEightDepartmentID_LABEL"/>
+        <DISPLAYWIDTH
+          Value="20"/>
+      </SchemaBasedProperties>
+    </Properties>
+    <Dependencies>
+      <Item
+        Value="txtLevelFiveDepartmentName"/>
+      <Item
+        Value="txtLevelFourDepartmentName"/>
+      <Item
+        Value="txtLevelOneDepartmentName"/>
+      <Item
+        Value="txtLevelSevenDepartmentName"/>
+      <Item
+        Value="txtLevelSixDepartmentName"/>
+      <Item
+        Value="txtLevelThreeDepartmentName"/>
+      <Item
+        Value="txtLevelTwoDepartmenName"/>
+      <Item
+        Value="txtModuleAction"/>
+    </Dependencies>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="txtLevelNineDepartmentName"
+    IsSelected="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Precision="255"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    AliasName="VIEW_ATTR"
+    SQLType="VARCHAR"
+    LOVName="LovtxtLevelNineDepartmentName">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="erpfms.modelfms.fmsqvo.GLFinancialManagementReportQVO.txtLevelNineDepartmentName_LABEL"/>
+        <DISPLAYWIDTH
+          Value="20"/>
+        <CONTROLTYPE
+          Value="combo_lov"/>
+      </SchemaBasedProperties>
+    </Properties>
+    <Dependencies>
+      <Item
+        Value="txtLevelEightDepartmentName"/>
+      <Item
+        Value="txtLevelFiveDepartmentName"/>
+      <Item
+        Value="txtLevelFourDepartmentName"/>
+      <Item
+        Value="txtLevelOneDepartmentName"/>
+      <Item
+        Value="txtLevelSevenDepartmentName"/>
+      <Item
+        Value="txtLevelSixDepartmentName"/>
+      <Item
+        Value="txtLevelThreeDepartmentName"/>
+      <Item
+        Value="txtLevelTwoDepartmenName"/>
+      <Item
+        Value="txtModuleAction"/>
+    </Dependencies>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="txtLevelNineDepartmentID"
+    IsSelected="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Type="java.math.BigDecimal"
+    ColumnType="NUMBER"
+    AliasName="VIEW_ATTR"
+    SQLType="NUMERIC">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="erpfms.modelfms.fmsqvo.GLFinancialManagementReportQVO.txtLevelNineDepartmentID_LABEL"/>
+        <DISPLAYWIDTH
+          Value="20"/>
+      </SchemaBasedProperties>
+    </Properties>
+    <Dependencies>
+      <Item
+        Value="txtLevelEightDepartmentName"/>
+      <Item
+        Value="txtLevelFiveDepartmentName"/>
+      <Item
+        Value="txtLevelFourDepartmentName"/>
+      <Item
+        Value="txtLevelOneDepartmentName"/>
+      <Item
+        Value="txtLevelSevenDepartmentName"/>
+      <Item
+        Value="txtLevelSixDepartmentName"/>
+      <Item
+        Value="txtLevelThreeDepartmentName"/>
+      <Item
+        Value="txtLevelTwoDepartmenName"/>
+      <Item
+        Value="txtModuleAction"/>
+    </Dependencies>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="txtLevelTenDepartmentID"
+    IsSelected="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Precision="255"
+    Type="java.math.BigDecimal"
+    ColumnType="VARCHAR2"
+    AliasName="VIEW_ATTR"
+    SQLType="NUMERIC">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="erpfms.modelfms.fmsqvo.GLFinancialManagementReportQVO.txtLevelTenDepartmentID_LABEL"/>
+        <DISPLAYWIDTH
+          Value="20"/>
+      </SchemaBasedProperties>
+    </Properties>
+    <Dependencies>
+      <Item
+        Value="txtLevelEightDepartmentName"/>
+      <Item
+        Value="txtLevelFiveDepartmentName"/>
+      <Item
+        Value="txtLevelFourDepartmentName"/>
+      <Item
+        Value="txtLevelNineDepartmentName"/>
+      <Item
+        Value="txtLevelOneDepartmentName"/>
+      <Item
+        Value="txtLevelSevenDepartmentName"/>
+      <Item
+        Value="txtLevelSixDepartmentName"/>
+      <Item
+        Value="txtLevelThreeDepartmentName"/>
+      <Item
+        Value="txtLevelTwoDepartmenName"/>
+      <Item
+        Value="txtModuleAction"/>
+    </Dependencies>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="txtLevelTenDepartmentName"
+    IsSelected="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Precision="255"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    AliasName="VIEW_ATTR"
+    SQLType="VARCHAR"
+    LOVName="LovtxtLevelTenDepartmentName">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="erpfms.modelfms.fmsqvo.GLFinancialManagementReportQVO.txtLevelTenDepartmentName_LABEL"/>
+        <DISPLAYWIDTH
+          Value="20"/>
+        <CONTROLTYPE
+          Value="combo_lov"/>
+      </SchemaBasedProperties>
+    </Properties>
+    <Dependencies>
+      <Item
+        Value="txtLevelEightDepartmentName"/>
+      <Item
+        Value="txtLevelFiveDepartmentName"/>
+      <Item
+        Value="txtLevelFourDepartmentName"/>
+      <Item
+        Value="txtLevelNineDepartmentName"/>
+      <Item
+        Value="txtLevelOneDepartmentName"/>
+      <Item
+        Value="txtLevelSevenDepartmentName"/>
+      <Item
+        Value="txtLevelSixDepartmentName"/>
+      <Item
+        Value="txtLevelThreeDepartmentName"/>
+      <Item
+        Value="txtLevelTwoDepartmenName"/>
+      <Item
+        Value="txtModuleAction"/>
+    </Dependencies>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="txtGlobalHierarchyPath"
+    IsSelected="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Precision="255"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    AliasName="VIEW_ATTR"
+    SQLType="VARCHAR">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="erpfms.modelfms.fmsqvo.GLFinancialManagementReportQVO.txtGlobalHierarchyPath_LABEL"/>
+        <DISPLAYWIDTH
+          Value="20"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="txtOrganizationHierarchyPath"
+    IsSelected="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Precision="255"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    AliasName="VIEW_ATTR"
+    SQLType="VARCHAR">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="erpfms.modelfms.fmsqvo.GLFinancialManagementReportQVO.txtOrganizationHierarchyPath_LABEL"/>
+        <DISPLAYWIDTH
+          Value="20"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="txtGlobalTypeHierarchyPath"
+    IsSelected="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Precision="255"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    AliasName="VIEW_ATTR"
+    SQLType="VARCHAR">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="erpfms.modelfms.fmsqvo.GLFinancialManagementReportQVO.txtGlobalTypeHierarchyPath_LABEL"/>
+        <DISPLAYWIDTH
+          Value="20"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="txtOrganizationTypeHierarchyPath"
+    IsSelected="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Precision="255"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    AliasName="VIEW_ATTR"
+    SQLType="VARCHAR">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="erpfms.modelfms.fmsqvo.GLFinancialManagementReportQVO.txtOrganizationTypeHierarchyPath_LABEL"/>
+        <DISPLAYWIDTH
+          Value="20"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="txtOrgMaxTypeLevel"
+    IsSelected="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Type="java.lang.Integer"
+    ColumnType="INTEGER"
+    AliasName="VIEW_ATTR"
+    SQLType="INTEGER">
+    <TransientExpression><![CDATA[AccAdminOrgCompanyTypeVO.executeQuery();
+return AccAdminOrgCompanyTypeVO?.max("TypeLevel");]]></TransientExpression>
+    <RecalcCondition
+      trustMode="trusted"><![CDATA[true]]></RecalcCondition>
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="erpfms.modelfms.fmsqvo.GLFinancialManagementReportQVO.txtOrgMaxTypeLevel_LABEL"/>
+        <DISPLAYWIDTH
+          Value="20"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="txtLocationTypeId"
+    IsSelected="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Type="java.lang.Integer"
+    ColumnType="INTEGER"
+    AliasName="VIEW_ATTR"
+    SQLType="INTEGER">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="erpfms.modelfms.fmsqvo.GLFinancialManagementReportQVO.txtLocationTypeId_LABEL"/>
+        <DISPLAYWIDTH
+          Value="20"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="txtLevelOneDepartmentTypeID"
+    IsSelected="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Type="java.lang.Integer"
+    ColumnType="INTEGER"
+    AliasName="VIEW_ATTR"
+    SQLType="INTEGER">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="erpfms.modelfms.fmsqvo.GLFinancialManagementReportQVO.txtLevelOneDepartmentTypeID_LABEL"/>
+        <DISPLAYWIDTH
+          Value="20"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="txtLevelTwoDepartmentTypeID"
+    IsSelected="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Type="java.lang.Integer"
+    ColumnType="INTEGER"
+    AliasName="VIEW_ATTR"
+    SQLType="INTEGER">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="erpfms.modelfms.fmsqvo.GLFinancialManagementReportQVO.txtLevelTwoDepartmentTypeID_LABEL"/>
+        <DISPLAYWIDTH
+          Value="20"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="txtLevelThreeDepartmentTypeID"
+    IsSelected="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Type="java.lang.Integer"
+    ColumnType="INTEGER"
+    AliasName="VIEW_ATTR"
+    SQLType="INTEGER">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="erpfms.modelfms.fmsqvo.GLFinancialManagementReportQVO.txtLevelThreeDepartmentTypeID_LABEL"/>
+        <DISPLAYWIDTH
+          Value="20"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="txtLevelFourDepartmentTypeID"
+    IsSelected="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Type="java.lang.Integer"
+    ColumnType="INTEGER"
+    AliasName="VIEW_ATTR"
+    SQLType="INTEGER">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="erpfms.modelfms.fmsqvo.GLFinancialManagementReportQVO.txtLevelFourDepartmentTypeID_LABEL"/>
+        <DISPLAYWIDTH
+          Value="20"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="txtLevelFiveDepartmentTypeID"
+    IsSelected="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Type="java.lang.Integer"
+    ColumnType="INTEGER"
+    AliasName="VIEW_ATTR"
+    SQLType="INTEGER">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="erpfms.modelfms.fmsqvo.GLFinancialManagementReportQVO.txtLevelFiveDepartmentTypeID_LABEL"/>
+        <DISPLAYWIDTH
+          Value="20"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="txtLevelSixDepartmentTypeID"
+    IsSelected="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Type="java.lang.Integer"
+    ColumnType="INTEGER"
+    AliasName="VIEW_ATTR"
+    SQLType="INTEGER">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="erpfms.modelfms.fmsqvo.GLFinancialManagementReportQVO.txtLevelSixDepartmentTypeID_LABEL"/>
+        <DISPLAYWIDTH
+          Value="20"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="txtLevelSevenDepartmentTypeID"
+    IsSelected="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Type="java.lang.Integer"
+    ColumnType="INTEGER"
+    AliasName="VIEW_ATTR"
+    SQLType="INTEGER">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="erpfms.modelfms.fmsqvo.GLFinancialManagementReportQVO.txtLevelSevenDepartmentTypeID_LABEL"/>
+        <DISPLAYWIDTH
+          Value="20"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="txtLevelEightDepartmentTypeID"
+    IsSelected="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Type="java.lang.Integer"
+    ColumnType="INTEGER"
+    AliasName="VIEW_ATTR"
+    SQLType="INTEGER">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="erpfms.modelfms.fmsqvo.GLFinancialManagementReportQVO.txtLevelEightDepartmentTypeID_LABEL"/>
+        <DISPLAYWIDTH
+          Value="20"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="txtLevelNineDepartmentTypeID"
+    IsSelected="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Type="java.lang.Integer"
+    ColumnType="INTEGER"
+    AliasName="VIEW_ATTR"
+    SQLType="INTEGER">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="erpfms.modelfms.fmsqvo.GLFinancialManagementReportQVO.txtLevelNineDepartmentTypeID_LABEL"/>
+        <DISPLAYWIDTH
+          Value="20"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="txtLevelTenDepartmentTypeID"
+    IsSelected="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Type="java.lang.Integer"
+    ColumnType="INTEGER"
+    AliasName="VIEW_ATTR"
+    SQLType="INTEGER">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="erpfms.modelfms.fmsqvo.GLFinancialManagementReportQVO.txtLevelTenDepartmentTypeID_LABEL"/>
+        <DISPLAYWIDTH
+          Value="20"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="txtDepartmentTypeId"
+    IsSelected="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Type="java.lang.Integer"
+    ColumnType="INTEGER"
+    AliasName="VIEW_ATTR"
+    SQLType="INTEGER">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="erpfms.modelfms.fmsqvo.GLFinancialManagementReportQVO.txtDepartmentTypeId_LABEL"/>
+        <DISPLAYWIDTH
+          Value="20"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="txtFromDate"
+    IsSelected="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Type="oracle.jbo.domain.Date"
+    ColumnType="DATE"
+    AliasName="VIEW_ATTR"
+    SQLType="DATE">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="erpfms.modelfms.fmsqvo.GLFinancialManagementReportQVO.txtFromDate_LABEL"/>
+        <DISPLAYWIDTH
+          Value="20"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="txtToDate"
+    IsSelected="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Type="oracle.jbo.domain.Date"
+    ColumnType="DATE"
+    AliasName="VIEW_ATTR"
+    SQLType="DATE">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="erpfms.modelfms.fmsqvo.GLFinancialManagementReportQVO.txtToDate_LABEL"/>
+        <DISPLAYWIDTH
+          Value="20"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="txtActionName"
+    IsSelected="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Precision="255"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    AliasName="VIEW_ATTR"
+    SQLType="VARCHAR"
+    LOVName="LovtxtActionName">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="erpfms.modelfms.fmsqvo.GLFinancialManagementReportQVO.txtActionName_LABEL"/>
+        <DISPLAYWIDTH
+          Value="20"/>
+        <CONTROLTYPE
+          Value="combo_lov"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="txtFromCOAID"
+    IsSelected="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Type="java.lang.Integer"
+    ColumnType="INTEGER"
+    AliasName="VIEW_ATTR"
+    SQLType="INTEGER">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="erpfms.modelfms.fmsqvo.GLFinancialManagementReportQVO.txtFromCOAID_LABEL"/>
+        <DISPLAYWIDTH
+          Value="20"/>
+      </SchemaBasedProperties>
+    </Properties>
+    <Dependencies>
+      <Item
+        Value="txtFromCOADescription"/>
+    </Dependencies>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="txtFromCOACode"
+    IsSelected="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Precision="255"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    AliasName="VIEW_ATTR"
+    SQLType="VARCHAR">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="erpfms.modelfms.fmsqvo.GLFinancialManagementReportQVO.txtFromCOACode_LABEL"/>
+        <DISPLAYWIDTH
+          Value="20"/>
+      </SchemaBasedProperties>
+    </Properties>
+    <Dependencies>
+      <Item
+        Value="txtFromCOADescription"/>
+    </Dependencies>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="txtFromCOADescription"
+    IsSelected="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Precision="255"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    AliasName="VIEW_ATTR"
+    SQLType="VARCHAR"
+    LOVName="LovtxtFromCOADescription">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="erpfms.modelfms.fmsqvo.GLFinancialManagementReportQVO.txtFromCOADescription_LABEL"/>
+        <DISPLAYWIDTH
+          Value="20"/>
+        <CONTROLTYPE
+          Value="combo_lov"/>
+      </SchemaBasedProperties>
+    </Properties>
+    <Dependencies>
+      <Item
+        Value="txtCompanyID"/>
+    </Dependencies>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="txtFromCOAHierarchyPath"
+    IsSelected="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Precision="255"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    AliasName="VIEW_ATTR"
+    SQLType="VARCHAR">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="erpfms.modelfms.fmsqvo.GLFinancialManagementReportQVO.txtFromCOAHierarchyPath_LABEL"/>
+        <DISPLAYWIDTH
+          Value="20"/>
+      </SchemaBasedProperties>
+    </Properties>
+    <Dependencies>
+      <Item
+        Value="txtFromCOADescription"/>
+    </Dependencies>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="txtToCOAID"
+    IsSelected="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Type="java.lang.Integer"
+    ColumnType="INTEGER"
+    AliasName="VIEW_ATTR"
+    SQLType="INTEGER">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="erpfms.modelfms.fmsqvo.GLFinancialManagementReportQVO.txtToCOAID_LABEL"/>
+        <DISPLAYWIDTH
+          Value="20"/>
+      </SchemaBasedProperties>
+    </Properties>
+    <Dependencies>
+      <Item
+        Value="txtToCOADescription"/>
+    </Dependencies>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="txtToCOACode"
+    IsSelected="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Precision="255"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    AliasName="VIEW_ATTR"
+    SQLType="VARCHAR">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="erpfms.modelfms.fmsqvo.GLFinancialManagementReportQVO.txtToCOACode_LABEL"/>
+        <DISPLAYWIDTH
+          Value="20"/>
+      </SchemaBasedProperties>
+    </Properties>
+    <Dependencies>
+      <Item
+        Value="txtToCOADescription"/>
+    </Dependencies>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="txtToCOADescription"
+    IsSelected="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Precision="255"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    AliasName="VIEW_ATTR"
+    SQLType="VARCHAR"
+    LOVName="LovtxtToCOADescription">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="erpfms.modelfms.fmsqvo.GLFinancialManagementReportQVO.txtToCOADescription_LABEL"/>
+        <DISPLAYWIDTH
+          Value="20"/>
+        <CONTROLTYPE
+          Value="combo_lov"/>
+      </SchemaBasedProperties>
+    </Properties>
+    <Dependencies>
+      <Item
+        Value="txtCompanyID"/>
+    </Dependencies>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="txtToCOAHierarchyPath"
+    IsSelected="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Precision="255"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    AliasName="VIEW_ATTR"
+    SQLType="VARCHAR">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="erpfms.modelfms.fmsqvo.GLFinancialManagementReportQVO.txtToCOAHierarchyPath_LABEL"/>
+        <DISPLAYWIDTH
+          Value="20"/>
+      </SchemaBasedProperties>
+    </Properties>
+    <Dependencies>
+      <Item
+        Value="txtToCOADescription"/>
+    </Dependencies>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="txtFromCOALevel"
+    IsSelected="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Type="java.lang.Integer"
+    ColumnType="INTEGER"
+    AliasName="VIEW_ATTR"
+    SQLType="INTEGER">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="erpfms.modelfms.fmsqvo.GLFinancialManagementReportQVO.txtFromCOALevel_LABEL"/>
+        <DISPLAYWIDTH
+          Value="20"/>
+      </SchemaBasedProperties>
+    </Properties>
+    <Dependencies>
+      <Item
+        Value="txtFromCOADescription"/>
+    </Dependencies>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="txtToCOALevel"
+    IsSelected="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Type="java.lang.Integer"
+    ColumnType="INTEGER"
+    AliasName="VIEW_ATTR"
+    SQLType="INTEGER">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="erpfms.modelfms.fmsqvo.GLFinancialManagementReportQVO.txtToCOALevel_LABEL"/>
+        <DISPLAYWIDTH
+          Value="20"/>
+      </SchemaBasedProperties>
+    </Properties>
+    <Dependencies>
+      <Item
+        Value="txtToCOADescription"/>
+    </Dependencies>
+  </ViewAttribute>
+  <AttrArray Name="KeyAttributes">
+    <Item Value="Pk"/>
+  </AttrArray>
+  <ResourceBundle>
+    <PropertiesBundle
+      PropertiesFile="erpfms.modelfms.ModelFMSBundle"/>
+  </ResourceBundle>
+</ViewObject>

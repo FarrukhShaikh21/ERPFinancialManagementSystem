@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.1.3.10.47" id="FMS_0011PageDef"
+                Package="erpfms.viewfms.pageDefs">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <page path="erptemplate.viewtemp.pageDefs.ERPTemplatePageDef" id="ptb1" Refresh="ifNeeded"/>
+    <iterator Binds="AdminCompanyVORO" RangeSize="25" DataControl="ERPFMSModuleDataControl"
+              id="AdminCompanyVOROIterator"/>
+  </executables>
+  <bindings>
+    <tree IterBinding="AdminCompanyVOROIterator" id="AdminCompanyVORO">
+      <nodeDefinition DefName="erpadm.modeladm.admvo.AdminCompanyVO" Name="AdminCompanyVORO0">
+        <AttrNames>
+          <Item Value="CompanyShortName"/>
+          <Item Value="CompanyShortCode"/>
+          <Item Value="CompanyName"/>
+          <Item Value="CompCode"/>
+          <Item Value="txtCountryName"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <attributeValues IterBinding="AdminCompanyVOROIterator" id="CompCode">
+      <AttrNames>
+        <Item Value="CompCode"/>
+      </AttrNames>
+    </attributeValues>
+  </bindings>
+</pageDefinition>

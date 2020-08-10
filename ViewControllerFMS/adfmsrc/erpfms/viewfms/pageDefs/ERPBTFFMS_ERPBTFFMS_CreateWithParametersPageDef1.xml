@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.1.3.10.47"
+                id="ERPBTFFMS_ERPBTFFMS_CreateWithParametersPageDef1" Package="erpfms.viewfms.pageDefs"
+                SkipValidation="true">
+  <parameters/>
+  <executables>
+    <iterator Binds="GlVoucherHeaderByVoucherIDCRUD" RangeSize="25" DataControl="ERPFMSModuleDataControl"
+              id="GlVoucherHeaderByVoucherIDCRUDIterator"/>
+  </executables>
+  <bindings>
+    <action IterBinding="GlVoucherHeaderByVoucherIDCRUDIterator" id="CreateWithParams" RequiresUpdateModel="true"
+            Action="createWithParams" InstanceName="ERPFMSModuleDataControl.GlVoucherHeaderByVoucherIDCRUD"
+            DataControl="ERPFMSModuleDataControl">
+      <NamedData NDName="VoucherHeaderSno" NDValue="#{0}" NDType="java.lang.String"/>
+    </action>
+  </bindings>
+</pageDefinition>

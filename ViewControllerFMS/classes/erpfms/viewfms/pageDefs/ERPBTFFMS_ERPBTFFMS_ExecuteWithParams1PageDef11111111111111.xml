@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.1.3.10.47"
+                id="ERPBTFFMS_ERPBTFFMS_ExecuteWithParams1PageDef11111111111111" Package="erpfms.viewfms.pageDefs"
+                SkipValidation="true">
+  <parameters/>
+  <executables>
+    <iterator Binds="GlVoucherTypesCRUD" RangeSize="25" DataControl="ERPFMSModuleDataControl"
+              id="GlVoucherTypesCRUDIterator" Refresh="never"/>
+  </executables>
+  <bindings>
+    <action IterBinding="GlVoucherTypesCRUDIterator" id="ExecuteWithParams" RequiresUpdateModel="true"
+            Action="executeWithParams">
+      <NamedData NDName="P_ADF_COMPANY_ID" NDValue="#{data.erpfms_viewfms_FMS_0006PageDef.CompCode.inputValue}"
+                 NDType="java.lang.Integer"/>
+    </action>
+  </bindings>
+</pageDefinition>

@@ -1,0 +1,24 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE html>
+<f:view xmlns:f="http://java.sun.com/jsf/core" xmlns:af="http://xmlns.oracle.com/adf/faces/rich">
+    <af:document title="FMSMain.jsf" id="d1">
+        <af:serverListener type="customEvent" method="#{pageFlowScope.OracleERPBean.handleEvent}"/>
+        <af:clientListener type="load" method="load"/>
+        <af:messages id="m1"/>
+        <af:form id="f1">
+            <af:pageTemplate viewId="/ERPTemplate.jsf" value="#{bindings.ptb1}" id="pt1">
+                <f:facet name="ERPMain"/>
+                <f:facet name="ERPLeft"/>
+                <f:facet name="ERPToolbar">
+                    <af:panelGroupLayout id="pgl1" layout="horizontal">
+                        <af:link id="l1" icon="#{resource['images:imgHome.png']}" partialSubmit="true"
+                                 action="ERPACTEXITTASKFLOW"/>
+                    </af:panelGroupLayout>
+                </f:facet>
+            </af:pageTemplate>
+        </af:form>
+        <f:facet name="metaContainer">
+            <af:resource type="javascript" source="/resources/js/ERPAdaptiveJavaScript.js"/>
+        </f:facet>        
+    </af:document>
+</f:view>

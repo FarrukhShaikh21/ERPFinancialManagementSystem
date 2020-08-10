@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.1.3.10.47"
+                id="ERPBTFFMS_ERPBTFFMS_ExecutePageDef111" Package="erpfms.viewfms.pageDefs" SkipValidation="true">
+  <parameters/>
+  <executables>
+    <iterator Binds="GlFiscalYearCRUD" RangeSize="25" DataControl="ERPFMSModuleDataControl"
+              id="GlFiscalYearCRUDIterator" Refresh="never"/>
+  </executables>
+  <bindings>
+    <action IterBinding="GlFiscalYearCRUDIterator" id="Execute" RequiresUpdateModel="true" Action="iteratorExecute"/>
+  </bindings>
+</pageDefinition>

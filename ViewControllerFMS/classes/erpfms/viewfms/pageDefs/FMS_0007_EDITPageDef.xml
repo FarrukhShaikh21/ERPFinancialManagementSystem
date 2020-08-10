@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.1.3.10.47" id="FMS_0007_EDITPageDef"
+                Package="erpfms.viewfms.pageDefs">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="AdminCompanyVOByCompanyRO" RangeSize="25" DataControl="ERPFMSModuleDataControl"
+              id="AdminCompanyVOByCompanyROIterator"/>
+    <iterator Binds="GlVoucherTypesUserAccessRO" RangeSize="25" DataControl="ERPFMSModuleDataControl"
+              id="GlVoucherTypesUserAccessROIterator"/>
+  </executables>
+  <bindings>
+    <listOfValues IterBinding="AdminCompanyVOByCompanyROIterator" StaticList="false" Uses="LovtxtCountryName"
+                  id="txtCountryName"/>
+    <attributeValues IterBinding="AdminCompanyVOByCompanyROIterator" id="CompCode">
+      <AttrNames>
+        <Item Value="CompCode"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="AdminCompanyVOByCompanyROIterator" id="CompanyName">
+      <AttrNames>
+        <Item Value="CompanyName"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="AdminCompanyVOByCompanyROIterator" id="CompanyShortName">
+      <AttrNames>
+        <Item Value="CompanyShortName"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="AdminCompanyVOByCompanyROIterator" id="CompanyShortCode">
+      <AttrNames>
+        <Item Value="CompanyShortCode"/>
+      </AttrNames>
+    </attributeValues>
+    <tree IterBinding="GlVoucherTypesUserAccessROIterator" id="GlVoucherTypesUserAccessRO">
+      <nodeDefinition DefName="erpfms.modelfms.fmsvo.GlVoucherTypesVO" Name="GlVoucherTypesUserAccessRO0">
+        <AttrNames>
+          <Item Value="VoucherTypeCode"/>
+          <Item Value="VoucherTypeName"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <attributeValues IterBinding="GlVoucherTypesUserAccessROIterator" id="VoucherTypeId">
+      <AttrNames>
+        <Item Value="VoucherTypeId"/>
+      </AttrNames>
+    </attributeValues>
+  </bindings>
+</pageDefinition>

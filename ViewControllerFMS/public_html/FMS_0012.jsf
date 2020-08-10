@@ -1,0 +1,13 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE html>
+<f:view xmlns:f="http://java.sun.com/jsf/core" xmlns:af="http://xmlns.oracle.com/adf/faces/rich">
+    <af:document title="FMS_0012.jsf" id="d1">
+        <af:form id="f1">
+            <af:pageTemplate viewId="/ERPTemplate.jsf" value="#{bindings.ptb1}" id="pt1">
+                <f:facet name="ERPMain"/>
+                <f:facet name="ERPLeft"/>
+                <f:facet name="ERPToolbar"/>
+            </af:pageTemplate>
+        </af:form>
+    </af:document>
+</f:view>

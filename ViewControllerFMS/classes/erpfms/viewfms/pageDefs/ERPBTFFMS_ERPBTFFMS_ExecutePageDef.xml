@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.1.3.10.47"
+                id="ERPBTFFMS_ERPBTFFMS_ExecutePageDef" Package="erpfms.viewfms.pageDefs" SkipValidation="true">
+  <parameters/>
+  <executables>
+    <iterator Binds="GlChartOfAccountsSearchRO" RangeSize="25" DataControl="ERPFMSModuleDataControl"
+              id="GlChartOfAccountsSearchROIterator" Refresh="never"/>
+  </executables>
+  <bindings>
+    <action IterBinding="GlChartOfAccountsSearchROIterator" id="Execute" RequiresUpdateModel="true"
+            Action="iteratorExecute"/>
+  </bindings>
+</pageDefinition>

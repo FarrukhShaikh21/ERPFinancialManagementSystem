@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.1.3.10.47"
+                id="ERPBTFFMS_ERPBTFFMS_ExecuteWithParams1PageDef11111111" Package="erpfms.viewfms.pageDefs"
+                SkipValidation="true">
+  <parameters/>
+  <executables>
+    <iterator Binds="GlChartOfAccountsRO" RangeSize="25" DataControl="ERPFMSModuleDataControl"
+              id="GlChartOfAccountsROIterator" Refresh="never"/>
+  </executables>
+  <bindings>
+    <action IterBinding="GlChartOfAccountsROIterator" id="ExecuteWithParams" RequiresUpdateModel="true"
+            Action="executeWithParams">
+      <NamedData NDName="P_ADF_GLOBAL_COMPANY_ID"
+                 NDValue="#{data.erpfms_viewfms_FMS_0003_EDITPageDef.GlobalCompCode.inputValue}"
+                 NDType="java.lang.Integer"/>
+      <NamedData NDName="P_ADF_COMPANY_ID" NDValue="#{data.erpfms_viewfms_FMS_0003PageDef.CompCode.inputValue}"
+                 NDType="java.lang.Integer"/>
+      <NamedData NDName="P_ADF_COA_TYPE_SNO" NDType="java.lang.Integer"/>
+      <NamedData NDName="P_ADF_LEVEL_NO" NDType="java.lang.Integer"/>
+      <NamedData NDName="P_ADF_COA_ID" NDType="java.lang.Integer"/>
+    </action>
+  </bindings>
+</pageDefinition>

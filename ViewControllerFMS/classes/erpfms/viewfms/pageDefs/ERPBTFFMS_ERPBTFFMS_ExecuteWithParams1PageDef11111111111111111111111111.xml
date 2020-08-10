@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.1.3.10.47"
+                id="ERPBTFFMS_ERPBTFFMS_ExecuteWithParams1PageDef11111111111111111111111111"
+                Package="erpfms.viewfms.pageDefs" SkipValidation="true">
+  <parameters/>
+  <executables>
+    <iterator Binds="GlCoaUserCompanyForPeriodRightRO" RangeSize="25" DataControl="ERPFMSModuleDataControl"
+              id="GlCoaUserCompanyForPeriodRightROIterator" Refresh="never"/>
+  </executables>
+  <bindings>
+    <action IterBinding="GlCoaUserCompanyForPeriodRightROIterator" id="ExecuteWithParams" RequiresUpdateModel="true"
+            Action="executeWithParams">
+      <NamedData NDName="P_ADF_COMPANY_ID" NDValue="#{data.erpfms_viewfms_FMS_0011_EDITPageDef.CompCode.inputValue}"
+                 NDType="java.lang.Integer"/>
+      <NamedData NDName="P_ADF_GLOBAL_COMPANY_ID"
+                 NDValue="#{data.erpfms_viewfms_FMS_0011_EDITPageDef.UserId.inputValue}" NDType="java.lang.Integer"/>
+      <NamedData NDName="P_ADF_USER_ID" NDType="java.lang.Integer"/>
+    </action>
+  </bindings>
+</pageDefinition>

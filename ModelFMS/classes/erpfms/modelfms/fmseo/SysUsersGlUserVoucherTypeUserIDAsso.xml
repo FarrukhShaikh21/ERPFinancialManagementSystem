@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE Association SYSTEM "jbo_03_01.dtd">
+<!---->
+<Association
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="SysUsersGlUserVoucherTypeUserIDAsso"
+  Version="12.1.3.10.47"
+  InheritPersonalization="merge">
+  <DesignTime>
+    <Attr Name="_isCodegen" Value="true"/>
+  </DesignTime>
+  <AssociationEnd
+    Name="SysUsers"
+    Cardinality="1"
+    Source="true"
+    Owner="erpadm.modeladm.admeo.SysUsers"
+    LockLevel="NONE">
+    <DesignTime>
+      <Attr Name="_aggregation" Value="0"/>
+      <Attr Name="_finderName" Value="SysUsers"/>
+      <Attr Name="_foreignKey" Value="erpadm.modeladm.admeo.SysUsers.PkSysUsers"/>
+      <Attr Name="_isUpdateable" Value="true"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="erpadm.modeladm.admeo.SysUsers.UserId"/>
+    </AttrArray>
+  </AssociationEnd>
+  <AssociationEnd
+    Name="GlUserVoucherType"
+    Cardinality="-1"
+    Owner="erpfms.modelfms.fmseo.GlUserVoucherType"
+    ExposedAccessor="false">
+    <DesignTime>
+      <Attr Name="_aggregation" Value="0"/>
+      <Attr Name="_finderName" Value="GlUserVoucherType"/>
+      <Attr Name="_foreignKey" Value="erpfms.modelfms.fmseo.GlUserVoucherType.fk_GlUserVoucherType1"/>
+      <Attr Name="_isUpdateable" Value="true"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="erpfms.modelfms.fmseo.GlUserVoucherType.UserId"/>
+    </AttrArray>
+  </AssociationEnd>
+</Association>

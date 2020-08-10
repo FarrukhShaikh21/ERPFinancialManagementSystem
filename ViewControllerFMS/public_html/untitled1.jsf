@@ -1,0 +1,16 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE html>
+<f:view xmlns:f="http://java.sun.com/jsf/core" xmlns:af="http://xmlns.oracle.com/adf/faces/rich">
+    <af:document title="untitled1.jsf" id="d1" clientComponent="true">
+        <af:messages id="m1"/>       
+        <af:form id="f1" clientComponent="true">
+            <af:panelGroupLayout id="pgl1">
+                <af:inputText id="it7" clientComponent="true"
+                              partialTriggers="d1"
+                              value="#{pageFlowScope.OracleERPBean.erpScreenSize}"/>
+                <af:button id="b1"/>
+            </af:panelGroupLayout>
+        </af:form>
+        <f:facet name="metaContainer"/>
+    </af:document>
+</f:view>

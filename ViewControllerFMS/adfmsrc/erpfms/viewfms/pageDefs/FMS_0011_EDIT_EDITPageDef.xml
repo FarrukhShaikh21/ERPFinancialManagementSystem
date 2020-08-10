@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.1.3.10.47" id="FMS_0011_EDIT_EDITPageDef"
+                Package="erpfms.viewfms.pageDefs">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <page path="erptemplate.viewtemp.pageDefs.ERPTemplatePageDef" id="ptb1" Refresh="ifNeeded"/>
+    <iterator Binds="AdminCompanyVOByCompanyRO" RangeSize="25" DataControl="ERPFMSModuleDataControl"
+              id="AdminCompanyVOByCompanyROIterator"/>
+    <iterator Binds="GlPeriodForUserRightsRO" RangeSize="25" DataControl="ERPFMSModuleDataControl"
+              id="GlPeriodForUserRightsROIterator"/>
+    <iterator Binds="GlUserClosedPeriodRightDetCRUD" RangeSize="25" DataControl="ERPFMSModuleDataControl"
+              id="GlUserClosedPeriodRightDetCRUDIterator"/>
+    <searchRegion Criteria="__ImplicitViewCriteria__" Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer"
+                  Binds="GlPeriodForUserRightsROIterator" id="ImplicitViewCriteriaQuery" InitialQueryOverridden="true"/>
+    <searchRegion Criteria="GlUserClosedPeriodRightFindVC" Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer"
+                  Binds="GlUserClosedPeriodRightDetCRUDIterator" id="ImplicitViewCriteriaQuery1"
+                  InitialQueryOverridden="true"/>
+    <iterator Binds="SysUsersByUserIdRO" RangeSize="25" DataControl="ERPFMSModuleDataControl"
+              id="SysUsersByUserIdROIterator"/>
+  </executables>
+  <bindings>
+    <listOfValues IterBinding="AdminCompanyVOByCompanyROIterator" StaticList="false" Uses="LovtxtCountryName"
+                  id="txtCountryName"/>
+    <attributeValues IterBinding="AdminCompanyVOByCompanyROIterator" id="CompCode">
+      <AttrNames>
+        <Item Value="CompCode"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="AdminCompanyVOByCompanyROIterator" id="CompanyName">
+      <AttrNames>
+        <Item Value="CompanyName"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="AdminCompanyVOByCompanyROIterator" id="CompanyShortName">
+      <AttrNames>
+        <Item Value="CompanyShortName"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="AdminCompanyVOByCompanyROIterator" id="CompanyShortCode">
+      <AttrNames>
+        <Item Value="CompanyShortCode"/>
+      </AttrNames>
+    </attributeValues>
+    <action id="Rollback" RequiresUpdateModel="false" Action="rollbackTransaction"
+            DataControl="ERPFMSModuleDataControl"/>
+    <action id="Commit" RequiresUpdateModel="true" Action="commitTransaction" DataControl="ERPFMSModuleDataControl"/>
+    <tree IterBinding="GlPeriodForUserRightsROIterator" id="GlPeriodForUserRightsRO">
+      <nodeDefinition DefName="erpfms.modelfms.fmsqvo.GlPeriodForUserRightsQVO" Name="GlPeriodForUserRightsRO0">
+        <AttrNames>
+          <Item Value="FiscalYearSno"/>
+          <Item Value="PeriodSno"/>
+          <Item Value="PeriodName"/>
+          <Item Value="YearDescription"/>
+          <Item Value="FiscalYearr"/>
+          <Item Value="IsAdjustment"/>
+          <Item Value="IsClosed"/>
+          <Item Value="QuarterNo"/>
+          <Item Value="StartDate"/>
+          <Item Value="EndDate"/>
+          <Item Value="txtSelected"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <tree IterBinding="GlUserClosedPeriodRightDetCRUDIterator" id="GlUserClosedPeriodRightDetCRUD">
+      <nodeDefinition DefName="erpfms.modelfms.fmsvo.GlUserClosedPeriodRightVO" Name="GlUserClosedPeriodRightDetCRUD0">
+        <AttrNames>
+          <Item Value="PeriodName"/>
+          <Item Value="StartDate"/>
+          <Item Value="EndDate"/>
+          <Item Value="FromDate"/>
+          <Item Value="ToDate"/>
+          <Item Value="IsActive"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <attributeValues IterBinding="SysUsersByUserIdROIterator" id="UserId">
+      <AttrNames>
+        <Item Value="UserId"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="SysUsersByUserIdROIterator" id="UserName">
+      <AttrNames>
+        <Item Value="UserName"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="SysUsersByUserIdROIterator" id="Email">
+      <AttrNames>
+        <Item Value="Email"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="SysUsersByUserIdROIterator" id="MobileNo">
+      <AttrNames>
+        <Item Value="MobileNo"/>
+      </AttrNames>
+    </attributeValues>
+    <methodAction id="doErpAssignAllPeriodToUser" RequiresUpdateModel="true" Action="invokeMethod"
+                  MethodName="doErpAssignAllPeriodToUser" IsViewObjectMethod="true"
+                  DataControl="ERPFMSModuleDataControl"
+                  InstanceName="data.ERPFMSModuleDataControl.GlPeriodForUserRightsRO"
+                  ReturnName="data.ERPFMSModuleDataControl.methodResults.doErpAssignAllPeriodToUser_ERPFMSModuleDataControl_GlPeriodForUserRightsRO_doErpAssignAllPeriodToUser_result"/>
+    <action IterBinding="GlUserClosedPeriodRightDetCRUDIterator" id="Delete" RequiresUpdateModel="false"
+            Action="removeCurrentRow"/>
+    <methodAction IterBinding="GlPeriodForUserRightsROIterator" id="doErpAssignSinglePeriodToUser"
+                  RequiresUpdateModel="true" Action="invokeMethod" MethodName="doErpAssignSinglePeriodToUser"
+                  IsViewObjectMethod="false" DataControl="ERPFMSModuleDataControl"
+                  InstanceName="bindings.GlPeriodForUserRightsROIterator.currentRow" IsLocalObjectReference="true"
+                  ReturnName="data.ERPFMSModuleDataControl.methodResults.doErpAssignSinglePeriodToUser_doErpAssignSinglePeriodToUser_doErpAssignSinglePeriodToUser_result"/>
+  </bindings>
+</pageDefinition>

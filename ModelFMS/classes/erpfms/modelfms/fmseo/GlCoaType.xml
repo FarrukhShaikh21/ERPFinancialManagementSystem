@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE Entity SYSTEM "jbo_03_01.dtd">
+<!---->
+<Entity
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="GlCoaType"
+  Version="12.1.3.10.47"
+  InheritPersonalization="merge"
+  DBObjectType="table"
+  DBObjectName="GL_COA_TYPE"
+  AliasName="GlCoaType"
+  BindingStyle="JDBC">
+  <Attribute
+    Name="CoaTypeSno"
+    IsNotNull="true"
+    Precision="5"
+    Scale="0"
+    ColumnName="COA_TYPE_SNO"
+    SQLType="NUMERIC"
+    Type="java.lang.Integer"
+    ColumnType="NUMBER"
+    TableName="GL_COA_TYPE"
+    PrimaryKey="true"/>
+  <Attribute
+    Name="CoaTypeCode"
+    IsUnique="true"
+    IsNotNull="true"
+    Precision="5"
+    Scale="0"
+    ColumnName="COA_TYPE_CODE"
+    SQLType="NUMERIC"
+    Type="java.lang.Integer"
+    ColumnType="NUMBER"
+    TableName="GL_COA_TYPE"/>
+  <Attribute
+    Name="CoaTypeName"
+    IsNotNull="true"
+    Precision="50"
+    ColumnName="COA_TYPE_NAME"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="GL_COA_TYPE">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="50"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="CoaTypeShortName"
+    IsNotNull="true"
+    Precision="50"
+    ColumnName="COA_TYPE_SHORT_NAME"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="GL_COA_TYPE">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="50"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="CreatedBy"
+    IsNotNull="true"
+    Precision="5"
+    Scale="0"
+    ColumnName="CREATED_BY"
+    SQLType="NUMERIC"
+    Type="java.lang.Integer"
+    ColumnType="NUMBER"
+    TableName="GL_COA_TYPE"/>
+  <Attribute
+    Name="CreatedDate"
+    IsNotNull="true"
+    ColumnName="CREATED_DATE"
+    SQLType="DATE"
+    Type="java.sql.Timestamp"
+    ColumnType="DATE"
+    TableName="GL_COA_TYPE"/>
+  <Attribute
+    Name="GlobalCompanyId"
+    IsUnique="true"
+    IsNotNull="true"
+    Precision="5"
+    Scale="0"
+    ColumnName="GLOBAL_COMPANY_ID"
+    SQLType="NUMERIC"
+    Type="java.lang.Integer"
+    ColumnType="NUMBER"
+    TableName="GL_COA_TYPE"/>
+  <Attribute
+    Name="CompanyId"
+    IsUnique="true"
+    IsNotNull="true"
+    Precision="5"
+    Scale="0"
+    ColumnName="COMPANY_ID"
+    SQLType="NUMERIC"
+    Type="java.lang.Integer"
+    ColumnType="NUMBER"
+    TableName="GL_COA_TYPE"/>
+  <Attribute
+    Name="LastUpdatedBy"
+    Precision="5"
+    Scale="0"
+    ColumnName="LAST_UPDATED_BY"
+    SQLType="NUMERIC"
+    Type="java.lang.Integer"
+    ColumnType="NUMBER"
+    TableName="GL_COA_TYPE"/>
+  <Attribute
+    Name="LastUpdatedDate"
+    ColumnName="LAST_UPDATED_DATE"
+    SQLType="DATE"
+    Type="java.sql.Timestamp"
+    ColumnType="DATE"
+    TableName="GL_COA_TYPE"/>
+  <Attribute
+    Name="AccountNatureSno"
+    IsNotNull="true"
+    Precision="5"
+    Scale="0"
+    ColumnName="ACCOUNT_NATURE_SNO"
+    SQLType="NUMERIC"
+    Type="java.lang.Integer"
+    ColumnType="NUMBER"
+    TableName="GL_COA_TYPE"/>
+  <Key
+    Name="PkGlCoaType"
+    PrimaryKey="true">
+    <DesignTime>
+      <Attr Name="_DBObjectName" Value="PK_GL_COA_TYPE"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="erpfms.modelfms.fmseo.GlCoaType.CoaTypeSno"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="UnqGlCoaType">
+    <DesignTime>
+      <Attr Name="_isUnique" Value="true"/>
+      <Attr Name="_DBObjectName" Value="UNQ_GL_COA_TYPE"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="erpfms.modelfms.fmseo.GlCoaType.CoaTypeCode"/>
+      <Item Value="erpfms.modelfms.fmseo.GlCoaType.GlobalCompanyId"/>
+      <Item Value="erpfms.modelfms.fmseo.GlCoaType.CompanyId"/>
+    </AttrArray>
+  </Key>
+</Entity>

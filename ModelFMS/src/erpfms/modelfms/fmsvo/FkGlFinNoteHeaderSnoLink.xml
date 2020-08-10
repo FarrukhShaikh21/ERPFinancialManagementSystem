@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE ViewLink SYSTEM "jbo_03_01.dtd">
+<!---->
+<ViewLink
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="FkGlFinNoteHeaderSnoLink"
+  Version="12.1.3.10.47"
+  InheritPersonalization="merge"
+  EntityAssociation="erpfms.modelfms.fmseo.FkGlFinNoteHeaderSnoAssoc">
+  <ViewLinkDefEnd
+    Name="GlFinancialNoteHeaderVO"
+    Cardinality="1"
+    Source="true"
+    Owner="erpfms.modelfms.fmsvo.GlFinancialNoteHeaderVO">
+    <DesignTime>
+      <Attr Name="_finderName" Value="GlFinancialNoteHeaderVO"/>
+      <Attr Name="_isUpdateable" Value="true"/>
+      <Attr Name="_minCardinality" Value="1"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="erpfms.modelfms.fmsvo.GlFinancialNoteHeaderVO.NoteHeaderSno"/>
+    </AttrArray>
+  </ViewLinkDefEnd>
+  <ViewLinkDefEnd
+    Name="GlFinancialNoteLinesVO"
+    Cardinality="-1"
+    Owner="erpfms.modelfms.fmsvo.GlFinancialNoteLinesVO">
+    <DesignTime>
+      <Attr Name="_finderName" Value="GlFinancialNoteLinesVO"/>
+      <Attr Name="_isUpdateable" Value="true"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="erpfms.modelfms.fmsvo.GlFinancialNoteLinesVO.NoteHeaderSno"/>
+    </AttrArray>
+  </ViewLinkDefEnd>
+</ViewLink>

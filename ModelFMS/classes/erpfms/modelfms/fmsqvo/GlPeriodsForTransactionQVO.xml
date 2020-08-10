@@ -1,0 +1,289 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE ViewObject SYSTEM "jbo_03_01.dtd">
+<!---->
+<ViewObject
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="GlPeriodsForTransactionQVO"
+  Version="12.1.3.10.47"
+  InheritPersonalization="merge"
+  BindingStyle="JDBC"
+  CustomQuery="true"
+  PageIterMode="Full">
+  <DesignTime>
+    <Attr Name="_isExpertMode" Value="true"/>
+  </DesignTime>
+  <Properties>
+    <SchemaBasedProperties>
+      <LABEL
+        ResId="erpfms.modelfms.fmsqvo.GlPeriodsForTransactionQVO_LABEL"/>
+    </SchemaBasedProperties>
+  </Properties>
+  <Variable
+    Name="P_ADF_COMPANY_ID"
+    Kind="where"
+    Type="java.lang.Integer">
+    <AttrArray Name="ExtendedDataInts">
+      <Item Value="0"/>
+      <Item Value="3"/>
+    </AttrArray>
+    <Properties>
+      <SchemaBasedProperties>
+        <DISPLAYHINT
+          Value="Hide"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </Variable>
+  <Variable
+    Name="P_ADG_GLOBAL_COPMANY_ID"
+    Kind="where"
+    Type="java.lang.Integer">
+    <AttrArray Name="ExtendedDataInts">
+      <Item Value="1"/>
+      <Item Value="2"/>
+    </AttrArray>
+    <TransientExpression
+      trustMode="untrusted"
+      Name="expression"><![CDATA[erpglobals.modelglobals.ERPGlobalPLSQLClass.doGetModelGlobalDefCompany()]]></TransientExpression>
+    <Properties>
+      <SchemaBasedProperties>
+        <DISPLAYHINT
+          Value="Hide"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </Variable>
+  <Variable
+    Name="P_ADF_USER_ID"
+    Kind="where"
+    Type="java.lang.Integer">
+    <AttrArray Name="ExtendedDataInts">
+      <Item Value="4"/>
+    </AttrArray>
+    <TransientExpression
+      trustMode="untrusted"
+      Name="expression"><![CDATA[erpglobals.modelglobals.ERPGlobalPLSQLClass.doGetModelUserSno()]]></TransientExpression>
+    <Properties>
+      <SchemaBasedProperties>
+        <DISPLAYHINT
+          Value="Hide"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </Variable>
+  <Variable
+    Name="P_ADF_DATE"
+    Kind="where"
+    Type="java.sql.Timestamp">
+    <AttrArray Name="ExtendedDataInts">
+      <Item Value="5"/>
+      <Item Value="6"/>
+    </AttrArray>
+    <TransientExpression
+      trustMode="untrusted"
+      Name="expression"><![CDATA[adf.currentDate]]></TransientExpression>
+  </Variable>
+  <SQLQuery><![CDATA[select p.period_sno,     
+       p.period_name,     
+       p.fiscal_year_sno,     
+       p.start_date,     
+       p.end_date     
+from  gl_periods p,     
+      gl_fiscal_year fy     
+where  p.is_closed='N'     
+and    p.is_open='Y'     
+and    p.fiscal_year_sno=fy.fiscal_year_sno     
+and    fy.is_active='Y'     
+and    fy.company_id=?   /*0*/  
+and    fy.global_company_id=?   /*1*/  
+union     
+/* period should be closed and should not be open from gl_periods*/     
+select p.period_sno,     
+       p.period_name,     
+       p.fiscal_year_sno,     
+       p.start_date,     
+       p.end_date     
+from   gl_periods p,     
+       gl_user_closed_period_right cp     
+where  p.is_closed='Y'     
+and    p.is_open='Y'     
+and    cp.is_active='Y'     
+and    p.period_sno=cp.period_sno     
+and    cp.global_company_id=? /*2*/    
+and    cp.company_id=?  /*3*/   
+and    cp.user_id=? /*4*/
+and    ? /*5*/ between cp.from_date and coalesce(cp.to_date,?) /*6*/
+]]></SQLQuery>
+  <ViewAttribute
+    Name="PeriodSno"
+    IsUpdateable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Type="java.lang.Integer"
+    ColumnType="INTEGER"
+    AliasName="period_sno"
+    Expression="period_sno"
+    SQLType="INTEGER">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="11"/>
+    </DesignTime>
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="erpfms.modelfms.fmsqvo.GlPeriodsForTransactionQVO.PeriodSno_LABEL"/>
+        <DISPLAYWIDTH
+          Value="20"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="PeriodName"
+    IsUpdateable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Precision="30"
+    Type="java.lang.String"
+    ColumnType="VARCHAR"
+    AliasName="period_name"
+    Expression="period_name"
+    SQLType="VARCHAR">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="30"/>
+    </DesignTime>
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="erpfms.modelfms.fmsqvo.GlPeriodsForTransactionQVO.PeriodName_LABEL"/>
+        <DISPLAYWIDTH
+          Value="20"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="FiscalYearSno"
+    IsUpdateable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Type="java.lang.Integer"
+    ColumnType="INT"
+    AliasName="fiscal_year_sno"
+    Expression="fiscal_year_sno"
+    SQLType="INTEGER">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="11"/>
+    </DesignTime>
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="erpfms.modelfms.fmsqvo.GlPeriodsForTransactionQVO.FiscalYearSno_LABEL"/>
+        <DISPLAYWIDTH
+          Value="20"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="StartDate"
+    IsUpdateable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Type="java.sql.Timestamp"
+    ColumnType="DATE"
+    AliasName="start_date"
+    Expression="start_date"
+    SQLType="DATE">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="erpfms.modelfms.fmsqvo.GlPeriodsForTransactionQVO.StartDate_LABEL"/>
+        <DISPLAYWIDTH
+          Value="20"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="EndDate"
+    IsUpdateable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Type="java.sql.Timestamp"
+    ColumnType="DATE"
+    AliasName="end_date"
+    Expression="end_date"
+    SQLType="DATE">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="erpfms.modelfms.fmsqvo.GlPeriodsForTransactionQVO.EndDate_LABEL"/>
+        <DISPLAYWIDTH
+          Value="20"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewCriteria
+    Name="GlPeriodsForTransactionFindVC"
+    ViewObjectName="erpfms.modelfms.fmsqvo.GlPeriodsForTransactionQVO"
+    Conjunction="AND">
+    <Properties>
+      <CustomProperties>
+        <Property
+          Name="displayOperators"
+          Value="InAdvancedMode"/>
+        <Property
+          Name="autoExecute"
+          Value="false"/>
+        <Property
+          Name="allowConjunctionOverride"
+          Value="true"/>
+        <Property
+          Name="showInList"
+          Value="true"/>
+        <Property
+          Name="mode"
+          Value="Basic"/>
+      </CustomProperties>
+    </Properties>
+    <ViewCriteriaRow
+      Name="GlPeriodsForTransactionQVOCriteria_row_0"
+      UpperColumns="1">
+      <ViewCriteriaItem
+        Name="PeriodName"
+        ViewAttribute="PeriodName"
+        Operator="="
+        Conjunction="AND"
+        Required="Optional"/>
+      <ViewCriteriaItemCompound
+        Name="GlPeriodsForTransactionQVOCriteria_GlPeriodsForTransactionQVOCriteria_row_0_EndDate"
+        ViewAttribute="EndDate">
+        <ViewCriteria
+          Name="GlPeriodsForTransactionQVOCriteria_GlPeriodsForTransactionQVOCriteria_row_0_EndDate_itemHolder"
+          ViewObjectName="erpfms.modelfms.fmsqvo.GlPeriodsForTransactionQVO"
+          Conjunction="OR">
+          <ViewCriteriaRow
+            Name="GlPeriodsForTransactionQVOCriteria_GlPeriodsForTransactionQVOCriteria_row_0_EndDate_itemHolder_row_0"
+            Conjunction="AND">
+            <ViewCriteriaItem
+              Name="GlPeriodsForTransactionQVOCriteria_GlPeriodsForTransactionQVOCriteria_row_0_EndDate"
+              ViewAttribute="EndDate"
+              Operator="="
+              Conjunction="AND"
+              Required="Optional"/>
+          </ViewCriteriaRow>
+          <ViewCriteriaRow
+            Name="GlPeriodsForTransactionQVOCriteria_GlPeriodsForTransactionQVOCriteria_row_0_EndDate_itemHolder_row_1"
+            Conjunction="AND">
+            <ViewCriteriaItem
+              Name="GlPeriodsForTransactionQVOCriteria_GlPeriodsForTransactionQVOCriteria_row_0_EndDate_GlPeriodsForTransactionQVOCriteria_GlPeriodsForTransactionQVOCriteria_row_0_EndDate_itemHolder_GlPeriodsForTransactionQVOCriteria_GlPeriodsForTransactionQVOCriteria_row_0_EndDate_itemHolder_row_1_EndDate"
+              ViewAttribute="EndDate"
+              Operator="="
+              Conjunction="AND"
+              Required="Optional"/>
+          </ViewCriteriaRow>
+        </ViewCriteria>
+      </ViewCriteriaItemCompound>
+    </ViewCriteriaRow>
+  </ViewCriteria>
+  <AttrArray Name="KeyAttributes">
+    <Item Value="PeriodSno"/>
+  </AttrArray>
+  <ResourceBundle>
+    <PropertiesBundle
+      PropertiesFile="erpfms.modelfms.ModelFMSBundle"/>
+  </ResourceBundle>
+</ViewObject>

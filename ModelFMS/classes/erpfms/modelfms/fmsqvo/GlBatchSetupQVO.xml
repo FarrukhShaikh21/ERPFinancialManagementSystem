@@ -1,0 +1,197 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE ViewObject SYSTEM "jbo_03_01.dtd">
+<!---->
+<ViewObject
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="GlBatchSetupQVO"
+  Version="12.1.3.10.47"
+  InheritPersonalization="merge"
+  BindingStyle="JDBC"
+  CustomQuery="true"
+  PageIterMode="Full">
+  <DesignTime>
+    <Attr Name="_isExpertMode" Value="true"/>
+  </DesignTime>
+  <Properties>
+    <SchemaBasedProperties>
+      <LABEL
+        ResId="erpfms.modelfms.fmsqvo.GlBatchSetupQVO_LABEL"/>
+    </SchemaBasedProperties>
+  </Properties>
+  <Variable
+    Name="P_ADF_GLOBAL_COMPANY_ID"
+    Kind="where"
+    Type="java.lang.Integer">
+    <AttrArray Name="ExtendedDataInts">
+      <Item Value="0"/>
+      <Item Value="5"/>
+    </AttrArray>
+    <Properties>
+      <SchemaBasedProperties>
+        <DISPLAYHINT
+          Value="Hide"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </Variable>
+  <Variable
+    Name="P_ADF_COMPANY_ID"
+    Kind="where"
+    Type="java.lang.Integer">
+    <AttrArray Name="ExtendedDataInts">
+      <Item Value="1"/>
+      <Item Value="2"/>
+      <Item Value="6"/>
+    </AttrArray>
+    <Properties>
+      <SchemaBasedProperties>
+        <DISPLAYHINT
+          Value="Hide"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </Variable>
+  <Variable
+    Name="P_ADF_USER_ID"
+    Kind="where"
+    Type="java.lang.Integer">
+    <AttrArray Name="ExtendedDataInts">
+      <Item Value="3"/>
+      <Item Value="4"/>
+      <Item Value="7"/>
+    </AttrArray>
+    <Properties>
+      <SchemaBasedProperties>
+        <DISPLAYHINT
+          Value="Hide"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </Variable>
+  <SQLQuery><![CDATA[select  bs.batch_id,  
+    bs.batch_description,  
+        bs.batch_date,  
+        bs.batch_short_name  
+from  gl_batch_setup bs   
+where bs.is_active='Y'   
+and   bs.global_company_id=?  /*0*/ 
+and   (bs.company_id=? /*1*/ or ?=-1 /*2*/) 
+and    1 = (select count(coa_user_company_sno)    
+         from   gl_coa_user_company coa    
+             where  coa.is_active='Y'   
+             and  coa.user_id=?  /*3*/ 
+             and  coa.global_company_id=bs.global_company_id   
+             )
+and  exists (select ''    
+         from   gl_coa_user_company coa    
+             where  coa.is_active='Y'   
+             and  coa.user_id=?  /*4*/ 
+             and  coa.company_id=bs.company_id
+             )              
+union all   
+select  bs.batch_id,  
+    bs.batch_description,  
+        bs.batch_date,  
+        bs.batch_short_name  
+from  gl_batch_setup bs   
+where bs.is_active='Y'   
+and   bs.global_company_id=? /*5*/  
+and   bs.company_id=? /*6*/  
+and   1 < (select count(coa.coa_user_company_sno)    
+          from   gl_coa_user_company coa    
+              where  coa.is_active='Y'   
+              and coa.global_company_id=bs.global_company_id   
+              and coa.user_id=?  /*7*/ 
+             )]]></SQLQuery>
+  <ViewAttribute
+    Name="BatchId"
+    IsUpdateable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Type="java.lang.Integer"
+    ColumnType="INTEGER"
+    AliasName="batch_id"
+    Expression="batch_id"
+    SQLType="INTEGER">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="11"/>
+    </DesignTime>
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="erpfms.modelfms.fmsqvo.GlBatchSetupQVO.BatchId_LABEL"/>
+        <DISPLAYWIDTH
+          Value="20"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="BatchDescription"
+    IsUpdateable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Precision="50"
+    Type="java.lang.String"
+    ColumnType="VARCHAR"
+    AliasName="batch_description"
+    Expression="batch_description"
+    SQLType="VARCHAR">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="50"/>
+    </DesignTime>
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="erpfms.modelfms.fmsqvo.GlBatchSetupQVO.BatchDescription_LABEL"/>
+        <DISPLAYWIDTH
+          Value="20"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="BatchDate"
+    IsUpdateable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Type="java.sql.Timestamp"
+    ColumnType="DATE"
+    AliasName="batch_date"
+    Expression="batch_date"
+    SQLType="DATE">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="erpfms.modelfms.fmsqvo.GlBatchSetupQVO.BatchDate_LABEL"/>
+        <DISPLAYWIDTH
+          Value="20"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="BatchShortName"
+    IsUpdateable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Precision="20"
+    Type="java.lang.String"
+    ColumnType="VARCHAR"
+    AliasName="batch_short_name"
+    Expression="batch_short_name"
+    SQLType="VARCHAR">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="20"/>
+    </DesignTime>
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="erpfms.modelfms.fmsqvo.GlBatchSetupQVO.BatchShortName_LABEL"/>
+        <DISPLAYWIDTH
+          Value="20"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <AttrArray Name="KeyAttributes">
+    <Item Value="BatchId"/>
+  </AttrArray>
+  <ResourceBundle>
+    <PropertiesBundle
+      PropertiesFile="erpfms.modelfms.ModelFMSBundle"/>
+  </ResourceBundle>
+</ViewObject>

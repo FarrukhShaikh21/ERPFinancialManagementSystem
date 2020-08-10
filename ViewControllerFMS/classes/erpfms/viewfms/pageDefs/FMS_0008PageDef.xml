@@ -1,0 +1,333 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.1.3.10.47" id="FMS_0008PageDef"
+                Package="erpfms.viewfms.pageDefs">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <page path="erptemplate.viewtemp.pageDefs.ERPTemplatePageDef" id="ptb1" Refresh="ifNeeded"/>
+    <iterator Binds="AdminReportParameterByReportRO" RangeSize="25" DataControl="ERPFMSModuleDataControl"
+              id="AdminReportParameterByReportROIterator"/>
+    <iterator Binds="GLFinancialManagementReportRO" RangeSize="25" DataControl="ERPFMSModuleDataControl"
+              id="GLFinancialManagementReportROIterator"/>
+    <iterator Binds="AdminUiComponentHideRO" RangeSize="25" DataControl="ERPFMSModuleDataControl"
+              id="AdminUiComponentHideROIterator"/>
+    <iterator Binds="AdminCompanyTypeForLabelsRO" RangeSize="25" DataControl="ERPFMSModuleDataControl"
+              id="AdminCompanyTypeForLabelsROIterator"/>
+  </executables>
+  <bindings>
+    <attributeValues IterBinding="AdminReportParameterByReportROIterator" id="ReportsParameterSno">
+      <AttrNames>
+        <Item Value="ReportsParameterSno"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="GLFinancialManagementReportROIterator" id="txtLocationId">
+      <AttrNames>
+        <Item Value="txtLocationId"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="GLFinancialManagementReportROIterator" id="txtMaxTypeLevel">
+      <AttrNames>
+        <Item Value="txtMaxTypeLevel"/>
+      </AttrNames>
+    </attributeValues>
+    <listOfValues IterBinding="GLFinancialManagementReportROIterator" StaticList="false"
+                  Uses="LovtxtLevelOneCompanyName" id="txtLevelOneCompanyName"/>
+    <attributeValues IterBinding="GLFinancialManagementReportROIterator" id="txtLevelOneCompanyID">
+      <AttrNames>
+        <Item Value="txtLevelOneCompanyID"/>
+      </AttrNames>
+    </attributeValues>
+    <listOfValues IterBinding="GLFinancialManagementReportROIterator" StaticList="false"
+                  Uses="LovtxtLevelTwoCompanyName" id="txtLevelTwoCompanyName"/>
+    <attributeValues IterBinding="GLFinancialManagementReportROIterator" id="txtLevelTwoCompanyID">
+      <AttrNames>
+        <Item Value="txtLevelTwoCompanyID"/>
+      </AttrNames>
+    </attributeValues>
+    <listOfValues IterBinding="GLFinancialManagementReportROIterator" StaticList="false"
+                  Uses="LovtxtLevelThreeCompanyName" id="txtLevelThreeCompanyName"/>
+    <attributeValues IterBinding="GLFinancialManagementReportROIterator" id="txtLevelThreeCompanyID">
+      <AttrNames>
+        <Item Value="txtLevelThreeCompanyID"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="GLFinancialManagementReportROIterator" id="txtLevelFourCompanyID">
+      <AttrNames>
+        <Item Value="txtLevelFourCompanyID"/>
+      </AttrNames>
+    </attributeValues>
+    <listOfValues IterBinding="GLFinancialManagementReportROIterator" StaticList="false"
+                  Uses="LovtxtLevelFourCompanyName" id="txtLevelFourCompanyName"/>
+    <listOfValues IterBinding="GLFinancialManagementReportROIterator" StaticList="false"
+                  Uses="LovtxtLevelFiveCompanyName" id="txtLevelFiveCompanyName"/>
+    <attributeValues IterBinding="GLFinancialManagementReportROIterator" id="txtLevelFiveCompanyID">
+      <AttrNames>
+        <Item Value="txtLevelFiveCompanyID"/>
+      </AttrNames>
+    </attributeValues>
+    <listOfValues IterBinding="GLFinancialManagementReportROIterator" StaticList="false"
+                  Uses="LovtxtLevelSixCompanyName" id="txtLevelSixCompanyName"/>
+    <attributeValues IterBinding="GLFinancialManagementReportROIterator" id="txtLevelSixCompanyID">
+      <AttrNames>
+        <Item Value="txtLevelSixCompanyID"/>
+      </AttrNames>
+    </attributeValues>
+    <listOfValues IterBinding="GLFinancialManagementReportROIterator" StaticList="false"
+                  Uses="LovtxtLevelSevenCompanyName" id="txtLevelSevenCompanyName"/>
+    <attributeValues IterBinding="GLFinancialManagementReportROIterator" id="txtLevelSevenCompanyID">
+      <AttrNames>
+        <Item Value="txtLevelSevenCompanyID"/>
+      </AttrNames>
+    </attributeValues>
+    <listOfValues IterBinding="GLFinancialManagementReportROIterator" StaticList="false"
+                  Uses="LovtxtLevelEightCompanyName" id="txtLevelEightCompanyName"/>
+    <attributeValues IterBinding="GLFinancialManagementReportROIterator" id="txtLevelEightCompanyID">
+      <AttrNames>
+        <Item Value="txtLevelEightCompanyID"/>
+      </AttrNames>
+    </attributeValues>
+    <listOfValues IterBinding="GLFinancialManagementReportROIterator" StaticList="false"
+                  Uses="LovtxtLevelNineCompanyName" id="txtLevelNineCompanyName"/>
+    <attributeValues IterBinding="GLFinancialManagementReportROIterator" id="txtLevelNineCompanyID">
+      <AttrNames>
+        <Item Value="txtLevelNineCompanyID"/>
+      </AttrNames>
+    </attributeValues>
+    <listOfValues IterBinding="GLFinancialManagementReportROIterator" StaticList="false"
+                  Uses="LovtxtLevelTenCompanyName" id="txtLevelTenCompanyName"/>
+    <attributeValues IterBinding="GLFinancialManagementReportROIterator" id="txtLevelTenCompanyID">
+      <AttrNames>
+        <Item Value="txtLevelTenCompanyID"/>
+      </AttrNames>
+    </attributeValues>
+    <listOfValues IterBinding="GLFinancialManagementReportROIterator" StaticList="false" Uses="LovtxtLastLocationName"
+                  id="txtLocationName"/>
+    <listOfValues IterBinding="GLFinancialManagementReportROIterator" StaticList="false" Uses="LOV_txtProjectName"
+                  id="txtProjectName"/>
+    <attributeValues IterBinding="GLFinancialManagementReportROIterator" id="txtProjectId">
+      <AttrNames>
+        <Item Value="txtProjectId"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="GLFinancialManagementReportROIterator" id="txtDefinedCompanyTypeSno">
+      <AttrNames>
+        <Item Value="txtDefinedCompanyTypeSno"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="GLFinancialManagementReportROIterator" id="txtTypeLevel">
+      <AttrNames>
+        <Item Value="txtTypeLevel"/>
+      </AttrNames>
+    </attributeValues>
+    <list IterBinding="GLFinancialManagementReportROIterator" StaticList="false" Uses="LovtxtCompanyID"
+          id="txtCompanyID" DTSupportsMRU="true" SelectItemValueMode="ListObject"/>
+    <attributeValues IterBinding="GLFinancialManagementReportROIterator" id="txtPeriodID">
+      <AttrNames>
+        <Item Value="txtPeriodID"/>
+      </AttrNames>
+    </attributeValues>
+    <listOfValues IterBinding="GLFinancialManagementReportROIterator" StaticList="false" Uses="LovtxtPeriodName"
+                  id="txtPeriodName"/>
+    <listOfValues IterBinding="GLFinancialManagementReportROIterator" StaticList="false" Uses="LovtxtFiscalYearName"
+                  id="txtFiscalYearName"/>
+    <listOfValues IterBinding="GLFinancialManagementReportROIterator" StaticList="false" Uses="LovtxtBatchName"
+                  id="txtBatchName"/>
+    <attributeValues IterBinding="GLFinancialManagementReportROIterator" id="txtBatchID">
+      <AttrNames>
+        <Item Value="txtBatchID"/>
+      </AttrNames>
+    </attributeValues>
+    <listOfValues IterBinding="GLFinancialManagementReportROIterator" StaticList="false" Uses="LovtxtVoucherTypeName"
+                  id="txtVoucherTypeName"/>
+    <attributeValues IterBinding="GLFinancialManagementReportROIterator" id="txtVoucherTypeID">
+      <AttrNames>
+        <Item Value="txtVoucherTypeID"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="GLFinancialManagementReportROIterator" id="txtCompanyTypeId">
+      <AttrNames>
+        <Item Value="txtCompanyTypeId"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="AdminUiComponentHideROIterator" id="UiComponentSno">
+      <AttrNames>
+        <Item Value="UiComponentSno"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="AdminCompanyTypeForLabelsROIterator" id="CompanyTypeSno">
+      <AttrNames>
+        <Item Value="CompanyTypeSno"/>
+      </AttrNames>
+    </attributeValues>
+    <listOfValues IterBinding="GLFinancialManagementReportROIterator" StaticList="false"
+                  Uses="LovtxtLevelOneDepartmentName" id="txtLevelOneDepartmentName"/>
+    <attributeValues IterBinding="GLFinancialManagementReportROIterator" id="txtLevelOneDepartmentID">
+      <AttrNames>
+        <Item Value="txtLevelOneDepartmentID"/>
+      </AttrNames>
+    </attributeValues>
+    <listOfValues IterBinding="GLFinancialManagementReportROIterator" StaticList="false"
+                  Uses="LovtxtLevelTwoDepartmenName" id="txtLevelTwoDepartmenName"/>
+    <attributeValues IterBinding="GLFinancialManagementReportROIterator" id="txtLevelTwoDepartmentID">
+      <AttrNames>
+        <Item Value="txtLevelTwoDepartmentID"/>
+      </AttrNames>
+    </attributeValues>
+    <listOfValues IterBinding="GLFinancialManagementReportROIterator" StaticList="false"
+                  Uses="LovtxtLevelThreeDepartmentName" id="txtLevelThreeDepartmentName"/>
+    <attributeValues IterBinding="GLFinancialManagementReportROIterator" id="txtLevelThreeDepartmentID">
+      <AttrNames>
+        <Item Value="txtLevelThreeDepartmentID"/>
+      </AttrNames>
+    </attributeValues>
+    <listOfValues IterBinding="GLFinancialManagementReportROIterator" StaticList="false"
+                  Uses="LovtxtLevelFourDepartmentName" id="txtLevelFourDepartmentName"/>
+    <attributeValues IterBinding="GLFinancialManagementReportROIterator" id="txtLevelFourDepartmentID">
+      <AttrNames>
+        <Item Value="txtLevelFourDepartmentID"/>
+      </AttrNames>
+    </attributeValues>
+    <listOfValues IterBinding="GLFinancialManagementReportROIterator" StaticList="false"
+                  Uses="LovtxtLevelFiveDepartmentName" id="txtLevelFiveDepartmentName"/>
+    <attributeValues IterBinding="GLFinancialManagementReportROIterator" id="txtLevelFiveDepartmentID">
+      <AttrNames>
+        <Item Value="txtLevelFiveDepartmentID"/>
+      </AttrNames>
+    </attributeValues>
+    <listOfValues IterBinding="GLFinancialManagementReportROIterator" StaticList="false"
+                  Uses="LovtxtLevelSixDepartmentName" id="txtLevelSixDepartmentName"/>
+    <attributeValues IterBinding="GLFinancialManagementReportROIterator" id="txtLevelSixDepartmentID">
+      <AttrNames>
+        <Item Value="txtLevelSixDepartmentID"/>
+      </AttrNames>
+    </attributeValues>
+    <listOfValues IterBinding="GLFinancialManagementReportROIterator" StaticList="false"
+                  Uses="LovtxtLevelSevenDepartmentName" id="txtLevelSevenDepartmentName"/>
+    <attributeValues IterBinding="GLFinancialManagementReportROIterator" id="txtLevelSevenDepartmentID">
+      <AttrNames>
+        <Item Value="txtLevelSevenDepartmentID"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="GLFinancialManagementReportROIterator" id="txtLevelEightDepartmentID">
+      <AttrNames>
+        <Item Value="txtLevelEightDepartmentID"/>
+      </AttrNames>
+    </attributeValues>
+    <listOfValues IterBinding="GLFinancialManagementReportROIterator" StaticList="false"
+                  Uses="LovtxtLevelEightDepartmentName" id="txtLevelEightDepartmentName"/>
+    <listOfValues IterBinding="GLFinancialManagementReportROIterator" StaticList="false"
+                  Uses="LovtxtLevelNineDepartmentName" id="txtLevelNineDepartmentName"/>
+    <attributeValues IterBinding="GLFinancialManagementReportROIterator" id="txtLevelNineDepartmentID">
+      <AttrNames>
+        <Item Value="txtLevelNineDepartmentID"/>
+      </AttrNames>
+    </attributeValues>
+    <listOfValues IterBinding="GLFinancialManagementReportROIterator" StaticList="false" Uses="LovtxtDepartmentName"
+                  id="txtDepartmentName"/>
+    <attributeValues IterBinding="GLFinancialManagementReportROIterator" id="txtDepartmentID">
+      <AttrNames>
+        <Item Value="txtDepartmentID"/>
+      </AttrNames>
+    </attributeValues>
+    <listOfValues IterBinding="GLFinancialManagementReportROIterator" StaticList="false"
+                  Uses="LovtxtLevelTenDepartmentName" id="txtLevelTenDepartmentName"/>
+    <attributeValues IterBinding="GLFinancialManagementReportROIterator" id="txtLevelTenDepartmentID">
+      <AttrNames>
+        <Item Value="txtLevelTenDepartmentID"/>
+      </AttrNames>
+    </attributeValues>
+    <action id="Rollback" RequiresUpdateModel="false" Action="rollbackTransaction"
+            DataControl="ERPFMSModuleDataControl"/>
+    <attributeValues IterBinding="GLFinancialManagementReportROIterator" id="txtFiscalYearSno">
+      <AttrNames>
+        <Item Value="txtFiscalYearSno"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="GLFinancialManagementReportROIterator" id="txtGlobalHierarchyPath">
+      <AttrNames>
+        <Item Value="txtGlobalHierarchyPath"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="GLFinancialManagementReportROIterator" id="txtOrgMaxTypeLevel">
+      <AttrNames>
+        <Item Value="txtOrgMaxTypeLevel"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="GLFinancialManagementReportROIterator" id="txtOrganizationHierarchyPath">
+      <AttrNames>
+        <Item Value="txtOrganizationHierarchyPath"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="GLFinancialManagementReportROIterator" id="txtGlobalTypeHierarchyPath">
+      <AttrNames>
+        <Item Value="txtGlobalTypeHierarchyPath"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="GLFinancialManagementReportROIterator" id="txtOrganizationTypeHierarchyPath">
+      <AttrNames>
+        <Item Value="txtOrganizationTypeHierarchyPath"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="GLFinancialManagementReportROIterator" id="txtReportHeaderSno">
+      <AttrNames>
+        <Item Value="txtReportHeaderSno"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="GLFinancialManagementReportROIterator" id="txtTotalCompanyAccess">
+      <AttrNames>
+        <Item Value="txtTotalCompanyAccess"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="GLFinancialManagementReportROIterator" id="txtFromDate">
+      <AttrNames>
+        <Item Value="txtFromDate"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="GLFinancialManagementReportROIterator" id="txtToDate">
+      <AttrNames>
+        <Item Value="txtToDate"/>
+      </AttrNames>
+    </attributeValues>
+    <listOfValues IterBinding="GLFinancialManagementReportROIterator" StaticList="false" Uses="LovtxtActionName"
+                  id="txtActionName"/>
+    <attributeValues IterBinding="GLFinancialManagementReportROIterator" id="txtReportExeName">
+      <AttrNames>
+        <Item Value="txtReportExeName"/>
+      </AttrNames>
+    </attributeValues>
+    <listOfValues IterBinding="GLFinancialManagementReportROIterator" StaticList="false" Uses="LovtxtFromCOADescription"
+                  id="txtFromCOADescription"/>
+    <attributeValues IterBinding="GLFinancialManagementReportROIterator" id="txtFromCOAID">
+      <AttrNames>
+        <Item Value="txtFromCOAID"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="GLFinancialManagementReportROIterator" id="txtFromCOAHierarchyPath">
+      <AttrNames>
+        <Item Value="txtFromCOAHierarchyPath"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="GLFinancialManagementReportROIterator" id="txtFromCOALevel">
+      <AttrNames>
+        <Item Value="txtFromCOALevel"/>
+      </AttrNames>
+    </attributeValues>
+    <listOfValues IterBinding="GLFinancialManagementReportROIterator" StaticList="false" Uses="LovtxtToCOADescription"
+                  id="txtToCOADescription"/>
+    <attributeValues IterBinding="GLFinancialManagementReportROIterator" id="txtToCOAHierarchyPath">
+      <AttrNames>
+        <Item Value="txtToCOAHierarchyPath"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="GLFinancialManagementReportROIterator" id="txtToCOAID">
+      <AttrNames>
+        <Item Value="txtToCOAID"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="GLFinancialManagementReportROIterator" id="txtToCOALevel">
+      <AttrNames>
+        <Item Value="txtToCOALevel"/>
+      </AttrNames>
+    </attributeValues>
+  </bindings>
+</pageDefinition>

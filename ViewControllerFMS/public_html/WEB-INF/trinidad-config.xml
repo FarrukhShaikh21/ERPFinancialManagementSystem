@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="windows-1252"?>
+<trinidad-config xmlns="http://myfaces.apache.org/trinidad/config">
+  <skin-family>SkinFMS</skin-family>
+  <formatting-locale>en-GB</formatting-locale>
+</trinidad-config>

@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE ViewLink SYSTEM "jbo_03_01.dtd">
+<!---->
+<ViewLink
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="SysUsersGlCoaUserCompanyUserIDVL"
+  Version="12.1.3.10.47"
+  InheritPersonalization="merge"
+  EntityAssociation="erpfms.modelfms.fmseo.SysUsersGlCoaUserCompanyUserIDAssoc">
+  <Properties>
+    <SchemaBasedProperties>
+      <LABEL
+        ResId="erpfms.modelfms.fmsvo.SysUsersGlCoaUserCompanyUserIDVL_LABEL"/>
+    </SchemaBasedProperties>
+  </Properties>
+  <ViewLinkDefEnd
+    Name="SysUsersVO"
+    Cardinality="1"
+    Source="true"
+    Owner="erpadm.modeladm.admvo.SysUsersVO">
+    <DesignTime>
+      <Attr Name="_accessor" Value="true"/>
+      <Attr Name="_finderName" Value="SysUsersVO"/>
+      <Attr Name="_isUpdateable" Value="true"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="erpadm.modeladm.admvo.SysUsersVO.UserId"/>
+    </AttrArray>
+  </ViewLinkDefEnd>
+  <ViewLinkDefEnd
+    Name="GlCoaUserCompanyVO"
+    Cardinality="-1"
+    Owner="erpfms.modelfms.fmsvo.GlCoaUserCompanyVO">
+    <DesignTime>
+      <Attr Name="_accessor" Value="false"/>
+      <Attr Name="_finderName" Value="GlCoaUserCompanyVO"/>
+      <Attr Name="_isUpdateable" Value="true"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="erpfms.modelfms.fmsvo.GlCoaUserCompanyVO.UserId"/>
+    </AttrArray>
+  </ViewLinkDefEnd>
+  <ResourceBundle>
+    <PropertiesBundle
+      PropertiesFile="erpfms.modelfms.ModelFMSBundle"/>
+  </ResourceBundle>
+</ViewLink>

@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.1.3.10.47" id="FMS_0010_EDITPageDef"
+                Package="erpfms.viewfms.pageDefs">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+  <iterator Binds="AdminCompanyVOByCompanyRO" RangeSize="25" DataControl="ERPFMSModuleDataControl"
+              id="AdminCompanyVOByCompanyROIterator"/>
+    <iterator Binds="GlBatchSetupByCompanyCRUD" RangeSize="25" DataControl="ERPFMSModuleDataControl"
+              id="GlBatchSetupByCompanyCRUDIterator"/>
+    <searchRegion Binds="GlBatchSetupByCompanyCRUDIterator" Criteria=""
+                  Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer" id="GlBatchSetupByCompanyCRUDQuery"/>
+  </executables>
+  <bindings>
+  <listOfValues IterBinding="AdminCompanyVOByCompanyROIterator" StaticList="false" Uses="LovtxtCountryName"
+                  id="txtCountryName"/>
+    <attributeValues IterBinding="AdminCompanyVOByCompanyROIterator" id="CompCode">
+      <AttrNames>
+        <Item Value="CompCode"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="AdminCompanyVOByCompanyROIterator" id="CompanyName">
+      <AttrNames>
+        <Item Value="CompanyName"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="AdminCompanyVOByCompanyROIterator" id="CompanyShortName">
+      <AttrNames>
+        <Item Value="CompanyShortName"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="AdminCompanyVOByCompanyROIterator" id="CompanyShortCode">
+      <AttrNames>
+        <Item Value="CompanyShortCode"/>
+      </AttrNames>
+    </attributeValues>  
+    <tree IterBinding="GlBatchSetupByCompanyCRUDIterator" id="GlBatchSetupByCompanyCRUD">
+      <nodeDefinition DefName="erpfms.modelfms.fmsvo.GlBatchSetupVO" Name="GlBatchSetupByCompanyCRUD0">
+        <AttrNames>
+          <Item Value="BatchId"/>
+          <Item Value="BatchCode"/>
+          <Item Value="BatchDate"/>
+          <Item Value="BatchShortName"/>
+          <Item Value="BatchDescription"/>
+          <Item Value="Remarks"/>
+          <Item Value="IsActive"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <action id="Commit" RequiresUpdateModel="true" Action="commitTransaction" DataControl="ERPFMSModuleDataControl"/>
+    <action IterBinding="GlBatchSetupByCompanyCRUDIterator" id="CreateWithParams" RequiresUpdateModel="true"
+            Action="createWithParams">
+      <NamedData NDName="CompanyId" NDValue="#{bindings.CompCode.inputValue}" NDType="java.lang.String"/>
+    </action>
+    <action IterBinding="GlBatchSetupByCompanyCRUDIterator" id="Delete" RequiresUpdateModel="false"
+            Action="removeCurrentRow"/>
+    <action id="Rollback" RequiresUpdateModel="false" Action="rollbackTransaction"
+            DataControl="ERPFMSModuleDataControl"/>
+  </bindings>
+</pageDefinition>

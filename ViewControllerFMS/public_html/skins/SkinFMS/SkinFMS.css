@@ -1,0 +1,181 @@
+@charset "UTF-8";
+/**ADFFaces_Skin_File / DO NOT REMOVE**/
+@namespace af "http://xmlns.oracle.com/adf/faces/rich";
+@namespace dvt "http://xmlns.oracle.com/dss/adf/faces";
+
+.WBDisplayBlock {
+    display: inline-block;
+}
+
+
+af|listItem.WBDisplayBlock {
+    background-color: transparent; 
+    border-bottom: 0px solid transparent; 
+}
+
+
+af|listItem.WBDisplayBlockPadding  {
+    padding: 15px;
+}
+
+
+WBDisplayBlockCenterUndo {
+text-align: left;
+}
+
+af|listItem.WBListPadding  {
+    padding: 5px 10px 0px 10px;
+}
+
+.WBCardSize{
+    width: 240px;
+    height: 200px
+}   
+
+.WBImageCard {
+    width: 54px;
+    height: 54px;
+}
+
+.WBImageCardBorder {
+    border-radius: 48px;
+    border: 1px solid -tr-property-ref(".AFPanelBorderColor:alias", "color");
+}
+
+af|decorativeBox::frame{
+    border:none  ;
+}
+
+.ErpDeleteConfirmText
+{
+font-size:large;
+font-weight:bold;
+color:red;    
+}
+
+af|link.ERPLink {
+    display: inline-block;
+    background: white;
+    cursor: pointer;
+    font-size: 13px;
+    text-decoration: none;
+    -webkit-transition: all 0.2s;
+    -moz-transition: all 0.2s;
+    -ms-transition: all 0.2s;
+    -o-transition: all 0.2s;
+    transition: all 0.2s;
+}
+
+af|link.ERPLink:hover,
+ af|link.ERPLink:active,
+ af|link.ERPLink:active:hover,
+ af|link.ERPLink:focus:hover,
+ af|link.ERPLink:focus:hover:active {
+    display: inline-block;
+    padding: 10px 10px;
+    background: #ebf5fc;
+    cursor: pointer;
+    color: #fff;
+    font-size: 13px;
+    text-decoration: none;
+    -webkit-transition: all 0.2s;
+    -moz-transition: all 0.2s;
+    -ms-transition: all 0.2s;
+    -o-transition: all 0.2s;
+    transition: all 0.2s;
+}
+
+.ERPHeroBannerFont af|link::text {
+    font-size:24px;
+    color:white;
+    font-family: sans-serif; 
+}
+
+.ERPHeroBannerFont {
+    font-size:18px;
+    color:DarkBlue;
+    font-weight: bolder;
+    font-family: sans-serif; 
+}
+
+.ERPHeroBackground
+{
+ background-color:#ebf5fc;  
+}
+
+
+/**/
+.ERPHeroDetailColor
+{
+    font-weight:bold;
+    /*color:#83cdde*/
+    color:Black;
+}
+
+
+.ERPHeroDetailColorChoice af|selectOneChoice::content
+{
+    font-weight:bold;
+    /*color:#83cdde*/
+    color:Black;
+}
+
+.ERPLabel
+{
+    color:gray
+}
+af|inputFile::content
+{
+    color: White;
+}
+/**/
+af|inputListOfValues{
+             -tr-stretch-search-dialog: true;
+           } 
+
+
+af|inputComboboxListOfValues{
+             -tr-stretch-search-dialog: true;
+           } 
+           
+           
+af|inputText::content{
+  color: Black;
+  font-weight: bold;
+}
+
+          
+af|selectOneChoice::content{
+  color: Black;
+  font-weight: bold;
+}
+
+af|inputDate::content{
+  color: Black;
+  font-weight: bold;
+}
+
+af|inputComboboxListOfValues::content{
+  font-weight: bolder;
+  color: Black;
+}
+
+af|outputLabel{
+  font-weight: bolder;
+  color: Highlight;
+}
+
+af|inputText:read-only::label{
+  font-weight: bolder;
+  color: Highlight;
+}
+
+af|inputDate:read-only::label{
+  font-weight: bolder;
+  color: Highlight;
+}
+
+af|selectOneChoice:read-only::label{
+  font-weight: bolder;
+  color: Highlight;
+}
