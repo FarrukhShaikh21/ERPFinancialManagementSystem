@@ -9,7 +9,7 @@
   DBObjectType="table"
   DBObjectName="GL_BANK"
   AliasName="GlBank"
-  BindingStyle="OracleName">
+  BindingStyle="JDBC">
   <Attribute
     Name="BankId"
     IsNotNull="true"
