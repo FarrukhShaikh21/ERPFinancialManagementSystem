@@ -3,69 +3,77 @@
 <!---->
 <Entity
   xmlns="http://xmlns.oracle.com/bc4j"
-  Name="GlBank"
+  Name="GlBankBranch"
   Version="12.1.3.10.47"
   InheritPersonalization="merge"
   DBObjectType="table"
-  DBObjectName="GL_BANK"
-  AliasName="GlBank"
+  DBObjectName="GL_BANK_BRANCH"
+  AliasName="GlBankBranch"
   BindingStyle="OracleName">
   <Attribute
     Name="BankId"
-    IsNotNull="true"
-    Precision="5"
+    Precision="6"
     Scale="0"
     ColumnName="BANK_ID"
     SQLType="NUMERIC"
     Type="java.lang.Integer"
     ColumnType="NUMBER"
-    TableName="GL_BANK"
-    PrimaryKey="true"/>
+    TableName="GL_BANK_BRANCH"/>
   <Attribute
-    Name="BankShortCode"
-    IsUnique="true"
+    Name="BankBranchId"
     IsNotNull="true"
     Precision="6"
     Scale="0"
-    ColumnName="BANK_SHORT_CODE"
+    ColumnName="BANK_BRANCH_ID"
     SQLType="NUMERIC"
     Type="java.lang.Integer"
     ColumnType="NUMBER"
-    TableName="GL_BANK"/>
+    TableName="GL_BANK_BRANCH"
+    PrimaryKey="true"/>
   <Attribute
-    Name="BankShortName"
+    Name="BranchShortCode"
+    IsNotNull="true"
+    Precision="6"
+    Scale="0"
+    ColumnName="BRANCH_SHORT_CODE"
+    SQLType="NUMERIC"
+    Type="java.lang.Integer"
+    ColumnType="NUMBER"
+    TableName="GL_BANK_BRANCH"/>
+  <Attribute
+    Name="BranchShortName"
     IsNotNull="true"
     Precision="30"
-    ColumnName="BANK_SHORT_NAME"
+    ColumnName="BRANCH_SHORT_NAME"
     SQLType="VARCHAR"
     Type="java.lang.String"
     ColumnType="VARCHAR2"
-    TableName="GL_BANK">
+    TableName="GL_BANK_BRANCH">
     <DesignTime>
       <Attr Name="_DisplaySize" Value="30"/>
     </DesignTime>
   </Attribute>
   <Attribute
-    Name="BankName"
+    Name="BranchName"
     IsNotNull="true"
-    Precision="50"
-    ColumnName="BANK_NAME"
+    Precision="100"
+    ColumnName="BRANCH_NAME"
     SQLType="VARCHAR"
     Type="java.lang.String"
     ColumnType="VARCHAR2"
-    TableName="GL_BANK">
+    TableName="GL_BANK_BRANCH">
     <DesignTime>
-      <Attr Name="_DisplaySize" Value="50"/>
+      <Attr Name="_DisplaySize" Value="100"/>
     </DesignTime>
   </Attribute>
   <Attribute
-    Name="OpeningDate"
+    Name="BranchDate"
     IsNotNull="true"
-    ColumnName="OPENING_DATE"
+    ColumnName="BRANCH_DATE"
     SQLType="DATE"
     Type="java.sql.Timestamp"
     ColumnType="DATE"
-    TableName="GL_BANK"/>
+    TableName="GL_BANK_BRANCH"/>
   <Attribute
     Name="ChartOfAccountId"
     Precision="10"
@@ -74,129 +82,117 @@
     SQLType="NUMERIC"
     Type="java.lang.Long"
     ColumnType="NUMBER"
-    TableName="GL_BANK"/>
+    TableName="GL_BANK_BRANCH"/>
   <Attribute
-    Name="BaseCountryId"
+    Name="CountryId"
     IsNotNull="true"
     Precision="5"
     Scale="0"
-    ColumnName="BASE_COUNTRY_ID"
+    ColumnName="COUNTRY_ID"
     SQLType="NUMERIC"
     Type="java.lang.Integer"
     ColumnType="NUMBER"
-    TableName="GL_BANK"/>
+    TableName="GL_BANK_BRANCH"/>
   <Attribute
-    Name="NtnNo"
+    Name="CityId"
+    IsNotNull="true"
+    Precision="5"
+    Scale="0"
+    ColumnName="CITY_ID"
+    SQLType="NUMERIC"
+    Type="java.lang.Integer"
+    ColumnType="NUMBER"
+    TableName="GL_BANK_BRANCH"/>
+  <Attribute
+    Name="MobileNo"
     Precision="20"
-    ColumnName="NTN_NO"
+    ColumnName="MOBILE_NO"
     SQLType="VARCHAR"
     Type="java.lang.String"
     ColumnType="VARCHAR2"
-    TableName="GL_BANK">
+    TableName="GL_BANK_BRANCH">
     <DesignTime>
       <Attr Name="_DisplaySize" Value="20"/>
     </DesignTime>
   </Attribute>
   <Attribute
-    Name="Email"
-    Precision="50"
-    ColumnName="EMAIL"
-    SQLType="VARCHAR"
-    Type="java.lang.String"
-    ColumnType="VARCHAR2"
-    TableName="GL_BANK">
-    <DesignTime>
-      <Attr Name="_DisplaySize" Value="50"/>
-    </DesignTime>
-  </Attribute>
-  <Attribute
-    Name="Website"
-    Precision="50"
-    ColumnName="WEBSITE"
-    SQLType="VARCHAR"
-    Type="java.lang.String"
-    ColumnType="VARCHAR2"
-    TableName="GL_BANK">
-    <DesignTime>
-      <Attr Name="_DisplaySize" Value="50"/>
-    </DesignTime>
-  </Attribute>
-  <Attribute
-    Name="ComplaintEmail"
-    Precision="50"
-    ColumnName="COMPLAINT_EMAIL"
-    SQLType="VARCHAR"
-    Type="java.lang.String"
-    ColumnType="VARCHAR2"
-    TableName="GL_BANK">
-    <DesignTime>
-      <Attr Name="_DisplaySize" Value="50"/>
-    </DesignTime>
-  </Attribute>
-  <Attribute
-    Name="RegistrationNo"
+    Name="PhoneNo"
     Precision="20"
-    ColumnName="REGISTRATION_NO"
+    ColumnName="PHONE_NO"
     SQLType="VARCHAR"
     Type="java.lang.String"
     ColumnType="VARCHAR2"
-    TableName="GL_BANK">
+    TableName="GL_BANK_BRANCH">
     <DesignTime>
       <Attr Name="_DisplaySize" Value="20"/>
     </DesignTime>
   </Attribute>
   <Attribute
-    Name="GlobalCompanyId"
-    IsUnique="true"
-    IsNotNull="true"
-    Precision="5"
-    Scale="0"
-    ColumnName="GLOBAL_COMPANY_ID"
-    SQLType="NUMERIC"
-    Type="java.lang.Integer"
-    ColumnType="NUMBER"
-    TableName="GL_BANK"/>
+    Name="FaxNo"
+    Precision="20"
+    ColumnName="FAX_NO"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="GL_BANK_BRANCH">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="20"/>
+    </DesignTime>
+  </Attribute>
   <Attribute
-    Name="CompanyId"
-    IsUnique="true"
+    Name="ContactPerson"
     IsNotNull="true"
-    Precision="5"
-    Scale="0"
-    ColumnName="COMPANY_ID"
-    SQLType="NUMERIC"
-    Type="java.lang.Integer"
-    ColumnType="NUMBER"
-    TableName="GL_BANK"/>
+    Precision="50"
+    ColumnName="CONTACT_PERSON"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="GL_BANK_BRANCH">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="50"/>
+    </DesignTime>
+  </Attribute>
   <Attribute
     Name="IsActive"
+    IsNotNull="true"
     Precision="1"
     ColumnName="IS_ACTIVE"
     SQLType="VARCHAR"
     Type="java.lang.String"
     ColumnType="VARCHAR2"
-    TableName="GL_BANK">
+    TableName="GL_BANK_BRANCH">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="1"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="IsHeadOffice"
+    Precision="1"
+    ColumnName="IS_HEAD_OFFICE"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="GL_BANK_BRANCH">
     <DesignTime>
       <Attr Name="_DisplaySize" Value="1"/>
     </DesignTime>
   </Attribute>
   <Attribute
     Name="CreatedBy"
-    IsNotNull="true"
     Precision="5"
     Scale="0"
     ColumnName="CREATED_BY"
     SQLType="NUMERIC"
     Type="java.lang.Integer"
     ColumnType="NUMBER"
-    TableName="GL_BANK"/>
+    TableName="GL_BANK_BRANCH"/>
   <Attribute
     Name="CreatedDate"
-    IsNotNull="true"
     ColumnName="CREATED_DATE"
     SQLType="DATE"
     Type="java.sql.Timestamp"
     ColumnType="DATE"
-    TableName="GL_BANK"/>
+    TableName="GL_BANK_BRANCH"/>
   <Attribute
     Name="LastUpdatedBy"
     Precision="5"
@@ -205,41 +201,51 @@
     SQLType="NUMERIC"
     Type="java.lang.Integer"
     ColumnType="NUMBER"
-    TableName="GL_BANK"/>
+    TableName="GL_BANK_BRANCH"/>
   <Attribute
     Name="LastUpdatedDate"
     ColumnName="LAST_UPDATED_DATE"
     SQLType="DATE"
     Type="java.sql.Timestamp"
     ColumnType="DATE"
-    TableName="GL_BANK"/>
+    TableName="GL_BANK_BRANCH"/>
   <AccessorAttribute
-    Name="GlBankBranch"
+    Name="GlBank"
     Association="erpfms.modelfms.fmseo.FkGlBankBranchBankidAssoc"
-    AssociationEnd="erpfms.modelfms.fmseo.FkGlBankBranchBankidAssoc.GlBankBranch"
-    AssociationOtherEnd="erpfms.modelfms.fmseo.FkGlBankBranchBankidAssoc.GlBank"
-    Type="oracle.jbo.RowIterator"
-    IsUpdateable="false"/>
+    AssociationEnd="erpfms.modelfms.fmseo.FkGlBankBranchBankidAssoc.GlBank"
+    AssociationOtherEnd="erpfms.modelfms.fmseo.FkGlBankBranchBankidAssoc.GlBankBranch"
+    Type="oracle.jbo.server.EntityImpl"
+    IsUpdateable="true"/>
   <Key
-    Name="PkGlBank"
+    Name="PkGlBankBranch"
     PrimaryKey="true">
     <DesignTime>
-      <Attr Name="_DBObjectName" Value="PK_GL_BANK"/>
+      <Attr Name="_DBObjectName" Value="PK_GL_BANK_BRANCH"/>
     </DesignTime>
     <AttrArray Name="Attributes">
-      <Item Value="erpfms.modelfms.fmseo.GlBank.BankId"/>
+      <Item Value="erpfms.modelfms.fmseo.GlBankBranch.BankBranchId"/>
     </AttrArray>
   </Key>
   <Key
-    Name="UnqGlBank">
+    Name="FkGlBankBranchBankid">
     <DesignTime>
-      <Attr Name="_isUnique" Value="true"/>
-      <Attr Name="_DBObjectName" Value="UNQ_GL_BANK"/>
+      <Attr Name="_referencedKey" Value="PK_GL_BANK"/>
+      <Attr Name="_isForeign" Value="true"/>
+      <Attr Name="_DBObjectName" Value="FK_GL_BANK_BRANCH_BANKID"/>
     </DesignTime>
     <AttrArray Name="Attributes">
-      <Item Value="erpfms.modelfms.fmseo.GlBank.BankShortCode"/>
-      <Item Value="erpfms.modelfms.fmseo.GlBank.CompanyId"/>
-      <Item Value="erpfms.modelfms.fmseo.GlBank.GlobalCompanyId"/>
+      <Item Value="erpfms.modelfms.fmseo.GlBankBranch.BankId"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="fk_GlBankBranch">
+    <DesignTime>
+      <Attr Name="_referencedKey" Value="PK_GL_BANK"/>
+      <Attr Name="_isForeign" Value="true"/>
+      <Attr Name="_DBObjectName" Value="FK_GL_BANK_BRANCH"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="erpfms.modelfms.fmseo.GlBankBranch.BankId"/>
     </AttrArray>
   </Key>
 </Entity>

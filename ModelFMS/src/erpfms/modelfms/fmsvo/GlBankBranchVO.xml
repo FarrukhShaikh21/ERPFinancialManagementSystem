@@ -3,7 +3,7 @@
 <!---->
 <ViewObject
   xmlns="http://xmlns.oracle.com/bc4j"
-  Name="GlBankVO"
+  Name="GlBankBranchVO"
   Version="12.1.3.10.47"
   InheritPersonalization="merge"
   SelectListFlags="1"
@@ -14,138 +14,135 @@
   SelectAllAttributes="false"
   PageIterMode="Full">
   <EntityUsage
-    Name="GlBank"
-    Entity="erpfms.modelfms.fmseo.GlBank"/>
+    Name="GlBankBranch"
+    Entity="erpfms.modelfms.fmseo.GlBankBranch"/>
   <ViewAttribute
     Name="BankId"
-    IsNotNull="true"
     PrecisionRule="true"
     EntityAttrName="BankId"
-    EntityUsage="GlBank"
+    EntityUsage="GlBankBranch"
     AliasName="BANK_ID"/>
   <ViewAttribute
-    Name="BankShortCode"
-    IsUnique="true"
+    Name="BankBranchId"
     IsNotNull="true"
     PrecisionRule="true"
-    EntityAttrName="BankShortCode"
-    EntityUsage="GlBank"
-    AliasName="BANK_SHORT_CODE"/>
+    EntityAttrName="BankBranchId"
+    EntityUsage="GlBankBranch"
+    AliasName="BANK_BRANCH_ID"/>
   <ViewAttribute
-    Name="BankShortName"
+    Name="BranchShortCode"
     IsNotNull="true"
     PrecisionRule="true"
-    EntityAttrName="BankShortName"
-    EntityUsage="GlBank"
-    AliasName="BANK_SHORT_NAME"/>
+    EntityAttrName="BranchShortCode"
+    EntityUsage="GlBankBranch"
+    AliasName="BRANCH_SHORT_CODE"/>
   <ViewAttribute
-    Name="BankName"
+    Name="BranchShortName"
     IsNotNull="true"
     PrecisionRule="true"
-    EntityAttrName="BankName"
-    EntityUsage="GlBank"
-    AliasName="BANK_NAME"/>
+    EntityAttrName="BranchShortName"
+    EntityUsage="GlBankBranch"
+    AliasName="BRANCH_SHORT_NAME"/>
   <ViewAttribute
-    Name="OpeningDate"
+    Name="BranchName"
     IsNotNull="true"
     PrecisionRule="true"
-    EntityAttrName="OpeningDate"
-    EntityUsage="GlBank"
-    AliasName="OPENING_DATE"/>
+    EntityAttrName="BranchName"
+    EntityUsage="GlBankBranch"
+    AliasName="BRANCH_NAME"/>
+  <ViewAttribute
+    Name="BranchDate"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="BranchDate"
+    EntityUsage="GlBankBranch"
+    AliasName="BRANCH_DATE"/>
   <ViewAttribute
     Name="ChartOfAccountId"
     PrecisionRule="true"
     EntityAttrName="ChartOfAccountId"
-    EntityUsage="GlBank"
+    EntityUsage="GlBankBranch"
     AliasName="CHART_OF_ACCOUNT_ID"/>
   <ViewAttribute
-    Name="BaseCountryId"
+    Name="CountryId"
     IsNotNull="true"
     PrecisionRule="true"
-    EntityAttrName="BaseCountryId"
-    EntityUsage="GlBank"
-    AliasName="BASE_COUNTRY_ID"/>
+    EntityAttrName="CountryId"
+    EntityUsage="GlBankBranch"
+    AliasName="COUNTRY_ID"/>
   <ViewAttribute
-    Name="NtnNo"
-    PrecisionRule="true"
-    EntityAttrName="NtnNo"
-    EntityUsage="GlBank"
-    AliasName="NTN_NO"/>
-  <ViewAttribute
-    Name="Email"
-    PrecisionRule="true"
-    EntityAttrName="Email"
-    EntityUsage="GlBank"
-    AliasName="EMAIL"/>
-  <ViewAttribute
-    Name="Website"
-    PrecisionRule="true"
-    EntityAttrName="Website"
-    EntityUsage="GlBank"
-    AliasName="WEBSITE"/>
-  <ViewAttribute
-    Name="ComplaintEmail"
-    PrecisionRule="true"
-    EntityAttrName="ComplaintEmail"
-    EntityUsage="GlBank"
-    AliasName="COMPLAINT_EMAIL"/>
-  <ViewAttribute
-    Name="RegistrationNo"
-    PrecisionRule="true"
-    EntityAttrName="RegistrationNo"
-    EntityUsage="GlBank"
-    AliasName="REGISTRATION_NO"/>
-  <ViewAttribute
-    Name="GlobalCompanyId"
-    IsUnique="true"
+    Name="CityId"
     IsNotNull="true"
     PrecisionRule="true"
-    EntityAttrName="GlobalCompanyId"
-    EntityUsage="GlBank"
-    AliasName="GLOBAL_COMPANY_ID"/>
+    EntityAttrName="CityId"
+    EntityUsage="GlBankBranch"
+    AliasName="CITY_ID"/>
   <ViewAttribute
-    Name="CompanyId"
-    IsUnique="true"
+    Name="MobileNo"
+    PrecisionRule="true"
+    EntityAttrName="MobileNo"
+    EntityUsage="GlBankBranch"
+    AliasName="MOBILE_NO"/>
+  <ViewAttribute
+    Name="PhoneNo"
+    PrecisionRule="true"
+    EntityAttrName="PhoneNo"
+    EntityUsage="GlBankBranch"
+    AliasName="PHONE_NO"/>
+  <ViewAttribute
+    Name="FaxNo"
+    PrecisionRule="true"
+    EntityAttrName="FaxNo"
+    EntityUsage="GlBankBranch"
+    AliasName="FAX_NO"/>
+  <ViewAttribute
+    Name="ContactPerson"
     IsNotNull="true"
     PrecisionRule="true"
-    EntityAttrName="CompanyId"
-    EntityUsage="GlBank"
-    AliasName="COMPANY_ID"/>
+    EntityAttrName="ContactPerson"
+    EntityUsage="GlBankBranch"
+    AliasName="CONTACT_PERSON"/>
   <ViewAttribute
     Name="IsActive"
-    PrecisionRule="true"
-    EntityAttrName="IsActive"
-    EntityUsage="GlBank"
-    AliasName="IS_ACTIVE"/>
-  <ViewAttribute
-    Name="CreatedBy"
     IsNotNull="true"
     PrecisionRule="true"
+    EntityAttrName="IsActive"
+    EntityUsage="GlBankBranch"
+    AliasName="IS_ACTIVE"/>
+  <ViewAttribute
+    Name="IsHeadOffice"
+    PrecisionRule="true"
+    EntityAttrName="IsHeadOffice"
+    EntityUsage="GlBankBranch"
+    AliasName="IS_HEAD_OFFICE"/>
+  <ViewAttribute
+    Name="CreatedBy"
+    PrecisionRule="true"
     EntityAttrName="CreatedBy"
-    EntityUsage="GlBank"
+    EntityUsage="GlBankBranch"
     AliasName="CREATED_BY"/>
   <ViewAttribute
     Name="CreatedDate"
-    IsNotNull="true"
     PrecisionRule="true"
     EntityAttrName="CreatedDate"
-    EntityUsage="GlBank"
+    EntityUsage="GlBankBranch"
     AliasName="CREATED_DATE"/>
   <ViewAttribute
     Name="LastUpdatedBy"
     PrecisionRule="true"
     EntityAttrName="LastUpdatedBy"
-    EntityUsage="GlBank"
+    EntityUsage="GlBankBranch"
     AliasName="LAST_UPDATED_BY"/>
   <ViewAttribute
     Name="LastUpdatedDate"
     PrecisionRule="true"
     EntityAttrName="LastUpdatedDate"
-    EntityUsage="GlBank"
+    EntityUsage="GlBankBranch"
     AliasName="LAST_UPDATED_DATE"/>
   <ViewLinkAccessor
-    Name="GlBankBranchVO"
+    Name="GlBankVO"
     ViewLink="erpfms.modelfms.fmsvo.FkGlBankBranchBankidLink"
-    Type="oracle.jbo.RowIterator"
+    Type="oracle.jbo.Row"
+    Reversed="true"
     IsUpdateable="false"/>
 </ViewObject>
