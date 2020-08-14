@@ -18,7 +18,6 @@
   </DesignTime>
   <Attribute
     Name="BankId"
-    IsNotNull="true"
     Precision="5"
     Scale="0"
     ColumnName="BANK_ID"
@@ -39,7 +38,6 @@
   <Attribute
     Name="BankShortCode"
     IsUnique="true"
-    IsNotNull="true"
     Precision="6"
     Scale="0"
     ColumnName="BANK_SHORT_CODE"
@@ -58,7 +56,6 @@
   </Attribute>
   <Attribute
     Name="BankShortName"
-    IsNotNull="true"
     Precision="30"
     ColumnName="BANK_SHORT_NAME"
     SQLType="VARCHAR"
@@ -79,7 +76,6 @@
   </Attribute>
   <Attribute
     Name="BankName"
-    IsNotNull="true"
     Precision="50"
     ColumnName="BANK_NAME"
     SQLType="VARCHAR"
@@ -106,6 +102,8 @@
     Type="java.sql.Timestamp"
     ColumnType="DATE"
     TableName="GL_BANK">
+    <TransientExpression
+      trustMode="untrusted"><![CDATA[adf.currentDate]]></TransientExpression>
     <Properties>
       <SchemaBasedProperties>
         <LABEL
@@ -135,7 +133,6 @@
   </Attribute>
   <Attribute
     Name="BaseCountryId"
-    IsNotNull="true"
     Precision="5"
     Scale="0"
     ColumnName="BASE_COUNTRY_ID"
@@ -263,6 +260,8 @@
     Type="java.lang.Integer"
     ColumnType="NUMBER"
     TableName="GL_BANK">
+    <TransientExpression
+      trustMode="untrusted"><![CDATA[erpglobals.modelglobals.ERPGlobalPLSQLClass.doGetModelGlobalDefCompany()]]></TransientExpression>
     <Properties>
       <SchemaBasedProperties>
         <LABEL
@@ -275,7 +274,6 @@
   <Attribute
     Name="CompanyId"
     IsUnique="true"
-    IsNotNull="true"
     Precision="5"
     Scale="0"
     ColumnName="COMPANY_ID"
@@ -315,7 +313,6 @@
   </Attribute>
   <Attribute
     Name="CreatedBy"
-    IsNotNull="true"
     Precision="5"
     Scale="0"
     ColumnName="CREATED_BY"
@@ -334,12 +331,12 @@
   </Attribute>
   <Attribute
     Name="CreatedDate"
-    IsNotNull="true"
     ColumnName="CREATED_DATE"
     SQLType="DATE"
     Type="java.sql.Timestamp"
     ColumnType="DATE"
-    TableName="GL_BANK">
+    TableName="GL_BANK"
+    RetrievedOnInsert="true">
     <Properties>
       <SchemaBasedProperties>
         <LABEL
@@ -373,7 +370,8 @@
     SQLType="DATE"
     Type="java.sql.Timestamp"
     ColumnType="DATE"
-    TableName="GL_BANK">
+    TableName="GL_BANK"
+    RetrievedOnUpdate="true">
     <Properties>
       <SchemaBasedProperties>
         <LABEL
