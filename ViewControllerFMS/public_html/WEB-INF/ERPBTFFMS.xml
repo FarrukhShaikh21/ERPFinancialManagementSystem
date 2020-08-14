@@ -457,6 +457,9 @@
         <value>#{pageFlowScope.OracleERPBean.ERPUserAttributes}</value>
       </input-parameter>
     </task-flow-call>
+    <view id="FMS_0012">
+      <page>/FMS_0012.jsf</page>
+    </view>
     <control-flow-rule id="__8">
       <from-activity-id>doFMSGotoErpActivity</from-activity-id>
       <control-flow-case id="__9">
