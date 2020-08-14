@@ -1,5 +1,7 @@
 package erpfms.modelfms.fmseo;
 
+import erpadm.modeladm.admeo.SmCountryImpl;
+
 import erpglobals.modelglobals.ERPEntityImpl;
 
 import erpglobals.modelglobals.ERPGlobalPLSQLClass;
@@ -40,7 +42,8 @@ public class GlBankImpl extends ERPEntityImpl {
         CreatedDate,
         LastUpdatedBy,
         LastUpdatedDate,
-        GlBankBranch;
+        GlBankBranch,
+        SmCountry;
         private static AttributesEnum[] vals = null;
         private static final int firstIndex = 0;
 
@@ -63,6 +66,7 @@ public class GlBankImpl extends ERPEntityImpl {
             return vals;
         }
     }
+
     public static final int BANKID = AttributesEnum.BankId.index();
     public static final int BANKSHORTCODE = AttributesEnum.BankShortCode.index();
     public static final int BANKSHORTNAME = AttributesEnum.BankShortName.index();
@@ -83,11 +87,19 @@ public class GlBankImpl extends ERPEntityImpl {
     public static final int LASTUPDATEDBY = AttributesEnum.LastUpdatedBy.index();
     public static final int LASTUPDATEDDATE = AttributesEnum.LastUpdatedDate.index();
     public static final int GLBANKBRANCH = AttributesEnum.GlBankBranch.index();
+    public static final int SMCOUNTRY = AttributesEnum.SmCountry.index();
 
     /**
      * This is the default constructor (do not remove).
      */
     public GlBankImpl() {
+    }
+
+    /**
+     * @return the definition object for this instance class.
+     */
+    public static synchronized EntityDefImpl getDefinitionObject() {
+        return EntityDefImpl.findDefObject("erpfms.modelfms.fmseo.GlBank");
     }
 
     /**
@@ -402,19 +414,27 @@ public class GlBankImpl extends ERPEntityImpl {
     }
 
     /**
+     * @return the associated entity erpadm.modeladm.admeo.SmCountryImpl.
+     */
+    public SmCountryImpl getSmCountry() {
+        return (SmCountryImpl) getAttributeInternal(SMCOUNTRY);
+    }
+
+    /**
+     * Sets <code>value</code> as the associated entity erpadm.modeladm.admeo.SmCountryImpl.
+     */
+    public void setSmCountry(SmCountryImpl value) {
+        setAttributeInternal(SMCOUNTRY, value);
+    }
+
+
+    /**
      * @param bankId key constituent
 
      * @return a Key object based on given key constituents.
      */
     public static Key createPrimaryKey(Integer bankId) {
         return new Key(new Object[] { bankId });
-    }
-
-    /**
-     * @return the definition object for this instance class.
-     */
-    public static synchronized EntityDefImpl getDefinitionObject() {
-        return EntityDefImpl.findDefObject("erpfms.modelfms.fmseo.GlBank");
     }
 
     /**

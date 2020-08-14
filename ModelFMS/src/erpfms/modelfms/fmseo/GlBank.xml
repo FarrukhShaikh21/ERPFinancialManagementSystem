@@ -388,6 +388,13 @@
     AssociationOtherEnd="erpfms.modelfms.fmseo.FkGlBankBranchBankidAssoc.GlBank"
     Type="oracle.jbo.RowIterator"
     IsUpdateable="false"/>
+  <AccessorAttribute
+    Name="SmCountry"
+    Association="erpfms.modelfms.fmseo.SmCountryGlBankBaseCountryIdAsso"
+    AssociationEnd="erpfms.modelfms.fmseo.SmCountryGlBankBaseCountryIdAsso.SmCountry"
+    AssociationOtherEnd="erpfms.modelfms.fmseo.SmCountryGlBankBaseCountryIdAsso.GlBank"
+    Type="erpadm.modeladm.admeo.SmCountryImpl"
+    IsUpdateable="true"/>
   <Key
     Name="PkGlBank"
     PrimaryKey="true">
@@ -408,6 +415,17 @@
       <Item Value="erpfms.modelfms.fmseo.GlBank.BankShortCode"/>
       <Item Value="erpfms.modelfms.fmseo.GlBank.CompanyId"/>
       <Item Value="erpfms.modelfms.fmseo.GlBank.GlobalCompanyId"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="fk_GlBank">
+    <DesignTime>
+      <Attr Name="_referencedKey" Value="SM_COUNTRY_PK"/>
+      <Attr Name="_isForeign" Value="true"/>
+      <Attr Name="_DBObjectName" Value="fk_Gl_Bank"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="erpfms.modelfms.fmseo.GlBank.BaseCountryId"/>
     </AttrArray>
   </Key>
   <ResourceBundle>
