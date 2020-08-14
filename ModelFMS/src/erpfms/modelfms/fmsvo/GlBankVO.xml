@@ -179,4 +179,10 @@
     ViewLink="erpfms.modelfms.fmsvo.FkGlBankBranchBankidLink"
     Type="oracle.jbo.RowIterator"
     IsUpdateable="false"/>
+  <ViewLinkAccessor
+    Name="SmCountryVO"
+    ViewLink="erpfms.modelfms.fmsvo.SmCountryGlBankBaseCountryIdVL"
+    Type="oracle.jbo.Row"
+    Reversed="true"
+    IsUpdateable="false"/>
 </ViewObject>

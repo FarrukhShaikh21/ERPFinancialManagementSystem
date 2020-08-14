@@ -67,6 +67,7 @@ public class GlBankImpl extends ERPEntityImpl {
         }
     }
 
+
     public static final int BANKID = AttributesEnum.BankId.index();
     public static final int BANKSHORTCODE = AttributesEnum.BankShortCode.index();
     public static final int BANKSHORTNAME = AttributesEnum.BankShortName.index();
@@ -101,6 +102,7 @@ public class GlBankImpl extends ERPEntityImpl {
     public static synchronized EntityDefImpl getDefinitionObject() {
         return EntityDefImpl.findDefObject("erpfms.modelfms.fmseo.GlBank");
     }
+
 
     /**
      * Gets the attribute value for BankId, using the alias name BankId.
