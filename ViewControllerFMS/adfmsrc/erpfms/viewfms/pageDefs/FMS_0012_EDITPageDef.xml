@@ -6,11 +6,8 @@
     <variableIterator id="variables"/>
     <iterator Binds="AdminCompanyVOByCompanyRO" RangeSize="25" DataControl="ERPFMSModuleDataControl"
               id="AdminCompanyVOByCompanyROIterator"/>
-    <iterator Binds="GlCoaUserCompanyForPeriodRightRO" RangeSize="25" DataControl="ERPFMSModuleDataControl"
-              id="GlCoaUserCompanyForPeriodRightROIterator"/>
-    <searchRegion Criteria="GlCoaUserCompanyVOFindVC" Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer"
-                  Binds="GlCoaUserCompanyForPeriodRightROIterator" id="ImplicitViewCriteriaQuery"
-                  InitialQueryOverridden="true"/>
+    <iterator Binds="GlBankByCompanyRO" RangeSize="25" DataControl="ERPFMSModuleDataControl"
+              id="GlBankByCompanyROIterator"/>
   </executables>
   <bindings>
     <listOfValues IterBinding="AdminCompanyVOByCompanyROIterator" StaticList="false" Uses="LovtxtCountryName"
@@ -35,26 +32,21 @@
         <Item Value="CompanyShortCode"/>
       </AttrNames>
     </attributeValues>
-    <tree IterBinding="GlCoaUserCompanyForPeriodRightROIterator" id="GlCoaUserCompanyForPeriodRightRO">
-      <nodeDefinition DefName="erpfms.modelfms.fmsvo.GlCoaUserCompanyVO" Name="GlCoaUserCompanyForPeriodRightRO0">
-        <AttrNames>
-          <Item Value="UserCode"/>
-          <Item Value="UserName"/>
-          <Item Value="Email"/>
-          <Item Value="MobileNo"/>
-          <Item Value="IsActive"/>
-        </AttrNames>
-      </nodeDefinition>
-    </tree>
-    <attributeValues IterBinding="GlCoaUserCompanyForPeriodRightROIterator" id="UserId">
-      <AttrNames>
-        <Item Value="UserId"/>
-      </AttrNames>
-    </attributeValues>
     <attributeValues IterBinding="AdminCompanyVOByCompanyROIterator" id="GlobalCompCode">
       <AttrNames>
         <Item Value="GlobalCompCode"/>
       </AttrNames>
     </attributeValues>
+    <tree IterBinding="GlBankByCompanyROIterator" id="GlBankByCompanyRO">
+      <nodeDefinition DefName="erpfms.modelfms.fmsvo.GlBankVO" Name="GlBankByCompanyRO0">
+        <AttrNames>
+          <Item Value="BankName"/>
+          <Item Value="BankShortCode"/>
+          <Item Value="BankShortName"/>
+          <Item Value="OpeningDate"/>
+          <Item Value="Website"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
   </bindings>
 </pageDefinition>

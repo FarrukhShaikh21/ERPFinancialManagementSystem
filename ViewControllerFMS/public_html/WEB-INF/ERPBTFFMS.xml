@@ -469,6 +469,12 @@
     <view id="FMS_0012_EDIT">
       <page>/FMS_0012_EDIT.jsf</page>
     </view>
+    <method-call id="ExeAdminCompanyByCompanyFMS_0012">
+      <method>#{bindings.ExecuteWithParams.execute}</method>
+      <outcome>
+        <fixed-outcome>DO-ACT-QUERY-FMS_0012</fixed-outcome>
+      </outcome>
+    </method-call>
     <control-flow-rule id="__8">
       <from-activity-id>doFMSGotoErpActivity</from-activity-id>
       <control-flow-case id="__9">
@@ -1108,6 +1114,13 @@
     <control-flow-rule id="__188">
       <from-activity-id>FMS_0012</from-activity-id>
       <control-flow-case id="__189">
+        <from-outcome>DO-ACT-QUERY-FMS_0012</from-outcome>
+        <to-activity-id>ExeAdminCompanyByCompanyFMS_0012</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__190">
+      <from-activity-id>ExeAdminCompanyByCompanyFMS_0012</from-activity-id>
+      <control-flow-case id="__191">
         <from-outcome>DO-ACT-QUERY-FMS_0012</from-outcome>
         <to-activity-id>FMS_0012_EDIT</to-activity-id>
       </control-flow-case>

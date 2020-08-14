@@ -78,28 +78,14 @@
                                     </af:gridCell>
                                 </af:gridRow>
                                 <af:gridRow id="gr1" marginTop="5px" marginBottom="5px">
-                                    <af:gridCell id="gc1" halign="center" width="100%">
-                                        <af:quickQuery label="Search" searchDesc="Search" id="qryId1"
-                                                       value="#{bindings.ImplicitViewCriteriaQuery.quickQueryDescriptor}"
-                                                       model="#{bindings.ImplicitViewCriteriaQuery.queryModel}"
-                                                       queryListener="#{bindings.ImplicitViewCriteriaQuery.processQuery}">
-                                            <f:facet name="end">
-                                                <af:commandLink text="Advanced" rendered="false" id="cl1"/>
-                                            </f:facet>
-                                        </af:quickQuery>
-                                    </af:gridCell>
+                                    <af:gridCell id="gc1" halign="center" width="100%"/>
                                 </af:gridRow>
                                 <af:gridRow marginTop="5px" height="auto" marginBottom="5px" id="gr6">
                                     <af:gridCell marginStart="5px" width="100%" marginEnd="5px" id="gc6"
                                                  halign="stretch" valign="stretch">
-                                        <af:listView value="#{bindings.GlCoaUserCompanyForPeriodRightRO.collectionModel}"
-                                                     var="item"
-                                                     emptyText="#{bindings.GlCoaUserCompanyForPeriodRightRO.viewable ? 'No data to display.' : 'Access Denied.'}"
-                                                     fetchSize="#{bindings.GlCoaUserCompanyForPeriodRightRO.rangeSize}"
-                                                     id="lv1" styleClass="WBDisplayBlockCenter" selection="single"
-                                                     selectedRowKeys="#{bindings.GlCoaUserCompanyForPeriodRightRO.collectionModel.selectedRow}"
-                                                     selectionListener="#{bindings.GlCoaUserCompanyForPeriodRightRO.treeModel.makeCurrent}"
-                                                     partialTriggers="::qryId1">
+                                        <af:listView value="#{bindings.GlBankByCompanyRO.collectionModel}" var="item"
+                                                     emptyText="#{bindings.GlBankByCompanyRO.viewable ? 'No data to display.' : 'Access Denied.'}"
+                                                     fetchSize="#{bindings.GlBankByCompanyRO.rangeSize}" id="lv1">
                                             <af:listItem id="li1"
                                                          styleClass="WBDisplayBlock WBDisplayBlockPadding WBDisplayBlockCenterUndo">
                                                 <af:panelGroupLayout id="pgl2" layout="vertical"
@@ -107,46 +93,34 @@
                                                     <af:panelBox text="PanelBox1" id="pb1" showDisclosure="false"
                                                                  showHeader="never">
                                                         <f:facet name="toolbar"/>
-                                                        <af:inputText value="#{bindings.UserId.inputValue}"
-                                                                      label="#{bindings.UserId.hints.label}"
-                                                                      required="#{bindings.UserId.hints.mandatory}"
-                                                                      columns="#{bindings.UserId.hints.displayWidth}"
-                                                                      maximumLength="#{bindings.UserId.hints.precision}"
-                                                                      shortDesc="#{bindings.UserId.hints.tooltip}"
-                                                                      id="it5" rendered="false">
-                                                            <f:validator binding="#{bindings.UserId.validator}"/>
-                                                            <af:convertNumber groupingUsed="false"
-                                                                              pattern="#{bindings.UserId.format}"/>
-                                                        </af:inputText>
                                                         <af:panelGridLayout id="pgl1">
-                                                            <af:gridRow marginTop="5px" height="auto" id="gr2"
-                                                                        marginBottom="20px">
+                                                            <af:gridRow marginTop="5px" height="auto" id="gr2">
                                                                 <af:gridCell marginStart="5px" width="100%"
                                                                              marginEnd="5px" id="gc2"
-                                                                             styleClass="AFStretchWidth ERPHeroBackground"
-                                                                             halign="stretch" valign="stretch">
+                                                                             styleClass="AFStretchWidth ERPHeroBackground">
                                                                     <af:panelGroupLayout id="pgl6" layout="horizontal">
                                                                         <af:link id="l1"
-                                                                                 partialSubmit="true"
                                                                                  styleClass="ERPHeroBannerFont ERPLink"
-                                                                                 icon="#{resource['images:imgView.png']}"
-                                                                                 action="DO-ACT-QUERY-FMS_0011_EDIT_EDIT"/>
-                                                                        <af:outputFormatted value="#{item.bindings.UserName.inputValue}"
-                                                                                            id="of2"
+                                                                                 icon="#{resource['images:imgView.png']}"/>
+                                                                        <af:outputFormatted value="#{item.bindings.BankName.inputValue}"
+                                                                                            id="of1"
                                                                                             styleClass="ERPHeroBannerFont"/>
                                                                     </af:panelGroupLayout>
                                                                 </af:gridCell>
                                                             </af:gridRow>
-                                                            <af:gridRow height="auto" id="gr3" marginBottom="20px">
+                                                            <af:gridRow marginTop="5px" height="auto" id="gr3">
                                                                 <af:gridCell marginStart="5px" width="100%"
                                                                              marginEnd="5px" id="gc3">
                                                                     <af:panelGroupLayout id="pgl7" layout="horizontal">
-                                                                        <af:image source="#{resource['images:imgEmail.png']}"
+                                                                        <af:image source="#{resource['images:imgDocumentNumber.png']}"
                                                                                   id="i1"/>
                                                                         <af:spacer width="10" height="10" id="s2"/>
-                                                                        <af:outputFormatted value="#{item.bindings.Email.inputValue}"
-                                                                                            id="of3"
-                                                                                            styleClass="ERPHeroDetailColor"/>
+                                                                        <af:outputFormatted value="#{item.bindings.BankShortCode.inputValue}"
+                                                                                            id="of2"
+                                                                                            styleClass="ERPHeroDetailColor">
+                                                                            <af:convertNumber groupingUsed="false"
+                                                                                              pattern="#{bindings.GlBankByCompanyRO.hints.BankShortCode.format}"/>
+                                                                        </af:outputFormatted>
                                                                     </af:panelGroupLayout>
                                                                 </af:gridCell>
                                                             </af:gridRow>
@@ -154,11 +128,40 @@
                                                                 <af:gridCell marginStart="5px" width="100%"
                                                                              marginEnd="5px" id="gc4">
                                                                     <af:panelGroupLayout id="pgl8" layout="horizontal">
-                                                                        <af:image source="#{resource['images:imgMobile.png']}"
+                                                                        <af:image source="#{resource['images:imgShortName.png']}"
                                                                                   id="i2"/>
                                                                         <af:spacer width="10" height="10" id="s3"/>
-                                                                        <af:outputFormatted value="#{item.bindings.MobileNo.inputValue}"
+                                                                        <af:outputFormatted value="#{item.bindings.BankShortName.inputValue}"
+                                                                                            id="of3"
+                                                                                            styleClass="ERPHeroDetailColor"/>
+                                                                    </af:panelGroupLayout>
+                                                                </af:gridCell>
+                                                            </af:gridRow>
+                                                            <af:gridRow marginTop="5px" height="auto" id="gr8">
+                                                                <af:gridCell marginStart="5px" width="100%"
+                                                                             marginEnd="5px" id="gc9">
+                                                                    <af:panelGroupLayout id="pgl9" layout="horizontal">
+                                                                        <af:image source="#{resource['images:imgDocumentDate.png']}"
+                                                                                  id="i3"/>
+                                                                        <af:spacer width="10" height="10" id="s4"/>
+                                                                        <af:outputFormatted value="#{item.bindings.OpeningDate.inputValue}"
                                                                                             id="of4"
+                                                                                            styleClass="ERPHeroDetailColor">
+                                                                            <af:convertDateTime pattern="#{bindings.GlBankByCompanyRO.hints.OpeningDate.format}"/>
+                                                                        </af:outputFormatted>
+                                                                    </af:panelGroupLayout>
+                                                                </af:gridCell>
+                                                            </af:gridRow>
+                                                            <af:gridRow marginTop="5px" height="auto" marginBottom="5px"
+                                                                        id="gr9">
+                                                                <af:gridCell marginStart="5px" width="100%"
+                                                                             marginEnd="5px" id="gc10">
+                                                                    <af:panelGroupLayout id="pgl10" layout="horizontal">
+                                                                        <af:image source="#{resource['images:imgWebsite.png']}"
+                                                                                  id="i4"/>
+                                                                        <af:spacer width="10" height="10" id="s5"/>
+                                                                        <af:outputFormatted value="#{item.bindings.Website.inputValue}"
+                                                                                            id="of5"
                                                                                             styleClass="ERPHeroDetailColor"/>
                                                                     </af:panelGroupLayout>
                                                                 </af:gridCell>

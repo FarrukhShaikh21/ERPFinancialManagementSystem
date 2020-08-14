@@ -259,6 +259,15 @@
       Name="SysUsersUserWiseVC"
       FullName="erpadm.modeladm.admvo.SysUsersVO.SysUsersUserWiseVC"/>
   </ViewUsage>
+  <ViewUsage
+    Name="GlBankByCompanyRO"
+    ViewObjectName="erpfms.modelfms.fmsvo.GlBankVO"/>
+  <ViewUsage
+    Name="GlBankByCompanyCRUD"
+    ViewObjectName="erpfms.modelfms.fmsvo.GlBankVO"/>
+  <ViewUsage
+    Name="GlBankBranchDetCRUD"
+    ViewObjectName="erpfms.modelfms.fmsvo.GlBankBranchVO"/>
   <ViewLinkUsage
     Name="GlChartOfAccountGlChartOfAccountCoaidParentidVL1"
     ViewLinkObjectName="erpfms.modelfms.fmsvo.GlChartOfAccountGlChartOfAccountCoaidParentidVL"
@@ -282,6 +291,12 @@
     ViewLinkObjectName="erpfms.modelfms.fmsvo.GlVoucherHeaderGlVoucherLinVoucherHeaderSnoVL"
     SrcViewUsageName="erpfms.modelfms.fmsam.ERPFMSModule.GlVoucherHeaderForReverseCRUD"
     DstViewUsageName="erpfms.modelfms.fmsam.ERPFMSModule.GlVoucherLinesForReverseDetCRUD"
+    Reversed="false"/>
+  <ViewLinkUsage
+    Name="FkGlBankBranchBankidLink1"
+    ViewLinkObjectName="erpfms.modelfms.fmsvo.FkGlBankBranchBankidLink"
+    SrcViewUsageName="erpfms.modelfms.fmsam.ERPFMSModule.GlBankByCompanyCRUD"
+    DstViewUsageName="erpfms.modelfms.fmsam.ERPFMSModule.GlBankBranchDetCRUD"
     Reversed="false"/>
   <ResourceBundle>
     <PropertiesBundle
