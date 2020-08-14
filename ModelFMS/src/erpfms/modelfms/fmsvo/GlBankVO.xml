@@ -174,6 +174,14 @@
     EntityAttrName="LastUpdatedDate"
     EntityUsage="GlBank"
     AliasName="LAST_UPDATED_DATE"/>
+  <ViewAttribute
+    Name="txtBaseCountryName"
+    IsQueriable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    EntityAttrName="txtBaseCountryName"
+    EntityUsage="GlBank"
+    AliasName="txt_Base_Country_Name"/>
   <ViewLinkAccessor
     Name="GlBankBranchVO"
     ViewLink="erpfms.modelfms.fmsvo.FkGlBankBranchBankidLink"
