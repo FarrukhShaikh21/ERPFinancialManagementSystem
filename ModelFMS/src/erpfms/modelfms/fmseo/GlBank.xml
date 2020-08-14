@@ -381,6 +381,31 @@
       </SchemaBasedProperties>
     </Properties>
   </Attribute>
+  <Attribute
+    Name="txtBaseCountryName"
+    Precision="80"
+    ColumnName="txt_Base_Country_Name"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="GL_BANK"
+    IsPersistent="false"
+    IsQueriable="false">
+    <TransientExpression
+      trustMode="untrusted"><![CDATA[SmCountry?.Countryname]]></TransientExpression>
+    <Dependencies>
+      <Item
+        Value="BaseCountryId"/>
+    </Dependencies>
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="erpfms.modelfms.fmseo.GlBank.txtBaseCountryName_LABEL"/>
+        <DISPLAYWIDTH
+          Value="20"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </Attribute>
   <AccessorAttribute
     Name="GlBankBranch"
     Association="erpfms.modelfms.fmseo.FkGlBankBranchBankidAssoc"

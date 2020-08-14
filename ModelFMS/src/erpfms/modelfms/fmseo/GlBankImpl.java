@@ -42,6 +42,7 @@ public class GlBankImpl extends ERPEntityImpl {
         CreatedDate,
         LastUpdatedBy,
         LastUpdatedDate,
+        txtBaseCountryName,
         GlBankBranch,
         SmCountry;
         private static AttributesEnum[] vals = null;
@@ -87,6 +88,7 @@ public class GlBankImpl extends ERPEntityImpl {
     public static final int CREATEDDATE = AttributesEnum.CreatedDate.index();
     public static final int LASTUPDATEDBY = AttributesEnum.LastUpdatedBy.index();
     public static final int LASTUPDATEDDATE = AttributesEnum.LastUpdatedDate.index();
+    public static final int TXTBASECOUNTRYNAME = AttributesEnum.txtBaseCountryName.index();
     public static final int GLBANKBRANCH = AttributesEnum.GlBankBranch.index();
     public static final int SMCOUNTRY = AttributesEnum.SmCountry.index();
 
@@ -406,6 +408,22 @@ public class GlBankImpl extends ERPEntityImpl {
      */
     public void setLastUpdatedDate(Timestamp value) {
         setAttributeInternal(LASTUPDATEDDATE, value);
+    }
+
+    /**
+     * Gets the attribute value for txtBaseCountryName, using the alias name txtBaseCountryName.
+     * @return the value of txtBaseCountryName
+     */
+    public String gettxtBaseCountryName() {
+        return (String) getAttributeInternal(TXTBASECOUNTRYNAME);
+    }
+
+    /**
+     * Sets <code>value</code> as the attribute value for txtBaseCountryName.
+     * @param value value to set the txtBaseCountryName
+     */
+    public void settxtBaseCountryName(String value) {
+        setAttributeInternal(TXTBASECOUNTRYNAME, value);
     }
 
     /**
