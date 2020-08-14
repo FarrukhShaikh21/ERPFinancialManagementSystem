@@ -9,7 +9,13 @@
   DBObjectType="table"
   DBObjectName="GL_BANK"
   AliasName="GlBank"
-  BindingStyle="JDBC">
+  BindingStyle="JDBC"
+  RowClass="erpfms.modelfms.fmseo.GlBankImpl">
+  <DesignTime>
+    <Attr Name="_codeGenFlag2" Value="Access|DML"/>
+    <Attr Name="_superClass" Value="erpglobals.modelglobals.ERPEntityImpl"/>
+    <Attr Name="_isCodegen" Value="true"/>
+  </DesignTime>
   <Attribute
     Name="BankId"
     IsNotNull="true"

@@ -3,7 +3,7 @@
 <f:view xmlns:f="http://java.sun.com/jsf/core" xmlns:af="http://xmlns.oracle.com/adf/faces/rich">
     <af:document title="FMS_0012_EDIT_EDIT.jsf" id="d1">
         <af:form id="f1">
-            <af:decorativeBox id="db1">
+            <af:decorativeBox id="db1" dimensionsFrom="parent">
                 <f:facet name="center">
                     <af:panelSplitter id="ps1">
                         <f:facet name="first"/>
