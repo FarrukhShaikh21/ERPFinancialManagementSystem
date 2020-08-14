@@ -2,6 +2,8 @@ package erpfms.modelfms.fmseo;
 
 import erpglobals.modelglobals.ERPEntityImpl;
 
+import erpglobals.modelglobals.ERPGlobalPLSQLClass;
+
 import java.sql.Timestamp;
 
 import oracle.jbo.Key;
@@ -428,6 +430,20 @@ public class GlBankImpl extends ERPEntityImpl {
      * @param e the transaction event
      */
     protected void doDML(int operation, TransactionEvent e) {
+
+        if (operation == DML_INSERT) {
+            String result =
+                ERPGlobalPLSQLClass.doGetPrimaryKeyValueModel(getDBTransaction(), "BANK_ID",
+                                                              this.getEntityDef().getSource(), null, null);
+
+            populateAttributeAsChanged(BANKID, Integer.parseInt(result));
+            result =
+                ERPGlobalPLSQLClass.doGetPrimaryKeyValueModel(getDBTransaction(), "BANK_SHORT_CODE",
+                                                              this.getEntityDef().getSource(), "COMPANY_ID",
+                                                              getCompanyId().toString());
+            populateAttributeAsChanged(BANKSHORTCODE, Integer.parseInt(result));
+
+        }
         super.doDML(operation, e);
     }
 }
