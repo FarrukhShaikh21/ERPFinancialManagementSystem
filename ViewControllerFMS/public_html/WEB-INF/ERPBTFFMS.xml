@@ -460,6 +460,12 @@
     <view id="FMS_0012">
       <page>/FMS_0012.jsf</page>
     </view>
+    <method-call id="ExeAdminCompanyFMS_0012">
+      <method>#{bindings.Execute.execute}</method>
+      <outcome>
+        <fixed-outcome>ExeAdminCompanyFMS_0012</fixed-outcome>
+      </outcome>
+    </method-call>
     <control-flow-rule id="__8">
       <from-activity-id>doFMSGotoErpActivity</from-activity-id>
       <control-flow-case id="__9">
@@ -508,7 +514,7 @@
       </control-flow-case>
       <control-flow-case id="__168">
         <from-outcome>ERP-ACT-FMS_0012</from-outcome>
-        <to-activity-id>FMS_0012</to-activity-id>
+        <to-activity-id>ExeAdminCompanyFMS_0012</to-activity-id>
       </control-flow-case>
     </control-flow-rule>
     <control-flow-rule id="__12">
@@ -1087,6 +1093,13 @@
       <control-flow-case id="__182">
         <from-outcome>ERPLCHANGEPWD</from-outcome>
         <to-activity-id>ERPCHPWDBTF</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__186">
+      <from-activity-id>ExeAdminCompanyFMS_0012</from-activity-id>
+      <control-flow-case id="__187">
+        <from-outcome>ExeAdminCompanyFMS_0012</from-outcome>
+        <to-activity-id>FMS_0012</to-activity-id>
       </control-flow-case>
     </control-flow-rule>
     <visibility>
