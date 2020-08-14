@@ -36,7 +36,7 @@
                                                                  id="gc1" halign="stretch" valign="stretch"
                                                                  styleClass="AFStretchWidth ERPHeroBackground">
                                                         <af:panelGroupLayout id="pgl6" layout="horizontal">
-                                                            <af:link id="l2" action="DO-ACT-QUERY-FMS_0011"
+                                                            <af:link id="l2" action="DO-ACT-QUERY-FMS_0012"
                                                                      partialSubmit="true"
                                                                      icon="#{resource['images:imgView.png']}"
                                                                      styleClass="ERPHeroBannerFont ERPLink"/>

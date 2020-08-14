@@ -70,7 +70,7 @@
       <property
          name="fromOutcome">ERP-ACT-FMS_0001</property>
       <property
-         name="sdm:polyPoints">B56,5.5,585.5085,-11.5,610.3965,T50</property>
+         name="sdm:polyPoints">B50,2.0,581.9365,-11.5,610.3965,T50</property>
    </ControlFlowCase>
    <WildcardControlFlowRule
       id="WildcardControlFlowRule15">
@@ -487,7 +487,7 @@
       <property
          name="fromOutcome">ERP-ACT-FMS_0003</property>
       <property
-         name="sdm:polyPoints">L54,-39.0,531.4365,-100.5,538.6953,R50</property>
+         name="sdm:polyPoints">L50,-40.08237,527.9365,-100.5,538.6953,R50</property>
    </ControlFlowCase>
    <ControlFlowCase
       islink="true"
@@ -743,7 +743,7 @@
       <property
          name="fromOutcome">ERP-ACT-FMS_0004</property>
       <property
-         name="sdm:polyPoints">L46,-39.0,524.4365,-145.5,415.09766,B50</property>
+         name="sdm:polyPoints">L42,-39.0,520.9365,-145.5,415.09766,B50</property>
    </ControlFlowCase>
    <ControlFlowCase
       islink="true"
@@ -2171,7 +2171,7 @@
       <property
          name="fromOutcome">ERP-ACT-FMS_0012</property>
       <property
-         name="sdm:polyPoints">B44,-1.5,581.9365,-640.5,818.09766,T50</property>
+         name="sdm:polyPoints">L58,-39.0,534.9365,-644.0,813.6601,T44</property>
    </ControlFlowCase>
    <MethodCall
       id="MethodCall201">
@@ -2195,5 +2195,30 @@
          name="fromOutcome">ExeAdminCompanyFMS_0012</property>
       <property
          name="sdm:polyPoints">T56,-637.0,818.09766,-612.5,806.44824,B50</property>
+   </ControlFlowCase>
+   <View
+      id="View203">
+      <property
+         name="activityId">FMS_0012_EDIT</property>
+      <property
+         name="page">/FMS_0012_EDIT.jsf</property>
+      <property
+         name="description">&lt;html>&lt;p>&lt;b>FMS_0012_EDIT&lt;/b>&lt;/p>&lt;p>Activity Type:  View&lt;/p></property>
+      <property
+         name="exceptionHandler">false</property>
+      <property
+         name="y">696.09766</property>
+      <property
+         name="x">-781.6465</property>
+   </View>
+   <ControlFlowCase
+      islink="true"
+      id="ControlFlowCase204"
+      from="View199"
+      to="View203">
+      <property
+         name="fromOutcome">DO-ACT-QUERY-FMS_0012</property>
+      <property
+         name="sdm:polyPoints">L50,-653.5,752.44824,-740.6465,695.7471,R50</property>
    </ControlFlowCase>
 </SDM>
