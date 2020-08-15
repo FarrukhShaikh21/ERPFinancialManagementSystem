@@ -375,6 +375,23 @@
       </SchemaBasedProperties>
     </Properties>
   </Attribute>
+  <Attribute
+    Name="txtCOAName"
+    Precision="80"
+    ColumnName="txt_COAName"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="GL_BANK_BRANCH">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="erpfms.modelfms.fmseo.GlBankBranch.txtCOAName_LABEL"/>
+        <DISPLAYWIDTH
+          Value="20"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </Attribute>
   <AccessorAttribute
     Name="GlBank"
     Association="erpfms.modelfms.fmseo.FkGlBankBranchBankidAssoc"
