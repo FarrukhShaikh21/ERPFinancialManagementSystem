@@ -17,6 +17,10 @@
     Name="AccSysGeneralValueVO"
     ViewObjectName="erpadm.modeladm.admvo.SysGeneralValueVO"
     RowLevelBinds="true"/>
+  <ViewAccessor
+    Name="AccSmCountryVO"
+    ViewObjectName="erpadm.modeladm.admvo.SmCountryVO"
+    RowLevelBinds="true"/>
   <ListBinding
     Name="LovActive"
     ListVOName="AccSysGeneralValueVO"
@@ -35,6 +39,32 @@
       <Item Value="ValueDescription"/>
     </AttrArray>
     <DisplayCriteria/>
+  </ListBinding>
+  <ListBinding
+    Name="LovtxtBaseCountryName"
+    ListVOName="AccSmCountryVO"
+    ListRangeSize="-1"
+    ComboRowCountHint="10"
+    NullValueFlag="none"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="txtBaseCountryName"/>
+    </AttrArray>
+    <AttrArray Name="AttrExpressions"/>
+    <AttrArray Name="DerivedAttrNames">
+      <Item Value="BaseCountryId"/>
+    </AttrArray>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="Countryname"/>
+      <Item Value="Countrycode"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="Countryname"/>
+      <Item Value="CountryShortCode"/>
+      <Item Value="CountryShortName"/>
+    </AttrArray>
+    <DisplayCriteria
+      Name="SmCountryVOFindVC"/>
   </ListBinding>
   <EntityUsage
     Name="GlBank"
@@ -181,7 +211,15 @@
     PrecisionRule="true"
     EntityAttrName="txtBaseCountryName"
     EntityUsage="GlBank"
-    AliasName="txt_Base_Country_Name"/>
+    AliasName="txt_Base_Country_Name"
+    LOVName="LovtxtBaseCountryName">
+    <Properties>
+      <SchemaBasedProperties>
+        <CONTROLTYPE
+          Value="combo_lov"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="txtCOADescription"
     IsQueriable="false"
