@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.1.3.10.47" id="FMS_0012_EDIT_EDITPageDef"
+                Package="erpfms.viewfms.pageDefs">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="GlBankByCompanyCRUD" RangeSize="25" DataControl="ERPFMSModuleDataControl"
+              id="GlBankByCompanyCRUDIterator"/>
+  </executables>
+  <bindings>
+    <listOfValues IterBinding="GlBankByCompanyCRUDIterator" StaticList="false" Uses="LovtxtBaseCountryName"
+                  id="txtBaseCountryName"/>
+    <listOfValues IterBinding="GlBankByCompanyCRUDIterator" StaticList="false" Uses="LovtxtCOADescription"
+                  id="txtCOADescription"/>
+    <attributeValues IterBinding="GlBankByCompanyCRUDIterator" id="BankId">
+      <AttrNames>
+        <Item Value="BankId"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="GlBankByCompanyCRUDIterator" id="BankShortCode">
+      <AttrNames>
+        <Item Value="BankShortCode"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="GlBankByCompanyCRUDIterator" id="BankShortName">
+      <AttrNames>
+        <Item Value="BankShortName"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="GlBankByCompanyCRUDIterator" id="BankName">
+      <AttrNames>
+        <Item Value="BankName"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="GlBankByCompanyCRUDIterator" id="OpeningDate">
+      <AttrNames>
+        <Item Value="OpeningDate"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="GlBankByCompanyCRUDIterator" id="NtnNo">
+      <AttrNames>
+        <Item Value="NtnNo"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="GlBankByCompanyCRUDIterator" id="Email">
+      <AttrNames>
+        <Item Value="Email"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="GlBankByCompanyCRUDIterator" id="Website">
+      <AttrNames>
+        <Item Value="Website"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="GlBankByCompanyCRUDIterator" id="ComplaintEmail">
+      <AttrNames>
+        <Item Value="ComplaintEmail"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="GlBankByCompanyCRUDIterator" id="RegistrationNo">
+      <AttrNames>
+        <Item Value="RegistrationNo"/>
+      </AttrNames>
+    </attributeValues>
+    <list IterBinding="GlBankByCompanyCRUDIterator" StaticList="false" Uses="LovActive" id="IsActive"
+          DTSupportsMRU="false" SelectItemValueMode="ListObject"/>
+  </bindings>
+</pageDefinition>
