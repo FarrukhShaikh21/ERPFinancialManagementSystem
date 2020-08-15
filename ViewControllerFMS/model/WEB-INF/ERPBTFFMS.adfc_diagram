@@ -2219,7 +2219,7 @@
       <property
          name="fromOutcome">DO-ACT-QUERY-FMS_0012</property>
       <property
-         name="sdm:polyPoints">L50,-631.5,734.7471,-718.8115,674.6953,B56</property>
+         name="sdm:polyPoints">L50,-631.5,734.7471,-718.8115,674.3447,B56</property>
    </ControlFlowCase>
    <MethodCall
       id="MethodCall205">
@@ -2242,6 +2242,54 @@
       <property
          name="fromOutcome">DO-ACT-QUERY-FMS_0012</property>
       <property
-         name="sdm:polyPoints">B44,-725.8115,674.6953,-834.6465,734.9424,T50</property>
+         name="sdm:polyPoints">B44,-725.8115,674.3447,-834.6465,734.9424,T50</property>
+   </ControlFlowCase>
+   <View
+      id="View207">
+      <property
+         name="activityId">FMS_0012_EDIT_EDIT</property>
+      <property
+         name="page">/FMS_0012_EDIT_EDIT.jsf</property>
+      <property
+         name="description">&lt;html>&lt;p>&lt;b>FMS_0012_EDIT_EDIT&lt;/b>&lt;/p>&lt;p>Activity Type:  View&lt;/p></property>
+      <property
+         name="exceptionHandler">false</property>
+      <property
+         name="y">924.8447</property>
+      <property
+         name="x">-841.0</property>
+   </View>
+   <ControlFlowCase
+      islink="true"
+      id="ControlFlowCase208"
+      from="View203"
+      to="MethodCall209">
+      <property
+         name="fromOutcome">ERPADDFMS_0012_EDIT_EDIT</property>
+      <property
+         name="sdm:polyPoints">B50,-834.6465,842.9424,-669.98047,952.09766,T50</property>
+   </ControlFlowCase>
+   <MethodCall
+      id="MethodCall209">
+      <property
+         name="activityId">CreateWithParaFMS_0012_EDIT_EDIT</property>
+      <property
+         name="description">&lt;html>&lt;p>&lt;b>CreateWithParaFMS_0012_EDIT_EDIT&lt;/b>&lt;/p>&lt;p>Activity Type:  Method Call&lt;/p></property>
+      <property
+         name="exceptionHandler">false</property>
+      <property
+         name="y">1006.44824</property>
+      <property
+         name="x">-669.98047</property>
+   </MethodCall>
+   <ControlFlowCase
+      islink="true"
+      id="ControlFlowCase210"
+      from="MethodCall209"
+      to="View207">
+      <property
+         name="fromOutcome">CreateWithParaFMS_0012_EDIT_EDIT</property>
+      <property
+         name="sdm:polyPoints">L50,-710.98047,1006.09766,-800.0,924.49414,R50</property>
    </ControlFlowCase>
 </SDM>
