@@ -44,7 +44,8 @@ public class GlBankImpl extends ERPEntityImpl {
         LastUpdatedDate,
         txtBaseCountryName,
         GlBankBranch,
-        SmCountry;
+        SmCountry,
+        GlChartOfAccounts;
         private static AttributesEnum[] vals = null;
         private static final int firstIndex = 0;
 
@@ -91,6 +92,7 @@ public class GlBankImpl extends ERPEntityImpl {
     public static final int TXTBASECOUNTRYNAME = AttributesEnum.txtBaseCountryName.index();
     public static final int GLBANKBRANCH = AttributesEnum.GlBankBranch.index();
     public static final int SMCOUNTRY = AttributesEnum.SmCountry.index();
+    public static final int GLCHARTOFACCOUNTS = AttributesEnum.GlChartOfAccounts.index();
 
     /**
      * This is the default constructor (do not remove).
@@ -445,6 +447,21 @@ public class GlBankImpl extends ERPEntityImpl {
      */
     public void setSmCountry(SmCountryImpl value) {
         setAttributeInternal(SMCOUNTRY, value);
+    }
+
+
+    /**
+     * @return the associated entity GlChartOfAccountsImpl.
+     */
+    public GlChartOfAccountsImpl getGlChartOfAccounts() {
+        return (GlChartOfAccountsImpl) getAttributeInternal(GLCHARTOFACCOUNTS);
+    }
+
+    /**
+     * Sets <code>value</code> as the associated entity GlChartOfAccountsImpl.
+     */
+    public void setGlChartOfAccounts(GlChartOfAccountsImpl value) {
+        setAttributeInternal(GLCHARTOFACCOUNTS, value);
     }
 
 

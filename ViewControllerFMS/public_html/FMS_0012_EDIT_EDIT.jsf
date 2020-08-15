@@ -5,7 +5,7 @@
         <af:form id="f1">
             <af:decorativeBox id="db1" dimensionsFrom="parent">
                 <f:facet name="center">
-                    <af:panelSplitter id="ps1">
+                    <af:panelSplitter id="ps1" splitterPosition="222">
                         <f:facet name="first"/>
                         <f:facet name="second"/>
                     </af:panelSplitter>

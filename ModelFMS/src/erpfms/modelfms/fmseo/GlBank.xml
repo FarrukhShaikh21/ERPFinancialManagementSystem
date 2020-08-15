@@ -388,7 +388,6 @@
     SQLType="VARCHAR"
     Type="java.lang.String"
     ColumnType="VARCHAR2"
-    TableName="GL_BANK"
     IsPersistent="false"
     IsQueriable="false">
     <TransientExpression
@@ -419,6 +418,13 @@
     AssociationEnd="erpfms.modelfms.fmseo.SmCountryGlBankBaseCountryIdAsso.SmCountry"
     AssociationOtherEnd="erpfms.modelfms.fmseo.SmCountryGlBankBaseCountryIdAsso.GlBank"
     Type="erpadm.modeladm.admeo.SmCountryImpl"
+    IsUpdateable="true"/>
+  <AccessorAttribute
+    Name="GlChartOfAccounts"
+    Association="erpfms.modelfms.fmseo.GlChartOfAccountGlBankChartOfAcctItAsso"
+    AssociationEnd="erpfms.modelfms.fmseo.GlChartOfAccountGlBankChartOfAcctItAsso.GlChartOfAccounts"
+    AssociationOtherEnd="erpfms.modelfms.fmseo.GlChartOfAccountGlBankChartOfAcctItAsso.GlBank"
+    Type="erpfms.modelfms.fmseo.GlChartOfAccountsImpl"
     IsUpdateable="true"/>
   <Key
     Name="PkGlBank"
@@ -451,6 +457,17 @@
     </DesignTime>
     <AttrArray Name="Attributes">
       <Item Value="erpfms.modelfms.fmseo.GlBank.BaseCountryId"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="fk_GlBank1">
+    <DesignTime>
+      <Attr Name="_referencedKey" Value="PK_GL_CHART_OF_ACCOUNTS"/>
+      <Attr Name="_isForeign" Value="true"/>
+      <Attr Name="_DBObjectName" Value="fk_Gl_Bank1"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="erpfms.modelfms.fmseo.GlBank.ChartOfAccountId"/>
     </AttrArray>
   </Key>
   <ResourceBundle>

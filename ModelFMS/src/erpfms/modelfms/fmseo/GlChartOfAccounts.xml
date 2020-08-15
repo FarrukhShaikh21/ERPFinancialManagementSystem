@@ -371,7 +371,6 @@
     SQLType="VARCHAR"
     Type="java.lang.String"
     ColumnType="VARCHAR2"
-    TableName="GL_CHART_OF_ACCOUNTS"
     IsPersistent="false"
     IsQueriable="false">
     <TransientExpression
@@ -404,6 +403,13 @@
     Association="erpfms.modelfms.fmseo.GlChartOfAccountsGlVoucherLinesCOAIDAsso"
     AssociationEnd="erpfms.modelfms.fmseo.GlChartOfAccountsGlVoucherLinesCOAIDAsso.GlVoucherLines"
     AssociationOtherEnd="erpfms.modelfms.fmseo.GlChartOfAccountsGlVoucherLinesCOAIDAsso.GlChartOfAccounts"
+    Type="oracle.jbo.RowIterator"
+    IsUpdateable="false"/>
+  <AccessorAttribute
+    Name="GlBank"
+    Association="erpfms.modelfms.fmseo.GlChartOfAccountGlBankChartOfAcctItAsso"
+    AssociationEnd="erpfms.modelfms.fmseo.GlChartOfAccountGlBankChartOfAcctItAsso.GlBank"
+    AssociationOtherEnd="erpfms.modelfms.fmseo.GlChartOfAccountGlBankChartOfAcctItAsso.GlChartOfAccounts"
     Type="oracle.jbo.RowIterator"
     IsUpdateable="false"/>
   <Key

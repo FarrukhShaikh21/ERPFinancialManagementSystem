@@ -669,6 +669,11 @@
     ViewLink="erpfms.modelfms.fmsvo.GlChartOfAccountsGlVoucherLinesCOAIDVL"
     Type="oracle.jbo.RowIterator"
     IsUpdateable="false"/>
+  <ViewLinkAccessor
+    Name="GlBankVO"
+    ViewLink="erpfms.modelfms.fmsvo.GlChartOfAccountGlBankChartOfAcctItVL"
+    Type="oracle.jbo.RowIterator"
+    IsUpdateable="false"/>
   <SortCriteria>
     <Sort
       Attribute="ChartOfAccountCode"/>
