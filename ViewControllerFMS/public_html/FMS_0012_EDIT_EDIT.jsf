@@ -120,7 +120,7 @@
                             </af:panelFormLayout>
                         </f:facet>
                         <f:facet name="second">
-                            <af:panelCollection id="pc1">
+                            <af:panelCollection id="pc1" styleClass="AFStretchWidth">
                                 <f:facet name="menus"/>
                                 <f:facet name="toolbar"/>
                                 <f:facet name="statusbar"/>
@@ -131,7 +131,7 @@
                                           selectedRowKeys="#{bindings.GlBankBranchDetCRUD.collectionModel.selectedRow}"
                                           selectionListener="#{bindings.GlBankBranchDetCRUD.collectionModel.makeCurrent}"
                                           rowSelection="single" fetchSize="#{bindings.GlBankBranchDetCRUD.rangeSize}"
-                                          id="t1">
+                                          id="t1" columnStretching="column:c3">
                                     <af:column headerText="#{bindings.GlBankBranchDetCRUD.hints.BranchShortCode.label}"
                                                id="c1" width="70">
                                         <af:inputText value="#{row.bindings.BranchShortCode.inputValue}"
