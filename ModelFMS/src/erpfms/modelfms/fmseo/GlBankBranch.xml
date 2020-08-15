@@ -14,6 +14,7 @@
   <DesignTime>
     <Attr Name="_codeGenFlag2" Value="Access|DML"/>
     <Attr Name="_isCodegen" Value="true"/>
+    <Attr Name="_superClass" Value="erpglobals.modelglobals.ERPEntityImpl"/>
   </DesignTime>
   <Attribute
     Name="BankId"
@@ -35,7 +36,6 @@
   </Attribute>
   <Attribute
     Name="BankBranchId"
-    IsNotNull="true"
     Precision="6"
     Scale="0"
     ColumnName="BANK_BRANCH_ID"
@@ -55,7 +55,6 @@
   </Attribute>
   <Attribute
     Name="BranchShortCode"
-    IsNotNull="true"
     Precision="6"
     Scale="0"
     ColumnName="BRANCH_SHORT_CODE"
@@ -74,7 +73,6 @@
   </Attribute>
   <Attribute
     Name="BranchShortName"
-    IsNotNull="true"
     Precision="30"
     ColumnName="BRANCH_SHORT_NAME"
     SQLType="VARCHAR"
@@ -95,7 +93,6 @@
   </Attribute>
   <Attribute
     Name="BranchName"
-    IsNotNull="true"
     Precision="100"
     ColumnName="BRANCH_NAME"
     SQLType="VARCHAR"
@@ -116,7 +113,6 @@
   </Attribute>
   <Attribute
     Name="BranchDate"
-    IsNotNull="true"
     ColumnName="BRANCH_DATE"
     SQLType="DATE"
     Type="java.sql.Timestamp"
@@ -153,7 +149,6 @@
   </Attribute>
   <Attribute
     Name="CountryId"
-    IsNotNull="true"
     Precision="5"
     Scale="0"
     ColumnName="COUNTRY_ID"
@@ -172,7 +167,6 @@
   </Attribute>
   <Attribute
     Name="CityId"
-    IsNotNull="true"
     Precision="5"
     Scale="0"
     ColumnName="CITY_ID"
@@ -251,7 +245,6 @@
   </Attribute>
   <Attribute
     Name="ContactPerson"
-    IsNotNull="true"
     Precision="50"
     ColumnName="CONTACT_PERSON"
     SQLType="VARCHAR"
@@ -272,7 +265,6 @@
   </Attribute>
   <Attribute
     Name="IsActive"
-    IsNotNull="true"
     Precision="1"
     ColumnName="IS_ACTIVE"
     SQLType="VARCHAR"
@@ -299,7 +291,8 @@
     SQLType="VARCHAR"
     Type="java.lang.String"
     ColumnType="VARCHAR2"
-    TableName="GL_BANK_BRANCH">
+    TableName="GL_BANK_BRANCH"
+    DefaultValue="N">
     <DesignTime>
       <Attr Name="_DisplaySize" Value="1"/>
     </DesignTime>
@@ -336,7 +329,8 @@
     SQLType="DATE"
     Type="java.sql.Timestamp"
     ColumnType="DATE"
-    TableName="GL_BANK_BRANCH">
+    TableName="GL_BANK_BRANCH"
+    RetrievedOnInsert="true">
     <Properties>
       <SchemaBasedProperties>
         <LABEL
@@ -370,7 +364,8 @@
     SQLType="DATE"
     Type="java.sql.Timestamp"
     ColumnType="DATE"
-    TableName="GL_BANK_BRANCH">
+    TableName="GL_BANK_BRANCH"
+    RetrievedOnUpdate="true">
     <Properties>
       <SchemaBasedProperties>
         <LABEL
@@ -403,6 +398,30 @@
       <Item
         Value="ChartOfAccountId"/>
     </Dependencies>
+  </Attribute>
+  <Attribute
+    Name="txtCountryName"
+    Precision="80"
+    ColumnName="txt_Country_Name"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    IsPersistent="false"
+    IsQueriable="false">
+    <TransientExpression
+      trustMode="untrusted"><![CDATA[SmCountry?.Countryname]]></TransientExpression>
+    <Dependencies>
+      <Item
+        Value="CountryId"/>
+    </Dependencies>
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="erpfms.modelfms.fmseo.GlBankBranch.txtCountryName_LABEL"/>
+        <DISPLAYWIDTH
+          Value="20"/>
+      </SchemaBasedProperties>
+    </Properties>
   </Attribute>
   <AccessorAttribute
     Name="GlBank"
