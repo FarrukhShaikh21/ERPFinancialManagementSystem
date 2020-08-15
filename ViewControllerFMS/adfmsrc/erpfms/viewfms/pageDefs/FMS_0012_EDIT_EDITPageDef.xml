@@ -85,5 +85,9 @@
         </AttrNames>
       </nodeDefinition>
     </tree>
+    <action IterBinding="GlBankByCompanyCRUDIterator" id="CreateWithParams" RequiresUpdateModel="true"
+            Action="createWithParams">
+      <NamedData NDName="BankId" NDValue="#{-1}" NDType="java.lang.String"/>
+    </action>
   </bindings>
 </pageDefinition>

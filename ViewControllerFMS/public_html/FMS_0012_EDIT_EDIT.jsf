@@ -4,288 +4,317 @@
     <af:document title="FMS_0012_EDIT_EDIT.jsf" id="d1">
         <af:messages id="m1"/>
         <af:form id="f1">
-            <af:decorativeBox id="db1" dimensionsFrom="parent">
+            <af:decorativeBox id="db2" dimensionsFrom="parent">
                 <f:facet name="center">
-                    <af:panelSplitter id="ps1" splitterPosition="222">
-                        <f:facet name="first">
-                            <af:panelFormLayout id="pfl1" labelAlignment="top">
-                                <af:inputText value="#{bindings.BankId.inputValue}"
-                                              label="#{bindings.BankId.hints.label}"
-                                              required="#{bindings.BankId.hints.mandatory}"
-                                              columns="#{bindings.BankId.hints.displayWidth}"
-                                              maximumLength="#{bindings.BankId.hints.precision}"
-                                              shortDesc="#{bindings.BankId.hints.tooltip}" id="it1" rendered="false">
-                                    <f:validator binding="#{bindings.BankId.validator}"/>
-                                    <af:convertNumber groupingUsed="false" pattern="#{bindings.BankId.format}"/>
-                                </af:inputText>
-                                <af:inputText value="#{bindings.BankShortCode.inputValue}"
-                                              label="#{bindings.BankShortCode.hints.label}"
-                                              required="#{bindings.BankShortCode.hints.mandatory}"
-                                              columns="#{bindings.BankShortCode.hints.displayWidth}"
-                                              maximumLength="#{bindings.BankShortCode.hints.precision}"
-                                              shortDesc="#{bindings.BankShortCode.hints.tooltip}" id="it2"
-                                              readOnly="true">
-                                    <f:validator binding="#{bindings.BankShortCode.validator}"/>
-                                    <af:convertNumber groupingUsed="false" pattern="#{bindings.BankShortCode.format}"/>
-                                </af:inputText>
-                                <af:inputText value="#{bindings.BankShortName.inputValue}"
-                                              label="#{bindings.BankShortName.hints.label}"
-                                              required="#{bindings.BankShortName.hints.mandatory}"
-                                              columns="#{bindings.BankShortName.hints.displayWidth}"
-                                              maximumLength="#{bindings.BankShortName.hints.precision}"
-                                              shortDesc="#{bindings.BankShortName.hints.tooltip}" id="it3">
-                                    <f:validator binding="#{bindings.BankShortName.validator}"/>
-                                </af:inputText>
-                                <af:inputText value="#{bindings.BankName.inputValue}"
-                                              label="#{bindings.BankName.hints.label}"
-                                              required="#{bindings.BankName.hints.mandatory}"
-                                              columns="#{bindings.BankName.hints.displayWidth}"
-                                              maximumLength="#{bindings.BankName.hints.precision}"
-                                              shortDesc="#{bindings.BankName.hints.tooltip}" id="it4">
-                                    <f:validator binding="#{bindings.BankName.validator}"/>
-                                </af:inputText>
-                                <af:inputDate value="#{bindings.OpeningDate.inputValue}"
-                                              label="#{bindings.OpeningDate.hints.label}"
-                                              required="#{bindings.OpeningDate.hints.mandatory}"
-                                              columns="#{bindings.OpeningDate.hints.displayWidth}"
-                                              shortDesc="#{bindings.OpeningDate.hints.tooltip}" id="id1">
-                                    <f:validator binding="#{bindings.OpeningDate.validator}"/>
-                                    <af:convertDateTime pattern="#{bindings.OpeningDate.format}"/>
-                                </af:inputDate>
-                                <af:inputComboboxListOfValues id="txtBaseCountryNameId"
-                                                              popupTitle="Search and Select: #{bindings.txtBaseCountryName.hints.label}"
-                                                              value="#{bindings.txtBaseCountryName.inputValue}"
-                                                              label="#{bindings.txtBaseCountryName.hints.label}"
-                                                              model="#{bindings.txtBaseCountryName.listOfValuesModel}"
-                                                              required="#{bindings.txtBaseCountryName.hints.mandatory}"
-                                                              columns="#{bindings.txtBaseCountryName.hints.displayWidth}"
-                                                              shortDesc="#{bindings.txtBaseCountryName.hints.tooltip}">
-                                    <f:validator binding="#{bindings.txtBaseCountryName.validator}"/>
-                                </af:inputComboboxListOfValues>
-                                <af:inputComboboxListOfValues id="txtCOADescriptionId"
-                                                              popupTitle="Search and Select: #{bindings.txtCOADescription.hints.label}"
-                                                              value="#{bindings.txtCOADescription.inputValue}"
-                                                              label="#{bindings.txtCOADescription.hints.label}"
-                                                              model="#{bindings.txtCOADescription.listOfValuesModel}"
-                                                              required="#{bindings.txtCOADescription.hints.mandatory}"
-                                                              columns="#{bindings.txtCOADescription.hints.displayWidth}"
-                                                              shortDesc="#{bindings.txtCOADescription.hints.tooltip}">
-                                    <f:validator binding="#{bindings.txtCOADescription.validator}"/>
-                                </af:inputComboboxListOfValues>
-                                <af:inputText value="#{bindings.NtnNo.inputValue}" label="#{bindings.NtnNo.hints.label}"
-                                              required="#{bindings.NtnNo.hints.mandatory}"
-                                              columns="#{bindings.NtnNo.hints.displayWidth}"
-                                              maximumLength="#{bindings.NtnNo.hints.precision}"
-                                              shortDesc="#{bindings.NtnNo.hints.tooltip}" id="it5">
-                                    <f:validator binding="#{bindings.NtnNo.validator}"/>
-                                </af:inputText>
-                                <af:inputText value="#{bindings.RegistrationNo.inputValue}"
-                                              label="#{bindings.RegistrationNo.hints.label}"
-                                              required="#{bindings.RegistrationNo.hints.mandatory}"
-                                              columns="#{bindings.RegistrationNo.hints.displayWidth}"
-                                              maximumLength="#{bindings.RegistrationNo.hints.precision}"
-                                              shortDesc="#{bindings.RegistrationNo.hints.tooltip}" id="it10">
-                                    <f:validator binding="#{bindings.RegistrationNo.validator}"/>
-                                </af:inputText>
-                                <af:inputText value="#{bindings.Email.inputValue}" label="#{bindings.Email.hints.label}"
-                                              required="#{bindings.Email.hints.mandatory}"
-                                              columns="#{bindings.Email.hints.displayWidth}"
-                                              maximumLength="#{bindings.Email.hints.precision}"
-                                              shortDesc="#{bindings.Email.hints.tooltip}" id="it6">
-                                    <f:validator binding="#{bindings.Email.validator}"/>
-                                </af:inputText>
-                                <af:inputText value="#{bindings.Website.inputValue}"
-                                              label="#{bindings.Website.hints.label}"
-                                              required="#{bindings.Website.hints.mandatory}"
-                                              columns="#{bindings.Website.hints.displayWidth}"
-                                              maximumLength="#{bindings.Website.hints.precision}"
-                                              shortDesc="#{bindings.Website.hints.tooltip}" id="it7">
-                                    <f:validator binding="#{bindings.Website.validator}"/>
-                                </af:inputText>
-                                <af:inputText value="#{bindings.ComplaintEmail.inputValue}"
-                                              label="#{bindings.ComplaintEmail.hints.label}"
-                                              required="#{bindings.ComplaintEmail.hints.mandatory}"
-                                              columns="#{bindings.ComplaintEmail.hints.displayWidth}"
-                                              maximumLength="#{bindings.ComplaintEmail.hints.precision}"
-                                              shortDesc="#{bindings.ComplaintEmail.hints.tooltip}" id="it8">
-                                    <f:validator binding="#{bindings.ComplaintEmail.validator}"/>
-                                </af:inputText>
-                                <af:selectOneChoice value="#{bindings.IsActive.inputValue}"
-                                                    label="#{bindings.IsActive.label}"
-                                                    required="#{bindings.IsActive.hints.mandatory}"
-                                                    shortDesc="#{bindings.IsActive.hints.tooltip}" id="soc1">
-                                    <f:selectItems value="#{bindings.IsActive.items}" id="si1"/>
-                                    <f:validator binding="#{bindings.IsActive.validator}"/>
-                                </af:selectOneChoice>
-                            </af:panelFormLayout>
+                    <af:decorativeBox id="db1" dimensionsFrom="parent">
+                        <f:facet name="center">
+                            <af:panelSplitter id="ps1" splitterPosition="222">
+                                <f:facet name="first">
+                                    <af:panelFormLayout id="pfl1" labelAlignment="top">
+                                        <af:inputText value="#{bindings.BankId.inputValue}"
+                                                      label="#{bindings.BankId.hints.label}"
+                                                      required="#{bindings.BankId.hints.mandatory}"
+                                                      columns="#{bindings.BankId.hints.displayWidth}"
+                                                      maximumLength="#{bindings.BankId.hints.precision}"
+                                                      shortDesc="#{bindings.BankId.hints.tooltip}" id="it1"
+                                                      rendered="false">
+                                            <f:validator binding="#{bindings.BankId.validator}"/>
+                                            <af:convertNumber groupingUsed="false" pattern="#{bindings.BankId.format}"/>
+                                        </af:inputText>
+                                        <af:inputText value="#{bindings.BankShortCode.inputValue}"
+                                                      label="#{bindings.BankShortCode.hints.label}"
+                                                      required="#{bindings.BankShortCode.hints.mandatory}"
+                                                      columns="#{bindings.BankShortCode.hints.displayWidth}"
+                                                      maximumLength="#{bindings.BankShortCode.hints.precision}"
+                                                      shortDesc="#{bindings.BankShortCode.hints.tooltip}" id="it2"
+                                                      readOnly="true">
+                                            <f:validator binding="#{bindings.BankShortCode.validator}"/>
+                                            <af:convertNumber groupingUsed="false"
+                                                              pattern="#{bindings.BankShortCode.format}"/>
+                                        </af:inputText>
+                                        <af:inputText value="#{bindings.BankShortName.inputValue}"
+                                                      label="#{bindings.BankShortName.hints.label}"
+                                                      required="#{bindings.BankShortName.hints.mandatory}"
+                                                      columns="#{bindings.BankShortName.hints.displayWidth}"
+                                                      maximumLength="#{bindings.BankShortName.hints.precision}"
+                                                      shortDesc="#{bindings.BankShortName.hints.tooltip}" id="it3">
+                                            <f:validator binding="#{bindings.BankShortName.validator}"/>
+                                        </af:inputText>
+                                        <af:inputText value="#{bindings.BankName.inputValue}"
+                                                      label="#{bindings.BankName.hints.label}"
+                                                      required="#{bindings.BankName.hints.mandatory}"
+                                                      columns="#{bindings.BankName.hints.displayWidth}"
+                                                      maximumLength="#{bindings.BankName.hints.precision}"
+                                                      shortDesc="#{bindings.BankName.hints.tooltip}" id="it4">
+                                            <f:validator binding="#{bindings.BankName.validator}"/>
+                                        </af:inputText>
+                                        <af:inputDate value="#{bindings.OpeningDate.inputValue}"
+                                                      label="#{bindings.OpeningDate.hints.label}"
+                                                      required="#{bindings.OpeningDate.hints.mandatory}"
+                                                      columns="#{bindings.OpeningDate.hints.displayWidth}"
+                                                      shortDesc="#{bindings.OpeningDate.hints.tooltip}" id="id1">
+                                            <f:validator binding="#{bindings.OpeningDate.validator}"/>
+                                            <af:convertDateTime pattern="#{bindings.OpeningDate.format}"/>
+                                        </af:inputDate>
+                                        <af:inputComboboxListOfValues id="txtBaseCountryNameId"
+                                                                      popupTitle="Search and Select: #{bindings.txtBaseCountryName.hints.label}"
+                                                                      value="#{bindings.txtBaseCountryName.inputValue}"
+                                                                      label="#{bindings.txtBaseCountryName.hints.label}"
+                                                                      model="#{bindings.txtBaseCountryName.listOfValuesModel}"
+                                                                      required="#{bindings.txtBaseCountryName.hints.mandatory}"
+                                                                      columns="#{bindings.txtBaseCountryName.hints.displayWidth}"
+                                                                      shortDesc="#{bindings.txtBaseCountryName.hints.tooltip}">
+                                            <f:validator binding="#{bindings.txtBaseCountryName.validator}"/>
+                                        </af:inputComboboxListOfValues>
+                                        <af:inputComboboxListOfValues id="txtCOADescriptionId"
+                                                                      popupTitle="Search and Select: #{bindings.txtCOADescription.hints.label}"
+                                                                      value="#{bindings.txtCOADescription.inputValue}"
+                                                                      label="#{bindings.txtCOADescription.hints.label}"
+                                                                      model="#{bindings.txtCOADescription.listOfValuesModel}"
+                                                                      required="#{bindings.txtCOADescription.hints.mandatory}"
+                                                                      columns="#{bindings.txtCOADescription.hints.displayWidth}"
+                                                                      shortDesc="#{bindings.txtCOADescription.hints.tooltip}">
+                                            <f:validator binding="#{bindings.txtCOADescription.validator}"/>
+                                        </af:inputComboboxListOfValues>
+                                        <af:inputText value="#{bindings.NtnNo.inputValue}"
+                                                      label="#{bindings.NtnNo.hints.label}"
+                                                      required="#{bindings.NtnNo.hints.mandatory}"
+                                                      columns="#{bindings.NtnNo.hints.displayWidth}"
+                                                      maximumLength="#{bindings.NtnNo.hints.precision}"
+                                                      shortDesc="#{bindings.NtnNo.hints.tooltip}" id="it5">
+                                            <f:validator binding="#{bindings.NtnNo.validator}"/>
+                                        </af:inputText>
+                                        <af:inputText value="#{bindings.RegistrationNo.inputValue}"
+                                                      label="#{bindings.RegistrationNo.hints.label}"
+                                                      required="#{bindings.RegistrationNo.hints.mandatory}"
+                                                      columns="#{bindings.RegistrationNo.hints.displayWidth}"
+                                                      maximumLength="#{bindings.RegistrationNo.hints.precision}"
+                                                      shortDesc="#{bindings.RegistrationNo.hints.tooltip}" id="it10">
+                                            <f:validator binding="#{bindings.RegistrationNo.validator}"/>
+                                        </af:inputText>
+                                        <af:inputText value="#{bindings.Email.inputValue}"
+                                                      label="#{bindings.Email.hints.label}"
+                                                      required="#{bindings.Email.hints.mandatory}"
+                                                      columns="#{bindings.Email.hints.displayWidth}"
+                                                      maximumLength="#{bindings.Email.hints.precision}"
+                                                      shortDesc="#{bindings.Email.hints.tooltip}" id="it6">
+                                            <f:validator binding="#{bindings.Email.validator}"/>
+                                        </af:inputText>
+                                        <af:inputText value="#{bindings.Website.inputValue}"
+                                                      label="#{bindings.Website.hints.label}"
+                                                      required="#{bindings.Website.hints.mandatory}"
+                                                      columns="#{bindings.Website.hints.displayWidth}"
+                                                      maximumLength="#{bindings.Website.hints.precision}"
+                                                      shortDesc="#{bindings.Website.hints.tooltip}" id="it7">
+                                            <f:validator binding="#{bindings.Website.validator}"/>
+                                        </af:inputText>
+                                        <af:inputText value="#{bindings.ComplaintEmail.inputValue}"
+                                                      label="#{bindings.ComplaintEmail.hints.label}"
+                                                      required="#{bindings.ComplaintEmail.hints.mandatory}"
+                                                      columns="#{bindings.ComplaintEmail.hints.displayWidth}"
+                                                      maximumLength="#{bindings.ComplaintEmail.hints.precision}"
+                                                      shortDesc="#{bindings.ComplaintEmail.hints.tooltip}" id="it8">
+                                            <f:validator binding="#{bindings.ComplaintEmail.validator}"/>
+                                        </af:inputText>
+                                        <af:selectOneChoice value="#{bindings.IsActive.inputValue}"
+                                                            label="#{bindings.IsActive.label}"
+                                                            required="#{bindings.IsActive.hints.mandatory}"
+                                                            shortDesc="#{bindings.IsActive.hints.tooltip}" id="soc1">
+                                            <f:selectItems value="#{bindings.IsActive.items}" id="si1"/>
+                                            <f:validator binding="#{bindings.IsActive.validator}"/>
+                                        </af:selectOneChoice>
+                                    </af:panelFormLayout>
+                                </f:facet>
+                                <f:facet name="second">
+                                    <af:panelBox text="Branches" id="pb1" showDisclosure="false">
+                                        <f:facet name="toolbar"/>
+                                        <af:panelCollection id="pc1" styleClass="AFStretchWidth">
+                                            <f:facet name="menus"/>
+                                            <f:facet name="toolbar"/>
+                                            <f:facet name="statusbar"/>
+                                            <af:table value="#{bindings.GlBankBranchDetCRUD.collectionModel}" var="row"
+                                                      rows="#{bindings.GlBankBranchDetCRUD.rangeSize}"
+                                                      emptyText="#{bindings.GlBankBranchDetCRUD.viewable ? 'No data to display.' : 'Access Denied.'}"
+                                                      rowBandingInterval="0"
+                                                      selectedRowKeys="#{bindings.GlBankBranchDetCRUD.collectionModel.selectedRow}"
+                                                      selectionListener="#{bindings.GlBankBranchDetCRUD.collectionModel.makeCurrent}"
+                                                      rowSelection="single"
+                                                      fetchSize="#{bindings.GlBankBranchDetCRUD.rangeSize}" id="t1"
+                                                      columnStretching="column:c3">
+                                                <af:column headerText="#{bindings.GlBankBranchDetCRUD.hints.BranchShortCode.label}"
+                                                           id="c1" width="70">
+                                                    <af:inputText value="#{row.bindings.BranchShortCode.inputValue}"
+                                                                  label="#{bindings.GlBankBranchDetCRUD.hints.BranchShortCode.label}"
+                                                                  required="#{bindings.GlBankBranchDetCRUD.hints.BranchShortCode.mandatory}"
+                                                                  columns="#{bindings.GlBankBranchDetCRUD.hints.BranchShortCode.displayWidth}"
+                                                                  maximumLength="#{bindings.GlBankBranchDetCRUD.hints.BranchShortCode.precision}"
+                                                                  shortDesc="#{bindings.GlBankBranchDetCRUD.hints.BranchShortCode.tooltip}"
+                                                                  id="it11">
+                                                        <f:validator binding="#{row.bindings.BranchShortCode.validator}"/>
+                                                        <af:convertNumber groupingUsed="false"
+                                                                          pattern="#{bindings.GlBankBranchDetCRUD.hints.BranchShortCode.format}"/>
+                                                    </af:inputText>
+                                                </af:column>
+                                                <af:column headerText="#{bindings.GlBankBranchDetCRUD.hints.BranchShortName.label}"
+                                                           id="c2" width="70" displayIndex="-1">
+                                                    <af:inputText value="#{row.bindings.BranchShortName.inputValue}"
+                                                                  label="#{bindings.GlBankBranchDetCRUD.hints.BranchShortName.label}"
+                                                                  required="#{bindings.GlBankBranchDetCRUD.hints.BranchShortName.mandatory}"
+                                                                  columns="#{bindings.GlBankBranchDetCRUD.hints.BranchShortName.displayWidth}"
+                                                                  maximumLength="#{bindings.GlBankBranchDetCRUD.hints.BranchShortName.precision}"
+                                                                  shortDesc="#{bindings.GlBankBranchDetCRUD.hints.BranchShortName.tooltip}"
+                                                                  id="it12">
+                                                        <f:validator binding="#{row.bindings.BranchShortName.validator}"/>
+                                                    </af:inputText>
+                                                </af:column>
+                                                <af:column headerText="#{bindings.GlBankBranchDetCRUD.hints.BranchName.label}"
+                                                           id="c3">
+                                                    <af:inputText value="#{row.bindings.BranchName.inputValue}"
+                                                                  label="#{bindings.GlBankBranchDetCRUD.hints.BranchName.label}"
+                                                                  required="#{bindings.GlBankBranchDetCRUD.hints.BranchName.mandatory}"
+                                                                  columns="#{bindings.GlBankBranchDetCRUD.hints.BranchName.displayWidth}"
+                                                                  maximumLength="#{bindings.GlBankBranchDetCRUD.hints.BranchName.precision}"
+                                                                  shortDesc="#{bindings.GlBankBranchDetCRUD.hints.BranchName.tooltip}"
+                                                                  id="it13">
+                                                        <f:validator binding="#{row.bindings.BranchName.validator}"/>
+                                                    </af:inputText>
+                                                </af:column>
+                                                <af:column headerText="#{bindings.GlBankBranchDetCRUD.hints.BranchDate.label}"
+                                                           id="c4">
+                                                    <af:inputDate value="#{row.bindings.BranchDate.inputValue}"
+                                                                  label="#{bindings.GlBankBranchDetCRUD.hints.BranchDate.label}"
+                                                                  required="#{bindings.GlBankBranchDetCRUD.hints.BranchDate.mandatory}"
+                                                                  columns="#{bindings.GlBankBranchDetCRUD.hints.BranchDate.displayWidth}"
+                                                                  shortDesc="#{bindings.GlBankBranchDetCRUD.hints.BranchDate.tooltip}"
+                                                                  id="id2">
+                                                        <f:validator binding="#{row.bindings.BranchDate.validator}"/>
+                                                        <af:convertDateTime pattern="#{bindings.GlBankBranchDetCRUD.hints.BranchDate.format}"/>
+                                                    </af:inputDate>
+                                                </af:column>
+                                                <af:column headerText="#{bindings.GlBankBranchDetCRUD.hints.MobileNo.label}"
+                                                           id="c5">
+                                                    <af:inputText value="#{row.bindings.MobileNo.inputValue}"
+                                                                  label="#{bindings.GlBankBranchDetCRUD.hints.MobileNo.label}"
+                                                                  required="#{bindings.GlBankBranchDetCRUD.hints.MobileNo.mandatory}"
+                                                                  columns="#{bindings.GlBankBranchDetCRUD.hints.MobileNo.displayWidth}"
+                                                                  maximumLength="#{bindings.GlBankBranchDetCRUD.hints.MobileNo.precision}"
+                                                                  shortDesc="#{bindings.GlBankBranchDetCRUD.hints.MobileNo.tooltip}"
+                                                                  id="it14">
+                                                        <f:validator binding="#{row.bindings.MobileNo.validator}"/>
+                                                    </af:inputText>
+                                                </af:column>
+                                                <af:column headerText="#{bindings.GlBankBranchDetCRUD.hints.PhoneNo.label}"
+                                                           id="c6">
+                                                    <af:inputText value="#{row.bindings.PhoneNo.inputValue}"
+                                                                  label="#{bindings.GlBankBranchDetCRUD.hints.PhoneNo.label}"
+                                                                  required="#{bindings.GlBankBranchDetCRUD.hints.PhoneNo.mandatory}"
+                                                                  columns="#{bindings.GlBankBranchDetCRUD.hints.PhoneNo.displayWidth}"
+                                                                  maximumLength="#{bindings.GlBankBranchDetCRUD.hints.PhoneNo.precision}"
+                                                                  shortDesc="#{bindings.GlBankBranchDetCRUD.hints.PhoneNo.tooltip}"
+                                                                  id="it15">
+                                                        <f:validator binding="#{row.bindings.PhoneNo.validator}"/>
+                                                    </af:inputText>
+                                                </af:column>
+                                                <af:column headerText="#{bindings.GlBankBranchDetCRUD.hints.FaxNo.label}"
+                                                           id="c7">
+                                                    <af:inputText value="#{row.bindings.FaxNo.inputValue}"
+                                                                  label="#{bindings.GlBankBranchDetCRUD.hints.FaxNo.label}"
+                                                                  required="#{bindings.GlBankBranchDetCRUD.hints.FaxNo.mandatory}"
+                                                                  columns="#{bindings.GlBankBranchDetCRUD.hints.FaxNo.displayWidth}"
+                                                                  maximumLength="#{bindings.GlBankBranchDetCRUD.hints.FaxNo.precision}"
+                                                                  shortDesc="#{bindings.GlBankBranchDetCRUD.hints.FaxNo.tooltip}"
+                                                                  id="it16">
+                                                        <f:validator binding="#{row.bindings.FaxNo.validator}"/>
+                                                    </af:inputText>
+                                                </af:column>
+                                                <af:column headerText="#{bindings.GlBankBranchDetCRUD.hints.ContactPerson.label}"
+                                                           id="c8">
+                                                    <af:inputText value="#{row.bindings.ContactPerson.inputValue}"
+                                                                  label="#{bindings.GlBankBranchDetCRUD.hints.ContactPerson.label}"
+                                                                  required="#{bindings.GlBankBranchDetCRUD.hints.ContactPerson.mandatory}"
+                                                                  columns="#{bindings.GlBankBranchDetCRUD.hints.ContactPerson.displayWidth}"
+                                                                  maximumLength="#{bindings.GlBankBranchDetCRUD.hints.ContactPerson.precision}"
+                                                                  shortDesc="#{bindings.GlBankBranchDetCRUD.hints.ContactPerson.tooltip}"
+                                                                  id="it17">
+                                                        <f:validator binding="#{row.bindings.ContactPerson.validator}"/>
+                                                    </af:inputText>
+                                                </af:column>
+                                                <af:column headerText="#{bindings.GlBankBranchDetCRUD.hints.txtCOAName.label}"
+                                                           id="c10">
+                                                    <af:inputComboboxListOfValues id="txtCOANameId"
+                                                                                  popupTitle="Search and Select: #{bindings.GlBankBranchDetCRUD.hints.txtCOAName.label}"
+                                                                                  value="#{row.bindings.txtCOAName.inputValue}"
+                                                                                  model="#{row.bindings.txtCOAName.listOfValuesModel}"
+                                                                                  required="#{bindings.GlBankBranchDetCRUD.hints.txtCOAName.mandatory}"
+                                                                                  columns="#{bindings.GlBankBranchDetCRUD.hints.txtCOAName.displayWidth}"
+                                                                                  shortDesc="#{bindings.GlBankBranchDetCRUD.hints.txtCOAName.tooltip}">
+                                                        <f:validator binding="#{row.bindings.txtCOAName.validator}"/>
+                                                    </af:inputComboboxListOfValues>
+                                                </af:column>
+                                                <af:column headerText="#{bindings.GlBankBranchDetCRUD.hints.txtCountryName.label}"
+                                                           id="c11">
+                                                    <af:inputComboboxListOfValues id="txtCountryNameId"
+                                                                                  popupTitle="Search and Select: #{bindings.GlBankBranchDetCRUD.hints.txtCountryName.label}"
+                                                                                  value="#{row.bindings.txtCountryName.inputValue}"
+                                                                                  model="#{row.bindings.txtCountryName.listOfValuesModel}"
+                                                                                  required="#{bindings.GlBankBranchDetCRUD.hints.txtCountryName.mandatory}"
+                                                                                  columns="#{bindings.GlBankBranchDetCRUD.hints.txtCountryName.displayWidth}"
+                                                                                  shortDesc="#{bindings.GlBankBranchDetCRUD.hints.txtCountryName.tooltip}">
+                                                        <f:validator binding="#{row.bindings.txtCountryName.validator}"/>
+                                                    </af:inputComboboxListOfValues>
+                                                </af:column>
+                                                <af:column headerText="#{bindings.GlBankBranchDetCRUD.hints.txtCityName.label}"
+                                                           id="c12">
+                                                    <af:inputComboboxListOfValues id="txtCityNameId"
+                                                                                  popupTitle="Search and Select: #{bindings.GlBankBranchDetCRUD.hints.txtCityName.label}"
+                                                                                  value="#{row.bindings.txtCityName.inputValue}"
+                                                                                  model="#{row.bindings.txtCityName.listOfValuesModel}"
+                                                                                  required="#{bindings.GlBankBranchDetCRUD.hints.txtCityName.mandatory}"
+                                                                                  columns="#{bindings.GlBankBranchDetCRUD.hints.txtCityName.displayWidth}"
+                                                                                  shortDesc="#{bindings.GlBankBranchDetCRUD.hints.txtCityName.tooltip}">
+                                                        <f:validator binding="#{row.bindings.txtCityName.validator}"/>
+                                                    </af:inputComboboxListOfValues>
+                                                </af:column>
+                                                <af:column headerText="#{bindings.GlBankBranchDetCRUD.hints.IsActive.label}"
+                                                           id="c13">
+                                                    <af:inputText value="#{row.bindings.IsActive.inputValue}"
+                                                                  label="#{bindings.GlBankBranchDetCRUD.hints.IsActive.label}"
+                                                                  required="#{bindings.GlBankBranchDetCRUD.hints.IsActive.mandatory}"
+                                                                  columns="#{bindings.GlBankBranchDetCRUD.hints.IsActive.displayWidth}"
+                                                                  maximumLength="#{bindings.GlBankBranchDetCRUD.hints.IsActive.precision}"
+                                                                  shortDesc="#{bindings.GlBankBranchDetCRUD.hints.IsActive.tooltip}"
+                                                                  id="it19">
+                                                        <f:validator binding="#{row.bindings.IsActive.validator}"/>
+                                                    </af:inputText>
+                                                </af:column>
+                                            </af:table>
+                                        </af:panelCollection>
+                                    </af:panelBox>
+                                </f:facet>
+                            </af:panelSplitter>
                         </f:facet>
-                        <f:facet name="second">
-                            <af:panelBox text="Branches" id="pb1" showDisclosure="false">
-                                <f:facet name="toolbar"/>
-                                <af:panelCollection id="pc1" styleClass="AFStretchWidth">
-                                    <f:facet name="menus"/>
-                                    <f:facet name="toolbar"/>
-                                    <f:facet name="statusbar"/>
-                                    <af:table value="#{bindings.GlBankBranchDetCRUD.collectionModel}" var="row"
-                                              rows="#{bindings.GlBankBranchDetCRUD.rangeSize}"
-                                              emptyText="#{bindings.GlBankBranchDetCRUD.viewable ? 'No data to display.' : 'Access Denied.'}"
-                                              rowBandingInterval="0"
-                                              selectedRowKeys="#{bindings.GlBankBranchDetCRUD.collectionModel.selectedRow}"
-                                              selectionListener="#{bindings.GlBankBranchDetCRUD.collectionModel.makeCurrent}"
-                                              rowSelection="single"
-                                              fetchSize="#{bindings.GlBankBranchDetCRUD.rangeSize}" id="t1"
-                                              columnStretching="column:c3">
-                                        <af:column headerText="#{bindings.GlBankBranchDetCRUD.hints.BranchShortCode.label}"
-                                                   id="c1" width="70">
-                                            <af:inputText value="#{row.bindings.BranchShortCode.inputValue}"
-                                                          label="#{bindings.GlBankBranchDetCRUD.hints.BranchShortCode.label}"
-                                                          required="#{bindings.GlBankBranchDetCRUD.hints.BranchShortCode.mandatory}"
-                                                          columns="#{bindings.GlBankBranchDetCRUD.hints.BranchShortCode.displayWidth}"
-                                                          maximumLength="#{bindings.GlBankBranchDetCRUD.hints.BranchShortCode.precision}"
-                                                          shortDesc="#{bindings.GlBankBranchDetCRUD.hints.BranchShortCode.tooltip}"
-                                                          id="it11">
-                                                <f:validator binding="#{row.bindings.BranchShortCode.validator}"/>
-                                                <af:convertNumber groupingUsed="false"
-                                                                  pattern="#{bindings.GlBankBranchDetCRUD.hints.BranchShortCode.format}"/>
-                                            </af:inputText>
-                                        </af:column>
-                                        <af:column headerText="#{bindings.GlBankBranchDetCRUD.hints.BranchShortName.label}"
-                                                   id="c2" width="70" displayIndex="-1">
-                                            <af:inputText value="#{row.bindings.BranchShortName.inputValue}"
-                                                          label="#{bindings.GlBankBranchDetCRUD.hints.BranchShortName.label}"
-                                                          required="#{bindings.GlBankBranchDetCRUD.hints.BranchShortName.mandatory}"
-                                                          columns="#{bindings.GlBankBranchDetCRUD.hints.BranchShortName.displayWidth}"
-                                                          maximumLength="#{bindings.GlBankBranchDetCRUD.hints.BranchShortName.precision}"
-                                                          shortDesc="#{bindings.GlBankBranchDetCRUD.hints.BranchShortName.tooltip}"
-                                                          id="it12">
-                                                <f:validator binding="#{row.bindings.BranchShortName.validator}"/>
-                                            </af:inputText>
-                                        </af:column>
-                                        <af:column headerText="#{bindings.GlBankBranchDetCRUD.hints.BranchName.label}"
-                                                   id="c3">
-                                            <af:inputText value="#{row.bindings.BranchName.inputValue}"
-                                                          label="#{bindings.GlBankBranchDetCRUD.hints.BranchName.label}"
-                                                          required="#{bindings.GlBankBranchDetCRUD.hints.BranchName.mandatory}"
-                                                          columns="#{bindings.GlBankBranchDetCRUD.hints.BranchName.displayWidth}"
-                                                          maximumLength="#{bindings.GlBankBranchDetCRUD.hints.BranchName.precision}"
-                                                          shortDesc="#{bindings.GlBankBranchDetCRUD.hints.BranchName.tooltip}"
-                                                          id="it13">
-                                                <f:validator binding="#{row.bindings.BranchName.validator}"/>
-                                            </af:inputText>
-                                        </af:column>
-                                        <af:column headerText="#{bindings.GlBankBranchDetCRUD.hints.BranchDate.label}"
-                                                   id="c4">
-                                            <af:inputDate value="#{row.bindings.BranchDate.inputValue}"
-                                                          label="#{bindings.GlBankBranchDetCRUD.hints.BranchDate.label}"
-                                                          required="#{bindings.GlBankBranchDetCRUD.hints.BranchDate.mandatory}"
-                                                          columns="#{bindings.GlBankBranchDetCRUD.hints.BranchDate.displayWidth}"
-                                                          shortDesc="#{bindings.GlBankBranchDetCRUD.hints.BranchDate.tooltip}"
-                                                          id="id2">
-                                                <f:validator binding="#{row.bindings.BranchDate.validator}"/>
-                                                <af:convertDateTime pattern="#{bindings.GlBankBranchDetCRUD.hints.BranchDate.format}"/>
-                                            </af:inputDate>
-                                        </af:column>
-                                        <af:column headerText="#{bindings.GlBankBranchDetCRUD.hints.MobileNo.label}"
-                                                   id="c5">
-                                            <af:inputText value="#{row.bindings.MobileNo.inputValue}"
-                                                          label="#{bindings.GlBankBranchDetCRUD.hints.MobileNo.label}"
-                                                          required="#{bindings.GlBankBranchDetCRUD.hints.MobileNo.mandatory}"
-                                                          columns="#{bindings.GlBankBranchDetCRUD.hints.MobileNo.displayWidth}"
-                                                          maximumLength="#{bindings.GlBankBranchDetCRUD.hints.MobileNo.precision}"
-                                                          shortDesc="#{bindings.GlBankBranchDetCRUD.hints.MobileNo.tooltip}"
-                                                          id="it14">
-                                                <f:validator binding="#{row.bindings.MobileNo.validator}"/>
-                                            </af:inputText>
-                                        </af:column>
-                                        <af:column headerText="#{bindings.GlBankBranchDetCRUD.hints.PhoneNo.label}"
-                                                   id="c6">
-                                            <af:inputText value="#{row.bindings.PhoneNo.inputValue}"
-                                                          label="#{bindings.GlBankBranchDetCRUD.hints.PhoneNo.label}"
-                                                          required="#{bindings.GlBankBranchDetCRUD.hints.PhoneNo.mandatory}"
-                                                          columns="#{bindings.GlBankBranchDetCRUD.hints.PhoneNo.displayWidth}"
-                                                          maximumLength="#{bindings.GlBankBranchDetCRUD.hints.PhoneNo.precision}"
-                                                          shortDesc="#{bindings.GlBankBranchDetCRUD.hints.PhoneNo.tooltip}"
-                                                          id="it15">
-                                                <f:validator binding="#{row.bindings.PhoneNo.validator}"/>
-                                            </af:inputText>
-                                        </af:column>
-                                        <af:column headerText="#{bindings.GlBankBranchDetCRUD.hints.FaxNo.label}"
-                                                   id="c7">
-                                            <af:inputText value="#{row.bindings.FaxNo.inputValue}"
-                                                          label="#{bindings.GlBankBranchDetCRUD.hints.FaxNo.label}"
-                                                          required="#{bindings.GlBankBranchDetCRUD.hints.FaxNo.mandatory}"
-                                                          columns="#{bindings.GlBankBranchDetCRUD.hints.FaxNo.displayWidth}"
-                                                          maximumLength="#{bindings.GlBankBranchDetCRUD.hints.FaxNo.precision}"
-                                                          shortDesc="#{bindings.GlBankBranchDetCRUD.hints.FaxNo.tooltip}"
-                                                          id="it16">
-                                                <f:validator binding="#{row.bindings.FaxNo.validator}"/>
-                                            </af:inputText>
-                                        </af:column>
-                                        <af:column headerText="#{bindings.GlBankBranchDetCRUD.hints.ContactPerson.label}"
-                                                   id="c8">
-                                            <af:inputText value="#{row.bindings.ContactPerson.inputValue}"
-                                                          label="#{bindings.GlBankBranchDetCRUD.hints.ContactPerson.label}"
-                                                          required="#{bindings.GlBankBranchDetCRUD.hints.ContactPerson.mandatory}"
-                                                          columns="#{bindings.GlBankBranchDetCRUD.hints.ContactPerson.displayWidth}"
-                                                          maximumLength="#{bindings.GlBankBranchDetCRUD.hints.ContactPerson.precision}"
-                                                          shortDesc="#{bindings.GlBankBranchDetCRUD.hints.ContactPerson.tooltip}"
-                                                          id="it17">
-                                                <f:validator binding="#{row.bindings.ContactPerson.validator}"/>
-                                            </af:inputText>
-                                        </af:column>
-                                        <af:column headerText="#{bindings.GlBankBranchDetCRUD.hints.txtCOAName.label}"
-                                                   id="c10">
-                                            <af:inputComboboxListOfValues id="txtCOANameId"
-                                                                          popupTitle="Search and Select: #{bindings.GlBankBranchDetCRUD.hints.txtCOAName.label}"
-                                                                          value="#{row.bindings.txtCOAName.inputValue}"
-                                                                          model="#{row.bindings.txtCOAName.listOfValuesModel}"
-                                                                          required="#{bindings.GlBankBranchDetCRUD.hints.txtCOAName.mandatory}"
-                                                                          columns="#{bindings.GlBankBranchDetCRUD.hints.txtCOAName.displayWidth}"
-                                                                          shortDesc="#{bindings.GlBankBranchDetCRUD.hints.txtCOAName.tooltip}">
-                                                <f:validator binding="#{row.bindings.txtCOAName.validator}"/>
-                                            </af:inputComboboxListOfValues>
-                                        </af:column>
-                                        <af:column headerText="#{bindings.GlBankBranchDetCRUD.hints.txtCountryName.label}"
-                                                   id="c11">
-                                            <af:inputComboboxListOfValues id="txtCountryNameId"
-                                                                          popupTitle="Search and Select: #{bindings.GlBankBranchDetCRUD.hints.txtCountryName.label}"
-                                                                          value="#{row.bindings.txtCountryName.inputValue}"
-                                                                          model="#{row.bindings.txtCountryName.listOfValuesModel}"
-                                                                          required="#{bindings.GlBankBranchDetCRUD.hints.txtCountryName.mandatory}"
-                                                                          columns="#{bindings.GlBankBranchDetCRUD.hints.txtCountryName.displayWidth}"
-                                                                          shortDesc="#{bindings.GlBankBranchDetCRUD.hints.txtCountryName.tooltip}">
-                                                <f:validator binding="#{row.bindings.txtCountryName.validator}"/>
-                                            </af:inputComboboxListOfValues>
-                                        </af:column>
-                                        <af:column headerText="#{bindings.GlBankBranchDetCRUD.hints.txtCityName.label}"
-                                                   id="c12">
-                                            <af:inputComboboxListOfValues id="txtCityNameId"
-                                                                          popupTitle="Search and Select: #{bindings.GlBankBranchDetCRUD.hints.txtCityName.label}"
-                                                                          value="#{row.bindings.txtCityName.inputValue}"
-                                                                          model="#{row.bindings.txtCityName.listOfValuesModel}"
-                                                                          required="#{bindings.GlBankBranchDetCRUD.hints.txtCityName.mandatory}"
-                                                                          columns="#{bindings.GlBankBranchDetCRUD.hints.txtCityName.displayWidth}"
-                                                                          shortDesc="#{bindings.GlBankBranchDetCRUD.hints.txtCityName.tooltip}">
-                                                <f:validator binding="#{row.bindings.txtCityName.validator}"/>
-                                            </af:inputComboboxListOfValues>
-                                        </af:column>
-                                        <af:column headerText="#{bindings.GlBankBranchDetCRUD.hints.IsActive.label}"
-                                                   id="c13">
-                                            <af:inputText value="#{row.bindings.IsActive.inputValue}"
-                                                          label="#{bindings.GlBankBranchDetCRUD.hints.IsActive.label}"
-                                                          required="#{bindings.GlBankBranchDetCRUD.hints.IsActive.mandatory}"
-                                                          columns="#{bindings.GlBankBranchDetCRUD.hints.IsActive.displayWidth}"
-                                                          maximumLength="#{bindings.GlBankBranchDetCRUD.hints.IsActive.precision}"
-                                                          shortDesc="#{bindings.GlBankBranchDetCRUD.hints.IsActive.tooltip}"
-                                                          id="it19">
-                                                <f:validator binding="#{row.bindings.IsActive.validator}"/>
-                                            </af:inputText>
-                                        </af:column>
-                                    </af:table>
-                                </af:panelCollection>
-                            </af:panelBox>
+                        <f:facet name="top">
+                            <af:panelGridLayout id="pgl1">
+                                <af:gridRow marginTop="5px" height="auto" marginBottom="5px" id="gr1">
+                                    <af:gridCell marginStart="5px" width="50%" id="gc1"/>
+                                    <af:gridCell marginStart="5px" width="50%" marginEnd="5px" id="gc2" halign="end">
+                                        <af:panelGroupLayout id="pgl2" layout="horizontal" halign="end">
+                                            <af:link text="Close" id="l1"
+                                                     icon="#{resource['images:imgCloseDialog.png']}" iconPosition="top"
+                                                     partialSubmit="true"/>
+                                            <af:link actionListener="#{bindings.CreateWithParams.execute}" text="Add"
+                                                     disabled="#{!bindings.CreateWithParams.enabled}" id="l2"
+                                                     partialSubmit="true" icon="#{resource['images:imgAddRecord.png']}"
+                                                     iconPosition="top"/>
+                                            <f:facet name="separator">
+                                                <af:spacer width="10" height="10" id="s1"/>
+                                            </f:facet>
+                                        </af:panelGroupLayout>
+                                    </af:gridCell>
+                                </af:gridRow>
+                            </af:panelGridLayout>
                         </f:facet>
-                    </af:panelSplitter>
+                    </af:decorativeBox>
                 </f:facet>
                 <f:facet name="top"/>
             </af:decorativeBox>
