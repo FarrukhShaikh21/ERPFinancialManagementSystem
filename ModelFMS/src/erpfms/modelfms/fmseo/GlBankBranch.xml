@@ -117,6 +117,8 @@
     Type="java.sql.Timestamp"
     ColumnType="DATE"
     TableName="GL_BANK_BRANCH">
+    <TransientExpression
+      trustMode="untrusted"><![CDATA[adf.currentDate]]></TransientExpression>
     <Properties>
       <SchemaBasedProperties>
         <LABEL
@@ -132,7 +134,7 @@
     Scale="0"
     ColumnName="CHART_OF_ACCOUNT_ID"
     SQLType="NUMERIC"
-    Type="java.lang.Long"
+    Type="java.lang.Integer"
     ColumnType="NUMBER"
     TableName="GL_BANK_BRANCH">
     <Properties>
