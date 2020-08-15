@@ -9,7 +9,12 @@
   DBObjectType="table"
   DBObjectName="GL_BANK_BRANCH"
   AliasName="GlBankBranch"
-  BindingStyle="JDBC">
+  BindingStyle="JDBC"
+  RowClass="erpfms.modelfms.fmseo.GlBankBranchImpl">
+  <DesignTime>
+    <Attr Name="_codeGenFlag2" Value="Access|DML"/>
+    <Attr Name="_isCodegen" Value="true"/>
+  </DesignTime>
   <Attribute
     Name="BankId"
     Precision="6"
@@ -382,7 +387,6 @@
     SQLType="VARCHAR"
     Type="java.lang.String"
     ColumnType="VARCHAR2"
-    TableName="GL_BANK_BRANCH"
     IsPersistent="false"
     IsQueriable="false">
     <TransientExpression
