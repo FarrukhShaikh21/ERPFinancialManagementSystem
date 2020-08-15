@@ -130,7 +130,19 @@
                                         <f:facet name="toolbar"/>
                                         <af:panelCollection id="pc1" styleClass="AFStretchWidth">
                                             <f:facet name="menus"/>
-                                            <f:facet name="toolbar"/>
+                                            <f:facet name="toolbar">
+                                                <af:toolbar id="t2" flex="1">
+                                                    <af:link actionListener="#{bindings.Delete.execute}" text="Delete"
+                                                             disabled="#{!bindings.Delete.enabled}" id="l8"
+                                                             icon="#{resource['images:imgDeleteRecord.png']}"
+                                                             iconPosition="top"/>
+                                                    <af:link actionListener="#{bindings.CreateInsert.execute}"
+                                                             text="Add"
+                                                             disabled="#{!bindings.CreateInsert.enabled}" id="l7"
+                                                             icon="#{resource['images:imgAddRecord.png']}"
+                                                             iconPosition="top"/>
+                                                </af:toolbar>
+                                            </f:facet>
                                             <f:facet name="statusbar"/>
                                             <af:table value="#{bindings.GlBankBranchDetCRUD.collectionModel}" var="row"
                                                       rows="#{bindings.GlBankBranchDetCRUD.rangeSize}"
@@ -140,7 +152,7 @@
                                                       selectionListener="#{bindings.GlBankBranchDetCRUD.collectionModel.makeCurrent}"
                                                       rowSelection="single"
                                                       fetchSize="#{bindings.GlBankBranchDetCRUD.rangeSize}" id="t1"
-                                                      columnStretching="column:c3">
+                                                      columnStretching="column:c3" partialTriggers="::l7 ::l8">
                                                 <af:column headerText="#{bindings.GlBankBranchDetCRUD.hints.BranchShortCode.label}"
                                                            id="c1" width="70">
                                                     <af:inputText value="#{row.bindings.BranchShortCode.inputValue}"
