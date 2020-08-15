@@ -23,7 +23,8 @@
                                               required="#{bindings.BankShortCode.hints.mandatory}"
                                               columns="#{bindings.BankShortCode.hints.displayWidth}"
                                               maximumLength="#{bindings.BankShortCode.hints.precision}"
-                                              shortDesc="#{bindings.BankShortCode.hints.tooltip}" id="it2">
+                                              shortDesc="#{bindings.BankShortCode.hints.tooltip}" id="it2"
+                                              readOnly="true">
                                     <f:validator binding="#{bindings.BankShortCode.validator}"/>
                                     <af:convertNumber groupingUsed="false" pattern="#{bindings.BankShortCode.format}"/>
                                 </af:inputText>
@@ -78,6 +79,22 @@
                                               shortDesc="#{bindings.NtnNo.hints.tooltip}" id="it5">
                                     <f:validator binding="#{bindings.NtnNo.validator}"/>
                                 </af:inputText>
+                                <af:inputText value="#{bindings.RegistrationNo.inputValue}"
+                                              label="#{bindings.RegistrationNo.hints.label}"
+                                              required="#{bindings.RegistrationNo.hints.mandatory}"
+                                              columns="#{bindings.RegistrationNo.hints.displayWidth}"
+                                              maximumLength="#{bindings.RegistrationNo.hints.precision}"
+                                              shortDesc="#{bindings.RegistrationNo.hints.tooltip}" id="it10">
+                                    <f:validator binding="#{bindings.RegistrationNo.validator}"/>
+                                </af:inputText>
+                                <af:inputText value="#{bindings.RegistrationNo.inputValue}"
+                                              label="#{bindings.RegistrationNo.hints.label}"
+                                              required="#{bindings.RegistrationNo.hints.mandatory}"
+                                              columns="#{bindings.RegistrationNo.hints.displayWidth}"
+                                              maximumLength="#{bindings.RegistrationNo.hints.precision}"
+                                              shortDesc="#{bindings.RegistrationNo.hints.tooltip}" id="it9">
+                                    <f:validator binding="#{bindings.RegistrationNo.validator}"/>
+                                </af:inputText>
                                 <af:inputText value="#{bindings.Email.inputValue}" label="#{bindings.Email.hints.label}"
                                               required="#{bindings.Email.hints.mandatory}"
                                               columns="#{bindings.Email.hints.displayWidth}"
@@ -100,14 +117,6 @@
                                               maximumLength="#{bindings.ComplaintEmail.hints.precision}"
                                               shortDesc="#{bindings.ComplaintEmail.hints.tooltip}" id="it8">
                                     <f:validator binding="#{bindings.ComplaintEmail.validator}"/>
-                                </af:inputText>
-                                <af:inputText value="#{bindings.RegistrationNo.inputValue}"
-                                              label="#{bindings.RegistrationNo.hints.label}"
-                                              required="#{bindings.RegistrationNo.hints.mandatory}"
-                                              columns="#{bindings.RegistrationNo.hints.displayWidth}"
-                                              maximumLength="#{bindings.RegistrationNo.hints.precision}"
-                                              shortDesc="#{bindings.RegistrationNo.hints.tooltip}" id="it9">
-                                    <f:validator binding="#{bindings.RegistrationNo.validator}"/>
                                 </af:inputText>
                                 <af:selectOneChoice value="#{bindings.IsActive.inputValue}"
                                                     label="#{bindings.IsActive.label}"
