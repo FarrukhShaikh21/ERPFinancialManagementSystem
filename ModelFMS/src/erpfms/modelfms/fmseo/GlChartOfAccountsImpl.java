@@ -51,6 +51,7 @@ public class GlChartOfAccountsImpl extends ERPEntityImpl {
         ParentChartOfAccountIdGlChartOfAccounts,
         GlVoucherLines,
         GlBank,
+        GlBankBranch,
         AccGlParameterVO;
         private static AttributesEnum[] vals = null;
         private static final int firstIndex = 0;
@@ -99,6 +100,7 @@ public class GlChartOfAccountsImpl extends ERPEntityImpl {
         AttributesEnum.ParentChartOfAccountIdGlChartOfAccounts.index();
     public static final int GLVOUCHERLINES = AttributesEnum.GlVoucherLines.index();
     public static final int GLBANK = AttributesEnum.GlBank.index();
+    public static final int GLBANKBRANCH = AttributesEnum.GlBankBranch.index();
     public static final int ACCGLPARAMETERVO = AttributesEnum.AccGlParameterVO.index();
 
     /**
@@ -438,6 +440,13 @@ public class GlChartOfAccountsImpl extends ERPEntityImpl {
      */
     public RowIterator getGlBank() {
         return (RowIterator) getAttributeInternal(GLBANK);
+    }
+
+    /**
+     * @return the associated entity oracle.jbo.RowIterator.
+     */
+    public RowIterator getGlBankBranch() {
+        return (RowIterator) getAttributeInternal(GLBANKBRANCH);
     }
 
     /**

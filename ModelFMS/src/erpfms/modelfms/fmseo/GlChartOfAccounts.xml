@@ -412,6 +412,13 @@
     AssociationOtherEnd="erpfms.modelfms.fmseo.GlChartOfAccountGlBankChartOfAcctItAsso.GlChartOfAccounts"
     Type="oracle.jbo.RowIterator"
     IsUpdateable="false"/>
+  <AccessorAttribute
+    Name="GlBankBranch"
+    Association="erpfms.modelfms.fmseo.GlChartOfAccountGlBankBranchCOAIDAsso"
+    AssociationEnd="erpfms.modelfms.fmseo.GlChartOfAccountGlBankBranchCOAIDAsso.GlBankBranch"
+    AssociationOtherEnd="erpfms.modelfms.fmseo.GlChartOfAccountGlBankBranchCOAIDAsso.GlChartOfAccounts"
+    Type="oracle.jbo.RowIterator"
+    IsUpdateable="false"/>
   <Key
     Name="PkGlChartOfAccounts"
     PrimaryKey="true">

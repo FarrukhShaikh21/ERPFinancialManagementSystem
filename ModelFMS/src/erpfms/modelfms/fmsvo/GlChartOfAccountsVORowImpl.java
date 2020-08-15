@@ -46,6 +46,7 @@ public class GlChartOfAccountsVORowImpl extends ViewRowImpl {
         GlChartOfAccountsVO,
         GlVoucherLinesVO,
         GlBankVO,
+        GlBankBranchVO,
         AccSysGeneralValueVO,
         AccGlCoaTypeVO,
         AccGlChartOfAccountsVO,
@@ -99,6 +100,7 @@ public class GlChartOfAccountsVORowImpl extends ViewRowImpl {
     public static final int GLCHARTOFACCOUNTSVO = AttributesEnum.GlChartOfAccountsVO.index();
     public static final int GLVOUCHERLINESVO = AttributesEnum.GlVoucherLinesVO.index();
     public static final int GLBANKVO = AttributesEnum.GlBankVO.index();
+    public static final int GLBANKBRANCHVO = AttributesEnum.GlBankBranchVO.index();
     public static final int ACCSYSGENERALVALUEVO = AttributesEnum.AccSysGeneralValueVO.index();
     public static final int ACCGLCOATYPEVO = AttributesEnum.AccGlCoaTypeVO.index();
     public static final int ACCGLCHARTOFACCOUNTSVO = AttributesEnum.AccGlChartOfAccountsVO.index();
@@ -464,6 +466,13 @@ public class GlChartOfAccountsVORowImpl extends ViewRowImpl {
      */
     public RowIterator getGlBankVO() {
         return (RowIterator) getAttributeInternal(GLBANKVO);
+    }
+
+    /**
+     * Gets the associated <code>RowIterator</code> using master-detail link GlBankBranchVO.
+     */
+    public RowIterator getGlBankBranchVO() {
+        return (RowIterator) getAttributeInternal(GLBANKBRANCHVO);
     }
 
     /**
