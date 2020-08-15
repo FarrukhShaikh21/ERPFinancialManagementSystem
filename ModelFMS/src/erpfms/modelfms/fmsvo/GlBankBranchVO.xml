@@ -21,6 +21,10 @@
     Name="AccGlChartOfAccountsVO"
     ViewObjectName="erpfms.modelfms.fmsvo.GlChartOfAccountsVO"
     RowLevelBinds="true"/>
+  <ViewAccessor
+    Name="AccSmCityVO"
+    ViewObjectName="erpadm.modeladm.admvo.SmCityVO"
+    RowLevelBinds="true"/>
   <ListBinding
     Name="LOV_txtCountryName"
     ListVOName="AccSmCountryVO"
@@ -71,6 +75,32 @@
     </AttrArray>
     <DisplayCriteria
       Name="GlChartOfAccountsVOFindVC"/>
+  </ListBinding>
+  <ListBinding
+    Name="LovtxtCityName"
+    ListVOName="AccSmCityVO"
+    ListRangeSize="-1"
+    ComboRowCountHint="10"
+    NullValueFlag="none"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="txtCityName"/>
+    </AttrArray>
+    <AttrArray Name="AttrExpressions"/>
+    <AttrArray Name="DerivedAttrNames">
+      <Item Value="CityId"/>
+    </AttrArray>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="Cityname"/>
+      <Item Value="Citycode"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="Cityname"/>
+      <Item Value="CityShortName"/>
+      <Item Value="CityShortCode"/>
+    </AttrArray>
+    <DisplayCriteria
+      Name="SmCityFindVC"/>
   </ListBinding>
   <EntityUsage
     Name="GlBankBranch"
@@ -237,7 +267,15 @@
     PrecisionRule="true"
     EntityAttrName="txtCityName"
     EntityUsage="GlBankBranch"
-    AliasName="txt_City_Name"/>
+    AliasName="txt_City_Name"
+    LOVName="LovtxtCityName">
+    <Properties>
+      <SchemaBasedProperties>
+        <CONTROLTYPE
+          Value="combo_lov"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewLinkAccessor
     Name="GlBankVO"
     ViewLink="erpfms.modelfms.fmsvo.FkGlBankBranchBankidLink"
