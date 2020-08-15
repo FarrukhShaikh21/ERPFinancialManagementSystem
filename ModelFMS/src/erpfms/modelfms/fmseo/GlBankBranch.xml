@@ -119,7 +119,7 @@
     ColumnType="DATE"
     TableName="GL_BANK_BRANCH">
     <TransientExpression
-      trustMode="untrusted"><![CDATA[adf.currentDate]]></TransientExpression>
+      trustMode="trusted"><![CDATA[adf.currentDate]]></TransientExpression>
     <Properties>
       <SchemaBasedProperties>
         <LABEL
@@ -385,7 +385,7 @@
     IsPersistent="false"
     IsQueriable="false">
     <TransientExpression
-      trustMode="untrusted"><![CDATA[GlChartOfAccounts?.Description]]></TransientExpression>
+      trustMode="trusted"><![CDATA[GlChartOfAccounts?.Description]]></TransientExpression>
     <Properties>
       <SchemaBasedProperties>
         <LABEL
@@ -409,7 +409,7 @@
     IsPersistent="false"
     IsQueriable="false">
     <TransientExpression
-      trustMode="untrusted"><![CDATA[SmCountry?.Countryname]]></TransientExpression>
+      trustMode="trusted"><![CDATA[SmCountry?.Countryname]]></TransientExpression>
     <Dependencies>
       <Item
         Value="CountryId"/>
@@ -434,9 +434,9 @@
     IsPersistent="false"
     IsQueriable="false">
     <TransientExpression
-      trustMode="untrusted"><![CDATA[SmCity?.Cityname]]></TransientExpression>
+      trustMode="trusted"><![CDATA[SmCity?.Cityname]]></TransientExpression>
     <RecalcCondition
-      trustMode="untrusted"><![CDATA[true]]></RecalcCondition>
+      trustMode="trusted"><![CDATA[true]]></RecalcCondition>
     <Properties>
       <SchemaBasedProperties>
         <LABEL
