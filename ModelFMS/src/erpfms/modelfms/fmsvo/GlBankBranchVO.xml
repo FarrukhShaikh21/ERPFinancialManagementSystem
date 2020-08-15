@@ -167,4 +167,10 @@
     Type="oracle.jbo.Row"
     Reversed="true"
     IsUpdateable="false"/>
+  <ViewLinkAccessor
+    Name="SmCountryVO"
+    ViewLink="erpfms.modelfms.fmsvo.SmCountryGlBankBranchCountryIdVL"
+    Type="oracle.jbo.Row"
+    Reversed="true"
+    IsUpdateable="false"/>
 </ViewObject>

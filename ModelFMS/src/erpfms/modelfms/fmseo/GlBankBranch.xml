@@ -437,6 +437,13 @@
     AssociationOtherEnd="erpfms.modelfms.fmseo.GlChartOfAccountGlBankBranchCOAIDAsso.GlBankBranch"
     Type="erpfms.modelfms.fmseo.GlChartOfAccountsImpl"
     IsUpdateable="true"/>
+  <AccessorAttribute
+    Name="SmCountry"
+    Association="erpfms.modelfms.fmseo.SmCountryGlBankBranchCountryIdAsso"
+    AssociationEnd="erpfms.modelfms.fmseo.SmCountryGlBankBranchCountryIdAsso.SmCountry"
+    AssociationOtherEnd="erpfms.modelfms.fmseo.SmCountryGlBankBranchCountryIdAsso.GlBankBranch"
+    Type="erpadm.modeladm.admeo.SmCountryImpl"
+    IsUpdateable="true"/>
   <Key
     Name="PkGlBankBranch"
     PrimaryKey="true">
@@ -478,6 +485,17 @@
     </DesignTime>
     <AttrArray Name="Attributes">
       <Item Value="erpfms.modelfms.fmseo.GlBankBranch.ChartOfAccountId"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="fk_GlBankBranch2">
+    <DesignTime>
+      <Attr Name="_referencedKey" Value="SM_COUNTRY_PK"/>
+      <Attr Name="_isForeign" Value="true"/>
+      <Attr Name="_DBObjectName" Value="fk_Gl_Bank_Branch2"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="erpfms.modelfms.fmseo.GlBankBranch.CountryId"/>
     </AttrArray>
   </Key>
   <ResourceBundle>
