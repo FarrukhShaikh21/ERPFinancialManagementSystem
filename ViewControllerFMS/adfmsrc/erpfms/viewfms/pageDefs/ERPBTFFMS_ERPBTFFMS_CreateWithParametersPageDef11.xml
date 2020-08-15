@@ -9,8 +9,11 @@
   </executables>
   <bindings>
     <action IterBinding="GlBankByCompanyCRUDIterator" id="CreateWithParams" RequiresUpdateModel="true"
-            Action="createWithParams">
+            Action="createWithParams" InstanceName="ERPFMSModuleDataControl.GlBankByCompanyCRUD"
+            DataControl="ERPFMSModuleDataControl">
       <NamedData NDName="BankId" NDValue="#{-1}" NDType="java.lang.String"/>
+      <NamedData NDName="CompanyId" NDValue="#{data.erpfms_viewfms_FMS_0012_EDITPageDef.CompCode.inputValue}"
+                 NDType="java.lang.String"/>
     </action>
   </bindings>
 </pageDefinition>
