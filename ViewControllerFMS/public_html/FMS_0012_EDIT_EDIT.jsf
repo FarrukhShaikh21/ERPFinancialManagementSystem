@@ -357,5 +357,10 @@
                 <f:facet name="top"/>
             </af:decorativeBox>
         </af:form>
+        <f:facet name="metaContainer">
+       <af:resource type="javascript" source="/resources/js/ERPFMSJavaScript.js"/>
+       <af:resource type="css" source="/resources/css/ERPFMSStyleSheet.css"/>
+       <af:resource type="javascript" source="http://code.jquery.com/jquery-1.10.2.js"/>
+        </f:facet>
     </af:document>
 </f:view>

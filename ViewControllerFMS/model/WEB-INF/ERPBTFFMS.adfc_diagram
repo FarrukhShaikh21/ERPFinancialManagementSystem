@@ -2219,7 +2219,7 @@
       <property
          name="fromOutcome">DO-ACT-QUERY-FMS_0012</property>
       <property
-         name="sdm:polyPoints">L50,-631.5,734.7471,-722.3115,674.3447,B50</property>
+         name="sdm:polyPoints">L46,-631.5,731.2471,-722.3115,674.3447,B50</property>
    </ControlFlowCase>
    <MethodCall
       id="MethodCall205">
@@ -2267,7 +2267,7 @@
       <property
          name="fromOutcome">ERPADDFMS_0012_EDIT_EDIT</property>
       <property
-         name="sdm:polyPoints">B50,-834.6465,842.9424,-669.98047,952.09766,T50</property>
+         name="sdm:polyPoints">B56,-831.1465,842.9424,-669.98047,952.09766,T50</property>
    </ControlFlowCase>
    <MethodCall
       id="MethodCall209">

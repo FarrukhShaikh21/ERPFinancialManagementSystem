@@ -85,7 +85,10 @@
                                                  halign="stretch" valign="stretch">
                                         <af:listView value="#{bindings.GlBankByCompanyRO.collectionModel}" var="item"
                                                      emptyText="#{bindings.GlBankByCompanyRO.viewable ? 'No data to display.' : 'Access Denied.'}"
-                                                     fetchSize="#{bindings.GlBankByCompanyRO.rangeSize}" id="lv1">
+                                                     fetchSize="#{bindings.GlBankByCompanyRO.rangeSize}" id="lv1"
+                                                     selection="single"
+                                                     selectedRowKeys="#{bindings.GlBankByCompanyRO.collectionModel.selectedRow}"
+                                                     selectionListener="#{bindings.GlBankByCompanyRO.treeModel.makeCurrent}">
                                             <af:listItem id="li1"
                                                          styleClass="WBDisplayBlock WBDisplayBlockPadding WBDisplayBlockCenterUndo">
                                                 <af:panelGroupLayout id="pgl2" layout="vertical"
@@ -112,7 +115,8 @@
                                                                     <af:panelGroupLayout id="pgl6" layout="horizontal">
                                                                         <af:link id="l1"
                                                                                  styleClass="ERPHeroBannerFont ERPLink"
-                                                                                 icon="#{resource['images:imgView.png']}"/>
+                                                                                 icon="#{resource['images:imgView.png']}"
+                                                                                 action="DO-ACT-QUERY-FMS_0012_EDIT"/>
                                                                         <af:outputFormatted value="#{item.bindings.BankName.inputValue}"
                                                                                             id="of1"
                                                                                             styleClass="ERPHeroBannerFont"/>
