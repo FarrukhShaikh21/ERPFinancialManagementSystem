@@ -6,6 +6,8 @@
     <variableIterator id="variables"/>
     <iterator Binds="GlBankByCompanyCRUD" RangeSize="25" DataControl="ERPFMSModuleDataControl"
               id="GlBankByCompanyCRUDIterator"/>
+    <iterator Binds="GlBankBranchDetCRUD" RangeSize="25" DataControl="ERPFMSModuleDataControl"
+              id="GlBankBranchDetCRUDIterator"/>
   </executables>
   <bindings>
     <listOfValues IterBinding="GlBankByCompanyCRUDIterator" StaticList="false" Uses="LovtxtBaseCountryName"
@@ -64,5 +66,24 @@
     </attributeValues>
     <list IterBinding="GlBankByCompanyCRUDIterator" StaticList="false" Uses="LovActive" id="IsActive"
           DTSupportsMRU="false" SelectItemValueMode="ListObject"/>
+    <tree IterBinding="GlBankBranchDetCRUDIterator" id="GlBankBranchDetCRUD">
+      <nodeDefinition DefName="erpfms.modelfms.fmsvo.GlBankBranchVO" Name="GlBankBranchDetCRUD0">
+        <AttrNames>
+          <Item Value="BranchShortCode"/>
+          <Item Value="BranchShortName"/>
+          <Item Value="BranchName"/>
+          <Item Value="BranchDate"/>
+          <Item Value="MobileNo"/>
+          <Item Value="PhoneNo"/>
+          <Item Value="FaxNo"/>
+          <Item Value="ContactPerson"/>
+          <Item Value="IsHeadOffice"/>
+          <Item Value="txtCOAName"/>
+          <Item Value="txtCountryName"/>
+          <Item Value="txtCityName"/>
+          <Item Value="IsActive"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
   </bindings>
 </pageDefinition>
