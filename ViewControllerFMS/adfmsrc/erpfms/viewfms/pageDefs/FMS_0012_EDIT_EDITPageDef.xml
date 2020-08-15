@@ -86,8 +86,14 @@
       </nodeDefinition>
     </tree>
     <action IterBinding="GlBankByCompanyCRUDIterator" id="CreateWithParams" RequiresUpdateModel="true"
-            Action="createWithParams">
+            Action="createWithParams" InstanceName="ERPFMSModuleDataControl.GlBankByCompanyCRUD"
+            DataControl="ERPFMSModuleDataControl">
       <NamedData NDName="BankId" NDValue="#{-1}" NDType="java.lang.String"/>
+      <NamedData NDName="CompanyId" NDValue="#{data.erpfms_viewfms_FMS_0012_EDITPageDef.CompCode.inputValue}"
+                 NDType="java.lang.String"/>
     </action>
+    <action id="Rollback" RequiresUpdateModel="false" Action="rollbackTransaction"
+            DataControl="ERPFMSModuleDataControl"/>
+    <action id="Commit" RequiresUpdateModel="true" Action="commitTransaction" DataControl="ERPFMSModuleDataControl"/>
   </bindings>
 </pageDefinition>

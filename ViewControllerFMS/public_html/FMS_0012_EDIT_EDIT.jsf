@@ -8,7 +8,7 @@
                 <f:facet name="center">
                     <af:decorativeBox id="db1" dimensionsFrom="parent">
                         <f:facet name="center">
-                            <af:panelSplitter id="ps1" splitterPosition="222">
+                            <af:panelSplitter id="ps1" splitterPosition="222" partialTriggers="l1 l4 l3 l6 l5 l2">
                                 <f:facet name="first">
                                     <af:panelFormLayout id="pfl1" labelAlignment="top">
                                         <af:inputText value="#{bindings.BankId.inputValue}"
@@ -302,6 +302,22 @@
                                             <af:link text="Close" id="l1"
                                                      icon="#{resource['images:imgCloseDialog.png']}" iconPosition="top"
                                                      partialSubmit="true"/>
+                                            <af:link actionListener="#{bindings.Rollback.execute}" text="Rollback"
+                                                     disabled="#{!bindings.Rollback.enabled}" immediate="true" id="l4"
+                                                     rendered="false">
+                                                <af:resetActionListener/>
+                                            </af:link>
+                                            <af:link text="Undo" id="l3"
+                                                     actionListener="#{bindings.Rollback.execute}"
+                                                     icon="#{resource['images:imgUndo.png']}" iconPosition="top"
+                                                     partialSubmit="true">
+                                                <af:resetActionListener/>
+                                            </af:link>
+                                            <af:link text="Save" id="l6" icon="#{resource['images:imgSave.png']}"
+                                                     iconPosition="top" actionListener="#{bindings.Commit.execute}"
+                                                     partialSubmit="true"/>
+                                            <af:link actionListener="#{bindings.Commit.execute}" text="Commit"
+                                                     disabled="#{!bindings.Commit.enabled}" id="l5" rendered="false"/>
                                             <af:link actionListener="#{bindings.CreateWithParams.execute}" text="Add"
                                                      disabled="#{!bindings.CreateWithParams.enabled}" id="l2"
                                                      partialSubmit="true" icon="#{resource['images:imgAddRecord.png']}"

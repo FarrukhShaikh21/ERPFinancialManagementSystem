@@ -103,7 +103,7 @@
     ColumnType="DATE"
     TableName="GL_BANK">
     <TransientExpression
-      trustMode="untrusted"><![CDATA[adf.currentDate]]></TransientExpression>
+      trustMode="trusted"><![CDATA[adf.currentDate]]></TransientExpression>
     <Properties>
       <SchemaBasedProperties>
         <LABEL
@@ -261,7 +261,7 @@
     ColumnType="NUMBER"
     TableName="GL_BANK">
     <TransientExpression
-      trustMode="untrusted"><![CDATA[erpglobals.modelglobals.ERPGlobalPLSQLClass.doGetModelGlobalDefCompany()]]></TransientExpression>
+      trustMode="trusted"><![CDATA[erpglobals.modelglobals.ERPGlobalPLSQLClass.doGetModelGlobalDefCompany()]]></TransientExpression>
     <Properties>
       <SchemaBasedProperties>
         <LABEL
@@ -391,7 +391,7 @@
     IsPersistent="false"
     IsQueriable="false">
     <TransientExpression
-      trustMode="untrusted"><![CDATA[SmCountry?.Countryname]]></TransientExpression>
+      trustMode="trusted"><![CDATA[SmCountry?.Countryname]]></TransientExpression>
     <Dependencies>
       <Item
         Value="BaseCountryId"/>
@@ -415,7 +415,7 @@
     IsPersistent="false"
     IsQueriable="false">
     <TransientExpression
-      trustMode="untrusted"><![CDATA[GlChartOfAccounts?.Description]]></TransientExpression>
+      trustMode="trusted"><![CDATA[GlChartOfAccounts?.Description]]></TransientExpression>
     <Properties>
       <SchemaBasedProperties>
         <LABEL
