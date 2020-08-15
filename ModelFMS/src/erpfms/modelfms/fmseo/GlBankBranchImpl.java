@@ -43,6 +43,7 @@ public class GlBankBranchImpl extends ERPEntityImpl {
         LastUpdatedDate,
         txtCOAName,
         txtCountryName,
+        txtCityName,
         GlBank,
         GlChartOfAccounts,
         SmCountry,
@@ -92,6 +93,7 @@ public class GlBankBranchImpl extends ERPEntityImpl {
     public static final int LASTUPDATEDDATE = AttributesEnum.LastUpdatedDate.index();
     public static final int TXTCOANAME = AttributesEnum.txtCOAName.index();
     public static final int TXTCOUNTRYNAME = AttributesEnum.txtCountryName.index();
+    public static final int TXTCITYNAME = AttributesEnum.txtCityName.index();
     public static final int GLBANK = AttributesEnum.GlBank.index();
     public static final int GLCHARTOFACCOUNTS = AttributesEnum.GlChartOfAccounts.index();
     public static final int SMCOUNTRY = AttributesEnum.SmCountry.index();
@@ -445,6 +447,22 @@ public class GlBankBranchImpl extends ERPEntityImpl {
      */
     public void settxtCountryName(String value) {
         setAttributeInternal(TXTCOUNTRYNAME, value);
+    }
+
+    /**
+     * Gets the attribute value for txtCityName, using the alias name txtCityName.
+     * @return the value of txtCityName
+     */
+    public String gettxtCityName() {
+        return (String) getAttributeInternal(TXTCITYNAME);
+    }
+
+    /**
+     * Sets <code>value</code> as the attribute value for txtCityName.
+     * @param value value to set the txtCityName
+     */
+    public void settxtCityName(String value) {
+        setAttributeInternal(TXTCITYNAME, value);
     }
 
     /**
