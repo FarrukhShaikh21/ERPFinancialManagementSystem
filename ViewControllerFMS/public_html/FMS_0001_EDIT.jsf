@@ -26,7 +26,7 @@
                                                                   pattern="#{bindings.CompCode.format}"/>
                                             </af:inputText>
                                             <af:inputText value="#{bindings.CompanyName.inputValue}"
-                                                          label="#{pageFlowScope.OracleERPBean.erpScreenSize} #{bindings.CompanyName.hints.label}"
+                                                          label="#{bindings.CompanyName.hints.label}"
                                                           required="#{bindings.CompanyName.hints.mandatory}"
                                                           columns="#{bindings.CompanyName.hints.displayWidth}"
                                                           maximumLength="#{bindings.CompanyName.hints.precision}"

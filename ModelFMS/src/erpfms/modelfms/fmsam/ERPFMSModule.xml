@@ -261,10 +261,18 @@
   </ViewUsage>
   <ViewUsage
     Name="GlBankByCompanyRO"
-    ViewObjectName="erpfms.modelfms.fmsvo.GlBankVO"/>
+    ViewObjectName="erpfms.modelfms.fmsvo.GlBankVO">
+    <ViewCriteriaUsage
+      Name="GlBankByCompanyVC"
+      FullName="erpfms.modelfms.fmsvo.GlBankVO.GlBankByCompanyVC"/>
+  </ViewUsage>
   <ViewUsage
     Name="GlBankByCompanyCRUD"
-    ViewObjectName="erpfms.modelfms.fmsvo.GlBankVO"/>
+    ViewObjectName="erpfms.modelfms.fmsvo.GlBankVO">
+    <ViewCriteriaUsage
+      Name="GlBankVOByBankIdVC"
+      FullName="erpfms.modelfms.fmsvo.GlBankVO.GlBankVOByBankIdVC"/>
+  </ViewUsage>
   <ViewUsage
     Name="GlBankBranchDetCRUD"
     ViewObjectName="erpfms.modelfms.fmsvo.GlBankBranchVO"/>

@@ -484,6 +484,18 @@
         <fixed-outcome>CreateWithParaFMS_0012_EDIT_EDIT</fixed-outcome>
       </outcome>
     </method-call>
+    <method-call id="ExeParameterBankByCompany">
+      <method>#{bindings.ExecuteWithParams.execute}</method>
+      <outcome>
+        <fixed-outcome>ExecuteBankByCompanyID</fixed-outcome>
+      </outcome>
+    </method-call>
+    <method-call id="ExeGlBankByBankId">
+      <method>#{bindings.ExecuteWithParams.execute}</method>
+      <outcome>
+        <fixed-outcome>DO-ACT-QUERY-FMS_0012_EDIT</fixed-outcome>
+      </outcome>
+    </method-call>
     <control-flow-rule id="__8">
       <from-activity-id>doFMSGotoErpActivity</from-activity-id>
       <control-flow-case id="__9">
@@ -1131,7 +1143,7 @@
       <from-activity-id>ExeAdminCompanyByCompanyFMS_0012</from-activity-id>
       <control-flow-case id="__191">
         <from-outcome>DO-ACT-QUERY-FMS_0012</from-outcome>
-        <to-activity-id>FMS_0012_EDIT</to-activity-id>
+        <to-activity-id>ExeParameterBankByCompany</to-activity-id>
       </control-flow-case>
     </control-flow-rule>
     <control-flow-rule id="__192">
@@ -1140,11 +1152,29 @@
         <from-outcome>ERPADDFMS_0012_EDIT_EDIT</from-outcome>
         <to-activity-id>CreateWithParaFMS_0012_EDIT_EDIT</to-activity-id>
       </control-flow-case>
+      <control-flow-case id="__198">
+        <from-outcome>DO-ACT-QUERY-FMS_0012_EDIT</from-outcome>
+        <to-activity-id>ExeGlBankByBankId</to-activity-id>
+      </control-flow-case>
     </control-flow-rule>
     <control-flow-rule id="__194">
       <from-activity-id>CreateWithParaFMS_0012_EDIT_EDIT</from-activity-id>
       <control-flow-case id="__195">
         <from-outcome>CreateWithParaFMS_0012_EDIT_EDIT</from-outcome>
+        <to-activity-id>FMS_0012_EDIT_EDIT</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__196">
+      <from-activity-id>ExeParameterBankByCompany</from-activity-id>
+      <control-flow-case id="__197">
+        <from-outcome>ExecuteBankByCompanyID</from-outcome>
+        <to-activity-id>FMS_0012_EDIT</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__199">
+      <from-activity-id>ExeGlBankByBankId</from-activity-id>
+      <control-flow-case id="__200">
+        <from-outcome>DO-ACT-QUERY-FMS_0012_EDIT</from-outcome>
         <to-activity-id>FMS_0012_EDIT_EDIT</to-activity-id>
       </control-flow-case>
     </control-flow-rule>

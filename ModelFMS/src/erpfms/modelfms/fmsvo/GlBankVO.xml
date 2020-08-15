@@ -13,6 +13,14 @@
   CustomQuery="false"
   SelectAllAttributes="false"
   PageIterMode="Full">
+  <Variable
+    Name="P_ADF_COMPANY_ID"
+    Kind="viewcriteria"
+    Type="java.lang.Integer"/>
+  <Variable
+    Name="P_ADF_BANK_ID"
+    Kind="viewcriteria"
+    Type="java.lang.Integer"/>
   <ViewAccessor
     Name="AccSysGeneralValueVO"
     ViewObjectName="erpadm.modeladm.admvo.SysGeneralValueVO"
@@ -265,6 +273,78 @@
       </SchemaBasedProperties>
     </Properties>
   </ViewAttribute>
+  <ViewCriteria
+    Name="GlBankByCompanyVC"
+    ViewObjectName="erpfms.modelfms.fmsvo.GlBankVO"
+    Conjunction="AND">
+    <Properties>
+      <CustomProperties>
+        <Property
+          Name="displayOperators"
+          Value="InAdvancedMode"/>
+        <Property
+          Name="autoExecute"
+          Value="false"/>
+        <Property
+          Name="allowConjunctionOverride"
+          Value="true"/>
+        <Property
+          Name="showInList"
+          Value="true"/>
+        <Property
+          Name="mode"
+          Value="Basic"/>
+      </CustomProperties>
+    </Properties>
+    <ViewCriteriaRow
+      Name="GlBankVOCriteria_row_0"
+      UpperColumns="1">
+      <ViewCriteriaItem
+        Name="CompanyId"
+        ViewAttribute="CompanyId"
+        Operator="="
+        Conjunction="AND"
+        Value=":P_ADF_COMPANY_ID"
+        IsBindVarValue="true"
+        Required="Optional"/>
+    </ViewCriteriaRow>
+  </ViewCriteria>
+  <ViewCriteria
+    Name="GlBankVOByBankIdVC"
+    ViewObjectName="erpfms.modelfms.fmsvo.GlBankVO"
+    Conjunction="AND">
+    <Properties>
+      <CustomProperties>
+        <Property
+          Name="displayOperators"
+          Value="InAdvancedMode"/>
+        <Property
+          Name="autoExecute"
+          Value="false"/>
+        <Property
+          Name="allowConjunctionOverride"
+          Value="true"/>
+        <Property
+          Name="showInList"
+          Value="true"/>
+        <Property
+          Name="mode"
+          Value="Basic"/>
+      </CustomProperties>
+    </Properties>
+    <ViewCriteriaRow
+      Name="GlBankVOCriteria_row_0"
+      UpperColumns="1">
+      <ViewCriteriaItem
+        Name="GlBankVOCriteria_GlBankVOCriteria_row_0_BankId"
+        ViewAttribute="BankId"
+        Operator="="
+        Conjunction="AND"
+        Value=":P_ADF_BANK_ID"
+        IsBindVarValue="true"
+        Required="Optional"/>
+    </ViewCriteriaRow>
+  </ViewCriteria>
   <ViewLinkAccessor
     Name="GlBankBranchVO"
     ViewLink="erpfms.modelfms.fmsvo.FkGlBankBranchBankidLink"

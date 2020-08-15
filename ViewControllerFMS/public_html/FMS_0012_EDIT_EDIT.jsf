@@ -138,7 +138,7 @@
                                                              iconPosition="top"/>
                                                     <af:link actionListener="#{bindings.CreateInsert.execute}"
                                                              text="Add"
-                                                             disabled="#{!bindings.CreateInsert.enabled}" id="l7"
+                                                             disabled="#{bindings.BankShortCode.inputValue==null}" id="l7"
                                                              icon="#{resource['images:imgAddRecord.png']}"
                                                              iconPosition="top"/>
                                                 </af:toolbar>
@@ -314,16 +314,21 @@
                                         <af:panelGroupLayout id="pgl2" layout="horizontal" halign="end">
                                             <af:link text="Close" id="l1"
                                                      icon="#{resource['images:imgCloseDialog.png']}" iconPosition="top"
-                                                     partialSubmit="true"/>
+                                                     partialSubmit="true"
+                                                     action="#{pageFlowScope.OracleERPBean.getERPBackActionName}"/>
                                             <af:link actionListener="#{bindings.Rollback.execute}" text="Rollback"
                                                      disabled="#{!bindings.Rollback.enabled}" immediate="true" id="l4"
                                                      rendered="false">
                                                 <af:resetActionListener/>
                                             </af:link>
-                                            <af:link actionListener="#{bindings.CreateWithParams.execute}" text="Add"
+                                            <af:link text="link 1" id="l11"
+                                                     actionListener="#{bindings.CreateWithParams.execute}"
+                                                     rendered="false"/>
+                                            <af:link text="Add"
                                                      disabled="#{!bindings.CreateWithParams.enabled}" id="l2"
                                                      partialSubmit="true" icon="#{resource['images:imgAddRecord.png']}"
-                                                     iconPosition="top"/>
+                                                     iconPosition="top"
+                                                     action="#{pageFlowScope.OracleERPBean.doERPAddRecordWithPara}"/>
                                             <af:link text="Delete" id="l9" partialSubmit="true"
                                                      icon="#{resource['images:imgDeleteRecord.png']}"
                                                      iconPosition="top" actionListener="#{bindings.Delete.execute}"/>

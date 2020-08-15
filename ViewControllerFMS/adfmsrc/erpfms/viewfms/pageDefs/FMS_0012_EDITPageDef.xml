@@ -48,5 +48,10 @@
         </AttrNames>
       </nodeDefinition>
     </tree>
+    <attributeValues IterBinding="GlBankByCompanyROIterator" id="BankId">
+      <AttrNames>
+        <Item Value="BankId"/>
+      </AttrNames>
+    </attributeValues>
   </bindings>
 </pageDefinition>

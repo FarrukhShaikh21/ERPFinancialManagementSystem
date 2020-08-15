@@ -93,6 +93,17 @@
                                                     <af:panelBox text="PanelBox1" id="pb1" showDisclosure="false"
                                                                  showHeader="never">
                                                         <f:facet name="toolbar"/>
+                                                        <af:inputText value="#{bindings.BankId.inputValue}"
+                                                                      label="#{bindings.BankId.hints.label}"
+                                                                      required="#{bindings.BankId.hints.mandatory}"
+                                                                      columns="#{bindings.BankId.hints.displayWidth}"
+                                                                      maximumLength="#{bindings.BankId.hints.precision}"
+                                                                      shortDesc="#{bindings.BankId.hints.tooltip}"
+                                                                      id="it5" rendered="false">
+                                                            <f:validator binding="#{bindings.BankId.validator}"/>
+                                                            <af:convertNumber groupingUsed="false"
+                                                                              pattern="#{bindings.BankId.format}"/>
+                                                        </af:inputText>
                                                         <af:panelGridLayout id="pgl1">
                                                             <af:gridRow marginTop="5px" height="auto" id="gr2">
                                                                 <af:gridCell marginStart="5px" width="100%"
