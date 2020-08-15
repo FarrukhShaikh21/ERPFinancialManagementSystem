@@ -17,6 +17,10 @@
     Name="AccSmCountryVO"
     ViewObjectName="erpadm.modeladm.admvo.SmCountryVO"
     RowLevelBinds="true"/>
+  <ViewAccessor
+    Name="AccGlChartOfAccountsVO"
+    ViewObjectName="erpfms.modelfms.fmsvo.GlChartOfAccountsVO"
+    RowLevelBinds="true"/>
   <ListBinding
     Name="LOV_txtCountryName"
     ListVOName="AccSmCountryVO"
@@ -42,6 +46,31 @@
     </AttrArray>
     <DisplayCriteria
       Name="SmCountryVOFindVC"/>
+  </ListBinding>
+  <ListBinding
+    Name="LovtxtCOAName"
+    ListVOName="AccGlChartOfAccountsVO"
+    ListRangeSize="-1"
+    ComboRowCountHint="10"
+    NullValueFlag="none"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="txtCOAName"/>
+    </AttrArray>
+    <AttrArray Name="AttrExpressions"/>
+    <AttrArray Name="DerivedAttrNames">
+      <Item Value="ChartOfAccountId"/>
+    </AttrArray>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="Description"/>
+      <Item Value="ChartOfAccountId"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="Description"/>
+      <Item Value="ChartOfAccountCode"/>
+    </AttrArray>
+    <DisplayCriteria
+      Name="GlChartOfAccountsVOFindVC"/>
   </ListBinding>
   <EntityUsage
     Name="GlBankBranch"
@@ -176,7 +205,15 @@
     PrecisionRule="true"
     EntityAttrName="txtCOAName"
     EntityUsage="GlBankBranch"
-    AliasName="txt_COAName"/>
+    AliasName="txt_COAName"
+    LOVName="LovtxtCOAName">
+    <Properties>
+      <SchemaBasedProperties>
+        <CONTROLTYPE
+          Value="combo_lov"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="txtCountryName"
     IsQueriable="false"
