@@ -1156,6 +1156,10 @@
         <from-outcome>DO-ACT-QUERY-FMS_0012_EDIT</from-outcome>
         <to-activity-id>ExeGlBankByBankId</to-activity-id>
       </control-flow-case>
+      <control-flow-case id="__203">
+        <from-outcome>ERPBACKCRUD</from-outcome>
+        <to-activity-id>FMS_0012</to-activity-id>
+      </control-flow-case>
     </control-flow-rule>
     <control-flow-rule id="__194">
       <from-activity-id>CreateWithParaFMS_0012_EDIT_EDIT</from-activity-id>
@@ -1176,6 +1180,13 @@
       <control-flow-case id="__200">
         <from-outcome>DO-ACT-QUERY-FMS_0012_EDIT</from-outcome>
         <to-activity-id>FMS_0012_EDIT_EDIT</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__201">
+      <from-activity-id>FMS_0012_EDIT_EDIT</from-activity-id>
+      <control-flow-case id="__202">
+        <from-outcome>ERPBACKCRUD</from-outcome>
+        <to-activity-id>FMS_0012_EDIT</to-activity-id>
       </control-flow-case>
     </control-flow-rule>
     <visibility>

@@ -2348,4 +2348,24 @@
       <property
          name="sdm:polyPoints">B50,-986.3115,909.6953,-905.0,1005.0918,L50</property>
    </ControlFlowCase>
+   <ControlFlowCase
+      islink="true"
+      id="ControlFlowCase216"
+      from="View207"
+      to="View203">
+      <property
+         name="fromOutcome">ERPBACKCRUD</property>
+      <property
+         name="sdm:polyPoints">T50,-864.0,951.0918,-838.1465,842.9424,B44</property>
+   </ControlFlowCase>
+   <ControlFlowCase
+      islink="true"
+      id="ControlFlowCase217"
+      from="View203"
+      to="View199">
+      <property
+         name="fromOutcome">ERPBACKCRUD</property>
+      <property
+         name="sdm:polyPoints">R50,-793.6465,788.9424,-631.5,738.2471,L54</property>
+   </ControlFlowCase>
 </SDM>
