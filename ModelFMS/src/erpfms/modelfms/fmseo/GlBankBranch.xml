@@ -118,8 +118,7 @@
     Type="java.sql.Timestamp"
     ColumnType="DATE"
     TableName="GL_BANK_BRANCH">
-    <TransientExpression
-      trustMode="trusted"><![CDATA[adf.currentDate]]></TransientExpression>
+    <TransientExpression><![CDATA[adf.currentDate]]></TransientExpression>
     <Properties>
       <SchemaBasedProperties>
         <LABEL
@@ -384,8 +383,7 @@
     ColumnType="VARCHAR2"
     IsPersistent="false"
     IsQueriable="false">
-    <TransientExpression
-      trustMode="trusted"><![CDATA[GlChartOfAccounts?.Description]]></TransientExpression>
+    <TransientExpression><![CDATA[GlChartOfAccounts?.Description]]></TransientExpression>
     <Properties>
       <SchemaBasedProperties>
         <LABEL
@@ -408,8 +406,7 @@
     ColumnType="VARCHAR2"
     IsPersistent="false"
     IsQueriable="false">
-    <TransientExpression
-      trustMode="trusted"><![CDATA[SmCountry?.Countryname]]></TransientExpression>
+    <TransientExpression><![CDATA[SmCountry?.Countryname]]></TransientExpression>
     <Dependencies>
       <Item
         Value="CountryId"/>
@@ -430,13 +427,10 @@
     SQLType="VARCHAR"
     Type="java.lang.String"
     ColumnType="VARCHAR2"
-    TableName="GL_BANK_BRANCH"
     IsPersistent="false"
     IsQueriable="false">
-    <TransientExpression
-      trustMode="trusted"><![CDATA[SmCity?.Cityname]]></TransientExpression>
-    <RecalcCondition
-      trustMode="trusted"><![CDATA[true]]></RecalcCondition>
+    <TransientExpression><![CDATA[SmCity?.Cityname]]></TransientExpression>
+    <RecalcCondition><![CDATA[true]]></RecalcCondition>
     <Properties>
       <SchemaBasedProperties>
         <LABEL

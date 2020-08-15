@@ -128,12 +128,12 @@
                                 <f:facet name="second">
                                     <af:panelBox text="Branches" id="pb1" showDisclosure="false">
                                         <f:facet name="toolbar"/>
-                                        <af:panelCollection id="pc1" styleClass="AFStretchWidth">
+                                        <af:panelCollection id="pc1" styleClass="AFStretchWidth" featuresOff="viewMenu">
                                             <f:facet name="menus"/>
                                             <f:facet name="toolbar">
                                                 <af:toolbar id="t2" flex="1">
-                                                    <af:link actionListener="#{bindings.Delete.execute}" text="Delete"
-                                                             disabled="#{!bindings.Delete.enabled}" id="l8"
+                                                    <af:link actionListener="#{bindings.Delete1.execute}" text="Delete"
+                                                             disabled="#{!bindings.Delete1.enabled}" id="l10"
                                                              icon="#{resource['images:imgDeleteRecord.png']}"
                                                              iconPosition="top"/>
                                                     <af:link actionListener="#{bindings.CreateInsert.execute}"
@@ -152,7 +152,8 @@
                                                       selectionListener="#{bindings.GlBankBranchDetCRUD.collectionModel.makeCurrent}"
                                                       rowSelection="single"
                                                       fetchSize="#{bindings.GlBankBranchDetCRUD.rangeSize}" id="t1"
-                                                      columnStretching="column:c3" partialTriggers="::l7 ::l8">
+                                                      columnStretching="column:c3" partialTriggers="::l7 ::l10"
+                                                      autoHeightRows="0">
                                                 <af:column headerText="#{bindings.GlBankBranchDetCRUD.hints.BranchShortCode.label}"
                                                            id="c1" width="70">
                                                     <af:inputText value="#{row.bindings.BranchShortCode.inputValue}"
@@ -161,7 +162,7 @@
                                                                   columns="#{bindings.GlBankBranchDetCRUD.hints.BranchShortCode.displayWidth}"
                                                                   maximumLength="#{bindings.GlBankBranchDetCRUD.hints.BranchShortCode.precision}"
                                                                   shortDesc="#{bindings.GlBankBranchDetCRUD.hints.BranchShortCode.tooltip}"
-                                                                  id="it11">
+                                                                  id="it11" readOnly="true">
                                                         <f:validator binding="#{row.bindings.BranchShortCode.validator}"/>
                                                         <af:convertNumber groupingUsed="false"
                                                                           pattern="#{bindings.GlBankBranchDetCRUD.hints.BranchShortCode.format}"/>
@@ -319,8 +320,16 @@
                                                      rendered="false">
                                                 <af:resetActionListener/>
                                             </af:link>
-                                            <af:link text="Undo" id="l3"
-                                                     actionListener="#{bindings.Rollback.execute}"
+                                            <af:link actionListener="#{bindings.CreateWithParams.execute}" text="Add"
+                                                     disabled="#{!bindings.CreateWithParams.enabled}" id="l2"
+                                                     partialSubmit="true" icon="#{resource['images:imgAddRecord.png']}"
+                                                     iconPosition="top"/>
+                                            <af:link text="Delete" id="l9" partialSubmit="true"
+                                                     icon="#{resource['images:imgDeleteRecord.png']}"
+                                                     iconPosition="top" actionListener="#{bindings.Delete.execute}"/>
+                                            <af:link actionListener="#{bindings.Delete.execute}" text="Delete"
+                                                     disabled="#{!bindings.Delete.enabled}" id="l8" rendered="false"/>
+                                            <af:link text="Undo" id="l3" actionListener="#{bindings.Rollback.execute}"
                                                      icon="#{resource['images:imgUndo.png']}" iconPosition="top"
                                                      partialSubmit="true">
                                                 <af:resetActionListener/>
@@ -330,10 +339,6 @@
                                                      partialSubmit="true"/>
                                             <af:link actionListener="#{bindings.Commit.execute}" text="Commit"
                                                      disabled="#{!bindings.Commit.enabled}" id="l5" rendered="false"/>
-                                            <af:link actionListener="#{bindings.CreateWithParams.execute}" text="Add"
-                                                     disabled="#{!bindings.CreateWithParams.enabled}" id="l2"
-                                                     partialSubmit="true" icon="#{resource['images:imgAddRecord.png']}"
-                                                     iconPosition="top"/>
                                             <f:facet name="separator">
                                                 <af:spacer width="10" height="10" id="s1"/>
                                             </f:facet>

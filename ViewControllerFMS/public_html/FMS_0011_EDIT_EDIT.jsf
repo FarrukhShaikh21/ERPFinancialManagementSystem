@@ -391,9 +391,6 @@
                                                 <af:setActionListener to="#{pageFlowScope.OracleERPBean.LIteratorName}"
                                                                       from="#{'GlVoucherTypesCRUDIterator'}"/>
                                             </af:link>
-                                            <af:link text="Undo" id="l5" partialSubmit="true"
-                                                     action="#{pageFlowScope.OracleERPBean.doErpUndoRecord}"
-                                                     iconPosition="top" icon="#{resource['images:imgUndo.png']}"/>
                                             <af:link text="Delete" id="l8" partialSubmit="true"
                                                      icon="#{resource['images:imgDeleteRecord.png']}"
                                                      iconPosition="top"
@@ -402,6 +399,9 @@
                                             </af:link>
                                             <af:link actionListener="#{bindings.Delete.execute}" text="Delete"
                                                      disabled="#{!bindings.Delete.enabled}" id="l7" rendered="false"/>
+                                            <af:link text="Undo" id="l5" partialSubmit="true"
+                                                     action="#{pageFlowScope.OracleERPBean.doErpUndoRecord}"
+                                                     iconPosition="top" icon="#{resource['images:imgUndo.png']}"/>
                                             <af:link text="Save" id="l3" iconPosition="top"
                                                      icon="#{resource['images:imgSave.png']}"
                                                      action="#{pageFlowScope.OracleERPBean.doERPCommitRecord}"

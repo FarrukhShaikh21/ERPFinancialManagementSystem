@@ -97,7 +97,9 @@
     <action id="Commit" RequiresUpdateModel="true" Action="commitTransaction" DataControl="ERPFMSModuleDataControl"/>
     <action IterBinding="GlBankBranchDetCRUDIterator" id="CreateInsert" RequiresUpdateModel="true"
             Action="createInsertRow"/>
-    <action IterBinding="GlBankBranchDetCRUDIterator" id="Delete" RequiresUpdateModel="false"
+    <action IterBinding="GlBankByCompanyCRUDIterator" id="Delete" RequiresUpdateModel="false"
+            Action="removeCurrentRow"/>
+    <action IterBinding="GlBankBranchDetCRUDIterator" id="Delete1" RequiresUpdateModel="false"
             Action="removeCurrentRow"/>
   </bindings>
 </pageDefinition>

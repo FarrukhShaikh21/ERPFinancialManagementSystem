@@ -14,7 +14,8 @@
     Cardinality="1"
     Source="true"
     Owner="erpfms.modelfms.fmseo.GlBank"
-    LockLevel="NONE">
+    LockLevel="NONE"
+    DeleteContainee="true">
     <DesignTime>
       <Attr Name="_aggregation" Value="0"/>
       <Attr Name="_finderName" Value="GlBank"/>
@@ -28,7 +29,8 @@
   <AssociationEnd
     Name="GlBankBranch"
     Cardinality="-1"
-    Owner="erpfms.modelfms.fmseo.GlBankBranch">
+    Owner="erpfms.modelfms.fmseo.GlBankBranch"
+    HasOwner="true">
     <DesignTime>
       <Attr Name="_aggregation" Value="0"/>
       <Attr Name="_finderName" Value="GlBankBranch"/>
