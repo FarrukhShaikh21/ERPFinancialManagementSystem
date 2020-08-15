@@ -182,8 +182,11 @@
                                     <af:gridCell marginStart="5px" width="50%" marginEnd="5px" id="gc8" halign="end">
                                         <af:panelGroupLayout id="pgl5" layout="horizontal" halign="end">
                                             <af:link id="l4" icon="#{resource['images:imgCloseDialog.png']}"
-                                                     action="#{pageFlowScope.OracleERPBean.doBackFromEdit}" text="Close" iconPosition="top"
+                                                     action="#{pageFlowScope.OracleERPBean.doBackFromEdit}" iconPosition="top"
                                                      partialSubmit="true"/>
+                                            <af:link id="l2" partialSubmit="true"
+                                                     icon="#{resource['images:imgNewDocument.png']}"
+                                                     iconPosition="top"/>
                                             <f:facet name="separator">
                                                 <af:spacer width="10" height="10" id="s1"/>
                                             </f:facet>
