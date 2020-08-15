@@ -173,4 +173,10 @@
     Type="oracle.jbo.Row"
     Reversed="true"
     IsUpdateable="false"/>
+  <ViewLinkAccessor
+    Name="SmCityVO"
+    ViewLink="erpfms.modelfms.fmsvo.SmCitySmBankBranchCityIdVL"
+    Type="oracle.jbo.Row"
+    Reversed="true"
+    IsUpdateable="false"/>
 </ViewObject>
