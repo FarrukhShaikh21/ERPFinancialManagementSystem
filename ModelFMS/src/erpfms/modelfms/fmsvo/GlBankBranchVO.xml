@@ -13,6 +13,36 @@
   CustomQuery="false"
   SelectAllAttributes="false"
   PageIterMode="Full">
+  <ViewAccessor
+    Name="AccSmCountryVO"
+    ViewObjectName="erpadm.modeladm.admvo.SmCountryVO"
+    RowLevelBinds="true"/>
+  <ListBinding
+    Name="LOV_txtCountryName"
+    ListVOName="AccSmCountryVO"
+    ListRangeSize="-1"
+    ComboRowCountHint="10"
+    NullValueFlag="none"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="txtCountryName"/>
+    </AttrArray>
+    <AttrArray Name="AttrExpressions"/>
+    <AttrArray Name="DerivedAttrNames">
+      <Item Value="CountryId"/>
+    </AttrArray>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="Countryname"/>
+      <Item Value="Countrycode"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="Countryname"/>
+      <Item Value="CountryShortCode"/>
+      <Item Value="CountryShortName"/>
+    </AttrArray>
+    <DisplayCriteria
+      Name="SmCountryVOFindVC"/>
+  </ListBinding>
   <EntityUsage
     Name="GlBankBranch"
     Entity="erpfms.modelfms.fmseo.GlBankBranch"/>
@@ -154,7 +184,15 @@
     PrecisionRule="true"
     EntityAttrName="txtCountryName"
     EntityUsage="GlBankBranch"
-    AliasName="txt_Country_Name"/>
+    AliasName="txt_Country_Name"
+    LOVName="LOV_txtCountryName">
+    <Properties>
+      <SchemaBasedProperties>
+        <CONTROLTYPE
+          Value="combo_lov"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewLinkAccessor
     Name="GlBankVO"
     ViewLink="erpfms.modelfms.fmsvo.FkGlBankBranchBankidLink"
