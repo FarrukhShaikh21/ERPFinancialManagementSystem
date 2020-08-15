@@ -182,6 +182,14 @@
     EntityAttrName="txtBaseCountryName"
     EntityUsage="GlBank"
     AliasName="txt_Base_Country_Name"/>
+  <ViewAttribute
+    Name="txtCOADescription"
+    IsQueriable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    EntityAttrName="txtCOADescription"
+    EntityUsage="GlBank"
+    AliasName="txt_COADescription"/>
   <ViewLinkAccessor
     Name="GlBankBranchVO"
     ViewLink="erpfms.modelfms.fmsvo.FkGlBankBranchBankidLink"

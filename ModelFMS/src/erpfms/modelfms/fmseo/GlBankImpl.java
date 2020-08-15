@@ -43,6 +43,7 @@ public class GlBankImpl extends ERPEntityImpl {
         LastUpdatedBy,
         LastUpdatedDate,
         txtBaseCountryName,
+        txtCOADescription,
         GlBankBranch,
         SmCountry,
         GlChartOfAccounts;
@@ -90,6 +91,7 @@ public class GlBankImpl extends ERPEntityImpl {
     public static final int LASTUPDATEDBY = AttributesEnum.LastUpdatedBy.index();
     public static final int LASTUPDATEDDATE = AttributesEnum.LastUpdatedDate.index();
     public static final int TXTBASECOUNTRYNAME = AttributesEnum.txtBaseCountryName.index();
+    public static final int TXTCOADESCRIPTION = AttributesEnum.txtCOADescription.index();
     public static final int GLBANKBRANCH = AttributesEnum.GlBankBranch.index();
     public static final int SMCOUNTRY = AttributesEnum.SmCountry.index();
     public static final int GLCHARTOFACCOUNTS = AttributesEnum.GlChartOfAccounts.index();
@@ -426,6 +428,22 @@ public class GlBankImpl extends ERPEntityImpl {
      */
     public void settxtBaseCountryName(String value) {
         setAttributeInternal(TXTBASECOUNTRYNAME, value);
+    }
+
+    /**
+     * Gets the attribute value for txtCOADescription, using the alias name txtCOADescription.
+     * @return the value of txtCOADescription
+     */
+    public String gettxtCOADescription() {
+        return (String) getAttributeInternal(TXTCOADESCRIPTION);
+    }
+
+    /**
+     * Sets <code>value</code> as the attribute value for txtCOADescription.
+     * @param value value to set the txtCOADescription
+     */
+    public void settxtCOADescription(String value) {
+        setAttributeInternal(TXTCOADESCRIPTION, value);
     }
 
     /**
