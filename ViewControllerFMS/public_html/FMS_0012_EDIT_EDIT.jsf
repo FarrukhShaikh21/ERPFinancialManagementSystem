@@ -194,7 +194,7 @@
                                                         </af:inputText>
                                                     </af:column>
                                                     <af:column headerText="#{bindings.GlBankBranchDetCRUD.hints.BranchShortName.label}"
-                                                               id="c1" width="60" displayIndex="-1">
+                                                               id="c1" width="60" displayIndex="-1" showRequired="true">
                                                         <af:inputText value="#{row.bindings.BranchShortName.inputValue}"
                                                                       label="#{bindings.GlBankBranchDetCRUD.hints.BranchShortName.label}"
                                                                       required="#{bindings.GlBankBranchDetCRUD.hints.BranchShortName.mandatory}"
@@ -206,7 +206,8 @@
                                                         </af:inputText>
                                                     </af:column>
                                                     <af:column headerText="#{bindings.GlBankBranchDetCRUD.hints.BranchName.label}"
-                                                               id="c3" width="150" displayIndex="-1">
+                                                               id="c3" width="150" displayIndex="-1"
+                                                               showRequired="true">
                                                         <af:inputText value="#{row.bindings.BranchName.inputValue}"
                                                                       label="#{bindings.GlBankBranchDetCRUD.hints.BranchName.label}"
                                                                       required="#{bindings.GlBankBranchDetCRUD.hints.BranchName.mandatory}"
@@ -218,7 +219,8 @@
                                                         </af:inputText>
                                                     </af:column>
                                                     <af:column headerText="#{bindings.GlBankBranchDetCRUD.hints.BranchDate.label}"
-                                                               id="c4" width="120" displayIndex="-1">
+                                                               id="c4" width="120" displayIndex="-1"
+                                                               showRequired="true">
                                                         <af:inputDate value="#{row.bindings.BranchDate.inputValue}"
                                                                       label="#{bindings.GlBankBranchDetCRUD.hints.BranchDate.label}"
                                                                       required="#{bindings.GlBankBranchDetCRUD.hints.BranchDate.mandatory}"
@@ -307,7 +309,7 @@
                                                         </af:inputText>
                                                     </af:column>
                                                     <af:column headerText="#{bindings.GlBankBranchDetCRUD.hints.ContactPerson.label}"
-                                                               id="c8">
+                                                               id="c8" showRequired="true">
                                                         <af:inputText value="#{row.bindings.ContactPerson.inputValue}"
                                                                       label="#{bindings.GlBankBranchDetCRUD.hints.ContactPerson.label}"
                                                                       required="#{bindings.GlBankBranchDetCRUD.hints.ContactPerson.mandatory}"

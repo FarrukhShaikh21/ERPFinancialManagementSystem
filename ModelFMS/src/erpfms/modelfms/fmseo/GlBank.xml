@@ -62,7 +62,8 @@
     SQLType="VARCHAR"
     Type="java.lang.String"
     ColumnType="VARCHAR2"
-    TableName="GL_BANK">
+    TableName="GL_BANK"
+    IsNotNull="true">
     <DesignTime>
       <Attr Name="_DisplaySize" Value="30"/>
     </DesignTime>
@@ -82,7 +83,8 @@
     SQLType="VARCHAR"
     Type="java.lang.String"
     ColumnType="VARCHAR2"
-    TableName="GL_BANK">
+    TableName="GL_BANK"
+    IsNotNull="true">
     <DesignTime>
       <Attr Name="_DisplaySize" Value="50"/>
     </DesignTime>
@@ -139,8 +141,7 @@
     SQLType="NUMERIC"
     Type="java.lang.Integer"
     ColumnType="NUMBER"
-    TableName="GL_BANK"
-    IsNotNull="true">
+    TableName="GL_BANK">
     <Properties>
       <SchemaBasedProperties>
         <LABEL
@@ -389,7 +390,8 @@
     Type="java.lang.String"
     ColumnType="VARCHAR2"
     IsPersistent="false"
-    IsQueriable="false">
+    IsQueriable="false"
+    IsNotNull="true">
     <TransientExpression><![CDATA[SmCountry?.Countryname]]></TransientExpression>
     <Dependencies>
       <Item
@@ -445,15 +447,39 @@
     Type="erpfms.modelfms.fmseo.GlChartOfAccountsImpl"
     IsUpdateable="true"/>
   <Key
-    Name="GlBankBaseCountryIdCheck">
+    Name="GlBankBankNameCheck">
     <DesignTime>
       <Attr Name="_isNotNull" Value="true"/>
-      <Attr Name="_DBObjectName" Value="Gl_Bank_Base_Country_Id_Check"/>
-      <Attr Name="_checkCondition" Value='"BASE_COUNTRY_ID" IS NOT NULL'/>
+      <Attr Name="_DBObjectName" Value="Gl_Bank_Bank_Name_Check"/>
+      <Attr Name="_checkCondition" Value='"BANK_NAME" IS NOT NULL'/>
       <Attr Name="_isCheck" Value="true"/>
     </DesignTime>
     <AttrArray Name="Attributes">
-      <Item Value="erpfms.modelfms.fmseo.GlBank.BaseCountryId"/>
+      <Item Value="erpfms.modelfms.fmseo.GlBank.BankName"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="GlBankBankShortNameCheck">
+    <DesignTime>
+      <Attr Name="_isNotNull" Value="true"/>
+      <Attr Name="_DBObjectName" Value="Gl_Bank_Bank_Short_Name_Check"/>
+      <Attr Name="_checkCondition" Value='"BANK_SHORT_NAME" IS NOT NULL'/>
+      <Attr Name="_isCheck" Value="true"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="erpfms.modelfms.fmseo.GlBank.BankShortName"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="GlBankTxtBaseCountryNameCheck">
+    <DesignTime>
+      <Attr Name="_isNotNull" Value="true"/>
+      <Attr Name="_DBObjectName" Value="Gl_Bank_Txt_Base_Country_Name_"/>
+      <Attr Name="_checkCondition" Value='"txt_Base_Country_Name" IS NOT NULL'/>
+      <Attr Name="_isCheck" Value="true"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="erpfms.modelfms.fmseo.GlBank.txtBaseCountryName"/>
     </AttrArray>
   </Key>
   <Key
