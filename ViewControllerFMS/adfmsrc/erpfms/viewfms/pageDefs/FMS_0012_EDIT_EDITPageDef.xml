@@ -88,7 +88,6 @@
     <action IterBinding="GlBankByCompanyCRUDIterator" id="CreateWithParams" RequiresUpdateModel="true"
             Action="createWithParams" InstanceName="ERPFMSModuleDataControl.GlBankByCompanyCRUD"
             DataControl="ERPFMSModuleDataControl">
-      <NamedData NDName="BankId" NDValue="#{-1}" NDType="java.lang.String"/>
       <NamedData NDName="CompanyId" NDValue="#{data.erpfms_viewfms_FMS_0012_EDITPageDef.CompCode.inputValue}"
                  NDType="java.lang.String"/>
     </action>
@@ -96,7 +95,7 @@
             DataControl="ERPFMSModuleDataControl"/>
     <action id="Commit" RequiresUpdateModel="true" Action="commitTransaction" DataControl="ERPFMSModuleDataControl"/>
     <action IterBinding="GlBankBranchDetCRUDIterator" id="CreateInsert" RequiresUpdateModel="true"
-            Action="createWithParams" InstanceName="ERPFMSModuleDataControl.GlBankBranchDetCRUD"
+            Action="createInsertRow" InstanceName="ERPFMSModuleDataControl.GlBankBranchDetCRUD"
             DataControl="ERPFMSModuleDataControl">
       <NamedData NDName="BankBranchId" NDValue="#{-bindings.GlBankBranchDetCRUD.estimatedRowCount + 1}"
                  NDType="java.lang.String"/>

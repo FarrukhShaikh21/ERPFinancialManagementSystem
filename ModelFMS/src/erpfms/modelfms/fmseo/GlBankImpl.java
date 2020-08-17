@@ -507,6 +507,7 @@ public class GlBankImpl extends ERPEntityImpl {
     protected void doDML(int operation, TransactionEvent e) {
 
         if (operation == DML_INSERT) {
+            
             String result =
                 ERPGlobalPLSQLClass.doGetPrimaryKeyValueModel(getDBTransaction(), "BANK_ID",
                                                               this.getEntityDef().getSource(), null, null);

@@ -10,12 +10,17 @@
   DBObjectName="GL_BANK_BRANCH"
   AliasName="GlBankBranch"
   BindingStyle="JDBC"
-  RowClass="erpfms.modelfms.fmseo.GlBankBranchImpl">
+  RowClass="erpfms.modelfms.fmseo.GlBankBranchImpl"
+  xmlns:validation="http://xmlns.oracle.com/adfm/validation">
   <DesignTime>
     <Attr Name="_codeGenFlag2" Value="Access|DML"/>
     <Attr Name="_isCodegen" Value="true"/>
     <Attr Name="_superClass" Value="erpglobals.modelglobals.ERPEntityImpl"/>
   </DesignTime>
+  <ViewAccessor
+    Name="AccGlBankBranchSEQ"
+    ViewObjectName="erpfms.modelfms.fmsvo.GlBankBranchVO"
+    RowLevelBinds="true"/>
   <Attribute
     Name="BankId"
     Precision="6"
@@ -44,6 +49,8 @@
     ColumnType="NUMBER"
     TableName="GL_BANK_BRANCH"
     PrimaryKey="true">
+    <TransientExpression
+      trustMode="untrusted"><![CDATA[-(AccGlBankBranchSEQ.getEstimatedRowCount()+1)]]></TransientExpression>
     <Properties>
       <SchemaBasedProperties>
         <LABEL
@@ -60,7 +67,8 @@
     SQLType="VARCHAR"
     Type="java.lang.String"
     ColumnType="VARCHAR2"
-    TableName="GL_BANK_BRANCH">
+    TableName="GL_BANK_BRANCH"
+    IsNotNull="true">
     <DesignTime>
       <Attr Name="_DisplaySize" Value="30"/>
     </DesignTime>
@@ -80,7 +88,8 @@
     SQLType="VARCHAR"
     Type="java.lang.String"
     ColumnType="VARCHAR2"
-    TableName="GL_BANK_BRANCH">
+    TableName="GL_BANK_BRANCH"
+    IsNotNull="true">
     <DesignTime>
       <Attr Name="_DisplaySize" Value="100"/>
     </DesignTime>
@@ -463,6 +472,30 @@
     </AttrArray>
   </Key>
   <Key
+    Name="GlBankBranchBranchNameCheck">
+    <DesignTime>
+      <Attr Name="_isNotNull" Value="true"/>
+      <Attr Name="_DBObjectName" Value="Gl_Bank_Branch_Branch_Name_Che"/>
+      <Attr Name="_checkCondition" Value='"BRANCH_NAME" IS NOT NULL'/>
+      <Attr Name="_isCheck" Value="true"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="erpfms.modelfms.fmseo.GlBankBranch.BranchName"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="GlBankBranchBranchShortNameCheck">
+    <DesignTime>
+      <Attr Name="_isNotNull" Value="true"/>
+      <Attr Name="_DBObjectName" Value="Gl_Bank_Branch_Branch_Short_Na"/>
+      <Attr Name="_checkCondition" Value='"BRANCH_SHORT_NAME" IS NOT NULL'/>
+      <Attr Name="_isCheck" Value="true"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="erpfms.modelfms.fmseo.GlBankBranch.BranchShortName"/>
+    </AttrArray>
+  </Key>
+  <Key
     Name="PkGlBankBranch"
     PrimaryKey="true">
     <DesignTime>
@@ -527,6 +560,26 @@
       <Item Value="erpfms.modelfms.fmseo.GlBankBranch.CityId"/>
     </AttrArray>
   </Key>
+  <validation:UniqueKeyValidationBean
+    Name="GlBankBranchBranchCode"
+    ResId="erpfms.modelfms.fmseo.GlBankBranch_Rule_0"
+    KeyName="AltKeyBankBranch">
+    <validation:OnAttributes>
+      <validation:Item
+        Value="BankId"/>
+      <validation:Item
+        Value="BranchShortName"/>
+    </validation:OnAttributes>
+    <validation:OnCondition
+      trustMode="untrusted"
+      Name="OnConditionExpr"><![CDATA[BranchShortName!=null]]></validation:OnCondition>
+    <validation:ResExpressions
+      Name="GlBankBranchBranchCode_ResExprList">
+      <validation:Expression
+        trustMode="untrusted"
+        Name="0"><![CDATA[BranchShortName]]></validation:Expression>
+    </validation:ResExpressions>
+  </validation:UniqueKeyValidationBean>
   <ResourceBundle>
     <PropertiesBundle
       PropertiesFile="erpfms.modelfms.ModelFMSBundle"/>

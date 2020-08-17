@@ -4,6 +4,13 @@
     <af:document title="FMS_0012_EDIT_EDIT.jsf" id="d1">
         <af:messages id="m1"/>
         <af:form id="f1">
+            <af:popup childCreation="deferred" autoCancel="disabled" id="p1">
+                <af:dialog id="d2" title="Confirmation!" type="yesNo"
+                           dialogListener="#{pageFlowScope.OracleERPBean.doERPConfirmDelete}">
+                    <f:facet name="buttonBar"/>
+                    <af:outputText value="Do you want to delete this record?" id="ot2" styleClass="ErpDeleteConfirmText"/>
+                </af:dialog>
+            </af:popup>        
             <af:decorativeBox id="db2" dimensionsFrom="parent">
                 <f:facet name="center">
                     <af:decorativeBox id="db1" dimensionsFrom="parent">
@@ -352,14 +359,19 @@
                                                      partialSubmit="true" icon="#{resource['images:imgAddRecord.png']}"
                                                      iconPosition="top"
                                                      action="#{pageFlowScope.OracleERPBean.doERPAddRecordWithPara}"/>
+                                            <af:link text="Delete" id="l12" partialSubmit="true"
+                                                     icon="#{resource['images:imgDeleteRecord.png']}"
+                                                     iconPosition="top">
+                                                <af:showPopupBehavior popupId="p1"/>
+                                            </af:link>
                                             <af:link text="Delete" id="l9" partialSubmit="true"
                                                      icon="#{resource['images:imgDeleteRecord.png']}" iconPosition="top"
-                                                     actionListener="#{bindings.Delete.execute}"/>
+                                                     actionListener="#{bindings.Delete.execute}" rendered="false"/>
                                             <af:link actionListener="#{bindings.Delete.execute}" text="Delete"
                                                      disabled="#{!bindings.Delete.enabled}" id="l8" rendered="false"/>
                                             <af:link text="Undo" id="l3" actionListener="#{bindings.Rollback.execute}"
                                                      icon="#{resource['images:imgUndo.png']}" iconPosition="top"
-                                                     partialSubmit="true">
+                                                     partialSubmit="true" immediate="true">
                                                 <af:resetActionListener/>
                                             </af:link>
                                             <af:link text="Save" id="l6" icon="#{resource['images:imgSave.png']}"

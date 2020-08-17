@@ -9,6 +9,7 @@ import erpglobals.modelglobals.ERPGlobalPLSQLClass;
 import java.sql.Timestamp;
 
 import oracle.jbo.Key;
+import oracle.jbo.RowSet;
 import oracle.jbo.server.EntityDefImpl;
 import oracle.jbo.server.TransactionEvent;
 // ---------------------------------------------------------------------
@@ -46,7 +47,8 @@ public class GlBankBranchImpl extends ERPEntityImpl {
         GlBank,
         GlChartOfAccounts,
         SmCountry,
-        SmCity;
+        SmCity,
+        AccGlBankBranchSEQ;
         private static AttributesEnum[] vals = null;
         private static final int firstIndex = 0;
 
@@ -96,6 +98,7 @@ public class GlBankBranchImpl extends ERPEntityImpl {
     public static final int GLCHARTOFACCOUNTS = AttributesEnum.GlChartOfAccounts.index();
     public static final int SMCOUNTRY = AttributesEnum.SmCountry.index();
     public static final int SMCITY = AttributesEnum.SmCity.index();
+    public static final int ACCGLBANKBRANCHSEQ = AttributesEnum.AccGlBankBranchSEQ.index();
 
     /**
      * This is the default constructor (do not remove).
@@ -504,6 +507,14 @@ public class GlBankBranchImpl extends ERPEntityImpl {
      */
     public void setSmCity(SmCityImpl value) {
         setAttributeInternal(SMCITY, value);
+    }
+
+
+    /**
+     * Gets the view accessor <code>RowSet</code> AccGlBankBranchSEQ.
+     */
+    public RowSet getAccGlBankBranchSEQ() {
+        return (RowSet) getAttributeInternal(ACCGLBANKBRANCHSEQ);
     }
 
 

@@ -25,7 +25,8 @@
     Type="java.lang.Integer"
     ColumnType="NUMBER"
     TableName="GL_BANK"
-    PrimaryKey="true">
+    PrimaryKey="true"
+    ChangeIndicator="true">
     <Properties>
       <SchemaBasedProperties>
         <LABEL
@@ -102,8 +103,7 @@
     Type="java.sql.Timestamp"
     ColumnType="DATE"
     TableName="GL_BANK">
-    <TransientExpression
-      trustMode="trusted"><![CDATA[adf.currentDate]]></TransientExpression>
+    <TransientExpression><![CDATA[adf.currentDate]]></TransientExpression>
     <Properties>
       <SchemaBasedProperties>
         <LABEL
@@ -139,7 +139,8 @@
     SQLType="NUMERIC"
     Type="java.lang.Integer"
     ColumnType="NUMBER"
-    TableName="GL_BANK">
+    TableName="GL_BANK"
+    IsNotNull="true">
     <Properties>
       <SchemaBasedProperties>
         <LABEL
@@ -260,8 +261,7 @@
     Type="java.lang.Integer"
     ColumnType="NUMBER"
     TableName="GL_BANK">
-    <TransientExpression
-      trustMode="trusted"><![CDATA[erpglobals.modelglobals.ERPGlobalPLSQLClass.doGetModelGlobalDefCompany()]]></TransientExpression>
+    <TransientExpression><![CDATA[erpglobals.modelglobals.ERPGlobalPLSQLClass.doGetModelGlobalDefCompany()]]></TransientExpression>
     <Properties>
       <SchemaBasedProperties>
         <LABEL
@@ -390,8 +390,7 @@
     ColumnType="VARCHAR2"
     IsPersistent="false"
     IsQueriable="false">
-    <TransientExpression
-      trustMode="trusted"><![CDATA[SmCountry?.Countryname]]></TransientExpression>
+    <TransientExpression><![CDATA[SmCountry?.Countryname]]></TransientExpression>
     <Dependencies>
       <Item
         Value="BaseCountryId"/>
@@ -414,8 +413,7 @@
     ColumnType="VARCHAR2"
     IsPersistent="false"
     IsQueriable="false">
-    <TransientExpression
-      trustMode="trusted"><![CDATA[GlChartOfAccounts?.Description]]></TransientExpression>
+    <TransientExpression><![CDATA[GlChartOfAccounts?.Description]]></TransientExpression>
     <Properties>
       <SchemaBasedProperties>
         <LABEL
@@ -446,6 +444,18 @@
     AssociationOtherEnd="erpfms.modelfms.fmseo.GlChartOfAccountGlBankChartOfAcctItAsso.GlBank"
     Type="erpfms.modelfms.fmseo.GlChartOfAccountsImpl"
     IsUpdateable="true"/>
+  <Key
+    Name="GlBankBaseCountryIdCheck">
+    <DesignTime>
+      <Attr Name="_isNotNull" Value="true"/>
+      <Attr Name="_DBObjectName" Value="Gl_Bank_Base_Country_Id_Check"/>
+      <Attr Name="_checkCondition" Value='"BASE_COUNTRY_ID" IS NOT NULL'/>
+      <Attr Name="_isCheck" Value="true"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="erpfms.modelfms.fmseo.GlBank.BaseCountryId"/>
+    </AttrArray>
+  </Key>
   <Key
     Name="PkGlBank"
     PrimaryKey="true">
