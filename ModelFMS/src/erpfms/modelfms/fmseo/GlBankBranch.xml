@@ -54,24 +54,6 @@
     </Properties>
   </Attribute>
   <Attribute
-    Name="BranchShortCode"
-    Precision="6"
-    Scale="0"
-    ColumnName="BRANCH_SHORT_CODE"
-    SQLType="NUMERIC"
-    Type="java.lang.Integer"
-    ColumnType="NUMBER"
-    TableName="GL_BANK_BRANCH">
-    <Properties>
-      <SchemaBasedProperties>
-        <LABEL
-          ResId="erpfms.modelfms.fmseo.GlBankBranch.BranchShortCode_LABEL"/>
-        <DISPLAYWIDTH
-          Value="20"/>
-      </SchemaBasedProperties>
-    </Properties>
-  </Attribute>
-  <Attribute
     Name="BranchShortName"
     Precision="30"
     ColumnName="BRANCH_SHORT_NAME"
@@ -468,6 +450,18 @@
     AssociationOtherEnd="erpfms.modelfms.fmseo.SmCitySmBankBranchCityIdAsso.GlBankBranch"
     Type="erpadm.modeladm.admeo.SmCityImpl"
     IsUpdateable="true"/>
+  <Key
+    Name="AltKeyBankBranch"
+    AltKey="true">
+    <DesignTime>
+      <Attr Name="_isUnique" Value="true"/>
+      <Attr Name="_DBObjectName" Value="GL_BANK_BRANCH"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="erpfms.modelfms.fmseo.GlBankBranch.BankId"/>
+      <Item Value="erpfms.modelfms.fmseo.GlBankBranch.BranchShortName"/>
+    </AttrArray>
+  </Key>
   <Key
     Name="PkGlBankBranch"
     PrimaryKey="true">

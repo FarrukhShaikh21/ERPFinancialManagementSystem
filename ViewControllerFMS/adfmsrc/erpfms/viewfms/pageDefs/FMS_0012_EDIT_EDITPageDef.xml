@@ -7,7 +7,7 @@
     <iterator Binds="GlBankByCompanyCRUD" RangeSize="25" DataControl="ERPFMSModuleDataControl"
               id="GlBankByCompanyCRUDIterator"/>
     <iterator Binds="GlBankBranchDetCRUD" RangeSize="25" DataControl="ERPFMSModuleDataControl"
-              id="GlBankBranchDetCRUDIterator"/>
+              id="GlBankBranchDetCRUDIterator" ChangeEventPolicy="none"/>
   </executables>
   <bindings>
     <listOfValues IterBinding="GlBankByCompanyCRUDIterator" StaticList="false" Uses="LovtxtBaseCountryName"
@@ -69,7 +69,6 @@
     <tree IterBinding="GlBankBranchDetCRUDIterator" id="GlBankBranchDetCRUD">
       <nodeDefinition DefName="erpfms.modelfms.fmsvo.GlBankBranchVO" Name="GlBankBranchDetCRUD0">
         <AttrNames>
-          <Item Value="BranchShortCode"/>
           <Item Value="BranchShortName"/>
           <Item Value="BranchName"/>
           <Item Value="BranchDate"/>
@@ -82,6 +81,7 @@
           <Item Value="txtCountryName"/>
           <Item Value="txtCityName"/>
           <Item Value="IsActive"/>
+          <Item Value="BankBranchId"/>
         </AttrNames>
       </nodeDefinition>
     </tree>
@@ -96,7 +96,11 @@
             DataControl="ERPFMSModuleDataControl"/>
     <action id="Commit" RequiresUpdateModel="true" Action="commitTransaction" DataControl="ERPFMSModuleDataControl"/>
     <action IterBinding="GlBankBranchDetCRUDIterator" id="CreateInsert" RequiresUpdateModel="true"
-            Action="createInsertRow"/>
+            Action="createWithParams" InstanceName="ERPFMSModuleDataControl.GlBankBranchDetCRUD"
+            DataControl="ERPFMSModuleDataControl">
+      <NamedData NDName="BankBranchId" NDValue="#{-bindings.GlBankBranchDetCRUD.estimatedRowCount + 1}"
+                 NDType="java.lang.String"/>
+    </action>
     <action IterBinding="GlBankByCompanyCRUDIterator" id="Delete" RequiresUpdateModel="false"
             Action="removeCurrentRow"/>
     <action IterBinding="GlBankBranchDetCRUDIterator" id="Delete1" RequiresUpdateModel="false"

@@ -24,7 +24,34 @@
   <ViewAccessor
     Name="AccSmCityVO"
     ViewObjectName="erpadm.modeladm.admvo.SmCityVO"
-    RowLevelBinds="true"/>
+    RowLevelBinds="true">
+    <ViewCriteriaUsage
+      Name="SmCityCountryWiseVC"
+      FullName="erpadm.modeladm.admvo.SmCityVO.SmCityCountryWiseVC"/>
+    <ParameterMap>
+      <PIMap Variable="P_ADF_COUNTRY_SNO">
+        <TransientExpression
+          trustMode="untrusted"><![CDATA[CountryId==null?-1:CountryId]]></TransientExpression>
+      </PIMap>
+    </ParameterMap>
+  </ViewAccessor>
+  <ViewAccessor
+    Name="AccSysGeneralValueVO"
+    ViewObjectName="erpadm.modeladm.admvo.SysGeneralValueVO"
+    RowLevelBinds="true">
+    <ViewCriteriaUsage
+      Name="SysGeneralValueActiveVC"
+      FullName="erpadm.modeladm.admvo.SysGeneralValueVO.SysGeneralValueActiveVC"/>
+    <ViewCriteriaUsage
+      Name="SysGeneralValueByValueSetIDVC"
+      FullName="erpadm.modeladm.admvo.SysGeneralValueVO.SysGeneralValueByValueSetIDVC"/>
+    <ParameterMap>
+      <PIMap Variable="P_ADF_VALUE_SET_ID">
+        <TransientExpression
+          trustMode="untrusted"><![CDATA[4]]></TransientExpression>
+      </PIMap>
+    </ParameterMap>
+  </ViewAccessor>
   <ListBinding
     Name="LOV_txtCountryName"
     ListVOName="AccSmCountryVO"
@@ -102,6 +129,24 @@
     <DisplayCriteria
       Name="SmCityFindVC"/>
   </ListBinding>
+  <ListBinding
+    Name="LovIsActive"
+    ListVOName="AccSysGeneralValueVO"
+    ListRangeSize="-1"
+    NullValueFlag="none"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="IsActive"/>
+    </AttrArray>
+    <AttrArray Name="AttrExpressions"/>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="ValueCode"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="ValueDescription"/>
+    </AttrArray>
+    <DisplayCriteria/>
+  </ListBinding>
   <EntityUsage
     Name="GlBankBranch"
     Entity="erpfms.modelfms.fmseo.GlBankBranch"/>
@@ -118,13 +163,6 @@
     EntityAttrName="BankBranchId"
     EntityUsage="GlBankBranch"
     AliasName="BANK_BRANCH_ID"/>
-  <ViewAttribute
-    Name="BranchShortCode"
-    IsNotNull="true"
-    PrecisionRule="true"
-    EntityAttrName="BranchShortCode"
-    EntityUsage="GlBankBranch"
-    AliasName="BRANCH_SHORT_CODE"/>
   <ViewAttribute
     Name="BranchShortName"
     IsNotNull="true"
@@ -165,7 +203,14 @@
     PrecisionRule="true"
     EntityAttrName="CityId"
     EntityUsage="GlBankBranch"
-    AliasName="CITY_ID"/>
+    AliasName="CITY_ID">
+    <Dependencies>
+      <Item
+        Value="CountryId"/>
+      <Item
+        Value="txtCountryName"/>
+    </Dependencies>
+  </ViewAttribute>
   <ViewAttribute
     Name="MobileNo"
     PrecisionRule="true"
@@ -197,7 +242,15 @@
     PrecisionRule="true"
     EntityAttrName="IsActive"
     EntityUsage="GlBankBranch"
-    AliasName="IS_ACTIVE"/>
+    AliasName="IS_ACTIVE"
+    LOVName="LovIsActive">
+    <Properties>
+      <SchemaBasedProperties>
+        <CONTROLTYPE
+          Value="choice"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="IsHeadOffice"
     PrecisionRule="true"
@@ -275,6 +328,12 @@
           Value="combo_lov"/>
       </SchemaBasedProperties>
     </Properties>
+    <Dependencies>
+      <Item
+        Value="CountryId"/>
+      <Item
+        Value="txtCountryName"/>
+    </Dependencies>
   </ViewAttribute>
   <ViewLinkAccessor
     Name="GlBankVO"

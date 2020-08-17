@@ -24,7 +24,6 @@ public class GlBankBranchImpl extends ERPEntityImpl {
     public enum AttributesEnum {
         BankId,
         BankBranchId,
-        BranchShortCode,
         BranchShortName,
         BranchName,
         BranchDate,
@@ -74,7 +73,6 @@ public class GlBankBranchImpl extends ERPEntityImpl {
 
     public static final int BANKID = AttributesEnum.BankId.index();
     public static final int BANKBRANCHID = AttributesEnum.BankBranchId.index();
-    public static final int BRANCHSHORTCODE = AttributesEnum.BranchShortCode.index();
     public static final int BRANCHSHORTNAME = AttributesEnum.BranchShortName.index();
     public static final int BRANCHNAME = AttributesEnum.BranchName.index();
     public static final int BRANCHDATE = AttributesEnum.BranchDate.index();
@@ -145,21 +143,6 @@ public class GlBankBranchImpl extends ERPEntityImpl {
         setAttributeInternal(BANKBRANCHID, value);
     }
 
-    /**
-     * Gets the attribute value for BranchShortCode, using the alias name BranchShortCode.
-     * @return the value of BranchShortCode
-     */
-    public Integer getBranchShortCode() {
-        return (Integer) getAttributeInternal(BRANCHSHORTCODE);
-    }
-
-    /**
-     * Sets <code>value</code> as the attribute value for BranchShortCode.
-     * @param value value to set the BranchShortCode
-     */
-    public void setBranchShortCode(Integer value) {
-        setAttributeInternal(BRANCHSHORTCODE, value);
-    }
 
     /**
      * Gets the attribute value for BranchShortName, using the alias name BranchShortName.
