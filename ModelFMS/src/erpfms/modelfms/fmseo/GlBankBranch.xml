@@ -108,7 +108,8 @@
     SQLType="DATE"
     Type="java.sql.Timestamp"
     ColumnType="DATE"
-    TableName="GL_BANK_BRANCH">
+    TableName="GL_BANK_BRANCH"
+    IsNotNull="true">
     <TransientExpression><![CDATA[adf.currentDate]]></TransientExpression>
     <Properties>
       <SchemaBasedProperties>
@@ -145,7 +146,8 @@
     SQLType="NUMERIC"
     Type="java.lang.Integer"
     ColumnType="NUMBER"
-    TableName="GL_BANK_BRANCH">
+    TableName="GL_BANK_BRANCH"
+    IsNotNull="true">
     <Properties>
       <SchemaBasedProperties>
         <LABEL
@@ -163,7 +165,8 @@
     SQLType="NUMERIC"
     Type="java.lang.Integer"
     ColumnType="NUMBER"
-    TableName="GL_BANK_BRANCH">
+    TableName="GL_BANK_BRANCH"
+    IsNotNull="true">
     <Properties>
       <SchemaBasedProperties>
         <LABEL
@@ -240,7 +243,8 @@
     SQLType="VARCHAR"
     Type="java.lang.String"
     ColumnType="VARCHAR2"
-    TableName="GL_BANK_BRANCH">
+    TableName="GL_BANK_BRANCH"
+    IsNotNull="true">
     <DesignTime>
       <Attr Name="_DisplaySize" Value="50"/>
     </DesignTime>
@@ -472,6 +476,18 @@
     </AttrArray>
   </Key>
   <Key
+    Name="GlBankBranchBranchDateCheck">
+    <DesignTime>
+      <Attr Name="_isNotNull" Value="true"/>
+      <Attr Name="_DBObjectName" Value="Gl_Bank_Branch_Branch_Date_Che"/>
+      <Attr Name="_checkCondition" Value='"BRANCH_DATE" IS NOT NULL'/>
+      <Attr Name="_isCheck" Value="true"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="erpfms.modelfms.fmseo.GlBankBranch.BranchDate"/>
+    </AttrArray>
+  </Key>
+  <Key
     Name="GlBankBranchBranchNameCheck">
     <DesignTime>
       <Attr Name="_isNotNull" Value="true"/>
@@ -493,6 +509,42 @@
     </DesignTime>
     <AttrArray Name="Attributes">
       <Item Value="erpfms.modelfms.fmseo.GlBankBranch.BranchShortName"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="GlBankBranchCityIdCheck">
+    <DesignTime>
+      <Attr Name="_isNotNull" Value="true"/>
+      <Attr Name="_DBObjectName" Value="Gl_Bank_Branch_City_Id_Check"/>
+      <Attr Name="_checkCondition" Value='"CITY_ID" IS NOT NULL'/>
+      <Attr Name="_isCheck" Value="true"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="erpfms.modelfms.fmseo.GlBankBranch.CityId"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="GlBankBranchContactPersonCheck">
+    <DesignTime>
+      <Attr Name="_isNotNull" Value="true"/>
+      <Attr Name="_DBObjectName" Value="Gl_Bank_Branch_Contact_Person_"/>
+      <Attr Name="_checkCondition" Value='"CONTACT_PERSON" IS NOT NULL'/>
+      <Attr Name="_isCheck" Value="true"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="erpfms.modelfms.fmseo.GlBankBranch.ContactPerson"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="GlBankBranchCountryIdCheck">
+    <DesignTime>
+      <Attr Name="_isNotNull" Value="true"/>
+      <Attr Name="_DBObjectName" Value="Gl_Bank_Branch_Country_Id_Chec"/>
+      <Attr Name="_checkCondition" Value='"COUNTRY_ID" IS NOT NULL'/>
+      <Attr Name="_isCheck" Value="true"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="erpfms.modelfms.fmseo.GlBankBranch.CountryId"/>
     </AttrArray>
   </Key>
   <Key
