@@ -148,6 +148,8 @@
     ColumnType="NUMBER"
     TableName="GL_BANK_BRANCH"
     IsNotNull="true">
+    <TransientExpression
+      trustMode="untrusted"><![CDATA[GlBank?.BaseCountryId]]></TransientExpression>
     <Properties>
       <SchemaBasedProperties>
         <LABEL
