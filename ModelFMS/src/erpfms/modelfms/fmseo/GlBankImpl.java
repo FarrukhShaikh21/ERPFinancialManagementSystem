@@ -44,6 +44,12 @@ public class GlBankImpl extends ERPEntityImpl {
         LastUpdatedDate,
         txtBaseCountryName,
         txtCOADescription,
+        IsSupervised,
+        SupervisedDate,
+        SupervisedBy,
+        IsUnsupervised,
+        UnSupervisedBy,
+        UnSupervisedDate,
         GlBankBranch,
         SmCountry,
         GlChartOfAccounts;
@@ -92,6 +98,12 @@ public class GlBankImpl extends ERPEntityImpl {
     public static final int LASTUPDATEDDATE = AttributesEnum.LastUpdatedDate.index();
     public static final int TXTBASECOUNTRYNAME = AttributesEnum.txtBaseCountryName.index();
     public static final int TXTCOADESCRIPTION = AttributesEnum.txtCOADescription.index();
+    public static final int ISSUPERVISED = AttributesEnum.IsSupervised.index();
+    public static final int SUPERVISEDDATE = AttributesEnum.SupervisedDate.index();
+    public static final int SUPERVISEDBY = AttributesEnum.SupervisedBy.index();
+    public static final int ISUNSUPERVISED = AttributesEnum.IsUnsupervised.index();
+    public static final int UNSUPERVISEDBY = AttributesEnum.UnSupervisedBy.index();
+    public static final int UNSUPERVISEDDATE = AttributesEnum.UnSupervisedDate.index();
     public static final int GLBANKBRANCH = AttributesEnum.GlBankBranch.index();
     public static final int SMCOUNTRY = AttributesEnum.SmCountry.index();
     public static final int GLCHARTOFACCOUNTS = AttributesEnum.GlChartOfAccounts.index();
@@ -444,6 +456,102 @@ public class GlBankImpl extends ERPEntityImpl {
      */
     public void settxtCOADescription(String value) {
         setAttributeInternal(TXTCOADESCRIPTION, value);
+    }
+
+    /**
+     * Gets the attribute value for IsSupervised, using the alias name IsSupervised.
+     * @return the value of IsSupervised
+     */
+    public String getIsSupervised() {
+        return (String) getAttributeInternal(ISSUPERVISED);
+    }
+
+    /**
+     * Sets <code>value</code> as the attribute value for IsSupervised.
+     * @param value value to set the IsSupervised
+     */
+    public void setIsSupervised(String value) {
+        setAttributeInternal(ISSUPERVISED, value);
+    }
+
+    /**
+     * Gets the attribute value for SupervisedDate, using the alias name SupervisedDate.
+     * @return the value of SupervisedDate
+     */
+    public Timestamp getSupervisedDate() {
+        return (Timestamp) getAttributeInternal(SUPERVISEDDATE);
+    }
+
+    /**
+     * Sets <code>value</code> as the attribute value for SupervisedDate.
+     * @param value value to set the SupervisedDate
+     */
+    public void setSupervisedDate(Timestamp value) {
+        setAttributeInternal(SUPERVISEDDATE, value);
+    }
+
+    /**
+     * Gets the attribute value for SupervisedBy, using the alias name SupervisedBy.
+     * @return the value of SupervisedBy
+     */
+    public Integer getSupervisedBy() {
+        return (Integer) getAttributeInternal(SUPERVISEDBY);
+    }
+
+    /**
+     * Sets <code>value</code> as the attribute value for SupervisedBy.
+     * @param value value to set the SupervisedBy
+     */
+    public void setSupervisedBy(Integer value) {
+        setAttributeInternal(SUPERVISEDBY, value);
+    }
+
+    /**
+     * Gets the attribute value for IsUnsupervised, using the alias name IsUnsupervised.
+     * @return the value of IsUnsupervised
+     */
+    public String getIsUnsupervised() {
+        return (String) getAttributeInternal(ISUNSUPERVISED);
+    }
+
+    /**
+     * Sets <code>value</code> as the attribute value for IsUnsupervised.
+     * @param value value to set the IsUnsupervised
+     */
+    public void setIsUnsupervised(String value) {
+        setAttributeInternal(ISUNSUPERVISED, value);
+    }
+
+    /**
+     * Gets the attribute value for UnSupervisedBy, using the alias name UnSupervisedBy.
+     * @return the value of UnSupervisedBy
+     */
+    public Integer getUnSupervisedBy() {
+        return (Integer) getAttributeInternal(UNSUPERVISEDBY);
+    }
+
+    /**
+     * Sets <code>value</code> as the attribute value for UnSupervisedBy.
+     * @param value value to set the UnSupervisedBy
+     */
+    public void setUnSupervisedBy(Integer value) {
+        setAttributeInternal(UNSUPERVISEDBY, value);
+    }
+
+    /**
+     * Gets the attribute value for UnSupervisedDate, using the alias name UnSupervisedDate.
+     * @return the value of UnSupervisedDate
+     */
+    public Timestamp getUnSupervisedDate() {
+        return (Timestamp) getAttributeInternal(UNSUPERVISEDDATE);
+    }
+
+    /**
+     * Sets <code>value</code> as the attribute value for UnSupervisedDate.
+     * @param value value to set the UnSupervisedDate
+     */
+    public void setUnSupervisedDate(Timestamp value) {
+        setAttributeInternal(UNSUPERVISEDDATE, value);
     }
 
     /**

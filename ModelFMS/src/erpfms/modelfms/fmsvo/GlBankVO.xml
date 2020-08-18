@@ -286,6 +286,42 @@
       </SchemaBasedProperties>
     </Properties>
   </ViewAttribute>
+  <ViewAttribute
+    Name="UnSupervisedBy"
+    PrecisionRule="true"
+    EntityAttrName="UnSupervisedBy"
+    EntityUsage="GlBank"
+    AliasName="UN_SUPERVISED_BY"/>
+  <ViewAttribute
+    Name="UnSupervisedDate"
+    PrecisionRule="true"
+    EntityAttrName="UnSupervisedDate"
+    EntityUsage="GlBank"
+    AliasName="UN_SUPERVISED_DATE"/>
+  <ViewAttribute
+    Name="SupervisedBy"
+    PrecisionRule="true"
+    EntityAttrName="SupervisedBy"
+    EntityUsage="GlBank"
+    AliasName="SUPERVISED_BY"/>
+  <ViewAttribute
+    Name="SupervisedDate"
+    PrecisionRule="true"
+    EntityAttrName="SupervisedDate"
+    EntityUsage="GlBank"
+    AliasName="SUPERVISED_DATE"/>
+  <ViewAttribute
+    Name="IsSupervised"
+    PrecisionRule="true"
+    EntityAttrName="IsSupervised"
+    EntityUsage="GlBank"
+    AliasName="IS_SUPERVISED"/>
+  <ViewAttribute
+    Name="IsUnsupervised"
+    PrecisionRule="true"
+    EntityAttrName="IsUnsupervised"
+    EntityUsage="GlBank"
+    AliasName="IS_UNSUPERVISED"/>
   <ViewCriteria
     Name="GlBankByCompanyVC"
     ViewObjectName="erpfms.modelfms.fmsvo.GlBankVO"

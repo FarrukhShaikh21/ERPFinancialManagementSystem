@@ -104,5 +104,15 @@
             Action="removeCurrentRow"/>
     <action IterBinding="GlBankBranchDetCRUDIterator" id="Delete1" RequiresUpdateModel="false"
             Action="removeCurrentRow"/>
+    <attributeValues IterBinding="GlBankByCompanyCRUDIterator" id="IsSupervised">
+      <AttrNames>
+        <Item Value="IsSupervised"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="GlBankByCompanyCRUDIterator" id="IsUnsupervised">
+      <AttrNames>
+        <Item Value="IsUnsupervised"/>
+      </AttrNames>
+    </attributeValues>
   </bindings>
 </pageDefinition>
