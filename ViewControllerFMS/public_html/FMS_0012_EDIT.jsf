@@ -121,7 +121,8 @@
                                                             <af:gridRow marginTop="5px" height="auto" id="gr2">
                                                                 <af:gridCell marginStart="5px" width="100%"
                                                                              marginEnd="5px" id="gc2"
-                                                                             styleClass="AFStretchWidth ERPHeroBackground">
+                                                                             styleClass="AFStretchWidth ERPHeroBackground"
+                                                                             halign="stretch" valign="stretch">
                                                                     <af:panelGroupLayout id="pgl6" layout="horizontal">
                                                                         <af:link id="l1"
                                                                                  styleClass="ERPHeroBannerFont ERPLink"
