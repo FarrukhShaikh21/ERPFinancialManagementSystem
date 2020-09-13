@@ -412,7 +412,6 @@
         ViewAttribute="BranchShortName"
         Operator="CONTAINS"
         Conjunction="AND"
-        Value=""
         Required="Optional">
         <Properties>
           <SchemaBasedProperties>
@@ -426,7 +425,6 @@
         ViewAttribute="BranchName"
         Operator="CONTAINS"
         Conjunction="AND"
-        Value=""
         Required="Optional">
         <Properties>
           <SchemaBasedProperties>
@@ -435,51 +433,6 @@
           </SchemaBasedProperties>
         </Properties>
       </ViewCriteriaItem>
-      <ViewCriteriaItemCompound
-        Name="BranchDate"
-        ViewAttribute="BranchDate">
-        <ViewCriteria
-          Name="GlBankBranchVOCriteria_GlBankBranchVOCriteria_row_0_BranchDate_itemHolder"
-          ViewObjectName="erpfms.modelfms.fmsvo.GlBankBranchVO"
-          Conjunction="OR">
-          <ViewCriteriaRow
-            Name="GlBankBranchVOCriteria_GlBankBranchVOCriteria_row_0_BranchDate_itemHolder_row_0"
-            Conjunction="AND">
-            <ViewCriteriaItem
-              Name="BranchDate"
-              ViewAttribute="BranchDate"
-              Operator="BETWEEN"
-              Conjunction="AND"
-              Value=""
-              Required="Optional">
-              <Properties>
-                <SchemaBasedProperties>
-                  <DISPLAYWIDTH
-                    Value="20"/>
-                </SchemaBasedProperties>
-              </Properties>
-            </ViewCriteriaItem>
-          </ViewCriteriaRow>
-          <ViewCriteriaRow
-            Name="GlBankBranchVOCriteria_GlBankBranchVOCriteria_row_0_BranchDate_itemHolder_row_1"
-            Conjunction="AND">
-            <ViewCriteriaItem
-              Name="GlBankBranchVOCriteria_GlBankBranchVOCriteria_row_0_BranchDate_GlBankBranchVOCriteria_GlBankBranchVOCriteria_row_0_BranchDate_itemHolder_GlBankBranchVOCriteria_GlBankBranchVOCriteria_row_0_BranchDate_itemHolder_row_1_BranchDate"
-              ViewAttribute="BranchDate"
-              Operator="="
-              Conjunction="AND"
-              Value=""
-              Required="Optional">
-              <Properties>
-                <SchemaBasedProperties>
-                  <DISPLAYWIDTH
-                    Value="20"/>
-                </SchemaBasedProperties>
-              </Properties>
-            </ViewCriteriaItem>
-          </ViewCriteriaRow>
-        </ViewCriteria>
-      </ViewCriteriaItemCompound>
     </ViewCriteriaRow>
   </ViewCriteria>
   <ViewLinkAccessor
