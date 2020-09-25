@@ -505,6 +505,12 @@
         <fixed-outcome>ERP-ACT-FMS_0003</fixed-outcome>
       </outcome>
     </method-call>
+    <view id="FMS_0013_EDIT">
+      <page>/FMS_0013_EDIT.jsf</page>
+    </view>
+    <view id="FMS_0013_EDIT_EDIT">
+      <page>/FMS_0013_EDIT_EDIT.jsf</page>
+    </view>
     <control-flow-rule id="__8">
       <from-activity-id>doFMSGotoErpActivity</from-activity-id>
       <control-flow-case id="__9">
