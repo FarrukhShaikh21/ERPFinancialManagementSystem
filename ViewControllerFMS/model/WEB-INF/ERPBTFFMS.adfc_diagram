@@ -70,7 +70,7 @@
       <property
          name="fromOutcome">ERP-ACT-FMS_0001</property>
       <property
-         name="sdm:polyPoints">B56,5.5,585.33545,-11.5,610.3965,T50</property>
+         name="sdm:polyPoints">B50,2.0,581.9365,-11.5,610.3965,T50</property>
    </ControlFlowCase>
    <WildcardControlFlowRule
       id="WildcardControlFlowRule15">
@@ -487,7 +487,7 @@
       <property
          name="fromOutcome">ERP-ACT-FMS_0003</property>
       <property
-         name="sdm:polyPoints">L54,-39.0,531.4365,-100.5,538.6953,R50</property>
+         name="sdm:polyPoints">L46,-42.48428,524.4365,-100.5,538.6953,R50</property>
    </ControlFlowCase>
    <ControlFlowCase
       islink="true"
@@ -497,7 +497,7 @@
       <property
          name="fromOutcome">ERPEDITFMS_0003</property>
       <property
-         name="sdm:polyPoints">B56,-388.0,597.83887,-314.31152,653.83887,L50</property>
+         name="sdm:polyPoints">R54,-350.5,547.33887,-273.31152,599.83887,T50</property>
    </ControlFlowCase>
    <MethodCall
       id="MethodCall51">
@@ -530,7 +530,7 @@
       <property
          name="fromOutcome">ERPBACKCRUD</property>
       <property
-         name="sdm:polyPoints">T50,-418.64648,647.38477,-395.0,597.83887,B44</property>
+         name="sdm:polyPoints">T50,-418.64648,647.38477,-391.5,597.83887,B50</property>
    </ControlFlowCase>
    <View
       id="View54">
@@ -705,7 +705,7 @@
       <property
          name="fromOutcome">ExecuteAdminCompanyRO</property>
       <property
-         name="sdm:polyPoints">L50,-182.5,538.6953,-350.5,543.83887,R50</property>
+         name="sdm:polyPoints">L50,-182.5,538.6953,-350.5,540.33887,R46</property>
    </ControlFlowCase>
    <View
       id="View69">
@@ -743,7 +743,7 @@
       <property
          name="fromOutcome">ERP-ACT-FMS_0004</property>
       <property
-         name="sdm:polyPoints">L46,-39.0,524.4365,-145.5,415.09766,B50</property>
+         name="sdm:polyPoints">L38,-39.0,517.4365,-145.5,415.09766,B50</property>
    </ControlFlowCase>
    <ControlFlowCase
       islink="true"
@@ -2171,7 +2171,7 @@
       <property
          name="fromOutcome">ERP-ACT-FMS_0012</property>
       <property
-         name="sdm:polyPoints">B44,-1.5,581.9365,-637.0,818.09766,T56</property>
+         name="sdm:polyPoints">L54,-41.288303,531.4365,-637.0,818.09766,T56</property>
    </ControlFlowCase>
    <MethodCall
       id="MethodCall201">
@@ -2194,7 +2194,7 @@
       <property
          name="fromOutcome">ExeAdminCompanyFMS_0012</property>
       <property
-         name="sdm:polyPoints">T44,-644.0,813.59247,-590.5,788.7471,B50</property>
+         name="sdm:polyPoints">T44,-644.0,813.82574,-590.5,788.7471,B50</property>
    </ControlFlowCase>
    <View
       id="View203">
@@ -2383,4 +2383,18 @@
       <property
          name="x">-613.5</property>
    </View>
+   <ControlFlowCase
+      islink="true"
+      id="ControlFlowCase220"
+      from="MethodCall11"
+      to="View218">
+      <property
+         name="fromOutcome">ERP-ACT-FMS_0002</property>
+      <property
+         name="tosrcid">__206</property>
+      <property
+         name="fromsrcid">__8</property>
+      <property
+         name="sdm:polyPoints">L62,-39.0,538.4365,-613.5,1137.4482,T50</property>
+   </ControlFlowCase>
 </SDM>

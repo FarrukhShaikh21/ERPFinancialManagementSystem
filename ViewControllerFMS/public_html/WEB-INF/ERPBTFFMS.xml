@@ -549,6 +549,10 @@
         <from-outcome>ERP-ACT-FMS_0012</from-outcome>
         <to-activity-id>ExeAdminCompanyFMS_0012</to-activity-id>
       </control-flow-case>
+      <control-flow-case id="__206">
+        <from-outcome>ERP-ACT-FMS_0002</from-outcome>
+        <to-activity-id>FMS_0013</to-activity-id>
+      </control-flow-case>
     </control-flow-rule>
     <control-flow-rule id="__12">
       <from-activity-id>*</from-activity-id>
