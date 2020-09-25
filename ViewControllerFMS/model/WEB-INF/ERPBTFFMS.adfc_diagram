@@ -2368,4 +2368,19 @@
       <property
          name="sdm:polyPoints">R50,-793.6465,788.9424,-631.5,738.2471,L54</property>
    </ControlFlowCase>
+   <View
+      id="View218">
+      <property
+         name="activityId">FMS_0013</property>
+      <property
+         name="page">/FMS_0013.jsf</property>
+      <property
+         name="description">&lt;html>&lt;p>&lt;b>FMS_0013&lt;/b>&lt;/p>&lt;p>Activity Type:  View&lt;/p></property>
+      <property
+         name="exceptionHandler">false</property>
+      <property
+         name="y">1191.7988</property>
+      <property
+         name="x">-613.5</property>
+   </View>
 </SDM>

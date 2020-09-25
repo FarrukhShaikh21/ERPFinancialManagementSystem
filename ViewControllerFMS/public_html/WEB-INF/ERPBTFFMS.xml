@@ -496,6 +496,9 @@
         <fixed-outcome>DO-ACT-QUERY-FMS_0012_EDIT</fixed-outcome>
       </outcome>
     </method-call>
+    <view id="FMS_0013">
+      <page>/FMS_0013.jsf</page>
+    </view>
     <control-flow-rule id="__8">
       <from-activity-id>doFMSGotoErpActivity</from-activity-id>
       <control-flow-case id="__9">
