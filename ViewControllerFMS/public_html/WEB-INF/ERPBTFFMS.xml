@@ -502,7 +502,7 @@
     <method-call id="ExeAdminCompFMS_0013">
       <method>#{bindings.Execute.execute}</method>
       <outcome>
-        <fixed-outcome>Execute</fixed-outcome>
+        <fixed-outcome>ERP-ACT-FMS_0003</fixed-outcome>
       </outcome>
     </method-call>
     <control-flow-rule id="__8">
