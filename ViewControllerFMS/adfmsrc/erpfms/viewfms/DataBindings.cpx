@@ -140,6 +140,7 @@
           usageId="erpfms_viewfms_ERPBTFFMS_ERPBTFFMS_ExecuteWithParams1PageDef1111111111111111111111111111111"/>
     <page path="/WEB-INF/ERPBTFFMS.xml#ERPBTFFMS@ExeGlBankByBankId"
           usageId="erpfms_viewfms_ERPBTFFMS_ERPBTFFMS_ExecuteWithParams1PageDef11111111111111111111111111111111"/>
+    <page path="/FMS_0013.jsf" usageId="erpfms_viewfms_FMS_0013PageDef"/>
   </pageMap>
   <pageDefinitionUsages>
     <page id="erpfms_viewfms_FMSMainPageDef" path="erpfms.viewfms.pageDefs.FMSMainPageDef"/>
@@ -281,6 +282,7 @@
           path="erpfms.viewfms.pageDefs.ERPBTFFMS_ERPBTFFMS_ExecuteWithParams1PageDef1111111111111111111111111111111"/>
     <page id="erpfms_viewfms_ERPBTFFMS_ERPBTFFMS_ExecuteWithParams1PageDef11111111111111111111111111111111"
           path="erpfms.viewfms.pageDefs.ERPBTFFMS_ERPBTFFMS_ExecuteWithParams1PageDef11111111111111111111111111111111"/>
+    <page id="erpfms_viewfms_FMS_0013PageDef" path="erpfms.viewfms.pageDefs.FMS_0013PageDef"/>
   </pageDefinitionUsages>
   <dataControlUsages>
     <BC4JDataControl id="ERPTemModuleDataControl" Package="erptemplate.modeltemp.temam"
