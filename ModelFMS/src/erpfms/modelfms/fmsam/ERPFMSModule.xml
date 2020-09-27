@@ -283,6 +283,13 @@
       Name="GlTaxTypeVOByCompanyIDVC"
       FullName="erpfms.modelfms.fmsvo.GlTaxTypeVO.GlTaxTypeVOByCompanyIDVC"/>
   </ViewUsage>
+  <ViewUsage
+    Name="GlTaxTypeCRUD"
+    ViewObjectName="erpfms.modelfms.fmsvo.GlTaxTypeVO">
+    <ViewCriteriaUsage
+      Name="GlTaxTypeVOByTaxTypeIDVC"
+      FullName="erpfms.modelfms.fmsvo.GlTaxTypeVO.GlTaxTypeVOByTaxTypeIDVC"/>
+  </ViewUsage>
   <ViewLinkUsage
     Name="GlChartOfAccountGlChartOfAccountCoaidParentidVL1"
     ViewLinkObjectName="erpfms.modelfms.fmsvo.GlChartOfAccountGlChartOfAccountCoaidParentidVL"
