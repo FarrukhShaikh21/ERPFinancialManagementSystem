@@ -517,6 +517,12 @@
         <fixed-outcome>ERP-QRY--ACT-FMS_0003</fixed-outcome>
       </outcome>
     </method-call>
+    <method-call id="ExeParaGLTaxTypeFMS_0013_EDIT">
+      <method>#{bindings.ExecuteWithParams.execute}</method>
+      <outcome>
+        <fixed-outcome>ERP-QRY--ACT-FMS_0003</fixed-outcome>
+      </outcome>
+    </method-call>
     <control-flow-rule id="__8">
       <from-activity-id>doFMSGotoErpActivity</from-activity-id>
       <control-flow-case id="__9">
@@ -1231,6 +1237,13 @@
     <control-flow-rule id="__209">
       <from-activity-id>ExeParaByCompIDFMS_0013</from-activity-id>
       <control-flow-case id="__210">
+        <from-outcome>ERP-QRY--ACT-FMS_0003</from-outcome>
+        <to-activity-id>ExeParaGLTaxTypeFMS_0013_EDIT</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__211">
+      <from-activity-id>ExeParaGLTaxTypeFMS_0013_EDIT</from-activity-id>
+      <control-flow-case id="__212">
         <from-outcome>ERP-QRY--ACT-FMS_0003</from-outcome>
         <to-activity-id>FMS_0013_EDIT</to-activity-id>
       </control-flow-case>

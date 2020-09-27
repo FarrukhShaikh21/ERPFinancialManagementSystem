@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.1.3.2.1"
+                id="ERPBTFFMS_ERPBTFFMS_ExecuteWithParams1PageDef1111111111111111111111111111111111"
+                Package="erpfms.viewfms.pageDefs" SkipValidation="true">
+  <parameters/>
+  <executables>
+    <iterator Binds="GlTaxTypeByCompanyRO" RangeSize="25" DataControl="ERPFMSModuleDataControl"
+              id="GlTaxTypeByCompanyROIterator" Refresh="never"/>
+  </executables>
+  <bindings>
+    <action IterBinding="GlTaxTypeByCompanyROIterator" id="ExecuteWithParams" RequiresUpdateModel="true"
+            Action="executeWithParams">
+      <NamedData NDName="P_ADF_COMPANY_ID" NDValue="#{data.erpfms_viewfms_FMS_0013PageDef.CompCode.inputValue}"
+                 NDType="java.lang.Integer"/>
+      <NamedData NDName="P_ADF_TAX_TYPE_SNO" NDType="java.lang.Integer"/>
+    </action>
+  </bindings>
+</pageDefinition>
