@@ -13,6 +13,10 @@
   CustomQuery="false"
   SelectAllAttributes="false"
   PageIterMode="Full">
+  <Variable
+    Name="P_ADF_COMPANY_ID"
+    Kind="viewcriteria"
+    Type="java.lang.Integer"/>
   <EntityUsage
     Name="GlTaxType"
     Entity="erpfms.modelfms.fmseo.GlTaxType"/>
@@ -166,4 +170,40 @@
     EntityAttrName="UnSupervisedBy"
     EntityUsage="GlTaxType"
     AliasName="UN_SUPERVISED_BY"/>
+  <ViewCriteria
+    Name="GlTaxTypeVOByCompanyIDVC"
+    ViewObjectName="erpfms.modelfms.fmsvo.GlTaxTypeVO"
+    Conjunction="AND">
+    <Properties>
+      <CustomProperties>
+        <Property
+          Name="displayOperators"
+          Value="InAdvancedMode"/>
+        <Property
+          Name="autoExecute"
+          Value="false"/>
+        <Property
+          Name="allowConjunctionOverride"
+          Value="true"/>
+        <Property
+          Name="showInList"
+          Value="true"/>
+        <Property
+          Name="mode"
+          Value="Basic"/>
+      </CustomProperties>
+    </Properties>
+    <ViewCriteriaRow
+      Name="GlTaxTypeVOCriteria_row_0"
+      UpperColumns="1">
+      <ViewCriteriaItem
+        Name="CompanyId"
+        ViewAttribute="CompanyId"
+        Operator="="
+        Conjunction="AND"
+        Value=":P_ADF_COMPANY_ID"
+        IsBindVarValue="true"
+        Required="Optional"/>
+    </ViewCriteriaRow>
+  </ViewCriteria>
 </ViewObject>
