@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.1.3.10.47" id="FMS_0013_EDITPageDef"
+                Package="erpfms.viewfms.pageDefs">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="AdminCompanyVOByCompanyRO" RangeSize="25" DataControl="ERPFMSModuleDataControl"
+              id="AdminCompanyVOByCompanyROIterator"/>
+    <iterator Binds="GlBankByCompanyRO" RangeSize="25" DataControl="ERPFMSModuleDataControl"
+              id="GlBankByCompanyROIterator"/>
+    <searchRegion Criteria="GlBankVOFindVC" Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer"
+                  Binds="GlBankByCompanyROIterator" id="ImplicitViewCriteriaQuery" InitialQueryOverridden="true"/>
+  </executables>
+  <bindings>
+    <listOfValues IterBinding="AdminCompanyVOByCompanyROIterator" StaticList="false" Uses="LovtxtCountryName"
+                  id="txtCountryName"/>
+    <attributeValues IterBinding="AdminCompanyVOByCompanyROIterator" id="CompCode">
+      <AttrNames>
+        <Item Value="CompCode"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="AdminCompanyVOByCompanyROIterator" id="CompanyName">
+      <AttrNames>
+        <Item Value="CompanyName"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="AdminCompanyVOByCompanyROIterator" id="CompanyShortName">
+      <AttrNames>
+        <Item Value="CompanyShortName"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="AdminCompanyVOByCompanyROIterator" id="CompanyShortCode">
+      <AttrNames>
+        <Item Value="CompanyShortCode"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="AdminCompanyVOByCompanyROIterator" id="GlobalCompCode">
+      <AttrNames>
+        <Item Value="GlobalCompCode"/>
+      </AttrNames>
+    </attributeValues>
+    <tree IterBinding="GlBankByCompanyROIterator" id="GlBankByCompanyRO">
+      <nodeDefinition DefName="erpfms.modelfms.fmsvo.GlBankVO" Name="GlBankByCompanyRO0">
+        <AttrNames>
+          <Item Value="BankName"/>
+          <Item Value="BankShortCode"/>
+          <Item Value="BankShortName"/>
+          <Item Value="OpeningDate"/>
+          <Item Value="Website"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <attributeValues IterBinding="GlBankByCompanyROIterator" id="BankId">
+      <AttrNames>
+        <Item Value="BankId"/>
+      </AttrNames>
+    </attributeValues>
+  </bindings>
+</pageDefinition>
