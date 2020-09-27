@@ -28,8 +28,7 @@
     SQLType="NUMERIC"
     Type="java.lang.Integer"
     ColumnType="NUMBER"
-    TableName="GL_TAX_TYPE"
-    PrimaryKey="true"/>
+    TableName="GL_TAX_TYPE"/>
   <Attribute
     Name="TaxTypeShortName"
     Precision="20"
@@ -37,8 +36,7 @@
     SQLType="VARCHAR"
     Type="java.lang.String"
     ColumnType="VARCHAR2"
-    TableName="GL_TAX_TYPE"
-    PrimaryKey="true">
+    TableName="GL_TAX_TYPE">
     <DesignTime>
       <Attr Name="_DisplaySize" Value="20"/>
     </DesignTime>
@@ -49,8 +47,7 @@
     SQLType="DATE"
     Type="java.sql.Timestamp"
     ColumnType="DATE"
-    TableName="GL_TAX_TYPE"
-    PrimaryKey="true"/>
+    TableName="GL_TAX_TYPE"/>
   <Attribute
     Name="TaxTypeName"
     Precision="100"
@@ -58,8 +55,7 @@
     SQLType="VARCHAR"
     Type="java.lang.String"
     ColumnType="VARCHAR2"
-    TableName="GL_TAX_TYPE"
-    PrimaryKey="true">
+    TableName="GL_TAX_TYPE">
     <DesignTime>
       <Attr Name="_DisplaySize" Value="100"/>
     </DesignTime>
@@ -72,8 +68,7 @@
     SQLType="NUMERIC"
     Type="java.lang.Integer"
     ColumnType="NUMBER"
-    TableName="GL_TAX_TYPE"
-    PrimaryKey="true"/>
+    TableName="GL_TAX_TYPE"/>
   <Attribute
     Name="ChartOfAccountId"
     Precision="10"
@@ -82,8 +77,7 @@
     SQLType="NUMERIC"
     Type="java.lang.Long"
     ColumnType="NUMBER"
-    TableName="GL_TAX_TYPE"
-    PrimaryKey="true"/>
+    TableName="GL_TAX_TYPE"/>
   <Attribute
     Name="CompanyId"
     Precision="6"
@@ -92,8 +86,7 @@
     SQLType="NUMERIC"
     Type="java.lang.Integer"
     ColumnType="NUMBER"
-    TableName="GL_TAX_TYPE"
-    PrimaryKey="true"/>
+    TableName="GL_TAX_TYPE"/>
   <Attribute
     Name="CreatedBy"
     Precision="5"
@@ -102,16 +95,14 @@
     SQLType="NUMERIC"
     Type="java.lang.Integer"
     ColumnType="NUMBER"
-    TableName="GL_TAX_TYPE"
-    PrimaryKey="true"/>
+    TableName="GL_TAX_TYPE"/>
   <Attribute
     Name="CreatedDate"
     ColumnName="CREATED_DATE"
     SQLType="DATE"
     Type="java.sql.Timestamp"
     ColumnType="DATE"
-    TableName="GL_TAX_TYPE"
-    PrimaryKey="true"/>
+    TableName="GL_TAX_TYPE"/>
   <Attribute
     Name="LastUpdatedBy"
     Precision="5"
@@ -120,96 +111,88 @@
     SQLType="NUMERIC"
     Type="java.lang.Integer"
     ColumnType="NUMBER"
-    TableName="GL_TAX_TYPE"
-    PrimaryKey="true"/>
+    TableName="GL_TAX_TYPE"/>
   <Attribute
     Name="LastUpdatedDate"
     ColumnName="LAST_UPDATED_DATE"
     SQLType="DATE"
     Type="java.sql.Timestamp"
     ColumnType="DATE"
-    TableName="GL_TAX_TYPE"
-    PrimaryKey="true"/>
+    TableName="GL_TAX_TYPE"/>
   <Attribute
     Name="IsStandard"
-    IsNotNull="true"
     Precision="1"
     ColumnName="IS_STANDARD"
     SQLType="VARCHAR"
     Type="java.lang.String"
     ColumnType="VARCHAR2"
     TableName="GL_TAX_TYPE"
-    PrimaryKey="true">
+    DefaultValue="N">
     <DesignTime>
       <Attr Name="_DisplaySize" Value="1"/>
     </DesignTime>
   </Attribute>
   <Attribute
     Name="IsLocationWise"
-    IsNotNull="true"
     Precision="1"
     ColumnName="IS_LOCATION_WISE"
     SQLType="VARCHAR"
     Type="java.lang.String"
     ColumnType="VARCHAR2"
     TableName="GL_TAX_TYPE"
-    PrimaryKey="true">
+    DefaultValue="N">
     <DesignTime>
       <Attr Name="_DisplaySize" Value="1"/>
     </DesignTime>
   </Attribute>
   <Attribute
     Name="IsCustCategoryWise"
-    IsNotNull="true"
     Precision="1"
     ColumnName="IS_CUST_CATEGORY_WISE"
     SQLType="VARCHAR"
     Type="java.lang.String"
     ColumnType="VARCHAR2"
     TableName="GL_TAX_TYPE"
-    PrimaryKey="true">
+    DefaultValue="N">
     <DesignTime>
       <Attr Name="_DisplaySize" Value="1"/>
     </DesignTime>
   </Attribute>
   <Attribute
     Name="IsCustTypeWise"
-    IsNotNull="true"
     Precision="1"
     ColumnName="IS_CUST_TYPE_WISE"
     SQLType="VARCHAR"
     Type="java.lang.String"
     ColumnType="VARCHAR2"
     TableName="GL_TAX_TYPE"
-    PrimaryKey="true">
+    DefaultValue="N">
     <DesignTime>
       <Attr Name="_DisplaySize" Value="1"/>
     </DesignTime>
   </Attribute>
   <Attribute
     Name="IsExempted"
-    IsNotNull="true"
     Precision="1"
     ColumnName="IS_EXEMPTED"
     SQLType="VARCHAR"
     Type="java.lang.String"
     ColumnType="VARCHAR2"
     TableName="GL_TAX_TYPE"
-    PrimaryKey="true">
+    DefaultValue="N">
     <DesignTime>
       <Attr Name="_DisplaySize" Value="1"/>
     </DesignTime>
   </Attribute>
   <Attribute
     Name="IsProduct"
-    IsNotNull="true"
     Precision="1"
     ColumnName="IS_PRODUCT"
     SQLType="VARCHAR"
     Type="java.lang.String"
     ColumnType="VARCHAR2"
     TableName="GL_TAX_TYPE"
-    PrimaryKey="true">
+    DefaultValue="N">
     <DesignTime>
       <Attr Name="_DisplaySize" Value="1"/>
     </DesignTime>
@@ -222,7 +205,7 @@
     Type="java.lang.String"
     ColumnType="VARCHAR2"
     TableName="GL_TAX_TYPE"
-    PrimaryKey="true">
+    DefaultValue="N">
     <DesignTime>
       <Attr Name="_DisplaySize" Value="1"/>
     </DesignTime>
@@ -233,8 +216,7 @@
     SQLType="DATE"
     Type="java.sql.Timestamp"
     ColumnType="DATE"
-    TableName="GL_TAX_TYPE"
-    PrimaryKey="true"/>
+    TableName="GL_TAX_TYPE"/>
   <Attribute
     Name="IsUnsupervised"
     Precision="1"
@@ -243,7 +225,7 @@
     Type="java.lang.String"
     ColumnType="VARCHAR2"
     TableName="GL_TAX_TYPE"
-    PrimaryKey="true">
+    DefaultValue="N">
     <DesignTime>
       <Attr Name="_DisplaySize" Value="1"/>
     </DesignTime>
@@ -254,8 +236,7 @@
     SQLType="DATE"
     Type="java.sql.Timestamp"
     ColumnType="DATE"
-    TableName="GL_TAX_TYPE"
-    PrimaryKey="true"/>
+    TableName="GL_TAX_TYPE"/>
   <Attribute
     Name="SupervisedBy"
     Precision="5"
@@ -264,8 +245,7 @@
     SQLType="NUMERIC"
     Type="java.lang.Integer"
     ColumnType="NUMBER"
-    TableName="GL_TAX_TYPE"
-    PrimaryKey="true"/>
+    TableName="GL_TAX_TYPE"/>
   <Attribute
     Name="UnSupervisedBy"
     Precision="5"
@@ -274,8 +254,7 @@
     SQLType="NUMERIC"
     Type="java.lang.Integer"
     ColumnType="NUMBER"
-    TableName="GL_TAX_TYPE"
-    PrimaryKey="true"/>
+    TableName="GL_TAX_TYPE"/>
   <Key
     Name="GltaxtypePrimaryKey"
     PrimaryKey="true">
@@ -284,29 +263,6 @@
     </DesignTime>
     <AttrArray Name="Attributes">
       <Item Value="erpfms.modelfms.fmseo.GlTaxType.TaxTypeSno"/>
-      <Item Value="erpfms.modelfms.fmseo.GlTaxType.TaxTypeCode"/>
-      <Item Value="erpfms.modelfms.fmseo.GlTaxType.TaxTypeShortName"/>
-      <Item Value="erpfms.modelfms.fmseo.GlTaxType.OpenDate"/>
-      <Item Value="erpfms.modelfms.fmseo.GlTaxType.TaxTypeName"/>
-      <Item Value="erpfms.modelfms.fmseo.GlTaxType.GlobalCompanyId"/>
-      <Item Value="erpfms.modelfms.fmseo.GlTaxType.ChartOfAccountId"/>
-      <Item Value="erpfms.modelfms.fmseo.GlTaxType.CompanyId"/>
-      <Item Value="erpfms.modelfms.fmseo.GlTaxType.CreatedBy"/>
-      <Item Value="erpfms.modelfms.fmseo.GlTaxType.CreatedDate"/>
-      <Item Value="erpfms.modelfms.fmseo.GlTaxType.LastUpdatedBy"/>
-      <Item Value="erpfms.modelfms.fmseo.GlTaxType.LastUpdatedDate"/>
-      <Item Value="erpfms.modelfms.fmseo.GlTaxType.IsStandard"/>
-      <Item Value="erpfms.modelfms.fmseo.GlTaxType.IsLocationWise"/>
-      <Item Value="erpfms.modelfms.fmseo.GlTaxType.IsCustCategoryWise"/>
-      <Item Value="erpfms.modelfms.fmseo.GlTaxType.IsCustTypeWise"/>
-      <Item Value="erpfms.modelfms.fmseo.GlTaxType.IsExempted"/>
-      <Item Value="erpfms.modelfms.fmseo.GlTaxType.IsProduct"/>
-      <Item Value="erpfms.modelfms.fmseo.GlTaxType.IsSupervised"/>
-      <Item Value="erpfms.modelfms.fmseo.GlTaxType.SupervisedDate"/>
-      <Item Value="erpfms.modelfms.fmseo.GlTaxType.IsUnsupervised"/>
-      <Item Value="erpfms.modelfms.fmseo.GlTaxType.UnSupervisedDate"/>
-      <Item Value="erpfms.modelfms.fmseo.GlTaxType.SupervisedBy"/>
-      <Item Value="erpfms.modelfms.fmseo.GlTaxType.UnSupervisedBy"/>
     </AttrArray>
   </Key>
 </Entity>
