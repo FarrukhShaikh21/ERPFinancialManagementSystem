@@ -143,6 +143,8 @@
     <page path="/FMS_0013.jsf" usageId="erpfms_viewfms_FMS_0013PageDef"/>
     <page path="/WEB-INF/ERPBTFFMS.xml#ERPBTFFMS@ExeAdminCompFMS_0013"
           usageId="erpfms_viewfms_ERPBTFFMS_ERPBTFFMS_Execute1PageDef111111"/>
+    <page path="/WEB-INF/ERPBTFFMS.xml#ERPBTFFMS@ExeParaByCompIDFMS_0013"
+          usageId="erpfms_viewfms_ERPBTFFMS_ERPBTFFMS_ExecuteWithParams1PageDef111111111111111111111111111111111"/>
   </pageMap>
   <pageDefinitionUsages>
     <page id="erpfms_viewfms_FMSMainPageDef" path="erpfms.viewfms.pageDefs.FMSMainPageDef"/>
@@ -287,6 +289,8 @@
     <page id="erpfms_viewfms_FMS_0013PageDef" path="erpfms.viewfms.pageDefs.FMS_0013PageDef"/>
     <page id="erpfms_viewfms_ERPBTFFMS_ERPBTFFMS_Execute1PageDef111111"
           path="erpfms.viewfms.pageDefs.ERPBTFFMS_ERPBTFFMS_Execute1PageDef111111"/>
+    <page id="erpfms_viewfms_ERPBTFFMS_ERPBTFFMS_ExecuteWithParams1PageDef111111111111111111111111111111111"
+          path="erpfms.viewfms.pageDefs.ERPBTFFMS_ERPBTFFMS_ExecuteWithParams1PageDef111111111111111111111111111111111"/>
   </pageDefinitionUsages>
   <dataControlUsages>
     <BC4JDataControl id="ERPTemModuleDataControl" Package="erptemplate.modeltemp.temam"

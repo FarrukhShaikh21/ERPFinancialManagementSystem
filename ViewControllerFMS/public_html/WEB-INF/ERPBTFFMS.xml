@@ -511,6 +511,12 @@
     <view id="FMS_0013_EDIT_EDIT">
       <page>/FMS_0013_EDIT_EDIT.jsf</page>
     </view>
+    <method-call id="ExeParaByCompIDFMS_0013">
+      <method>#{bindings.ExecuteWithParams.execute}</method>
+      <outcome>
+        <fixed-outcome>ERP-QRY--ACT-FMS_0003</fixed-outcome>
+      </outcome>
+    </method-call>
     <control-flow-rule id="__8">
       <from-activity-id>doFMSGotoErpActivity</from-activity-id>
       <control-flow-case id="__9">
@@ -1213,6 +1219,20 @@
       <control-flow-case id="__205">
         <from-outcome>ERP-ACT-FMS_0003</from-outcome>
         <to-activity-id>FMS_0013</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__207">
+      <from-activity-id>FMS_0013</from-activity-id>
+      <control-flow-case id="__208">
+        <from-outcome>ERP-QRY-ACT-FMS_0003</from-outcome>
+        <to-activity-id>ExeParaByCompIDFMS_0013</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__209">
+      <from-activity-id>ExeParaByCompIDFMS_0013</from-activity-id>
+      <control-flow-case id="__210">
+        <from-outcome>ERP-QRY--ACT-FMS_0003</from-outcome>
+        <to-activity-id>FMS_0013_EDIT</to-activity-id>
       </control-flow-case>
     </control-flow-rule>
     <visibility>
