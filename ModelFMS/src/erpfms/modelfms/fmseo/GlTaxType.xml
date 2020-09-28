@@ -259,6 +259,26 @@
     Type="java.lang.Integer"
     ColumnType="NUMBER"
     TableName="GL_TAX_TYPE"/>
+  <Attribute
+    Name="IsActive"
+    Precision="1"
+    ColumnName="IS_ACTIVE"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="GL_TAX_TYPE">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="1"/>
+    </DesignTime>
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="erpfms.modelfms.fmseo.GlTaxType.IsActive_LABEL"/>
+        <DISPLAYWIDTH
+          Value="20"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </Attribute>
   <Key
     Name="GltaxtypePrimaryKey"
     PrimaryKey="true">
@@ -269,4 +289,8 @@
       <Item Value="erpfms.modelfms.fmseo.GlTaxType.TaxTypeSno"/>
     </AttrArray>
   </Key>
+  <ResourceBundle>
+    <PropertiesBundle
+      PropertiesFile="erpfms.modelfms.ModelFMSBundle"/>
+  </ResourceBundle>
 </Entity>
