@@ -4,7 +4,15 @@
                 Package="erpfms.viewfms.pageDefs" SkipValidation="true">
   <parameters/>
   <executables>
-    <variableIterator id="variables"/>
+    <iterator Binds="GlTaxTypeCRUD" RangeSize="25" DataControl="ERPFMSModuleDataControl" id="GlTaxTypeCRUDIterator"
+              Refresh="never"/>
   </executables>
-  <bindings/>
+  <bindings>
+    <action IterBinding="GlTaxTypeCRUDIterator" id="ExecuteWithParams" RequiresUpdateModel="true"
+            Action="executeWithParams">
+      <NamedData NDName="P_ADF_COMPANY_ID" NDType="java.lang.Integer"/>
+      <NamedData NDName="P_ADF_TAX_TYPE_SNO" NDValue="#{data.erpfms_viewfms_FMS_0013_EDITPageDef.TaxTypeSno.inputValue}"
+                 NDType="java.lang.Integer"/>
+    </action>
+  </bindings>
 </pageDefinition>
