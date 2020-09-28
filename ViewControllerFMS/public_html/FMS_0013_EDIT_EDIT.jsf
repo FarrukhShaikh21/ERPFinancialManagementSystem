@@ -15,7 +15,9 @@
                                     <af:panelGridLayout id="pgl2">
                                         <af:gridRow marginTop="5px" height="auto" id="gr2">
                                             <af:gridCell marginStart="5px" width="15%" id="gc3" marginEnd="5px"
-                                                         halign="center"/>
+                                                         halign="center">
+                                                <af:outputLabel value="#{bindings.TaxTypeName.hints.label}" id="ol1"/>
+                                            </af:gridCell>
                                             <af:gridCell marginStart="5px" width="85%" id="gc4"
                                                          columnSpan="1" rowSpan="1" halign="stretch">
                                                 <af:inputText value="#{bindings.TaxTypeName.inputValue}"
@@ -31,7 +33,9 @@
                                         </af:gridRow>
                                         <af:gridRow marginTop="5px" height="auto" id="gr3">
                                             <af:gridCell marginStart="5px" width="15%" id="gc7" marginEnd="5px"
-                                                         halign="center"/>
+                                                         halign="center">
+                                                <af:outputLabel value="#{bindings.TaxTypeCode.hints.label}" id="ol2"/>
+                                            </af:gridCell>
                                             <af:gridCell marginStart="5px" width="85%" id="gc8" marginEnd="5px" columnSpan="1" rowSpan="1"
                                                          halign="stretch">
                                                 <af:inputText value="#{bindings.TaxTypeCode.inputValue}"
@@ -48,7 +52,9 @@
                                             </af:gridCell>
                                         </af:gridRow>
                                         <af:gridRow marginTop="5px" height="auto" marginBottom="5px" id="gr4">
-                                            <af:gridCell marginStart="5px" width="15%" id="gc11" halign="center"/>
+                                            <af:gridCell marginStart="5px" width="15%" id="gc11" halign="center">
+                                                <af:outputLabel value="#{bindings.TaxTypeShortName.hints.label}" id="ol3"/>
+                                            </af:gridCell>
                                             <af:gridCell marginStart="5px" width="85%" id="gc12" marginEnd="5px"
                                                          columnSpan="1" rowSpan="1" halign="stretch">
                                                 <af:inputText value="#{bindings.TaxTypeShortName.inputValue}"
@@ -64,7 +70,9 @@
                                         </af:gridRow>
                                         <af:gridRow id="gr5">
                                             <af:gridCell id="gc5" width="15%" marginStart="5px" marginEnd="5px"
-                                                         halign="center"/>
+                                                         halign="center">
+                                                <af:outputLabel value="#{bindings.OpenDate.hints.label}" id="ol4"/>
+                                            </af:gridCell>
                                             <af:gridCell id="gc6" width="85%" marginStart="5px"
                                                          marginEnd="5px" halign="stretch">
                                                 <af:inputDate value="#{bindings.OpenDate.inputValue}"
@@ -79,7 +87,10 @@
                                             </af:gridCell>
                                         </af:gridRow>
                                         <af:gridRow id="gr8">
-                                            <af:gridCell id="gc15" width="15%" marginStart="5px" marginEnd="5px"/>
+                                            <af:gridCell id="gc15" width="15%" marginStart="5px" marginEnd="5px"
+                                                         halign="center">
+                                                <af:outputLabel value="#{bindings.IsActive.label}" id="ol5"/>
+                                            </af:gridCell>
                                             <af:gridCell id="gc16" halign="stretch">
                                                 <af:selectOneChoice value="#{bindings.IsActive.inputValue}"
                                                                     label="#{bindings.IsActive.label}"
