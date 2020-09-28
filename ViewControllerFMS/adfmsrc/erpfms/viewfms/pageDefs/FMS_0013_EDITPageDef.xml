@@ -6,10 +6,6 @@
     <variableIterator id="variables"/>
     <iterator Binds="AdminCompanyVOByCompanyRO" RangeSize="25" DataControl="ERPFMSModuleDataControl"
               id="AdminCompanyVOByCompanyROIterator"/>
-    <iterator Binds="GlBankByCompanyRO" RangeSize="25" DataControl="ERPFMSModuleDataControl"
-              id="GlBankByCompanyROIterator"/>
-    <searchRegion Criteria="GlBankVOFindVC" Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer"
-                  Binds="GlBankByCompanyROIterator" id="ImplicitViewCriteriaQuery" InitialQueryOverridden="true"/>
     <iterator Binds="GlTaxTypeByCompanyRO" RangeSize="25" DataControl="ERPFMSModuleDataControl"
               id="GlTaxTypeByCompanyROIterator"/>
   </executables>
