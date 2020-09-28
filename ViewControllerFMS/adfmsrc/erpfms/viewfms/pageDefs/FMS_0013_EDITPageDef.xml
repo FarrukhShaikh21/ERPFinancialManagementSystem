@@ -65,6 +65,7 @@
           <Item Value="TaxTypeName"/>
           <Item Value="OpenDate"/>
           <Item Value="IsStandard"/>
+          <Item Value="IsActive"/>
         </AttrNames>
       </nodeDefinition>
     </tree>

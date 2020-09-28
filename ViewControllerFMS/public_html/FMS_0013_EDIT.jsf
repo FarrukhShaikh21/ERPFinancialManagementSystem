@@ -152,7 +152,8 @@
                                                                 <af:image source="#{resource['images:imgShortName.png']}"
                                                                           id="i2"/>
                                                                 <af:outputFormatted value="#{item.bindings.TaxTypeName.inputValue}"
-                                                                                    id="of8"/>
+                                                                                    id="of8"
+                                                                                    styleClass="ERPHeroDetailColor"/>
                                                                 <f:facet name="separator">
                                                                     <af:spacer width="10" height="10" id="s7"/>
                                                                 </f:facet>
@@ -166,7 +167,8 @@
                                                                 <af:image source="#{resource['images:imgDocumentDate.png']}"
                                                                           id="i3"/>
                                                                 <af:outputFormatted value="#{item.bindings.OpenDate.inputValue}"
-                                                                                    id="of9">
+                                                                                    id="of9"
+                                                                                    styleClass="ERPHeroDetailColor">
                                                                     <af:convertDateTime pattern="#{bindings.GlTaxTypeByCompanyRO.hints.OpenDate.format}"/>
                                                                 </af:outputFormatted>
                                                                 <f:facet name="separator">
@@ -179,8 +181,14 @@
                                                                 id="gr14">
                                                         <af:gridCell marginStart="5px" width="100%" marginEnd="5px"
                                                                      id="gc15">
-                                                            <af:outputFormatted value="#{item.bindings.IsStandard.inputValue}"
-                                                                                id="of10"/>
+                                                            <af:panelGroupLayout id="pgl16" layout="horizontal">
+                                                                <af:image source="#{resource['images:imgActive.png']}"
+                                                                          id="i5"/>
+                                                                <af:spacer width="10" height="10" id="s10"/>
+                                                                <af:outputFormatted value="#{item.bindings.IsActive.inputValue}"
+                                                                                    id="of3"
+                                                                                    styleClass="ERPHeroDetailColor"/>
+                                                            </af:panelGroupLayout>
                                                         </af:gridCell>
                                                     </af:gridRow>
                                                 </af:panelGridLayout>
@@ -243,9 +251,6 @@
                                                                              marginEnd="5px" id="gc4">
                                                                     <af:panelGroupLayout id="pgl8" layout="horizontal">
                                                                         <af:spacer width="10" height="10" id="s3"/>
-                                                                        <af:outputFormatted value="#{item.bindings.BankName.inputValue}"
-                                                                                            id="of3"
-                                                                                            styleClass="ERPHeroDetailColor"/>
                                                                     </af:panelGroupLayout>
                                                                 </af:gridCell>
                                                             </af:gridRow>
