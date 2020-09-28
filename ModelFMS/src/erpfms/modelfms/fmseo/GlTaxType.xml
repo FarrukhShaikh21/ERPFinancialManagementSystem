@@ -75,7 +75,7 @@
     Scale="0"
     ColumnName="CHART_OF_ACCOUNT_ID"
     SQLType="NUMERIC"
-    Type="java.lang.Long"
+    Type="java.lang.Integer"
     ColumnType="NUMBER"
     TableName="GL_TAX_TYPE"/>
   <Attribute
@@ -95,7 +95,8 @@
     SQLType="NUMERIC"
     Type="java.lang.Integer"
     ColumnType="NUMBER"
-    TableName="GL_TAX_TYPE"/>
+    TableName="GL_TAX_TYPE"
+    RetrievedOnInsert="true"/>
   <Attribute
     Name="CreatedDate"
     ColumnName="CREATED_DATE"
@@ -118,7 +119,8 @@
     SQLType="DATE"
     Type="java.sql.Timestamp"
     ColumnType="DATE"
-    TableName="GL_TAX_TYPE"/>
+    TableName="GL_TAX_TYPE"
+    RetrievedOnUpdate="true"/>
   <Attribute
     Name="IsStandard"
     Precision="1"
@@ -216,7 +218,8 @@
     SQLType="DATE"
     Type="java.sql.Timestamp"
     ColumnType="DATE"
-    TableName="GL_TAX_TYPE"/>
+    TableName="GL_TAX_TYPE"
+    RetrievedOnUpdate="true"/>
   <Attribute
     Name="IsUnsupervised"
     Precision="1"
@@ -236,7 +239,8 @@
     SQLType="DATE"
     Type="java.sql.Timestamp"
     ColumnType="DATE"
-    TableName="GL_TAX_TYPE"/>
+    TableName="GL_TAX_TYPE"
+    RetrievedOnUpdate="true"/>
   <Attribute
     Name="SupervisedBy"
     Precision="5"

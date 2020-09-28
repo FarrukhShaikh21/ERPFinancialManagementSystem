@@ -68,5 +68,10 @@
         </AttrNames>
       </nodeDefinition>
     </tree>
+    <attributeValues IterBinding="GlTaxTypeByCompanyROIterator" id="TaxTypeSno">
+      <AttrNames>
+        <Item Value="TaxTypeSno"/>
+      </AttrNames>
+    </attributeValues>
   </bindings>
 </pageDefinition>

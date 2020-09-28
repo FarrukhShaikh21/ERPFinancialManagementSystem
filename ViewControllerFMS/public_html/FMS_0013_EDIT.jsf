@@ -92,6 +92,16 @@
                                 <af:gridRow marginTop="5px" height="auto" marginBottom="5px" id="gr6">
                                     <af:gridCell marginStart="5px" width="100%" marginEnd="5px" id="gc6"
                                                  halign="stretch" valign="stretch">
+                                        <af:inputText value="#{bindings.TaxTypeSno.inputValue}"
+                                                      label="#{bindings.TaxTypeSno.hints.label}"
+                                                      required="#{bindings.TaxTypeSno.hints.mandatory}"
+                                                      columns="#{bindings.TaxTypeSno.hints.displayWidth}"
+                                                      maximumLength="#{bindings.TaxTypeSno.hints.precision}"
+                                                      shortDesc="#{bindings.TaxTypeSno.hints.tooltip}" id="it7">
+                                            <f:validator binding="#{bindings.TaxTypeSno.validator}"/>
+                                            <af:convertNumber groupingUsed="false"
+                                                              pattern="#{bindings.TaxTypeSno.format}"/>
+                                        </af:inputText>
                                         <af:listView value="#{bindings.GlTaxTypeByCompanyRO.collectionModel}" var="item"
                                                      emptyText="#{bindings.GlTaxTypeByCompanyRO.viewable ? 'No data to display.' : 'Access Denied.'}"
                                                      fetchSize="#{bindings.GlTaxTypeByCompanyRO.rangeSize}" id="lv2"
