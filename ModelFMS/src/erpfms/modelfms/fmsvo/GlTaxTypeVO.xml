@@ -112,6 +112,24 @@
     </AttrArray>
     <DisplayCriteria/>
   </ListBinding>
+  <ListBinding
+    Name="LovIsCustCategoryWise"
+    ListVOName="AccSysGeneralValueVO"
+    ListRangeSize="-1"
+    NullValueFlag="none"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="IsCustCategoryWise"/>
+    </AttrArray>
+    <AttrArray Name="AttrExpressions"/>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="ValueCode"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="ValueDescription"/>
+    </AttrArray>
+    <DisplayCriteria/>
+  </ListBinding>
   <EntityUsage
     Name="GlTaxType"
     Entity="erpfms.modelfms.fmseo.GlTaxType"/>
@@ -223,7 +241,15 @@
     PrecisionRule="true"
     EntityAttrName="IsCustCategoryWise"
     EntityUsage="GlTaxType"
-    AliasName="IS_CUST_CATEGORY_WISE"/>
+    AliasName="IS_CUST_CATEGORY_WISE"
+    LOVName="LovIsCustCategoryWise">
+    <Properties>
+      <SchemaBasedProperties>
+        <CONTROLTYPE
+          Value="choice"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="IsCustTypeWise"
     IsNotNull="true"
