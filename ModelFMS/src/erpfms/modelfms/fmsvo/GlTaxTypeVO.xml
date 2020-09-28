@@ -130,6 +130,25 @@
     </AttrArray>
     <DisplayCriteria/>
   </ListBinding>
+  <ListBinding
+    Name="LovIsUnsupervised"
+    ListVOName="AccSysGeneralValueVO"
+    ListRangeSize="-1"
+    NullValueFlag="start"
+    NullValueId="${adfBundle['oracle.javatools.resourcebundle.SystemBundle']['NULL_VALUE_RESID']}"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="IsUnsupervised"/>
+    </AttrArray>
+    <AttrArray Name="AttrExpressions"/>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="ValueCode"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="ValueDescription"/>
+    </AttrArray>
+    <DisplayCriteria/>
+  </ListBinding>
   <EntityUsage
     Name="GlTaxType"
     Entity="erpfms.modelfms.fmseo.GlTaxType"/>
@@ -296,7 +315,15 @@
     PrecisionRule="true"
     EntityAttrName="IsUnsupervised"
     EntityUsage="GlTaxType"
-    AliasName="IS_UNSUPERVISED"/>
+    AliasName="IS_UNSUPERVISED"
+    LOVName="LovIsUnsupervised">
+    <Properties>
+      <SchemaBasedProperties>
+        <CONTROLTYPE
+          Value="choice"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="UnSupervisedDate"
     PrecisionRule="true"
