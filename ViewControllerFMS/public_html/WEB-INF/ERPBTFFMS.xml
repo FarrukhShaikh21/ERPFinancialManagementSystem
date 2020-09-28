@@ -1260,12 +1260,23 @@
         <from-outcome>ERP-ADD-ACT-FMS_0003_EDIT_EDIT</from-outcome>
         <to-activity-id>CrWithPFMS_0013GlTaxType</to-activity-id>
       </control-flow-case>
+      <control-flow-case id="__219">
+        <from-outcome>ERPBACKCRUD</from-outcome>
+        <to-activity-id>FMS_0013</to-activity-id>
+      </control-flow-case>
     </control-flow-rule>
     <control-flow-rule id="__215">
       <from-activity-id>CrWithPFMS_0013GlTaxType</from-activity-id>
       <control-flow-case id="__216">
         <from-outcome>ERP-ADD-ACT-FMS_0003_EDIT_EDIT</from-outcome>
         <to-activity-id>FMS_0013_EDIT_EDIT</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__217">
+      <from-activity-id>FMS_0013_EDIT_EDIT</from-activity-id>
+      <control-flow-case id="__218">
+        <from-outcome>ERPBACKCRUD</from-outcome>
+        <to-activity-id>FMS_0013_EDIT</to-activity-id>
       </control-flow-case>
     </control-flow-rule>
     <visibility>
