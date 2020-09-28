@@ -92,6 +92,56 @@
                                 <af:gridRow marginTop="5px" height="auto" marginBottom="5px" id="gr6">
                                     <af:gridCell marginStart="5px" width="100%" marginEnd="5px" id="gc6"
                                                  halign="stretch" valign="stretch">
+                                        <af:listView value="#{bindings.GlTaxTypeByCompanyRO.collectionModel}" var="item"
+                                                     emptyText="#{bindings.GlTaxTypeByCompanyRO.viewable ? 'No data to display.' : 'Access Denied.'}"
+                                                     fetchSize="#{bindings.GlTaxTypeByCompanyRO.rangeSize}" id="lv2"
+                                                     selection="single">
+                                            <af:listItem id="li2">
+                                                <af:panelGridLayout id="pgl11">
+                                                    <af:gridRow marginTop="5px" height="auto" id="gr10">
+                                                        <af:gridCell marginStart="5px" width="100%" marginEnd="5px"
+                                                                     id="gc11">
+                                                            <af:outputFormatted value="#{item.bindings.TaxTypeShortName.inputValue}"
+                                                                                id="of6"/>
+                                                        </af:gridCell>
+                                                    </af:gridRow>
+                                                    <af:gridRow marginTop="5px" height="auto" id="gr11">
+                                                        <af:gridCell marginStart="5px" width="100%" marginEnd="5px"
+                                                                     id="gc12">
+                                                            <af:outputFormatted value="#{item.bindings.TaxTypeCode.inputValue}"
+                                                                                id="of7">
+                                                                <af:convertNumber groupingUsed="false"
+                                                                                  pattern="#{bindings.GlTaxTypeByCompanyRO.hints.TaxTypeCode.format}"/>
+                                                            </af:outputFormatted>
+                                                        </af:gridCell>
+                                                    </af:gridRow>
+                                                    <af:gridRow marginTop="5px" height="auto" id="gr12">
+                                                        <af:gridCell marginStart="5px" width="100%" marginEnd="5px"
+                                                                     id="gc13">
+                                                            <af:outputFormatted value="#{item.bindings.TaxTypeName.inputValue}"
+                                                                                id="of8"/>
+                                                        </af:gridCell>
+                                                    </af:gridRow>
+                                                    <af:gridRow marginTop="5px" height="auto" id="gr13">
+                                                        <af:gridCell marginStart="5px" width="100%" marginEnd="5px"
+                                                                     id="gc14">
+                                                            <af:outputFormatted value="#{item.bindings.OpenDate.inputValue}"
+                                                                                id="of9">
+                                                                <af:convertDateTime pattern="#{bindings.GlTaxTypeByCompanyRO.hints.OpenDate.format}"/>
+                                                            </af:outputFormatted>
+                                                        </af:gridCell>
+                                                    </af:gridRow>
+                                                    <af:gridRow marginTop="5px" height="auto" marginBottom="5px"
+                                                                id="gr14">
+                                                        <af:gridCell marginStart="5px" width="100%" marginEnd="5px"
+                                                                     id="gc15">
+                                                            <af:outputFormatted value="#{item.bindings.IsStandard.inputValue}"
+                                                                                id="of10"/>
+                                                        </af:gridCell>
+                                                    </af:gridRow>
+                                                </af:panelGridLayout>
+                                            </af:listItem>
+                                        </af:listView>
                                         <af:listView value="#{bindings.GlBankByCompanyRO.collectionModel}" var="item"
                                                      emptyText="#{bindings.GlBankByCompanyRO.viewable ? 'No data to display.' : 'Access Denied.'}"
                                                      fetchSize="#{bindings.GlBankByCompanyRO.rangeSize}" id="lv1"
