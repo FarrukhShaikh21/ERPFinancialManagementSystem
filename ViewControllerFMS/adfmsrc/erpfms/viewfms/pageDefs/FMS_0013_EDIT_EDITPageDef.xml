@@ -4,10 +4,21 @@
   <parameters/>
   <executables>
     <variableIterator id="variables"/>
+    <iterator Binds="GlTaxTypeCRUD" RangeSize="25" DataControl="ERPFMSModuleDataControl" id="GlTaxTypeCRUDIterator"/>
   </executables>
   <bindings>
     <action id="Rollback" RequiresUpdateModel="false" Action="rollbackTransaction"
             DataControl="ERPFMSModuleDataControl"/>
     <action id="Commit" RequiresUpdateModel="true" Action="commitTransaction" DataControl="ERPFMSModuleDataControl"/>
+    <attributeValues IterBinding="GlTaxTypeCRUDIterator" id="TaxTypeName">
+      <AttrNames>
+        <Item Value="TaxTypeName"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="GlTaxTypeCRUDIterator" id="TaxTypeCode">
+      <AttrNames>
+        <Item Value="TaxTypeCode"/>
+      </AttrNames>
+    </attributeValues>
   </bindings>
 </pageDefinition>

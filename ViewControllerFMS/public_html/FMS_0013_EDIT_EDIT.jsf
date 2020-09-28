@@ -17,13 +17,35 @@
                                             <af:gridCell marginStart="5px" width="15%" id="gc3" marginEnd="5px"
                                                          halign="center"/>
                                             <af:gridCell marginStart="5px" width="85%" id="gc4" halign="stretch"
-                                                         columnSpan="1" rowSpan="1"/>
+                                                         columnSpan="1" rowSpan="1">
+                                                <af:inputText value="#{bindings.TaxTypeName.inputValue}"
+                                                              label="#{bindings.TaxTypeName.hints.label}"
+                                                              required="#{bindings.TaxTypeName.hints.mandatory}"
+                                                              columns="#{bindings.TaxTypeName.hints.displayWidth}"
+                                                              maximumLength="#{bindings.TaxTypeName.hints.precision}"
+                                                              shortDesc="#{bindings.TaxTypeName.hints.tooltip}"
+                                                              id="it1" simple="true" contentStyle="width:100%">
+                                                    <f:validator binding="#{bindings.TaxTypeName.validator}"/>
+                                                </af:inputText>
+                                            </af:gridCell>
                                         </af:gridRow>
                                         <af:gridRow marginTop="5px" height="auto" id="gr3">
                                             <af:gridCell marginStart="5px" width="15%" id="gc7" marginEnd="5px"
                                                          halign="center"/>
                                             <af:gridCell marginStart="5px" width="85%" id="gc8" marginEnd="5px"
-                                                         halign="stretch" columnSpan="1" rowSpan="1"/>
+                                                         halign="stretch" columnSpan="1" rowSpan="1">
+                                                <af:inputText value="#{bindings.TaxTypeCode.inputValue}"
+                                                              label="#{bindings.TaxTypeCode.hints.label}"
+                                                              required="#{bindings.TaxTypeCode.hints.mandatory}"
+                                                              columns="#{bindings.TaxTypeCode.hints.displayWidth}"
+                                                              maximumLength="#{bindings.TaxTypeCode.hints.precision}"
+                                                              shortDesc="#{bindings.TaxTypeCode.hints.tooltip}"
+                                                              id="it2" simple="true" readOnly="true">
+                                                    <f:validator binding="#{bindings.TaxTypeCode.validator}"/>
+                                                    <af:convertNumber groupingUsed="false"
+                                                                      pattern="#{bindings.TaxTypeCode.format}"/>
+                                                </af:inputText>
+                                            </af:gridCell>
                                         </af:gridRow>
                                         <af:gridRow marginTop="5px" height="auto" marginBottom="5px" id="gr4">
                                             <af:gridCell marginStart="5px" width="15%" id="gc11" halign="center"/>
