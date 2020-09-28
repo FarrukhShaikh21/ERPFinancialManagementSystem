@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.1.3.2.1"
+                id="ERPBTFFMS_ERPBTFFMS_Execute1PageDef1111111" Package="erpfms.viewfms.pageDefs" SkipValidation="true">
+  <parameters/>
+  <executables>
+    <iterator Binds="GlTaxTypeByCompanyRO" RangeSize="25" DataControl="ERPFMSModuleDataControl"
+              id="GlTaxTypeByCompanyROIterator" Refresh="never"/>
+  </executables>
+  <bindings>
+    <action IterBinding="GlTaxTypeByCompanyROIterator" id="Execute" RequiresUpdateModel="true"
+            Action="iteratorExecute"/>
+  </bindings>
+</pageDefinition>

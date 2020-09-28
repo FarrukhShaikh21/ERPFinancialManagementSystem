@@ -2543,11 +2543,11 @@
       islink="true"
       id="ControlFlowCase232"
       from="View223"
-      to="View222">
+      to="MethodCall237">
       <property
          name="fromOutcome">ERPBACKCRUD</property>
       <property
-         name="sdm:polyPoints">L50,-228.91867,1477.0459,-431.64648,1469.8447,R54</property>
+         name="sdm:polyPoints">B50,-186.64258,1531.0459,-409.5,1686.0977,R50</property>
    </ControlFlowCase>
    <ControlFlowCase
       islink="true"
@@ -2591,5 +2591,28 @@
          name="fromOutcome">ERP-QRY-ACT-FMS_0013_EDIT_EDIT</property>
       <property
          name="sdm:polyPoints">R50,-316.31152,1400.0977,-227.64258,1470.0459,L42</property>
+   </ControlFlowCase>
+   <MethodCall
+      id="MethodCall237">
+      <property
+         name="activityId">ExeGlTaxByCompanyFMS_0013_EDIT_EDIT</property>
+      <property
+         name="description">&lt;html>&lt;p>&lt;b>ExeGlTaxByCompanyFMS_0013_EDIT_EDIT&lt;/b>&lt;/p>&lt;p>Activity Type:  Method Call&lt;/p></property>
+      <property
+         name="exceptionHandler">false</property>
+      <property
+         name="y">1686.4482</property>
+      <property
+         name="x">-450.5</property>
+   </MethodCall>
+   <ControlFlowCase
+      islink="true"
+      id="ControlFlowCase238"
+      from="MethodCall237"
+      to="View222">
+      <property
+         name="fromOutcome">ERPBACKCRUD</property>
+      <property
+         name="sdm:polyPoints">T50,-450.5,1632.0977,-476.14648,1522.7206,B44</property>
    </ControlFlowCase>
 </SDM>

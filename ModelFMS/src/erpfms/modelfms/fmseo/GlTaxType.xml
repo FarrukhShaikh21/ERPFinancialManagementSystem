@@ -9,7 +9,12 @@
   DBObjectType="table"
   DBObjectName="GL_TAX_TYPE"
   AliasName="GlTaxType"
-  BindingStyle="JDBC">
+  BindingStyle="JDBC"
+  RowClass="erpfms.modelfms.fmseo.GlTaxTypeImpl">
+  <DesignTime>
+    <Attr Name="_codeGenFlag2" Value="Init|Delete|Access|DML"/>
+    <Attr Name="_isCodegen" Value="true"/>
+  </DesignTime>
   <Attribute
     Name="TaxTypeSno"
     Precision="6"
@@ -115,7 +120,7 @@
     ColumnType="NUMBER"
     TableName="GL_TAX_TYPE">
     <TransientExpression
-      trustMode="untrusted"><![CDATA[erpglobals.modelglobals.ERPGlobalPLSQLClass.doGetModelGlobalDefCompany()]]></TransientExpression>
+      trustMode="trusted"><![CDATA[erpglobals.modelglobals.ERPGlobalPLSQLClass.doGetModelGlobalDefCompany()]]></TransientExpression>
     <Properties>
       <SchemaBasedProperties>
         <LABEL

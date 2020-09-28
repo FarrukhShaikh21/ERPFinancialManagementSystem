@@ -153,6 +153,8 @@
     <page path="/WEB-INF/ERPBTFFMS.xml#ERPBTFFMS@ExeParaTaxByTaxIDFMS_0013_EDIT"
           usageId="erpfms_viewfms_ERPBTFFMS_ERPBTFFMS_ExecuteWithParams1PageDef11111111111111111111111111111111111"/>
     <page path="/FMS_0013_EDIT_EDIT.jsf" usageId="erpfms_viewfms_FMS_0013_EDIT_EDITPageDef"/>
+    <page path="/WEB-INF/ERPBTFFMS.xml#ERPBTFFMS@ExeGlTaxByCompanyFMS_0013_EDIT_EDIT"
+          usageId="erpfms_viewfms_ERPBTFFMS_ERPBTFFMS_Execute1PageDef1111111"/>
   </pageMap>
   <pageDefinitionUsages>
     <page id="erpfms_viewfms_FMSMainPageDef" path="erpfms.viewfms.pageDefs.FMSMainPageDef"/>
@@ -307,6 +309,8 @@
     <page id="erpfms_viewfms_ERPBTFFMS_ERPBTFFMS_ExecuteWithParams1PageDef11111111111111111111111111111111111"
           path="erpfms.viewfms.pageDefs.ERPBTFFMS_ERPBTFFMS_ExecuteWithParams1PageDef11111111111111111111111111111111111"/>
     <page id="erpfms_viewfms_FMS_0013_EDIT_EDITPageDef" path="erpfms.viewfms.pageDefs.FMS_0013_EDIT_EDITPageDef"/>
+    <page id="erpfms_viewfms_ERPBTFFMS_ERPBTFFMS_Execute1PageDef1111111"
+          path="erpfms.viewfms.pageDefs.ERPBTFFMS_ERPBTFFMS_Execute1PageDef1111111"/>
   </pageDefinitionUsages>
   <dataControlUsages>
     <BC4JDataControl id="ERPTemModuleDataControl" Package="erptemplate.modeltemp.temam"

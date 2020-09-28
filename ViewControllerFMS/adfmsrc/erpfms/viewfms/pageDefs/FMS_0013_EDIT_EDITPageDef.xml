@@ -44,5 +44,10 @@
           DTSupportsMRU="true" SelectItemValueMode="ListObject"/>
     <list IterBinding="GlTaxTypeCRUDIterator" StaticList="false" Uses="LovIsCustCategoryWise" id="IsCustCategoryWise"
           DTSupportsMRU="true" SelectItemValueMode="ListObject"/>
+    <action IterBinding="GlTaxTypeCRUDIterator" id="CreateWithParams" RequiresUpdateModel="true"
+            Action="createWithParams">
+      <NamedData NDName="CompanyId" NDValue="#{data.erpfms_viewfms_FMS_0013_EDITPageDef.CompCode.inputValue}"
+                 NDType="java.lang.String"/>
+    </action>
   </bindings>
 </pageDefinition>

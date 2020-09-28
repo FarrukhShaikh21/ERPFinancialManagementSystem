@@ -535,6 +535,12 @@
         <fixed-outcome>ERP-QRY-ACT-FMS_0013_EDIT_EDIT</fixed-outcome>
       </outcome>
     </method-call>
+    <method-call id="ExeGlTaxByCompanyFMS_0013_EDIT_EDIT">
+      <method>#{bindings.Execute.execute}</method>
+      <outcome>
+        <fixed-outcome>ERPBACKCRUD</fixed-outcome>
+      </outcome>
+    </method-call>
     <control-flow-rule id="__8">
       <from-activity-id>doFMSGotoErpActivity</from-activity-id>
       <control-flow-case id="__9">
@@ -1286,7 +1292,7 @@
       <from-activity-id>FMS_0013_EDIT_EDIT</from-activity-id>
       <control-flow-case id="__218">
         <from-outcome>ERPBACKCRUD</from-outcome>
-        <to-activity-id>FMS_0013_EDIT</to-activity-id>
+        <to-activity-id>ExeGlTaxByCompanyFMS_0013_EDIT_EDIT</to-activity-id>
       </control-flow-case>
     </control-flow-rule>
     <control-flow-rule id="__221">
@@ -1294,6 +1300,13 @@
       <control-flow-case id="__222">
         <from-outcome>ERP-QRY-ACT-FMS_0013_EDIT_EDIT</from-outcome>
         <to-activity-id>FMS_0013_EDIT_EDIT</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__223">
+      <from-activity-id>ExeGlTaxByCompanyFMS_0013_EDIT_EDIT</from-activity-id>
+      <control-flow-case id="__224">
+        <from-outcome>ERPBACKCRUD</from-outcome>
+        <to-activity-id>FMS_0013_EDIT</to-activity-id>
       </control-flow-case>
     </control-flow-rule>
     <visibility>

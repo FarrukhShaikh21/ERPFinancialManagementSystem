@@ -221,8 +221,6 @@
                                                      text="Close"
                                                      iconPosition="top"
                                                      action="#{pageFlowScope.OracleERPBean.doBackFromEdit}">
-                                                <af:setActionListener from="#{'GlChartOfAccountsByCOIDCRUDIterator'}"
-                                                                      to="#{pageFlowScope.OracleERPBean.LIteratorName}"/>
                                                 <af:setActionListener from="#{'ERPBACKCRUD'}"
                                                                       to="#{pageFlowScope.OracleERPBean.ERPBackActionName}"/>
                                             </af:link>
