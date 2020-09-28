@@ -25,5 +25,12 @@
         <Item Value="TaxTypeShortName"/>
       </AttrNames>
     </attributeValues>
+    <attributeValues IterBinding="GlTaxTypeCRUDIterator" id="OpenDate">
+      <AttrNames>
+        <Item Value="OpenDate"/>
+      </AttrNames>
+    </attributeValues>
+    <list IterBinding="GlTaxTypeCRUDIterator" StaticList="false" Uses="LovIsActive" id="IsActive" DTSupportsMRU="true"
+          SelectItemValueMode="ListObject"/>
   </bindings>
 </pageDefinition>
