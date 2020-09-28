@@ -1,7 +1,117 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <!DOCTYPE html>
 <f:view xmlns:f="http://java.sun.com/jsf/core" xmlns:af="http://xmlns.oracle.com/adf/faces/rich">
-  <af:document title="FMS_0013_EDIT_EDIT.jsf" id="d1">
-    <af:form id="f1"></af:form>
-  </af:document>
+    <af:document title="FMS_0013_EDIT_EDIT.jsf" id="d1">
+        <af:messages id="m1"/>
+        <af:form id="f1">
+            <af:decorativeBox id="db1" dimensionsFrom="parent">
+                <f:facet name="center">
+                    <af:decorativeBox id="db2" dimensionsFrom="parent" partialTriggers="l2 l1 l3">
+                        <f:facet name="center">
+                            <af:panelBox text="PanelBox1" id="pb2" showHeader="never">
+                                <f:facet name="toolbar"/>
+                                <af:panelBox text="Basic Information" id="pb1" showDisclosure="false">
+                                    <f:facet name="toolbar"/>
+                                    <af:panelGridLayout id="pgl2">
+                                        <af:gridRow marginTop="5px" height="auto" id="gr2">
+                                            <af:gridCell marginStart="5px" width="15%" id="gc3" marginEnd="5px"
+                                                         halign="center"/>
+                                            <af:gridCell marginStart="5px" width="85%" id="gc4" halign="stretch"
+                                                         columnSpan="1" rowSpan="1"/>
+                                        </af:gridRow>
+                                        <af:gridRow marginTop="5px" height="auto" id="gr3">
+                                            <af:gridCell marginStart="5px" width="15%" id="gc7" marginEnd="5px"
+                                                         halign="center"/>
+                                            <af:gridCell marginStart="5px" width="85%" id="gc8" marginEnd="5px"
+                                                         halign="stretch" columnSpan="1" rowSpan="1"/>
+                                        </af:gridRow>
+                                        <af:gridRow marginTop="5px" height="auto" marginBottom="5px" id="gr4">
+                                            <af:gridCell marginStart="5px" width="15%" id="gc11" halign="center"/>
+                                            <af:gridCell marginStart="5px" width="85%" id="gc12" marginEnd="5px"
+                                                         columnSpan="1" halign="stretch" rowSpan="1"/>
+                                        </af:gridRow>
+                                        <af:gridRow id="gr5">
+                                            <af:gridCell id="gc5" width="15%" marginStart="5px" marginEnd="5px"
+                                                         halign="center"/>
+                                            <af:gridCell id="gc6" halign="stretch"/>
+                                        </af:gridRow>
+                                    </af:panelGridLayout>
+                                </af:panelBox>
+                                <af:panelBox text="Other Tax Information" id="pb3" showDisclosure="false">
+                                    <f:facet name="toolbar"/>
+                                    <af:panelGridLayout id="pgl3">
+                                        <af:gridRow marginTop="5px" height="auto" marginBottom="5px" id="gr6">
+                                            <af:gridCell marginStart="5px" width="15%" id="gc9" marginEnd="5px"
+                                                         halign="center"/>
+                                            <af:gridCell marginStart="5px" width="85%" id="gc10" halign="stretch"/>
+                                        </af:gridRow>
+                                        <af:gridRow id="gr7">
+                                            <af:gridCell marginStart="5px" width="15%" id="gc13" marginEnd="5px"
+                                                         halign="center"/>
+                                            <af:gridCell marginStart="5px" width="85%" marginEnd="5px" id="gc14"
+                                                         halign="stretch"/>
+                                        </af:gridRow>
+                                    </af:panelGridLayout>
+                                </af:panelBox>
+                            </af:panelBox>
+                        </f:facet>
+                        <f:facet name="top">
+                            <af:panelGridLayout id="pgl1">
+                                <af:gridRow marginTop="5px" height="auto" marginBottom="5px" id="gr1">
+                                    <af:gridCell marginStart="5px" width="50%" id="gc1"/>
+                                    <af:gridCell marginStart="5px" width="50%" marginEnd="5px" id="gc2"
+                                                 halign="stretch">
+                                        <af:panelGroupLayout id="pgl4" layout="horizontal" halign="end">
+                                            <af:link id="l5" partialSubmit="true"
+                                                     icon="#{resource['images:imgCloseDialog.png']}"
+                                                     text="Close"
+                                                     iconPosition="top"
+                                                     action="#{pageFlowScope.OracleERPBean.doBackFromEdit}">
+                                                <af:setActionListener from="#{'GlChartOfAccountsByCOIDCRUDIterator'}"
+                                                                      to="#{pageFlowScope.OracleERPBean.LIteratorName}"/>
+                                                <af:setActionListener from="#{'ERPBACKCRUD'}"
+                                                                      to="#{pageFlowScope.OracleERPBean.ERPBackActionName}"/>
+                                            </af:link>
+                                            <af:link actionListener="#{bindings.CreateWithParams.execute}"
+                                                     text="CreateWithParams"
+                                                     disabled="#{!bindings.CreateWithParams.enabled}" id="l4"
+                                                     rendered="false"/>
+                                            <af:link
+                                                     text="Add"
+                                                     id="l1" icon="#{resource['images:imgAddRecord.png']}"
+                                                     iconPosition="top" partialSubmit="true"
+                                                     action="#{pageFlowScope.OracleERPBean.doERPAddRecordWithPara}"
+                                                     disabled="#{pageFlowScope.ERPMainTempBean.LERPAllowAdd=='N'}">
+                                                <af:setActionListener from="#{'GlChartOfAccountsByCOIDCRUDIterator'}"
+                                                                      to="#{pageFlowScope.OracleERPBean.LIteratorName}"/>
+                                            </af:link>
+                                            <af:link actionListener="#{bindings.Rollback.execute}" text="Rollback" immediate="true" id="l6"
+                                                     rendered="false">
+                                                <af:resetActionListener/>
+                                            </af:link>
+                                            <af:link actionListener="#{bindings.Rollback.execute}" text="Undo" immediate="true" id="l3"
+                                                     icon="#{resource['images:imgUndo.png']}" iconPosition="top"
+                                                     partialSubmit="true">
+                                                <af:resetActionListener/>
+                                            </af:link>
+                                            <af:link actionListener="#{bindings.Commit.execute}" text="Commit" id="l7"
+                                                     rendered="false"/>
+                                            <af:link actionListener="#{bindings.Commit.execute}" text="Save" id="l2"
+                                                     icon="#{resource['images:imgSave.png']}" iconPosition="top"
+                                                     partialSubmit="true"/>
+                                            <f:facet name="separator">
+                                                <af:spacer width="10" height="10" id="s1"/>
+                                            </f:facet>
+                                        </af:panelGroupLayout>                                    
+                                    </af:gridCell>
+                                </af:gridRow>
+                            </af:panelGridLayout>
+                        </f:facet>
+                    </af:decorativeBox>
+                </f:facet>
+                <f:facet name="top"/>
+            </af:decorativeBox>
+        </af:form>
+        <f:facet name="metaContainer"/>
+    </af:document>
 </f:view>

@@ -502,7 +502,7 @@
     <method-call id="ExeAdminCompFMS_0013">
       <method>#{bindings.Execute.execute}</method>
       <outcome>
-        <fixed-outcome>ERP-ACT-FMS_0003</fixed-outcome>
+        <fixed-outcome>ERP-ACT-FMS_0013</fixed-outcome>
       </outcome>
     </method-call>
     <view id="FMS_0013_EDIT">
@@ -586,7 +586,7 @@
         <to-activity-id>ExeAdminCompanyFMS_0012</to-activity-id>
       </control-flow-case>
       <control-flow-case id="__206">
-        <from-outcome>ERP-ACT-FMS_0002</from-outcome>
+        <from-outcome>ERP-ACT-FMS_0013</from-outcome>
         <to-activity-id>ExeAdminCompFMS_0013</to-activity-id>
       </control-flow-case>
     </control-flow-rule>
@@ -1235,7 +1235,7 @@
     <control-flow-rule id="__204">
       <from-activity-id>ExeAdminCompFMS_0013</from-activity-id>
       <control-flow-case id="__205">
-        <from-outcome>ERP-ACT-FMS_0003</from-outcome>
+        <from-outcome>ERP-ACT-FMS_0013</from-outcome>
         <to-activity-id>FMS_0013</to-activity-id>
       </control-flow-case>
     </control-flow-rule>

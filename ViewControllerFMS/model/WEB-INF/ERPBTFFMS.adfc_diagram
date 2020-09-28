@@ -2389,7 +2389,7 @@
       from="MethodCall11"
       to="MethodCall220">
       <property
-         name="fromOutcome">ERP-ACT-FMS_0002</property>
+         name="fromOutcome">ERP-ACT-FMS_0013</property>
       <property
          name="tosrcid">__206</property>
       <property
@@ -2416,7 +2416,7 @@
       from="MethodCall220"
       to="View218">
       <property
-         name="fromOutcome">ERP-ACT-FMS_0003</property>
+         name="fromOutcome">ERP-ACT-FMS_0013</property>
       <property
          name="sdm:polyPoints">B50,-694.5,1240.0977,-693.5,1298.0459,T50</property>
    </ControlFlowCase>
@@ -2547,7 +2547,7 @@
       <property
          name="fromOutcome">ERPBACKCRUD</property>
       <property
-         name="sdm:polyPoints">L42,-227.64258,1470.0459,-431.52298,1462.8447,R46</property>
+         name="sdm:polyPoints">L50,-228.91867,1477.0459,-431.64648,1469.8447,R54</property>
    </ControlFlowCase>
    <ControlFlowCase
       islink="true"

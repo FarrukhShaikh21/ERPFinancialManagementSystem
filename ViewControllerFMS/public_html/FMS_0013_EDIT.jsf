@@ -125,7 +125,7 @@
                                                                         <af:link id="l1"
                                                                                  styleClass="ERPHeroBannerFont ERPLink"
                                                                                  icon="#{resource['images:imgView.png']}"
-                                                                                 action="DO-ACT-QUERY-FMS_0012_EDIT"/>
+                                                                                 action="ERP-QRY-ACT-FMS_0013_EDIT_EDIT"/>
                                                                         <af:outputFormatted value="#{item.bindings.TaxTypeShortName.inputValue}"
                                                                                             id="of6"
                                                                                             styleClass="ERPHeroBannerFont"/>
@@ -219,7 +219,7 @@
                                                      partialSubmit="true"/>
                                             <af:link id="l2" partialSubmit="true"
                                                      icon="#{resource['images:imgNewDocument.png']}"
-                                                     iconPosition="top" action="ERPADDFMS_0012_EDIT_EDIT"/>
+                                                     iconPosition="top" action="ERP-ADD-ACT-FMS_0013_EDIT_EDIT"/>
                                             <f:facet name="separator">
                                                 <af:spacer width="10" height="10" id="s1"/>
                                             </f:facet>
