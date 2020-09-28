@@ -2446,9 +2446,9 @@
       <property
          name="exceptionHandler">false</property>
       <property
-         name="y">1490.0977</property>
+         name="y">1477.3965</property>
       <property
-         name="x">-278.64258</property>
+         name="x">-186.64258</property>
    </View>
    <MethodCall
       id="MethodCall224">
@@ -2515,9 +2515,9 @@
       <property
          name="exceptionHandler">false</property>
       <property
-         name="y">1587.4482</property>
+         name="y">1589.0977</property>
       <property
-         name="x">-301.98047</property>
+         name="x">-314.98047</property>
    </MethodCall>
    <ControlFlowCase
       islink="true"
@@ -2527,7 +2527,7 @@
       <property
          name="fromOutcome">ERP-ADD-ACT-FMS_0003_EDIT_EDIT</property>
       <property
-         name="sdm:polyPoints">B50,-472.64648,1520.3447,-342.98047,1587.0977,L50</property>
+         name="sdm:polyPoints">B50,-472.64648,1520.3447,-355.98047,1589.0977,L50</property>
    </ControlFlowCase>
    <ControlFlowCase
       islink="true"
@@ -2537,6 +2537,6 @@
       <property
          name="fromOutcome">ERP-ADD-ACT-FMS_0003_EDIT_EDIT</property>
       <property
-         name="sdm:polyPoints">L46,-342.98047,1583.5977,-319.64258,1489.7471,L50</property>
+         name="sdm:polyPoints">T50,-314.98047,1535.0977,-227.64258,1477.0459,L50</property>
    </ControlFlowCase>
 </SDM>
