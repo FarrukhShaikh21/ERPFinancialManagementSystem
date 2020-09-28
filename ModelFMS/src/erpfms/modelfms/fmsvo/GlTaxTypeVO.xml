@@ -9,7 +9,7 @@
   SelectListFlags="1"
   FromListFlags="1"
   WhereFlags="1"
-  BindingStyle="OracleName"
+  BindingStyle="JDBC"
   CustomQuery="false"
   SelectAllAttributes="false"
   PageIterMode="Full">

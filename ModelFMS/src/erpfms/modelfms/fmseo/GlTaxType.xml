@@ -9,7 +9,7 @@
   DBObjectType="table"
   DBObjectName="GL_TAX_TYPE"
   AliasName="GlTaxType"
-  BindingStyle="OracleName">
+  BindingStyle="JDBC">
   <Attribute
     Name="TaxTypeSno"
     Precision="6"
