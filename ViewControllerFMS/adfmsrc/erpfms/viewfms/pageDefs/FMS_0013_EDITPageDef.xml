@@ -8,6 +8,8 @@
               id="AdminCompanyVOByCompanyROIterator"/>
     <iterator Binds="GlTaxTypeByCompanyRO" RangeSize="25" DataControl="ERPFMSModuleDataControl"
               id="GlTaxTypeByCompanyROIterator"/>
+    <searchRegion Criteria="GlTaxTypeVOFindVC" Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer"
+                  Binds="GlTaxTypeByCompanyROIterator" id="ImplicitViewCriteriaQuery" InitialQueryOverridden="true"/>
   </executables>
   <bindings>
     <listOfValues IterBinding="AdminCompanyVOByCompanyROIterator" StaticList="false" Uses="LovtxtCountryName"

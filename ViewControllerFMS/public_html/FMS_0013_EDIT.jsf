@@ -78,7 +78,16 @@
                                     </af:gridCell>
                                 </af:gridRow>
                                 <af:gridRow id="gr1" marginTop="5px" marginBottom="5px">
-                                    <af:gridCell id="gc1" halign="center" width="100%"/>
+                                    <af:gridCell id="gc1" halign="center" width="100%">
+                                        <af:quickQuery label="Search" searchDesc="Search" id="qryId1"
+                                                       value="#{bindings.ImplicitViewCriteriaQuery.quickQueryDescriptor}"
+                                                       model="#{bindings.ImplicitViewCriteriaQuery.queryModel}"
+                                                       queryListener="#{bindings.ImplicitViewCriteriaQuery.processQuery}">
+                                            <f:facet name="end">
+                                                <af:commandLink text="Advanced" rendered="false" id="cl1"/>
+                                            </f:facet>
+                                        </af:quickQuery>
+                                    </af:gridCell>
                                 </af:gridRow>
                                 <af:gridRow marginTop="5px" height="auto" marginBottom="5px" id="gr6">
                                     <af:gridCell marginStart="5px" width="100%" marginEnd="5px" id="gc6"
@@ -99,7 +108,8 @@
                                                      fetchSize="#{bindings.GlTaxTypeByCompanyRO.rangeSize}" id="lv2"
                                                      selection="single"
                                                      selectedRowKeys="#{bindings.GlTaxTypeByCompanyRO.collectionModel.selectedRow}"
-                                                     selectionListener="#{bindings.GlTaxTypeByCompanyRO.treeModel.makeCurrent}">
+                                                     selectionListener="#{bindings.GlTaxTypeByCompanyRO.treeModel.makeCurrent}"
+                                                     partialTriggers="::qryId1">
                                             <af:listItem id="li2">
                                                 <af:panelGridLayout id="pgl11">
                                                     <af:gridRow marginTop="5px" height="auto" id="gr10">
