@@ -526,13 +526,13 @@
     <method-call id="CrWithPFMS_0013GlTaxType">
       <method>#{bindings.CreateWithParams.execute}</method>
       <outcome>
-        <fixed-outcome>ERP-ADD-ACT-FMS_0003_EDIT_EDIT</fixed-outcome>
+        <fixed-outcome>ERP-ADD-ACT-FMS_0013_EDIT_EDIT</fixed-outcome>
       </outcome>
     </method-call>
     <method-call id="ExeParaTaxByTaxIDFMS_0013_EDIT">
       <method>#{bindings.ExecuteWithParams.execute}</method>
       <outcome>
-        <fixed-outcome>ERP-QRY-ACT-FMS_0003_EDIT_EDIT</fixed-outcome>
+        <fixed-outcome>ERP-QRY-ACT-FMS_0013_EDIT_EDIT</fixed-outcome>
       </outcome>
     </method-call>
     <control-flow-rule id="__8">
@@ -1263,7 +1263,7 @@
     <control-flow-rule id="__213">
       <from-activity-id>FMS_0013_EDIT</from-activity-id>
       <control-flow-case id="__214">
-        <from-outcome>ERP-ADD-ACT-FMS_0003_EDIT_EDIT</from-outcome>
+        <from-outcome>ERP-ADD-ACT-FMS_0013_EDIT_EDIT</from-outcome>
         <to-activity-id>CrWithPFMS_0013GlTaxType</to-activity-id>
       </control-flow-case>
       <control-flow-case id="__219">
@@ -1271,14 +1271,14 @@
         <to-activity-id>FMS_0013</to-activity-id>
       </control-flow-case>
       <control-flow-case id="__220">
-        <from-outcome>ERP-QRY-ACT-FMS_0003_EDIT_EDIT</from-outcome>
+        <from-outcome>ERP-QRY-ACT-FMS_0013_EDIT_EDIT</from-outcome>
         <to-activity-id>ExeParaTaxByTaxIDFMS_0013_EDIT</to-activity-id>
       </control-flow-case>
     </control-flow-rule>
     <control-flow-rule id="__215">
       <from-activity-id>CrWithPFMS_0013GlTaxType</from-activity-id>
       <control-flow-case id="__216">
-        <from-outcome>ERP-ADD-ACT-FMS_0003_EDIT_EDIT</from-outcome>
+        <from-outcome>ERP-ADD-ACT-FMS_0013_EDIT_EDIT</from-outcome>
         <to-activity-id>FMS_0013_EDIT_EDIT</to-activity-id>
       </control-flow-case>
     </control-flow-rule>
@@ -1292,7 +1292,7 @@
     <control-flow-rule id="__221">
       <from-activity-id>ExeParaTaxByTaxIDFMS_0013_EDIT</from-activity-id>
       <control-flow-case id="__222">
-        <from-outcome>ERP-QRY-ACT-FMS_0003_EDIT_EDIT</from-outcome>
+        <from-outcome>ERP-QRY-ACT-FMS_0013_EDIT_EDIT</from-outcome>
         <to-activity-id>FMS_0013_EDIT_EDIT</to-activity-id>
       </control-flow-case>
     </control-flow-rule>
