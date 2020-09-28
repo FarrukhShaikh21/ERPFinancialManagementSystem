@@ -50,7 +50,17 @@
                                         <af:gridRow marginTop="5px" height="auto" marginBottom="5px" id="gr4">
                                             <af:gridCell marginStart="5px" width="15%" id="gc11" halign="center"/>
                                             <af:gridCell marginStart="5px" width="85%" id="gc12" marginEnd="5px"
-                                                         columnSpan="1" halign="stretch" rowSpan="1"/>
+                                                         columnSpan="1" halign="stretch" rowSpan="1">
+                                                <af:inputText value="#{bindings.TaxTypeShortName.inputValue}"
+                                                              label="#{bindings.TaxTypeShortName.hints.label}"
+                                                              required="#{bindings.TaxTypeShortName.hints.mandatory}"
+                                                              columns="#{bindings.TaxTypeShortName.hints.displayWidth}"
+                                                              maximumLength="#{bindings.TaxTypeShortName.hints.precision}"
+                                                              shortDesc="#{bindings.TaxTypeShortName.hints.tooltip}"
+                                                              id="it3" simple="true" contentStyle="width:100%">
+                                                    <f:validator binding="#{bindings.TaxTypeShortName.validator}"/>
+                                                </af:inputText>
+                                            </af:gridCell>
                                         </af:gridRow>
                                         <af:gridRow id="gr5">
                                             <af:gridCell id="gc5" width="15%" marginStart="5px" marginEnd="5px"

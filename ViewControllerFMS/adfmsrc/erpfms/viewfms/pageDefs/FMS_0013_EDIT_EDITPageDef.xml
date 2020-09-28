@@ -20,5 +20,10 @@
         <Item Value="TaxTypeCode"/>
       </AttrNames>
     </attributeValues>
+    <attributeValues IterBinding="GlTaxTypeCRUDIterator" id="TaxTypeShortName">
+      <AttrNames>
+        <Item Value="TaxTypeShortName"/>
+      </AttrNames>
+    </attributeValues>
   </bindings>
 </pageDefinition>
