@@ -97,7 +97,8 @@
                                                       required="#{bindings.TaxTypeSno.hints.mandatory}"
                                                       columns="#{bindings.TaxTypeSno.hints.displayWidth}"
                                                       maximumLength="#{bindings.TaxTypeSno.hints.precision}"
-                                                      shortDesc="#{bindings.TaxTypeSno.hints.tooltip}" id="it7">
+                                                      shortDesc="#{bindings.TaxTypeSno.hints.tooltip}" id="it7"
+                                                      rendered="false">
                                             <f:validator binding="#{bindings.TaxTypeSno.validator}"/>
                                             <af:convertNumber groupingUsed="false"
                                                               pattern="#{bindings.TaxTypeSno.format}"/>
