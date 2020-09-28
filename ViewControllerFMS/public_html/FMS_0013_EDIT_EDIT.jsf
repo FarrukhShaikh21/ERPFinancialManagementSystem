@@ -68,7 +68,7 @@
                                                 </af:inputText>
                                             </af:gridCell>
                                         </af:gridRow>
-                                        <af:gridRow id="gr5">
+                                        <af:gridRow id="gr5" marginTop="5px" marginBottom="5px">
                                             <af:gridCell id="gc5" width="15%" marginStart="5px" marginEnd="5px"
                                                          halign="center">
                                                 <af:outputLabel value="#{bindings.OpenDate.hints.label}" id="ol4"/>
@@ -109,14 +109,101 @@
                                     <af:panelGridLayout id="pgl3">
                                         <af:gridRow marginTop="5px" height="auto" marginBottom="5px" id="gr6">
                                             <af:gridCell marginStart="5px" width="15%" id="gc9" marginEnd="5px"
-                                                         halign="center"/>
-                                            <af:gridCell marginStart="5px" width="85%" id="gc10" halign="stretch"/>
+                                                         halign="center">
+                                                <af:outputLabel value="#{bindings.IsStandard.label}" id="ol6"/>
+                                            </af:gridCell>
+                                            <af:gridCell marginStart="5px" width="85%" id="gc10" halign="stretch">
+                                                <af:selectOneChoice value="#{bindings.IsStandard.inputValue}"
+                                                                    label="#{bindings.IsStandard.label}"
+                                                                    required="#{bindings.IsStandard.hints.mandatory}"
+                                                                    shortDesc="#{bindings.IsStandard.hints.tooltip}"
+                                                                    id="soc2" simple="true" contentStyle="width:100%">
+                                                    <f:selectItems value="#{bindings.IsStandard.items}" id="si2"/>
+                                                    <f:validator binding="#{bindings.IsStandard.validator}"/>
+                                                </af:selectOneChoice>
+                                            </af:gridCell>
                                         </af:gridRow>
-                                        <af:gridRow id="gr7">
+                                        <af:gridRow id="gr7" marginTop="5px" marginBottom="5px">
                                             <af:gridCell marginStart="5px" width="15%" id="gc13" marginEnd="5px"
-                                                         halign="center"/>
+                                                         halign="center">
+                                                <af:outputLabel value="#{bindings.IsProduct.label}" id="ol7"/>
+                                            </af:gridCell>
                                             <af:gridCell marginStart="5px" width="85%" marginEnd="5px" id="gc14"
-                                                         halign="stretch"/>
+                                                         halign="stretch">
+                                                <af:selectOneChoice value="#{bindings.IsProduct.inputValue}"
+                                                                    label="#{bindings.IsProduct.label}"
+                                                                    required="#{bindings.IsProduct.hints.mandatory}"
+                                                                    shortDesc="#{bindings.IsProduct.hints.tooltip}"
+                                                                    id="soc3" simple="true" contentStyle="width:100%">
+                                                    <f:selectItems value="#{bindings.IsProduct.items}" id="si3"/>
+                                                    <f:validator binding="#{bindings.IsProduct.validator}"/>
+                                                </af:selectOneChoice>
+                                            </af:gridCell>
+                                        </af:gridRow>
+                                        <af:gridRow id="gr9">
+                                            <af:gridCell id="gc17" halign="center">
+                                                <af:outputLabel value="#{bindings.IsLocationWise.label}" id="ol8"/>
+                                            </af:gridCell>
+                                            <af:gridCell id="gc18" halign="stretch">
+                                                <af:selectOneChoice value="#{bindings.IsLocationWise.inputValue}"
+                                                                    label="#{bindings.IsLocationWise.label}"
+                                                                    required="#{bindings.IsLocationWise.hints.mandatory}"
+                                                                    shortDesc="#{bindings.IsLocationWise.hints.tooltip}"
+                                                                    id="soc4" simple="true" contentStyle="width:100%">
+                                                    <f:selectItems value="#{bindings.IsLocationWise.items}" id="si4"/>
+                                                    <f:validator binding="#{bindings.IsLocationWise.validator}"/>
+                                                </af:selectOneChoice>
+                                            </af:gridCell>
+                                        </af:gridRow>
+                                        <af:gridRow id="gr10" marginTop="5px" marginBottom="5px">
+                                            <af:gridCell id="gc19" width="15%" marginStart="5px" marginEnd="5px"
+                                                         halign="center">
+                                                <af:outputLabel value="#{bindings.IsExempted.label}" id="ol9"/>
+                                            </af:gridCell>
+                                            <af:gridCell id="gc20" marginStart="5px" marginEnd="5px" width="85%"
+                                                         halign="stretch">
+                                                <af:selectOneChoice value="#{bindings.IsExempted.inputValue}"
+                                                                    label="#{bindings.IsExempted.label}"
+                                                                    required="#{bindings.IsExempted.hints.mandatory}"
+                                                                    shortDesc="#{bindings.IsExempted.hints.tooltip}"
+                                                                    id="soc5" simple="true" contentStyle="width:100%">
+                                                    <f:selectItems value="#{bindings.IsExempted.items}" id="si5"/>
+                                                    <f:validator binding="#{bindings.IsExempted.validator}"/>
+                                                </af:selectOneChoice>
+                                            </af:gridCell>
+                                        </af:gridRow>
+                                        <af:gridRow id="gr11">
+                                            <af:gridCell id="gc21" halign="center">
+                                                <af:outputLabel value="#{bindings.IsCustTypeWise.label}" id="ol10"/>
+                                            </af:gridCell>
+                                            <af:gridCell id="gc22" halign="stretch">
+                                                <af:selectOneChoice value="#{bindings.IsCustTypeWise.inputValue}"
+                                                                    label="#{bindings.IsCustTypeWise.label}"
+                                                                    required="#{bindings.IsCustTypeWise.hints.mandatory}"
+                                                                    shortDesc="#{bindings.IsCustTypeWise.hints.tooltip}"
+                                                                    id="soc6" simple="true" contentStyle="width:100%">
+                                                    <f:selectItems value="#{bindings.IsCustTypeWise.items}" id="si6"/>
+                                                    <f:validator binding="#{bindings.IsCustTypeWise.validator}"/>
+                                                </af:selectOneChoice>
+                                            </af:gridCell>
+                                        </af:gridRow>
+                                        <af:gridRow id="gr12" marginTop="5px" marginBottom="5px">
+                                            <af:gridCell id="gc23" width="15%" marginStart="5px" marginEnd="5px"
+                                                         halign="center">
+                                                <af:outputLabel value="#{bindings.IsCustCategoryWise.label}" id="ol11"/>
+                                            </af:gridCell>
+                                            <af:gridCell id="gc24" halign="stretch" marginStart="5px" marginEnd="5px"
+                                                         width="85%">
+                                                <af:selectOneChoice value="#{bindings.IsCustCategoryWise.inputValue}"
+                                                                    label="#{bindings.IsCustCategoryWise.label}"
+                                                                    required="#{bindings.IsCustCategoryWise.hints.mandatory}"
+                                                                    shortDesc="#{bindings.IsCustCategoryWise.hints.tooltip}"
+                                                                    id="soc7" simple="true" contentStyle="width:100%">
+                                                    <f:selectItems value="#{bindings.IsCustCategoryWise.items}"
+                                                                   id="si7"/>
+                                                    <f:validator binding="#{bindings.IsCustCategoryWise.validator}"/>
+                                                </af:selectOneChoice>
+                                            </af:gridCell>
                                         </af:gridRow>
                                     </af:panelGridLayout>
                                 </af:panelBox>

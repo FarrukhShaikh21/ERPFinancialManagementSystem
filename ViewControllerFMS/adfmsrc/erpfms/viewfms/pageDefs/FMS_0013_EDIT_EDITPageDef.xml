@@ -32,5 +32,17 @@
     </attributeValues>
     <list IterBinding="GlTaxTypeCRUDIterator" StaticList="false" Uses="LovIsActive" id="IsActive" DTSupportsMRU="true"
           SelectItemValueMode="ListObject"/>
+    <list IterBinding="GlTaxTypeCRUDIterator" StaticList="false" Uses="LovIsStandard" id="IsStandard"
+          DTSupportsMRU="true" SelectItemValueMode="ListObject"/>
+    <list IterBinding="GlTaxTypeCRUDIterator" StaticList="false" Uses="LovIsProduct" id="IsProduct"
+          DTSupportsMRU="true" SelectItemValueMode="ListObject"/>
+    <list IterBinding="GlTaxTypeCRUDIterator" StaticList="false" Uses="LovIsLocationWise" id="IsLocationWise"
+          DTSupportsMRU="true" SelectItemValueMode="ListObject"/>
+    <list IterBinding="GlTaxTypeCRUDIterator" StaticList="false" Uses="LovIsExempted" id="IsExempted"
+          DTSupportsMRU="true" SelectItemValueMode="ListObject"/>
+    <list IterBinding="GlTaxTypeCRUDIterator" StaticList="false" Uses="LovIsCustTypeWise" id="IsCustTypeWise"
+          DTSupportsMRU="true" SelectItemValueMode="ListObject"/>
+    <list IterBinding="GlTaxTypeCRUDIterator" StaticList="false" Uses="LovIsCustCategoryWise" id="IsCustCategoryWise"
+          DTSupportsMRU="true" SelectItemValueMode="ListObject"/>
   </bindings>
 </pageDefinition>
