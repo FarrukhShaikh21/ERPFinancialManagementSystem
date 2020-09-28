@@ -2469,7 +2469,7 @@
       from="View218"
       to="MethodCall224">
       <property
-         name="fromOutcome">ERP-QRY-ACT-FMS_0003</property>
+         name="fromOutcome">ERP-QRY-ACT-FMS_0013</property>
       <property
          name="sdm:polyPoints">B50,-693.5,1406.0459,-734.3115,1425.6953,T50</property>
    </ControlFlowCase>
@@ -2479,7 +2479,7 @@
       from="MethodCall224"
       to="MethodCall227">
       <property
-         name="fromOutcome">ERP-QRY--ACT-FMS_0003</property>
+         name="fromOutcome">ERP-QRY-ACT-FMS_0013</property>
       <property
          name="sdm:polyPoints">R50,-693.3115,1479.6953,-600.3115,1560.0977,L50</property>
    </ControlFlowCase>
