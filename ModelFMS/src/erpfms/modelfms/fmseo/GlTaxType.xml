@@ -74,6 +74,8 @@
     Type="java.sql.Timestamp"
     ColumnType="DATE"
     TableName="GL_TAX_TYPE">
+    <TransientExpression
+      trustMode="untrusted"><![CDATA[adf.currentDate]]></TransientExpression>
     <Properties>
       <SchemaBasedProperties>
         <LABEL
@@ -112,6 +114,8 @@
     Type="java.lang.Integer"
     ColumnType="NUMBER"
     TableName="GL_TAX_TYPE">
+    <TransientExpression
+      trustMode="untrusted"><![CDATA[erpglobals.modelglobals.ERPGlobalPLSQLClass.doGetModelGlobalDefCompany()]]></TransientExpression>
     <Properties>
       <SchemaBasedProperties>
         <LABEL
