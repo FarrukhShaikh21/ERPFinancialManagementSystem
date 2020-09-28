@@ -41,22 +41,6 @@
         <Item Value="GlobalCompCode"/>
       </AttrNames>
     </attributeValues>
-    <tree IterBinding="GlBankByCompanyROIterator" id="GlBankByCompanyRO">
-      <nodeDefinition DefName="erpfms.modelfms.fmsvo.GlBankVO" Name="GlBankByCompanyRO0">
-        <AttrNames>
-          <Item Value="BankName"/>
-          <Item Value="BankShortCode"/>
-          <Item Value="BankShortName"/>
-          <Item Value="OpeningDate"/>
-          <Item Value="Website"/>
-        </AttrNames>
-      </nodeDefinition>
-    </tree>
-    <attributeValues IterBinding="GlBankByCompanyROIterator" id="BankId">
-      <AttrNames>
-        <Item Value="BankId"/>
-      </AttrNames>
-    </attributeValues>
     <tree IterBinding="GlTaxTypeByCompanyROIterator" id="GlTaxTypeByCompanyRO">
       <nodeDefinition DefName="erpfms.modelfms.fmsvo.GlTaxTypeVO" Name="GlTaxTypeByCompanyRO0">
         <AttrNames>
