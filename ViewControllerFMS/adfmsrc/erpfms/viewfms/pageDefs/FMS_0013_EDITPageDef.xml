@@ -10,6 +10,8 @@
               id="GlBankByCompanyROIterator"/>
     <searchRegion Criteria="GlBankVOFindVC" Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer"
                   Binds="GlBankByCompanyROIterator" id="ImplicitViewCriteriaQuery" InitialQueryOverridden="true"/>
+    <iterator Binds="GlTaxTypeByCompanyRO" RangeSize="25" DataControl="ERPFMSModuleDataControl"
+              id="GlTaxTypeByCompanyROIterator"/>
   </executables>
   <bindings>
     <listOfValues IterBinding="AdminCompanyVOByCompanyROIterator" StaticList="false" Uses="LovtxtCountryName"
@@ -55,5 +57,16 @@
         <Item Value="BankId"/>
       </AttrNames>
     </attributeValues>
+    <tree IterBinding="GlTaxTypeByCompanyROIterator" id="GlTaxTypeByCompanyRO">
+      <nodeDefinition DefName="erpfms.modelfms.fmsvo.GlTaxTypeVO" Name="GlTaxTypeByCompanyRO0">
+        <AttrNames>
+          <Item Value="TaxTypeShortName"/>
+          <Item Value="TaxTypeCode"/>
+          <Item Value="TaxTypeName"/>
+          <Item Value="OpenDate"/>
+          <Item Value="IsStandard"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
   </bindings>
 </pageDefinition>
