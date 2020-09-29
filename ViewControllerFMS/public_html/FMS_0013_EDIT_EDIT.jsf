@@ -68,7 +68,8 @@
                                                               columns="#{bindings.TaxTypeName.hints.displayWidth}"
                                                               maximumLength="#{bindings.TaxTypeName.hints.precision}"
                                                               shortDesc="#{bindings.TaxTypeName.hints.tooltip}"
-                                                              id="it1" simple="true" contentStyle="width:100%">
+                                                              id="it1" simple="true" contentStyle="width:100%"
+                                                              readOnly="#{bindings.IsSupervised.inputValue=='Y' || (pageFlowScope.ERPMainTempBean.LERPAllowEdit=='N' &amp;&amp; bindings.TaxTypeCode.inputValue>0)}">
                                                     <f:validator binding="#{bindings.TaxTypeName.validator}"/>
                                                 </af:inputText>
                                             </af:gridCell>
@@ -105,7 +106,8 @@
                                                               columns="#{bindings.TaxTypeShortName.hints.displayWidth}"
                                                               maximumLength="#{bindings.TaxTypeShortName.hints.precision}"
                                                               shortDesc="#{bindings.TaxTypeShortName.hints.tooltip}"
-                                                              id="it3" simple="true" contentStyle="width:100%">
+                                                              id="it3" simple="true" contentStyle="width:100%"
+                                                              readOnly="#{bindings.IsSupervised.inputValue=='Y' || (pageFlowScope.ERPMainTempBean.LERPAllowEdit=='N' &amp;&amp; bindings.TaxTypeCode.inputValue>0)}">
                                                     <f:validator binding="#{bindings.TaxTypeShortName.validator}"/>
                                                 </af:inputText>
                                             </af:gridCell>
@@ -122,7 +124,8 @@
                                                               required="#{bindings.OpenDate.hints.mandatory}"
                                                               columns="#{bindings.OpenDate.hints.displayWidth}"
                                                               shortDesc="#{bindings.OpenDate.hints.tooltip}" id="id1"
-                                                              simple="true">
+                                                              simple="true"
+                                                              readOnly="#{bindings.IsSupervised.inputValue=='Y' || (pageFlowScope.ERPMainTempBean.LERPAllowEdit=='N' &amp;&amp; bindings.TaxTypeCode.inputValue>0)}">
                                                     <f:validator binding="#{bindings.OpenDate.validator}"/>
                                                     <af:convertDateTime pattern="#{bindings.OpenDate.format}"/>
                                                 </af:inputDate>
@@ -138,7 +141,8 @@
                                                                     label="#{bindings.IsActive.label}"
                                                                     required="#{bindings.IsActive.hints.mandatory}"
                                                                     shortDesc="#{bindings.IsActive.hints.tooltip}"
-                                                                    id="soc1" simple="true" contentStyle="width:100%">
+                                                                    id="soc1" simple="true" contentStyle="width:100%"
+                                                                    readOnly="#{bindings.IsSupervised.inputValue=='Y' || (pageFlowScope.ERPMainTempBean.LERPAllowEdit=='N' &amp;&amp; bindings.TaxTypeCode.inputValue>0)}">
                                                     <f:selectItems value="#{bindings.IsActive.items}" id="si1"/>
                                                     <f:validator binding="#{bindings.IsActive.validator}"/>
                                                 </af:selectOneChoice>
@@ -159,7 +163,8 @@
                                                                     label="#{bindings.IsStandard.label}"
                                                                     required="#{bindings.IsStandard.hints.mandatory}"
                                                                     shortDesc="#{bindings.IsStandard.hints.tooltip}"
-                                                                    id="soc2" simple="true" contentStyle="width:100%">
+                                                                    id="soc2" simple="true" contentStyle="width:100%"
+                                                                    readOnly="#{bindings.IsSupervised.inputValue=='Y' || (pageFlowScope.ERPMainTempBean.LERPAllowEdit=='N' &amp;&amp; bindings.TaxTypeCode.inputValue>0)}">
                                                     <f:selectItems value="#{bindings.IsStandard.items}" id="si2"/>
                                                     <f:validator binding="#{bindings.IsStandard.validator}"/>
                                                 </af:selectOneChoice>
@@ -176,7 +181,8 @@
                                                                     label="#{bindings.IsProduct.label}"
                                                                     required="#{bindings.IsProduct.hints.mandatory}"
                                                                     shortDesc="#{bindings.IsProduct.hints.tooltip}"
-                                                                    id="soc3" simple="true" contentStyle="width:100%">
+                                                                    id="soc3" simple="true" contentStyle="width:100%"
+                                                                    readOnly="#{bindings.IsSupervised.inputValue=='Y' || (pageFlowScope.ERPMainTempBean.LERPAllowEdit=='N' &amp;&amp; bindings.TaxTypeCode.inputValue>0)}">
                                                     <f:selectItems value="#{bindings.IsProduct.items}" id="si3"/>
                                                     <f:validator binding="#{bindings.IsProduct.validator}"/>
                                                 </af:selectOneChoice>
@@ -191,7 +197,8 @@
                                                                     label="#{bindings.IsLocationWise.label}"
                                                                     required="#{bindings.IsLocationWise.hints.mandatory}"
                                                                     shortDesc="#{bindings.IsLocationWise.hints.tooltip}"
-                                                                    id="soc4" simple="true" contentStyle="width:100%">
+                                                                    id="soc4" simple="true" contentStyle="width:100%"
+                                                                    readOnly="#{bindings.IsSupervised.inputValue=='Y' || (pageFlowScope.ERPMainTempBean.LERPAllowEdit=='N' &amp;&amp; bindings.TaxTypeCode.inputValue>0)}">
                                                     <f:selectItems value="#{bindings.IsLocationWise.items}" id="si4"/>
                                                     <f:validator binding="#{bindings.IsLocationWise.validator}"/>
                                                 </af:selectOneChoice>
@@ -208,7 +215,8 @@
                                                                     label="#{bindings.IsExempted.label}"
                                                                     required="#{bindings.IsExempted.hints.mandatory}"
                                                                     shortDesc="#{bindings.IsExempted.hints.tooltip}"
-                                                                    id="soc5" simple="true" contentStyle="width:100%">
+                                                                    id="soc5" simple="true" contentStyle="width:100%"
+                                                                    readOnly="#{bindings.IsSupervised.inputValue=='Y' || (pageFlowScope.ERPMainTempBean.LERPAllowEdit=='N' &amp;&amp; bindings.TaxTypeCode.inputValue>0)}">
                                                     <f:selectItems value="#{bindings.IsExempted.items}" id="si5"/>
                                                     <f:validator binding="#{bindings.IsExempted.validator}"/>
                                                 </af:selectOneChoice>
@@ -223,7 +231,8 @@
                                                                     label="#{bindings.IsCustTypeWise.label}"
                                                                     required="#{bindings.IsCustTypeWise.hints.mandatory}"
                                                                     shortDesc="#{bindings.IsCustTypeWise.hints.tooltip}"
-                                                                    id="soc6" simple="true" contentStyle="width:100%">
+                                                                    id="soc6" simple="true" contentStyle="width:100%"
+                                                                    readOnly="#{bindings.IsSupervised.inputValue=='Y' || (pageFlowScope.ERPMainTempBean.LERPAllowEdit=='N' &amp;&amp; bindings.TaxTypeCode.inputValue>0)}">
                                                     <f:selectItems value="#{bindings.IsCustTypeWise.items}" id="si6"/>
                                                     <f:validator binding="#{bindings.IsCustTypeWise.validator}"/>
                                                 </af:selectOneChoice>
@@ -240,7 +249,8 @@
                                                                     label="#{bindings.IsCustCategoryWise.label}"
                                                                     required="#{bindings.IsCustCategoryWise.hints.mandatory}"
                                                                     shortDesc="#{bindings.IsCustCategoryWise.hints.tooltip}"
-                                                                    id="soc7" simple="true" contentStyle="width:100%">
+                                                                    id="soc7" simple="true" contentStyle="width:100%"
+                                                                    readOnly="#{bindings.IsSupervised.inputValue=='Y' || (pageFlowScope.ERPMainTempBean.LERPAllowEdit=='N' &amp;&amp; bindings.TaxTypeCode.inputValue>0)}">
                                                     <f:selectItems value="#{bindings.IsCustCategoryWise.items}"
                                                                    id="si7"/>
                                                     <f:validator binding="#{bindings.IsCustCategoryWise.validator}"/>
@@ -275,21 +285,21 @@
                                                      iconPosition="top"
                                                      action="#{pageFlowScope.OracleERPBean.doERPPopUnSuperviseRecord}"
                                                      disabled="#{bindings.IsSupervised.inputValue=='N' || pageFlowScope.ERPMainTempBean.LERPAllowUnsupervise=='N'}">
-                                                <af:setActionListener from="#{'GlBankByCompanyCRUDIterator'}"
+                                                <af:setActionListener from="#{'GlTaxTypeCRUDIterator'}"
                                                                       to="#{pageFlowScope.OracleERPBean.LIteratorName}"/>
                                             </af:link>                                                     
                                             <af:link text="Supervise" id="l19" partialSubmit="true"
                                                      icon="#{resource['images:imgSuperviseRecord.png']}"
                                                      iconPosition="top"
                                                      action="#{pageFlowScope.OracleERPBean.doERPPopSupervisedRecord}"
-                                                     disabled="#{bindings.IsSupervised.inputValue=='Y' || pageFlowScope.ERPMainTempBean.LERPAllowSupervise=='N'}">
-                                                <af:setActionListener from="#{'GlBankByCompanyCRUDIterator'}"
+                                                     disabled="#{bindings.IsSupervised.inputValue=='Y' || pageFlowScope.ERPMainTempBean.LERPAllowSupervise=='N' || bindings.TaxTypeCode.inputValue==null}">
+                                                <af:setActionListener from="#{'GlTaxTypeCRUDIterator'}"
                                                                       to="#{pageFlowScope.OracleERPBean.LIteratorName}"/>
                                             </af:link>                                                     
                                             <af:link actionListener="#{bindings.Delete.execute}" text="Delete" id="l8" rendered="false"/>
                                             <af:link text="Delete" id="l12" partialSubmit="true"
                                                      icon="#{resource['images:imgDeleteRecord.png']}" iconPosition="top"
-                                                     disabled="#{pageFlowScope.ERPMainTempBean.LERPAllowDelete=='N'}">
+                                                     disabled="#{pageFlowScope.ERPMainTempBean.LERPAllowDelete=='N' || bindings.IsSupervised.inputValue=='Y' }">
                                                 <af:showPopupBehavior popupId="p1"/>
                                             </af:link>
                                             <af:link
@@ -307,14 +317,16 @@
                                             </af:link>
                                             <af:link actionListener="#{bindings.Rollback.execute}" text="Undo" immediate="true" id="l3"
                                                      icon="#{resource['images:imgUndo.png']}" iconPosition="top"
-                                                     partialSubmit="true">
+                                                     partialSubmit="true"
+                                                     disabled="#{bindings.IsSupervised.inputValue=='Y' }">
                                                 <af:resetActionListener/>
                                             </af:link>
                                             <af:link actionListener="#{bindings.Commit.execute}" text="Commit" id="l7"
                                                      rendered="false"/>
                                             <af:link actionListener="#{bindings.Commit.execute}" text="Save" id="l2"
                                                      icon="#{resource['images:imgSave.png']}" iconPosition="top"
-                                                     partialSubmit="true"/>
+                                                     partialSubmit="true"
+                                                     disabled="#{bindings.IsSupervised.inputValue=='Y' }"/>
                                             <f:facet name="separator">
                                                 <af:spacer width="10" height="10" id="s1"/>
                                             </f:facet>
