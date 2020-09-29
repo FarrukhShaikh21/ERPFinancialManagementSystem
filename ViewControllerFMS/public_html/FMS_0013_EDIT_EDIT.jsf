@@ -4,6 +4,13 @@
     <af:document title="FMS_0013_EDIT_EDIT.jsf" id="d1">
         <af:messages id="m1"/>
         <af:form id="f1">
+            <af:popup childCreation="deferred" autoCancel="disabled" id="p1">
+                <af:dialog id="d2" title="Confirmation!" type="yesNo"
+                           dialogListener="#{pageFlowScope.OracleERPBean.doERPConfirmDelete}">
+                    <f:facet name="buttonBar"/>
+                    <af:outputText value="Do you want to delete this record?" id="ot2" styleClass="ErpDeleteConfirmText"/>
+                </af:dialog>
+            </af:popup>        
             <af:decorativeBox id="db1" dimensionsFrom="parent">
                 <f:facet name="center">
                     <af:decorativeBox id="db2" dimensionsFrom="parent" partialTriggers="l2 l1 l3">
@@ -228,6 +235,12 @@
                                                      text="CreateWithParams"
                                                      disabled="#{!bindings.CreateWithParams.enabled}" id="l4"
                                                      rendered="false"/>
+                                            <af:link actionListener="#{bindings.Delete.execute}" text="Delete" id="l8" rendered="false"/>
+                                            <af:link text="Delete" id="l12" partialSubmit="true"
+                                                     icon="#{resource['images:imgDeleteRecord.png']}" iconPosition="top"
+                                                     disabled="#{pageFlowScope.ERPMainTempBean.LERPAllowDelete=='N'}">
+                                                <af:showPopupBehavior popupId="p1"/>
+                                            </af:link>
                                             <af:link
                                                      text="Add"
                                                      id="l1" icon="#{resource['images:imgAddRecord.png']}"
@@ -236,7 +249,7 @@
                                                      disabled="#{pageFlowScope.ERPMainTempBean.LERPAllowAdd=='N'}">
                                                 <af:setActionListener from="#{'GlChartOfAccountsByCOIDCRUDIterator'}"
                                                                       to="#{pageFlowScope.OracleERPBean.LIteratorName}"/>
-                                            </af:link>
+                                            </af:link>                                            
                                             <af:link actionListener="#{bindings.Rollback.execute}" text="Rollback" immediate="true" id="l6"
                                                      rendered="false">
                                                 <af:resetActionListener/>
