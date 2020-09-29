@@ -49,5 +49,16 @@
       <NamedData NDName="CompanyId" NDValue="#{data.erpfms_viewfms_FMS_0013_EDITPageDef.CompCode.inputValue}"
                  NDType="java.lang.String"/>
     </action>
+    <action IterBinding="GlTaxTypeCRUDIterator" id="Delete" RequiresUpdateModel="false" Action="removeCurrentRow"/>
+    <attributeValues IterBinding="GlTaxTypeCRUDIterator" id="IsSupervised">
+      <AttrNames>
+        <Item Value="IsSupervised"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="GlTaxTypeCRUDIterator" id="IsUnsupervised">
+      <AttrNames>
+        <Item Value="IsUnsupervised"/>
+      </AttrNames>
+    </attributeValues>
   </bindings>
 </pageDefinition>

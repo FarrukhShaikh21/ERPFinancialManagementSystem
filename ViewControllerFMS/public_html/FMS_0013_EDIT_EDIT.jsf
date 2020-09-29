@@ -10,7 +10,24 @@
                     <f:facet name="buttonBar"/>
                     <af:outputText value="Do you want to delete this record?" id="ot2" styleClass="ErpDeleteConfirmText"/>
                 </af:dialog>
-            </af:popup>        
+            </af:popup>
+            <af:popup childCreation="deferred" autoCancel="disabled" id="p2"
+                            binding="#{pageFlowScope.OracleERPBean.lerpSupervisePopupConfirm}" contentDelivery="lazyUncached">
+                    <af:dialog id="d3" type="yesNo" closeIconVisible="false" title="Supervise"
+                               dialogListener="#{pageFlowScope.OracleERPBean.doERPConfirmSuperviseDialog}">
+                      <af:outputText value="Do you want to Supervise this transaction?" id="ot8" inlineStyle="font-size:large;"/>
+                      <f:facet name="buttonBar"/>
+                            </af:dialog>
+                </af:popup>
+            
+                <af:popup childCreation="deferred" autoCancel="disabled" id="p3"
+                            binding="#{pageFlowScope.OracleERPBean.lerpUnSupervisePopupConfirm}" contentDelivery="lazyUncached">
+                    <af:dialog id="d4" type="yesNo" closeIconVisible="false" title="UnSupervise"
+                               dialogListener="#{pageFlowScope.OracleERPBean.doERPConfirmUnSuperviseDialog}">
+                      <af:outputText value="Do you want to UnSupervise this transaction?" id="ot9" inlineStyle="font-size:large;"/>
+                      <f:facet name="buttonBar"/>
+                            </af:dialog>
+                </af:popup>            
             <af:decorativeBox id="db1" dimensionsFrom="parent">
                 <f:facet name="center">
                     <af:decorativeBox id="db2" dimensionsFrom="parent" partialTriggers="l2 l1 l3">
@@ -27,6 +44,24 @@
                                             </af:gridCell>
                                             <af:gridCell marginStart="5px" width="85%" id="gc4"
                                                          columnSpan="1" rowSpan="1" halign="stretch">
+                                                <af:inputText value="#{bindings.IsUnsupervised.inputValue}"
+                                                              label="#{bindings.IsUnsupervised.hints.label}"
+                                                              required="#{bindings.IsUnsupervised.hints.mandatory}"
+                                                              columns="#{bindings.IsUnsupervised.hints.displayWidth}"
+                                                              maximumLength="#{bindings.IsUnsupervised.hints.precision}"
+                                                              shortDesc="#{bindings.IsUnsupervised.hints.tooltip}"
+                                                              id="it5" rendered="false">
+                                                    <f:validator binding="#{bindings.IsUnsupervised.validator}"/>
+                                                </af:inputText>
+                                                <af:inputText value="#{bindings.IsSupervised.inputValue}"
+                                                              label="#{bindings.IsSupervised.hints.label}"
+                                                              required="#{bindings.IsSupervised.hints.mandatory}"
+                                                              columns="#{bindings.IsSupervised.hints.displayWidth}"
+                                                              maximumLength="#{bindings.IsSupervised.hints.precision}"
+                                                              shortDesc="#{bindings.IsSupervised.hints.tooltip}"
+                                                              id="it4" rendered="false">
+                                                    <f:validator binding="#{bindings.IsSupervised.validator}"/>
+                                                </af:inputText>
                                                 <af:inputText value="#{bindings.TaxTypeName.inputValue}"
                                                               label="#{bindings.TaxTypeName.hints.label}"
                                                               required="#{bindings.TaxTypeName.hints.mandatory}"
@@ -235,6 +270,14 @@
                                                      text="CreateWithParams"
                                                      disabled="#{!bindings.CreateWithParams.enabled}" id="l4"
                                                      rendered="false"/>
+                                            <af:link text="Supervise" id="l19" partialSubmit="true"
+                                                     icon="#{resource['images:imgSuperviseRecord.png']}"
+                                                     iconPosition="top"
+                                                     action="#{pageFlowScope.OracleERPBean.doERPPopSupervisedRecord}"
+                                                     disabled="#{bindings.IsSupervised.inputValue=='Y' || pageFlowScope.ERPMainTempBean.LERPAllowSupervise=='N'}">
+                                                <af:setActionListener from="#{'GlBankByCompanyCRUDIterator'}"
+                                                                      to="#{pageFlowScope.OracleERPBean.LIteratorName}"/>
+                                            </af:link>                                                     
                                             <af:link actionListener="#{bindings.Delete.execute}" text="Delete" id="l8" rendered="false"/>
                                             <af:link text="Delete" id="l12" partialSubmit="true"
                                                      icon="#{resource['images:imgDeleteRecord.png']}" iconPosition="top"
