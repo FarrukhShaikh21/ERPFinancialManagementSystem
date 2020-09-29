@@ -270,6 +270,14 @@
                                                      text="CreateWithParams"
                                                      disabled="#{!bindings.CreateWithParams.enabled}" id="l4"
                                                      rendered="false"/>
+                                            <af:link text="UnSupervise" id="l18" partialSubmit="true"
+                                                     icon="#{resource['images:imgUnSuperviseRecord.png']}"
+                                                     iconPosition="top"
+                                                     action="#{pageFlowScope.OracleERPBean.doERPPopUnSuperviseRecord}"
+                                                     disabled="#{bindings.IsSupervised.inputValue=='N' || pageFlowScope.ERPMainTempBean.LERPAllowUnsupervise=='N'}">
+                                                <af:setActionListener from="#{'GlBankByCompanyCRUDIterator'}"
+                                                                      to="#{pageFlowScope.OracleERPBean.LIteratorName}"/>
+                                            </af:link>                                                     
                                             <af:link text="Supervise" id="l19" partialSubmit="true"
                                                      icon="#{resource['images:imgSuperviseRecord.png']}"
                                                      iconPosition="top"
