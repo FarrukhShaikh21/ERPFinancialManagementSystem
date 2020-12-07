@@ -744,11 +744,14 @@ public class GlVoucherHeaderVORowImpl extends ERPViewRowImpl {
      */
     public void setLocationId(BigDecimal value) {
         setAttributeInternal(LOCATIONID, value);
+        setCompanyId(doGetCompanyIDByLocation(value.intValue(), getGlobalCompanyId()));
         /*here we are getting the company type level so that we can store the company if accodringly in company id field*/
+        
+        /*
         Integer erpCompanyId=-1;
        
         
-        /*getting company type*/
+        //getting company type
         getAccSysSystemParameterVO().setNamedWhereClauseParam("P_ADF_GLOBAL_COMPANY_ID", getGlobalCompanyId());
         getAccSysSystemParameterVO().setNamedWhereClauseParam("P_ADF_PARAMETER_ID", "COMPANY_TYPE_SNO");
         getAccSysSystemParameterVO().executeQuery();
@@ -756,7 +759,7 @@ public class GlVoucherHeaderVORowImpl extends ERPViewRowImpl {
         getAccAdminCompanyForCompVO().setNamedWhereClauseParam("P_ADF_COMP_CODE",value==null?-1:value.intValue());
         getAccAdminCompanyForCompVO().executeQuery();
         while(true && getAccAdminCompanyForCompVO().getRowCount()>0) {
-            //assigning companyid to company
+            //assigning companyid to company685
             //
             Integer ccode= Integer.parseInt( getAccAdminCompanyForCompVO().first().getAttribute("ParentCompCode").toString() );
             getAccAdminCompanyForCompVO().setNamedWhereClauseParam("P_ADF_COMP_CODE", ccode);
@@ -768,6 +771,7 @@ public class GlVoucherHeaderVORowImpl extends ERPViewRowImpl {
            }
         }
         setCompanyId(erpCompanyId);
+        */
         //System.out.println(getCompanyId() + " getcompanyid");
          
         
