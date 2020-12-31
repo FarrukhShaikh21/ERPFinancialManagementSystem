@@ -316,7 +316,8 @@
                                                      disabled="#{pageFlowScope.ERPMainTempBean.LERPAllowAdd=='N'}"/>
                                             <af:link text="Print Preview" id="l4"
                                                      icon="#{resource['images:imgPrintPreview.png']}"
-                                                     iconPosition="top" partialSubmit="true">
+                                                     iconPosition="top" partialSubmit="true"
+                                                     action="#{pageFlowScope.OracleERPBean.doExecuteFinanceReport}">
                                                 <af:setActionListener from="#{'RPT_FMS_0001.rptdesign'}"
                                                                       to="#{pageFlowScope.OracleERPBean.ERPFinanceReportName}"/>
                                                 <af:setActionListener from="#{'GlChartOfAccountsROIterator'}"

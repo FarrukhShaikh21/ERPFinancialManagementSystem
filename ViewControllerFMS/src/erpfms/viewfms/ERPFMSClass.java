@@ -1606,7 +1606,9 @@ public class ERPFMSClass {
         DCIteratorBinding ib = (DCIteratorBinding) bc.get(lIteratorName);
         DBTransaction Erpdbt=(DBTransaction)ib.getViewObject().getApplicationModule().getTransaction();
         String pUrl=ERPGlobalPLSQLClass.doExecuteSQLQueryModel(Erpdbt, "select value_description from sys_general_value v where v.value_set_id=8");
-        ERPGlobalsClass.ErpdoOpenUrl(pUrl.replace("<P_REPORT_NAME>", ""+getERPFinanceReportName()).replace("<P_REPORT_RUN_SNO>", ( getERPPKForReport()==null?"":"P_REPORT_RUN_SNO="+getERPPKForReport()) )  );
+        //ERPGlobalsClass.ErpdoOpenUrl(pUrl.replace("<P_REPORT_NAME>", ""+getERPFinanceReportName()).replace("<P_REPORT_RUN_SNO>", ( getERPPKForReport()==null?"":"P_REPORT_RUN_SNO="+getERPPKForReport()) )  );
+        ERPGlobalsClass.ErpdoOpenUrl(pUrl.replace("<P_REPORT_NAME>", ""+getERPFinanceReportName()).replace("<P_REPORT_RUN_SNO>", ( getERPPKForReport()==null?"":getERPPKForReport()) )  );
         return null;   
-    }   
+    }  
+    
 }
