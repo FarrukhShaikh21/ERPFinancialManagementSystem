@@ -314,6 +314,14 @@
                                                      icon="#{resource['images:imgNewDocument.png']}"
                                                      iconPosition="top" partialSubmit="true" action="ERPADDFMS_0003"
                                                      disabled="#{pageFlowScope.ERPMainTempBean.LERPAllowAdd=='N'}"/>
+                                            <af:link text="Print Preview" id="l4"
+                                                     icon="#{resource['images:imgPrintPreview.png']}"
+                                                     iconPosition="top" partialSubmit="true">
+                                                <af:setActionListener from="#{'RPT_FMS_0001.rptdesign'}"
+                                                                      to="#{pageFlowScope.OracleERPBean.ERPFinanceReportName}"/>
+                                                <af:setActionListener from="#{'GlChartOfAccountsROIterator'}"
+                                                                      to="#{pageFlowScope.OracleERPBean.LIteratorName}"/>
+                                            </af:link>
                                             <f:facet name="separator">
                                                 <af:spacer width="10" height="10" id="s1"/>
                                             </f:facet>
