@@ -20,6 +20,21 @@
       <value>#{pageFlowScope.OracleERPBean.ERPUserAttributes}</value>
       <class>erpfms.viewfms.ERPFMSClass</class>
     </input-parameter-definition>
+    <input-parameter-definition id="__225">
+      <name>P_ADF_MODULE_RIGHTS</name>
+      <value>#{pageFlowScope.ERPMainTempBean.LERPModuleActionRights}</value>
+      <class>erptemplate.viewtemp.ERPTEMPClass</class>
+    </input-parameter-definition>
+    <return-value-definition id="__226">
+      <name>P_ADF_GOTO_MODULE_FROM_GS</name>
+      <value>#{pageFlowScope.ERPMainTempBean.LERPModuleFromGlobalSearch}</value>
+      <class>erptemplate.viewtemp.ERPTEMPClass</class>
+    </return-value-definition>
+    <return-value-definition id="__227">
+      <name>P_ADF_MODULE_RIGHTS_GS</name>
+      <value>#{pageFlowScope.ERPMainTempBean.LERPModuleActionRights}</value>
+      <class>erptemplate.viewtemp.ERPTEMPClass</class>
+    </return-value-definition>
     <managed-bean id="__1">
       <managed-bean-name>OracleERPBean</managed-bean-name>
       <managed-bean-class>erpfms.viewfms.ERPFMSClass</managed-bean-class>
@@ -541,6 +556,11 @@
         <fixed-outcome>ERPBACKCRUD</fixed-outcome>
       </outcome>
     </method-call>
+    <task-flow-return id="ERPEXITTASKFLOWVIAGS">
+      <outcome>
+        <name>ERPEXITTASKFLOWVIAGS</name>
+      </outcome>
+    </task-flow-return>
     <control-flow-rule id="__8">
       <from-activity-id>doFMSGotoErpActivity</from-activity-id>
       <control-flow-case id="__9">
@@ -1172,6 +1192,10 @@
       <control-flow-case id="__182">
         <from-outcome>ERPLCHANGEPWD</from-outcome>
         <to-activity-id>ERPCHPWDBTF</to-activity-id>
+      </control-flow-case>
+      <control-flow-case id="__228">
+        <from-outcome>ERPACTEXITTASKFLOWVIAGS</from-outcome>
+        <to-activity-id>ERPEXITTASKFLOWVIAGS</to-activity-id>
       </control-flow-case>
     </control-flow-rule>
     <control-flow-rule id="__186">
