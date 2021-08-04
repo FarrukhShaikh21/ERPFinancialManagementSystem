@@ -561,6 +561,12 @@
         <name>ERPEXITTASKFLOWVIAGS</name>
       </outcome>
     </task-flow-return>
+    <method-call id="FMS_0012BankBranchEmptyRowSet">
+      <method>#{bindings.executeEmptyRowSet.execute}</method>
+      <outcome>
+        <fixed-outcome>FMS_0012BankBranchEmptyRowSet</fixed-outcome>
+      </outcome>
+    </method-call>
     <control-flow-rule id="__8">
       <from-activity-id>doFMSGotoErpActivity</from-activity-id>
       <control-flow-case id="__9">
@@ -1238,7 +1244,7 @@
       <from-activity-id>CreateWithParaFMS_0012_EDIT_EDIT</from-activity-id>
       <control-flow-case id="__195">
         <from-outcome>CreateWithParaFMS_0012_EDIT_EDIT</from-outcome>
-        <to-activity-id>FMS_0012_EDIT_EDIT</to-activity-id>
+        <to-activity-id>FMS_0012BankBranchEmptyRowSet</to-activity-id>
       </control-flow-case>
     </control-flow-rule>
     <control-flow-rule id="__196">
@@ -1331,6 +1337,13 @@
       <control-flow-case id="__224">
         <from-outcome>ERPBACKCRUD</from-outcome>
         <to-activity-id>FMS_0013_EDIT</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__229">
+      <from-activity-id>FMS_0012BankBranchEmptyRowSet</from-activity-id>
+      <control-flow-case id="__230">
+        <from-outcome>FMS_0012BankBranchEmptyRowSet</from-outcome>
+        <to-activity-id>FMS_0012_EDIT_EDIT</to-activity-id>
       </control-flow-case>
     </control-flow-rule>
     <visibility>

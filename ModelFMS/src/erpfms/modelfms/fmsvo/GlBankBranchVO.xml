@@ -14,7 +14,9 @@
   SelectAllAttributes="false"
   PageIterMode="Full"
   RowClass="erpglobals.modelglobals.ERPViewRowImpl"
-  ComponentClass="erpfms.modelfms.fmsvo.GlBankBranchVOImpl">
+  ComponentClass="erpfms.modelfms.fmsvo.GlBankBranchVOImpl"
+  ComponentInterface="erpfms.modelfms.fmsvo.common.GlBankBranchVO"
+  ClientProxyName="erpfms.modelfms.fmsvo.client.GlBankBranchVOClient">
   <DesignTime>
     <Attr Name="_objectSuperClassName" Value="erpglobals.modelglobals.ERPViewObjectImpl"/>
     <Attr Name="_rowSuperClassName" Value="erpglobals.modelglobals.ERPViewRowImpl"/>
@@ -460,4 +462,14 @@
     Type="oracle.jbo.Row"
     Reversed="true"
     IsUpdateable="false"/>
+  <ClientInterface
+    Name="__clientInterface">
+    <Method
+      Name="executeEmptyRowSet"
+      MethodName="executeEmptyRowSet">
+      <Return
+        Name="_return_type_"
+        Type="void"/>
+    </Method>
+  </ClientInterface>
 </ViewObject>
