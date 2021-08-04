@@ -4,7 +4,7 @@
 <ViewObject
   xmlns="http://xmlns.oracle.com/bc4j"
   Name="GlBankBranchVO"
-  Version="12.1.3.2.1"
+  Version="12.1.3.10.47"
   InheritPersonalization="merge"
   SelectListFlags="1"
   FromListFlags="1"
@@ -14,10 +14,11 @@
   SelectAllAttributes="false"
   PageIterMode="Full"
   RowClass="erpglobals.modelglobals.ERPViewRowImpl"
-  ComponentClass="erpglobals.modelglobals.ERPViewObjectImpl">
+  ComponentClass="erpfms.modelfms.fmsvo.GlBankBranchVOImpl">
   <DesignTime>
     <Attr Name="_objectSuperClassName" Value="erpglobals.modelglobals.ERPViewObjectImpl"/>
     <Attr Name="_rowSuperClassName" Value="erpglobals.modelglobals.ERPViewRowImpl"/>
+    <Attr Name="_codeGenFlag2" Value="Coll|VarAccess"/>
   </DesignTime>
   <Variable
     Name="P_ADF_BANK_ID"
