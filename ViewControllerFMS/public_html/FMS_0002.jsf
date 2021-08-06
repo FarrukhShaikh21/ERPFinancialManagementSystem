@@ -51,10 +51,12 @@
                                                             <af:link id="l3" partialSubmit="true"
                                                                      icon="#{resource['images:imgView.png']}"
                                                                      action="ERPEDITFMS_0002"
-                                                                     styleClass="ERPHeroBannerFont ERPLink"/>
+                                                                     styleClass="ERPHeroBannerFont ERPLink"
+                                                                     shortDesc="Company Short Name, click to view record."/>
                                                             <af:outputFormatted value="#{item.bindings.CompanyShortName.inputValue}"
                                                                                 id="of1"
-                                                                                styleClass="ERPHeroBannerFont"/>
+                                                                                styleClass="ERPHeroBannerFont"
+                                                                                shortDesc="Company Short Name, click to view record."/>
                                                             <af:link id="l2"
                                                                      partialSubmit="true"
                                                                      styleClass="ERPHeroBannerFont "
@@ -68,10 +70,11 @@
                                                                  id="gc2">
                                                         <af:panelGroupLayout id="pgl3" layout="horizontal">
                                                             <af:image source="#{resource['images:imgShortName.png']}"
-                                                                      id="i1"/>
+                                                                      id="i1" shortDesc="Company Name"/>
                                                             <af:outputFormatted value="#{item.bindings.CompanyName.inputValue}"
                                                                                 id="of2"
-                                                                                styleClass="ERPHeroDetailColor"/>
+                                                                                styleClass="ERPHeroDetailColor"
+                                                                                shortDesc="Company Name"/>
                                                             <f:facet name="separator">
                                                                 <af:spacer width="10" height="10" id="s1"/>
                                                             </f:facet>
@@ -83,11 +86,12 @@
                                                                  id="gc3">
                                                         <af:panelGroupLayout id="pgl4" layout="horizontal">
                                                             <af:image source="#{resource['images:imgDocumentNumber.png']}"
-                                                                      id="i2"/>
+                                                                      id="i2" shortDesc="Company Short Code"/>
                                                             <af:spacer width="10" height="10" id="s2"/>
                                                             <af:outputFormatted value="#{item.bindings.CompanyShortCode.inputValue}"
                                                                                 id="of3"
-                                                                                styleClass="ERPHeroDetailColor">
+                                                                                styleClass="ERPHeroDetailColor"
+                                                                                shortDesc="Company Short Code">
                                                                 <af:convertNumber groupingUsed="false"
                                                                                   pattern="#{bindings.AdminCompanyForCOAUserRightsRO.hints.CompanyShortCode.format}"/>
                                                             </af:outputFormatted>
@@ -99,10 +103,11 @@
                                                                  id="gc4">
                                                         <af:panelGroupLayout id="pgl5" layout="horizontal">
                                                             <af:image source="#{resource['images:imgCountry.png']}"
-                                                                      id="i3"/>
+                                                                      id="i3" shortDesc="Country Name"/>
                                                             <af:outputFormatted value="#{item.bindings.txtCountryName.inputValue}"
                                                                                 id="of4"
-                                                                                styleClass="ERPHeroDetailColor"/>
+                                                                                styleClass="ERPHeroDetailColor"
+                                                                                shortDesc="Country Name"/>
                                                             <f:facet name="separator">
                                                                 <af:spacer width="10" height="10" id="s3"/>
                                                             </f:facet>
