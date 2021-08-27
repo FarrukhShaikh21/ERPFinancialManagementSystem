@@ -3,14 +3,38 @@
 <f:view xmlns:f="http://java.sun.com/jsf/core" xmlns:af="http://xmlns.oracle.com/adf/faces/rich">
     <af:document title="FMSExceptionHandler.jsf" id="d1">
         <af:form id="f1">
-        <af:panelGroupLayout id="pgl1" layout="scroll">
-                <af:outputText value="#{controllerContext.currentRootViewPort.exceptionData.message}"
-                               id="ot1" inlineStyle="font-size:large"/>
-                <af:outputText value="#{controllerContext.currentRootViewPort.exceptionData.cause.cause.localizedMessage}"
-                               id="ot2" inlineStyle="font-size:large"/>
-                <af:outputText value="#{controllerContext.currentRootViewPort.exceptionData.cause.cause.stackTrace}"
-                               id="ot3" inlineStyle="font-size:large"/>
-            </af:panelGroupLayout>
-        </af:form>
+                        <af:decorativeBox id="db2" dimensionsFrom="parent">
+                                <f:facet name="center">
+                                        <af:decorativeBox id="db1" dimensionsFrom="parent">
+                                                <f:facet name="center">
+                                                        <af:panelBox text="Exception Occurs" id="pb1"
+                                                                     showDisclosure="false">
+                                                                <f:facet name="toolbar"/>
+                                                                <af:panelGroupLayout id="pgl1" layout="vertical">
+                                                                        <af:outputText value="#{controllerContext.currentRootViewPort.exceptionData.message}"
+                                                                                       id="ot1"
+                                                                                       inlineStyle="font-size:large;color:red"/>
+                                                                        <af:outputText value="#{controllerContext.currentRootViewPort.exceptionData.cause.cause.localizedMessage}"
+                                                                                       id="ot2"
+                                                                                       inlineStyle="font-size:large;color:red"/>
+                                                                        <af:outputText value="#{controllerContext.currentRootViewPort.exceptionData.cause.cause.stackTrace}"
+                                                                                       id="ot3"
+                                                                                       inlineStyle="font-size:large;color:red"/>
+                                                                </af:panelGroupLayout>
+                                                        </af:panelBox>
+                                                </f:facet>
+                                                <f:facet name="top">
+                                                        <af:panelGroupLayout id="pgl2" layout="horizontal" halign="end">
+                                                                <af:link id="l1"
+                                                                         icon="#{resource['images:imgHome.png']}"
+                                                                         partialSubmit="true"
+                                                                         action="ERP-ACT-RET-FROM-EXCEPTION"/>
+                                                        </af:panelGroupLayout>
+                                                </f:facet>
+                                        </af:decorativeBox>
+                                </f:facet>
+                                <f:facet name="top"/>
+                        </af:decorativeBox>
+                </af:form>
     </af:document>
 </f:view>

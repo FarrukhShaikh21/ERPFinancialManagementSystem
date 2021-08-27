@@ -1346,6 +1346,13 @@
         <to-activity-id>FMS_0012_EDIT_EDIT</to-activity-id>
       </control-flow-case>
     </control-flow-rule>
+    <control-flow-rule id="__231">
+      <from-activity-id>FMSExceptionHandler</from-activity-id>
+      <control-flow-case id="__232">
+        <from-outcome>ERP-ACT-RET-FROM-EXCEPTION</from-outcome>
+        <to-activity-id>FMSMain</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
     <visibility>
       <url-invoke-allowed/>
     </visibility>
