@@ -7,29 +7,92 @@
                                 <f:facet name="center">
                                         <af:decorativeBox id="db1" dimensionsFrom="parent">
                                                 <f:facet name="center">
-                                                        <af:panelBox text="Exception Occurs" id="pb1"
+                                                        <af:panelBox text="Exception Occurss" id="pb1"
                                                                      showDisclosure="false">
                                                                 <f:facet name="toolbar"/>
-                                                                <af:panelGroupLayout id="pgl1" layout="vertical">
-                                                                        <af:outputText value="#{controllerContext.currentRootViewPort.exceptionData.message}"
-                                                                                       id="ot1"
-                                                                                       inlineStyle="font-size:large;color:red"/>
-                                                                        <af:outputText value="#{controllerContext.currentRootViewPort.exceptionData.cause.cause.localizedMessage}"
-                                                                                       id="ot2"
-                                                                                       inlineStyle="font-size:large;color:red"/>
-                                                                        <af:outputText value="#{controllerContext.currentRootViewPort.exceptionData.cause.cause.stackTrace}"
-                                                                                       id="ot3"
-                                                                                       inlineStyle="font-size:large;color:red"/>
-                                                                </af:panelGroupLayout>
+                                                                <af:panelGridLayout id="pgl3">
+                                                                        <af:gridRow marginTop="5px" height="auto"
+                                                                                    id="gr1">
+                                                                                <af:gridCell marginStart="5px"
+                                                                                             width="100%"
+                                                                                             marginEnd="5px" id="gc1"
+                                                                                             halign="stretch"
+                                                                                             valign="stretch">
+                                                                                        <af:inputText value="#{controllerContext.currentRootViewPort.exceptionData.message}"
+                                                                                                      id="ot1"
+                                                                                                      inlineStyle="font-size:large;color:red"
+                                                                                                      label="Label 1"
+                                                                                                      simple="true"
+                                                                                                      contentStyle="font-size:large;color:red;width:100%"
+                                                                                                      readOnly="true"
+                                                                                                      rows="5"
+                                                                                                      wrap="soft"/>
+                                                                                </af:gridCell>
+                                                                        </af:gridRow>
+                                                                        <af:gridRow marginTop="5px" height="auto"
+                                                                                    id="gr2">
+                                                                                <af:gridCell marginStart="5px"
+                                                                                             width="100%"
+                                                                                             marginEnd="5px" id="gc2"
+                                                                                             valign="stretch"
+                                                                                             halign="stretch">
+                                                                                        <af:inputText value="#{controllerContext.currentRootViewPort.exceptionData.cause.cause.localizedMessage}"
+                                                                                                      id="ot2"
+                                                                                                      inlineStyle="font-size:large;color:red"
+                                                                                                      label="Label 2"
+                                                                                                      simple="true"
+                                                                                                      contentStyle="font-size:large;color:red;width:100%"
+                                                                                                      readOnly="true"
+                                                                                                      wrap="soft"
+                                                                                                      rows="4"/>
+                                                                                </af:gridCell>
+                                                                        </af:gridRow>
+                                                                        <af:gridRow marginTop="5px" height="auto"
+                                                                                    marginBottom="5px" id="gr3">
+                                                                                <af:gridCell marginStart="5px"
+                                                                                             width="100%"
+                                                                                             marginEnd="5px" id="gc3"
+                                                                                             halign="stretch"
+                                                                                             valign="stretch">
+                                                                                        <af:inputText value="#{controllerContext.currentRootViewPort.exceptionData.cause.cause.stackTrace}"
+                                                                                                      id="ot3"
+                                                                                                      inlineStyle="font-size:large;color:red"
+                                                                                                      label="Label 3"
+                                                                                                      simple="true"
+                                                                                                      contentStyle="font-size:large;color:red;width:100%"
+                                                                                                      readOnly="true"
+                                                                                                      wrap="soft"
+                                                                                                      rows="4"/>
+                                                                                </af:gridCell>
+                                                                        </af:gridRow>
+                                                                        <af:gridRow id="gr4" marginTop="5px"
+                                                                                    marginBottom="5px">
+                                                                                <af:gridCell id="gc5"
+                                                                                             width="100%"
+                                                                                             halign="center"
+                                                                                             valign="middle">
+                                                                                        <af:panelBox text="Return To Financial Management System"
+                                                                                                     id="pb2"
+                                                                                                     showDisclosure="false"
+                                                                                                     background="medium">
+                                                                                                <f:facet name="toolbar"/>
+                                                                                                <af:panelGroupLayout id="pgl1"
+                                                                                                                     halign="center"
+                                                                                                                     layout="vertical"
+                                                                                                                     styleClass="AFStretchWidth">
+                                                                                                        <af:link id="l1"
+                                                                                                                 partialSubmit="true"
+                                                                                                                 action="ERP-ACT-RET-FROM-EXCEPTION"
+                                                                                                                 icon="#{resource['images:imgFinancialManagementSystem.png']}"/>
+                                                                                                </af:panelGroupLayout>
+                                                                                        </af:panelBox>
+                                                                                </af:gridCell>
+                                                                        </af:gridRow>
+                                                                </af:panelGridLayout>
                                                         </af:panelBox>
                                                 </f:facet>
                                                 <f:facet name="top">
-                                                        <af:panelGroupLayout id="pgl2" layout="horizontal" halign="end">
-                                                                <af:link id="l1"
-                                                                         icon="#{resource['images:imgHome.png']}"
-                                                                         partialSubmit="true"
-                                                                         action="ERP-ACT-RET-FROM-EXCEPTION"/>
-                                                        </af:panelGroupLayout>
+                                                        <af:panelGroupLayout id="pgl2" layout="horizontal" halign="end"/>
                                                 </f:facet>
                                         </af:decorativeBox>
                                 </f:facet>
