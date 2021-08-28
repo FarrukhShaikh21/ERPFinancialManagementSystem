@@ -13,9 +13,9 @@
       <property
          name="exceptionHandler">false</property>
       <property
-         name="y">96.04004</property>
+         name="y">113.33887</property>
       <property
-         name="x">144.0</property>
+         name="x">149.0</property>
    </MethodCall>
    <View
       id="View9">
@@ -130,11 +130,11 @@
       islink="true"
       id="ControlFlowCase20"
       from="MethodCall2"
-      to="MethodCall104">
+      to="MethodCall244">
       <property
          name="fromOutcome">ERP-FMS-DOGOTO-MAIN</property>
       <property
-         name="sdm:polyPoints">B50,144.0,149.68945,300.70312,272.99414,L50</property>
+         name="sdm:polyPoints">T50,149.0,58.98828,246.5,-0.7529297,B44</property>
    </ControlFlowCase>
    <MethodCall
       id="MethodCall21">
@@ -2672,5 +2672,28 @@
          name="fromOutcome">ERP-ACT-RET-FROM-EXCEPTION</property>
       <property
          name="sdm:polyPoints">B50,841.10645,-9.758789,842.5,40.24121,T50</property>
+   </ControlFlowCase>
+   <MethodCall
+      id="MethodCall244">
+      <property
+         name="activityId">doERPFMSSetModuleActionRights</property>
+      <property
+         name="description">&lt;html>&lt;p>&lt;b>doERPFMSSetModuleActionRights&lt;/b>&lt;/p>&lt;p>Activity Type:  Method Call&lt;/p></property>
+      <property
+         name="exceptionHandler">false</property>
+      <property
+         name="y">-54.402344</property>
+      <property
+         name="x">250.0</property>
+   </MethodCall>
+   <ControlFlowCase
+      islink="true"
+      id="ControlFlowCase245"
+      from="MethodCall244"
+      to="MethodCall104">
+      <property
+         name="fromOutcome">ERP-FMS-DOGOTO-MAIN</property>
+      <property
+         name="sdm:polyPoints">B56,253.5,-0.7529297,338.20312,218.99414,T44</property>
    </ControlFlowCase>
 </SDM>
