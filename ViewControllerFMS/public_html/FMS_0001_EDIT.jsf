@@ -9,66 +9,71 @@
                     <af:decorativeBox id="db1">
                         <f:facet name="center">
                             <af:panelGridLayout id="pgl2">
-                                <af:gridRow marginTop="20px" height="auto" id="gr2" marginBottom="20px">
+                                <af:gridRow height="auto" id="gr2">
                                     <af:gridCell marginStart="5px" width="100%" marginEnd="5px" id="gc3"
-                                                 halign="center">
-                                        <af:panelFormLayout id="pfl1" maxColumns="4" rows="1">
-                                            <af:inputText value="#{bindings.CompCode.inputValue}"
-                                                          label="#{bindings.CompCode.hints.label}"
-                                                          required="#{bindings.CompCode.hints.mandatory}"
-                                                          columns="#{bindings.CompCode.hints.displayWidth}"
-                                                          maximumLength="#{bindings.CompCode.hints.precision}"
-                                                          shortDesc="#{bindings.CompCode.hints.tooltip}" id="it3"
-                                                          readOnly="true" contentStyle="font-weight:bold;color:black"
-                                                          rendered="false">
-                                                <f:validator binding="#{bindings.CompCode.validator}"/>
-                                                <af:convertNumber groupingUsed="false"
-                                                                  pattern="#{bindings.CompCode.format}"/>
-                                            </af:inputText>
-                                            <af:inputText value="#{bindings.CompanyName.inputValue}"
-                                                          label="#{bindings.CompanyName.hints.label}"
-                                                          required="#{bindings.CompanyName.hints.mandatory}"
-                                                          columns="#{bindings.CompanyName.hints.displayWidth}"
-                                                          maximumLength="#{bindings.CompanyName.hints.precision}"
-                                                          shortDesc="#{bindings.CompanyName.hints.tooltip}" id="it4"
-                                                          readOnly="true" contentStyle="font-weight:bold;color:black">
-                                                <f:validator binding="#{bindings.CompanyName.validator}"/>
-                                            </af:inputText>
-                                            <af:inputText value="#{bindings.CompanyShortName.inputValue}"
-                                                          label="#{bindings.CompanyShortName.hints.label}"
-                                                          required="#{bindings.CompanyShortName.hints.mandatory}"
-                                                          columns="#{bindings.CompanyShortName.hints.displayWidth}"
-                                                          maximumLength="#{bindings.CompanyShortName.hints.precision}"
-                                                          shortDesc="#{bindings.CompanyShortName.hints.tooltip}"
-                                                          id="it5" readOnly="true"
-                                                          contentStyle="font-weight:bold;color:black">
-                                                <f:validator binding="#{bindings.CompanyShortName.validator}"/>
-                                            </af:inputText>
-                                            <af:inputText value="#{bindings.CompanyShortCode.inputValue}"
-                                                          label="#{bindings.CompanyShortCode.hints.label}"
-                                                          required="#{bindings.CompanyShortCode.hints.mandatory}"
-                                                          columns="#{bindings.CompanyShortCode.hints.displayWidth}"
-                                                          maximumLength="#{bindings.CompanyShortCode.hints.precision}"
-                                                          shortDesc="#{bindings.CompanyShortCode.hints.tooltip}"
-                                                          id="it6" readOnly="true"
-                                                          contentStyle="font-weight:bold;color:black">
-                                                <f:validator binding="#{bindings.CompanyShortCode.validator}"/>
-                                                <af:convertNumber groupingUsed="false"
-                                                                  pattern="#{bindings.CompanyShortCode.format}"/>
-                                            </af:inputText>
-                                            <af:inputComboboxListOfValues id="txtCountryNameId"
-                                                                          popupTitle="Search and Select: #{bindings.txtCountryName.hints.label}"
-                                                                          value="#{bindings.txtCountryName.inputValue}"
-                                                                          label="#{bindings.txtCountryName.hints.label}"
-                                                                          model="#{bindings.txtCountryName.listOfValuesModel}"
-                                                                          required="#{bindings.txtCountryName.hints.mandatory}"
-                                                                          columns="#{bindings.txtCountryName.hints.displayWidth}"
-                                                                          shortDesc="#{bindings.txtCountryName.hints.tooltip}"
-                                                                          readOnly="true"
-                                                                          contentStyle="font-weight:bold;color:black">
-                                                <f:validator binding="#{bindings.txtCountryName.validator}"/>
-                                            </af:inputComboboxListOfValues>
-                                        </af:panelFormLayout>
+                                                 halign="stretch" valign="stretch"
+                                                 styleClass="ERPCompanyInfoBackGround">
+                                        <af:panelGroupLayout id="pgl5" halign="center" layout="vertical">
+                                            <af:panelFormLayout id="pfl1" maxColumns="4" rows="1">
+                                                <af:inputText value="#{bindings.CompCode.inputValue}"
+                                                              label="#{bindings.CompCode.hints.label}"
+                                                              required="#{bindings.CompCode.hints.mandatory}"
+                                                              columns="#{bindings.CompCode.hints.displayWidth}"
+                                                              maximumLength="#{bindings.CompCode.hints.precision}"
+                                                              shortDesc="#{bindings.CompCode.hints.tooltip}" id="it3"
+                                                              readOnly="true"
+                                                              contentStyle="font-weight:bold;color:black"
+                                                              rendered="false">
+                                                    <f:validator binding="#{bindings.CompCode.validator}"/>
+                                                    <af:convertNumber groupingUsed="false"
+                                                                      pattern="#{bindings.CompCode.format}"/>
+                                                </af:inputText>
+                                                <af:inputText value="#{bindings.CompanyName.inputValue}"
+                                                              label="#{bindings.CompanyName.hints.label}"
+                                                              required="#{bindings.CompanyName.hints.mandatory}"
+                                                              columns="#{bindings.CompanyName.hints.displayWidth}"
+                                                              maximumLength="#{bindings.CompanyName.hints.precision}"
+                                                              shortDesc="#{bindings.CompanyName.hints.tooltip}" id="it4"
+                                                              readOnly="true"
+                                                              contentStyle="font-weight:bold;color:black">
+                                                    <f:validator binding="#{bindings.CompanyName.validator}"/>
+                                                </af:inputText>
+                                                <af:inputText value="#{bindings.CompanyShortName.inputValue}"
+                                                              label="#{bindings.CompanyShortName.hints.label}"
+                                                              required="#{bindings.CompanyShortName.hints.mandatory}"
+                                                              columns="#{bindings.CompanyShortName.hints.displayWidth}"
+                                                              maximumLength="#{bindings.CompanyShortName.hints.precision}"
+                                                              shortDesc="#{bindings.CompanyShortName.hints.tooltip}"
+                                                              id="it5" readOnly="true"
+                                                              contentStyle="font-weight:bold;color:black">
+                                                    <f:validator binding="#{bindings.CompanyShortName.validator}"/>
+                                                </af:inputText>
+                                                <af:inputText value="#{bindings.CompanyShortCode.inputValue}"
+                                                              label="#{bindings.CompanyShortCode.hints.label}"
+                                                              required="#{bindings.CompanyShortCode.hints.mandatory}"
+                                                              columns="#{bindings.CompanyShortCode.hints.displayWidth}"
+                                                              maximumLength="#{bindings.CompanyShortCode.hints.precision}"
+                                                              shortDesc="#{bindings.CompanyShortCode.hints.tooltip}"
+                                                              id="it6" readOnly="true"
+                                                              contentStyle="font-weight:bold;color:black">
+                                                    <f:validator binding="#{bindings.CompanyShortCode.validator}"/>
+                                                    <af:convertNumber groupingUsed="false"
+                                                                      pattern="#{bindings.CompanyShortCode.format}"/>
+                                                </af:inputText>
+                                                <af:inputComboboxListOfValues id="txtCountryNameId"
+                                                                              popupTitle="Search and Select: #{bindings.txtCountryName.hints.label}"
+                                                                              value="#{bindings.txtCountryName.inputValue}"
+                                                                              label="#{bindings.txtCountryName.hints.label}"
+                                                                              model="#{bindings.txtCountryName.listOfValuesModel}"
+                                                                              required="#{bindings.txtCountryName.hints.mandatory}"
+                                                                              columns="#{bindings.txtCountryName.hints.displayWidth}"
+                                                                              shortDesc="#{bindings.txtCountryName.hints.tooltip}"
+                                                                              readOnly="true"
+                                                                              contentStyle="font-weight:bold;color:black">
+                                                    <f:validator binding="#{bindings.txtCountryName.validator}"/>
+                                                </af:inputComboboxListOfValues>
+                                            </af:panelFormLayout>
+                                        </af:panelGroupLayout>
                                     </af:gridCell>
                                 </af:gridRow>
                                 <af:gridRow marginTop="5px" height="auto" marginBottom="5px" id="gr3">
@@ -165,7 +170,7 @@
                             </af:panelGridLayout>
                         </f:facet>
                         <f:facet name="top">
-                            <af:panelGridLayout id="pgl1" dimensionsFrom="parent">
+                            <af:panelGridLayout id="pgl1" styleClass="ERPToolBarBackground">
                                 <af:gridRow marginTop="5px" height="auto" marginBottom="5px" id="gr1">
                                     <af:gridCell marginStart="5px" width="50%" id="gc1">
                                         <af:panelGroupLayout id="pgl4" layout="horizontal">

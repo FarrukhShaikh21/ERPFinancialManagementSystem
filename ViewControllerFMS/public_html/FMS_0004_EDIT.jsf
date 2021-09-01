@@ -97,12 +97,13 @@
                                                                         marginBottom="5px">
                                                                 <af:gridCell marginStart="5px" width="100%"
                                                                              marginEnd="5px" id="gc1"
+                                                                             halign="stretch" valign="stretch"
                                                                              styleClass="AFStretchWidth ERPHeroBackground">
                                                                     <af:panelGroupLayout id="pgl6" layout="horizontal">
                                                                         <af:link id="l5"
                                                                                  icon="#{resource['images:imgView.png']}"
                                                                                  action="DO-ACT-QUERY-FISCAL-YEAR-BY-FISCAL-YEAR-SNO"
-                                                                                 styleClass="ERPHeroBannerFont ERPLink"/>
+                                                                                 styleClass="ERPLink"/>
                                                                         <af:outputFormatted value="#{item.bindings.YearDescription.inputValue}"
                                                                                             id="of5"
                                                                                             styleClass="ERPHeroBannerFont"/>

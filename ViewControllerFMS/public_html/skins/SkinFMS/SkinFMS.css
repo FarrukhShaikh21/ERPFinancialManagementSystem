@@ -3,6 +3,32 @@
 @namespace af "http://xmlns.oracle.com/adf/faces/rich";
 @namespace dvt "http://xmlns.oracle.com/dss/adf/faces";
 
+.ERPMenuBarCurve af|menu::bar-item-icon-style
+{
+width: 30px;
+height: 30px;
+padding-top: 0px;
+padding-bottom: 0px;
+border-bottom-left-radius: 20px;
+border-bottom-right-radius: 20px;
+border-top-left-radius: 20px;
+border-top-right-radius: 20px;
+}
+
+.ERPMenuBarCurve af|menu::bar-item-text
+{
+font-weight: bold;    
+}
+
+.ERPLoginUserImageCurve
+{
+     border-bottom-left-radius: 25px;
+    border-bottom-right-radius: 25px;
+    border-top-left-radius: 25px;
+    border-top-right-radius: 25px;
+    width:40px;
+    height:40px;
+}
 .WBDisplayBlock {
     display: inline-block;
 }
@@ -55,7 +81,7 @@ color:red;
 
 af|link.ERPLink {
     display: inline-block;
-    background: white;
+     background-color:#fcf7e8;
     cursor: pointer;
     font-size: 13px;
     text-decoration: none;
@@ -85,12 +111,6 @@ af|link.ERPLink:hover,
     transition: all 0.2s;
 }
 
-.ERPHeroBannerFont af|link::text {
-    font-size:24px;
-    color:white;
-    font-family: sans-serif; 
-}
-
 .ERPHeroBannerFont {
     font-size:18px;
     color:DarkBlue;
@@ -100,7 +120,7 @@ af|link.ERPLink:hover,
 
 .ERPHeroBackground
 {
- background-color:#ebf5fc;  
+     background-color:#fcf7e8;
 }
 
 
@@ -178,4 +198,13 @@ af|inputDate:read-only::label{
 af|selectOneChoice:read-only::label{
   font-weight: bolder;
   color: Highlight;
+}
+
+.ERPToolBarBackground
+{
+    background:#e6f7fc
+}
+.ERPCompanyInfoBackGround
+{
+    background:#edfcf9
 }

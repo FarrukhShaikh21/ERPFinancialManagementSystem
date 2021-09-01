@@ -144,11 +144,13 @@
                                                             <af:panelGridLayout id="pgl11">
                                                                 <af:gridRow marginTop="5px" height="auto" id="gr10">
                                                                     <af:gridCell marginStart="5px" width="100%"
-                                                                                 marginEnd="5px" id="gc11">
+                                                                                 marginEnd="5px" id="gc11"
+                                                                                 styleClass="AFStretchWidth ERPHeroBackground"
+                                                                                 valign="stretch" halign="stretch">
                                                                         <af:panelGroupLayout id="pgl12"
                                                                                              layout="horizontal">
                                                                             <af:link id="l1"
-                                                                                     styleClass="ERPHeroBannerFont ERPLink"
+                                                                                     styleClass="ERPLink"
                                                                                      icon="#{resource['images:imgView.png']}"
                                                                                      action="ERP-QRY-ACT-FMS_0013_EDIT_EDIT"/>
                                                                             <af:outputFormatted value="#{item.bindings.TaxTypeShortName.inputValue}"

@@ -11,9 +11,9 @@
                             <af:panelGridLayout id="pgl1">
                                 <af:gridRow marginTop="5px" height="auto" id="gr1">
                                     <af:gridCell marginStart="5px" width="100%" marginEnd="5px" id="gc1"
-                                                 halign="center" columnSpan="2">
-                                        <af:panelBox text="Company" id="pb1" showDisclosure="false" showHeader="never">
-                                            <f:facet name="toolbar"/>
+                                                 halign="stretch" columnSpan="2" styleClass="ERPCompanyInfoBackGround"
+                                                 valign="stretch">
+                                        <af:panelGroupLayout id="pgl5" layout="vertical" halign="center">
                                             <af:panelFormLayout id="pfl1" maxColumns="4" rows="1">
                                                 <af:inputText value="#{bindings.CompCode.inputValue}"
                                                               label="#{bindings.CompCode.hints.label}"
@@ -59,7 +59,7 @@
                                                     <f:validator binding="#{bindings.CompanyName.validator}"/>
                                                 </af:inputText>
                                             </af:panelFormLayout>
-                                        </af:panelBox>
+                                        </af:panelGroupLayout>
                                     </af:gridCell>
                                 </af:gridRow>
                                 <af:gridRow marginTop="5px" height="auto" marginBottom="5px" id="gr2">
@@ -251,7 +251,7 @@
                             </af:panelGridLayout>
                         </f:facet>
                         <f:facet name="top">
-                            <af:panelGridLayout id="pgl2">
+                            <af:panelGridLayout id="pgl2" styleClass="ERPToolBarBackground">
                                 <af:gridRow marginTop="5px" height="auto" marginBottom="5px" id="gr3">
                                     <af:gridCell marginStart="5px" width="50%" id="gc3">
                                         <af:panelGroupLayout id="pgl4" layout="horizontal" rendered="false">
