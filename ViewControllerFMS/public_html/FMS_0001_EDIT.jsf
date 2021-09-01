@@ -13,7 +13,8 @@
                                     <af:gridCell marginStart="5px" width="100%" marginEnd="5px" id="gc3"
                                                  halign="stretch" valign="stretch"
                                                  styleClass="ERPCompanyInfoBackGround">
-                                        <af:panelGroupLayout id="pgl5" halign="center" layout="vertical">
+                                        <af:panelGroupLayout id="pgl5" halign="center" layout="vertical"
+                                                             styleClass="AFStretchWidth">
                                             <af:panelFormLayout id="pfl1" maxColumns="4" rows="1">
                                                 <af:inputText value="#{bindings.CompCode.inputValue}"
                                                               label="#{bindings.CompCode.hints.label}"
@@ -60,18 +61,10 @@
                                                     <af:convertNumber groupingUsed="false"
                                                                       pattern="#{bindings.CompanyShortCode.format}"/>
                                                 </af:inputText>
-                                                <af:inputComboboxListOfValues id="txtCountryNameId"
-                                                                              popupTitle="Search and Select: #{bindings.txtCountryName.hints.label}"
-                                                                              value="#{bindings.txtCountryName.inputValue}"
-                                                                              label="#{bindings.txtCountryName.hints.label}"
-                                                                              model="#{bindings.txtCountryName.listOfValuesModel}"
-                                                                              required="#{bindings.txtCountryName.hints.mandatory}"
-                                                                              columns="#{bindings.txtCountryName.hints.displayWidth}"
-                                                                              shortDesc="#{bindings.txtCountryName.hints.tooltip}"
-                                                                              readOnly="true"
-                                                                              contentStyle="font-weight:bold;color:black">
-                                                    <f:validator binding="#{bindings.txtCountryName.validator}"/>
-                                                </af:inputComboboxListOfValues>
+                                                <af:inputText label="#{bindings.txtCountryName.hints.label}" id="it10"
+                                                              value="#{bindings.txtCountryName.inputValue}"
+                                                              readOnly="true"
+                                                              contentStyle="font-weight:bold;color:black"/>
                                             </af:panelFormLayout>
                                         </af:panelGroupLayout>
                                     </af:gridCell>
@@ -172,8 +165,10 @@
                         <f:facet name="top">
                             <af:panelGridLayout id="pgl1" styleClass="ERPToolBarBackground">
                                 <af:gridRow marginTop="5px" height="auto" marginBottom="5px" id="gr1">
-                                    <af:gridCell marginStart="5px" width="50%" id="gc1">
-                                        <af:panelGroupLayout id="pgl4" layout="horizontal">
+                                    <af:gridCell marginStart="5px" width="50%" id="gc1" valign="middle">
+                                        <af:panelGroupLayout id="pgl4" layout="horizontal" halign="center">
+                                            <af:outputText value="#{pageFlowScope.ERPMainTempBean.LErpActivityName}" id="ot1"
+                                                           inlineStyle="font-weight:bold"/>
                                             <af:inputText value="#{bindings.txtGetMaxEntityState.inputValue}"
                                                           label="#{bindings.txtGetMaxEntityState.hints.label}"
                                                           required="#{bindings.txtGetMaxEntityState.hints.mandatory}"
