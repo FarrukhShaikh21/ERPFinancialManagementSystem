@@ -208,3 +208,41 @@ af|selectOneChoice:read-only::label{
 {
     background:#edfcf9
 }
+
+/*
+af|panelCollection div[id$='_dchTbr'] {
+    display: none;
+}
+af|panelCollection div[id$='pc1:_vw'] {
+    display: none;
+}
+af|panelCollection div[id$='pc1:_tbr'] {
+    display: none;
+}
+af|panelCollection div[id$='pc1::_ahTp'] {
+    display: none;
+}*/
+
+/*af|panelCollection{
+    display: none;
+}*/
+
+
+.ERPEntryAreaHeading{
+    background:#309fdb;
+}
+
+.ERPEntryAreaFont{
+    font-size:large;
+    color:white;
+    font-weight:bold
+}
+
+
+af|toolbox::leading-cell:ltr{
+  border: none Black thick;
+}
+
+af|panelCollection af|menuBar,af|commandToolbarButton::link {
+  display:none
+}

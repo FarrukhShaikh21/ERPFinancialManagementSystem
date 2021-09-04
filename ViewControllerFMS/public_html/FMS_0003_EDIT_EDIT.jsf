@@ -14,9 +14,8 @@
                                                  halign="stretch" valign="stretch">
                                         <af:panelGridLayout id="pgl2" inlineStyle="background:white">
                                             <af:gridRow id="gr10">
-                                                <af:gridCell id="gc17" columnSpan="2" width="100px"
-                                                             inlineStyle="background:#309fdb" halign="stretch"
-                                                             valign="stretch">
+                                                <af:gridCell id="gc17" columnSpan="2" width="100px" halign="stretch"
+                                                             valign="stretch" styleClass="ERPEntryAreaHeading">
                                                     <af:inputText value="#{bindings.GlobalCompanyId.inputValue}"
                                                                   label="#{bindings.GlobalCompanyId.hints.label}"
                                                                   required="#{bindings.GlobalCompanyId.hints.mandatory}"
@@ -42,7 +41,7 @@
                                                     <af:panelGroupLayout id="pgl6" layout="horizontal" halign="start">
                                                         <af:spacer width="10" height="10" id="s2"/>
                                                         <af:outputText value="Basic Information" id="ot1"
-                                                                       inlineStyle="font-size:large;color:white;font-weight:bold"/>
+                                                                       styleClass="ERPEntryAreaFont"/>
                                                     </af:panelGroupLayout>
                                                 </af:gridCell>
                                             </af:gridRow>
@@ -139,13 +138,14 @@
                                                  halign="stretch" valign="stretch">
                                         <af:panelGridLayout id="pgl3">
                                             <af:gridRow id="gr11">
-                                                <af:gridCell id="gc18" width="100%" inlineStyle="background:#309fdb"
-                                                             halign="stretch" valign="stretch" columnSpan="2">
+                                                <af:gridCell id="gc18" width="100%"
+                                                             halign="stretch" valign="stretch" columnSpan="2"
+                                                             styleClass="ERPEntryAreaHeading">
                                                     <af:panelGroupLayout id="pgl7" layout="horizontal"
                                                                          inlineStyle="font-size:large;color:white;font-weight:bold">
                                                         <af:spacer width="10" height="10" id="s3"/>
                                                         <af:outputText value="Parent Account Information" id="ot2"
-                                                                       inlineStyle="font-size:large;color:white;font-weight:bold"/>
+                                                                       styleClass="ERPEntryAreaFont"/>
                                                     </af:panelGroupLayout>
                                                 </af:gridCell>
                                             </af:gridRow>

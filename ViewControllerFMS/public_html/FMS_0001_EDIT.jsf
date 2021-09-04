@@ -73,7 +73,7 @@
                                     <af:gridCell marginStart="5px" width="100%" marginEnd="5px" id="gc4"
                                                  halign="stretch">
                                         <af:panelCollection id="pc1" styleClass="AFStretchWidth"
-                                                            featuresOff="viewMenu detach">
+                                                            featuresOff="wrapToolbarItem statusBar freeze freezeToolbarItem detachMenuItem detach viewMenu">
                                             <f:facet name="menus"/>
                                             <f:facet name="toolbar"/>
                                             <f:facet name="statusbar"/>
@@ -90,7 +90,7 @@
                                                       autoHeightRows="#{pageFlowScope.OracleERPBean.erpScreenSize=='portrait'?8:15}" styleClass="AFStretchWidth"
                                                       scrollPolicy="page">
                                                 <af:column headerText="#{bindings.GlParameterCRUD.hints.ParameterId.label}"
-                                                           id="c1" width="200">
+                                                           id="c1" width="200" headerClass="ERPToolBarBackground">
                                                     <af:selectOneChoice value="#{row.bindings.ParameterId.inputValue}"
                                                                         label="#{row.bindings.ParameterId.label}"
                                                                         required="#{bindings.GlParameterCRUD.hints.ParameterId.mandatory}"
@@ -104,7 +104,7 @@
                                                     </af:selectOneChoice>
                                                 </af:column>
                                                 <af:column headerText="#{bindings.GlParameterCRUD.hints.ParameterValue.label}"
-                                                           id="c2" width="200">
+                                                           id="c2" width="200" headerClass="ERPToolBarBackground">
                                                     <af:inputText value="#{row.bindings.ParameterValue.inputValue}"
                                                                   label="#{bindings.GlParameterCRUD.hints.ParameterValue.label}"
                                                                   required="#{bindings.GlParameterCRUD.hints.ParameterValue.mandatory}"
@@ -118,7 +118,7 @@
                                                     </af:inputText>
                                                 </af:column>
                                                 <af:column headerText="#{bindings.GlParameterCRUD.hints.ParameterDescrption.label}"
-                                                           id="c3">
+                                                           id="c3" headerClass="ERPToolBarBackground">
                                                     <af:inputText value="#{row.bindings.ParameterDescrption.inputValue}"
                                                                   label="#{bindings.GlParameterCRUD.hints.ParameterDescrption.label}"
                                                                   required="#{bindings.GlParameterCRUD.hints.ParameterDescrption.mandatory}"
@@ -132,7 +132,7 @@
                                                     </af:inputText>
                                                 </af:column>
                                                 <af:column headerText="#{bindings.GlParameterCRUD.hints.IsActive.label}"
-                                                           id="c4">
+                                                           id="c4" headerClass="ERPToolBarBackground">
                                                     <af:selectOneChoice label="Label 1"
                                                                         value="#{row.bindings.IsActive.inputValue}"
                                                                         id="soc2" autoSubmit="true"
@@ -143,7 +143,8 @@
                                                     </af:selectOneChoice>
                                                 </af:column>
                                                 <af:column headerText="#{bindings.GlParameterCRUD.hints.CreatedBy.label}"
-                                                           id="c5" rendered="false">
+                                                           id="c5" rendered="false"
+                                                           headerClass="ERPToolBarBackground">
                                                     <af:inputText value="#{row.bindings.CreatedBy.inputValue}"
                                                                   label="#{bindings.GlParameterCRUD.hints.CreatedBy.label}"
                                                                   required="#{bindings.GlParameterCRUD.hints.CreatedBy.mandatory}"
