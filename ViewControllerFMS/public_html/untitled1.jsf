@@ -4,36 +4,11 @@
     <af:document title="untitled1.jsf" id="d1" clientComponent="true" styleClass="l-search-index">
         <af:messages id="m1"/>       
         <af:form id="f1" clientComponent="true">
-            <af:decorativeBox id="db1">
+            <af:decorativeBox id="db1" dimensionsFrom="parent">
                 <f:facet name="center">
-                    <af:panelCollection id="pc1" styleClass="AFStretchWidth">
-                        <af:table var="row" rowBandingInterval="0" id="t1" horizontalGridVisible="false"
-                                  verticalGridVisible="false" allDetailsEnabled="true" contextMenuSelect="false"
-                                  inlineStyle="border:none">
-                            <af:column sortable="false" headerText="col1" id="c1">
-                                <af:outputText value="#{row.col1}" id="ot1"/>
-                            </af:column>
-                            <af:column sortable="false" headerText="col2" id="c2">
-                                <af:outputText value="#{row.col2}" id="ot2"/>
-                            </af:column>
-                            <af:column sortable="false" headerText="col3" id="c3">
-                                <af:outputText value="#{row.col3}" id="ot3"/>
-                            </af:column>
-                            <af:column sortable="false" headerText="col4" id="c4">
-                                <af:outputText value="#{row.col4}" id="ot4"/>
-                            </af:column>
-                            <af:column sortable="false" headerText="col5" id="c5">
-                                <af:outputText value="#{row.col5}" id="ot5"/>
-                            </af:column>
-                        </af:table>
-                        <f:facet name="afterToolbar"/>
-                        <f:facet name="toolbar"/>
-                        <f:facet name="secondaryToolbar">
-                            <af:toolbar id="t2">
-                                <af:button text="button 1" id="b1"/>
-                            </af:toolbar>
-                        </f:facet>
-                    </af:panelCollection>
+                    <af:panelGroupLayout id="pgl1">
+                        <af:button text="button 1" id="b1"/>
+                    </af:panelGroupLayout>
                 </f:facet>
                 <f:facet name="top"/>
             </af:decorativeBox>

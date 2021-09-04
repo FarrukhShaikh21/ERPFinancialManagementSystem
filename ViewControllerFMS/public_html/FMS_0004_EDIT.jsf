@@ -4,14 +4,15 @@
     <af:document title="FMS_0004_EDIT.jsf" id="d1">
         <af:messages id="m1"/>
         <af:form id="f1">
-            <af:decorativeBox id="db2" dimensionsFrom="parent">
+            <af:decorativeBox id="db2" inlineStyle="border:none" dimensionsFrom="parent">
                 <f:facet name="center">
-                    <af:decorativeBox id="db1" dimensionsFrom="parent">
+                    <af:decorativeBox id="db1" inlineStyle="border:none" dimensionsFrom="parent">
                         <f:facet name="center">
                             <af:panelGridLayout id="pgl3">
                                 <af:gridRow marginTop="5px" height="auto" id="gr5">
                                     <af:gridCell marginStart="5px" width="100%" marginEnd="5px" id="gc5"
-                                                 styleClass="ERPCompanyInfoBackGround">
+                                                 styleClass="ERPCompanyInfoBackGround" halign="stretch"
+                                                 valign="stretch">
                                         <af:panelFormLayout id="pfl1" rows="1" maxColumns="4">
                                             <af:inputText value="#{bindings.CompCode.inputValue}"
                                                           label="#{bindings.CompCode.hints.label}"
@@ -76,7 +77,8 @@
                                                      fetchSize="#{bindings.GlFiscalYearByCompanyRO.rangeSize}" id="lv1"
                                                      styleClass="WBDisplayBlockCenter" selection="single"
                                                      selectedRowKeys="#{bindings.GlFiscalYearByCompanyRO.collectionModel.selectedRow}"
-                                                     selectionListener="#{bindings.GlFiscalYearByCompanyRO.treeModel.makeCurrent}">
+                                                     selectionListener="#{bindings.GlFiscalYearByCompanyRO.treeModel.makeCurrent}"
+                                                     inlineStyle="border:none">
                                             <af:listItem id="li1"
                                                          styleClass="WBDisplayBlock WBDisplayBlockPadding WBDisplayBlockCenterUndo">
                                                 <af:panelGroupLayout id="pgl2" styleClass="WBCardSize"

@@ -14,7 +14,8 @@
                                              fetchSize="#{bindings.AdminCompanyVORO.rangeSize}" id="lv1"
                                              styleClass="WBDisplayBlockCenter" selection="single"
                                              selectedRowKeys="#{bindings.AdminCompanyVORO.collectionModel.selectedRow}"
-                                             selectionListener="#{bindings.AdminCompanyVORO.treeModel.makeCurrent}">
+                                             selectionListener="#{bindings.AdminCompanyVORO.treeModel.makeCurrent}"
+                                             inlineStyle="border:none">
                                     <af:listItem id="li1"
                                                  styleClass="WBDisplayBlock WBDisplayBlockPadding WBDisplayBlockCenterUndo">
                                         <af:panelGroupLayout id="pgl2" layout="vertical" styleClass="WBCardSize">

@@ -109,7 +109,8 @@
                                                                   id="t2" columnStretching="column:c5"
                                                                   partialTriggers="::qryId2 l6 ::l7">
                                                             <af:column headerText="#{bindings.SysUsersForAssignCOAUserRightsRO.hints.UserId.label}"
-                                                                       id="c4" rendered="false">
+                                                                       id="c4" rendered="false"
+                                                                       headerClass="ERPToolBarBackground">
                                                                 <af:inputText value="#{row.bindings.UserId.inputValue}"
                                                                               label="#{bindings.SysUsersForAssignCOAUserRightsRO.hints.UserId.label}"
                                                                               required="#{bindings.SysUsersForAssignCOAUserRightsRO.hints.UserId.mandatory}"
@@ -123,7 +124,7 @@
                                                                 </af:inputText>
                                                             </af:column>
                                                             <af:column headerText="#{bindings.SysUsersForAssignCOAUserRightsRO.hints.UserCode.label}"
-                                                                       id="c6">
+                                                                       id="c6" headerClass="ERPToolBarBackground">
                                                                 <af:inputText value="#{row.bindings.UserCode.inputValue}"
                                                                               label="#{bindings.SysUsersForAssignCOAUserRightsRO.hints.UserCode.label}"
                                                                               required="#{bindings.SysUsersForAssignCOAUserRightsRO.hints.UserCode.mandatory}"
@@ -135,7 +136,7 @@
                                                                 </af:inputText>
                                                             </af:column>
                                                             <af:column headerText="#{bindings.SysUsersForAssignCOAUserRightsRO.hints.UserName.label}"
-                                                                       id="c5">
+                                                                       id="c5" headerClass="ERPToolBarBackground">
                                                                 <af:inputText value="#{row.bindings.UserName.inputValue}"
                                                                               label="#{bindings.SysUsersForAssignCOAUserRightsRO.hints.UserName.label}"
                                                                               required="#{bindings.SysUsersForAssignCOAUserRightsRO.hints.UserName.mandatory}"
@@ -146,7 +147,8 @@
                                                                     <f:validator binding="#{row.bindings.UserName.validator}"/>
                                                                 </af:inputText>
                                                             </af:column>
-                                                            <af:column id="c7" width="150" headerText="">
+                                                            <af:column id="c7" width="150" headerText=""
+                                                                       headerClass="ERPToolBarBackground">
                                                                 <af:inputText value="#{row.bindings.txtSelected.inputValue}"
                                                                               label="#{bindings.SysUsersForAssignCOAUserRightsRO.hints.txtSelected.label}"
                                                                               required="#{bindings.SysUsersForAssignCOAUserRightsRO.hints.txtSelected.mandatory}"
@@ -221,7 +223,8 @@
                                                                   columnStretching="column:c1" scrollPolicy="page"
                                                                   autoHeightRows="6">
                                                             <af:column headerText="#{bindings.GlCoaUserCompanyCRUD.hints.UserCode.label}"
-                                                                       id="c8" width="101">
+                                                                       id="c8" width="101"
+                                                                       headerClass="ERPToolBarBackground">
                                                                 <af:inputText value="#{row.bindings.UserCode.inputValue}"
                                                                               label="#{bindings.GlCoaUserCompanyCRUD.hints.UserCode.label}"
                                                                               required="#{bindings.GlCoaUserCompanyCRUD.hints.UserCode.mandatory}"
@@ -233,7 +236,8 @@
                                                                 </af:inputText>
                                                             </af:column>
                                                             <af:column headerText="#{bindings.GlCoaUserCompanyCRUD.hints.UserName.label}"
-                                                                       id="c1" width="99">
+                                                                       id="c1" width="99"
+                                                                       headerClass="ERPToolBarBackground">
                                                                 <af:inputText value="#{row.bindings.UserName.inputValue}"
                                                                               label="#{bindings.GlCoaUserCompanyCRUD.hints.UserName.label}"
                                                                               required="#{bindings.GlCoaUserCompanyCRUD.hints.UserName.mandatory}"
@@ -259,7 +263,8 @@
                                                                 </af:inputText>
                                                             </af:column>
                                                             <af:column headerText="#{bindings.GlCoaUserCompanyCRUD.hints.IsActive.label}"
-                                                                       id="c2" width="100">
+                                                                       id="c2" width="100"
+                                                                       headerClass="ERPToolBarBackground">
                                                                 <af:selectOneChoice value="#{row.bindings.IsActive.inputValue}"
                                                                                     label="#{row.bindings.IsActive.label}"
                                                                                     required="#{bindings.GlCoaUserCompanyCRUD.hints.IsActive.mandatory}"
