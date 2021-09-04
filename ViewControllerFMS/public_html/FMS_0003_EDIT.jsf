@@ -105,7 +105,8 @@
                                                                   rowBandingInterval="1">
                                                         <f:facet name="nodeStamp">
                                                             <af:column id="c1" width="250" displayIndex="-1"
-                                                                       minimumWidth="12">
+                                                                       minimumWidth="12"
+                                                                       headerClass="ERPToolBarBackground">
                                                                 <af:outputText value="#{node.Description}" id="ot1"
                                                                                inlineStyle="#{node.LevelNo==1?'font-weight:bold;color:black':''}"/>
                                                             </af:column>
@@ -114,15 +115,17 @@
                                                             <af:outputText value="#{node}" id="ot2"/>
                                                         </f:facet>
                                                         <af:column id="c2" width="150" displayIndex="-1"
-                                                                   headerText="Description">
+                                                                   headerText="Description"
+                                                                   headerClass="ERPToolBarBackground">
                                                             <af:outputText value="#{node.Description}" id="ot3"/>
                                                         </af:column>
                                                         <af:column id="c4" width="210" displayIndex="-1"
-                                                                   headerText="Account Code">
+                                                                   headerText="Account Code"
+                                                                   headerClass="ERPToolBarBackground">
                                                             <af:outputText value="#{node.ChartOfAccountCode}" id="ot4"/>
                                                         </af:column>
                                                         <af:column id="c6" headerText="COA Type" width="120"
-                                                                   displayIndex="-1">
+                                                                   displayIndex="-1" headerClass="ERPToolBarBackground">
                                                             <af:selectOneChoice label="Label 2" id="soc2"
                                                                                 value="#{node.CoaTypeSno}"
                                                                                 readOnly="true">
@@ -131,7 +134,7 @@
                                                             </af:selectOneChoice>
                                                         </af:column>
                                                         <af:column id="c5" headerText="Active" width="70"
-                                                                   displayIndex="-1">
+                                                                   displayIndex="-1" headerClass="ERPToolBarBackground">
                                                             <af:selectOneChoice label="Label 1" id="soc1"
                                                                                 value="#{node.IsActive}"
                                                                                 readOnly="true">
@@ -139,7 +142,8 @@
                                                                 <af:selectItem label="NO" value="N" id="si2"/>
                                                             </af:selectOneChoice>
                                                         </af:column>
-                                                        <af:column id="c3" width="70" displayIndex="-1">
+                                                        <af:column id="c3" width="70" displayIndex="-1"
+                                                                   headerClass="ERPToolBarBackground">
                                                             <af:link actionListener="#{bindings.ExecuteWithParams.execute}"
                                                                      disabled="#{!bindings.ExecuteWithParams.enabled}"
                                                                      id="l2" action="ERPEDITEDITFMS_0003"
@@ -184,7 +188,8 @@
                                                               styleClass="AFStretchWidth" scrollPolicy="page"
                                                               autoHeightRows="#{pageFlowScope.OracleERPBean.erpScreenSize=='portrait'?8:18}" partialTriggers="::qryId1">
                                                         <af:column headerText="#{bindings.GlChartOfAccountsSearchRO.hints.ChartOfAccountId.label}"
-                                                                   id="c13" rendered="false">
+                                                                   id="c13" rendered="false"
+                                                                   headerClass="ERPToolBarBackground">
                                                             <af:inputText value="#{row.bindings.ChartOfAccountId.inputValue}"
                                                                           label="#{bindings.GlChartOfAccountsSearchRO.hints.ChartOfAccountId.label}"
                                                                           required="#{bindings.GlChartOfAccountsSearchRO.hints.ChartOfAccountId.mandatory}"
@@ -198,7 +203,8 @@
                                                             </af:inputText>
                                                         </af:column>
                                                         <af:column headerText="#{bindings.GlChartOfAccountsSearchRO.hints.LevelNo.label}"
-                                                                   id="c9" rendered="false">
+                                                                   id="c9" rendered="false"
+                                                                   headerClass="ERPToolBarBackground">
                                                             <af:inputText value="#{row.bindings.LevelNo.inputValue}"
                                                                           label="#{bindings.GlChartOfAccountsSearchRO.hints.LevelNo.label}"
                                                                           required="#{bindings.GlChartOfAccountsSearchRO.hints.LevelNo.mandatory}"
@@ -212,7 +218,8 @@
                                                             </af:inputText>
                                                         </af:column>
                                                         <af:column headerText="#{bindings.GlChartOfAccountsSearchRO.hints.Description.label}"
-                                                                   id="c10" width="200" displayIndex="-1">
+                                                                   id="c10" width="200" displayIndex="-1"
+                                                                   headerClass="ERPToolBarBackground">
                                                             <af:panelGroupLayout id="pgl2" layout="horizontal">
                                                                 <af:spacer width="#{row.bindings.LevelNo.inputValue==1?0:row.bindings.LevelNo.inputValue*10}"
                                                                            height="10" id="s2"/>
@@ -229,7 +236,8 @@
                                                             </af:panelGroupLayout>
                                                         </af:column>
                                                         <af:column headerText="#{bindings.GlChartOfAccountsSearchRO.hints.ChartOfAccountCode.label}"
-                                                                   id="c8" width="220" displayIndex="-1">
+                                                                   id="c8" width="220" displayIndex="-1"
+                                                                   headerClass="ERPToolBarBackground">
                                                             <af:inputText value="#{row.bindings.ChartOfAccountCode.inputValue}"
                                                                           label="#{bindings.GlChartOfAccountsSearchRO.hints.ChartOfAccountCode.label}"
                                                                           required="#{bindings.GlChartOfAccountsSearchRO.hints.ChartOfAccountCode.mandatory}"
@@ -241,7 +249,8 @@
                                                             </af:inputText>
                                                         </af:column>
                                                         <af:column headerText="#{bindings.GlChartOfAccountsSearchRO.hints.CoaTypeSno.label}"
-                                                                   id="c11" width="80" displayIndex="-1">
+                                                                   id="c11" width="80" displayIndex="-1"
+                                                                   headerClass="ERPToolBarBackground">
                                                             <af:selectOneChoice value="#{row.bindings.CoaTypeSno.inputValue}"
                                                                                 label="#{row.bindings.CoaTypeSno.label}"
                                                                                 required="#{bindings.GlChartOfAccountsSearchRO.hints.CoaTypeSno.mandatory}"
@@ -253,7 +262,8 @@
                                                             </af:selectOneChoice>
                                                         </af:column>
                                                         <af:column headerText="#{bindings.GlChartOfAccountsSearchRO.hints.IsActive.label}"
-                                                                   id="c12" width="60" displayIndex="-1">
+                                                                   id="c12" width="60" displayIndex="-1"
+                                                                   headerClass="ERPToolBarBackground">
                                                             <af:selectOneChoice value="#{row.bindings.IsActive.inputValue}"
                                                                                 label="#{row.bindings.IsActive.label}"
                                                                                 required="#{bindings.GlChartOfAccountsSearchRO.hints.IsActive.mandatory}"
@@ -265,7 +275,8 @@
                                                             </af:selectOneChoice>
                                                         </af:column>
                                                         <af:column headerText="#{bindings.GlChartOfAccountsSearchRO.hints.txtParentCOADescription.label}"
-                                                                   id="c15" width="200" displayIndex="-1">
+                                                                   id="c15" width="200" displayIndex="-1"
+                                                                   headerClass="ERPToolBarBackground">
                                                             <af:inputComboboxListOfValues id="txtParentCOADescriptionId"
                                                                                           popupTitle="Search and Select: #{bindings.GlChartOfAccountsSearchRO.hints.txtParentCOADescription.label}"
                                                                                           value="#{row.bindings.txtParentCOADescription.inputValue}"
@@ -277,7 +288,7 @@
                                                                 <f:validator binding="#{row.bindings.txtParentCOADescription.validator}"/>
                                                             </af:inputComboboxListOfValues>
                                                         </af:column>
-                                                        <af:column id="c7">
+                                                        <af:column id="c7" headerClass="ERPToolBarBackground">
                                                             <af:link id="l3" partialSubmit="true"
                                                                      action="ERPEDITEDITFMS_0003"
                                                                      actionListener="#{bindings.ExecuteWithParams.execute}"
@@ -299,7 +310,7 @@
                                 <af:gridRow height="auto" id="gr1">
                                     <af:gridCell marginStart="5px" width="50%" id="gc1" valign="middle">
                                         <af:outputText value="#{pageFlowScope.ERPMainTempBean.LErpActivityName}" id="ot5"
-                                                       inlineStyle="font-weight:bold"/>
+                                                       styleClass="ERPActivityNameFormHeading"/>
                                     </af:gridCell>
                                     <af:gridCell marginStart="5px" width="50%" marginEnd="5px" id="gc2" halign="end">
                                         <af:panelGroupLayout id="pgl4" layout="horizontal" halign="end">

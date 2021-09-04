@@ -169,7 +169,7 @@
                                     <af:gridCell marginStart="5px" width="50%" id="gc1" valign="middle">
                                         <af:panelGroupLayout id="pgl4" layout="horizontal" halign="center">
                                             <af:outputText value="#{pageFlowScope.ERPMainTempBean.LErpActivityName}" id="ot1"
-                                                           inlineStyle="font-weight:bold"/>
+                                                           styleClass="ERPActivityNameFormHeading"/>
                                             <af:inputText value="#{bindings.txtGetMaxEntityState.inputValue}"
                                                           label="#{bindings.txtGetMaxEntityState.hints.label}"
                                                           required="#{bindings.txtGetMaxEntityState.hints.mandatory}"

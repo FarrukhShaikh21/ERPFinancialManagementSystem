@@ -10,7 +10,8 @@
                         <f:facet name="center">
                             <af:panelGridLayout id="pgl3">
                                 <af:gridRow marginTop="5px" height="auto" id="gr5">
-                                    <af:gridCell marginStart="5px" width="100%" marginEnd="5px" id="gc5">
+                                    <af:gridCell marginStart="5px" width="100%" marginEnd="5px" id="gc5"
+                                                 styleClass="ERPCompanyInfoBackGround">
                                         <af:panelFormLayout id="pfl1" rows="1" maxColumns="4">
                                             <af:inputText value="#{bindings.CompCode.inputValue}"
                                                           label="#{bindings.CompCode.hints.label}"
@@ -172,9 +173,12 @@
                             </af:panelGridLayout>
                         </f:facet>
                         <f:facet name="top">
-                            <af:panelGridLayout id="pgl4" dimensionsFrom="parent">
+                            <af:panelGridLayout id="pgl4" dimensionsFrom="parent" styleClass="ERPToolBarBackground">
                                 <af:gridRow marginTop="5px" height="auto" marginBottom="5px" id="gr7">
-                                    <af:gridCell marginStart="5px" width="50%" id="gc7"/>
+                                    <af:gridCell marginStart="5px" width="50%" id="gc7" valign="middle">
+                                        <af:outputText value="#{pageFlowScope.ERPMainTempBean.LErpActivityName}" id="ot1"
+                                                       styleClass="ERPActivityNameFormHeading"/>
+                                    </af:gridCell>
                                     <af:gridCell marginStart="5px" width="50%" marginEnd="5px" id="gc8">
                                         <af:panelGroupLayout id="pgl5" layout="horizontal" halign="end">
                                             <af:link id="l4" icon="#{resource['images:imgCloseDialog.png']}"

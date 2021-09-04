@@ -246,3 +246,8 @@ af|toolbox::leading-cell:ltr{
 af|panelCollection af|menuBar,af|commandToolbarButton::link {
   display:none
 }
+
+.ERPActivityNameFormHeading
+{
+    font-weight:bold
+}

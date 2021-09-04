@@ -305,9 +305,12 @@
                             </af:panelGridLayout>
                         </f:facet>
                         <f:facet name="top">
-                            <af:panelGridLayout id="pgl3" dimensionsFrom="parent">
-                                <af:gridRow marginTop="5px" height="100px" marginBottom="5px" id="gr2">
-                                    <af:gridCell marginStart="5px" width="50%" id="gc3"/>
+                            <af:panelGridLayout id="pgl3" dimensionsFrom="parent" styleClass="ERPToolBarBackground">
+                                <af:gridRow id="gr2">
+                                    <af:gridCell width="50%" id="gc3" valign="middle" marginStart="5px" marginEnd="5px">
+                                        <af:outputText value="#{pageFlowScope.ERPMainTempBean.LErpActivityName}" id="ot1"
+                                                       styleClass="ERPActivityNameFormHeading"/>
+                                    </af:gridCell>
                                     <af:gridCell marginStart="5px" width="50%" marginEnd="5px" id="gc4" halign="end">
                                         <af:panelGroupLayout id="pgl4" layout="horizontal" halign="end">
                                             <af:link id="l1" text="Close" partialSubmit="true"

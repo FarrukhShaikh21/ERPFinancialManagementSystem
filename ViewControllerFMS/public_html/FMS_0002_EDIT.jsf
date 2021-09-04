@@ -283,7 +283,9 @@
                         <f:facet name="top">
                             <af:panelGridLayout id="pgl2" styleClass="ERPToolBarBackground">
                                 <af:gridRow marginTop="5px" height="auto" marginBottom="5px" id="gr3">
-                                    <af:gridCell marginStart="5px" width="50%" id="gc3">
+                                    <af:gridCell marginStart="5px" width="50%" id="gc3" valign="middle">
+                                        <af:outputText value="#{pageFlowScope.ERPMainTempBean.LErpActivityName}" id="ot3"
+                                                       styleClass="ERPActivityNameFormHeading"/>
                                         <af:panelGroupLayout id="pgl4" layout="horizontal" rendered="false">
                                             <af:inputText value="#{bindings.txtGetMinEntityState.inputValue}"
                                                           label="#{bindings.txtGetMinEntityState.hints.label}"
