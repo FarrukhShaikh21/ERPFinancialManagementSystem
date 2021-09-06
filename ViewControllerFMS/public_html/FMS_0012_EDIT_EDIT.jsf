@@ -32,384 +32,415 @@
                 <f:facet name="center">
                     <af:decorativeBox id="db1" dimensionsFrom="parent">
                         <f:facet name="center">
-                            <af:panelBox text="Bank Information" id="pb2" showDisclosure="false"
-                                         partialTriggers="d4 d3">
-                                <f:facet name="toolbar"/>
-                                <af:panelSplitter id="ps1" splitterPosition="222"
-                                                  partialTriggers="l1 l4 l2 l3 l6 l5 l8 l9 l12 l19 l11 l18">
-                                    <f:facet name="first">
-                                        <af:panelFormLayout id="pfl1" labelAlignment="top">
-                                            <af:inputText value="#{bindings.IsUnsupervised.inputValue}"
-                                                          label="#{bindings.IsUnsupervised.hints.label}"
-                                                          required="#{bindings.IsUnsupervised.hints.mandatory}"
-                                                          columns="#{bindings.IsUnsupervised.hints.displayWidth}"
-                                                          maximumLength="#{bindings.IsUnsupervised.hints.precision}"
-                                                          shortDesc="#{bindings.IsUnsupervised.hints.tooltip}"
-                                                          id="it18" rendered="false">
-                                                <f:validator binding="#{bindings.IsUnsupervised.validator}"/>
-                                            </af:inputText>
-                                            <af:inputText value="#{bindings.IsSupervised.inputValue}"
-                                                          label="#{bindings.IsSupervised.hints.label}"
-                                                          required="#{bindings.IsSupervised.hints.mandatory}"
-                                                          columns="#{bindings.IsSupervised.hints.displayWidth}"
-                                                          maximumLength="#{bindings.IsSupervised.hints.precision}"
-                                                          shortDesc="#{bindings.IsSupervised.hints.tooltip}" id="it12"
-                                                          rendered="false">
-                                                <f:validator binding="#{bindings.IsSupervised.validator}"/>
-                                            </af:inputText>
-                                            <af:inputText value="#{bindings.BankId.inputValue}"
-                                                          label="#{bindings.BankId.hints.label}"
-                                                          required="#{bindings.BankId.hints.mandatory}"
-                                                          columns="#{bindings.BankId.hints.displayWidth}"
-                                                          maximumLength="#{bindings.BankId.hints.precision}"
-                                                          shortDesc="#{bindings.BankId.hints.tooltip}" id="it1"
-                                                          rendered="false">
-                                                <f:validator binding="#{bindings.BankId.validator}"/>
-                                                <af:convertNumber groupingUsed="false"
-                                                                  pattern="#{bindings.BankId.format}"/>
-                                            </af:inputText>
-                                            <af:inputText value="#{bindings.BankShortCode.inputValue}"
-                                                          label="#{bindings.BankShortCode.hints.label}"
-                                                          required="#{bindings.BankShortCode.hints.mandatory}"
-                                                          columns="#{bindings.BankShortCode.hints.displayWidth}"
-                                                          maximumLength="#{bindings.BankShortCode.hints.precision}"
-                                                          shortDesc="#{bindings.BankShortCode.hints.tooltip}" id="it2"
-                                                          readOnly="true">
-                                                <f:validator binding="#{bindings.BankShortCode.validator}"/>
-                                                <af:convertNumber groupingUsed="false"
-                                                                  pattern="#{bindings.BankShortCode.format}"/>
-                                            </af:inputText>
-                                            <af:inputText value="#{bindings.BankShortName.inputValue}"
-                                                          label="#{bindings.BankShortName.hints.label}"
-                                                          required="#{bindings.BankShortName.hints.mandatory}"
-                                                          columns="#{bindings.BankShortName.hints.displayWidth}"
-                                                          maximumLength="#{bindings.BankShortName.hints.precision}"
-                                                          shortDesc="#{bindings.BankShortName.hints.tooltip}" id="it3"
-                                                          contentStyle="width:100%"
-                                                          readOnly="#{bindings.IsSupervised.inputValue=='Y' || (pageFlowScope.ERPMainTempBean.LERPAllowEdit=='N' &amp;&amp; bindings.BankId.inputValue!=null)}">
-                                                <f:validator binding="#{bindings.BankShortName.validator}"/>
-                                            </af:inputText>
-                                            <af:inputText value="#{bindings.BankName.inputValue}"
-                                                          label="#{bindings.BankName.hints.label}"
-                                                          required="#{bindings.BankName.hints.mandatory}"
-                                                          columns="#{bindings.BankName.hints.displayWidth}"
-                                                          maximumLength="#{bindings.BankName.hints.precision}"
-                                                          shortDesc="#{bindings.BankName.hints.tooltip}" id="it4"
-                                                          contentStyle="width:100%"
-                                                          readOnly="#{bindings.IsSupervised.inputValue=='Y' || (pageFlowScope.ERPMainTempBean.LERPAllowEdit=='N' &amp;&amp; bindings.BankId.inputValue!=null)}">
-                                                <f:validator binding="#{bindings.BankName.validator}"/>
-                                            </af:inputText>
-                                            <af:inputDate value="#{bindings.OpeningDate.inputValue}"
-                                                          label="#{bindings.OpeningDate.hints.label}"
-                                                          required="#{bindings.OpeningDate.hints.mandatory}"
-                                                          columns="#{bindings.OpeningDate.hints.displayWidth}"
-                                                          shortDesc="#{bindings.OpeningDate.hints.tooltip}" id="id1"
-                                                          contentStyle="width:70%"
-                                                          readOnly="#{bindings.IsSupervised.inputValue=='Y' || (pageFlowScope.ERPMainTempBean.LERPAllowEdit=='N' &amp;&amp; bindings.BankId.inputValue!=null)}">
-                                                <f:validator binding="#{bindings.OpeningDate.validator}"/>
-                                                <af:convertDateTime pattern="#{bindings.OpeningDate.format}"/>
-                                            </af:inputDate>
-                                            <af:inputComboboxListOfValues id="txtBaseCountryNameId"
-                                                                          popupTitle="Search and Select: #{bindings.txtBaseCountryName.hints.label}"
-                                                                          value="#{bindings.txtBaseCountryName.inputValue}"
-                                                                          label="#{bindings.txtBaseCountryName.hints.label}"
-                                                                          model="#{bindings.txtBaseCountryName.listOfValuesModel}"
-                                                                          required="#{bindings.txtBaseCountryName.hints.mandatory}"
-                                                                          columns="#{bindings.txtBaseCountryName.hints.displayWidth}"
-                                                                          shortDesc="#{bindings.txtBaseCountryName.hints.tooltip}"
-                                                                          contentStyle="width:70%"
-                                                                          readOnly="#{bindings.IsSupervised.inputValue=='Y' || (pageFlowScope.ERPMainTempBean.LERPAllowEdit=='N' &amp;&amp; bindings.BankId.inputValue!=null)}">
-                                                <f:validator binding="#{bindings.txtBaseCountryName.validator}"/>
-                                            </af:inputComboboxListOfValues>
-                                            <af:inputComboboxListOfValues id="txtCOADescriptionId"
-                                                                          popupTitle="Search and Select: #{bindings.txtCOADescription.hints.label}"
-                                                                          value="#{bindings.txtCOADescription.inputValue}"
-                                                                          label="#{bindings.txtCOADescription.hints.label}"
-                                                                          model="#{bindings.txtCOADescription.listOfValuesModel}"
-                                                                          required="#{bindings.txtCOADescription.hints.mandatory}"
-                                                                          columns="#{bindings.txtCOADescription.hints.displayWidth}"
-                                                                          shortDesc="#{bindings.txtCOADescription.hints.tooltip}"
-                                                                          contentStyle="width:70%"
-                                                                          readOnly="#{bindings.IsSupervised.inputValue=='Y' || (pageFlowScope.ERPMainTempBean.LERPAllowEdit=='N' &amp;&amp; bindings.BankId.inputValue!=null)}">
-                                                <f:validator binding="#{bindings.txtCOADescription.validator}"/>
-                                            </af:inputComboboxListOfValues>
-                                            <af:inputText value="#{bindings.NtnNo.inputValue}"
-                                                          label="#{bindings.NtnNo.hints.label}"
-                                                          required="#{bindings.NtnNo.hints.mandatory}"
-                                                          columns="#{bindings.NtnNo.hints.displayWidth}"
-                                                          maximumLength="#{bindings.NtnNo.hints.precision}"
-                                                          shortDesc="#{bindings.NtnNo.hints.tooltip}" id="it5"
-                                                          contentStyle="width:100%"
-                                                          readOnly="#{bindings.IsSupervised.inputValue=='Y' || (pageFlowScope.ERPMainTempBean.LERPAllowEdit=='N' &amp;&amp; bindings.BankId.inputValue!=null)}">
-                                                <f:validator binding="#{bindings.NtnNo.validator}"/>
-                                            </af:inputText>
-                                            <af:inputText value="#{bindings.RegistrationNo.inputValue}"
-                                                          label="#{bindings.RegistrationNo.hints.label}"
-                                                          required="#{bindings.RegistrationNo.hints.mandatory}"
-                                                          columns="#{bindings.RegistrationNo.hints.displayWidth}"
-                                                          maximumLength="#{bindings.RegistrationNo.hints.precision}"
-                                                          shortDesc="#{bindings.RegistrationNo.hints.tooltip}" id="it10"
-                                                          contentStyle="width:100%"
-                                                          readOnly="#{bindings.IsSupervised.inputValue=='Y' || (pageFlowScope.ERPMainTempBean.LERPAllowEdit=='N' &amp;&amp; bindings.BankId.inputValue!=null)}">
-                                                <f:validator binding="#{bindings.RegistrationNo.validator}"/>
-                                            </af:inputText>
-                                            <af:inputText value="#{bindings.Email.inputValue}"
-                                                          label="#{bindings.Email.hints.label}"
-                                                          required="#{bindings.Email.hints.mandatory}"
-                                                          columns="#{bindings.Email.hints.displayWidth}"
-                                                          maximumLength="#{bindings.Email.hints.precision}"
-                                                          shortDesc="#{bindings.Email.hints.tooltip}" id="it6"
-                                                          contentStyle="width:100%"
-                                                          readOnly="#{bindings.IsSupervised.inputValue=='Y' || (pageFlowScope.ERPMainTempBean.LERPAllowEdit=='N' &amp;&amp; bindings.BankId.inputValue!=null)}">
-                                                <f:validator binding="#{bindings.Email.validator}"/>
-                                            </af:inputText>
-                                            <af:inputText value="#{bindings.Website.inputValue}"
-                                                          label="#{bindings.Website.hints.label}"
-                                                          required="#{bindings.Website.hints.mandatory}"
-                                                          columns="#{bindings.Website.hints.displayWidth}"
-                                                          maximumLength="#{bindings.Website.hints.precision}"
-                                                          shortDesc="#{bindings.Website.hints.tooltip}" id="it7"
-                                                          contentStyle="width:100%"
-                                                          readOnly="#{bindings.IsSupervised.inputValue=='Y' || (pageFlowScope.ERPMainTempBean.LERPAllowEdit=='N' &amp;&amp; bindings.BankId.inputValue!=null)}">
-                                                <f:validator binding="#{bindings.Website.validator}"/>
-                                            </af:inputText>
-                                            <af:inputText value="#{bindings.ComplaintEmail.inputValue}"
-                                                          label="#{bindings.ComplaintEmail.hints.label}"
-                                                          required="#{bindings.ComplaintEmail.hints.mandatory}"
-                                                          columns="#{bindings.ComplaintEmail.hints.displayWidth}"
-                                                          maximumLength="#{bindings.ComplaintEmail.hints.precision}"
-                                                          shortDesc="#{bindings.ComplaintEmail.hints.tooltip}" id="it8"
-                                                          contentStyle="width:100%"
-                                                          readOnly="#{bindings.IsSupervised.inputValue=='Y' || (pageFlowScope.ERPMainTempBean.LERPAllowEdit=='N' &amp;&amp; bindings.BankId.inputValue!=null)}">
-                                                <f:validator binding="#{bindings.ComplaintEmail.validator}"/>
-                                            </af:inputText>
-                                            <af:selectOneChoice value="#{bindings.IsActive.inputValue}"
-                                                                label="#{bindings.IsActive.label}"
-                                                                required="#{bindings.IsActive.hints.mandatory}"
-                                                                shortDesc="#{bindings.IsActive.hints.tooltip}" id="soc1"
-                                                                contentStyle="width:90%" styleClass="AFStretchWidth"
-                                                                readOnly="#{bindings.IsSupervised.inputValue=='Y' || (pageFlowScope.ERPMainTempBean.LERPAllowEdit=='N' &amp;&amp; bindings.BankId.inputValue!=null)}">
-                                                <f:selectItems value="#{bindings.IsActive.items}" id="si1"/>
-                                                <f:validator binding="#{bindings.IsActive.validator}"/>
-                                            </af:selectOneChoice>
-                                        </af:panelFormLayout>
-                                    </f:facet>
-                                    <f:facet name="second">
-                                        <af:panelBox text="Branches #{bindings.BankName.inputValue==null?'':'('} #{bindings.BankName.inputValue==null?'': bindings.BankName.inputValue} #{bindings.BankName.inputValue==null?'':')'}"
-                                                     id="pb1" showDisclosure="false" partialTriggers="d4 d3">
-                                            <f:facet name="toolbar"/>
-                                            <af:panelCollection id="pc1" styleClass="AFStretchWidth"
-                                                                featuresOff="viewMenu">
-                                                <f:facet name="menus"/>
-                                                <f:facet name="toolbar">
-                                                    <af:toolbar id="t2" flex="1">
-                                                        <af:link actionListener="#{bindings.Delete1.execute}"
-                                                                 text="Delete"
-                                                                 disabled="#{pageFlowScope.ERPMainTempBean.LERPAllowDelete=='N' || bindings.IsSupervised.inputValue=='Y'}"
-                                                                 id="l10"
-                                                                 icon="#{resource['images:imgDeleteRecord.png']}"
-                                                                 iconPosition="top" partialSubmit="true"/>
-                                                        <af:link actionListener="#{bindings.CreateInsert.execute}"
-                                                                 text="Add"
-                                                                 disabled="#{bindings.BankShortCode.inputValue==null ||pageFlowScope.ERPMainTempBean.LERPAllowAdd=='N' || bindings.IsSupervised.inputValue=='Y'}"
-                                                                 id="l7" icon="#{resource['images:imgAddRecord.png']}"
-                                                                 iconPosition="top" partialSubmit="true"/>
-                                                    </af:toolbar>
-                                                </f:facet>
-                                                <f:facet name="statusbar"/>
-                                                <af:table value="#{bindings.GlBankBranchDetCRUD.collectionModel}"
-                                                          var="row" rows="#{bindings.GlBankBranchDetCRUD.rangeSize}"
-                                                          emptyText="#{bindings.GlBankBranchDetCRUD.viewable ? 'No data to display.' : 'Access Denied.'}"
-                                                          rowBandingInterval="0"
-                                                          selectedRowKeys="#{bindings.GlBankBranchDetCRUD.collectionModel.selectedRow}"
-                                                          selectionListener="#{bindings.GlBankBranchDetCRUD.collectionModel.makeCurrent}"
-                                                          rowSelection="single"
-                                                          fetchSize="#{bindings.GlBankBranchDetCRUD.rangeSize}" id="t1"
-                                                          columnStretching="column:c3" partialTriggers="::l7 ::l10"
-                                                          autoHeightRows="#{pageFlowScope.OracleERPBean.erpScreenSize=='portrait'?10:18}"
-                                                          scrollPolicy="page">
-                                                    <af:column headerText="#{bindings.GlBankBranchDetCRUD.hints.BankBranchId.label}"
-                                                               id="c2" rendered="false">
-                                                        <af:inputText value="#{row.bindings.BankBranchId.inputValue}"
-                                                                      label="#{bindings.GlBankBranchDetCRUD.hints.BankBranchId.label}"
-                                                                      required="#{bindings.GlBankBranchDetCRUD.hints.BankBranchId.mandatory}"
-                                                                      columns="#{bindings.GlBankBranchDetCRUD.hints.BankBranchId.displayWidth}"
-                                                                      maximumLength="#{bindings.GlBankBranchDetCRUD.hints.BankBranchId.precision}"
-                                                                      shortDesc="#{bindings.GlBankBranchDetCRUD.hints.BankBranchId.tooltip}"
-                                                                      id="it11">
-                                                            <f:validator binding="#{row.bindings.BankBranchId.validator}"/>
-                                                            <af:convertNumber groupingUsed="false"
-                                                                              pattern="#{bindings.GlBankBranchDetCRUD.hints.BankBranchId.format}"/>
-                                                        </af:inputText>
-                                                    </af:column>
-                                                    <af:column headerText="#{bindings.GlBankBranchDetCRUD.hints.BranchShortName.label}"
-                                                               id="c1" width="60" displayIndex="-1" showRequired="true">
-                                                        <af:inputText value="#{row.bindings.BranchShortName.inputValue}"
-                                                                      label="#{bindings.GlBankBranchDetCRUD.hints.BranchShortName.label}"
-                                                                      required="#{bindings.GlBankBranchDetCRUD.hints.BranchShortName.mandatory}"
-                                                                      columns="#{bindings.GlBankBranchDetCRUD.hints.BranchShortName.displayWidth}"
-                                                                      maximumLength="#{bindings.GlBankBranchDetCRUD.hints.BranchShortName.precision}"
-                                                                      shortDesc="#{bindings.GlBankBranchDetCRUD.hints.BranchShortName.tooltip}"
-                                                                      id="it9"
-                                                                      readOnly="#{bindings.IsSupervised.inputValue=='Y' || (pageFlowScope.ERPMainTempBean.LERPAllowEdit=='N' &amp;&amp; row.bindings.BankBranchId.inputValue>0)}"
-                                                                      contentStyle="width:100%">
-                                                            <f:validator binding="#{row.bindings.BranchShortName.validator}"/>
-                                                        </af:inputText>
-                                                    </af:column>
-                                                    <af:column headerText="#{bindings.GlBankBranchDetCRUD.hints.BranchName.label}"
-                                                               id="c3" width="150" displayIndex="-1"
-                                                               showRequired="true">
-                                                        <af:inputText value="#{row.bindings.BranchName.inputValue}"
-                                                                      label="#{bindings.GlBankBranchDetCRUD.hints.BranchName.label}"
-                                                                      required="#{bindings.GlBankBranchDetCRUD.hints.BranchName.mandatory}"
-                                                                      columns="#{bindings.GlBankBranchDetCRUD.hints.BranchName.displayWidth}"
-                                                                      maximumLength="#{bindings.GlBankBranchDetCRUD.hints.BranchName.precision}"
-                                                                      shortDesc="#{bindings.GlBankBranchDetCRUD.hints.BranchName.tooltip}"
-                                                                      id="it13"
-                                                                      readOnly="#{bindings.IsSupervised.inputValue=='Y' || (pageFlowScope.ERPMainTempBean.LERPAllowEdit=='N' &amp;&amp; row.bindings.BankBranchId.inputValue>0)}"
-                                                                      contentStyle="width:100%">
-                                                            <f:validator binding="#{row.bindings.BranchName.validator}"/>
-                                                        </af:inputText>
-                                                    </af:column>
-                                                    <af:column headerText="#{bindings.GlBankBranchDetCRUD.hints.BranchDate.label}"
-                                                               id="c4" width="120" displayIndex="-1"
-                                                               showRequired="true">
-                                                        <af:inputDate value="#{row.bindings.BranchDate.inputValue}"
-                                                                      label="#{bindings.GlBankBranchDetCRUD.hints.BranchDate.label}"
-                                                                      required="#{bindings.GlBankBranchDetCRUD.hints.BranchDate.mandatory}"
-                                                                      columns="#{bindings.GlBankBranchDetCRUD.hints.BranchDate.displayWidth}"
-                                                                      shortDesc="#{bindings.GlBankBranchDetCRUD.hints.BranchDate.tooltip}"
-                                                                      id="id2" contentStyle="width:60%"
-                                                                      readOnly="#{bindings.IsSupervised.inputValue=='Y' || (pageFlowScope.ERPMainTempBean.LERPAllowEdit=='N' &amp;&amp; row.bindings.BankBranchId.inputValue>0)}">
-                                                            <f:validator binding="#{row.bindings.BranchDate.validator}"/>
-                                                            <af:convertDateTime pattern="#{bindings.GlBankBranchDetCRUD.hints.BranchDate.format}"/>
-                                                        </af:inputDate>
-                                                    </af:column>
-                                                    <af:column headerText="#{bindings.GlBankBranchDetCRUD.hints.txtCOAName.label}"
-                                                               id="c10" width="150" displayIndex="-1">
-                                                        <af:inputComboboxListOfValues id="txtCOANameId"
-                                                                                      popupTitle="Search and Select: #{bindings.GlBankBranchDetCRUD.hints.txtCOAName.label}"
-                                                                                      value="#{row.bindings.txtCOAName.inputValue}"
-                                                                                      model="#{row.bindings.txtCOAName.listOfValuesModel}"
-                                                                                      required="#{bindings.GlBankBranchDetCRUD.hints.txtCOAName.mandatory}"
-                                                                                      columns="#{bindings.GlBankBranchDetCRUD.hints.txtCOAName.displayWidth}"
-                                                                                      shortDesc="#{bindings.GlBankBranchDetCRUD.hints.txtCOAName.tooltip}"
-                                                                                      contentStyle="width:100%"
-                                                                                      readOnly="#{bindings.IsSupervised.inputValue=='Y' || (pageFlowScope.ERPMainTempBean.LERPAllowEdit=='N' &amp;&amp; row.bindings.BankBranchId.inputValue>0)}">
-                                                            <f:validator binding="#{row.bindings.txtCOAName.validator}"/>
-                                                        </af:inputComboboxListOfValues>
-                                                    </af:column>
-                                                    <af:column headerText="#{bindings.GlBankBranchDetCRUD.hints.txtCountryName.label}"
-                                                               id="c11" width="150" displayIndex="-1">
-                                                        <af:inputComboboxListOfValues id="txtCountryNameId"
-                                                                                      popupTitle="Search and Select: #{bindings.GlBankBranchDetCRUD.hints.txtCountryName.label}"
-                                                                                      value="#{row.bindings.txtCountryName.inputValue}"
-                                                                                      model="#{row.bindings.txtCountryName.listOfValuesModel}"
-                                                                                      required="#{bindings.GlBankBranchDetCRUD.hints.txtCountryName.mandatory}"
-                                                                                      columns="#{bindings.GlBankBranchDetCRUD.hints.txtCountryName.displayWidth}"
-                                                                                      shortDesc="#{bindings.GlBankBranchDetCRUD.hints.txtCountryName.tooltip}"
-                                                                                      contentStyle="width:100%"
-                                                                                      autoSubmit="true"
-                                                                                      readOnly="#{bindings.IsSupervised.inputValue=='Y' || (pageFlowScope.ERPMainTempBean.LERPAllowEdit=='N' &amp;&amp; row.bindings.BankBranchId.inputValue>0)}">
-                                                            <f:validator binding="#{row.bindings.txtCountryName.validator}"/>
-                                                        </af:inputComboboxListOfValues>
-                                                    </af:column>
-                                                    <af:column headerText="#{bindings.GlBankBranchDetCRUD.hints.txtCityName.label}"
-                                                               id="c12" width="150">
-                                                        <af:inputComboboxListOfValues id="txtCityNameId"
-                                                                                      popupTitle="Search and Select: #{bindings.GlBankBranchDetCRUD.hints.txtCityName.label}"
-                                                                                      value="#{row.bindings.txtCityName.inputValue}"
-                                                                                      model="#{row.bindings.txtCityName.listOfValuesModel}"
-                                                                                      required="#{bindings.GlBankBranchDetCRUD.hints.txtCityName.mandatory}"
-                                                                                      columns="#{bindings.GlBankBranchDetCRUD.hints.txtCityName.displayWidth}"
-                                                                                      shortDesc="#{bindings.GlBankBranchDetCRUD.hints.txtCityName.tooltip}"
-                                                                                      contentStyle="width:100%"
-                                                                                      partialTriggers="txtCountryNameId"
-                                                                                      readOnly="#{bindings.IsSupervised.inputValue=='Y' || (pageFlowScope.ERPMainTempBean.LERPAllowEdit=='N' &amp;&amp; row.bindings.BankBranchId.inputValue>0)}">
-                                                            <f:validator binding="#{row.bindings.txtCityName.validator}"/>
-                                                        </af:inputComboboxListOfValues>
-                                                    </af:column>
-                                                    <af:column headerText="#{bindings.GlBankBranchDetCRUD.hints.MobileNo.label}"
-                                                               id="c5">
-                                                        <af:inputText value="#{row.bindings.MobileNo.inputValue}"
-                                                                      label="#{bindings.GlBankBranchDetCRUD.hints.MobileNo.label}"
-                                                                      required="#{bindings.GlBankBranchDetCRUD.hints.MobileNo.mandatory}"
-                                                                      columns="#{bindings.GlBankBranchDetCRUD.hints.MobileNo.displayWidth}"
-                                                                      maximumLength="#{bindings.GlBankBranchDetCRUD.hints.MobileNo.precision}"
-                                                                      shortDesc="#{bindings.GlBankBranchDetCRUD.hints.MobileNo.tooltip}"
-                                                                      id="it14"
-                                                                      readOnly="#{bindings.IsSupervised.inputValue=='Y' || (pageFlowScope.ERPMainTempBean.LERPAllowEdit=='N' &amp;&amp; row.bindings.BankBranchId.inputValue>0)}"
-                                                                      contentStyle="width:100%">
-                                                            <f:validator binding="#{row.bindings.MobileNo.validator}"/>
-                                                        </af:inputText>
-                                                    </af:column>
-                                                    <af:column headerText="#{bindings.GlBankBranchDetCRUD.hints.PhoneNo.label}"
-                                                               id="c6">
-                                                        <af:inputText value="#{row.bindings.PhoneNo.inputValue}"
-                                                                      label="#{bindings.GlBankBranchDetCRUD.hints.PhoneNo.label}"
-                                                                      required="#{bindings.GlBankBranchDetCRUD.hints.PhoneNo.mandatory}"
-                                                                      columns="#{bindings.GlBankBranchDetCRUD.hints.PhoneNo.displayWidth}"
-                                                                      maximumLength="#{bindings.GlBankBranchDetCRUD.hints.PhoneNo.precision}"
-                                                                      shortDesc="#{bindings.GlBankBranchDetCRUD.hints.PhoneNo.tooltip}"
-                                                                      id="it15"
-                                                                      readOnly="#{bindings.IsSupervised.inputValue=='Y' || (pageFlowScope.ERPMainTempBean.LERPAllowEdit=='N' &amp;&amp; row.bindings.BankBranchId.inputValue>0)}"
-                                                                      contentStyle="width:100%">
-                                                            <f:validator binding="#{row.bindings.PhoneNo.validator}"/>
-                                                        </af:inputText>
-                                                    </af:column>
-                                                    <af:column headerText="#{bindings.GlBankBranchDetCRUD.hints.FaxNo.label}"
-                                                               id="c7">
-                                                        <af:inputText value="#{row.bindings.FaxNo.inputValue}"
-                                                                      label="#{bindings.GlBankBranchDetCRUD.hints.FaxNo.label}"
-                                                                      required="#{bindings.GlBankBranchDetCRUD.hints.FaxNo.mandatory}"
-                                                                      columns="#{bindings.GlBankBranchDetCRUD.hints.FaxNo.displayWidth}"
-                                                                      maximumLength="#{bindings.GlBankBranchDetCRUD.hints.FaxNo.precision}"
-                                                                      shortDesc="#{bindings.GlBankBranchDetCRUD.hints.FaxNo.tooltip}"
-                                                                      id="it16"
-                                                                      readOnly="#{bindings.IsSupervised.inputValue=='Y' || (pageFlowScope.ERPMainTempBean.LERPAllowEdit=='N' &amp;&amp; row.bindings.BankBranchId.inputValue>0)}"
-                                                                      contentStyle="width:100%">
-                                                            <f:validator binding="#{row.bindings.FaxNo.validator}"/>
-                                                        </af:inputText>
-                                                    </af:column>
-                                                    <af:column headerText="#{bindings.GlBankBranchDetCRUD.hints.ContactPerson.label}"
-                                                               id="c8" showRequired="true">
-                                                        <af:inputText value="#{row.bindings.ContactPerson.inputValue}"
-                                                                      label="#{bindings.GlBankBranchDetCRUD.hints.ContactPerson.label}"
-                                                                      required="#{bindings.GlBankBranchDetCRUD.hints.ContactPerson.mandatory}"
-                                                                      columns="#{bindings.GlBankBranchDetCRUD.hints.ContactPerson.displayWidth}"
-                                                                      maximumLength="#{bindings.GlBankBranchDetCRUD.hints.ContactPerson.precision}"
-                                                                      shortDesc="#{bindings.GlBankBranchDetCRUD.hints.ContactPerson.tooltip}"
-                                                                      id="it17"
-                                                                      readOnly="#{bindings.IsSupervised.inputValue=='Y' || (pageFlowScope.ERPMainTempBean.LERPAllowEdit=='N' &amp;&amp; row.bindings.BankBranchId.inputValue>0)}"
-                                                                      contentStyle="width:100%">
-                                                            <f:validator binding="#{row.bindings.ContactPerson.validator}"/>
-                                                        </af:inputText>
-                                                    </af:column>
-                                                    <af:column headerText="#{bindings.GlBankBranchDetCRUD.hints.IsActive.label}"
-                                                               id="c9">
-                                                        <af:selectOneChoice value="#{row.bindings.IsActive.inputValue}"
-                                                                            label="#{row.bindings.IsActive.label}"
-                                                                            required="#{bindings.GlBankBranchDetCRUD.hints.IsActive.mandatory}"
-                                                                            shortDesc="#{bindings.GlBankBranchDetCRUD.hints.IsActive.tooltip}"
-                                                                            id="soc2"
-                                                                            readOnly="#{bindings.IsSupervised.inputValue=='Y' || (pageFlowScope.ERPMainTempBean.LERPAllowEdit=='N' &amp;&amp; row.bindings.BankBranchId.inputValue>0)}"
-                                                                            contentStyle="width:100%">
-                                                            <f:selectItems value="#{row.bindings.IsActive.items}"
-                                                                           id="si2"/>
-                                                            <f:validator binding="#{row.bindings.IsActive.validator}"/>
-                                                        </af:selectOneChoice>
-                                                    </af:column>
-                                                </af:table>
-                                            </af:panelCollection>
-                                        </af:panelBox>
-                                    </f:facet>
-                                </af:panelSplitter>
-                            </af:panelBox>
+                            <af:panelSplitter id="ps1" splitterPosition="222"
+                                              partialTriggers="l1 l4 l2 l3 l6 l5 l8 l9 l12 l19 l11 l18">
+                                <f:facet name="first">
+                                    <af:panelGridLayout id="pgl3">
+                                        <af:gridRow marginTop="5px" height="auto" id="gr2">
+                                            <af:gridCell marginStart="5px" width="100%" marginEnd="5px" id="gc3"
+                                                         styleClass="ERPEntryAreaHeading" halign="stretch"
+                                                         valign="stretch">
+                                                <af:spacer width="10" height="10" id="s2"/>
+                                                <af:outputText value="Bank Information" id="ot1"
+                                                               styleClass="ERPEntryAreaFont"/>
+                                            </af:gridCell>
+                                        </af:gridRow>
+                                        <af:gridRow marginTop="5px" height="auto" marginBottom="5px" id="gr3">
+                                            <af:gridCell marginStart="5px" width="100%" marginEnd="5px" id="gc4"
+                                                         halign="stretch" valign="stretch">
+                                                <af:panelFormLayout id="pfl1" labelAlignment="top">
+                                                    <af:inputText value="#{bindings.IsUnsupervised.inputValue}"
+                                                                  label="#{bindings.IsUnsupervised.hints.label}"
+                                                                  required="#{bindings.IsUnsupervised.hints.mandatory}"
+                                                                  columns="#{bindings.IsUnsupervised.hints.displayWidth}"
+                                                                  maximumLength="#{bindings.IsUnsupervised.hints.precision}"
+                                                                  shortDesc="#{bindings.IsUnsupervised.hints.tooltip}"
+                                                                  id="it18" rendered="false">
+                                                        <f:validator binding="#{bindings.IsUnsupervised.validator}"/>
+                                                    </af:inputText>
+                                                    <af:inputText value="#{bindings.IsSupervised.inputValue}"
+                                                                  label="#{bindings.IsSupervised.hints.label}"
+                                                                  required="#{bindings.IsSupervised.hints.mandatory}"
+                                                                  columns="#{bindings.IsSupervised.hints.displayWidth}"
+                                                                  maximumLength="#{bindings.IsSupervised.hints.precision}"
+                                                                  shortDesc="#{bindings.IsSupervised.hints.tooltip}"
+                                                                  id="it12" rendered="false">
+                                                        <f:validator binding="#{bindings.IsSupervised.validator}"/>
+                                                    </af:inputText>
+                                                    <af:inputText value="#{bindings.BankId.inputValue}"
+                                                                  label="#{bindings.BankId.hints.label}"
+                                                                  required="#{bindings.BankId.hints.mandatory}"
+                                                                  columns="#{bindings.BankId.hints.displayWidth}"
+                                                                  maximumLength="#{bindings.BankId.hints.precision}"
+                                                                  shortDesc="#{bindings.BankId.hints.tooltip}" id="it1"
+                                                                  rendered="false">
+                                                        <f:validator binding="#{bindings.BankId.validator}"/>
+                                                        <af:convertNumber groupingUsed="false"
+                                                                          pattern="#{bindings.BankId.format}"/>
+                                                    </af:inputText>
+                                                    <af:inputText value="#{bindings.BankShortCode.inputValue}"
+                                                                  label="#{bindings.BankShortCode.hints.label}"
+                                                                  required="#{bindings.BankShortCode.hints.mandatory}"
+                                                                  columns="#{bindings.BankShortCode.hints.displayWidth}"
+                                                                  maximumLength="#{bindings.BankShortCode.hints.precision}"
+                                                                  shortDesc="#{bindings.BankShortCode.hints.tooltip}"
+                                                                  id="it2" readOnly="true">
+                                                        <f:validator binding="#{bindings.BankShortCode.validator}"/>
+                                                        <af:convertNumber groupingUsed="false"
+                                                                          pattern="#{bindings.BankShortCode.format}"/>
+                                                    </af:inputText>
+                                                    <af:inputText value="#{bindings.BankShortName.inputValue}"
+                                                                  label="#{bindings.BankShortName.hints.label}"
+                                                                  required="#{bindings.BankShortName.hints.mandatory}"
+                                                                  columns="#{bindings.BankShortName.hints.displayWidth}"
+                                                                  maximumLength="#{bindings.BankShortName.hints.precision}"
+                                                                  shortDesc="#{bindings.BankShortName.hints.tooltip}"
+                                                                  id="it3" contentStyle="width:100%"
+                                                                  readOnly="#{bindings.IsSupervised.inputValue=='Y' || (pageFlowScope.ERPMainTempBean.LERPAllowEdit=='N' &amp;&amp; bindings.BankId.inputValue!=null)}">
+                                                        <f:validator binding="#{bindings.BankShortName.validator}"/>
+                                                    </af:inputText>
+                                                    <af:inputText value="#{bindings.BankName.inputValue}"
+                                                                  label="#{bindings.BankName.hints.label}"
+                                                                  required="#{bindings.BankName.hints.mandatory}"
+                                                                  columns="#{bindings.BankName.hints.displayWidth}"
+                                                                  maximumLength="#{bindings.BankName.hints.precision}"
+                                                                  shortDesc="#{bindings.BankName.hints.tooltip}"
+                                                                  id="it4" contentStyle="width:100%"
+                                                                  readOnly="#{bindings.IsSupervised.inputValue=='Y' || (pageFlowScope.ERPMainTempBean.LERPAllowEdit=='N' &amp;&amp; bindings.BankId.inputValue!=null)}">
+                                                        <f:validator binding="#{bindings.BankName.validator}"/>
+                                                    </af:inputText>
+                                                    <af:inputDate value="#{bindings.OpeningDate.inputValue}"
+                                                                  label="#{bindings.OpeningDate.hints.label}"
+                                                                  required="#{bindings.OpeningDate.hints.mandatory}"
+                                                                  columns="#{bindings.OpeningDate.hints.displayWidth}"
+                                                                  shortDesc="#{bindings.OpeningDate.hints.tooltip}"
+                                                                  id="id1" contentStyle="width:70%"
+                                                                  readOnly="#{bindings.IsSupervised.inputValue=='Y' || (pageFlowScope.ERPMainTempBean.LERPAllowEdit=='N' &amp;&amp; bindings.BankId.inputValue!=null)}">
+                                                        <f:validator binding="#{bindings.OpeningDate.validator}"/>
+                                                        <af:convertDateTime pattern="#{bindings.OpeningDate.format}"/>
+                                                    </af:inputDate>
+                                                    <af:inputComboboxListOfValues id="txtBaseCountryNameId"
+                                                                                  popupTitle="Search and Select: #{bindings.txtBaseCountryName.hints.label}"
+                                                                                  value="#{bindings.txtBaseCountryName.inputValue}"
+                                                                                  label="#{bindings.txtBaseCountryName.hints.label}"
+                                                                                  model="#{bindings.txtBaseCountryName.listOfValuesModel}"
+                                                                                  required="#{bindings.txtBaseCountryName.hints.mandatory}"
+                                                                                  columns="#{bindings.txtBaseCountryName.hints.displayWidth}"
+                                                                                  shortDesc="#{bindings.txtBaseCountryName.hints.tooltip}"
+                                                                                  contentStyle="width:70%"
+                                                                                  readOnly="#{bindings.IsSupervised.inputValue=='Y' || (pageFlowScope.ERPMainTempBean.LERPAllowEdit=='N' &amp;&amp; bindings.BankId.inputValue!=null)}">
+                                                        <f:validator binding="#{bindings.txtBaseCountryName.validator}"/>
+                                                    </af:inputComboboxListOfValues>
+                                                    <af:inputComboboxListOfValues id="txtCOADescriptionId"
+                                                                                  popupTitle="Search and Select: #{bindings.txtCOADescription.hints.label}"
+                                                                                  value="#{bindings.txtCOADescription.inputValue}"
+                                                                                  label="#{bindings.txtCOADescription.hints.label}"
+                                                                                  model="#{bindings.txtCOADescription.listOfValuesModel}"
+                                                                                  required="#{bindings.txtCOADescription.hints.mandatory}"
+                                                                                  columns="#{bindings.txtCOADescription.hints.displayWidth}"
+                                                                                  shortDesc="#{bindings.txtCOADescription.hints.tooltip}"
+                                                                                  contentStyle="width:70%"
+                                                                                  readOnly="#{bindings.IsSupervised.inputValue=='Y' || (pageFlowScope.ERPMainTempBean.LERPAllowEdit=='N' &amp;&amp; bindings.BankId.inputValue!=null)}">
+                                                        <f:validator binding="#{bindings.txtCOADescription.validator}"/>
+                                                    </af:inputComboboxListOfValues>
+                                                    <af:inputText value="#{bindings.NtnNo.inputValue}"
+                                                                  label="#{bindings.NtnNo.hints.label}"
+                                                                  required="#{bindings.NtnNo.hints.mandatory}"
+                                                                  columns="#{bindings.NtnNo.hints.displayWidth}"
+                                                                  maximumLength="#{bindings.NtnNo.hints.precision}"
+                                                                  shortDesc="#{bindings.NtnNo.hints.tooltip}" id="it5"
+                                                                  contentStyle="width:100%"
+                                                                  readOnly="#{bindings.IsSupervised.inputValue=='Y' || (pageFlowScope.ERPMainTempBean.LERPAllowEdit=='N' &amp;&amp; bindings.BankId.inputValue!=null)}">
+                                                        <f:validator binding="#{bindings.NtnNo.validator}"/>
+                                                    </af:inputText>
+                                                    <af:inputText value="#{bindings.RegistrationNo.inputValue}"
+                                                                  label="#{bindings.RegistrationNo.hints.label}"
+                                                                  required="#{bindings.RegistrationNo.hints.mandatory}"
+                                                                  columns="#{bindings.RegistrationNo.hints.displayWidth}"
+                                                                  maximumLength="#{bindings.RegistrationNo.hints.precision}"
+                                                                  shortDesc="#{bindings.RegistrationNo.hints.tooltip}"
+                                                                  id="it10" contentStyle="width:100%"
+                                                                  readOnly="#{bindings.IsSupervised.inputValue=='Y' || (pageFlowScope.ERPMainTempBean.LERPAllowEdit=='N' &amp;&amp; bindings.BankId.inputValue!=null)}">
+                                                        <f:validator binding="#{bindings.RegistrationNo.validator}"/>
+                                                    </af:inputText>
+                                                    <af:inputText value="#{bindings.Email.inputValue}"
+                                                                  label="#{bindings.Email.hints.label}"
+                                                                  required="#{bindings.Email.hints.mandatory}"
+                                                                  columns="#{bindings.Email.hints.displayWidth}"
+                                                                  maximumLength="#{bindings.Email.hints.precision}"
+                                                                  shortDesc="#{bindings.Email.hints.tooltip}" id="it6"
+                                                                  contentStyle="width:100%"
+                                                                  readOnly="#{bindings.IsSupervised.inputValue=='Y' || (pageFlowScope.ERPMainTempBean.LERPAllowEdit=='N' &amp;&amp; bindings.BankId.inputValue!=null)}">
+                                                        <f:validator binding="#{bindings.Email.validator}"/>
+                                                    </af:inputText>
+                                                    <af:inputText value="#{bindings.Website.inputValue}"
+                                                                  label="#{bindings.Website.hints.label}"
+                                                                  required="#{bindings.Website.hints.mandatory}"
+                                                                  columns="#{bindings.Website.hints.displayWidth}"
+                                                                  maximumLength="#{bindings.Website.hints.precision}"
+                                                                  shortDesc="#{bindings.Website.hints.tooltip}" id="it7"
+                                                                  contentStyle="width:100%"
+                                                                  readOnly="#{bindings.IsSupervised.inputValue=='Y' || (pageFlowScope.ERPMainTempBean.LERPAllowEdit=='N' &amp;&amp; bindings.BankId.inputValue!=null)}">
+                                                        <f:validator binding="#{bindings.Website.validator}"/>
+                                                    </af:inputText>
+                                                    <af:inputText value="#{bindings.ComplaintEmail.inputValue}"
+                                                                  label="#{bindings.ComplaintEmail.hints.label}"
+                                                                  required="#{bindings.ComplaintEmail.hints.mandatory}"
+                                                                  columns="#{bindings.ComplaintEmail.hints.displayWidth}"
+                                                                  maximumLength="#{bindings.ComplaintEmail.hints.precision}"
+                                                                  shortDesc="#{bindings.ComplaintEmail.hints.tooltip}"
+                                                                  id="it8" contentStyle="width:100%"
+                                                                  readOnly="#{bindings.IsSupervised.inputValue=='Y' || (pageFlowScope.ERPMainTempBean.LERPAllowEdit=='N' &amp;&amp; bindings.BankId.inputValue!=null)}">
+                                                        <f:validator binding="#{bindings.ComplaintEmail.validator}"/>
+                                                    </af:inputText>
+                                                    <af:selectOneChoice value="#{bindings.IsActive.inputValue}"
+                                                                        label="#{bindings.IsActive.label}"
+                                                                        required="#{bindings.IsActive.hints.mandatory}"
+                                                                        shortDesc="#{bindings.IsActive.hints.tooltip}"
+                                                                        id="soc1" contentStyle="width:90%"
+                                                                        styleClass="AFStretchWidth"
+                                                                        readOnly="#{bindings.IsSupervised.inputValue=='Y' || (pageFlowScope.ERPMainTempBean.LERPAllowEdit=='N' &amp;&amp; bindings.BankId.inputValue!=null)}">
+                                                        <f:selectItems value="#{bindings.IsActive.items}" id="si1"/>
+                                                        <f:validator binding="#{bindings.IsActive.validator}"/>
+                                                    </af:selectOneChoice>
+                                                </af:panelFormLayout>
+                                            </af:gridCell>
+                                        </af:gridRow>
+                                    </af:panelGridLayout>
+                                </f:facet>
+                                <f:facet name="second">
+                                    <af:panelGridLayout id="pgl4">
+                                        <af:gridRow marginTop="5px" height="auto" id="gr4">
+                                            <af:gridCell marginStart="5px" width="100%" marginEnd="5px" id="gc5"
+                                                         styleClass="ERPEntryAreaHeading" halign="stretch"
+                                                         valign="stretch">
+                                                <af:outputText value="Branches #{bindings.BankName.inputValue==null?'':'('} #{bindings.BankName.inputValue==null?'': bindings.BankName.inputValue} #{bindings.BankName.inputValue==null?'':')'}" id="ot4"
+                                                               styleClass="ERPEntryAreaFont"/>
+                                            </af:gridCell>
+                                        </af:gridRow>
+                                        <af:gridRow marginTop="5px" height="auto" marginBottom="5px" id="gr5">
+                                            <af:gridCell marginStart="5px" width="100%" marginEnd="5px" id="gc6"
+                                                         valign="stretch" halign="stretch">
+                                                <af:panelCollection id="pc1" styleClass="AFStretchWidth"
+                                                                    featuresOff="viewMenu">
+                                                    <f:facet name="menus"/>
+                                                    <f:facet name="toolbar">
+                                                        <af:toolbar id="t2" flex="1">
+                                                            <af:link actionListener="#{bindings.Delete1.execute}"
+                                                                     text="Delete"
+                                                                     disabled="#{pageFlowScope.ERPMainTempBean.LERPAllowDelete=='N' || bindings.IsSupervised.inputValue=='Y'}"
+                                                                     id="l10"
+                                                                     icon="#{resource['images:imgDeleteRecord.png']}"
+                                                                     iconPosition="top" partialSubmit="true"/>
+                                                            <af:link actionListener="#{bindings.CreateInsert.execute}"
+                                                                     text="Add"
+                                                                     disabled="#{bindings.BankShortCode.inputValue==null ||pageFlowScope.ERPMainTempBean.LERPAllowAdd=='N' || bindings.IsSupervised.inputValue=='Y'}"
+                                                                     id="l7"
+                                                                     icon="#{resource['images:imgAddRecord.png']}"
+                                                                     iconPosition="top" partialSubmit="true"/>
+                                                        </af:toolbar>
+                                                    </f:facet>
+                                                    <f:facet name="statusbar"/>
+                                                    <af:table value="#{bindings.GlBankBranchDetCRUD.collectionModel}"
+                                                              var="row" rows="#{bindings.GlBankBranchDetCRUD.rangeSize}"
+                                                              emptyText="#{bindings.GlBankBranchDetCRUD.viewable ? 'No data to display.' : 'Access Denied.'}"
+                                                              rowBandingInterval="0"
+                                                              selectedRowKeys="#{bindings.GlBankBranchDetCRUD.collectionModel.selectedRow}"
+                                                              selectionListener="#{bindings.GlBankBranchDetCRUD.collectionModel.makeCurrent}"
+                                                              rowSelection="single"
+                                                              fetchSize="#{bindings.GlBankBranchDetCRUD.rangeSize}"
+                                                              id="t1" columnStretching="column:c3"
+                                                              partialTriggers="::l7 ::l10"
+                                                              autoHeightRows="#{pageFlowScope.OracleERPBean.erpScreenSize=='portrait'?10:18}"
+                                                              scrollPolicy="page">
+                                                        <af:column headerText="#{bindings.GlBankBranchDetCRUD.hints.BankBranchId.label}"
+                                                                   id="c2" rendered="false">
+                                                            <af:inputText value="#{row.bindings.BankBranchId.inputValue}"
+                                                                          label="#{bindings.GlBankBranchDetCRUD.hints.BankBranchId.label}"
+                                                                          required="#{bindings.GlBankBranchDetCRUD.hints.BankBranchId.mandatory}"
+                                                                          columns="#{bindings.GlBankBranchDetCRUD.hints.BankBranchId.displayWidth}"
+                                                                          maximumLength="#{bindings.GlBankBranchDetCRUD.hints.BankBranchId.precision}"
+                                                                          shortDesc="#{bindings.GlBankBranchDetCRUD.hints.BankBranchId.tooltip}"
+                                                                          id="it11">
+                                                                <f:validator binding="#{row.bindings.BankBranchId.validator}"/>
+                                                                <af:convertNumber groupingUsed="false"
+                                                                                  pattern="#{bindings.GlBankBranchDetCRUD.hints.BankBranchId.format}"/>
+                                                            </af:inputText>
+                                                        </af:column>
+                                                        <af:column headerText="#{bindings.GlBankBranchDetCRUD.hints.BranchShortName.label}"
+                                                                   id="c1" width="60" displayIndex="-1"
+                                                                   showRequired="true">
+                                                            <af:inputText value="#{row.bindings.BranchShortName.inputValue}"
+                                                                          label="#{bindings.GlBankBranchDetCRUD.hints.BranchShortName.label}"
+                                                                          required="#{bindings.GlBankBranchDetCRUD.hints.BranchShortName.mandatory}"
+                                                                          columns="#{bindings.GlBankBranchDetCRUD.hints.BranchShortName.displayWidth}"
+                                                                          maximumLength="#{bindings.GlBankBranchDetCRUD.hints.BranchShortName.precision}"
+                                                                          shortDesc="#{bindings.GlBankBranchDetCRUD.hints.BranchShortName.tooltip}"
+                                                                          id="it9"
+                                                                          readOnly="#{bindings.IsSupervised.inputValue=='Y' || (pageFlowScope.ERPMainTempBean.LERPAllowEdit=='N' &amp;&amp; row.bindings.BankBranchId.inputValue>0)}"
+                                                                          contentStyle="width:100%">
+                                                                <f:validator binding="#{row.bindings.BranchShortName.validator}"/>
+                                                            </af:inputText>
+                                                        </af:column>
+                                                        <af:column headerText="#{bindings.GlBankBranchDetCRUD.hints.BranchName.label}"
+                                                                   id="c3" width="150" displayIndex="-1"
+                                                                   showRequired="true">
+                                                            <af:inputText value="#{row.bindings.BranchName.inputValue}"
+                                                                          label="#{bindings.GlBankBranchDetCRUD.hints.BranchName.label}"
+                                                                          required="#{bindings.GlBankBranchDetCRUD.hints.BranchName.mandatory}"
+                                                                          columns="#{bindings.GlBankBranchDetCRUD.hints.BranchName.displayWidth}"
+                                                                          maximumLength="#{bindings.GlBankBranchDetCRUD.hints.BranchName.precision}"
+                                                                          shortDesc="#{bindings.GlBankBranchDetCRUD.hints.BranchName.tooltip}"
+                                                                          id="it13"
+                                                                          readOnly="#{bindings.IsSupervised.inputValue=='Y' || (pageFlowScope.ERPMainTempBean.LERPAllowEdit=='N' &amp;&amp; row.bindings.BankBranchId.inputValue>0)}"
+                                                                          contentStyle="width:100%">
+                                                                <f:validator binding="#{row.bindings.BranchName.validator}"/>
+                                                            </af:inputText>
+                                                        </af:column>
+                                                        <af:column headerText="#{bindings.GlBankBranchDetCRUD.hints.BranchDate.label}"
+                                                                   id="c4" width="120" displayIndex="-1"
+                                                                   showRequired="true">
+                                                            <af:inputDate value="#{row.bindings.BranchDate.inputValue}"
+                                                                          label="#{bindings.GlBankBranchDetCRUD.hints.BranchDate.label}"
+                                                                          required="#{bindings.GlBankBranchDetCRUD.hints.BranchDate.mandatory}"
+                                                                          columns="#{bindings.GlBankBranchDetCRUD.hints.BranchDate.displayWidth}"
+                                                                          shortDesc="#{bindings.GlBankBranchDetCRUD.hints.BranchDate.tooltip}"
+                                                                          id="id2" contentStyle="width:60%"
+                                                                          readOnly="#{bindings.IsSupervised.inputValue=='Y' || (pageFlowScope.ERPMainTempBean.LERPAllowEdit=='N' &amp;&amp; row.bindings.BankBranchId.inputValue>0)}">
+                                                                <f:validator binding="#{row.bindings.BranchDate.validator}"/>
+                                                                <af:convertDateTime pattern="#{bindings.GlBankBranchDetCRUD.hints.BranchDate.format}"/>
+                                                            </af:inputDate>
+                                                        </af:column>
+                                                        <af:column headerText="#{bindings.GlBankBranchDetCRUD.hints.txtCOAName.label}"
+                                                                   id="c10" width="150" displayIndex="-1">
+                                                            <af:inputComboboxListOfValues id="txtCOANameId"
+                                                                                          popupTitle="Search and Select: #{bindings.GlBankBranchDetCRUD.hints.txtCOAName.label}"
+                                                                                          value="#{row.bindings.txtCOAName.inputValue}"
+                                                                                          model="#{row.bindings.txtCOAName.listOfValuesModel}"
+                                                                                          required="#{bindings.GlBankBranchDetCRUD.hints.txtCOAName.mandatory}"
+                                                                                          columns="#{bindings.GlBankBranchDetCRUD.hints.txtCOAName.displayWidth}"
+                                                                                          shortDesc="#{bindings.GlBankBranchDetCRUD.hints.txtCOAName.tooltip}"
+                                                                                          contentStyle="width:100%"
+                                                                                          readOnly="#{bindings.IsSupervised.inputValue=='Y' || (pageFlowScope.ERPMainTempBean.LERPAllowEdit=='N' &amp;&amp; row.bindings.BankBranchId.inputValue>0)}">
+                                                                <f:validator binding="#{row.bindings.txtCOAName.validator}"/>
+                                                            </af:inputComboboxListOfValues>
+                                                        </af:column>
+                                                        <af:column headerText="#{bindings.GlBankBranchDetCRUD.hints.txtCountryName.label}"
+                                                                   id="c11" width="150" displayIndex="-1">
+                                                            <af:inputComboboxListOfValues id="txtCountryNameId"
+                                                                                          popupTitle="Search and Select: #{bindings.GlBankBranchDetCRUD.hints.txtCountryName.label}"
+                                                                                          value="#{row.bindings.txtCountryName.inputValue}"
+                                                                                          model="#{row.bindings.txtCountryName.listOfValuesModel}"
+                                                                                          required="#{bindings.GlBankBranchDetCRUD.hints.txtCountryName.mandatory}"
+                                                                                          columns="#{bindings.GlBankBranchDetCRUD.hints.txtCountryName.displayWidth}"
+                                                                                          shortDesc="#{bindings.GlBankBranchDetCRUD.hints.txtCountryName.tooltip}"
+                                                                                          contentStyle="width:100%"
+                                                                                          autoSubmit="true"
+                                                                                          readOnly="#{bindings.IsSupervised.inputValue=='Y' || (pageFlowScope.ERPMainTempBean.LERPAllowEdit=='N' &amp;&amp; row.bindings.BankBranchId.inputValue>0)}">
+                                                                <f:validator binding="#{row.bindings.txtCountryName.validator}"/>
+                                                            </af:inputComboboxListOfValues>
+                                                        </af:column>
+                                                        <af:column headerText="#{bindings.GlBankBranchDetCRUD.hints.txtCityName.label}"
+                                                                   id="c12" width="150">
+                                                            <af:inputComboboxListOfValues id="txtCityNameId"
+                                                                                          popupTitle="Search and Select: #{bindings.GlBankBranchDetCRUD.hints.txtCityName.label}"
+                                                                                          value="#{row.bindings.txtCityName.inputValue}"
+                                                                                          model="#{row.bindings.txtCityName.listOfValuesModel}"
+                                                                                          required="#{bindings.GlBankBranchDetCRUD.hints.txtCityName.mandatory}"
+                                                                                          columns="#{bindings.GlBankBranchDetCRUD.hints.txtCityName.displayWidth}"
+                                                                                          shortDesc="#{bindings.GlBankBranchDetCRUD.hints.txtCityName.tooltip}"
+                                                                                          contentStyle="width:100%"
+                                                                                          partialTriggers="txtCountryNameId"
+                                                                                          readOnly="#{bindings.IsSupervised.inputValue=='Y' || (pageFlowScope.ERPMainTempBean.LERPAllowEdit=='N' &amp;&amp; row.bindings.BankBranchId.inputValue>0)}">
+                                                                <f:validator binding="#{row.bindings.txtCityName.validator}"/>
+                                                            </af:inputComboboxListOfValues>
+                                                        </af:column>
+                                                        <af:column headerText="#{bindings.GlBankBranchDetCRUD.hints.MobileNo.label}"
+                                                                   id="c5">
+                                                            <af:inputText value="#{row.bindings.MobileNo.inputValue}"
+                                                                          label="#{bindings.GlBankBranchDetCRUD.hints.MobileNo.label}"
+                                                                          required="#{bindings.GlBankBranchDetCRUD.hints.MobileNo.mandatory}"
+                                                                          columns="#{bindings.GlBankBranchDetCRUD.hints.MobileNo.displayWidth}"
+                                                                          maximumLength="#{bindings.GlBankBranchDetCRUD.hints.MobileNo.precision}"
+                                                                          shortDesc="#{bindings.GlBankBranchDetCRUD.hints.MobileNo.tooltip}"
+                                                                          id="it14"
+                                                                          readOnly="#{bindings.IsSupervised.inputValue=='Y' || (pageFlowScope.ERPMainTempBean.LERPAllowEdit=='N' &amp;&amp; row.bindings.BankBranchId.inputValue>0)}"
+                                                                          contentStyle="width:100%">
+                                                                <f:validator binding="#{row.bindings.MobileNo.validator}"/>
+                                                            </af:inputText>
+                                                        </af:column>
+                                                        <af:column headerText="#{bindings.GlBankBranchDetCRUD.hints.PhoneNo.label}"
+                                                                   id="c6">
+                                                            <af:inputText value="#{row.bindings.PhoneNo.inputValue}"
+                                                                          label="#{bindings.GlBankBranchDetCRUD.hints.PhoneNo.label}"
+                                                                          required="#{bindings.GlBankBranchDetCRUD.hints.PhoneNo.mandatory}"
+                                                                          columns="#{bindings.GlBankBranchDetCRUD.hints.PhoneNo.displayWidth}"
+                                                                          maximumLength="#{bindings.GlBankBranchDetCRUD.hints.PhoneNo.precision}"
+                                                                          shortDesc="#{bindings.GlBankBranchDetCRUD.hints.PhoneNo.tooltip}"
+                                                                          id="it15"
+                                                                          readOnly="#{bindings.IsSupervised.inputValue=='Y' || (pageFlowScope.ERPMainTempBean.LERPAllowEdit=='N' &amp;&amp; row.bindings.BankBranchId.inputValue>0)}"
+                                                                          contentStyle="width:100%">
+                                                                <f:validator binding="#{row.bindings.PhoneNo.validator}"/>
+                                                            </af:inputText>
+                                                        </af:column>
+                                                        <af:column headerText="#{bindings.GlBankBranchDetCRUD.hints.FaxNo.label}"
+                                                                   id="c7">
+                                                            <af:inputText value="#{row.bindings.FaxNo.inputValue}"
+                                                                          label="#{bindings.GlBankBranchDetCRUD.hints.FaxNo.label}"
+                                                                          required="#{bindings.GlBankBranchDetCRUD.hints.FaxNo.mandatory}"
+                                                                          columns="#{bindings.GlBankBranchDetCRUD.hints.FaxNo.displayWidth}"
+                                                                          maximumLength="#{bindings.GlBankBranchDetCRUD.hints.FaxNo.precision}"
+                                                                          shortDesc="#{bindings.GlBankBranchDetCRUD.hints.FaxNo.tooltip}"
+                                                                          id="it16"
+                                                                          readOnly="#{bindings.IsSupervised.inputValue=='Y' || (pageFlowScope.ERPMainTempBean.LERPAllowEdit=='N' &amp;&amp; row.bindings.BankBranchId.inputValue>0)}"
+                                                                          contentStyle="width:100%">
+                                                                <f:validator binding="#{row.bindings.FaxNo.validator}"/>
+                                                            </af:inputText>
+                                                        </af:column>
+                                                        <af:column headerText="#{bindings.GlBankBranchDetCRUD.hints.ContactPerson.label}"
+                                                                   id="c8" showRequired="true">
+                                                            <af:inputText value="#{row.bindings.ContactPerson.inputValue}"
+                                                                          label="#{bindings.GlBankBranchDetCRUD.hints.ContactPerson.label}"
+                                                                          required="#{bindings.GlBankBranchDetCRUD.hints.ContactPerson.mandatory}"
+                                                                          columns="#{bindings.GlBankBranchDetCRUD.hints.ContactPerson.displayWidth}"
+                                                                          maximumLength="#{bindings.GlBankBranchDetCRUD.hints.ContactPerson.precision}"
+                                                                          shortDesc="#{bindings.GlBankBranchDetCRUD.hints.ContactPerson.tooltip}"
+                                                                          id="it17"
+                                                                          readOnly="#{bindings.IsSupervised.inputValue=='Y' || (pageFlowScope.ERPMainTempBean.LERPAllowEdit=='N' &amp;&amp; row.bindings.BankBranchId.inputValue>0)}"
+                                                                          contentStyle="width:100%">
+                                                                <f:validator binding="#{row.bindings.ContactPerson.validator}"/>
+                                                            </af:inputText>
+                                                        </af:column>
+                                                        <af:column headerText="#{bindings.GlBankBranchDetCRUD.hints.IsActive.label}"
+                                                                   id="c9">
+                                                            <af:selectOneChoice value="#{row.bindings.IsActive.inputValue}"
+                                                                                label="#{row.bindings.IsActive.label}"
+                                                                                required="#{bindings.GlBankBranchDetCRUD.hints.IsActive.mandatory}"
+                                                                                shortDesc="#{bindings.GlBankBranchDetCRUD.hints.IsActive.tooltip}"
+                                                                                id="soc2"
+                                                                                readOnly="#{bindings.IsSupervised.inputValue=='Y' || (pageFlowScope.ERPMainTempBean.LERPAllowEdit=='N' &amp;&amp; row.bindings.BankBranchId.inputValue>0)}"
+                                                                                contentStyle="width:100%">
+                                                                <f:selectItems value="#{row.bindings.IsActive.items}"
+                                                                               id="si2"/>
+                                                                <f:validator binding="#{row.bindings.IsActive.validator}"/>
+                                                            </af:selectOneChoice>
+                                                        </af:column>
+                                                    </af:table>
+                                                </af:panelCollection>
+                                            </af:gridCell>
+                                        </af:gridRow>
+                                    </af:panelGridLayout>
+                                </f:facet>
+                            </af:panelSplitter>
                         </f:facet>
                         <f:facet name="top">
-                            <af:panelGridLayout id="pgl1">
+                            <af:panelGridLayout id="pgl1" styleClass="ERPToolBarBackground">
                                 <af:gridRow marginTop="5px" height="auto" marginBottom="5px" id="gr1">
-                                    <af:gridCell marginStart="5px" width="50%" id="gc1"/>
+                                    <af:gridCell marginStart="5px" width="50%" id="gc1" valign="middle"
+                                                 halign="stretch">
+                                        <af:outputText value="#{pageFlowScope.ERPMainTempBean.LErpActivityName}" id="ot3"
+                                                       styleClass="ERPActivityNameFormHeading"/>
+                                    </af:gridCell>
                                     <af:gridCell marginStart="5px" width="50%" marginEnd="5px" id="gc2" halign="end">
                                         <af:panelGroupLayout id="pgl2" layout="horizontal" halign="end">
                                             <af:link text="Close" id="l1"
