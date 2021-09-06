@@ -79,514 +79,520 @@
                                 <af:gridRow marginTop="5px" id="gr2" marginBottom="5px">
                                     <af:gridCell marginStart="5px" width="100%" marginEnd="5px" id="gc3"
                                                  halign="stretch" valign="stretch">
-                                        <af:panelBox text="Voucher Header #{bindings.IsReversed.inputValue=='Y'?'(This Voucher Is Reversed)':''}" id="pb1"
-                                                     showDisclosure="false">
-                                            <f:facet name="toolbar">
-                                                <af:toolbar id="t3">
-                                                    <af:outputText value="This is Reversal of Voucher #{bindings.ReversedVoucherCode.inputValue}" id="ot4"
+                                        <af:panelGridLayout id="pgl3">
+                                            <af:gridRow id="gr8">
+                                                <af:gridCell id="gc24" columnSpan="8" rowSpan="1" width="100%"
+                                                             styleClass="ERPEntryAreaHeading"
+                                                             valign="stretch" halign="stretch">
+                                                    <af:spacer width="10" height="10" id="s2"/>
+                                                    <af:outputText value="Voucher Header #{bindings.IsReversed.inputValue=='Y'?'(This Voucher Is Reversed)':''}"
+                                                                   id="ot5" styleClass="ERPEntryAreaFont"/>
+                                                    <af:spacer width="10" height="10" id="s3"/>
+                                                    <af:outputText value="This is Reversal of Voucher #{bindings.ReversedVoucherCode.inputValue}"
+                                                                   id="ot4"
                                                                    visible="#{bindings.ReversedVoucherCode.inputValue!=null}"
-                                                                   inlineStyle="color:blue;font-weight:bold"/>
-                                                </af:toolbar>
-                                            </f:facet>
-                                            <af:panelGridLayout id="pgl3">
-                                                <af:gridRow marginTop="5px" height="auto" id="gr4">
-                                                    <af:gridCell marginStart="5px" width="9%" id="gc5" rowSpan="1"
-                                                                 halign="center">
-                                                        <af:outputLabel value="#{bindings.VoucherHeaderCode.hints.label}"
-                                                                        id="ol2"/>
-                                                    </af:gridCell>
-                                                    <af:gridCell marginStart="5px" width="17%" id="gc6" marginEnd="5px"
-                                                                 valign="middle">
-                                                        <af:inputText value="#{bindings.ReversedVoucherCode.inputValue}"
-                                                                      label="#{bindings.ReversedVoucherCode.hints.label}"
-                                                                      required="#{bindings.ReversedVoucherCode.hints.mandatory}"
-                                                                      columns="#{bindings.ReversedVoucherCode.hints.displayWidth}"
-                                                                      maximumLength="#{bindings.ReversedVoucherCode.hints.precision}"
-                                                                      shortDesc="#{bindings.ReversedVoucherCode.hints.tooltip}"
-                                                                      id="it14" rendered="false">
-                                                            <f:validator binding="#{bindings.ReversedVoucherCode.validator}"/>
-                                                            <af:convertNumber groupingUsed="false"
-                                                                              pattern="#{bindings.ReversedVoucherCode.format}"/>
-                                                        </af:inputText>
-                                                        <af:inputText value="#{bindings.ReversedVoucherId.inputValue}"
-                                                                      label="#{bindings.ReversedVoucherId.hints.label}"
-                                                                      required="#{bindings.ReversedVoucherId.hints.mandatory}"
-                                                                      columns="#{bindings.ReversedVoucherId.hints.displayWidth}"
-                                                                      maximumLength="#{bindings.ReversedVoucherId.hints.precision}"
-                                                                      shortDesc="#{bindings.ReversedVoucherId.hints.tooltip}"
-                                                                      id="it13" rendered="false">
-                                                            <f:validator binding="#{bindings.ReversedVoucherId.validator}"/>
-                                                            <af:convertNumber groupingUsed="false"
-                                                                              pattern="#{bindings.ReversedVoucherId.format}"/>
-                                                        </af:inputText>
-                                                        <af:inputText value="#{bindings.IsReversed.inputValue}"
-                                                                      label="#{bindings.IsReversed.hints.label}"
-                                                                      required="#{bindings.IsReversed.hints.mandatory}"
-                                                                      columns="#{bindings.IsReversed.hints.displayWidth}"
-                                                                      maximumLength="#{bindings.IsReversed.hints.precision}"
-                                                                      shortDesc="#{bindings.IsReversed.hints.tooltip}"
-                                                                      id="it9" rendered="false">
-                                                            <f:validator binding="#{bindings.IsReversed.validator}"/>
-                                                        </af:inputText>
-                                                        <af:inputText value="#{bindings.IsUnsupervised.inputValue}"
-                                                                      label="#{bindings.IsUnsupervised.hints.label}"
-                                                                      required="#{bindings.IsUnsupervised.hints.mandatory}"
-                                                                      columns="#{bindings.IsUnsupervised.hints.displayWidth}"
-                                                                      maximumLength="#{bindings.IsUnsupervised.hints.precision}"
-                                                                      shortDesc="#{bindings.IsUnsupervised.hints.tooltip}"
-                                                                      id="it7" rendered="false">
-                                                            <f:validator binding="#{bindings.IsUnsupervised.validator}"/>
-                                                        </af:inputText>
-                                                        <af:inputText value="#{bindings.IsSupervised.inputValue}"
-                                                                      label="#{bindings.IsSupervised.hints.label}"
-                                                                      required="#{bindings.IsSupervised.hints.mandatory}"
-                                                                      columns="#{bindings.IsSupervised.hints.displayWidth}"
-                                                                      maximumLength="#{bindings.IsSupervised.hints.precision}"
-                                                                      shortDesc="#{bindings.IsSupervised.hints.tooltip}"
-                                                                      id="it8" rendered="false">
-                                                            <f:validator binding="#{bindings.IsSupervised.validator}"/>
-                                                        </af:inputText>
-                                                        <af:inputText value="#{bindings.VoucherHeaderSno.inputValue}"
-                                                                      label="#{bindings.VoucherHeaderSno.hints.label}"
-                                                                      required="#{bindings.VoucherHeaderSno.hints.mandatory}"
-                                                                      columns="#{bindings.VoucherHeaderSno.hints.displayWidth}"
-                                                                      maximumLength="#{bindings.VoucherHeaderSno.hints.precision}"
-                                                                      shortDesc="#{bindings.VoucherHeaderSno.hints.tooltip}"
-                                                                      id="it4" rendered="false">
-                                                            <f:validator binding="#{bindings.VoucherHeaderSno.validator}"/>
-                                                            <af:convertNumber groupingUsed="false"
-                                                                              pattern="#{bindings.VoucherHeaderSno.format}"/>
-                                                        </af:inputText>
-                                                        <af:inputText value="#{bindings.VoucherHeaderCode.inputValue}"
-                                                                      label="#{bindings.VoucherHeaderCode.hints.label}"
-                                                                      required="#{bindings.VoucherHeaderCode.hints.mandatory}"
-                                                                      columns="#{bindings.VoucherHeaderCode.hints.displayWidth}"
-                                                                      maximumLength="#{bindings.VoucherHeaderCode.hints.precision}"
-                                                                      shortDesc="#{bindings.VoucherHeaderCode.hints.tooltip}"
-                                                                      id="it2" simple="true" readOnly="true">
-                                                            <f:validator binding="#{bindings.VoucherHeaderCode.validator}"/>
-                                                            <af:convertNumber groupingUsed="false"
-                                                                              pattern="#{bindings.VoucherHeaderCode.format}"/>
-                                                        </af:inputText>
-                                                        <af:inputText value="#{bindings.txtSumDebit.inputValue}"
-                                                                      label="#{bindings.txtSumDebit.hints.label}"
-                                                                      required="#{bindings.txtSumDebit.hints.mandatory}"
-                                                                      columns="#{bindings.txtSumDebit.hints.displayWidth}"
-                                                                      maximumLength="#{bindings.txtSumDebit.hints.precision}"
-                                                                      shortDesc="#{bindings.txtSumDebit.hints.tooltip}"
-                                                                      id="it6" rendered="false">
-                                                            <f:validator binding="#{bindings.txtSumDebit.validator}"/>
-                                                            <af:convertNumber groupingUsed="false"
-                                                                              pattern="#{bindings.txtSumDebit.format}"/>
-                                                        </af:inputText>
-                                                        <af:inputText value="#{bindings.txtSumCredit.inputValue}"
-                                                                      label="#{bindings.txtSumCredit.hints.label}"
-                                                                      required="#{bindings.txtSumCredit.hints.mandatory}"
-                                                                      columns="#{bindings.txtSumCredit.hints.displayWidth}"
-                                                                      maximumLength="#{bindings.txtSumCredit.hints.precision}"
-                                                                      shortDesc="#{bindings.txtSumCredit.hints.tooltip}"
-                                                                      id="it5" rendered="false">
-                                                            <f:validator binding="#{bindings.txtSumCredit.validator}"/>
-                                                            <af:convertNumber groupingUsed="false"
-                                                                              pattern="#{bindings.txtSumCredit.format}"/>
-                                                        </af:inputText>
-                                                    </af:gridCell>
-                                                    <af:gridCell marginStart="5px" width="9%" id="gc7" rowSpan="1"
-                                                                 halign="center">
-                                                        <af:outputLabel value="#{bindings.txtLocationName.hints.label}"
-                                                                        id="ol3"/>
-                                                    </af:gridCell>
-                                                    <af:gridCell marginStart="5px" width="17%" id="gc8" marginEnd="5px"
-                                                                 halign="stretch" valign="middle">
-                                                        <af:inputComboboxListOfValues id="txtLocationNameId"
-                                                                                      popupTitle="Search and Select: #{bindings.txtLocationName.hints.label}"
-                                                                                      value="#{bindings.txtLocationName.inputValue}"
-                                                                                      label="#{bindings.txtLocationName.hints.label}"
-                                                                                      model="#{bindings.txtLocationName.listOfValuesModel}"
-                                                                                      required="#{bindings.txtLocationName.hints.mandatory}"
-                                                                                      columns="#{bindings.txtLocationName.hints.displayWidth}"
-                                                                                      shortDesc="#{bindings.txtLocationName.hints.tooltip}"
-                                                                                      simple="true"
-                                                                                      contentStyle="width:80%"
-                                                                                      styleClass="AFStretchWidth"
-                                                                                      autoSubmit="true"
-                                                                                      clientComponent="true"
-                                                                                      disabled="#{bindings.IsSupervised.inputValue=='Y'}">
-                                                            <f:validator binding="#{bindings.txtLocationName.validator}"/>
-                                                        </af:inputComboboxListOfValues>
-                                                    </af:gridCell>
-                                                    <af:gridCell marginStart="5px" width="8%" id="gc9" marginEnd="5px"
-                                                                 halign="center">
-                                                        <af:outputLabel value="#{bindings.txtPeriodName.hints.label}"
-                                                                        id="ol5"/>
-                                                    </af:gridCell>
-                                                    <af:gridCell marginStart="5px" width="16%" id="gc10"
-                                                                 halign="stretch" marginEnd="5px" valign="middle">
-                                                        <af:inputComboboxListOfValues id="txtPeriodNameId"
-                                                                                      popupTitle="Search and Select: #{bindings.txtPeriodName.hints.label}"
-                                                                                      value="#{bindings.txtPeriodName.inputValue}"
-                                                                                      label="#{bindings.txtPeriodName.hints.label}"
-                                                                                      model="#{bindings.txtPeriodName.listOfValuesModel}"
-                                                                                      required="#{bindings.txtPeriodName.hints.mandatory}"
-                                                                                      columns="#{bindings.txtPeriodName.hints.displayWidth}"
-                                                                                      shortDesc="#{bindings.txtPeriodName.hints.tooltip}"
-                                                                                      simple="true"
-                                                                                      contentStyle="width:80%"
-                                                                                      styleClass="AFStretchWidth"
-                                                                                      partialTriggers="txtLocationNameId"
-                                                                                      disabled="#{bindings.IsSupervised.inputValue=='Y'}">
-                                                            <f:validator binding="#{bindings.txtPeriodName.validator}"/>
-                                                        </af:inputComboboxListOfValues>
-                                                    </af:gridCell>
-                                                    <af:gridCell marginStart="5px" width="8%" id="gc11" halign="center"
-                                                                 marginEnd="5px">
-                                                        <af:outputLabel value="#{bindings.VoucherDate.hints.label}"
-                                                                        id="ol4"/>
-                                                    </af:gridCell>
-                                                    <af:gridCell marginStart="5px" width="16%" marginEnd="5px" id="gc12"
-                                                                 halign="stretch" valign="middle">
-                                                        <af:inputDate value="#{bindings.VoucherDate.inputValue}"
-                                                                      label="#{bindings.VoucherDate.hints.label}"
-                                                                      required="#{bindings.VoucherDate.hints.mandatory}"
-                                                                      columns="#{bindings.VoucherDate.hints.displayWidth}"
-                                                                      shortDesc="#{bindings.VoucherDate.hints.tooltip}"
-                                                                      id="id1" simple="true" contentStyle="width:80%"
-                                                                      autoSubmit="true"
-                                                                      disabled="#{bindings.IsSupervised.inputValue=='Y'}">
-                                                            <f:validator binding="#{bindings.VoucherDate.validator}"/>
-                                                            <af:convertDateTime pattern="#{bindings.VoucherDate.format}"/>
-                                                        </af:inputDate>
-                                                    </af:gridCell>
-                                                </af:gridRow>
-                                                <af:gridRow marginTop="5px" height="auto" marginBottom="5px" id="gr5">
-                                                    <af:gridCell marginStart="5px" width="9%" id="gc13" halign="center"
-                                                                 marginEnd="5px">
-                                                        <af:outputLabel value="#{bindings.txtVoucherTypeName.hints.label}"
-                                                                        id="ol1"/>
-                                                    </af:gridCell>
-                                                    <af:gridCell marginStart="5px" width="17%" id="gc14"
-                                                                 halign="stretch" marginEnd="5px" valign="middle">
-                                                        <af:inputComboboxListOfValues id="txtVoucherTypeNameId"
-                                                                                      popupTitle="Search and Select: #{bindings.txtVoucherTypeName.hints.label}"
-                                                                                      value="#{bindings.txtVoucherTypeName.inputValue}"
-                                                                                      label="#{bindings.txtVoucherTypeName.hints.label}"
-                                                                                      model="#{bindings.txtVoucherTypeName.listOfValuesModel}"
-                                                                                      required="#{bindings.txtVoucherTypeName.hints.mandatory}"
-                                                                                      columns="#{bindings.txtVoucherTypeName.hints.displayWidth}"
-                                                                                      shortDesc="#{bindings.txtVoucherTypeName.hints.tooltip}"
-                                                                                      simple="true"
-                                                                                      contentStyle="width:80%"
-                                                                                      styleClass="AFStretchWidth"
-                                                                                      partialTriggers="txtLocationNameId"
-                                                                                      autoSubmit="true"
-                                                                                      disabled="#{bindings.IsSupervised.inputValue=='Y'}">
-                                                            <f:validator binding="#{bindings.txtVoucherTypeName.validator}"/>
-                                                        </af:inputComboboxListOfValues>
-                                                    </af:gridCell>
-                                                    <af:gridCell marginStart="5px" width="9%" id="gc15" halign="center">
-                                                        <af:outputLabel value="#{bindings.BatchId.label}" id="ol6"/>
-                                                    </af:gridCell>
-                                                    <af:gridCell marginStart="5px" width="17%" id="gc16" marginEnd="5px"
-                                                                 halign="stretch" valign="middle">
-                                                        <af:selectOneChoice value="#{bindings.BatchId.inputValue}"
-                                                                            label="#{bindings.BatchId.label}"
-                                                                            required="#{bindings.BatchId.hints.mandatory}"
-                                                                            shortDesc="#{bindings.BatchId.hints.tooltip}"
-                                                                            id="soc1" simple="true"
-                                                                            contentStyle="width:100%"
-                                                                            styleClass="AFStretchWidth"
-                                                                            partialTriggers="txtLocationNameId"
-                                                                            autoSubmit="true"
-                                                                            disabled="#{bindings.IsSupervised.inputValue=='Y'}">
-                                                            <f:selectItems value="#{bindings.BatchId.items}" id="si1"/>
-                                                            <f:validator binding="#{bindings.BatchId.validator}"/>
-                                                        </af:selectOneChoice>
-                                                    </af:gridCell>
-                                                    <af:gridCell marginStart="5px" width="8%" id="gc17" halign="center">
-                                                        <af:outputLabel value="#{bindings.txtProjectName.hints.label}"
-                                                                        id="ol7"/>
-                                                    </af:gridCell>
-                                                    <af:gridCell marginStart="5px" width="16%" id="gc18" marginEnd="5px"
-                                                                 halign="stretch" valign="middle">
-                                                        <af:inputComboboxListOfValues id="txtProjectNameId"
-                                                                                      popupTitle="Search and Select: #{bindings.txtProjectName.hints.label}"
-                                                                                      value="#{bindings.txtProjectName.inputValue}"
-                                                                                      label="#{bindings.txtProjectName.hints.label}"
-                                                                                      model="#{bindings.txtProjectName.listOfValuesModel}"
-                                                                                      required="#{bindings.txtProjectName.hints.mandatory}"
-                                                                                      columns="#{bindings.txtProjectName.hints.displayWidth}"
-                                                                                      shortDesc="#{bindings.txtProjectName.hints.tooltip}"
-                                                                                      simple="true"
-                                                                                      contentStyle="width:80%"
-                                                                                      styleClass="AFStretchWidth"
-                                                                                      partialTriggers="txtLocationNameId"
-                                                                                      autoSubmit="true"
-                                                                                      disabled="#{bindings.IsSupervised.inputValue=='Y'}">
-                                                            <f:validator binding="#{bindings.txtProjectName.validator}"/>
-                                                        </af:inputComboboxListOfValues>
-                                                    </af:gridCell>
-                                                    <af:gridCell marginStart="5px" width="8%" id="gc19" halign="center"
-                                                                 marginEnd="5px">
-                                                        <af:outputLabel value="#{bindings.txtTempDepartmentName.hints.label}" id="ol9"/>
-                                                    </af:gridCell>
-                                                    <af:gridCell marginStart="5px" width="16%" marginEnd="5px"
-                                                                 id="gc20" halign="stretch" valign="middle">
-                                                        <af:inputComboboxListOfValues id="txtTempDepartmentNameId"
-                                                                                      popupTitle="Search and Select: #{bindings.txtTempDepartmentName.hints.label}"
-                                                                                      value="#{bindings.txtTempDepartmentName.inputValue}"
-                                                                                      label="#{bindings.txtTempDepartmentName.hints.label}"
-                                                                                      model="#{bindings.txtTempDepartmentName.listOfValuesModel}"
-                                                                                      required="#{bindings.txtTempDepartmentName.hints.mandatory}"
-                                                                                      columns="#{bindings.txtTempDepartmentName.hints.displayWidth}"
-                                                                                      shortDesc="#{bindings.txtTempDepartmentName.hints.tooltip}"
-                                                                                      simple="true"
-                                                                                      partialTriggers="txtLocationNameId"
-                                                                                      contentStyle="width:80%"
-                                                                                      autoSubmit="true"
-                                                                                      disabled="#{bindings.IsSupervised.inputValue=='Y'}">
-                                                            <f:validator binding="#{bindings.txtTempDepartmentName.validator}"/>
-                                                        </af:inputComboboxListOfValues>
-                                                    </af:gridCell>
-                                                </af:gridRow>
-                                                <af:gridRow id="gr6">
-                                                    <af:gridCell id="gc22" marginStart="5px" marginEnd="5px"
-                                                                 width="9%" halign="center">
-                                                        <af:outputLabel value="#{bindings.Remarks.hints.label}" id="ol8"/>
-                                                    </af:gridCell>
-                                                    <af:gridCell id="gc21" marginStart="5px" marginEnd="5px"
-                                                                 width="91%" columnSpan="7" halign="stretch">
-                                                        <af:inputText value="#{bindings.Remarks.inputValue}"
-                                                                      simple="true"
-                                                                      required="#{bindings.Remarks.hints.mandatory}"
-                                                                      columns="#{bindings.Remarks.hints.displayWidth}"
-                                                                      maximumLength="#{bindings.Remarks.hints.precision}"
-                                                                      shortDesc="#{bindings.Remarks.hints.tooltip}"
-                                                                      id="it1" contentStyle="width:100%"
-                                                                      disabled="#{bindings.IsSupervised.inputValue=='Y'}">
-                                                            <f:validator binding="#{bindings.Remarks.validator}"/>
-                                                        </af:inputText>
-                                                    </af:gridCell>
-                                                </af:gridRow>
-                                            </af:panelGridLayout>
+                                                                   inlineStyle="color:yellow;font-weight:bold"/>
+                                                </af:gridCell>
+                                            </af:gridRow>
+                                            <af:gridRow marginTop="5px" height="auto" id="gr4">
+                                                <af:gridCell marginStart="5px" width="9%" id="gc5" rowSpan="1"
+                                                             halign="center">
+                                                    <af:outputLabel value="#{bindings.VoucherHeaderCode.hints.label}"
+                                                                    id="ol2"/>
+                                                </af:gridCell>
+                                                <af:gridCell marginStart="5px" width="17%" id="gc6" marginEnd="5px"
+                                                             valign="middle">
+                                                    <af:inputText value="#{bindings.ReversedVoucherCode.inputValue}"
+                                                                  label="#{bindings.ReversedVoucherCode.hints.label}"
+                                                                  required="#{bindings.ReversedVoucherCode.hints.mandatory}"
+                                                                  columns="#{bindings.ReversedVoucherCode.hints.displayWidth}"
+                                                                  maximumLength="#{bindings.ReversedVoucherCode.hints.precision}"
+                                                                  shortDesc="#{bindings.ReversedVoucherCode.hints.tooltip}"
+                                                                  id="it14" rendered="false">
+                                                        <f:validator binding="#{bindings.ReversedVoucherCode.validator}"/>
+                                                        <af:convertNumber groupingUsed="false"
+                                                                          pattern="#{bindings.ReversedVoucherCode.format}"/>
+                                                    </af:inputText>
+                                                    <af:inputText value="#{bindings.ReversedVoucherId.inputValue}"
+                                                                  label="#{bindings.ReversedVoucherId.hints.label}"
+                                                                  required="#{bindings.ReversedVoucherId.hints.mandatory}"
+                                                                  columns="#{bindings.ReversedVoucherId.hints.displayWidth}"
+                                                                  maximumLength="#{bindings.ReversedVoucherId.hints.precision}"
+                                                                  shortDesc="#{bindings.ReversedVoucherId.hints.tooltip}"
+                                                                  id="it13" rendered="false">
+                                                        <f:validator binding="#{bindings.ReversedVoucherId.validator}"/>
+                                                        <af:convertNumber groupingUsed="false"
+                                                                          pattern="#{bindings.ReversedVoucherId.format}"/>
+                                                    </af:inputText>
+                                                    <af:inputText value="#{bindings.IsReversed.inputValue}"
+                                                                  label="#{bindings.IsReversed.hints.label}"
+                                                                  required="#{bindings.IsReversed.hints.mandatory}"
+                                                                  columns="#{bindings.IsReversed.hints.displayWidth}"
+                                                                  maximumLength="#{bindings.IsReversed.hints.precision}"
+                                                                  shortDesc="#{bindings.IsReversed.hints.tooltip}"
+                                                                  id="it9" rendered="false">
+                                                        <f:validator binding="#{bindings.IsReversed.validator}"/>
+                                                    </af:inputText>
+                                                    <af:inputText value="#{bindings.IsUnsupervised.inputValue}"
+                                                                  label="#{bindings.IsUnsupervised.hints.label}"
+                                                                  required="#{bindings.IsUnsupervised.hints.mandatory}"
+                                                                  columns="#{bindings.IsUnsupervised.hints.displayWidth}"
+                                                                  maximumLength="#{bindings.IsUnsupervised.hints.precision}"
+                                                                  shortDesc="#{bindings.IsUnsupervised.hints.tooltip}"
+                                                                  id="it7" rendered="false">
+                                                        <f:validator binding="#{bindings.IsUnsupervised.validator}"/>
+                                                    </af:inputText>
+                                                    <af:inputText value="#{bindings.IsSupervised.inputValue}"
+                                                                  label="#{bindings.IsSupervised.hints.label}"
+                                                                  required="#{bindings.IsSupervised.hints.mandatory}"
+                                                                  columns="#{bindings.IsSupervised.hints.displayWidth}"
+                                                                  maximumLength="#{bindings.IsSupervised.hints.precision}"
+                                                                  shortDesc="#{bindings.IsSupervised.hints.tooltip}"
+                                                                  id="it8" rendered="false">
+                                                        <f:validator binding="#{bindings.IsSupervised.validator}"/>
+                                                    </af:inputText>
+                                                    <af:inputText value="#{bindings.VoucherHeaderSno.inputValue}"
+                                                                  label="#{bindings.VoucherHeaderSno.hints.label}"
+                                                                  required="#{bindings.VoucherHeaderSno.hints.mandatory}"
+                                                                  columns="#{bindings.VoucherHeaderSno.hints.displayWidth}"
+                                                                  maximumLength="#{bindings.VoucherHeaderSno.hints.precision}"
+                                                                  shortDesc="#{bindings.VoucherHeaderSno.hints.tooltip}"
+                                                                  id="it4" rendered="false">
+                                                        <f:validator binding="#{bindings.VoucherHeaderSno.validator}"/>
+                                                        <af:convertNumber groupingUsed="false"
+                                                                          pattern="#{bindings.VoucherHeaderSno.format}"/>
+                                                    </af:inputText>
+                                                    <af:inputText value="#{bindings.VoucherHeaderCode.inputValue}"
+                                                                  label="#{bindings.VoucherHeaderCode.hints.label}"
+                                                                  required="#{bindings.VoucherHeaderCode.hints.mandatory}"
+                                                                  columns="#{bindings.VoucherHeaderCode.hints.displayWidth}"
+                                                                  maximumLength="#{bindings.VoucherHeaderCode.hints.precision}"
+                                                                  shortDesc="#{bindings.VoucherHeaderCode.hints.tooltip}"
+                                                                  id="it2" simple="true" readOnly="true">
+                                                        <f:validator binding="#{bindings.VoucherHeaderCode.validator}"/>
+                                                        <af:convertNumber groupingUsed="false"
+                                                                          pattern="#{bindings.VoucherHeaderCode.format}"/>
+                                                    </af:inputText>
+                                                    <af:inputText value="#{bindings.txtSumDebit.inputValue}"
+                                                                  label="#{bindings.txtSumDebit.hints.label}"
+                                                                  required="#{bindings.txtSumDebit.hints.mandatory}"
+                                                                  columns="#{bindings.txtSumDebit.hints.displayWidth}"
+                                                                  maximumLength="#{bindings.txtSumDebit.hints.precision}"
+                                                                  shortDesc="#{bindings.txtSumDebit.hints.tooltip}"
+                                                                  id="it6" rendered="false">
+                                                        <f:validator binding="#{bindings.txtSumDebit.validator}"/>
+                                                        <af:convertNumber groupingUsed="false"
+                                                                          pattern="#{bindings.txtSumDebit.format}"/>
+                                                    </af:inputText>
+                                                    <af:inputText value="#{bindings.txtSumCredit.inputValue}"
+                                                                  label="#{bindings.txtSumCredit.hints.label}"
+                                                                  required="#{bindings.txtSumCredit.hints.mandatory}"
+                                                                  columns="#{bindings.txtSumCredit.hints.displayWidth}"
+                                                                  maximumLength="#{bindings.txtSumCredit.hints.precision}"
+                                                                  shortDesc="#{bindings.txtSumCredit.hints.tooltip}"
+                                                                  id="it5" rendered="false">
+                                                        <f:validator binding="#{bindings.txtSumCredit.validator}"/>
+                                                        <af:convertNumber groupingUsed="false"
+                                                                          pattern="#{bindings.txtSumCredit.format}"/>
+                                                    </af:inputText>
+                                                </af:gridCell>
+                                                <af:gridCell marginStart="5px" width="9%" id="gc7" rowSpan="1"
+                                                             halign="center">
+                                                    <af:outputLabel value="#{bindings.txtLocationName.hints.label}"
+                                                                    id="ol3"/>
+                                                </af:gridCell>
+                                                <af:gridCell marginStart="5px" width="17%" id="gc8" marginEnd="5px"
+                                                             halign="stretch" valign="middle">
+                                                    <af:inputComboboxListOfValues id="txtLocationNameId"
+                                                                                  popupTitle="Search and Select: #{bindings.txtLocationName.hints.label}"
+                                                                                  value="#{bindings.txtLocationName.inputValue}"
+                                                                                  label="#{bindings.txtLocationName.hints.label}"
+                                                                                  model="#{bindings.txtLocationName.listOfValuesModel}"
+                                                                                  required="#{bindings.txtLocationName.hints.mandatory}"
+                                                                                  columns="#{bindings.txtLocationName.hints.displayWidth}"
+                                                                                  shortDesc="#{bindings.txtLocationName.hints.tooltip}"
+                                                                                  simple="true" contentStyle="width:80%"
+                                                                                  styleClass="AFStretchWidth"
+                                                                                  autoSubmit="true"
+                                                                                  clientComponent="true"
+                                                                                  disabled="#{bindings.IsSupervised.inputValue=='Y'}">
+                                                        <f:validator binding="#{bindings.txtLocationName.validator}"/>
+                                                    </af:inputComboboxListOfValues>
+                                                </af:gridCell>
+                                                <af:gridCell marginStart="5px" width="8%" id="gc9" marginEnd="5px"
+                                                             halign="center">
+                                                    <af:outputLabel value="#{bindings.txtPeriodName.hints.label}"
+                                                                    id="ol5"/>
+                                                </af:gridCell>
+                                                <af:gridCell marginStart="5px" width="16%" id="gc10" halign="stretch"
+                                                             marginEnd="5px" valign="middle">
+                                                    <af:inputComboboxListOfValues id="txtPeriodNameId"
+                                                                                  popupTitle="Search and Select: #{bindings.txtPeriodName.hints.label}"
+                                                                                  value="#{bindings.txtPeriodName.inputValue}"
+                                                                                  label="#{bindings.txtPeriodName.hints.label}"
+                                                                                  model="#{bindings.txtPeriodName.listOfValuesModel}"
+                                                                                  required="#{bindings.txtPeriodName.hints.mandatory}"
+                                                                                  columns="#{bindings.txtPeriodName.hints.displayWidth}"
+                                                                                  shortDesc="#{bindings.txtPeriodName.hints.tooltip}"
+                                                                                  simple="true" contentStyle="width:80%"
+                                                                                  styleClass="AFStretchWidth"
+                                                                                  partialTriggers="txtLocationNameId"
+                                                                                  disabled="#{bindings.IsSupervised.inputValue=='Y'}">
+                                                        <f:validator binding="#{bindings.txtPeriodName.validator}"/>
+                                                    </af:inputComboboxListOfValues>
+                                                </af:gridCell>
+                                                <af:gridCell marginStart="5px" width="8%" id="gc11" halign="center"
+                                                             marginEnd="5px">
+                                                    <af:outputLabel value="#{bindings.VoucherDate.hints.label}"
+                                                                    id="ol4"/>
+                                                </af:gridCell>
+                                                <af:gridCell marginStart="5px" width="16%" marginEnd="5px" id="gc12"
+                                                             halign="stretch" valign="middle">
+                                                    <af:inputDate value="#{bindings.VoucherDate.inputValue}"
+                                                                  label="#{bindings.VoucherDate.hints.label}"
+                                                                  required="#{bindings.VoucherDate.hints.mandatory}"
+                                                                  columns="#{bindings.VoucherDate.hints.displayWidth}"
+                                                                  shortDesc="#{bindings.VoucherDate.hints.tooltip}"
+                                                                  id="id1" simple="true" contentStyle="width:80%"
+                                                                  autoSubmit="true"
+                                                                  disabled="#{bindings.IsSupervised.inputValue=='Y'}">
+                                                        <f:validator binding="#{bindings.VoucherDate.validator}"/>
+                                                        <af:convertDateTime pattern="#{bindings.VoucherDate.format}"/>
+                                                    </af:inputDate>
+                                                </af:gridCell>
+                                            </af:gridRow>
+                                            <af:gridRow marginTop="5px" height="auto" marginBottom="5px" id="gr5">
+                                                <af:gridCell marginStart="5px" width="9%" id="gc13" halign="center"
+                                                             marginEnd="5px">
+                                                    <af:outputLabel value="#{bindings.txtVoucherTypeName.hints.label}"
+                                                                    id="ol1"/>
+                                                </af:gridCell>
+                                                <af:gridCell marginStart="5px" width="17%" id="gc14" halign="stretch"
+                                                             marginEnd="5px" valign="middle">
+                                                    <af:inputComboboxListOfValues id="txtVoucherTypeNameId"
+                                                                                  popupTitle="Search and Select: #{bindings.txtVoucherTypeName.hints.label}"
+                                                                                  value="#{bindings.txtVoucherTypeName.inputValue}"
+                                                                                  label="#{bindings.txtVoucherTypeName.hints.label}"
+                                                                                  model="#{bindings.txtVoucherTypeName.listOfValuesModel}"
+                                                                                  required="#{bindings.txtVoucherTypeName.hints.mandatory}"
+                                                                                  columns="#{bindings.txtVoucherTypeName.hints.displayWidth}"
+                                                                                  shortDesc="#{bindings.txtVoucherTypeName.hints.tooltip}"
+                                                                                  simple="true" contentStyle="width:80%"
+                                                                                  styleClass="AFStretchWidth"
+                                                                                  partialTriggers="txtLocationNameId"
+                                                                                  autoSubmit="true"
+                                                                                  disabled="#{bindings.IsSupervised.inputValue=='Y'}">
+                                                        <f:validator binding="#{bindings.txtVoucherTypeName.validator}"/>
+                                                    </af:inputComboboxListOfValues>
+                                                </af:gridCell>
+                                                <af:gridCell marginStart="5px" width="9%" id="gc15" halign="center">
+                                                    <af:outputLabel value="#{bindings.BatchId.label}" id="ol6"/>
+                                                </af:gridCell>
+                                                <af:gridCell marginStart="5px" width="17%" id="gc16" marginEnd="5px"
+                                                             halign="stretch" valign="middle">
+                                                    <af:selectOneChoice value="#{bindings.BatchId.inputValue}"
+                                                                        label="#{bindings.BatchId.label}"
+                                                                        required="#{bindings.BatchId.hints.mandatory}"
+                                                                        shortDesc="#{bindings.BatchId.hints.tooltip}"
+                                                                        id="soc1" simple="true"
+                                                                        contentStyle="width:100%"
+                                                                        styleClass="AFStretchWidth"
+                                                                        partialTriggers="txtLocationNameId"
+                                                                        autoSubmit="true"
+                                                                        disabled="#{bindings.IsSupervised.inputValue=='Y'}">
+                                                        <f:selectItems value="#{bindings.BatchId.items}" id="si1"/>
+                                                        <f:validator binding="#{bindings.BatchId.validator}"/>
+                                                    </af:selectOneChoice>
+                                                </af:gridCell>
+                                                <af:gridCell marginStart="5px" width="8%" id="gc17" halign="center">
+                                                    <af:outputLabel value="#{bindings.txtProjectName.hints.label}"
+                                                                    id="ol7"/>
+                                                </af:gridCell>
+                                                <af:gridCell marginStart="5px" width="16%" id="gc18" marginEnd="5px"
+                                                             halign="stretch" valign="middle">
+                                                    <af:inputComboboxListOfValues id="txtProjectNameId"
+                                                                                  popupTitle="Search and Select: #{bindings.txtProjectName.hints.label}"
+                                                                                  value="#{bindings.txtProjectName.inputValue}"
+                                                                                  label="#{bindings.txtProjectName.hints.label}"
+                                                                                  model="#{bindings.txtProjectName.listOfValuesModel}"
+                                                                                  required="#{bindings.txtProjectName.hints.mandatory}"
+                                                                                  columns="#{bindings.txtProjectName.hints.displayWidth}"
+                                                                                  shortDesc="#{bindings.txtProjectName.hints.tooltip}"
+                                                                                  simple="true" contentStyle="width:80%"
+                                                                                  styleClass="AFStretchWidth"
+                                                                                  partialTriggers="txtLocationNameId"
+                                                                                  autoSubmit="true"
+                                                                                  disabled="#{bindings.IsSupervised.inputValue=='Y'}">
+                                                        <f:validator binding="#{bindings.txtProjectName.validator}"/>
+                                                    </af:inputComboboxListOfValues>
+                                                </af:gridCell>
+                                                <af:gridCell marginStart="5px" width="8%" id="gc19" halign="center"
+                                                             marginEnd="5px">
+                                                    <af:outputLabel value="#{bindings.txtTempDepartmentName.hints.label}"
+                                                                    id="ol9"/>
+                                                </af:gridCell>
+                                                <af:gridCell marginStart="5px" width="16%" marginEnd="5px" id="gc20"
+                                                             halign="stretch" valign="middle">
+                                                    <af:inputComboboxListOfValues id="txtTempDepartmentNameId"
+                                                                                  popupTitle="Search and Select: #{bindings.txtTempDepartmentName.hints.label}"
+                                                                                  value="#{bindings.txtTempDepartmentName.inputValue}"
+                                                                                  label="#{bindings.txtTempDepartmentName.hints.label}"
+                                                                                  model="#{bindings.txtTempDepartmentName.listOfValuesModel}"
+                                                                                  required="#{bindings.txtTempDepartmentName.hints.mandatory}"
+                                                                                  columns="#{bindings.txtTempDepartmentName.hints.displayWidth}"
+                                                                                  shortDesc="#{bindings.txtTempDepartmentName.hints.tooltip}"
+                                                                                  simple="true"
+                                                                                  partialTriggers="txtLocationNameId"
+                                                                                  contentStyle="width:80%"
+                                                                                  autoSubmit="true"
+                                                                                  disabled="#{bindings.IsSupervised.inputValue=='Y'}">
+                                                        <f:validator binding="#{bindings.txtTempDepartmentName.validator}"/>
+                                                    </af:inputComboboxListOfValues>
+                                                </af:gridCell>
+                                            </af:gridRow>
+                                            <af:gridRow id="gr6">
+                                                <af:gridCell id="gc22" marginStart="5px" marginEnd="5px" width="9%"
+                                                             halign="center">
+                                                    <af:outputLabel value="#{bindings.Remarks.hints.label}" id="ol8"/>
+                                                </af:gridCell>
+                                                <af:gridCell id="gc21" marginStart="5px" marginEnd="5px" width="91%"
+                                                             columnSpan="7" halign="stretch">
+                                                    <af:inputText value="#{bindings.Remarks.inputValue}" simple="true"
+                                                                  required="#{bindings.Remarks.hints.mandatory}"
+                                                                  columns="#{bindings.Remarks.hints.displayWidth}"
+                                                                  maximumLength="#{bindings.Remarks.hints.precision}"
+                                                                  shortDesc="#{bindings.Remarks.hints.tooltip}" id="it1"
+                                                                  contentStyle="width:100%"
+                                                                  disabled="#{bindings.IsSupervised.inputValue=='Y'}">
+                                                        <f:validator binding="#{bindings.Remarks.validator}"/>
+                                                    </af:inputText>
+                                                </af:gridCell>
+                                            </af:gridRow>
+                                        </af:panelGridLayout>
+                                        <af:panelBox text="Voucher Header #{bindings.IsReversed.inputValue=='Y'?'(This Voucher Is Reversed)':''}" id="pb1"
+                                                     showDisclosure="false" rendered="false">
+                                            <f:facet name="toolbar"/>
                                         </af:panelBox>
+                                    </af:gridCell>
+                                </af:gridRow>
+                                <af:gridRow id="gr9">
+                                    <af:gridCell id="gc25" width="100%" styleClass="ERPEntryAreaHeading"
+                                                 valign="stretch" halign="stretch">
+                                        <af:spacer width="10" height="10" id="s4"/>
+                                        <af:outputText value="Voucher Lines" id="ot6" styleClass="ERPEntryAreaFont"/>
                                     </af:gridCell>
                                 </af:gridRow>
                                 <af:gridRow marginTop="5px" marginBottom="5px" id="gr3">
                                     <af:gridCell marginStart="5px" width="100%" marginEnd="5px" id="gc4"
                                                  halign="stretch" valign="stretch">
-                                        <af:panelBox text="Voucher Lines" id="pb3" showDisclosure="false">
+                                        <af:link actionListener="#{bindings.CreateInsert.execute}" text="CreateInsert"
+                                                 disabled="#{!bindings.CreateInsert.enabled}" id="l9" rendered="false"/>
+                                        <af:panelCollection id="pc1" styleClass="AFStretchWidth"
+                                                            featuresOff="freezeToolbarItem viewMenu detach statusBar"
+                                                            partialTriggers="t1:l15">
+                                            <f:facet name="menus"/>
+                                            <f:facet name="toolbar">
+                                                <af:toolbar id="t2">
+                                                    <af:link actionListener="#{bindings.Delete1.execute}" text="Delete1"
+                                                             disabled="#{!bindings.Delete1.enabled}" id="l19"
+                                                             partialSubmit="true" rendered="false"/>
+                                                    <af:link id="l8"
+                                                             actionListener="#{pageFlowScope.OracleERPBean.genericActionListener}"
+                                                             icon="#{resource['images:imgAddRecord.png']}"
+                                                             partialSubmit="true"
+                                                             disabled="#{bindings.IsSupervised.inputValue=='Y'}">
+                                                        <af:clientAttribute value="#{'txtCOADescriptionId'}"
+                                                                            name="focusComponentTarget"/>
+                                                    </af:link>
+                                                    <af:inputFile id="if1" rows="1"
+                                                                  valueChangeListener="#{pageFlowScope.OracleERPBean.doErpVoucherUpload}"
+                                                                  autoSubmit="true"/>
+                                                    <af:button id="b1"
+                                                               actionListener="#{pageFlowScope.OracleERPBean.genericActionListener}"
+                                                               icon="#{resource['images:imgAddRecord.png']}"
+                                                               rendered="false">
+                                                        <af:clientAttribute name="focusComponentTarget"
+                                                                            value="#{'txtCOADescriptionId'}"/>
+                                                    </af:button>
+                                                </af:toolbar>
+                                            </f:facet>
+                                            <f:facet name="statusbar"/>
+                                            <af:table value="#{bindings.GlVoucherLinesDETCRUD.collectionModel}"
+                                                      var="row" rows="#{bindings.GlVoucherLinesDETCRUD.rangeSize}"
+                                                      emptyText="#{bindings.GlVoucherLinesDETCRUD.viewable ? 'No data to display.' : 'Access Denied.'}"
+                                                      rowBandingInterval="0"
+                                                      selectedRowKeys="#{bindings.GlVoucherLinesDETCRUD.collectionModel.selectedRow}"
+                                                      selectionListener="#{bindings.GlVoucherLinesDETCRUD.collectionModel.makeCurrent}"
+                                                      rowSelection="single"
+                                                      fetchSize="#{bindings.GlVoucherLinesDETCRUD.rangeSize}" id="t1"
+                                                      partialTriggers=":::l9 ::l19 ::l8 l15 l10 :::l2"
+                                                      autoHeightRows="#{pageFlowScope.OracleERPBean.erpScreenSize=='portrait'?5:15}"
+                                                      styleClass="AFStretchWidth" scrollPolicy="page"
+                                                      columnStretching="column:c1"
+                                                      binding="#{pageFlowScope.OracleERPBean.erpTable}" varStatus="vs">
+                                                <af:column headerText="#{bindings.GlVoucherLinesDETCRUD.hints.VoucherHeaderSno.label}"
+                                                           id="c5" rendered="false">
+                                                    <af:inputText value="#{row.bindings.VoucherHeaderSno.inputValue}"
+                                                                  label="#{bindings.GlVoucherLinesDETCRUD.hints.VoucherHeaderSno.label}"
+                                                                  required="#{bindings.GlVoucherLinesDETCRUD.hints.VoucherHeaderSno.mandatory}"
+                                                                  columns="#{bindings.GlVoucherLinesDETCRUD.hints.VoucherHeaderSno.displayWidth}"
+                                                                  maximumLength="#{bindings.GlVoucherLinesDETCRUD.hints.VoucherHeaderSno.precision}"
+                                                                  shortDesc="#{bindings.GlVoucherLinesDETCRUD.hints.VoucherHeaderSno.tooltip}"
+                                                                  id="it3">
+                                                        <f:validator binding="#{row.bindings.VoucherHeaderSno.validator}"/>
+                                                        <af:convertNumber groupingUsed="false"
+                                                                          pattern="#{bindings.GlVoucherLinesDETCRUD.hints.VoucherHeaderSno.format}"/>
+                                                    </af:inputText>
+                                                </af:column>
+                                                <af:column headerText="#{bindings.GlVoucherLinesDETCRUD.hints.VoucherLinesSno.label}"
+                                                           id="c11" rendered="false">
+                                                    <af:inputText value="#{row.bindings.VoucherLinesSno.inputValue}"
+                                                                  label="#{bindings.GlVoucherLinesDETCRUD.hints.VoucherLinesSno.label}"
+                                                                  required="#{bindings.GlVoucherLinesDETCRUD.hints.VoucherLinesSno.mandatory}"
+                                                                  columns="#{bindings.GlVoucherLinesDETCRUD.hints.VoucherLinesSno.displayWidth}"
+                                                                  maximumLength="#{bindings.GlVoucherLinesDETCRUD.hints.VoucherLinesSno.precision}"
+                                                                  shortDesc="#{bindings.GlVoucherLinesDETCRUD.hints.VoucherLinesSno.tooltip}"
+                                                                  id="it18" readOnly="true">
+                                                        <f:validator binding="#{row.bindings.VoucherLinesSno.validator}"/>
+                                                        <af:convertNumber groupingUsed="false"
+                                                                          pattern="#{bindings.GlVoucherLinesDETCRUD.hints.VoucherLinesSno.format}"/>
+                                                    </af:inputText>
+                                                </af:column>
+                                                <af:column headerText="#{bindings.GlVoucherLinesDETCRUD.hints.txtCOADescription.label}"
+                                                           id="c1" width="250" minimumWidth="12">
+                                                    <af:inputComboboxListOfValues id="txtCOADescriptionId"
+                                                                                  popupTitle="Search and Select: #{bindings.GlVoucherLinesDETCRUD.hints.txtCOADescription.label}"
+                                                                                  value="#{row.bindings.txtCOADescription.inputValue}"
+                                                                                  model="#{row.bindings.txtCOADescription.listOfValuesModel}"
+                                                                                  required="#{bindings.GlVoucherLinesDETCRUD.hints.txtCOADescription.mandatory}"
+                                                                                  columns="#{bindings.GlVoucherLinesDETCRUD.hints.txtCOADescription.displayWidth}"
+                                                                                  shortDesc="#{bindings.GlVoucherLinesDETCRUD.hints.txtCOADescription.tooltip}"
+                                                                                  partialTriggers="l10"
+                                                                                  contentStyle="width:100%"
+                                                                                  disabled="#{bindings.IsSupervised.inputValue=='Y'}">
+                                                        <f:validator binding="#{row.bindings.txtCOADescription.validator}"/>
+                                                    </af:inputComboboxListOfValues>
+                                                </af:column>
+                                                <af:column headerText="#{bindings.GlVoucherLinesDETCRUD.hints.txtCOACode.label}"
+                                                           id="c12" width="150" rendered="false">
+                                                    <af:inputComboboxListOfValues id="txtCOACodeId"
+                                                                                  popupTitle="Search and Select: #{bindings.GlVoucherLinesDETCRUD.hints.txtCOACode.label}"
+                                                                                  value="#{row.bindings.txtCOACode.inputValue}"
+                                                                                  model="#{row.bindings.txtCOACode.listOfValuesModel}"
+                                                                                  required="#{bindings.GlVoucherLinesDETCRUD.hints.txtCOACode.mandatory}"
+                                                                                  columns="#{bindings.GlVoucherLinesDETCRUD.hints.txtCOACode.displayWidth}"
+                                                                                  shortDesc="#{bindings.GlVoucherLinesDETCRUD.hints.txtCOACode.tooltip}">
+                                                        <f:validator binding="#{row.bindings.txtCOACode.validator}"/>
+                                                    </af:inputComboboxListOfValues>
+                                                </af:column>
+                                                <af:column headerText="#{bindings.GlVoucherLinesDETCRUD.hints.ChequeNo.label}"
+                                                           id="c2" width="100" displayIndex="-1">
+                                                    <af:inputText value="#{row.bindings.ChequeNo.inputValue}"
+                                                                  label="#{bindings.GlVoucherLinesDETCRUD.hints.ChequeNo.label}"
+                                                                  required="#{bindings.GlVoucherLinesDETCRUD.hints.ChequeNo.mandatory}"
+                                                                  columns="#{bindings.GlVoucherLinesDETCRUD.hints.ChequeNo.displayWidth}"
+                                                                  maximumLength="#{bindings.GlVoucherLinesDETCRUD.hints.ChequeNo.precision}"
+                                                                  shortDesc="#{bindings.GlVoucherLinesDETCRUD.hints.ChequeNo.tooltip}"
+                                                                  id="it11" autoSubmit="true"
+                                                                  disabled="#{bindings.IsSupervised.inputValue=='Y'}">
+                                                        <f:validator binding="#{row.bindings.ChequeNo.validator}"/>
+                                                    </af:inputText>
+                                                </af:column>
+                                                <af:column headerText="#{bindings.GlVoucherLinesDETCRUD.hints.ChequeDate.label}"
+                                                           id="c3" width="120">
+                                                    <af:inputDate value="#{row.bindings.ChequeDate.inputValue}"
+                                                                  label="#{bindings.GlVoucherLinesDETCRUD.hints.ChequeDate.label}"
+                                                                  required="#{bindings.GlVoucherLinesDETCRUD.hints.ChequeDate.mandatory}"
+                                                                  columns="#{bindings.GlVoucherLinesDETCRUD.hints.ChequeDate.displayWidth}"
+                                                                  shortDesc="#{bindings.GlVoucherLinesDETCRUD.hints.ChequeDate.tooltip}"
+                                                                  id="id3" contentStyle="width:60%" autoSubmit="true"
+                                                                  disabled="#{bindings.IsSupervised.inputValue=='Y'}">
+                                                        <f:validator binding="#{row.bindings.ChequeDate.validator}"/>
+                                                        <af:convertDateTime pattern="#{bindings.GlVoucherLinesDETCRUD.hints.ChequeDate.format}"/>
+                                                    </af:inputDate>
+                                                </af:column>
+                                                <af:column headerText="#{bindings.GlVoucherLinesDETCRUD.hints.Quantity.label}"
+                                                           id="c4" width="60" displayIndex="-1">
+                                                    <af:inputText value="#{row.bindings.Quantity.inputValue}"
+                                                                  label="#{bindings.GlVoucherLinesDETCRUD.hints.Quantity.label}"
+                                                                  required="#{bindings.GlVoucherLinesDETCRUD.hints.Quantity.mandatory}"
+                                                                  columns="#{bindings.GlVoucherLinesDETCRUD.hints.Quantity.displayWidth}"
+                                                                  maximumLength="#{bindings.GlVoucherLinesDETCRUD.hints.Quantity.precision}"
+                                                                  shortDesc="#{bindings.GlVoucherLinesDETCRUD.hints.Quantity.tooltip}"
+                                                                  id="it12" autoSubmit="true"
+                                                                  disabled="#{bindings.IsSupervised.inputValue=='Y'}">
+                                                        <f:validator binding="#{row.bindings.Quantity.validator}"/>
+                                                        <af:convertNumber groupingUsed="false"
+                                                                          pattern="#{bindings.GlVoucherLinesDETCRUD.hints.Quantity.format}"/>
+                                                    </af:inputText>
+                                                </af:column>
+                                                <af:column headerText="#{bindings.GlVoucherLinesDETCRUD.hints.Debit.label}"
+                                                           id="c7" width="80" displayIndex="-1">
+                                                    <af:inputText value="#{row.bindings.Debit.inputValue}"
+                                                                  label="#{bindings.GlVoucherLinesDETCRUD.hints.Debit.label}"
+                                                                  required="#{bindings.GlVoucherLinesDETCRUD.hints.Debit.mandatory}"
+                                                                  columns="#{bindings.GlVoucherLinesDETCRUD.hints.Debit.displayWidth}"
+                                                                  maximumLength="#{bindings.GlVoucherLinesDETCRUD.hints.Debit.precision}"
+                                                                  shortDesc="#{bindings.GlVoucherLinesDETCRUD.hints.Debit.tooltip}"
+                                                                  id="it15" autoSubmit="true" partialTriggers="it16"
+                                                                  disabled="#{bindings.IsSupervised.inputValue=='Y'}">
+                                                        <f:validator binding="#{row.bindings.Debit.validator}"/>
+                                                        <af:convertNumber groupingUsed="false"
+                                                                          pattern="#{bindings.GlVoucherLinesDETCRUD.hints.Debit.format}"/>
+                                                    </af:inputText>
+                                                </af:column>
+                                                <af:column headerText="#{bindings.GlVoucherLinesDETCRUD.hints.Credit.label}"
+                                                           id="c8" width="80" displayIndex="-1">
+                                                    <af:inputText value="#{row.bindings.Credit.inputValue}"
+                                                                  label="#{bindings.GlVoucherLinesDETCRUD.hints.Credit.label}"
+                                                                  required="#{bindings.GlVoucherLinesDETCRUD.hints.Credit.mandatory}"
+                                                                  columns="#{bindings.GlVoucherLinesDETCRUD.hints.Credit.displayWidth}"
+                                                                  maximumLength="#{bindings.GlVoucherLinesDETCRUD.hints.Credit.precision}"
+                                                                  shortDesc="#{bindings.GlVoucherLinesDETCRUD.hints.Credit.tooltip}"
+                                                                  id="it16" autoSubmit="true" partialTriggers="it15"
+                                                                  disabled="#{bindings.IsSupervised.inputValue=='Y'}">
+                                                        <f:validator binding="#{row.bindings.Credit.validator}"/>
+                                                        <af:convertNumber groupingUsed="false"
+                                                                          pattern="#{bindings.GlVoucherLinesDETCRUD.hints.Credit.format}"/>
+                                                    </af:inputText>
+                                                </af:column>
+                                                <af:column headerText="#{bindings.GlVoucherLinesDETCRUD.hints.Naration.label}"
+                                                           id="c9" width="120">
+                                                    <af:inputText value="#{row.bindings.Naration.inputValue}"
+                                                                  label="#{bindings.GlVoucherLinesDETCRUD.hints.Naration.label}"
+                                                                  required="#{bindings.GlVoucherLinesDETCRUD.hints.Naration.mandatory}"
+                                                                  columns="#{bindings.GlVoucherLinesDETCRUD.hints.Naration.displayWidth}"
+                                                                  maximumLength="#{bindings.GlVoucherLinesDETCRUD.hints.Naration.precision}"
+                                                                  shortDesc="#{bindings.GlVoucherLinesDETCRUD.hints.Naration.tooltip}"
+                                                                  id="it17" autoSubmit="true" clientComponent="true"
+                                                                  disabled="#{bindings.IsSupervised.inputValue=='Y'}">
+                                                        <f:validator binding="#{row.bindings.Naration.validator}"/>
+                                                        <af:serverListener type="EnterEvent"
+                                                                           method="#{pageFlowScope.OracleERPBean.handleEnterEvent}"/>
+                                                        <af:clientListener method="handleEnterEvent" type="keyDown"/>
+                                                        <af:clientAttribute value="#{'txtCOADescriptionId'}"
+                                                                            name="focusComponentTarget"/>
+                                                    </af:inputText>
+                                                </af:column>
+                                                <af:column id="c10" width="20">
+                                                    <af:link actionListener="#{bindings.Delete1.execute}"
+                                                             disabled="#{bindings.IsSupervised.inputValue=='Y'||pageFlowScope.ERPMainTempBean.LERPAllowDelete=='N'}"
+                                                             id="l15" partialSubmit="true"
+                                                             icon="#{resource['images:imgDeleteRecord.png']}"/>
+                                                    <af:link text="Add Line" id="l10"
+                                                             actionListener="#{pageFlowScope.OracleERPBean.genericActionListener}"
+                                                             partialSubmit="true" selected="true" rendered="false">
+                                                        <af:clientAttribute name="focusComponentTarget"
+                                                                            value="#{'txtCOADescriptionId'}"/>
+                                                    </af:link>
+                                                </af:column>
+                                            </af:table>
+                                            <f:facet name="afterToolbar"/>
+                                            <f:facet name="secondaryToolbar"/>
+                                        </af:panelCollection>
+                                        <af:panelBox text="Voucher Lines" id="pb3" showDisclosure="false"
+                                                     rendered="false">
                                             <f:facet name="toolbar"/>
-                                            <af:link actionListener="#{bindings.CreateInsert.execute}"
-                                                     text="CreateInsert" disabled="#{!bindings.CreateInsert.enabled}"
-                                                     id="l9" rendered="false"/>
-                                            <af:panelCollection id="pc1" styleClass="AFStretchWidth"
-                                                                featuresOff="freezeToolbarItem viewMenu detach statusBar"
-                                                                partialTriggers="t1:l15">
-                                                <f:facet name="menus"/>
-                                                <f:facet name="toolbar">
-                                                    <af:toolbar id="t2">
-                                                        <af:link actionListener="#{bindings.Delete1.execute}"
-                                                                 text="Delete1" disabled="#{!bindings.Delete1.enabled}"
-                                                                 id="l19" partialSubmit="true" rendered="false"/>
-                                                        <af:link id="l8"
-                                                                 actionListener="#{pageFlowScope.OracleERPBean.genericActionListener}"
-                                                                 icon="#{resource['images:imgAddRecord.png']}"
-                                                                 partialSubmit="true"
-                                                                 disabled="#{bindings.IsSupervised.inputValue=='Y'}">
-                                                            <af:clientAttribute value="#{'txtCOADescriptionId'}"
-                                                                                name="focusComponentTarget"/>
-                                                        </af:link>
-                                                        <af:inputFile id="if1" rows="1"
-                                                                      valueChangeListener="#{pageFlowScope.OracleERPBean.doErpVoucherUpload}"
-                                                                      autoSubmit="true"/>
-                                                        <af:button id="b1"
-                                                                   actionListener="#{pageFlowScope.OracleERPBean.genericActionListener}"
-                                                                   icon="#{resource['images:imgAddRecord.png']}"
-                                                                   rendered="false">
-                                                            <af:clientAttribute name="focusComponentTarget"
-                                                                                value="#{'txtCOADescriptionId'}"/>
-                                                        </af:button>
-                                                    </af:toolbar>
-                                                </f:facet>
-                                                <f:facet name="statusbar"/>
-                                                <af:table value="#{bindings.GlVoucherLinesDETCRUD.collectionModel}"
-                                                          var="row" rows="#{bindings.GlVoucherLinesDETCRUD.rangeSize}"
-                                                          emptyText="#{bindings.GlVoucherLinesDETCRUD.viewable ? 'No data to display.' : 'Access Denied.'}"
-                                                          rowBandingInterval="0"
-                                                          selectedRowKeys="#{bindings.GlVoucherLinesDETCRUD.collectionModel.selectedRow}"
-                                                          selectionListener="#{bindings.GlVoucherLinesDETCRUD.collectionModel.makeCurrent}"
-                                                          rowSelection="single"
-                                                          fetchSize="#{bindings.GlVoucherLinesDETCRUD.rangeSize}"
-                                                          id="t1"
-                                                          partialTriggers=":::l9 ::l19 ::l8 l15 l10 :::l2"
-                                                          autoHeightRows="#{pageFlowScope.OracleERPBean.erpScreenSize=='portrait'?5:15}" styleClass="AFStretchWidth"
-                                                          scrollPolicy="page" columnStretching="column:c1"
-                                                          binding="#{pageFlowScope.OracleERPBean.erpTable}" varStatus="vs">
-                                                    <af:column headerText="#{bindings.GlVoucherLinesDETCRUD.hints.VoucherHeaderSno.label}"
-                                                               id="c5" rendered="false">
-                                                        <af:inputText value="#{row.bindings.VoucherHeaderSno.inputValue}"
-                                                                      label="#{bindings.GlVoucherLinesDETCRUD.hints.VoucherHeaderSno.label}"
-                                                                      required="#{bindings.GlVoucherLinesDETCRUD.hints.VoucherHeaderSno.mandatory}"
-                                                                      columns="#{bindings.GlVoucherLinesDETCRUD.hints.VoucherHeaderSno.displayWidth}"
-                                                                      maximumLength="#{bindings.GlVoucherLinesDETCRUD.hints.VoucherHeaderSno.precision}"
-                                                                      shortDesc="#{bindings.GlVoucherLinesDETCRUD.hints.VoucherHeaderSno.tooltip}"
-                                                                      id="it3">
-                                                            <f:validator binding="#{row.bindings.VoucherHeaderSno.validator}"/>
-                                                            <af:convertNumber groupingUsed="false"
-                                                                              pattern="#{bindings.GlVoucherLinesDETCRUD.hints.VoucherHeaderSno.format}"/>
-                                                        </af:inputText>
-                                                    </af:column>
-                                                    <af:column headerText="#{bindings.GlVoucherLinesDETCRUD.hints.VoucherLinesSno.label}"
-                                                               id="c11" rendered="false">
-                                                        <af:inputText value="#{row.bindings.VoucherLinesSno.inputValue}"
-                                                                      label="#{bindings.GlVoucherLinesDETCRUD.hints.VoucherLinesSno.label}"
-                                                                      required="#{bindings.GlVoucherLinesDETCRUD.hints.VoucherLinesSno.mandatory}"
-                                                                      columns="#{bindings.GlVoucherLinesDETCRUD.hints.VoucherLinesSno.displayWidth}"
-                                                                      maximumLength="#{bindings.GlVoucherLinesDETCRUD.hints.VoucherLinesSno.precision}"
-                                                                      shortDesc="#{bindings.GlVoucherLinesDETCRUD.hints.VoucherLinesSno.tooltip}"
-                                                                      id="it18" readOnly="true">
-                                                            <f:validator binding="#{row.bindings.VoucherLinesSno.validator}"/>
-                                                            <af:convertNumber groupingUsed="false"
-                                                                              pattern="#{bindings.GlVoucherLinesDETCRUD.hints.VoucherLinesSno.format}"/>
-                                                        </af:inputText>
-                                                    </af:column>
-                                                    <af:column headerText="#{bindings.GlVoucherLinesDETCRUD.hints.txtCOADescription.label}"
-                                                               id="c1" width="250" minimumWidth="12">
-                                                        <af:inputComboboxListOfValues id="txtCOADescriptionId"
-                                                                                      popupTitle="Search and Select: #{bindings.GlVoucherLinesDETCRUD.hints.txtCOADescription.label}"
-                                                                                      value="#{row.bindings.txtCOADescription.inputValue}"
-                                                                                      model="#{row.bindings.txtCOADescription.listOfValuesModel}"
-                                                                                      required="#{bindings.GlVoucherLinesDETCRUD.hints.txtCOADescription.mandatory}"
-                                                                                      columns="#{bindings.GlVoucherLinesDETCRUD.hints.txtCOADescription.displayWidth}"
-                                                                                      shortDesc="#{bindings.GlVoucherLinesDETCRUD.hints.txtCOADescription.tooltip}"
-                                                                                      partialTriggers="l10"
-                                                                                      contentStyle="width:100%"
-                                                                                      disabled="#{bindings.IsSupervised.inputValue=='Y'}">
-                                                            <f:validator binding="#{row.bindings.txtCOADescription.validator}"/>
-                                                        </af:inputComboboxListOfValues>
-                                                    </af:column>
-                                                    <af:column headerText="#{bindings.GlVoucherLinesDETCRUD.hints.txtCOACode.label}"
-                                                               id="c12" width="150" rendered="false">
-                                                        <af:inputComboboxListOfValues id="txtCOACodeId"
-                                                                                      popupTitle="Search and Select: #{bindings.GlVoucherLinesDETCRUD.hints.txtCOACode.label}"
-                                                                                      value="#{row.bindings.txtCOACode.inputValue}"
-                                                                                      model="#{row.bindings.txtCOACode.listOfValuesModel}"
-                                                                                      required="#{bindings.GlVoucherLinesDETCRUD.hints.txtCOACode.mandatory}"
-                                                                                      columns="#{bindings.GlVoucherLinesDETCRUD.hints.txtCOACode.displayWidth}"
-                                                                                      shortDesc="#{bindings.GlVoucherLinesDETCRUD.hints.txtCOACode.tooltip}">
-                                                            <f:validator binding="#{row.bindings.txtCOACode.validator}"/>
-                                                        </af:inputComboboxListOfValues>
-                                                    </af:column>
-                                                    <af:column headerText="#{bindings.GlVoucherLinesDETCRUD.hints.ChequeNo.label}"
-                                                               id="c2" width="100" displayIndex="-1">
-                                                        <af:inputText value="#{row.bindings.ChequeNo.inputValue}"
-                                                                      label="#{bindings.GlVoucherLinesDETCRUD.hints.ChequeNo.label}"
-                                                                      required="#{bindings.GlVoucherLinesDETCRUD.hints.ChequeNo.mandatory}"
-                                                                      columns="#{bindings.GlVoucherLinesDETCRUD.hints.ChequeNo.displayWidth}"
-                                                                      maximumLength="#{bindings.GlVoucherLinesDETCRUD.hints.ChequeNo.precision}"
-                                                                      shortDesc="#{bindings.GlVoucherLinesDETCRUD.hints.ChequeNo.tooltip}"
-                                                                      id="it11" autoSubmit="true"
-                                                                      disabled="#{bindings.IsSupervised.inputValue=='Y'}">
-                                                            <f:validator binding="#{row.bindings.ChequeNo.validator}"/>
-                                                        </af:inputText>
-                                                    </af:column>
-                                                    <af:column headerText="#{bindings.GlVoucherLinesDETCRUD.hints.ChequeDate.label}"
-                                                               id="c3" width="120">
-                                                        <af:inputDate value="#{row.bindings.ChequeDate.inputValue}"
-                                                                      label="#{bindings.GlVoucherLinesDETCRUD.hints.ChequeDate.label}"
-                                                                      required="#{bindings.GlVoucherLinesDETCRUD.hints.ChequeDate.mandatory}"
-                                                                      columns="#{bindings.GlVoucherLinesDETCRUD.hints.ChequeDate.displayWidth}"
-                                                                      shortDesc="#{bindings.GlVoucherLinesDETCRUD.hints.ChequeDate.tooltip}"
-                                                                      id="id3" contentStyle="width:60%"
-                                                                      autoSubmit="true"
-                                                                      disabled="#{bindings.IsSupervised.inputValue=='Y'}">
-                                                            <f:validator binding="#{row.bindings.ChequeDate.validator}"/>
-                                                            <af:convertDateTime pattern="#{bindings.GlVoucherLinesDETCRUD.hints.ChequeDate.format}"/>
-                                                        </af:inputDate>
-                                                    </af:column>
-                                                    <af:column headerText="#{bindings.GlVoucherLinesDETCRUD.hints.Quantity.label}"
-                                                               id="c4" width="60" displayIndex="-1">
-                                                        <af:inputText value="#{row.bindings.Quantity.inputValue}"
-                                                                      label="#{bindings.GlVoucherLinesDETCRUD.hints.Quantity.label}"
-                                                                      required="#{bindings.GlVoucherLinesDETCRUD.hints.Quantity.mandatory}"
-                                                                      columns="#{bindings.GlVoucherLinesDETCRUD.hints.Quantity.displayWidth}"
-                                                                      maximumLength="#{bindings.GlVoucherLinesDETCRUD.hints.Quantity.precision}"
-                                                                      shortDesc="#{bindings.GlVoucherLinesDETCRUD.hints.Quantity.tooltip}"
-                                                                      id="it12" autoSubmit="true"
-                                                                      disabled="#{bindings.IsSupervised.inputValue=='Y'}">
-                                                            <f:validator binding="#{row.bindings.Quantity.validator}"/>
-                                                            <af:convertNumber groupingUsed="false"
-                                                                              pattern="#{bindings.GlVoucherLinesDETCRUD.hints.Quantity.format}"/>
-                                                        </af:inputText>
-                                                    </af:column>
-                                                    <af:column headerText="#{bindings.GlVoucherLinesDETCRUD.hints.Debit.label}"
-                                                               id="c7" width="80" displayIndex="-1">
-                                                        <af:inputText value="#{row.bindings.Debit.inputValue}"
-                                                                      label="#{bindings.GlVoucherLinesDETCRUD.hints.Debit.label}"
-                                                                      required="#{bindings.GlVoucherLinesDETCRUD.hints.Debit.mandatory}"
-                                                                      columns="#{bindings.GlVoucherLinesDETCRUD.hints.Debit.displayWidth}"
-                                                                      maximumLength="#{bindings.GlVoucherLinesDETCRUD.hints.Debit.precision}"
-                                                                      shortDesc="#{bindings.GlVoucherLinesDETCRUD.hints.Debit.tooltip}"
-                                                                      id="it15" autoSubmit="true"
-                                                                      partialTriggers="it16"
-                                                                      disabled="#{bindings.IsSupervised.inputValue=='Y'}">
-                                                            <f:validator binding="#{row.bindings.Debit.validator}"/>
-                                                            <af:convertNumber groupingUsed="false"
-                                                                              pattern="#{bindings.GlVoucherLinesDETCRUD.hints.Debit.format}"/>
-                                                        </af:inputText>
-                                                    </af:column>
-                                                    <af:column headerText="#{bindings.GlVoucherLinesDETCRUD.hints.Credit.label}"
-                                                               id="c8" width="80" displayIndex="-1">
-                                                        <af:inputText value="#{row.bindings.Credit.inputValue}"
-                                                                      label="#{bindings.GlVoucherLinesDETCRUD.hints.Credit.label}"
-                                                                      required="#{bindings.GlVoucherLinesDETCRUD.hints.Credit.mandatory}"
-                                                                      columns="#{bindings.GlVoucherLinesDETCRUD.hints.Credit.displayWidth}"
-                                                                      maximumLength="#{bindings.GlVoucherLinesDETCRUD.hints.Credit.precision}"
-                                                                      shortDesc="#{bindings.GlVoucherLinesDETCRUD.hints.Credit.tooltip}"
-                                                                      id="it16" autoSubmit="true"
-                                                                      partialTriggers="it15"
-                                                                      disabled="#{bindings.IsSupervised.inputValue=='Y'}">
-                                                            <f:validator binding="#{row.bindings.Credit.validator}"/>
-                                                            <af:convertNumber groupingUsed="false"
-                                                                              pattern="#{bindings.GlVoucherLinesDETCRUD.hints.Credit.format}"/>
-                                                        </af:inputText>
-                                                    </af:column>
-                                                    <af:column headerText="#{bindings.GlVoucherLinesDETCRUD.hints.Naration.label}"
-                                                               id="c9" width="120">
-                                                        <af:inputText value="#{row.bindings.Naration.inputValue}"
-                                                                      label="#{bindings.GlVoucherLinesDETCRUD.hints.Naration.label}"
-                                                                      required="#{bindings.GlVoucherLinesDETCRUD.hints.Naration.mandatory}"
-                                                                      columns="#{bindings.GlVoucherLinesDETCRUD.hints.Naration.displayWidth}"
-                                                                      maximumLength="#{bindings.GlVoucherLinesDETCRUD.hints.Naration.precision}"
-                                                                      shortDesc="#{bindings.GlVoucherLinesDETCRUD.hints.Naration.tooltip}"
-                                                                      id="it17" autoSubmit="true"
-                                                                      clientComponent="true"
-                                                                      disabled="#{bindings.IsSupervised.inputValue=='Y'}">
-                                                            <f:validator binding="#{row.bindings.Naration.validator}"/>
-                                                            <af:serverListener type="EnterEvent"
-                                                                               method="#{pageFlowScope.OracleERPBean.handleEnterEvent}"/>
-                                                            <af:clientListener method="handleEnterEvent"
-                                                                               type="keyDown"/>
-                                                            <af:clientAttribute value="#{'txtCOADescriptionId'}"
-                                                                                name="focusComponentTarget"/>
-                                                        </af:inputText>
-                                                    </af:column>
-                                                    <af:column id="c10" width="20">
-                                                        <af:link actionListener="#{bindings.Delete1.execute}"
-                                                                 disabled="#{bindings.IsSupervised.inputValue=='Y'||pageFlowScope.ERPMainTempBean.LERPAllowDelete=='N'}"
-                                                                 id="l15" partialSubmit="true"
-                                                                 icon="#{resource['images:imgDeleteRecord.png']}"/>
-                                                        <af:link text="Add Line" id="l10"
-                                                                 actionListener="#{pageFlowScope.OracleERPBean.genericActionListener}"
-                                                                 partialSubmit="true" selected="true" rendered="false">
-                                                            <af:clientAttribute name="focusComponentTarget"
-                                                                                value="#{'txtCOADescriptionId'}"/>
-                                                        </af:link>
-                                                    </af:column>
-                                                </af:table>
-                                                <f:facet name="afterToolbar"/>
-                                                <f:facet name="secondaryToolbar"/>
-                                            </af:panelCollection>
                                         </af:panelBox>
                                     </af:gridCell>
                                 </af:gridRow>
