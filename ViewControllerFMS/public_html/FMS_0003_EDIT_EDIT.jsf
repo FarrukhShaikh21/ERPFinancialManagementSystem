@@ -207,7 +207,7 @@
                                 <af:gridRow height="auto" id="gr1">
                                     <af:gridCell marginStart="5px" width="50%" id="gc1" valign="middle">
                                         <af:outputText value="#{pageFlowScope.ERPMainTempBean.LErpActivityName}" id="ot5"
-                                                       inlineStyle="font-weight:bold"/>
+                                                       styleClass="ERPActivityNameFormHeading"/>
                                     </af:gridCell>
                                     <af:gridCell marginStart="5px" width="50%" marginEnd="5px" id="gc2"
                                                  halign="stretch">

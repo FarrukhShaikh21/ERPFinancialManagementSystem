@@ -34,237 +34,247 @@
                         <f:facet name="center">
                             <af:panelBox text="PanelBox1" id="pb2" showHeader="never">
                                 <f:facet name="toolbar"/>
-                                <af:panelBox text="Basic Information" id="pb1" showDisclosure="false">
-                                    <f:facet name="toolbar"/>
-                                    <af:panelGridLayout id="pgl2">
-                                        <af:gridRow marginTop="5px" height="auto" id="gr2">
-                                            <af:gridCell marginStart="5px" width="15%" id="gc3" marginEnd="5px"
-                                                         halign="center">
-                                                <af:outputLabel value="#{bindings.TaxTypeName.hints.label}" id="ol1"/>
-                                            </af:gridCell>
-                                            <af:gridCell marginStart="5px" width="85%" id="gc4"
-                                                         columnSpan="1" rowSpan="1" halign="stretch">
-                                                <af:inputText value="#{bindings.IsUnsupervised.inputValue}"
-                                                              label="#{bindings.IsUnsupervised.hints.label}"
-                                                              required="#{bindings.IsUnsupervised.hints.mandatory}"
-                                                              columns="#{bindings.IsUnsupervised.hints.displayWidth}"
-                                                              maximumLength="#{bindings.IsUnsupervised.hints.precision}"
-                                                              shortDesc="#{bindings.IsUnsupervised.hints.tooltip}"
-                                                              id="it5" rendered="false">
-                                                    <f:validator binding="#{bindings.IsUnsupervised.validator}"/>
-                                                </af:inputText>
-                                                <af:inputText value="#{bindings.IsSupervised.inputValue}"
-                                                              label="#{bindings.IsSupervised.hints.label}"
-                                                              required="#{bindings.IsSupervised.hints.mandatory}"
-                                                              columns="#{bindings.IsSupervised.hints.displayWidth}"
-                                                              maximumLength="#{bindings.IsSupervised.hints.precision}"
-                                                              shortDesc="#{bindings.IsSupervised.hints.tooltip}"
-                                                              id="it4" rendered="false">
-                                                    <f:validator binding="#{bindings.IsSupervised.validator}"/>
-                                                </af:inputText>
-                                                <af:inputText value="#{bindings.TaxTypeName.inputValue}"
-                                                              label="#{bindings.TaxTypeName.hints.label}"
-                                                              required="#{bindings.TaxTypeName.hints.mandatory}"
-                                                              columns="#{bindings.TaxTypeName.hints.displayWidth}"
-                                                              maximumLength="#{bindings.TaxTypeName.hints.precision}"
-                                                              shortDesc="#{bindings.TaxTypeName.hints.tooltip}"
-                                                              id="it1" simple="true" contentStyle="width:100%"
-                                                              readOnly="#{bindings.IsSupervised.inputValue=='Y' || (pageFlowScope.ERPMainTempBean.LERPAllowEdit=='N' &amp;&amp; bindings.TaxTypeCode.inputValue>0)}">
-                                                    <f:validator binding="#{bindings.TaxTypeName.validator}"/>
-                                                </af:inputText>
-                                            </af:gridCell>
-                                        </af:gridRow>
-                                        <af:gridRow marginTop="5px" height="auto" id="gr3">
-                                            <af:gridCell marginStart="5px" width="15%" id="gc7" marginEnd="5px"
-                                                         halign="center">
-                                                <af:outputLabel value="#{bindings.TaxTypeCode.hints.label}" id="ol2"/>
-                                            </af:gridCell>
-                                            <af:gridCell marginStart="5px" width="85%" id="gc8" marginEnd="5px" columnSpan="1" rowSpan="1"
-                                                         halign="stretch">
-                                                <af:inputText value="#{bindings.TaxTypeCode.inputValue}"
-                                                              label="#{bindings.TaxTypeCode.hints.label}"
-                                                              required="#{bindings.TaxTypeCode.hints.mandatory}"
-                                                              columns="#{bindings.TaxTypeCode.hints.displayWidth}"
-                                                              maximumLength="#{bindings.TaxTypeCode.hints.precision}"
-                                                              shortDesc="#{bindings.TaxTypeCode.hints.tooltip}"
-                                                              id="it2" simple="true" readOnly="true">
-                                                    <f:validator binding="#{bindings.TaxTypeCode.validator}"/>
-                                                    <af:convertNumber groupingUsed="false"
-                                                                      pattern="#{bindings.TaxTypeCode.format}"/>
-                                                </af:inputText>
-                                            </af:gridCell>
-                                        </af:gridRow>
-                                        <af:gridRow marginTop="5px" height="auto" marginBottom="5px" id="gr4">
-                                            <af:gridCell marginStart="5px" width="15%" id="gc11" halign="center">
-                                                <af:outputLabel value="#{bindings.TaxTypeShortName.hints.label}" id="ol3"/>
-                                            </af:gridCell>
-                                            <af:gridCell marginStart="5px" width="85%" id="gc12" marginEnd="5px"
-                                                         columnSpan="1" rowSpan="1" halign="stretch">
-                                                <af:inputText value="#{bindings.TaxTypeShortName.inputValue}"
-                                                              label="#{bindings.TaxTypeShortName.hints.label}"
-                                                              required="#{bindings.TaxTypeShortName.hints.mandatory}"
-                                                              columns="#{bindings.TaxTypeShortName.hints.displayWidth}"
-                                                              maximumLength="#{bindings.TaxTypeShortName.hints.precision}"
-                                                              shortDesc="#{bindings.TaxTypeShortName.hints.tooltip}"
-                                                              id="it3" simple="true" contentStyle="width:100%"
-                                                              readOnly="#{bindings.IsSupervised.inputValue=='Y' || (pageFlowScope.ERPMainTempBean.LERPAllowEdit=='N' &amp;&amp; bindings.TaxTypeCode.inputValue>0)}">
-                                                    <f:validator binding="#{bindings.TaxTypeShortName.validator}"/>
-                                                </af:inputText>
-                                            </af:gridCell>
-                                        </af:gridRow>
-                                        <af:gridRow id="gr5" marginTop="5px" marginBottom="5px">
-                                            <af:gridCell id="gc5" width="15%" marginStart="5px" marginEnd="5px"
-                                                         halign="center">
-                                                <af:outputLabel value="#{bindings.OpenDate.hints.label}" id="ol4"/>
-                                            </af:gridCell>
-                                            <af:gridCell id="gc6" width="85%" marginStart="5px"
-                                                         marginEnd="5px" halign="stretch">
-                                                <af:inputDate value="#{bindings.OpenDate.inputValue}"
-                                                              label="#{bindings.OpenDate.hints.label}"
-                                                              required="#{bindings.OpenDate.hints.mandatory}"
-                                                              columns="#{bindings.OpenDate.hints.displayWidth}"
-                                                              shortDesc="#{bindings.OpenDate.hints.tooltip}" id="id1"
-                                                              simple="true"
-                                                              readOnly="#{bindings.IsSupervised.inputValue=='Y' || (pageFlowScope.ERPMainTempBean.LERPAllowEdit=='N' &amp;&amp; bindings.TaxTypeCode.inputValue>0)}">
-                                                    <f:validator binding="#{bindings.OpenDate.validator}"/>
-                                                    <af:convertDateTime pattern="#{bindings.OpenDate.format}"/>
-                                                </af:inputDate>
-                                            </af:gridCell>
-                                        </af:gridRow>
-                                        <af:gridRow id="gr8">
-                                            <af:gridCell id="gc15" width="15%" marginStart="5px" marginEnd="5px"
-                                                         halign="center">
-                                                <af:outputLabel value="#{bindings.IsActive.label}" id="ol5"/>
-                                            </af:gridCell>
-                                            <af:gridCell id="gc16" halign="stretch">
-                                                <af:selectOneChoice value="#{bindings.IsActive.inputValue}"
-                                                                    label="#{bindings.IsActive.label}"
-                                                                    required="#{bindings.IsActive.hints.mandatory}"
-                                                                    shortDesc="#{bindings.IsActive.hints.tooltip}"
-                                                                    id="soc1" simple="true" contentStyle="width:100%"
-                                                                    readOnly="#{bindings.IsSupervised.inputValue=='Y' || (pageFlowScope.ERPMainTempBean.LERPAllowEdit=='N' &amp;&amp; bindings.TaxTypeCode.inputValue>0)}">
-                                                    <f:selectItems value="#{bindings.IsActive.items}" id="si1"/>
-                                                    <f:validator binding="#{bindings.IsActive.validator}"/>
-                                                </af:selectOneChoice>
-                                            </af:gridCell>
-                                        </af:gridRow>
-                                    </af:panelGridLayout>
-                                </af:panelBox>
-                                <af:panelBox text="Other Tax Information" id="pb3" showDisclosure="false">
-                                    <f:facet name="toolbar"/>
-                                    <af:panelGridLayout id="pgl3">
-                                        <af:gridRow marginTop="5px" height="auto" marginBottom="5px" id="gr6">
-                                            <af:gridCell marginStart="5px" width="15%" id="gc9" marginEnd="5px"
-                                                         halign="center">
-                                                <af:outputLabel value="#{bindings.IsStandard.label}" id="ol6"/>
-                                            </af:gridCell>
-                                            <af:gridCell marginStart="5px" width="85%" id="gc10" halign="stretch">
-                                                <af:selectOneChoice value="#{bindings.IsStandard.inputValue}"
-                                                                    label="#{bindings.IsStandard.label}"
-                                                                    required="#{bindings.IsStandard.hints.mandatory}"
-                                                                    shortDesc="#{bindings.IsStandard.hints.tooltip}"
-                                                                    id="soc2" simple="true" contentStyle="width:100%"
-                                                                    readOnly="#{bindings.IsSupervised.inputValue=='Y' || (pageFlowScope.ERPMainTempBean.LERPAllowEdit=='N' &amp;&amp; bindings.TaxTypeCode.inputValue>0)}">
-                                                    <f:selectItems value="#{bindings.IsStandard.items}" id="si2"/>
-                                                    <f:validator binding="#{bindings.IsStandard.validator}"/>
-                                                </af:selectOneChoice>
-                                            </af:gridCell>
-                                        </af:gridRow>
-                                        <af:gridRow id="gr7" marginTop="5px" marginBottom="5px">
-                                            <af:gridCell marginStart="5px" width="15%" id="gc13" marginEnd="5px"
-                                                         halign="center">
-                                                <af:outputLabel value="#{bindings.IsProduct.label}" id="ol7"/>
-                                            </af:gridCell>
-                                            <af:gridCell marginStart="5px" width="85%" marginEnd="5px" id="gc14"
-                                                         halign="stretch">
-                                                <af:selectOneChoice value="#{bindings.IsProduct.inputValue}"
-                                                                    label="#{bindings.IsProduct.label}"
-                                                                    required="#{bindings.IsProduct.hints.mandatory}"
-                                                                    shortDesc="#{bindings.IsProduct.hints.tooltip}"
-                                                                    id="soc3" simple="true" contentStyle="width:100%"
-                                                                    readOnly="#{bindings.IsSupervised.inputValue=='Y' || (pageFlowScope.ERPMainTempBean.LERPAllowEdit=='N' &amp;&amp; bindings.TaxTypeCode.inputValue>0)}">
-                                                    <f:selectItems value="#{bindings.IsProduct.items}" id="si3"/>
-                                                    <f:validator binding="#{bindings.IsProduct.validator}"/>
-                                                </af:selectOneChoice>
-                                            </af:gridCell>
-                                        </af:gridRow>
-                                        <af:gridRow id="gr9">
-                                            <af:gridCell id="gc17" halign="center">
-                                                <af:outputLabel value="#{bindings.IsLocationWise.label}" id="ol8"/>
-                                            </af:gridCell>
-                                            <af:gridCell id="gc18" halign="stretch">
-                                                <af:selectOneChoice value="#{bindings.IsLocationWise.inputValue}"
-                                                                    label="#{bindings.IsLocationWise.label}"
-                                                                    required="#{bindings.IsLocationWise.hints.mandatory}"
-                                                                    shortDesc="#{bindings.IsLocationWise.hints.tooltip}"
-                                                                    id="soc4" simple="true" contentStyle="width:100%"
-                                                                    readOnly="#{bindings.IsSupervised.inputValue=='Y' || (pageFlowScope.ERPMainTempBean.LERPAllowEdit=='N' &amp;&amp; bindings.TaxTypeCode.inputValue>0)}">
-                                                    <f:selectItems value="#{bindings.IsLocationWise.items}" id="si4"/>
-                                                    <f:validator binding="#{bindings.IsLocationWise.validator}"/>
-                                                </af:selectOneChoice>
-                                            </af:gridCell>
-                                        </af:gridRow>
-                                        <af:gridRow id="gr10" marginTop="5px" marginBottom="5px">
-                                            <af:gridCell id="gc19" width="15%" marginStart="5px" marginEnd="5px"
-                                                         halign="center">
-                                                <af:outputLabel value="#{bindings.IsExempted.label}" id="ol9"/>
-                                            </af:gridCell>
-                                            <af:gridCell id="gc20" marginStart="5px" marginEnd="5px" width="85%"
-                                                         halign="stretch">
-                                                <af:selectOneChoice value="#{bindings.IsExempted.inputValue}"
-                                                                    label="#{bindings.IsExempted.label}"
-                                                                    required="#{bindings.IsExempted.hints.mandatory}"
-                                                                    shortDesc="#{bindings.IsExempted.hints.tooltip}"
-                                                                    id="soc5" simple="true" contentStyle="width:100%"
-                                                                    readOnly="#{bindings.IsSupervised.inputValue=='Y' || (pageFlowScope.ERPMainTempBean.LERPAllowEdit=='N' &amp;&amp; bindings.TaxTypeCode.inputValue>0)}">
-                                                    <f:selectItems value="#{bindings.IsExempted.items}" id="si5"/>
-                                                    <f:validator binding="#{bindings.IsExempted.validator}"/>
-                                                </af:selectOneChoice>
-                                            </af:gridCell>
-                                        </af:gridRow>
-                                        <af:gridRow id="gr11">
-                                            <af:gridCell id="gc21" halign="center">
-                                                <af:outputLabel value="#{bindings.IsCustTypeWise.label}" id="ol10"/>
-                                            </af:gridCell>
-                                            <af:gridCell id="gc22" halign="stretch">
-                                                <af:selectOneChoice value="#{bindings.IsCustTypeWise.inputValue}"
-                                                                    label="#{bindings.IsCustTypeWise.label}"
-                                                                    required="#{bindings.IsCustTypeWise.hints.mandatory}"
-                                                                    shortDesc="#{bindings.IsCustTypeWise.hints.tooltip}"
-                                                                    id="soc6" simple="true" contentStyle="width:100%"
-                                                                    readOnly="#{bindings.IsSupervised.inputValue=='Y' || (pageFlowScope.ERPMainTempBean.LERPAllowEdit=='N' &amp;&amp; bindings.TaxTypeCode.inputValue>0)}">
-                                                    <f:selectItems value="#{bindings.IsCustTypeWise.items}" id="si6"/>
-                                                    <f:validator binding="#{bindings.IsCustTypeWise.validator}"/>
-                                                </af:selectOneChoice>
-                                            </af:gridCell>
-                                        </af:gridRow>
-                                        <af:gridRow id="gr12" marginTop="5px" marginBottom="5px">
-                                            <af:gridCell id="gc23" width="15%" marginStart="5px" marginEnd="5px"
-                                                         halign="center">
-                                                <af:outputLabel value="#{bindings.IsCustCategoryWise.label}" id="ol11"/>
-                                            </af:gridCell>
-                                            <af:gridCell id="gc24" halign="stretch" marginStart="5px" marginEnd="5px"
-                                                         width="85%">
-                                                <af:selectOneChoice value="#{bindings.IsCustCategoryWise.inputValue}"
-                                                                    label="#{bindings.IsCustCategoryWise.label}"
-                                                                    required="#{bindings.IsCustCategoryWise.hints.mandatory}"
-                                                                    shortDesc="#{bindings.IsCustCategoryWise.hints.tooltip}"
-                                                                    id="soc7" simple="true" contentStyle="width:100%"
-                                                                    readOnly="#{bindings.IsSupervised.inputValue=='Y' || (pageFlowScope.ERPMainTempBean.LERPAllowEdit=='N' &amp;&amp; bindings.TaxTypeCode.inputValue>0)}">
-                                                    <f:selectItems value="#{bindings.IsCustCategoryWise.items}"
-                                                                   id="si7"/>
-                                                    <f:validator binding="#{bindings.IsCustCategoryWise.validator}"/>
-                                                </af:selectOneChoice>
-                                            </af:gridCell>
-                                        </af:gridRow>
-                                    </af:panelGridLayout>
-                                </af:panelBox>
+                                <af:panelGridLayout id="pgl2">
+                                    <af:gridRow id="gr13">
+                                        <af:gridCell id="gc25" columnSpan="2" rowSpan="1"
+                                                     styleClass="ERPEntryAreaHeading" halign="stretch">
+                                            <af:spacer width="10" height="10" id="s3"/>
+                                            <af:outputText value="Basic Information" id="ot3"
+                                                           styleClass="ERPEntryAreaFont"/>
+                                        </af:gridCell>
+                                    </af:gridRow>
+                                    <af:gridRow marginTop="5px" height="auto" id="gr2">
+                                        <af:gridCell marginStart="5px" width="15%" id="gc3" marginEnd="5px"
+                                                     halign="center">
+                                            <af:outputLabel value="#{bindings.TaxTypeName.hints.label}" id="ol1"/>
+                                        </af:gridCell>
+                                        <af:gridCell marginStart="5px" width="85%" id="gc4" columnSpan="1" rowSpan="1"
+                                                     halign="stretch">
+                                            <af:inputText value="#{bindings.IsUnsupervised.inputValue}"
+                                                          label="#{bindings.IsUnsupervised.hints.label}"
+                                                          required="#{bindings.IsUnsupervised.hints.mandatory}"
+                                                          columns="#{bindings.IsUnsupervised.hints.displayWidth}"
+                                                          maximumLength="#{bindings.IsUnsupervised.hints.precision}"
+                                                          shortDesc="#{bindings.IsUnsupervised.hints.tooltip}" id="it5"
+                                                          rendered="false">
+                                                <f:validator binding="#{bindings.IsUnsupervised.validator}"/>
+                                            </af:inputText>
+                                            <af:inputText value="#{bindings.IsSupervised.inputValue}"
+                                                          label="#{bindings.IsSupervised.hints.label}"
+                                                          required="#{bindings.IsSupervised.hints.mandatory}"
+                                                          columns="#{bindings.IsSupervised.hints.displayWidth}"
+                                                          maximumLength="#{bindings.IsSupervised.hints.precision}"
+                                                          shortDesc="#{bindings.IsSupervised.hints.tooltip}" id="it4"
+                                                          rendered="false">
+                                                <f:validator binding="#{bindings.IsSupervised.validator}"/>
+                                            </af:inputText>
+                                            <af:inputText value="#{bindings.TaxTypeName.inputValue}"
+                                                          label="#{bindings.TaxTypeName.hints.label}"
+                                                          required="#{bindings.TaxTypeName.hints.mandatory}"
+                                                          columns="#{bindings.TaxTypeName.hints.displayWidth}"
+                                                          maximumLength="#{bindings.TaxTypeName.hints.precision}"
+                                                          shortDesc="#{bindings.TaxTypeName.hints.tooltip}" id="it1"
+                                                          simple="true" contentStyle="width:100%"
+                                                          readOnly="#{bindings.IsSupervised.inputValue=='Y' || (pageFlowScope.ERPMainTempBean.LERPAllowEdit=='N' &amp;&amp; bindings.TaxTypeCode.inputValue>0)}">
+                                                <f:validator binding="#{bindings.TaxTypeName.validator}"/>
+                                            </af:inputText>
+                                        </af:gridCell>
+                                    </af:gridRow>
+                                    <af:gridRow marginTop="5px" height="auto" id="gr3">
+                                        <af:gridCell marginStart="5px" width="15%" id="gc7" marginEnd="5px"
+                                                     halign="center">
+                                            <af:outputLabel value="#{bindings.TaxTypeCode.hints.label}" id="ol2"/>
+                                        </af:gridCell>
+                                        <af:gridCell marginStart="5px" width="85%" id="gc8" marginEnd="5px"
+                                                     columnSpan="1" rowSpan="1" halign="stretch">
+                                            <af:inputText value="#{bindings.TaxTypeCode.inputValue}"
+                                                          label="#{bindings.TaxTypeCode.hints.label}"
+                                                          required="#{bindings.TaxTypeCode.hints.mandatory}"
+                                                          columns="#{bindings.TaxTypeCode.hints.displayWidth}"
+                                                          maximumLength="#{bindings.TaxTypeCode.hints.precision}"
+                                                          shortDesc="#{bindings.TaxTypeCode.hints.tooltip}" id="it2"
+                                                          simple="true" readOnly="true">
+                                                <f:validator binding="#{bindings.TaxTypeCode.validator}"/>
+                                                <af:convertNumber groupingUsed="false"
+                                                                  pattern="#{bindings.TaxTypeCode.format}"/>
+                                            </af:inputText>
+                                        </af:gridCell>
+                                    </af:gridRow>
+                                    <af:gridRow marginTop="5px" height="auto" marginBottom="5px" id="gr4">
+                                        <af:gridCell marginStart="5px" width="15%" id="gc11" halign="center">
+                                            <af:outputLabel value="#{bindings.TaxTypeShortName.hints.label}" id="ol3"/>
+                                        </af:gridCell>
+                                        <af:gridCell marginStart="5px" width="85%" id="gc12" marginEnd="5px"
+                                                     columnSpan="1" rowSpan="1" halign="stretch">
+                                            <af:inputText value="#{bindings.TaxTypeShortName.inputValue}"
+                                                          label="#{bindings.TaxTypeShortName.hints.label}"
+                                                          required="#{bindings.TaxTypeShortName.hints.mandatory}"
+                                                          columns="#{bindings.TaxTypeShortName.hints.displayWidth}"
+                                                          maximumLength="#{bindings.TaxTypeShortName.hints.precision}"
+                                                          shortDesc="#{bindings.TaxTypeShortName.hints.tooltip}"
+                                                          id="it3" simple="true" contentStyle="width:100%"
+                                                          readOnly="#{bindings.IsSupervised.inputValue=='Y' || (pageFlowScope.ERPMainTempBean.LERPAllowEdit=='N' &amp;&amp; bindings.TaxTypeCode.inputValue>0)}">
+                                                <f:validator binding="#{bindings.TaxTypeShortName.validator}"/>
+                                            </af:inputText>
+                                        </af:gridCell>
+                                    </af:gridRow>
+                                    <af:gridRow id="gr5" marginTop="5px" marginBottom="5px">
+                                        <af:gridCell id="gc5" width="15%" marginStart="5px" marginEnd="5px"
+                                                     halign="center">
+                                            <af:outputLabel value="#{bindings.OpenDate.hints.label}" id="ol4"/>
+                                        </af:gridCell>
+                                        <af:gridCell id="gc6" width="85%" marginStart="5px" marginEnd="5px"
+                                                     halign="stretch">
+                                            <af:inputDate value="#{bindings.OpenDate.inputValue}"
+                                                          label="#{bindings.OpenDate.hints.label}"
+                                                          required="#{bindings.OpenDate.hints.mandatory}"
+                                                          columns="#{bindings.OpenDate.hints.displayWidth}"
+                                                          shortDesc="#{bindings.OpenDate.hints.tooltip}" id="id1"
+                                                          simple="true"
+                                                          readOnly="#{bindings.IsSupervised.inputValue=='Y' || (pageFlowScope.ERPMainTempBean.LERPAllowEdit=='N' &amp;&amp; bindings.TaxTypeCode.inputValue>0)}">
+                                                <f:validator binding="#{bindings.OpenDate.validator}"/>
+                                                <af:convertDateTime pattern="#{bindings.OpenDate.format}"/>
+                                            </af:inputDate>
+                                        </af:gridCell>
+                                    </af:gridRow>
+                                    <af:gridRow id="gr8">
+                                        <af:gridCell id="gc15" width="15%" marginStart="5px" marginEnd="5px"
+                                                     halign="center">
+                                            <af:outputLabel value="#{bindings.IsActive.label}" id="ol5"/>
+                                        </af:gridCell>
+                                        <af:gridCell id="gc16" halign="stretch">
+                                            <af:selectOneChoice value="#{bindings.IsActive.inputValue}"
+                                                                label="#{bindings.IsActive.label}"
+                                                                required="#{bindings.IsActive.hints.mandatory}"
+                                                                shortDesc="#{bindings.IsActive.hints.tooltip}" id="soc1"
+                                                                simple="true" contentStyle="width:100%"
+                                                                readOnly="#{bindings.IsSupervised.inputValue=='Y' || (pageFlowScope.ERPMainTempBean.LERPAllowEdit=='N' &amp;&amp; bindings.TaxTypeCode.inputValue>0)}">
+                                                <f:selectItems value="#{bindings.IsActive.items}" id="si1"/>
+                                                <f:validator binding="#{bindings.IsActive.validator}"/>
+                                            </af:selectOneChoice>
+                                        </af:gridCell>
+                                    </af:gridRow>
+                                    <af:gridRow id="gr14" marginTop="5px" marginBottom="5px">
+                                        <af:gridCell id="gc26" columnSpan="2" styleClass="ERPEntryAreaHeading"
+                                                     halign="stretch" width="100%">
+                                            <af:spacer width="10" height="10" id="s4"/>
+                                            <af:outputText value="Other Tax Information" id="ot4" styleClass="ERPEntryAreaFont"/>
+                                        </af:gridCell>
+                                    </af:gridRow>
+                                    <af:gridRow marginTop="5px" height="auto" marginBottom="5px" id="gr6">
+                                        <af:gridCell marginStart="5px" width="15%" id="gc9" marginEnd="5px"
+                                                     halign="center">
+                                            <af:outputLabel value="#{bindings.IsStandard.label}" id="ol6"/>
+                                        </af:gridCell>
+                                        <af:gridCell marginStart="5px" width="85%" id="gc10" halign="stretch">
+                                            <af:selectOneChoice value="#{bindings.IsStandard.inputValue}"
+                                                                label="#{bindings.IsStandard.label}"
+                                                                required="#{bindings.IsStandard.hints.mandatory}"
+                                                                shortDesc="#{bindings.IsStandard.hints.tooltip}"
+                                                                id="soc2" simple="true" contentStyle="width:100%"
+                                                                readOnly="#{bindings.IsSupervised.inputValue=='Y' || (pageFlowScope.ERPMainTempBean.LERPAllowEdit=='N' &amp;&amp; bindings.TaxTypeCode.inputValue>0)}">
+                                                <f:selectItems value="#{bindings.IsStandard.items}" id="si2"/>
+                                                <f:validator binding="#{bindings.IsStandard.validator}"/>
+                                            </af:selectOneChoice>
+                                        </af:gridCell>
+                                    </af:gridRow>
+                                    <af:gridRow id="gr7" marginTop="5px" marginBottom="5px">
+                                        <af:gridCell marginStart="5px" width="15%" id="gc13" marginEnd="5px"
+                                                     halign="center">
+                                            <af:outputLabel value="#{bindings.IsProduct.label}" id="ol7"/>
+                                        </af:gridCell>
+                                        <af:gridCell marginStart="5px" width="85%" marginEnd="5px" id="gc14"
+                                                     halign="stretch">
+                                            <af:selectOneChoice value="#{bindings.IsProduct.inputValue}"
+                                                                label="#{bindings.IsProduct.label}"
+                                                                required="#{bindings.IsProduct.hints.mandatory}"
+                                                                shortDesc="#{bindings.IsProduct.hints.tooltip}"
+                                                                id="soc3" simple="true" contentStyle="width:100%"
+                                                                readOnly="#{bindings.IsSupervised.inputValue=='Y' || (pageFlowScope.ERPMainTempBean.LERPAllowEdit=='N' &amp;&amp; bindings.TaxTypeCode.inputValue>0)}">
+                                                <f:selectItems value="#{bindings.IsProduct.items}" id="si3"/>
+                                                <f:validator binding="#{bindings.IsProduct.validator}"/>
+                                            </af:selectOneChoice>
+                                        </af:gridCell>
+                                    </af:gridRow>
+                                    <af:gridRow id="gr9">
+                                        <af:gridCell id="gc17" halign="center">
+                                            <af:outputLabel value="#{bindings.IsLocationWise.label}" id="ol8"/>
+                                        </af:gridCell>
+                                        <af:gridCell id="gc18" halign="stretch">
+                                            <af:selectOneChoice value="#{bindings.IsLocationWise.inputValue}"
+                                                                label="#{bindings.IsLocationWise.label}"
+                                                                required="#{bindings.IsLocationWise.hints.mandatory}"
+                                                                shortDesc="#{bindings.IsLocationWise.hints.tooltip}"
+                                                                id="soc4" simple="true" contentStyle="width:100%"
+                                                                readOnly="#{bindings.IsSupervised.inputValue=='Y' || (pageFlowScope.ERPMainTempBean.LERPAllowEdit=='N' &amp;&amp; bindings.TaxTypeCode.inputValue>0)}">
+                                                <f:selectItems value="#{bindings.IsLocationWise.items}" id="si4"/>
+                                                <f:validator binding="#{bindings.IsLocationWise.validator}"/>
+                                            </af:selectOneChoice>
+                                        </af:gridCell>
+                                    </af:gridRow>
+                                    <af:gridRow id="gr10" marginTop="5px" marginBottom="5px">
+                                        <af:gridCell id="gc19" width="15%" marginStart="5px" marginEnd="5px"
+                                                     halign="center">
+                                            <af:outputLabel value="#{bindings.IsExempted.label}" id="ol9"/>
+                                        </af:gridCell>
+                                        <af:gridCell id="gc20" marginStart="5px" marginEnd="5px" width="85%"
+                                                     halign="stretch">
+                                            <af:selectOneChoice value="#{bindings.IsExempted.inputValue}"
+                                                                label="#{bindings.IsExempted.label}"
+                                                                required="#{bindings.IsExempted.hints.mandatory}"
+                                                                shortDesc="#{bindings.IsExempted.hints.tooltip}"
+                                                                id="soc5" simple="true" contentStyle="width:100%"
+                                                                readOnly="#{bindings.IsSupervised.inputValue=='Y' || (pageFlowScope.ERPMainTempBean.LERPAllowEdit=='N' &amp;&amp; bindings.TaxTypeCode.inputValue>0)}">
+                                                <f:selectItems value="#{bindings.IsExempted.items}" id="si5"/>
+                                                <f:validator binding="#{bindings.IsExempted.validator}"/>
+                                            </af:selectOneChoice>
+                                        </af:gridCell>
+                                    </af:gridRow>
+                                    <af:gridRow id="gr11">
+                                        <af:gridCell id="gc21" halign="center">
+                                            <af:outputLabel value="#{bindings.IsCustTypeWise.label}" id="ol10"/>
+                                        </af:gridCell>
+                                        <af:gridCell id="gc22" halign="stretch">
+                                            <af:selectOneChoice value="#{bindings.IsCustTypeWise.inputValue}"
+                                                                label="#{bindings.IsCustTypeWise.label}"
+                                                                required="#{bindings.IsCustTypeWise.hints.mandatory}"
+                                                                shortDesc="#{bindings.IsCustTypeWise.hints.tooltip}"
+                                                                id="soc6" simple="true" contentStyle="width:100%"
+                                                                readOnly="#{bindings.IsSupervised.inputValue=='Y' || (pageFlowScope.ERPMainTempBean.LERPAllowEdit=='N' &amp;&amp; bindings.TaxTypeCode.inputValue>0)}">
+                                                <f:selectItems value="#{bindings.IsCustTypeWise.items}" id="si6"/>
+                                                <f:validator binding="#{bindings.IsCustTypeWise.validator}"/>
+                                            </af:selectOneChoice>
+                                        </af:gridCell>
+                                    </af:gridRow>
+                                    <af:gridRow id="gr12" marginTop="5px" marginBottom="5px">
+                                        <af:gridCell id="gc23" width="15%" marginStart="5px" marginEnd="5px"
+                                                     halign="center">
+                                            <af:outputLabel value="#{bindings.IsCustCategoryWise.label}" id="ol11"/>
+                                        </af:gridCell>
+                                        <af:gridCell id="gc24" halign="stretch" marginStart="5px" marginEnd="5px"
+                                                     width="85%">
+                                            <af:selectOneChoice value="#{bindings.IsCustCategoryWise.inputValue}"
+                                                                label="#{bindings.IsCustCategoryWise.label}"
+                                                                required="#{bindings.IsCustCategoryWise.hints.mandatory}"
+                                                                shortDesc="#{bindings.IsCustCategoryWise.hints.tooltip}"
+                                                                id="soc7" simple="true" contentStyle="width:100%"
+                                                                readOnly="#{bindings.IsSupervised.inputValue=='Y' || (pageFlowScope.ERPMainTempBean.LERPAllowEdit=='N' &amp;&amp; bindings.TaxTypeCode.inputValue>0)}">
+                                                <f:selectItems value="#{bindings.IsCustCategoryWise.items}" id="si7"/>
+                                                <f:validator binding="#{bindings.IsCustCategoryWise.validator}"/>
+                                            </af:selectOneChoice>
+                                        </af:gridCell>
+                                    </af:gridRow>
+                                </af:panelGridLayout>
                             </af:panelBox>
                         </f:facet>
                         <f:facet name="top">
-                            <af:panelGridLayout id="pgl1">
+                            <af:panelGridLayout id="pgl1" styleClass="ERPToolBarBackground">
                                 <af:gridRow marginTop="5px" height="auto" marginBottom="5px" id="gr1">
-                                    <af:gridCell marginStart="5px" width="50%" id="gc1"/>
+                                    <af:gridCell marginStart="5px" width="50%" id="gc1" valign="middle">
+                                        <af:spacer width="10" height="10" id="s2"/>
+                                        <af:outputText value="#{pageFlowScope.ERPMainTempBean.LErpActivityName}" id="ot1"
+                                                       styleClass="ERPActivityNameFormHeading"/>
+                                    </af:gridCell>
                                     <af:gridCell marginStart="5px" width="50%" marginEnd="5px" id="gc2"
                                                  halign="stretch">
                                         <af:panelGroupLayout id="pgl4" layout="horizontal" halign="end">
