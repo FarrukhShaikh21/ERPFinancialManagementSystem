@@ -91,14 +91,15 @@
                                 </af:gridRow>
                                 <af:gridRow marginTop="5px" height="auto" marginBottom="5px" id="gr6">
                                     <af:gridCell marginStart="5px" width="100%" marginEnd="5px" id="gc6"
-                                                 halign="stretch" valign="stretch">
+                                                 halign="center" valign="stretch">
                                         <af:listView value="#{bindings.GlBankByCompanyRO.collectionModel}" var="item"
                                                      emptyText="#{bindings.GlBankByCompanyRO.viewable ? 'No data to display.' : 'Access Denied.'}"
                                                      fetchSize="#{bindings.GlBankByCompanyRO.rangeSize}" id="lv1"
                                                      selection="single"
                                                      selectedRowKeys="#{bindings.GlBankByCompanyRO.collectionModel.selectedRow}"
                                                      selectionListener="#{bindings.GlBankByCompanyRO.treeModel.makeCurrent}"
-                                                     partialTriggers="::qryId1">
+                                                     partialTriggers="::qryId1" inlineStyle="border:none"
+                                                     styleClass="WBDisplayBlockCenter">
                                             <af:listItem id="li1"
                                                          styleClass="WBDisplayBlock WBDisplayBlockPadding WBDisplayBlockCenterUndo">
                                                 <af:panelGroupLayout id="pgl2" layout="vertical"

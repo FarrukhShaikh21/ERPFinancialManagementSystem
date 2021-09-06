@@ -10,71 +10,79 @@
                         <f:facet name="center">
                             <af:panelGridLayout id="pgl3" partialTriggers="l4">
                                 <af:gridRow marginTop="5px" height="auto" id="gr5">
-                                    <af:gridCell marginStart="5px" width="100%" marginEnd="5px" id="gc5">
-                                        <af:panelFormLayout id="pfl1" rows="1" maxColumns="4">
-                                            <af:inputText value="#{bindings.CompCode.inputValue}"
-                                                          label="#{bindings.CompCode.hints.label}"
-                                                          required="#{bindings.CompCode.hints.mandatory}"
-                                                          columns="#{bindings.CompCode.hints.displayWidth}"
-                                                          maximumLength="#{bindings.CompCode.hints.precision}"
-                                                          shortDesc="#{bindings.CompCode.hints.tooltip}" id="it1"
-                                                          rendered="false" readOnly="true">
-                                                <f:validator binding="#{bindings.CompCode.validator}"/>
-                                                <af:convertNumber groupingUsed="false"
-                                                                  pattern="#{bindings.CompCode.format}"/>
-                                            </af:inputText>
-                                            <af:inputText value="#{bindings.CompanyName.inputValue}"
-                                                          label="#{bindings.CompanyName.hints.label}"
-                                                          required="#{bindings.CompanyName.hints.mandatory}"
-                                                          columns="#{bindings.CompanyName.hints.displayWidth}"
-                                                          maximumLength="#{bindings.CompanyName.hints.precision}"
-                                                          shortDesc="#{bindings.CompanyName.hints.tooltip}" id="it2"
-                                                          readOnly="true">
-                                                <f:validator binding="#{bindings.CompanyName.validator}"/>
-                                            </af:inputText>
-                                            <af:inputText value="#{bindings.CompanyShortName.inputValue}"
-                                                          label="#{bindings.CompanyShortName.hints.label}"
-                                                          required="#{bindings.CompanyShortName.hints.mandatory}"
-                                                          columns="#{bindings.CompanyShortName.hints.displayWidth}"
-                                                          maximumLength="#{bindings.CompanyShortName.hints.precision}"
-                                                          shortDesc="#{bindings.CompanyShortName.hints.tooltip}"
-                                                          id="it3" readOnly="true">
-                                                <f:validator binding="#{bindings.CompanyShortName.validator}"/>
-                                            </af:inputText>
-                                            <af:inputText value="#{bindings.CompanyShortCode.inputValue}"
-                                                          label="#{bindings.CompanyShortCode.hints.label}"
-                                                          required="#{bindings.CompanyShortCode.hints.mandatory}"
-                                                          columns="#{bindings.CompanyShortCode.hints.displayWidth}"
-                                                          maximumLength="#{bindings.CompanyShortCode.hints.precision}"
-                                                          shortDesc="#{bindings.CompanyShortCode.hints.tooltip}"
-                                                          id="it4" readOnly="true">
-                                                <f:validator binding="#{bindings.CompanyShortCode.validator}"/>
-                                                <af:convertNumber groupingUsed="false"
-                                                                  pattern="#{bindings.CompanyShortCode.format}"/>
-                                            </af:inputText>
-                                            <af:inputComboboxListOfValues id="txtCountryNameId"
-                                                                          popupTitle="Search and Select: #{bindings.txtCountryName.hints.label}"
-                                                                          value="#{bindings.txtCountryName.inputValue}"
-                                                                          label="#{bindings.txtCountryName.hints.label}"
-                                                                          model="#{bindings.txtCountryName.listOfValuesModel}"
-                                                                          required="#{bindings.txtCountryName.hints.mandatory}"
-                                                                          columns="#{bindings.txtCountryName.hints.displayWidth}"
-                                                                          shortDesc="#{bindings.txtCountryName.hints.tooltip}"
-                                                                          readOnly="true">
-                                                <f:validator binding="#{bindings.txtCountryName.validator}"/>
-                                            </af:inputComboboxListOfValues>
-                                            <af:inputText value="#{bindings.GlobalCompCode.inputValue}"
-                                                          label="#{bindings.GlobalCompCode.hints.label}"
-                                                          required="#{bindings.GlobalCompCode.hints.mandatory}"
-                                                          columns="#{bindings.GlobalCompCode.hints.displayWidth}"
-                                                          maximumLength="#{bindings.GlobalCompCode.hints.precision}"
-                                                          shortDesc="#{bindings.GlobalCompCode.hints.tooltip}" id="it6"
-                                                          rendered="false">
-                                                <f:validator binding="#{bindings.GlobalCompCode.validator}"/>
-                                                <af:convertNumber groupingUsed="false"
-                                                                  pattern="#{bindings.GlobalCompCode.format}"/>
-                                            </af:inputText>
-                                        </af:panelFormLayout>
+                                    <af:gridCell marginStart="5px" width="100%" marginEnd="5px" id="gc5"
+                                                 styleClass="ERPCompanyInfoBackGround" valign="stretch"
+                                                 halign="stretch">
+                                        <af:panelGroupLayout id="pgl9" layout="vertical" halign="center">
+                                            <af:panelFormLayout id="pfl1" rows="1" maxColumns="4">
+                                                <af:inputText value="#{bindings.CompCode.inputValue}"
+                                                              label="#{bindings.CompCode.hints.label}"
+                                                              required="#{bindings.CompCode.hints.mandatory}"
+                                                              columns="#{bindings.CompCode.hints.displayWidth}"
+                                                              maximumLength="#{bindings.CompCode.hints.precision}"
+                                                              shortDesc="#{bindings.CompCode.hints.tooltip}" id="it1"
+                                                              rendered="false" readOnly="true">
+                                                    <f:validator binding="#{bindings.CompCode.validator}"/>
+                                                    <af:convertNumber groupingUsed="false"
+                                                                      pattern="#{bindings.CompCode.format}"/>
+                                                </af:inputText>
+                                                <af:inputText value="#{bindings.CompanyName.inputValue}"
+                                                              label="#{bindings.CompanyName.hints.label}"
+                                                              required="#{bindings.CompanyName.hints.mandatory}"
+                                                              columns="#{bindings.CompanyName.hints.displayWidth}"
+                                                              maximumLength="#{bindings.CompanyName.hints.precision}"
+                                                              shortDesc="#{bindings.CompanyName.hints.tooltip}" id="it2"
+                                                              readOnly="true">
+                                                    <f:validator binding="#{bindings.CompanyName.validator}"/>
+                                                </af:inputText>
+                                                <af:inputText value="#{bindings.CompanyShortName.inputValue}"
+                                                              label="#{bindings.CompanyShortName.hints.label}"
+                                                              required="#{bindings.CompanyShortName.hints.mandatory}"
+                                                              columns="#{bindings.CompanyShortName.hints.displayWidth}"
+                                                              maximumLength="#{bindings.CompanyShortName.hints.precision}"
+                                                              shortDesc="#{bindings.CompanyShortName.hints.tooltip}"
+                                                              id="it3" readOnly="true">
+                                                    <f:validator binding="#{bindings.CompanyShortName.validator}"/>
+                                                </af:inputText>
+                                                <af:inputText value="#{bindings.CompanyShortCode.inputValue}"
+                                                              label="#{bindings.CompanyShortCode.hints.label}"
+                                                              required="#{bindings.CompanyShortCode.hints.mandatory}"
+                                                              columns="#{bindings.CompanyShortCode.hints.displayWidth}"
+                                                              maximumLength="#{bindings.CompanyShortCode.hints.precision}"
+                                                              shortDesc="#{bindings.CompanyShortCode.hints.tooltip}"
+                                                              id="it4" readOnly="true">
+                                                    <f:validator binding="#{bindings.CompanyShortCode.validator}"/>
+                                                    <af:convertNumber groupingUsed="false"
+                                                                      pattern="#{bindings.CompanyShortCode.format}"/>
+                                                </af:inputText>
+                                                <af:inputText label="#{bindings.txtCountryName.hints.label}" id="it7"
+                                                              value="#{bindings.txtCountryName.inputValue}"
+                                                              readOnly="true"
+                                                              columns="#{bindings.txtCountryName.hints.displayWidth}"/>
+                                                <af:inputComboboxListOfValues id="txtCountryNameId"
+                                                                              popupTitle="Search and Select: #{bindings.txtCountryName.hints.label}"
+                                                                              value="#{bindings.txtCountryName.inputValue}"
+                                                                              label="#{bindings.txtCountryName.hints.label}"
+                                                                              model="#{bindings.txtCountryName.listOfValuesModel}"
+                                                                              required="#{bindings.txtCountryName.hints.mandatory}"
+                                                                              columns="#{bindings.txtCountryName.hints.displayWidth}"
+                                                                              shortDesc="#{bindings.txtCountryName.hints.tooltip}"
+                                                                              readOnly="true" rendered="false">
+                                                    <f:validator binding="#{bindings.txtCountryName.validator}"/>
+                                                </af:inputComboboxListOfValues>
+                                                <af:inputText value="#{bindings.GlobalCompCode.inputValue}"
+                                                              label="#{bindings.GlobalCompCode.hints.label}"
+                                                              required="#{bindings.GlobalCompCode.hints.mandatory}"
+                                                              columns="#{bindings.GlobalCompCode.hints.displayWidth}"
+                                                              maximumLength="#{bindings.GlobalCompCode.hints.precision}"
+                                                              shortDesc="#{bindings.GlobalCompCode.hints.tooltip}"
+                                                              id="it6" rendered="false">
+                                                    <f:validator binding="#{bindings.GlobalCompCode.validator}"/>
+                                                    <af:convertNumber groupingUsed="false"
+                                                                      pattern="#{bindings.GlobalCompCode.format}"/>
+                                                </af:inputText>
+                                            </af:panelFormLayout>
+                                        </af:panelGroupLayout>
                                     </af:gridCell>
                                 </af:gridRow>
                                 <af:gridRow id="gr1" marginTop="5px" marginBottom="5px">
@@ -91,7 +99,7 @@
                                 </af:gridRow>
                                 <af:gridRow marginTop="5px" height="auto" marginBottom="5px" id="gr6">
                                     <af:gridCell marginStart="5px" width="100%" marginEnd="5px" id="gc6"
-                                                 halign="stretch" valign="stretch">
+                                                 halign="center" valign="stretch">
                                         <af:listView value="#{bindings.GlCoaUserCompanyForPeriodRightRO.collectionModel}"
                                                      var="item"
                                                      emptyText="#{bindings.GlCoaUserCompanyForPeriodRightRO.viewable ? 'No data to display.' : 'Access Denied.'}"
@@ -99,7 +107,7 @@
                                                      id="lv1" styleClass="WBDisplayBlockCenter" selection="single"
                                                      selectedRowKeys="#{bindings.GlCoaUserCompanyForPeriodRightRO.collectionModel.selectedRow}"
                                                      selectionListener="#{bindings.GlCoaUserCompanyForPeriodRightRO.treeModel.makeCurrent}"
-                                                     partialTriggers="::qryId1">
+                                                     partialTriggers="::qryId1" inlineStyle="border:none">
                                             <af:listItem id="li1"
                                                          styleClass="WBDisplayBlock WBDisplayBlockPadding WBDisplayBlockCenterUndo">
                                                 <af:panelGroupLayout id="pgl2" layout="vertical"
@@ -173,9 +181,13 @@
                             </af:panelGridLayout>
                         </f:facet>
                         <f:facet name="top">
-                            <af:panelGridLayout id="pgl4" dimensionsFrom="parent">
+                            <af:panelGridLayout id="pgl4" dimensionsFrom="parent" styleClass="ERPToolBarBackground">
                                 <af:gridRow marginTop="5px" height="auto" marginBottom="5px" id="gr7">
-                                    <af:gridCell marginStart="5px" width="50%" id="gc7"/>
+                                    <af:gridCell marginStart="5px" width="50%" id="gc7" valign="middle">
+                                        <af:spacer width="10" height="10" id="s4"/>
+                                        <af:outputText value="#{pageFlowScope.ERPMainTempBean.LErpActivityName}" id="ot1"
+                                    styleClass="ERPActivityNameFormHeading"/>                                    
+                                    </af:gridCell>
                                     <af:gridCell marginStart="5px" width="50%" marginEnd="5px" id="gc8" halign="end">
                                         <af:panelGroupLayout id="pgl5" layout="horizontal" halign="end">
                                             <af:link id="l4" icon="#{resource['images:imgCloseDialog.png']}"
