@@ -184,6 +184,7 @@
                             <af:panelGridLayout id="pgl4" dimensionsFrom="parent" styleClass="ERPToolBarBackground">
                                 <af:gridRow marginTop="5px" height="auto" marginBottom="5px" id="gr7">
                                     <af:gridCell marginStart="5px" width="50%" id="gc7" valign="middle">
+                                        <af:spacer width="10" height="10" id="s5"/>
                                         <af:outputText value="#{pageFlowScope.ERPMainTempBean.LErpActivityName}" id="ot1"
                                                        styleClass="ERPActivityNameFormHeading"/>
                                     </af:gridCell>

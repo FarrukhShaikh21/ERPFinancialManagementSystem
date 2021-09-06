@@ -55,6 +55,10 @@
                                                     <af:convertNumber groupingUsed="false"
                                                                       pattern="#{bindings.CompanyShortCode.format}"/>
                                                 </af:inputText>
+                                                <af:inputText label="#{bindings.txtCountryName.hints.label}" id="it6"
+                                                              value="#{bindings.txtCountryName.inputValue}"
+                                                              columns="#{bindings.txtCountryName.hints.displayWidth}"
+                                                              readOnly="true"/>
                                                 <af:inputComboboxListOfValues id="txtCountryNameId"
                                                                               popupTitle="Search and Select: #{bindings.txtCountryName.hints.label}"
                                                                               value="#{bindings.txtCountryName.inputValue}"
@@ -63,7 +67,7 @@
                                                                               required="#{bindings.txtCountryName.hints.mandatory}"
                                                                               columns="#{bindings.txtCountryName.hints.displayWidth}"
                                                                               shortDesc="#{bindings.txtCountryName.hints.tooltip}"
-                                                                              readOnly="true">
+                                                                              readOnly="true" rendered="false">
                                                     <f:validator binding="#{bindings.txtCountryName.validator}"/>
                                                 </af:inputComboboxListOfValues>
                                             </af:panelFormLayout>

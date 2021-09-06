@@ -9,7 +9,7 @@
                     <af:decorativeBox id="db1" dimensionsFrom="parent">
                         <f:facet name="center">
                             <af:panelGridLayout id="pgl3" partialTriggers="l4 l7 l5 l3 l1 l2 l11">
-                                <af:gridRow marginTop="5px" height="auto" id="gr5">
+                                <af:gridRow marginTop="5px" height="auto" id="gr5" marginBottom="5px">
                                     <af:gridCell marginStart="5px" width="100%" marginEnd="5px" id="gc5"
                                                  halign="stretch" columnSpan="2" valign="middle"
                                                  styleClass="ERPCompanyInfoBackGround">
@@ -437,9 +437,12 @@
                             </af:panelGridLayout>
                         </f:facet>
                         <f:facet name="top">
-                            <af:panelGridLayout id="pgl4" dimensionsFrom="parent">
+                            <af:panelGridLayout id="pgl4" dimensionsFrom="parent" styleClass="ERPToolBarBackground">
                                 <af:gridRow marginTop="5px" height="auto" marginBottom="5px" id="gr7">
-                                    <af:gridCell marginStart="5px" width="50%" id="gc7"/>
+                                    <af:gridCell marginStart="5px" width="50%" id="gc7" valign="middle">
+                                        <af:outputText value="#{pageFlowScope.ERPMainTempBean.LErpActivityName}" id="ot4"
+                                                       styleClass="ERPActivityNameFormHeading"/>
+                                    </af:gridCell>
                                     <af:gridCell marginStart="5px" width="50%" marginEnd="5px" id="gc8" halign="end">
                                         <af:panelGroupLayout id="pgl5" layout="horizontal" halign="end">
                                             <af:link actionListener="#{bindings.Commit.execute}" text="Commit" id="l10"
