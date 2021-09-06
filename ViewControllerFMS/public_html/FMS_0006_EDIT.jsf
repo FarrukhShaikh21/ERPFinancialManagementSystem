@@ -10,7 +10,9 @@
                         <f:facet name="center">
                             <af:panelGridLayout id="pgl3" partialTriggers="l6 l4 l7 l5 l3 l1 l2">
                                 <af:gridRow marginTop="5px" height="auto" id="gr5">
-                                    <af:gridCell marginStart="5px" width="100%" marginEnd="5px" id="gc5">
+                                    <af:gridCell marginStart="5px" width="100%" marginEnd="5px" id="gc5"
+                                                 valign="stretch" halign="stretch"
+                                                 styleClass="ERPCompanyInfoBackGround">
                                         <af:panelFormLayout id="pfl1" rows="1" maxColumns="4">
                                             <af:inputText value="#{bindings.CompCode.inputValue}"
                                                           label="#{bindings.CompCode.hints.label}"
@@ -52,6 +54,9 @@
                                                 <af:convertNumber groupingUsed="false"
                                                                   pattern="#{bindings.CompanyShortCode.format}"/>
                                             </af:inputText>
+                                            <af:inputText label="#{bindings.txtCountryName.hints.label}" id="it8"
+                                                          value="#{bindings.txtCountryName.inputValue}"
+                                                          readOnly="true"/>
                                             <af:inputComboboxListOfValues id="txtCountryNameId"
                                                                           popupTitle="Search and Select: #{bindings.txtCountryName.hints.label}"
                                                                           value="#{bindings.txtCountryName.inputValue}"
@@ -60,14 +65,15 @@
                                                                           required="#{bindings.txtCountryName.hints.mandatory}"
                                                                           columns="#{bindings.txtCountryName.hints.displayWidth}"
                                                                           shortDesc="#{bindings.txtCountryName.hints.tooltip}"
-                                                                          readOnly="true">
+                                                                          readOnly="true" rendered="false">
                                                 <f:validator binding="#{bindings.txtCountryName.validator}"/>
                                             </af:inputComboboxListOfValues>
                                         </af:panelFormLayout>
                                     </af:gridCell>
                                 </af:gridRow>
                                 <af:gridRow marginTop="5px" height="auto" marginBottom="5px" id="gr6">
-                                    <af:gridCell marginStart="5px" width="100%" marginEnd="5px" id="gc6">
+                                    <af:gridCell marginStart="5px" width="100%" marginEnd="5px" id="gc6"
+                                                 halign="stretch" valign="stretch">
                                         <af:panelCollection id="pc1" styleClass="AFStretchWidth"
                                                             featuresOff="detach viewMenu">
                                             <f:facet name="menus"/>
@@ -84,7 +90,8 @@
                                                       autoHeightRows="#{pageFlowScope.OracleERPBean.erpScreenSize=='portrait'?8:15}" scrollPolicy="page"
                                                       partialTriggers=":::l6 :::l7 :::l8" styleClass="AFStretchWidth">
                                                 <af:column headerText="#{bindings.GlVoucherTypesCRUD.hints.VoucherTypeId.label}"
-                                                           id="c1" rendered="false">
+                                                           id="c1" rendered="false"
+                                                           headerClass="ERPToolBarBackground">
                                                     <af:inputText value="#{row.bindings.VoucherTypeId.inputValue}"
                                                                   label="#{bindings.GlVoucherTypesCRUD.hints.VoucherTypeId.label}"
                                                                   required="#{bindings.GlVoucherTypesCRUD.hints.VoucherTypeId.mandatory}"
@@ -98,7 +105,7 @@
                                                     </af:inputText>
                                                 </af:column>
                                                 <af:column headerText="#{bindings.GlVoucherTypesCRUD.hints.VoucherTypeCode.label}"
-                                                           id="c2">
+                                                           id="c2" headerClass="ERPToolBarBackground">
                                                     <af:inputText value="#{row.bindings.VoucherTypeCode.inputValue}"
                                                                   label="#{bindings.GlVoucherTypesCRUD.hints.VoucherTypeCode.label}"
                                                                   required="#{bindings.GlVoucherTypesCRUD.hints.VoucherTypeCode.mandatory}"
@@ -110,7 +117,8 @@
                                                     </af:inputText>
                                                 </af:column>
                                                 <af:column headerText="#{bindings.GlVoucherTypesCRUD.hints.VoucherTypeName.label}"
-                                                           id="c3" width="300" displayIndex="-1">
+                                                           id="c3" width="300" displayIndex="-1"
+                                                           headerClass="ERPToolBarBackground">
                                                     <af:inputText value="#{row.bindings.VoucherTypeName.inputValue}"
                                                                   label="#{bindings.GlVoucherTypesCRUD.hints.VoucherTypeName.label}"
                                                                   required="#{bindings.GlVoucherTypesCRUD.hints.VoucherTypeName.mandatory}"
@@ -123,7 +131,8 @@
                                                     </af:inputText>
                                                 </af:column>
                                                 <af:column headerText="#{bindings.GlVoucherTypesCRUD.hints.VoucherCategorySno.label}"
-                                                           id="c4" width="200" displayIndex="-1">
+                                                           id="c4" width="200" displayIndex="-1"
+                                                           headerClass="ERPToolBarBackground">
                                                     <af:selectOneChoice value="#{row.bindings.VoucherCategorySno.inputValue}"
                                                                         label="#{row.bindings.VoucherCategorySno.label}"
                                                                         required="#{bindings.GlVoucherTypesCRUD.hints.VoucherCategorySno.mandatory}"
@@ -136,7 +145,7 @@
                                                     </af:selectOneChoice>
                                                 </af:column>
                                                 <af:column headerText="#{bindings.GlVoucherTypesCRUD.hints.IsActive.label}"
-                                                           id="c5">
+                                                           id="c5" headerClass="ERPToolBarBackground">
                                                     <af:selectOneChoice value="#{row.bindings.IsActive.inputValue}"
                                                                         label="#{row.bindings.IsActive.label}"
                                                                         required="#{bindings.GlVoucherTypesCRUD.hints.IsActive.mandatory}"
@@ -154,9 +163,13 @@
                             </af:panelGridLayout>
                         </f:facet>
                         <f:facet name="top">
-                            <af:panelGridLayout id="pgl4" dimensionsFrom="parent">
+                            <af:panelGridLayout id="pgl4" dimensionsFrom="parent" styleClass="ERPToolBarBackground">
                                 <af:gridRow marginTop="5px" height="auto" marginBottom="5px" id="gr7">
-                                    <af:gridCell marginStart="5px" width="50%" id="gc7"/>
+                                    <af:gridCell marginStart="5px" width="50%" id="gc7" valign="middle">
+                                        <af:spacer width="10" height="10" id="s2"/>
+                                        <af:outputText value="ERPActivityNameFormHeading" id="ot1"
+                                                       styleClass="ERPActivityNameFormHeading"/>
+                                    </af:gridCell>
                                     <af:gridCell marginStart="5px" width="50%" marginEnd="5px" id="gc8" halign="end">
                                         <af:panelGroupLayout id="pgl5" layout="horizontal" halign="end">
                                             <af:link actionListener="#{bindings.CreateWithParams.execute}"
