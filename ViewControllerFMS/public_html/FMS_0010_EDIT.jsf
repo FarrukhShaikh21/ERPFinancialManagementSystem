@@ -71,7 +71,8 @@
                                     </af:gridCell>
                                 </af:gridRow>
                                 <af:gridRow marginTop="5px" height="auto" marginBottom="5px" id="gr6">
-                                    <af:gridCell marginStart="5px" width="100%" marginEnd="5px" id="gc6">
+                                    <af:gridCell marginStart="5px" width="100%" marginEnd="5px" id="gc6"
+                                                 valign="stretch" halign="stretch">
                                         <af:panelCollection id="pc1" styleClass="AFStretchWidth">
                                             <f:facet name="menus"/>
                                             <f:facet name="toolbar"/>
