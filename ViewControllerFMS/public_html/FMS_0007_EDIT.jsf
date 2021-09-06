@@ -96,39 +96,42 @@
                                                          styleClass="WBDisplayBlock WBDisplayBlockPadding WBDisplayBlockCenterUndo">
                                                 <af:panelGroupLayout id="pgl2" layout="vertical"
                                                                      styleClass="WBCardSize">
-                                                    <af:panelGridLayout id="pgl1">
-                                                        <af:gridRow marginTop="5px" height="auto" id="gr1">
-                                                            <af:gridCell marginStart="5px" width="100%" marginEnd="5px"
-                                                                         id="gc1"
-                                                                         styleClass="AFStretchWidth ERPHeroBackground">
-                                                                <af:panelGroupLayout id="pgl6" layout="horizontal">
-                                                                    <af:link id="l1" partialSubmit="true"
-                                                                             action="DO-ACT-QUERY-FMS_0007_EDIT"
-                                                                             icon="#{resource['images:imgView.png']}"
-                                                                             styleClass="ERPHeroBannerFont ERPLink"/>
-                                                                    <af:outputFormatted value="#{item.bindings.VoucherTypeName.inputValue}"
-                                                                                        id="of3"
-                                                                                        styleClass="ERPHeroBannerFont"/>
-                                                                </af:panelGroupLayout>
-                                                            </af:gridCell>
-                                                        </af:gridRow>
-                                                        <af:gridRow marginTop="5px" height="auto" marginBottom="5px"
-                                                                    id="gr2">
-                                                            <af:gridCell marginStart="5px" width="100%" marginEnd="5px"
-                                                                         id="gc2">
-                                                                <af:panelGroupLayout id="pgl7" layout="horizontal">
-                                                                    <af:image source="#{resource['images:imgDocumentNumber.png']}"
-                                                                              id="i1"/>
-                                                                    <af:outputFormatted value="#{item.bindings.VoucherTypeCode.inputValue}"
-                                                                                        id="of2"
-                                                                                        styleClass="ERPHeroDetailColor"/>
-                                                                    <f:facet name="separator">
-                                                                        <af:spacer width="10" height="10" id="s2"/>
-                                                                    </f:facet>
-                                                                </af:panelGroupLayout>
-                                                            </af:gridCell>
-                                                        </af:gridRow>
-                                                    </af:panelGridLayout>
+                                                    <af:panelBox text="PanelBox1" id="pb1" showHeader="never">
+                                                        <f:facet name="toolbar"/>
+                                                        <af:panelGridLayout id="pgl1">
+                                                            <af:gridRow marginTop="5px" height="auto" id="gr1">
+                                                                <af:gridCell marginStart="5px" width="100%"
+                                                                             marginEnd="5px" id="gc1"
+                                                                             styleClass="AFStretchWidth ERPHeroBackground">
+                                                                    <af:panelGroupLayout id="pgl6" layout="horizontal">
+                                                                        <af:link id="l1" partialSubmit="true"
+                                                                                 action="DO-ACT-QUERY-FMS_0007_EDIT"
+                                                                                 icon="#{resource['images:imgView.png']}"
+                                                                                 styleClass="ERPHeroBannerFont ERPLink"/>
+                                                                        <af:outputFormatted value="#{item.bindings.VoucherTypeName.inputValue}"
+                                                                                            id="of3"
+                                                                                            styleClass="ERPHeroBannerFont"/>
+                                                                    </af:panelGroupLayout>
+                                                                </af:gridCell>
+                                                            </af:gridRow>
+                                                            <af:gridRow marginTop="5px" height="auto" marginBottom="5px"
+                                                                        id="gr2">
+                                                                <af:gridCell marginStart="5px" width="100%"
+                                                                             marginEnd="5px" id="gc2">
+                                                                    <af:panelGroupLayout id="pgl7" layout="horizontal">
+                                                                        <af:image source="#{resource['images:imgDocumentNumber.png']}"
+                                                                                  id="i1"/>
+                                                                        <af:outputFormatted value="#{item.bindings.VoucherTypeCode.inputValue}"
+                                                                                            id="of2"
+                                                                                            styleClass="ERPHeroDetailColor"/>
+                                                                        <f:facet name="separator">
+                                                                            <af:spacer width="10" height="10" id="s2"/>
+                                                                        </f:facet>
+                                                                    </af:panelGroupLayout>
+                                                                </af:gridCell>
+                                                            </af:gridRow>
+                                                        </af:panelGridLayout>
+                                                    </af:panelBox>
                                                 </af:panelGroupLayout>
                                             </af:listItem>
                                         </af:listView>
