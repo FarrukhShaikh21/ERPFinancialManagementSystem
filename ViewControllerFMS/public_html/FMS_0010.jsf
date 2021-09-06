@@ -14,11 +14,9 @@
                                              fetchSize="#{bindings.AdminCompanyVORO.rangeSize}" id="lv1"
                                              styleClass="WBDisplayBlockCenter" selection="single"
                                              selectedRowKeys="#{bindings.AdminCompanyVORO.collectionModel.selectedRow}"
-                                             selectionListener="#{bindings.AdminCompanyVORO.treeModel.makeCurrent}"
-                                             inlineStyle="border:none">
+                                             selectionListener="#{bindings.AdminCompanyVORO.treeModel.makeCurrent}">
                                     <af:listItem id="li1"
-                                                 styleClass="WBDisplayBlock WBDisplayBlockPadding WBDisplayBlockCenterUndo"
-                                                 inlineStyle="border:none">
+                                                 styleClass="WBDisplayBlock WBDisplayBlockPadding WBDisplayBlockCenterUndo">
                                         <af:panelGroupLayout id="pgl2" styleClass="WBCardSize" layout="vertical">
                                             <af:panelBox text="PanelBox2" id="pb2" showHeader="never">
                                                 <f:facet name="toolbar"/>
