@@ -324,7 +324,7 @@
                                                      iconPosition="top"
                                                      action="#{pageFlowScope.OracleERPBean.doBackFromEdit}"
                                                  disabled="#{bindings.txtGetMaxEntityState.inputValue==2 || bindings.txtGetMinEntityState.inputValue==0}"
-                                                 partialTriggers="l2 pc1:t1:soc1">
+                                                 partialTriggers="l2 pc1:t1:soc1" shortDesc="Close Form">
                                                 <af:setActionListener from="#{'GlCoaUserCompanyCRUDIterator'}"
                                                                       to="#{pageFlowScope.OracleERPBean.LIteratorName}"/>
                                                 <af:setActionListener from="#{'ERPBACKCRUD'}"
@@ -333,7 +333,7 @@
                                             <af:link actionListener="#{bindings.Delete.execute}"
                                                      disabled="#{pageFlowScope.ERPMainTempBean.LERPAllowDelete=='N'}" id="l4" iconPosition="top"
                                                      icon="#{resource['images:imgDeleteRecord.png']}" text="Delete"
-                                                     partialSubmit="true"/>
+                                                     partialSubmit="true" shortDesc="Delete Record"/>
                                             <af:link actionListener="#{bindings.CreateWithParams.execute}"
                                                      text="Add"
                                                      disabled="#{!bindings.CreateWithParams.enabled}" id="l3"
@@ -341,12 +341,12 @@
                                                      icon="#{resource['images:imgAddRecord.png']}" rendered="false"/>
                                             <af:link actionListener="#{bindings.Rollback.execute}" text="Undo" immediate="true" id="l1"
                                                      partialSubmit="true" icon="#{resource['images:imgUndo.png']}"
-                                                     iconPosition="top">
+                                                     iconPosition="top" shortDesc="Undo Record">
                                                 <af:resetActionListener/>
                                             </af:link>
                                             <af:link actionListener="#{bindings.Commit.execute}" text="Save" id="l2"
                                                      icon="#{resource['images:imgSave.png']}" iconPosition="top"
-                                                     partialSubmit="true"/>
+                                                     partialSubmit="true" shortDesc="Save Record"/>
                                             <f:facet name="separator">
                                                 <af:spacer width="10" height="10" id="s1"/>
                                             </f:facet>

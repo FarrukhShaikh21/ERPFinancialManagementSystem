@@ -446,7 +446,8 @@
                                             <af:link text="Close" id="l1"
                                                      icon="#{resource['images:imgCloseDialog.png']}" iconPosition="top"
                                                      partialSubmit="true"
-                                                     action="#{pageFlowScope.OracleERPBean.doBackFromEdit}"/>
+                                                     action="#{pageFlowScope.OracleERPBean.doBackFromEdit}"
+                                                     shortDesc="Close Form"/>
                                             <af:link actionListener="#{bindings.Rollback.execute}" text="Rollback"
                                                      disabled="#{!bindings.Rollback.enabled}" immediate="true" id="l4"
                                                      rendered="false">
@@ -459,7 +460,8 @@
                                                      icon="#{resource['images:imgUnSuperviseRecord.png']}"
                                                      iconPosition="top"
                                                      action="#{pageFlowScope.OracleERPBean.doERPPopUnSuperviseRecord}"
-                                                     disabled="#{bindings.IsSupervised.inputValue=='N' || pageFlowScope.ERPMainTempBean.LERPAllowUnsupervise=='N'}">
+                                                     disabled="#{bindings.IsSupervised.inputValue=='N' || pageFlowScope.ERPMainTempBean.LERPAllowUnsupervise=='N'}"
+                                                     shortDesc="Un Supervised Record">
                                                 <af:setActionListener from="#{'GlBankByCompanyCRUDIterator'}"
                                                                       to="#{pageFlowScope.OracleERPBean.LIteratorName}"/>
                                             </af:link>                                                     
@@ -467,21 +469,24 @@
                                                      icon="#{resource['images:imgSuperviseRecord.png']}"
                                                      iconPosition="top"
                                                      action="#{pageFlowScope.OracleERPBean.doERPPopSupervisedRecord}"
-                                                     disabled="#{bindings.IsSupervised.inputValue=='Y' || pageFlowScope.ERPMainTempBean.LERPAllowSupervise=='N'}">
+                                                     disabled="#{bindings.IsSupervised.inputValue=='Y' || pageFlowScope.ERPMainTempBean.LERPAllowSupervise=='N'}"
+                                                     shortDesc="Supervise Record">
                                                 <af:setActionListener from="#{'GlBankByCompanyCRUDIterator'}"
                                                                       to="#{pageFlowScope.OracleERPBean.LIteratorName}"/>
                                             </af:link>                                                     
                                             <af:link text="Delete" id="l12" partialSubmit="true"
                                                      icon="#{resource['images:imgDeleteRecord.png']}"
                                                      iconPosition="top"
-                                                     disabled="#{pageFlowScope.ERPMainTempBean.LERPAllowDelete=='N'}">
+                                                     disabled="#{pageFlowScope.ERPMainTempBean.LERPAllowDelete=='N'}"
+                                                     shortDesc="Delete Record">
                                                 <af:showPopupBehavior popupId="p1"/>
                                             </af:link>
                                             <af:link text="Add"
                                                      disabled="#{pageFlowScope.ERPMainTempBean.LERPAllowAdd=='N'}" id="l2"
                                                      partialSubmit="true" icon="#{resource['images:imgAddRecord.png']}"
                                                      iconPosition="top"
-                                                     action="#{pageFlowScope.OracleERPBean.doERPAddRecordWithPara}"/>
+                                                     action="#{pageFlowScope.OracleERPBean.doERPAddRecordWithPara}"
+                                                     shortDesc="Add New Record"/>
                                             <af:link text="Delete" id="l9" partialSubmit="true"
                                                      icon="#{resource['images:imgDeleteRecord.png']}" iconPosition="top"
                                                      actionListener="#{bindings.Delete.execute}" rendered="false"/>
@@ -489,12 +494,13 @@
                                                      disabled="#{!bindings.Delete.enabled}" id="l8" rendered="false"/>
                                             <af:link text="Undo" id="l3" actionListener="#{bindings.Rollback.execute}"
                                                      icon="#{resource['images:imgUndo.png']}" iconPosition="top"
-                                                     partialSubmit="true" immediate="true">
+                                                     partialSubmit="true" immediate="true" shortDesc="Undo Record">
                                                 <af:resetActionListener/>
                                             </af:link>
                                             <af:link text="Save" id="l6" icon="#{resource['images:imgSave.png']}"
                                                      iconPosition="top" partialSubmit="true"
-                                                     action="#{pageFlowScope.OracleERPBean.doERPCommitRecord}"/>
+                                                     action="#{pageFlowScope.OracleERPBean.doERPCommitRecord}"
+                                                     shortDesc="Save Record"/>
                                             <af:link actionListener="#{bindings.Commit.execute}" text="Commit"
                                                      disabled="#{!bindings.Commit.enabled}" id="l5" rendered="false"/>
                                             <f:facet name="separator">

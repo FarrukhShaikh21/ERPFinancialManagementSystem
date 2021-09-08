@@ -136,13 +136,15 @@
                 <f:facet name="ERPLeft"/>
                 <f:facet name="ERPToolbar">
                     <af:panelGroupLayout id="pgl6" layout="horizontal">
-                        <af:link id="l4" partialSubmit="true" icon="#{resource['images:imgFind.png']}">
+                        <af:link id="l4" partialSubmit="true" icon="#{resource['images:imgFind.png']}"
+                                 shortDesc="Print Preview">
                             <af:showPopupBehavior popupId="::p1"/>
                         </af:link>
                         <af:link id="l3" partialSubmit="true" icon="#{resource['images:imgExitForm.png']}"
-                                 action="ERPACTEXITFORM"/>
+                                 action="ERPACTEXITFORM" shortDesc="Exit Form"/>
                         <af:link id="l2" icon="#{resource['images:imgNewDocument.png']}" action="ERPADDFMS_0005"
-                                 disabled="#{pageFlowScope.ERPMainTempBean.LERPAllowAdd=='N'}"/>
+                                 disabled="#{pageFlowScope.ERPMainTempBean.LERPAllowAdd=='N'}"
+                                 shortDesc="Add New Record"/>
                     </af:panelGroupLayout>
                 </f:facet>
             </af:pageTemplate>

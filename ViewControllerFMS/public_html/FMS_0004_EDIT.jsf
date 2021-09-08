@@ -192,12 +192,13 @@
                                     <af:gridCell marginStart="5px" width="50%" marginEnd="5px" id="gc8">
                                         <af:panelGroupLayout id="pgl5" layout="horizontal" halign="end">
                                             <af:link id="l4" icon="#{resource['images:imgCloseDialog.png']}"
-                                                     action="ERPBACKCRUD"/>
+                                                     action="ERPBACKCRUD" shortDesc="Close Form"/>
                                             <af:link id="l3" partialSubmit="true" action="ERPBACKCRUD"/>
                                             <af:link id="l2"
                                                      icon="#{resource['images:imgNewDocument.png']}"
                                                      action="ERPADDFMS_0004_EDIT_EDIT"
-                                                     disabled="#{pageFlowScope.ERPMainTempBean.LERPAllowAdd=='N'}"/>
+                                                     disabled="#{pageFlowScope.ERPMainTempBean.LERPAllowAdd=='N'}"
+                                                     shortDesc="Add New Record"/>
                                             <f:facet name="separator">
                                                 <af:spacer width="10" height="10" id="s1"/>
                                             </f:facet>

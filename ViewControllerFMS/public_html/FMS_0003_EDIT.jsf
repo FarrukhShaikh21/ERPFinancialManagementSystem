@@ -318,7 +318,8 @@
                                         <af:link id="l5" partialSubmit="true"
                                                      icon="#{resource['images:imgCloseDialog.png']}" text="Close"
                                                      iconPosition="top"
-                                                     action="#{pageFlowScope.OracleERPBean.doBackFromEdit}">
+                                                     action="#{pageFlowScope.OracleERPBean.doBackFromEdit}"
+                                                 shortDesc="Close Form">
                                                 <af:setActionListener from="#{'ERPBACKCRUD'}"
                                                                       to="#{pageFlowScope.OracleERPBean.ERPBackActionName}"/>
                                                 <af:setActionListener from="#{'GlChartOfAccountsROIterator'}"
@@ -327,11 +328,13 @@
                                             <af:link text="Add" id="l1"
                                                      icon="#{resource['images:imgNewDocument.png']}"
                                                      iconPosition="top" partialSubmit="true" action="ERPADDFMS_0003"
-                                                     disabled="#{pageFlowScope.ERPMainTempBean.LERPAllowAdd=='N'}"/>
+                                                     disabled="#{pageFlowScope.ERPMainTempBean.LERPAllowAdd=='N'}"
+                                                     shortDesc="Add New Record"/>
                                             <af:link text="Print Preview" id="l4"
                                                      icon="#{resource['images:imgPrintPreview.png']}"
                                                      iconPosition="top" partialSubmit="true"
-                                                     action="#{pageFlowScope.OracleERPBean.doExecuteFinanceReport}">
+                                                     action="#{pageFlowScope.OracleERPBean.doExecuteFinanceReport}"
+                                                     shortDesc="Print Preview">
                                                 <af:setActionListener from="#{'RPT_FMS_0001.rptdesign'}"
                                                                       to="#{pageFlowScope.OracleERPBean.ERPFinanceReportName}"/>
                                                 <af:setActionListener from="#{'GlChartOfAccountsROIterator'}"

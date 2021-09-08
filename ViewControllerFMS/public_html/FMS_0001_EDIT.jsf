@@ -202,7 +202,8 @@
                                                      iconPosition="top"
                                                      action="#{pageFlowScope.OracleERPBean.doBackFromEdit}"
                                                      disabled="#{bindings.txtGetMaxEntityState.inputValue==2 || bindings.txtGetMinEntityState.inputValue==0}"
-                                                     partialTriggers="pc1:t1:soc1 pc1:t1:it1 pc1:t1:it2 pc1:t1:soc2 l4">
+                                                     partialTriggers="pc1:t1:soc1 pc1:t1:it1 pc1:t1:it2 pc1:t1:soc2 l4"
+                                                     shortDesc="Close Form">
                                                 <af:setActionListener from="#{'GlParameterCRUDIterator'}"
                                                                       to="#{pageFlowScope.OracleERPBean.LIteratorName}"/>
                                                 <af:setActionListener from="#{'ERPBACKCRUD'}"
@@ -212,16 +213,18 @@
                                                      disabled="#{pageFlowScope.ERPMainTempBean.LERPAllowDelete=='N'}" id="l2"
                                                      partialSubmit="true"
                                                      icon="#{resource['images:imgDeleteRecord.png']}"
-                                                     iconPosition="top"/>
+                                                     iconPosition="top" shortDesc="Delete Record"/>
                                             <af:link actionListener="#{bindings.CreateInsert.execute}"
                                                      text="Add"
                                                      disabled="#{pageFlowScope.ERPMainTempBean.LERPAllowAdd=='N'}"
                                                      id="l1" partialSubmit="true"
-                                                     icon="#{resource['images:imgAddRecord.png']}" iconPosition="top"/>
+                                                     icon="#{resource['images:imgAddRecord.png']}" iconPosition="top"
+                                                     shortDesc="Add New Record"/>
                                             <af:link text="Undo" immediate="true" id="l3"
                                                      partialSubmit="true" iconPosition="top"
                                                      icon="#{resource['images:imgUndo.png']}"
-                                                     action="#{pageFlowScope.OracleERPBean.doErpUndoRecord}">
+                                                     action="#{pageFlowScope.OracleERPBean.doErpUndoRecord}"
+                                                     shortDesc="Unro Record">
                                                 <af:resetActionListener/>
                                             </af:link>
                                             <af:link text="link 2" id="l7"
@@ -230,7 +233,8 @@
                                                      actionListener="#{bindings.Commit.execute}"/>
                                             <af:link text="Save" id="l4" partialSubmit="true"
                                                      icon="#{resource['images:imgSave.png']}" iconPosition="top"
-                                                     action="#{pageFlowScope.OracleERPBean.doERPCommitRecord}"/>
+                                                     action="#{pageFlowScope.OracleERPBean.doERPCommitRecord}"
+                                                     shortDesc="Save Record"/>
                                             <f:facet name="separator">
                                                 <af:spacer width="10" height="10" id="s1"/>
                                             </f:facet>

@@ -282,7 +282,8 @@
                                                      icon="#{resource['images:imgCloseDialog.png']}"
                                                      text="Close"
                                                      iconPosition="top"
-                                                     action="#{pageFlowScope.OracleERPBean.doBackFromEdit}">
+                                                     action="#{pageFlowScope.OracleERPBean.doBackFromEdit}"
+                                                     shortDesc="Close Form">
                                                 <af:setActionListener from="#{'ERPBACKCRUD'}"
                                                                       to="#{pageFlowScope.OracleERPBean.ERPBackActionName}"/>
                                             </af:link>
@@ -294,7 +295,8 @@
                                                      icon="#{resource['images:imgUnSuperviseRecord.png']}"
                                                      iconPosition="top"
                                                      action="#{pageFlowScope.OracleERPBean.doERPPopUnSuperviseRecord}"
-                                                     disabled="#{bindings.IsSupervised.inputValue=='N' || pageFlowScope.ERPMainTempBean.LERPAllowUnsupervise=='N'}">
+                                                     disabled="#{bindings.IsSupervised.inputValue=='N' || pageFlowScope.ERPMainTempBean.LERPAllowUnsupervise=='N'}"
+                                                     shortDesc="Un Supervise Record">
                                                 <af:setActionListener from="#{'GlTaxTypeCRUDIterator'}"
                                                                       to="#{pageFlowScope.OracleERPBean.LIteratorName}"/>
                                             </af:link>                                                     
@@ -302,14 +304,16 @@
                                                      icon="#{resource['images:imgSuperviseRecord.png']}"
                                                      iconPosition="top"
                                                      action="#{pageFlowScope.OracleERPBean.doERPPopSupervisedRecord}"
-                                                     disabled="#{bindings.IsSupervised.inputValue=='Y' || pageFlowScope.ERPMainTempBean.LERPAllowSupervise=='N' || bindings.TaxTypeCode.inputValue==null}">
+                                                     disabled="#{bindings.IsSupervised.inputValue=='Y' || pageFlowScope.ERPMainTempBean.LERPAllowSupervise=='N' || bindings.TaxTypeCode.inputValue==null}"
+                                                     shortDesc="Supervise Record">
                                                 <af:setActionListener from="#{'GlTaxTypeCRUDIterator'}"
                                                                       to="#{pageFlowScope.OracleERPBean.LIteratorName}"/>
                                             </af:link>                                                     
                                             <af:link actionListener="#{bindings.Delete.execute}" text="Delete" id="l8" rendered="false"/>
                                             <af:link text="Delete" id="l12" partialSubmit="true"
                                                      icon="#{resource['images:imgDeleteRecord.png']}" iconPosition="top"
-                                                     disabled="#{pageFlowScope.ERPMainTempBean.LERPAllowDelete=='N' || bindings.IsSupervised.inputValue=='Y' }">
+                                                     disabled="#{pageFlowScope.ERPMainTempBean.LERPAllowDelete=='N' || bindings.IsSupervised.inputValue=='Y' }"
+                                                     shortDesc="Delete Record">
                                                 <af:showPopupBehavior popupId="p1"/>
                                             </af:link>
                                             <af:link
@@ -317,7 +321,8 @@
                                                      id="l1" icon="#{resource['images:imgAddRecord.png']}"
                                                      iconPosition="top" partialSubmit="true"
                                                      action="#{pageFlowScope.OracleERPBean.doERPAddRecordWithPara}"
-                                                     disabled="#{pageFlowScope.ERPMainTempBean.LERPAllowAdd=='N'}">
+                                                     disabled="#{pageFlowScope.ERPMainTempBean.LERPAllowAdd=='N'}"
+                                                     shortDesc="Add New Record">
                                                 <af:setActionListener from="#{'GlChartOfAccountsByCOIDCRUDIterator'}"
                                                                       to="#{pageFlowScope.OracleERPBean.LIteratorName}"/>
                                             </af:link>                                            
@@ -328,7 +333,8 @@
                                             <af:link actionListener="#{bindings.Rollback.execute}" text="Undo" immediate="true" id="l3"
                                                      icon="#{resource['images:imgUndo.png']}" iconPosition="top"
                                                      partialSubmit="true"
-                                                     disabled="#{bindings.IsSupervised.inputValue=='Y' }">
+                                                     disabled="#{bindings.IsSupervised.inputValue=='Y' }"
+                                                     shortDesc="Undo Record">
                                                 <af:resetActionListener/>
                                             </af:link>
                                             <af:link actionListener="#{bindings.Commit.execute}" text="Commit" id="l7"
@@ -336,7 +342,8 @@
                                             <af:link actionListener="#{bindings.Commit.execute}" text="Save" id="l2"
                                                      icon="#{resource['images:imgSave.png']}" iconPosition="top"
                                                      partialSubmit="true"
-                                                     disabled="#{bindings.IsSupervised.inputValue=='Y' }"/>
+                                                     disabled="#{bindings.IsSupervised.inputValue=='Y' }"
+                                                     shortDesc="Save Record"/>
                                             <f:facet name="separator">
                                                 <af:spacer width="10" height="10" id="s1"/>
                                             </f:facet>

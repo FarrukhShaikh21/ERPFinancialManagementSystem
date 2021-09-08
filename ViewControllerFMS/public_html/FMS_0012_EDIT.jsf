@@ -211,10 +211,11 @@
                                         <af:panelGroupLayout id="pgl5" layout="horizontal" halign="end">
                                             <af:link id="l4" icon="#{resource['images:imgCloseDialog.png']}"
                                                      action="#{pageFlowScope.OracleERPBean.doBackFromEdit}" iconPosition="top"
-                                                     partialSubmit="true"/>
+                                                     partialSubmit="true" shortDesc="Close Form"/>
                                             <af:link id="l2" partialSubmit="true"
                                                      icon="#{resource['images:imgNewDocument.png']}"
-                                                     iconPosition="top" action="ERPADDFMS_0012_EDIT_EDIT"/>
+                                                     iconPosition="top" action="ERPADDFMS_0012_EDIT_EDIT"
+                                                     shortDesc="Add New Record"/>
                                             <f:facet name="separator">
                                                 <af:spacer width="10" height="10" id="s1"/>
                                             </f:facet>

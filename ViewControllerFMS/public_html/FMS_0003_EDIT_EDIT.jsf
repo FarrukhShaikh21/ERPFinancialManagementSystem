@@ -216,7 +216,8 @@
                                                      icon="#{resource['images:imgCloseDialog.png']}"
                                                      text="Close"
                                                      iconPosition="top"
-                                                     action="#{pageFlowScope.OracleERPBean.doBackFromEdit}">
+                                                     action="#{pageFlowScope.OracleERPBean.doBackFromEdit}"
+                                                     shortDesc="Close Form">
                                                 <af:setActionListener from="#{'GlChartOfAccountsByCOIDCRUDIterator'}"
                                                                       to="#{pageFlowScope.OracleERPBean.LIteratorName}"/>
                                                 <af:setActionListener from="#{'ERPBACKCRUD'}"
@@ -225,7 +226,8 @@
                                             <af:link text="Print Preview" id="l6" iconPosition="top"
                                                      icon="#{resource['images:imgPrintPreview.png']}"
                                                      partialSubmit="true"
-                                                     action="#{pageFlowScope.OracleERPBean.doExecuteFinanceReport}">
+                                                     action="#{pageFlowScope.OracleERPBean.doExecuteFinanceReport}"
+                                                     shortDesc="Print Preview">
                                                 <af:setActionListener from="#{bindings.ChartOfAccountId.inputValue}"
                                                                       to="#{pageFlowScope.OracleERPBean.ERPPKForReport}"/>
                                                 <af:setActionListener from="#{'RPT_FMS_0002.rptdesign'}"
@@ -242,18 +244,19 @@
                                                      id="l1" icon="#{resource['images:imgAddRecord.png']}"
                                                      iconPosition="top" partialSubmit="true"
                                                      action="#{pageFlowScope.OracleERPBean.doERPAddRecordWithPara}"
-                                                     disabled="#{pageFlowScope.ERPMainTempBean.LERPAllowAdd=='N'}">
+                                                     disabled="#{pageFlowScope.ERPMainTempBean.LERPAllowAdd=='N'}"
+                                                     shortDesc="Add New Record">
                                                 <af:setActionListener from="#{'GlChartOfAccountsByCOIDCRUDIterator'}"
                                                                       to="#{pageFlowScope.OracleERPBean.LIteratorName}"/>
                                             </af:link>
                                             <af:link actionListener="#{bindings.Rollback.execute}" text="Undo" immediate="true" id="l3"
                                                      icon="#{resource['images:imgUndo.png']}" iconPosition="top"
-                                                     partialSubmit="true">
+                                                     partialSubmit="true" shortDesc="Undo Record">
                                                 <af:resetActionListener/>
                                             </af:link>
                                             <af:link actionListener="#{bindings.Commit.execute}" text="Save" id="l2"
                                                      icon="#{resource['images:imgSave.png']}" iconPosition="top"
-                                                     partialSubmit="true"/>
+                                                     partialSubmit="true" shortDesc="Save Record"/>
                                             <f:facet name="separator">
                                                 <af:spacer width="10" height="10" id="s1"/>
                                             </f:facet>

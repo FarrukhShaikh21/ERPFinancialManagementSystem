@@ -110,7 +110,8 @@
         </f:facet>
         <f:facet name="ERPLeft"/>
         <f:facet name="ERPToolbar">
-          <af:link id="l1" icon="#{resource['images:imgExitForm.png']}" action="ERPACTEXITFORM" partialSubmit="true"/>
+          <af:link id="l1" icon="#{resource['images:imgExitForm.png']}" action="ERPACTEXITFORM" partialSubmit="true"
+                   shortDesc="Exit Form"/>
         </f:facet>
       </af:pageTemplate>
     </af:form>

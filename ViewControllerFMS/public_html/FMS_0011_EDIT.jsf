@@ -193,7 +193,7 @@
                                         <af:panelGroupLayout id="pgl5" layout="horizontal" halign="end">
                                             <af:link id="l4" icon="#{resource['images:imgCloseDialog.png']}"
                                                      action="#{pageFlowScope.OracleERPBean.doBackFromEdit}" text="Close" iconPosition="top"
-                                                     partialSubmit="true"/>
+                                                     partialSubmit="true" shortDesc="Close Form"/>
                                             <f:facet name="separator">
                                                 <af:spacer width="10" height="10" id="s1"/>
                                             </f:facet>

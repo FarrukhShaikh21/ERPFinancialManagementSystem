@@ -355,7 +355,8 @@
                                             <af:link id="l1" text="Close" partialSubmit="true"
                                                      icon="#{resource['images:imgCloseDialog.png']}"
                                                      iconPosition="top"
-                                                     action="#{pageFlowScope.OracleERPBean.doBackFromEdit}">
+                                                     action="#{pageFlowScope.OracleERPBean.doBackFromEdit}"
+                                                     shortDesc="Close Form">
                                                 <af:setActionListener from="#{'GlFiscalYearCRUDIterator'}"
                                                                       to="#{pageFlowScope.OracleERPBean.LIteratorName}"/>
                                             </af:link>
@@ -365,7 +366,8 @@
                                                      icon="#{resource['images:imgUnSuperviseRecord.png']}"
                                                      iconPosition="top"
                                                      action="#{pageFlowScope.OracleERPBean.doERPPopUnSuperviseRecord}"
-                                                     disabled="#{bindings.IsSupervised.inputValue=='N' || pageFlowScope.ERPMainTempBean.LERPAllowUnsupervise=='N'}">
+                                                     disabled="#{bindings.IsSupervised.inputValue=='N' || pageFlowScope.ERPMainTempBean.LERPAllowUnsupervise=='N'}"
+                                                     shortDesc="Un Supervise Record">
                                                 <af:setActionListener from="#{'GlFiscalYearCRUDIterator'}"
                                                                       to="#{pageFlowScope.OracleERPBean.LIteratorName}"/>
                                             </af:link>
@@ -373,14 +375,16 @@
                                                      icon="#{resource['images:imgSuperviseRecord.png']}"
                                                      iconPosition="top"
                                                      action="#{pageFlowScope.OracleERPBean.doERPPopSupervisedRecord}"
-                                                     disabled="#{bindings.IsSupervised.inputValue=='Y' || pageFlowScope.ERPMainTempBean.LERPAllowSupervise=='N'}">
+                                                     disabled="#{bindings.IsSupervised.inputValue=='Y' || pageFlowScope.ERPMainTempBean.LERPAllowSupervise=='N'}"
+                                                     shortDesc="Supervise Record">
                                                 <af:setActionListener from="#{'GlFiscalYearCRUDIterator'}"
                                                                       to="#{pageFlowScope.OracleERPBean.LIteratorName}"/>
                                             </af:link>
                                             <af:link text="Delete" id="l3" iconPosition="top"
                                                      icon="#{resource['images:imgDeleteRecord.png']}"
                                                      partialSubmit="true"
-                                                     disabled="#{bindings.IsSupervised.inputValue=='Y' || pageFlowScope.ERPMainTempBean.LERPAllowDelete=='N'}">
+                                                     disabled="#{bindings.IsSupervised.inputValue=='Y' || pageFlowScope.ERPMainTempBean.LERPAllowDelete=='N'}"
+                                                     shortDesc="Delete Record">
                                                 <af:showPopupBehavior popupId="p1"/>
                                             </af:link>
                                             <af:link actionListener="#{bindings.CreateWithParams.execute}"
@@ -392,7 +396,8 @@
                                                      id="l2" partialSubmit="true"
                                                      icon="#{resource['images:imgAddRecord.png']}" iconPosition="top"
                                                      action="#{pageFlowScope.OracleERPBean.doERPAddRecordWithPara}"
-                                                     disabled="#{pageFlowScope.ERPMainTempBean.LERPAllowAdd=='N'}">
+                                                     disabled="#{pageFlowScope.ERPMainTempBean.LERPAllowAdd=='N'}"
+                                                     shortDesc="Add New Record">
                                                 <af:setActionListener from="#{'GlFiscalYearCRUDIterator'}"
                                                                       to="#{pageFlowScope.OracleERPBean.LIteratorName}"/>
                                             </af:link>
@@ -403,13 +408,15 @@
                                             <af:link text="Undo" immediate="true" id="l5"
                                                      icon="#{resource['images:imgUndo.png']}" iconPosition="top"
                                                      partialSubmit="true"
-                                                     action="#{pageFlowScope.OracleERPBean.doErpUndoRecord}">
+                                                     action="#{pageFlowScope.OracleERPBean.doErpUndoRecord}"
+                                                     shortDesc="Undo Record">
                                                 <af:resetActionListener/>
                                             </af:link>
                                             <af:link text="Save" id="l7" icon="#{resource['images:imgSave.png']}"
                                                      iconPosition="top"
                                                      partialSubmit="true"
-                                                     action="#{pageFlowScope.OracleERPBean.doERPCommitRecord}"/>
+                                                     action="#{pageFlowScope.OracleERPBean.doERPCommitRecord}"
+                                                     shortDesc="Save Record"/>
                                             <f:facet name="separator">
                                                 <af:spacer width="10" height="10" id="s1"/>
                                             </f:facet>

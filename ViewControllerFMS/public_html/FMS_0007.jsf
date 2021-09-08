@@ -122,7 +122,7 @@
                 <f:facet name="ERPToolbar">
                     <af:toolbar id="t1">
                         <af:link id="l2" action="ERPACTEXITFORM" icon="#{resource['images:imgExitForm.png']}"
-                                 partialSubmit="true"/>
+                                 partialSubmit="true" shortDesc="Exit Form"/>
                     </af:toolbar>
                 </f:facet>
             </af:pageTemplate>
