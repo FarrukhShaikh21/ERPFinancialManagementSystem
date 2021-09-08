@@ -40,7 +40,8 @@
                                                                 <af:link id="l2" action="DO-ACT-QUERY-FMS_0011"
                                                                          partialSubmit="true"
                                                                          icon="#{resource['images:imgView.png']}"
-                                                                         styleClass="ERPHeroBannerFont ERPLink"/>
+                                                                         styleClass="ERPHeroBannerFont ERPLink"
+                                                                         shortDesc="Company Short Name, click to view record."/>
                                                                 <af:outputFormatted value="#{item.bindings.CompanyShortName.inputValue}"
                                                                                     id="of1" shortDesc="Short Name"
                                                                                     styleClass="ERPHeroBannerFont "/>

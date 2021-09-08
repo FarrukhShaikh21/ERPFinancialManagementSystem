@@ -113,7 +113,8 @@ af|link.ERPLink:hover,
 
 .ERPHeroBannerFont {
     font-size:18px;
-    color:DarkBlue;
+    color:#00008B;
+    /*color:DarkBlue;*/
     font-weight: bolder;
     font-family: sans-serif; 
 }

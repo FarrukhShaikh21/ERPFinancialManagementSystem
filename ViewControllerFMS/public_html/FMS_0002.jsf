@@ -87,7 +87,7 @@
                                                                      id="gc3">
                                                             <af:panelGroupLayout id="pgl4" layout="horizontal">
                                                                 <af:image source="#{resource['images:imgDocumentNumber.png']}"
-                                                                          id="i2" shortDesc="Company Short Code"/>
+                                                                          id="i2" shortDesc="Company Code"/>
                                                                 <af:spacer width="10" height="10" id="s2"/>
                                                                 <af:outputFormatted value="#{item.bindings.CompanyShortCode.inputValue}"
                                                                                     id="of3"

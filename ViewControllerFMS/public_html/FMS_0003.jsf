@@ -42,7 +42,8 @@
                                                                 <af:link id="l2" partialSubmit="true"
                                                                          icon="#{resource['images:imgView.png']}"
                                                                          action="ERPEDITFMS_0003"
-                                                                         styleClass="ERPHeroBannerFont ERPLink">
+                                                                         styleClass="ERPHeroBannerFont ERPLink"
+                                                                         shortDesc="Company Short Name, click to view record.">
                                                                     <af:setActionListener from="#{pageFlowScope.OracleERPBean.ERPFMSDefaultTab}"
                                                                                           to="#{pageFlowScope.OracleERPBean.ERPCOATab}"/>
                                                                     <af:setActionListener from="#{pageFlowScope.OracleERPBean.erpDefaultTreeTable}"
@@ -52,7 +53,7 @@
                                                                          text="#{item.bindings.CompanyName.inputValue}"
                                                                          styleClass="ERPHeroBannerFont"
                                                                          rendered="false"/>
-                                                                <af:outputFormatted value="#{item.bindings.CompanyName.inputValue}"
+                                                                <af:outputFormatted value="#{item.bindings.CompanyShortName.inputValue}"
                                                                                     id="of1"
                                                                                     styleClass="ERPHeroBannerFont"/>
                                                             </af:panelGroupLayout>
@@ -63,7 +64,7 @@
                                                                      id="gc2">
                                                             <af:panelGroupLayout id="pgl4" layout="horizontal">
                                                                 <af:image source="#{resource['images:imgShortName.png']}"
-                                                                          id="i1"/>
+                                                                          id="i1" shortDesc="Company Name"/>
                                                                 <af:outputFormatted value="#{item.bindings.CompanyName.inputValue}"
                                                                                     id="of2"
                                                                                     styleClass="ERPHeroDetailColor"/>
@@ -78,7 +79,7 @@
                                                                      id="gc3">
                                                             <af:panelGroupLayout id="pgl5" layout="horizontal">
                                                                 <af:image source="#{resource['images:imgDocumentNumber.png']}"
-                                                                          id="i2"/>
+                                                                          id="i2" shortDesc="Company Code"/>
                                                                 <af:outputFormatted value="#{item.bindings.CompanyShortCode.inputValue}"
                                                                                     id="of3"
                                                                                     styleClass="ERPHeroDetailColor">
@@ -97,7 +98,7 @@
                                                                      id="gc4">
                                                             <af:panelGroupLayout id="pgl6" layout="horizontal">
                                                                 <af:image source="#{resource['images:imgCountry.png']}"
-                                                                          id="i3"/>
+                                                                          id="i3" shortDesc="Country Name"/>
                                                                 <af:outputFormatted value="#{item.bindings.txtCountryName.inputValue}"
                                                                                     id="of4"
                                                                                     styleClass="ERPHeroDetailColor"/>

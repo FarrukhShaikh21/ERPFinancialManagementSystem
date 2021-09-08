@@ -34,7 +34,7 @@
                                             <af:panelGridLayout id="pgl2">
                                                 <af:gridRow marginTop="5px" height="auto" id="gr1">
                                                     <af:gridCell marginStart="5px" width="100%" marginEnd="5px"
-                                                                 id="gc1">
+                                                                 id="gc1" styleClass="AFStretchWidth ERPHeroBackground">
                                                         <af:panelGroupLayout id="pgl3" layout="horizontal">
                                                             <af:inputText value="#{bindings.VoucherHeaderSno.inputValue}"
                                                                           label="#{bindings.VoucherHeaderSno.hints.label}"
@@ -47,18 +47,20 @@
                                                                 <af:convertNumber groupingUsed="false"
                                                                                   pattern="#{bindings.VoucherHeaderSno.format}"/>
                                                             </af:inputText>
-                                                            <af:image source="#{resource['images:imgDocumentNumber.png']}"
-                                                                      id="i1"/>
+                                                            <af:image source="#{resource['images:imgView.png']}"
+                                                                      id="i1"
+                                                                      shortDesc="Company Short Name, click to view record."/>
                                                             <af:spacer width="10" height="10" id="s1"/>
                                                             <af:link id="l1" partialSubmit="true"
                                                                      action="DO-ACT-QUERY-FMS_0005"
-                                                                     disabled="#{pageFlowScope.ERPMainTempBean.LERPAllowEdit=='N'}">
-                                                                <af:outputFormatted value="#{item.bindings.VoucherHeaderCode.inputValue}"
-                                                                                    id="of1">
-                                                                    <af:convertNumber groupingUsed="false"
-                                                                                      pattern="#{bindings.GlVoucherHeaderRO.hints.VoucherHeaderCode.format}"/>
-                                                                </af:outputFormatted>
-                                                            </af:link>
+                                                                     disabled="#{pageFlowScope.ERPMainTempBean.LERPAllowEdit=='N'}"/>
+                                                            <af:outputFormatted value="#{item.bindings.VoucherHeaderCode.inputValue}"
+                                                                                id="of1"
+                                                                                styleClass="ERPHeroBannerFont "
+                                                                                shortDesc="Voucher No">
+                                                                <af:convertNumber groupingUsed="false"
+                                                                                  pattern="#{bindings.GlVoucherHeaderRO.hints.VoucherHeaderCode.format}"/>
+                                                            </af:outputFormatted>
                                                         </af:panelGroupLayout>
                                                     </af:gridCell>
                                                 </af:gridRow>
@@ -67,7 +69,7 @@
                                                                  id="gc2">
                                                         <af:panelGroupLayout id="pgl4" layout="horizontal">
                                                             <af:image source="#{resource['images:imgDocumentDate.png']}"
-                                                                      id="i2"/>
+                                                                      id="i2" shortDesc="Voucher Date"/>
                                                             <af:spacer width="10" height="10" id="s2"/>
                                                             <af:outputFormatted value="#{item.bindings.VoucherDate.inputValue}"
                                                                                 id="of2"
@@ -82,7 +84,7 @@
                                                                  id="gc3">
                                                         <af:panelGroupLayout id="pgl7" layout="horizontal">
                                                             <af:image source="#{resource['images:imgLocation.png']}"
-                                                                      id="i3"/>
+                                                                      id="i3" shortDesc="Location"/>
                                                             <af:spacer width="10" height="10" id="s3"/>
                                                             <af:outputFormatted value="#{item.bindings.txtLocationName.inputValue}"
                                                                                 id="of3"
@@ -95,7 +97,7 @@
                                                                  id="gc4">
                                                         <af:panelGroupLayout id="pgl8" layout="horizontal">
                                                             <af:image source="#{resource['images:imgVoucherType.png']}"
-                                                                      id="i4"/>
+                                                                      id="i4" shortDesc="Voucher Type"/>
                                                             <af:spacer width="10" height="10" id="s4"/>
                                                             <af:inputText label="Label 1" id="it2" simple="true"
                                                                           value="#{item.bindings.txtVoucherTypeName.inputValue}"
@@ -108,15 +110,17 @@
                                                                  id="gc5">
                                                         <af:panelGroupLayout id="pgl5" layout="horizontal">
                                                             <af:image source="#{resource['images:imgAmount.png']}"
-                                                                      id="i5"/>
+                                                                      id="i5" shortDesc="Amount"/>
                                                             <af:spacer width="10" height="10" id="s5"/>
                                                             <af:outputFormatted value="Dr. #{item.bindings.txtSumDebit.inputValue==null?0:item.bindings.txtSumDebit.inputValue}"
                                                                                 id="of4"
-                                                                                styleClass="ERPHeroDetailColor"/>
+                                                                                styleClass="ERPHeroDetailColor"
+                                                                                shortDesc="Debit"/>
                                                             <af:spacer width="10" height="10" id="s6"/>
                                                             <af:outputFormatted value="Cr. #{item.bindings.txtSumCredit.inputValue==null?0:item.bindings.txtSumCredit.inputValue}"
                                                                                 id="of5"
-                                                                                styleClass="ERPHeroDetailColor"/>
+                                                                                styleClass="ERPHeroDetailColor"
+                                                                                shortDesc="Credit"/>
                                                         </af:panelGroupLayout>
                                                     </af:gridCell>
                                                 </af:gridRow>

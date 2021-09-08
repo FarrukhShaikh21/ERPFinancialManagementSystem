@@ -41,7 +41,8 @@
                                                                 <af:link id="l3" partialSubmit="true"
                                                                          styleClass="ERPHeroBannerFont ERPLink"
                                                                          action="DO-ACT-QUERY-FMS_0007"
-                                                                         icon="#{resource['images:imgView.png']}"/>
+                                                                         icon="#{resource['images:imgView.png']}"
+                                                                         shortDesc="Company Short Name, click to view record."/>
                                                                 <af:outputFormatted value="#{item.bindings.CompanyShortName.inputValue}"
                                                                                     id="of1"
                                                                                     styleClass="ERPHeroBannerFont "/>
@@ -53,7 +54,7 @@
                                                                      id="gc3">
                                                             <af:panelGroupLayout id="pgl3" layout="horizontal">
                                                                 <af:image source="#{resource['images:imgShortName.png']}"
-                                                                          id="i1"/>
+                                                                          id="i1" shortDesc="Company Name"/>
                                                                 <af:outputFormatted value="#{item.bindings.CompanyName.inputValue}"
                                                                                     id="of3"
                                                                                     styleClass="ERPHeroDetailColor"/>
@@ -68,7 +69,7 @@
                                                                      id="gc2">
                                                             <af:panelGroupLayout id="pgl4" layout="horizontal">
                                                                 <af:image source="#{resource['images:imgDocumentNumber.png']}"
-                                                                          id="i2"/>
+                                                                          id="i2" shortDesc="Company Code"/>
                                                                 <af:outputFormatted value="#{item.bindings.CompanyShortCode.inputValue}"
                                                                                     id="of2"
                                                                                     styleClass="ERPHeroDetailColor">
@@ -97,7 +98,7 @@
                                                                      id="gc5">
                                                             <af:panelGroupLayout id="pgl5" layout="horizontal">
                                                                 <af:image source="#{resource['images:imgCountry.png']}"
-                                                                          id="i3"/>
+                                                                          id="i3" shortDesc="Country Name"/>
                                                                 <af:outputFormatted value="#{item.bindings.txtCountryName.inputValue}"
                                                                                     id="of5"
                                                                                     styleClass="ERPHeroDetailColor"/>
