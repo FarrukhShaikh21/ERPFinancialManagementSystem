@@ -201,6 +201,11 @@ af|selectOneChoice:read-only::label{
   color: Highlight;
 }
 
+af|quickQuery af|inputText::content{
+   font-weight: bold;
+   color:blue;
+   width: 100px;
+}
 .ERPToolBarBackground
 {
     background:#e6f7fc
@@ -210,6 +215,8 @@ af|selectOneChoice:read-only::label{
     background:#edfcf9
 }
 
+
+   
 /*
 af|panelCollection div[id$='_dchTbr'] {
     display: none;
