@@ -113,7 +113,8 @@
                                                                         <af:link id="l5"
                                                                                  icon="#{resource['images:imgView.png']}"
                                                                                  action="DO-ACT-QUERY-FISCAL-YEAR-BY-FISCAL-YEAR-SNO"
-                                                                                 styleClass="ERPLink"/>
+                                                                                 styleClass="ERPLink"
+                                                                                 shortDesc="Fiscal Year, Click To View Record"/>
                                                                         <af:outputFormatted value="#{item.bindings.YearDescription.inputValue}"
                                                                                             id="of5"
                                                                                             styleClass="ERPHeroBannerFont"/>
@@ -125,7 +126,7 @@
                                                                              marginEnd="5px" id="gc2">
                                                                     <af:panelGroupLayout id="pgl7" layout="horizontal">
                                                                         <af:image source="#{resource['images:imgDocumentNumber.png']}"
-                                                                                  id="i1"/>
+                                                                                  id="i1" shortDesc="Fiscal Year Code"/>
                                                                         <af:outputFormatted value="#{item.bindings.FiscalYearCode.inputValue}"
                                                                                             id="of1"
                                                                                             styleClass="ERPHeroDetailColor">
@@ -143,7 +144,7 @@
                                                                              marginEnd="5px" id="gc3">
                                                                     <af:panelGroupLayout id="pgl8" layout="horizontal">
                                                                         <af:image source="#{resource['images:imgStartDate.png']}"
-                                                                                  id="i2"/>
+                                                                                  id="i2" shortDesc="Start Date"/>
                                                                         <af:spacer width="10" height="10" id="s3"/>
                                                                         <af:outputFormatted value="#{item.bindings.StartDate.inputValue}"
                                                                                             id="of3"
@@ -159,7 +160,7 @@
                                                                              marginEnd="5px" id="gc4">
                                                                     <af:panelGroupLayout id="pgl9" layout="horizontal">
                                                                         <af:image source="#{resource['images:imgCalendar.png']}"
-                                                                                  id="i3"/>
+                                                                                  id="i3" shortDesc="End Date"/>
                                                                         <af:outputFormatted value="#{item.bindings.EndDate.inputValue}"
                                                                                             id="of4"
                                                                                             styleClass="ERPHeroDetailColor">

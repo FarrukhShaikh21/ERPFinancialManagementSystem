@@ -152,7 +152,8 @@
                                                                             <af:link id="l1"
                                                                                      styleClass="ERPLink"
                                                                                      icon="#{resource['images:imgView.png']}"
-                                                                                     action="ERP-QRY-ACT-FMS_0013_EDIT_EDIT"/>
+                                                                                     action="ERP-QRY-ACT-FMS_0013_EDIT_EDIT"
+                                                                                     shortDesc="Tax Type Short Name, click to view record."/>
                                                                             <af:outputFormatted value="#{item.bindings.TaxTypeShortName.inputValue}"
                                                                                                 id="of6"
                                                                                                 styleClass="ERPHeroBannerFont"/>
@@ -169,7 +170,8 @@
                                                                         <af:panelGroupLayout id="pgl13"
                                                                                              layout="horizontal">
                                                                             <af:image source="#{resource['images:imgDocumentNumber.png']}"
-                                                                                      id="i1"/>
+                                                                                      id="i1"
+                                                                                      shortDesc="Tax Type Code"/>
                                                                             <af:outputFormatted value="#{item.bindings.TaxTypeCode.inputValue}"
                                                                                                 id="of7"
                                                                                                 styleClass="ERPHeroDetailColor">
@@ -189,7 +191,8 @@
                                                                         <af:panelGroupLayout id="pgl14"
                                                                                              layout="horizontal">
                                                                             <af:image source="#{resource['images:imgShortName.png']}"
-                                                                                      id="i2"/>
+                                                                                      id="i2"
+                                                                                      shortDesc="Tax Type Name"/>
                                                                             <af:outputFormatted value="#{item.bindings.TaxTypeName.inputValue}"
                                                                                                 id="of8"
                                                                                                 styleClass="ERPHeroDetailColor"/>
@@ -206,7 +209,7 @@
                                                                         <af:panelGroupLayout id="pgl15"
                                                                                              layout="horizontal">
                                                                             <af:image source="#{resource['images:imgDocumentDate.png']}"
-                                                                                      id="i3"/>
+                                                                                      id="i3" shortDesc="Open Date"/>
                                                                             <af:outputFormatted value="#{item.bindings.OpenDate.inputValue}"
                                                                                                 id="of9"
                                                                                                 styleClass="ERPHeroDetailColor">
@@ -226,7 +229,8 @@
                                                                         <af:panelGroupLayout id="pgl16"
                                                                                              layout="horizontal">
                                                                             <af:image source="#{resource['images:imgActive.png']}"
-                                                                                      id="i5"/>
+                                                                                      id="i5"
+                                                                                      shortDesc="Active/Inactive"/>
                                                                             <af:spacer width="10" height="10" id="s10"/>
                                                                             <af:outputFormatted value="#{item.bindings.IsActive.inputValue==1?'YES':'NO'}"
                                                                                                 id="of3"

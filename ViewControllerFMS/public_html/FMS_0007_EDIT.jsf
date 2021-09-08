@@ -111,7 +111,8 @@
                                                                         <af:link id="l1" partialSubmit="true"
                                                                                  action="DO-ACT-QUERY-FMS_0007_EDIT"
                                                                                  icon="#{resource['images:imgView.png']}"
-                                                                                 styleClass="ERPHeroBannerFont ERPLink"/>
+                                                                                 styleClass="ERPHeroBannerFont ERPLink"
+                                                                                 shortDesc="Voucher Type Click To View Record."/>
                                                                         <af:outputFormatted value="#{item.bindings.VoucherTypeName.inputValue}"
                                                                                             id="of3"
                                                                                             styleClass="ERPHeroBannerFont"/>
@@ -124,7 +125,8 @@
                                                                              marginEnd="5px" id="gc2">
                                                                     <af:panelGroupLayout id="pgl7" layout="horizontal">
                                                                         <af:image source="#{resource['images:imgDocumentNumber.png']}"
-                                                                                  id="i1"/>
+                                                                                  id="i1"
+                                                                                  styleClass="Voucher Type Code"/>
                                                                         <af:outputFormatted value="#{item.bindings.VoucherTypeCode.inputValue}"
                                                                                             id="of2"
                                                                                             styleClass="ERPHeroDetailColor"/>

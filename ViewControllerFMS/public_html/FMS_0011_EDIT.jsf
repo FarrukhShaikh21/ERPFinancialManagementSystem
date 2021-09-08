@@ -138,7 +138,8 @@
                                                                                  partialSubmit="true"
                                                                                  styleClass="ERPHeroBannerFont ERPLink"
                                                                                  icon="#{resource['images:imgView.png']}"
-                                                                                 action="DO-ACT-QUERY-FMS_0011_EDIT_EDIT"/>
+                                                                                 action="DO-ACT-QUERY-FMS_0011_EDIT_EDIT"
+                                                                                 shortDesc="User Name, Click To View Record."/>
                                                                         <af:outputFormatted value="#{item.bindings.UserName.inputValue}"
                                                                                             id="of2"
                                                                                             styleClass="ERPHeroBannerFont"/>
@@ -150,7 +151,7 @@
                                                                              marginEnd="5px" id="gc3">
                                                                     <af:panelGroupLayout id="pgl7" layout="horizontal">
                                                                         <af:image source="#{resource['images:imgEmail.png']}"
-                                                                                  id="i1"/>
+                                                                                  id="i1" shortDesc="Email"/>
                                                                         <af:spacer width="10" height="10" id="s2"/>
                                                                         <af:outputFormatted value="#{item.bindings.Email.inputValue}"
                                                                                             id="of3"
@@ -163,7 +164,7 @@
                                                                              marginEnd="5px" id="gc4">
                                                                     <af:panelGroupLayout id="pgl8" layout="horizontal">
                                                                         <af:image source="#{resource['images:imgMobile.png']}"
-                                                                                  id="i2"/>
+                                                                                  id="i2" shortDesc="Mobile"/>
                                                                         <af:spacer width="10" height="10" id="s3"/>
                                                                         <af:outputFormatted value="#{item.bindings.MobileNo.inputValue}"
                                                                                             id="of4"

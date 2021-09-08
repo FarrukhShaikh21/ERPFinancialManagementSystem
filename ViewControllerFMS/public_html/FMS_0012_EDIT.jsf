@@ -128,7 +128,8 @@
                                                                         <af:link id="l1"
                                                                                  styleClass="ERPHeroBannerFont ERPLink"
                                                                                  icon="#{resource['images:imgView.png']}"
-                                                                                 action="DO-ACT-QUERY-FMS_0012_EDIT"/>
+                                                                                 action="DO-ACT-QUERY-FMS_0012_EDIT"
+                                                                                 shortDesc="Bank Short Name, Click To View Record."/>
                                                                         <af:outputFormatted value="#{item.bindings.BankShortName.inputValue}"
                                                                                             id="of1"
                                                                                             styleClass="ERPHeroBannerFont"/>
@@ -140,7 +141,7 @@
                                                                              marginEnd="5px" id="gc3">
                                                                     <af:panelGroupLayout id="pgl7" layout="horizontal">
                                                                         <af:image source="#{resource['images:imgDocumentNumber.png']}"
-                                                                                  id="i1"/>
+                                                                                  id="i1" shortDesc="Bank Code"/>
                                                                         <af:spacer width="10" height="10" id="s2"/>
                                                                         <af:outputFormatted value="#{item.bindings.BankShortCode.inputValue}"
                                                                                             id="of2"
@@ -156,7 +157,7 @@
                                                                              marginEnd="5px" id="gc4">
                                                                     <af:panelGroupLayout id="pgl8" layout="horizontal">
                                                                         <af:image source="#{resource['images:imgShortName.png']}"
-                                                                                  id="i2"/>
+                                                                                  id="i2" shortDesc="Bank Name"/>
                                                                         <af:spacer width="10" height="10" id="s3"/>
                                                                         <af:outputFormatted value="#{item.bindings.BankName.inputValue}"
                                                                                             id="of3"
@@ -169,7 +170,7 @@
                                                                              marginEnd="5px" id="gc9">
                                                                     <af:panelGroupLayout id="pgl9" layout="horizontal">
                                                                         <af:image source="#{resource['images:imgDocumentDate.png']}"
-                                                                                  id="i3"/>
+                                                                                  id="i3" shortDesc="Opening Date"/>
                                                                         <af:spacer width="10" height="10" id="s4"/>
                                                                         <af:outputFormatted value="#{item.bindings.OpeningDate.inputValue}"
                                                                                             id="of4"
@@ -185,7 +186,7 @@
                                                                              marginEnd="5px" id="gc10">
                                                                     <af:panelGroupLayout id="pgl10" layout="horizontal">
                                                                         <af:image source="#{resource['images:imgWebsite.png']}"
-                                                                                  id="i4"/>
+                                                                                  id="i4" shortDesc="Website"/>
                                                                         <af:spacer width="10" height="10" id="s5"/>
                                                                         <af:outputFormatted value="#{item.bindings.Website.inputValue}"
                                                                                             id="of5"

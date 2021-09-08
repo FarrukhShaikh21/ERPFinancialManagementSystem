@@ -148,7 +148,8 @@
                                                                      disabled="#{!bindings.ExecuteWithParams.enabled}"
                                                                      id="l2" action="ERPEDITEDITFMS_0003"
                                                                      partialSubmit="true"
-                                                                     icon="#{resource['images:imgView.png']}">
+                                                                     icon="#{resource['images:imgView.png']}"
+                                                                     shortDesc="Click To View Record">
                                                                 <af:setActionListener from="#{node.ChartOfAccountId}"
                                                                                       to="#{pageFlowScope.OracleERPBean.ERPCoaID}"/>
                                                             </af:link>
