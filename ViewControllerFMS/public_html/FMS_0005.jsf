@@ -48,13 +48,12 @@
                                                                 <af:convertNumber groupingUsed="false"
                                                                                   pattern="#{bindings.VoucherHeaderSno.format}"/>
                                                             </af:inputText>
-                                                            <af:image source="#{resource['images:imgView.png']}"
-                                                                      id="i1"
-                                                                      shortDesc="Company Short Name, click to view record."/>
-                                                            <af:spacer width="10" height="10" id="s1"/>
                                                             <af:link id="l1" partialSubmit="true"
                                                                      action="DO-ACT-QUERY-FMS_0005"
-                                                                     disabled="#{pageFlowScope.ERPMainTempBean.LERPAllowEdit=='N'}"/>
+                                                                     disabled="#{pageFlowScope.ERPMainTempBean.LERPAllowEdit=='N'}"
+                                                                     icon="#{resource['images:imgView.png']}"
+                                                                     styleClass="ERPLink"/>
+                                                            <af:spacer width="10" height="10" id="s1"/>
                                                             <af:outputFormatted value="#{item.bindings.VoucherHeaderCode.inputValue}"
                                                                                 id="of1"
                                                                                 styleClass="ERPHeroBannerFont "

@@ -254,7 +254,8 @@
                                                               autoHeightRows="#{pageFlowScope.OracleERPBean.erpScreenSize=='portrait'?10:18}"
                                                               scrollPolicy="page">
                                                         <af:column headerText="#{bindings.GlBankBranchDetCRUD.hints.BankBranchId.label}"
-                                                                   id="c2" rendered="false">
+                                                                   id="c2" rendered="false"
+                                                                   headerClass="ERPToolBarBackground">
                                                             <af:inputText value="#{row.bindings.BankBranchId.inputValue}"
                                                                           label="#{bindings.GlBankBranchDetCRUD.hints.BankBranchId.label}"
                                                                           required="#{bindings.GlBankBranchDetCRUD.hints.BankBranchId.mandatory}"
@@ -269,7 +270,8 @@
                                                         </af:column>
                                                         <af:column headerText="#{bindings.GlBankBranchDetCRUD.hints.BranchShortName.label}"
                                                                    id="c1" width="60" displayIndex="-1"
-                                                                   showRequired="true">
+                                                                   showRequired="true"
+                                                                   headerClass="ERPToolBarBackground">
                                                             <af:inputText value="#{row.bindings.BranchShortName.inputValue}"
                                                                           label="#{bindings.GlBankBranchDetCRUD.hints.BranchShortName.label}"
                                                                           required="#{bindings.GlBankBranchDetCRUD.hints.BranchShortName.mandatory}"
@@ -284,7 +286,8 @@
                                                         </af:column>
                                                         <af:column headerText="#{bindings.GlBankBranchDetCRUD.hints.BranchName.label}"
                                                                    id="c3" width="150" displayIndex="-1"
-                                                                   showRequired="true">
+                                                                   showRequired="true"
+                                                                   headerClass="ERPToolBarBackground">
                                                             <af:inputText value="#{row.bindings.BranchName.inputValue}"
                                                                           label="#{bindings.GlBankBranchDetCRUD.hints.BranchName.label}"
                                                                           required="#{bindings.GlBankBranchDetCRUD.hints.BranchName.mandatory}"
@@ -299,7 +302,8 @@
                                                         </af:column>
                                                         <af:column headerText="#{bindings.GlBankBranchDetCRUD.hints.BranchDate.label}"
                                                                    id="c4" width="120" displayIndex="-1"
-                                                                   showRequired="true">
+                                                                   showRequired="true"
+                                                                   headerClass="ERPToolBarBackground">
                                                             <af:inputDate value="#{row.bindings.BranchDate.inputValue}"
                                                                           label="#{bindings.GlBankBranchDetCRUD.hints.BranchDate.label}"
                                                                           required="#{bindings.GlBankBranchDetCRUD.hints.BranchDate.mandatory}"
@@ -312,7 +316,8 @@
                                                             </af:inputDate>
                                                         </af:column>
                                                         <af:column headerText="#{bindings.GlBankBranchDetCRUD.hints.txtCOAName.label}"
-                                                                   id="c10" width="150" displayIndex="-1">
+                                                                   id="c10" width="150" displayIndex="-1"
+                                                                   headerClass="ERPToolBarBackground">
                                                             <af:inputComboboxListOfValues id="txtCOANameId"
                                                                                           popupTitle="Search and Select: #{bindings.GlBankBranchDetCRUD.hints.txtCOAName.label}"
                                                                                           value="#{row.bindings.txtCOAName.inputValue}"
@@ -326,7 +331,8 @@
                                                             </af:inputComboboxListOfValues>
                                                         </af:column>
                                                         <af:column headerText="#{bindings.GlBankBranchDetCRUD.hints.txtCountryName.label}"
-                                                                   id="c11" width="150" displayIndex="-1">
+                                                                   id="c11" width="150" displayIndex="-1"
+                                                                   headerClass="ERPToolBarBackground">
                                                             <af:inputComboboxListOfValues id="txtCountryNameId"
                                                                                           popupTitle="Search and Select: #{bindings.GlBankBranchDetCRUD.hints.txtCountryName.label}"
                                                                                           value="#{row.bindings.txtCountryName.inputValue}"
@@ -341,7 +347,8 @@
                                                             </af:inputComboboxListOfValues>
                                                         </af:column>
                                                         <af:column headerText="#{bindings.GlBankBranchDetCRUD.hints.txtCityName.label}"
-                                                                   id="c12" width="150">
+                                                                   id="c12" width="150"
+                                                                   headerClass="ERPToolBarBackground">
                                                             <af:inputComboboxListOfValues id="txtCityNameId"
                                                                                           popupTitle="Search and Select: #{bindings.GlBankBranchDetCRUD.hints.txtCityName.label}"
                                                                                           value="#{row.bindings.txtCityName.inputValue}"
@@ -356,7 +363,7 @@
                                                             </af:inputComboboxListOfValues>
                                                         </af:column>
                                                         <af:column headerText="#{bindings.GlBankBranchDetCRUD.hints.MobileNo.label}"
-                                                                   id="c5">
+                                                                   id="c5" headerClass="ERPToolBarBackground">
                                                             <af:inputText value="#{row.bindings.MobileNo.inputValue}"
                                                                           label="#{bindings.GlBankBranchDetCRUD.hints.MobileNo.label}"
                                                                           required="#{bindings.GlBankBranchDetCRUD.hints.MobileNo.mandatory}"
@@ -370,7 +377,7 @@
                                                             </af:inputText>
                                                         </af:column>
                                                         <af:column headerText="#{bindings.GlBankBranchDetCRUD.hints.PhoneNo.label}"
-                                                                   id="c6">
+                                                                   id="c6" headerClass="ERPToolBarBackground">
                                                             <af:inputText value="#{row.bindings.PhoneNo.inputValue}"
                                                                           label="#{bindings.GlBankBranchDetCRUD.hints.PhoneNo.label}"
                                                                           required="#{bindings.GlBankBranchDetCRUD.hints.PhoneNo.mandatory}"
@@ -384,7 +391,7 @@
                                                             </af:inputText>
                                                         </af:column>
                                                         <af:column headerText="#{bindings.GlBankBranchDetCRUD.hints.FaxNo.label}"
-                                                                   id="c7">
+                                                                   id="c7" headerClass="ERPToolBarBackground">
                                                             <af:inputText value="#{row.bindings.FaxNo.inputValue}"
                                                                           label="#{bindings.GlBankBranchDetCRUD.hints.FaxNo.label}"
                                                                           required="#{bindings.GlBankBranchDetCRUD.hints.FaxNo.mandatory}"
@@ -398,7 +405,8 @@
                                                             </af:inputText>
                                                         </af:column>
                                                         <af:column headerText="#{bindings.GlBankBranchDetCRUD.hints.ContactPerson.label}"
-                                                                   id="c8" showRequired="true">
+                                                                   id="c8" showRequired="true"
+                                                                   headerClass="ERPToolBarBackground">
                                                             <af:inputText value="#{row.bindings.ContactPerson.inputValue}"
                                                                           label="#{bindings.GlBankBranchDetCRUD.hints.ContactPerson.label}"
                                                                           required="#{bindings.GlBankBranchDetCRUD.hints.ContactPerson.mandatory}"
@@ -412,7 +420,7 @@
                                                             </af:inputText>
                                                         </af:column>
                                                         <af:column headerText="#{bindings.GlBankBranchDetCRUD.hints.IsActive.label}"
-                                                                   id="c9">
+                                                                   id="c9" headerClass="ERPToolBarBackground">
                                                             <af:selectOneChoice value="#{row.bindings.IsActive.inputValue}"
                                                                                 label="#{row.bindings.IsActive.label}"
                                                                                 required="#{bindings.GlBankBranchDetCRUD.hints.IsActive.mandatory}"
