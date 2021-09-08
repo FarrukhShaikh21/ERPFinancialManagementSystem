@@ -293,7 +293,8 @@
                                                             <af:link id="l3" partialSubmit="true"
                                                                      action="ERPEDITEDITFMS_0003"
                                                                      actionListener="#{bindings.ExecuteWithParams.execute}"
-                                                                     icon="#{resource['images:imgView.png']}">
+                                                                     icon="#{resource['images:imgView.png']}"
+                                                                     shortDesc="Click To View Record">
                                                                 <af:setActionListener from="#{row.bindings.ChartOfAccountId.inputValue}"
                                                                                       to="#{pageFlowScope.OracleERPBean.ERPCoaID}"/>
                                                             </af:link>

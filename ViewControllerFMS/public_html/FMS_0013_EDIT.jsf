@@ -8,24 +8,39 @@
                 <f:facet name="first">
                     <af:panelBox text="PanelBox2" id="pb2" showHeader="never" showDisclosure="false">
                         <f:facet name="toolbar"/>
-                        <af:panelGridLayout id="pgl4" dimensionsFrom="parent">
+                        <af:panelGridLayout id="pgl4">
                             <af:gridRow marginTop="5px" height="auto" marginBottom="5px" id="gr7">
-                                <af:gridCell marginStart="5px" width="100%" marginEnd="5px" id="gc8" halign="end">
-                                    <af:panelGroupLayout id="pgl5" layout="horizontal" halign="end">
-                                        <af:link id="l4" icon="#{resource['images:imgCloseDialog.png']}"
-                                                 action="#{pageFlowScope.OracleERPBean.doBackFromEdit}"
-                                                 iconPosition="top" partialSubmit="true" shortDesc="Close Form"/>
-                                        <af:link id="l2" partialSubmit="true"
-                                                 icon="#{resource['images:imgNewDocument.png']}" iconPosition="top"
-                                                 action="ERP-ADD-ACT-FMS_0013_EDIT_EDIT" shortDesc="Add New Record"/>
-                                        <f:facet name="separator">
-                                            <af:spacer width="10" height="10" id="s1"/>
-                                        </f:facet>
-                                    </af:panelGroupLayout>
+                                <af:gridCell id="gc2" width="50%" halign="stretch"
+                                             valign="middle">
+                                    <af:panelGridLayout id="pgl6" styleClass="ERPToolBarBackground">
+                                        <af:gridRow marginTop="5px" height="auto" marginBottom="5px" id="gr2">
+                                            <af:gridCell marginStart="5px" width="50%" id="gc3" valign="middle">
+                                                <af:outputText value="#{pageFlowScope.ERPMainTempBean.LErpActivityName}"
+                                                               id="ot1" styleClass="ERPActivityNameFormHeading"/>
+                                            </af:gridCell>
+                                            <af:gridCell marginStart="5px" width="50%" marginEnd="5px" id="gc4">
+                                                <af:panelGroupLayout id="pgl5" layout="horizontal" halign="end">
+                                                    <af:link id="l4" icon="#{resource['images:imgCloseDialog.png']}"
+                                                             action="#{pageFlowScope.OracleERPBean.doBackFromEdit}"
+                                                             iconPosition="top" partialSubmit="true"
+                                                             shortDesc="Close Form"/>
+                                                    <af:link id="l2" partialSubmit="true"
+                                                             icon="#{resource['images:imgNewDocument.png']}"
+                                                             iconPosition="top" action="ERP-ADD-ACT-FMS_0013_EDIT_EDIT"
+                                                             shortDesc="Add New Record"/>
+                                                    <f:facet name="separator">
+                                                        <af:spacer width="10" height="10" id="s1"/>
+                                                    </f:facet>
+                                                </af:panelGroupLayout>
+                                            </af:gridCell>
+                                        </af:gridRow>
+                                    </af:panelGridLayout>
                                 </af:gridCell>
                             </af:gridRow>
-                            <af:gridRow marginTop="5px" height="auto" id="gr5">
-                                <af:gridCell marginStart="5px" width="100%" marginEnd="5px" id="gc5" halign="center">
+                            <af:gridRow marginTop="5px" height="auto" id="gr5" marginBottom="5px">
+                                <af:gridCell marginStart="5px" width="100%" marginEnd="5px" id="gc5" halign="stretch"
+                                             styleClass="ERPCompanyInfoBackGround" columnSpan="1" valign="stretch"
+                                             rowSpan="1">
                                     <af:panelFormLayout id="pfl1" rows="1" maxColumns="4">
                                         <af:inputText value="#{bindings.CompCode.inputValue}"
                                                       label="#{bindings.CompCode.hints.label}"
@@ -93,7 +108,8 @@
                                 </af:gridCell>
                             </af:gridRow>
                             <af:gridRow id="gr1" marginTop="5px" marginBottom="5px">
-                                <af:gridCell id="gc1" halign="center" width="100%">
+                                <af:gridCell id="gc1" halign="center" width="100%" columnSpan="1" rowSpan="1"
+                                             valign="stretch">
                                     <af:quickQuery label="Search" searchDesc="Search" id="qryId1"
                                                    value="#{bindings.ImplicitViewCriteriaQuery.quickQueryDescriptor}"
                                                    model="#{bindings.ImplicitViewCriteriaQuery.queryModel}"
