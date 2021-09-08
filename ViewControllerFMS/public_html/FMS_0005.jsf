@@ -34,7 +34,8 @@
                                             <af:panelGridLayout id="pgl2">
                                                 <af:gridRow marginTop="5px" height="auto" id="gr1">
                                                     <af:gridCell marginStart="5px" width="100%" marginEnd="5px"
-                                                                 id="gc1" styleClass="AFStretchWidth ERPHeroBackground">
+                                                                 id="gc1" styleClass="AFStretchWidth ERPHeroBackground"
+                                                                 halign="stretch" valign="stretch">
                                                         <af:panelGroupLayout id="pgl3" layout="horizontal">
                                                             <af:inputText value="#{bindings.VoucherHeaderSno.inputValue}"
                                                                           label="#{bindings.VoucherHeaderSno.hints.label}"
