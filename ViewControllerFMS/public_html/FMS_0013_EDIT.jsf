@@ -79,16 +79,18 @@
                                 </af:gridCell>
                             </af:gridRow>
                             <af:gridRow id="gr1" marginTop="5px" marginBottom="5px">
-                                <af:gridCell id="gc1" halign="center" width="100%" columnSpan="1" rowSpan="1"
-                                             valign="stretch">
-                                    <af:quickQuery label="Search" searchDesc="Search" id="qryId1"
-                                                   value="#{bindings.ImplicitViewCriteriaQuery.quickQueryDescriptor}"
-                                                   model="#{bindings.ImplicitViewCriteriaQuery.queryModel}"
-                                                   queryListener="#{bindings.ImplicitViewCriteriaQuery.processQuery}">
-                                        <f:facet name="end">
-                                            <af:commandLink text="Advanced" rendered="false" id="cl1"/>
-                                        </f:facet>
-                                    </af:quickQuery>
+                                <af:gridCell id="gc1" halign="stretch" width="100%" columnSpan="1" rowSpan="1"
+                                             valign="stretch" styleClass="ERPToolBarBackground">
+                                    <af:panelGroupLayout id="pgl7" layout="horizontal" halign="center">
+                                        <af:quickQuery label="Search" searchDesc="Search" id="qryId1"
+                                                       value="#{bindings.ImplicitViewCriteriaQuery.quickQueryDescriptor}"
+                                                       model="#{bindings.ImplicitViewCriteriaQuery.queryModel}"
+                                                       queryListener="#{bindings.ImplicitViewCriteriaQuery.processQuery}">
+                                            <f:facet name="end">
+                                                <af:commandLink text="Advanced" rendered="false" id="cl1"/>
+                                            </f:facet>
+                                        </af:quickQuery>
+                                    </af:panelGroupLayout>
                                 </af:gridCell>
                             </af:gridRow>
                             <af:gridRow marginTop="5px" height="auto" marginBottom="5px" id="gr6">
