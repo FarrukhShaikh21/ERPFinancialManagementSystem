@@ -10,278 +10,276 @@
                     <f:facet name="buttonBar"/>
                     <af:outputText value="Do you want to delete this record?" id="ot2" styleClass="ErpDeleteConfirmText"/>
                 </af:dialog>
-            </af:popup>        
-            <af:decorativeBox id="db2" dimensionsFrom="parent">
+            </af:popup>
+            <af:decorativeBox id="db1" dimensionsFrom="parent">
                 <f:facet name="center">
-                    <af:decorativeBox id="db1" dimensionsFrom="parent">
-                        <f:facet name="center">
-                            <af:panelGridLayout id="pgl3">
-                                <af:gridRow marginTop="5px" height="auto" id="gr5">
-                                    <af:gridCell marginStart="5px" width="100%" marginEnd="5px" id="gc5"
-                                                 styleClass="ERPCompanyInfoBackGround" halign="stretch"
-                                                 valign="stretch">
-                                        <af:panelGroupLayout id="pgl1" layout="vertical" halign="center"
-                                                             styleClass="AFStretchWidth">
-                                            <af:panelFormLayout id="pfl1" rows="1" maxColumns="4">
-                                                <af:inputText value="#{bindings.CompCode.inputValue}"
-                                                              label="#{bindings.CompCode.hints.label}"
-                                                              required="#{bindings.CompCode.hints.mandatory}"
-                                                              columns="#{bindings.CompCode.hints.displayWidth}"
-                                                              maximumLength="#{bindings.CompCode.hints.precision}"
-                                                              shortDesc="#{bindings.CompCode.hints.tooltip}" id="it1"
-                                                              rendered="false" readOnly="true">
-                                                    <f:validator binding="#{bindings.CompCode.validator}"/>
-                                                    <af:convertNumber groupingUsed="false"
-                                                                      pattern="#{bindings.CompCode.format}"/>
-                                                </af:inputText>
-                                                <af:inputText value="#{bindings.CompanyName.inputValue}"
-                                                              label="#{bindings.CompanyName.hints.label}"
-                                                              required="#{bindings.CompanyName.hints.mandatory}"
-                                                              columns="#{bindings.CompanyName.hints.displayWidth}"
-                                                              maximumLength="#{bindings.CompanyName.hints.precision}"
-                                                              shortDesc="#{bindings.CompanyName.hints.tooltip}" id="it2"
-                                                              readOnly="true">
-                                                    <f:validator binding="#{bindings.CompanyName.validator}"/>
-                                                </af:inputText>
-                                                <af:inputText value="#{bindings.CompanyShortName.inputValue}"
-                                                              label="#{bindings.CompanyShortName.hints.label}"
-                                                              required="#{bindings.CompanyShortName.hints.mandatory}"
-                                                              columns="#{bindings.CompanyShortName.hints.displayWidth}"
-                                                              maximumLength="#{bindings.CompanyShortName.hints.precision}"
-                                                              shortDesc="#{bindings.CompanyShortName.hints.tooltip}"
-                                                              id="it3" readOnly="true">
-                                                    <f:validator binding="#{bindings.CompanyShortName.validator}"/>
-                                                </af:inputText>
-                                                <af:inputText value="#{bindings.CompanyShortCode.inputValue}"
-                                                              label="#{bindings.CompanyShortCode.hints.label}"
-                                                              required="#{bindings.CompanyShortCode.hints.mandatory}"
-                                                              columns="#{bindings.CompanyShortCode.hints.displayWidth}"
-                                                              maximumLength="#{bindings.CompanyShortCode.hints.precision}"
-                                                              shortDesc="#{bindings.CompanyShortCode.hints.tooltip}"
-                                                              id="it4" readOnly="true">
-                                                    <f:validator binding="#{bindings.CompanyShortCode.validator}"/>
-                                                    <af:convertNumber groupingUsed="false"
-                                                                      pattern="#{bindings.CompanyShortCode.format}"/>
-                                                </af:inputText>
-                                                <af:inputText label="#{bindings.txtCountryName.hints.label}" id="it9"
-                                                              columns="#{bindings.txtCountryName.hints.displayWidth}"
-                                                              value="#{bindings.txtCountryName.inputValue}"
-                                                              readOnly="true"/>
-                                                <af:inputComboboxListOfValues id="txtCountryNameId"
-                                                                              popupTitle="Search and Select: #{bindings.txtCountryName.hints.label}"
-                                                                              value="#{bindings.txtCountryName.inputValue}"
-                                                                              label="#{bindings.txtCountryName.hints.label}"
-                                                                              model="#{bindings.txtCountryName.listOfValuesModel}"
-                                                                              required="#{bindings.txtCountryName.hints.mandatory}"
-                                                                              columns="#{bindings.txtCountryName.hints.displayWidth}"
-                                                                              shortDesc="#{bindings.txtCountryName.hints.tooltip}"
-                                                                              readOnly="true" rendered="false">
-                                                    <f:validator binding="#{bindings.txtCountryName.validator}"/>
-                                                </af:inputComboboxListOfValues>
-                                            </af:panelFormLayout>
-                                        </af:panelGroupLayout>
-                                    </af:gridCell>
-                                </af:gridRow>
-                                <af:gridRow marginTop="5px" height="auto" marginBottom="5px" id="gr6">
-                                    <af:gridCell marginStart="5px" width="100%" marginEnd="5px" id="gc6"
-                                                 halign="stretch" valign="stretch">
-                                        <af:panelCollection id="pc1" styleClass="AFStretchWidth"
-                                                            partialTriggers="::l1 ::l4 ::l9 ::l8 ::l2 ::l6 ::l7 ::l5 ::l3">
-                                            <f:facet name="menus"/>
-                                            <f:facet name="toolbar"/>
-                                            <f:facet name="statusbar"/>
-                                            <af:table value="#{bindings.GlProjectsByCompanyCRUD.collectionModel}"
-                                                      var="row" rows="#{bindings.GlProjectsByCompanyCRUD.rangeSize}"
-                                                      emptyText="#{bindings.GlProjectsByCompanyCRUD.viewable ? 'No data to display.' : 'Access Denied.'}"
-                                                      rowBandingInterval="0"
-                                                      selectedRowKeys="#{bindings.GlProjectsByCompanyCRUD.collectionModel.selectedRow}"
-                                                      selectionListener="#{bindings.GlProjectsByCompanyCRUD.collectionModel.makeCurrent}"
-                                                      rowSelection="single"
-                                                      fetchSize="#{bindings.GlProjectsByCompanyCRUD.rangeSize}"
-                                                      filterModel="#{bindings.GlProjectsByCompanyCRUDQuery.queryDescriptor}"
-                                                      queryListener="#{bindings.GlProjectsByCompanyCRUDQuery.processQuery}"
-                                                      filterVisible="true" varStatus="vs" id="t1"
-                                                      columnStretching="column:c4" partialTriggers=":::l1 :::l8"
-                                                      scrollPolicy="page"
-                                                      autoHeightRows="#{pageFlowScope.OracleERPBean.erpScreenSize=='portrait'?8:15}">
-                                                <af:column sortProperty="#{bindings.GlProjectsByCompanyCRUD.hints.ProjectSno.name}"
-                                                           filterable="true"
-                                                           headerText="#{bindings.GlProjectsByCompanyCRUD.hints.ProjectSno.label}"
-                                                           id="c1" rendered="false">
-                                                    <af:inputText value="#{row.bindings.ProjectSno.inputValue}"
-                                                                  label="#{bindings.GlProjectsByCompanyCRUD.hints.ProjectSno.label}"
-                                                                  required="#{bindings.GlProjectsByCompanyCRUD.hints.ProjectSno.mandatory}"
-                                                                  columns="#{bindings.GlProjectsByCompanyCRUD.hints.ProjectSno.displayWidth}"
-                                                                  maximumLength="#{bindings.GlProjectsByCompanyCRUD.hints.ProjectSno.precision}"
-                                                                  shortDesc="#{bindings.GlProjectsByCompanyCRUD.hints.ProjectSno.tooltip}"
-                                                                  id="it5">
-                                                        <f:validator binding="#{row.bindings.ProjectSno.validator}"/>
-                                                        <af:convertNumber groupingUsed="false"
-                                                                          pattern="#{bindings.GlProjectsByCompanyCRUD.hints.ProjectSno.format}"/>
-                                                    </af:inputText>
-                                                </af:column>
-                                                <af:column sortProperty="#{bindings.GlProjectsByCompanyCRUD.hints.ProjectCode.name}"
-                                                           filterable="true"
-                                                           headerText="#{bindings.GlProjectsByCompanyCRUD.hints.ProjectCode.label}"
-                                                           id="c2" headerClass="ERPToolBarBackground">
-                                                    <af:inputText value="#{row.bindings.ProjectCode.inputValue}"
-                                                                  label="#{bindings.GlProjectsByCompanyCRUD.hints.ProjectCode.label}"
-                                                                  required="#{bindings.GlProjectsByCompanyCRUD.hints.ProjectCode.mandatory}"
-                                                                  columns="#{bindings.GlProjectsByCompanyCRUD.hints.ProjectCode.displayWidth}"
-                                                                  maximumLength="#{bindings.GlProjectsByCompanyCRUD.hints.ProjectCode.precision}"
-                                                                  shortDesc="#{bindings.GlProjectsByCompanyCRUD.hints.ProjectCode.tooltip}"
-                                                                  id="it6" readOnly="true">
-                                                        <f:validator binding="#{row.bindings.ProjectCode.validator}"/>
-                                                        <af:convertNumber groupingUsed="false"
-                                                                          pattern="#{bindings.GlProjectsByCompanyCRUD.hints.ProjectCode.format}"/>
-                                                    </af:inputText>
-                                                </af:column>
-                                                <af:column sortProperty="#{bindings.GlProjectsByCompanyCRUD.hints.ProjectShortName.name}"
-                                                           filterable="true"
-                                                           headerText="#{bindings.GlProjectsByCompanyCRUD.hints.ProjectShortName.label}"
-                                                           id="c3" headerClass="ERPToolBarBackground">
-                                                    <af:inputText value="#{row.bindings.ProjectShortName.inputValue}"
-                                                                  label="#{bindings.GlProjectsByCompanyCRUD.hints.ProjectShortName.label}"
-                                                                  required="#{bindings.GlProjectsByCompanyCRUD.hints.ProjectShortName.mandatory}"
-                                                                  columns="#{bindings.GlProjectsByCompanyCRUD.hints.ProjectShortName.displayWidth}"
-                                                                  maximumLength="#{bindings.GlProjectsByCompanyCRUD.hints.ProjectShortName.precision}"
-                                                                  shortDesc="#{bindings.GlProjectsByCompanyCRUD.hints.ProjectShortName.tooltip}"
-                                                                  id="it7"
-                                                                  readOnly="#{pageFlowScope.ERPMainTempBean.LERPAllowEdit=='N' &amp;&amp; row.bindings.ProjectSno.inputValue!=null}">
-                                                        <f:validator binding="#{row.bindings.ProjectShortName.validator}"/>
-                                                    </af:inputText>
-                                                </af:column>
-                                                <af:column sortProperty="#{bindings.GlProjectsByCompanyCRUD.hints.ProjectName.name}"
-                                                           filterable="true"
-                                                           headerText="#{bindings.GlProjectsByCompanyCRUD.hints.ProjectName.label}"
-                                                           id="c4" headerClass="ERPToolBarBackground">
-                                                    <af:inputText value="#{row.bindings.ProjectName.inputValue}"
-                                                                  label="#{bindings.GlProjectsByCompanyCRUD.hints.ProjectName.label}"
-                                                                  required="#{bindings.GlProjectsByCompanyCRUD.hints.ProjectName.mandatory}"
-                                                                  columns="#{bindings.GlProjectsByCompanyCRUD.hints.ProjectName.displayWidth}"
-                                                                  maximumLength="#{bindings.GlProjectsByCompanyCRUD.hints.ProjectName.precision}"
-                                                                  shortDesc="#{bindings.GlProjectsByCompanyCRUD.hints.ProjectName.tooltip}"
-                                                                  id="it8" contentStyle="width:100%"
-                                                                  readOnly="#{pageFlowScope.ERPMainTempBean.LERPAllowEdit=='N' &amp;&amp; row.bindings.ProjectSno.inputValue!=null}">
-                                                        <f:validator binding="#{row.bindings.ProjectName.validator}"/>
-                                                    </af:inputText>
-                                                </af:column>
-                                                <af:column sortProperty="#{bindings.GlProjectsByCompanyCRUD.hints.StartDate.name}"
-                                                           filterable="true"
-                                                           headerText="#{bindings.GlProjectsByCompanyCRUD.hints.StartDate.label}"
-                                                           id="c5" width="130" displayIndex="-1"
-                                                           headerClass="ERPToolBarBackground">
-                                                    <f:facet name="filter">
-                                                        <af:inputDate value="#{bindings.GlProjectsByCompanyCRUDQuery.queryDescriptor.filterConjunctionCriterion.criterionMap.StartDate.value}"
-                                                                      id="id1">
-                                                            <af:convertDateTime pattern="#{bindings.GlProjectsByCompanyCRUD.hints.StartDate.format}"/>
-                                                        </af:inputDate>
-                                                    </f:facet>
-                                                    <af:inputDate value="#{row.bindings.StartDate.inputValue}"
-                                                                  label="#{bindings.GlProjectsByCompanyCRUD.hints.StartDate.label}"
-                                                                  required="#{bindings.GlProjectsByCompanyCRUD.hints.StartDate.mandatory}"
-                                                                  columns="#{bindings.GlProjectsByCompanyCRUD.hints.StartDate.displayWidth}"
-                                                                  shortDesc="#{bindings.GlProjectsByCompanyCRUD.hints.StartDate.tooltip}"
-                                                                  id="id2" contentStyle="width:60%"
-                                                                  readOnly="#{pageFlowScope.ERPMainTempBean.LERPAllowEdit=='N' &amp;&amp; row.bindings.ProjectSno.inputValue!=null}">
-                                                        <f:validator binding="#{row.bindings.StartDate.validator}"/>
-                                                        <af:convertDateTime pattern="#{bindings.GlProjectsByCompanyCRUD.hints.StartDate.format}"/>
-                                                    </af:inputDate>
-                                                </af:column>
-                                                <af:column sortProperty="#{bindings.GlProjectsByCompanyCRUD.hints.EndDate.name}"
-                                                           filterable="true"
-                                                           headerText="#{bindings.GlProjectsByCompanyCRUD.hints.EndDate.label}"
-                                                           id="c6" width="130" minimumWidth="12" displayIndex="-1"
-                                                           headerClass="ERPToolBarBackground">
-                                                    <f:facet name="filter">
-                                                        <af:inputDate value="#{bindings.GlProjectsByCompanyCRUDQuery.queryDescriptor.filterConjunctionCriterion.criterionMap.EndDate.value}"
-                                                                      id="id3">
-                                                            <af:convertDateTime pattern="#{bindings.GlProjectsByCompanyCRUD.hints.EndDate.format}"/>
-                                                        </af:inputDate>
-                                                    </f:facet>
-                                                    <af:inputDate value="#{row.bindings.EndDate.inputValue}"
-                                                                  label="#{bindings.GlProjectsByCompanyCRUD.hints.EndDate.label}"
-                                                                  required="#{bindings.GlProjectsByCompanyCRUD.hints.EndDate.mandatory}"
-                                                                  columns="#{bindings.GlProjectsByCompanyCRUD.hints.EndDate.displayWidth}"
-                                                                  shortDesc="#{bindings.GlProjectsByCompanyCRUD.hints.EndDate.tooltip}"
-                                                                  id="id4" contentStyle="width:60%"
-                                                                  readOnly="#{pageFlowScope.ERPMainTempBean.LERPAllowEdit=='N' &amp;&amp; row.bindings.ProjectSno.inputValue!=null}">
-                                                        <f:validator binding="#{row.bindings.EndDate.validator}"/>
-                                                        <af:convertDateTime pattern="#{bindings.GlProjectsByCompanyCRUD.hints.EndDate.format}"/>
-                                                    </af:inputDate>
-                                                </af:column>
-                                                <af:column sortProperty="#{bindings.GlProjectsByCompanyCRUD.hints.IsActive.name}"
-                                                           filterable="true"
-                                                           headerText="#{bindings.GlProjectsByCompanyCRUD.hints.IsActive.label}"
-                                                           id="c7" headerClass="ERPToolBarBackground">
-                                                    <af:selectOneChoice label="Label 1"
-                                                                        value="#{row.bindings.IsActive.inputValue}"
-                                                                        id="soc1"
-                                                                        readOnly="#{pageFlowScope.ERPMainTempBean.LERPAllowEdit=='N' &amp;&amp; row.bindings.ProjectSno.inputValue!=null}">
-                                                        <af:selectItem label="YES" value="Y" id="si1"/>
-                                                        <af:selectItem label="NO" value="N" id="si2"/>
-                                                    </af:selectOneChoice>
-                                                </af:column>
-                                            </af:table>
-                                        </af:panelCollection>
-                                    </af:gridCell>
-                                </af:gridRow>
-                            </af:panelGridLayout>
-                        </f:facet>
-                        <f:facet name="top">
-                            <af:panelGridLayout id="pgl4" dimensionsFrom="parent" styleClass="ERPToolBarBackground">
-                                <af:gridRow marginTop="5px" height="auto" marginBottom="5px" id="gr7">
-                                    <af:gridCell marginStart="5px" width="50%" id="gc7" valign="middle">
-                                    <af:outputText value="#{pageFlowScope.ERPMainTempBean.LErpActivityName}" id="ot1"
-                                                       styleClass="ERPActivityNameFormHeading"/> 
-                                    </af:gridCell>
-                                    <af:gridCell marginStart="5px" width="50%" marginEnd="5px" id="gc8" halign="end">
-                                        <af:panelGroupLayout id="pgl5" layout="horizontal" halign="end">
-                                            <af:link actionListener="#{bindings.CreateWithParams.execute}"
-                                                     text="CreateWithParams"
-                                                     disabled="#{!bindings.CreateWithParams.enabled}" id="l1"
-                                                     rendered="false"/>
-                                            <af:link id="l4" icon="#{resource['images:imgCloseDialog.png']}"
-                                                     action="#{pageFlowScope.OracleERPBean.doBackFromEdit}" text="Close" iconPosition="top"
-                                                     partialSubmit="true" shortDesc="Close Form"/>
-                                            <af:link text="Delete" id="l9"
-                                                     icon="#{resource['images:imgDeleteRecord.png']}"
-                                                     iconPosition="top" partialSubmit="true"
-                                                     disabled="#{pageFlowScope.ERPMainTempBean.LERPAllowDelete=='N'}"
-                                                     shortDesc="Delete Record">
-                                                <af:showPopupBehavior popupId="p1" triggerType="action"/>
-                                            </af:link>
-                                            <af:link actionListener="#{bindings.Delete.execute}" text="Delete" id="l8" rendered="false"/>
-                                            <af:link text="Add" id="l2"
-                                                     action="#{pageFlowScope.OracleERPBean.doERPAddRecordWithPara}"
-                                                     icon="#{resource['images:imgAddRecord.png']}" iconPosition="top"
-                                                     partialSubmit="true"
-                                                     disabled="#{pageFlowScope.ERPMainTempBean.LERPAllowAdd=='N'}"
-                                                     shortDesc="Add New Record"/>
-                                            <af:link actionListener="#{bindings.Rollback.execute}" text="Rollback" immediate="true" id="l6"
-                                                     rendered="false">
-                                                <af:resetActionListener/>
-                                            </af:link>
-                                            <af:link text="Undo" id="l7"
-                                                     action="#{pageFlowScope.OracleERPBean.doErpUndoRecord}"
-                                                     icon="#{resource['images:imgUndo.png']}" iconPosition="top"
-                                                     partialSubmit="true" immediate="true" shortDesc="Undo Record">
-                                                <af:resetActionListener/>
-                                            </af:link>
-                                            <af:link text="Save" id="l5" icon="#{resource['images:imgSave.png']}"
-                                                     iconPosition="top"
-                                                     action="#{pageFlowScope.OracleERPBean.doERPCommitRecord}"
-                                                     partialSubmit="true" shortDesc="Save Record"/>
-                                            <af:link actionListener="#{bindings.Commit.execute}" text="Save" id="l3" rendered="false"/>
-                                            <f:facet name="separator">
-                                                <af:spacer width="10" height="10" id="s1"/>
+                    <af:panelGridLayout id="pgl3">
+                        <af:gridRow id="gr1">
+                            <af:gridCell id="gc1" halign="stretch" valign="stretch">
+                                <af:panelGridLayout id="pgl4" styleClass="ERPToolBarBackground">
+                                    <af:gridRow marginTop="5px" height="auto" marginBottom="5px" id="gr7">
+                                        <af:gridCell marginStart="5px" width="50%" id="gc7" valign="middle">
+                                            <af:outputText value="#{pageFlowScope.ERPMainTempBean.LErpActivityName}"
+                                                           id="ot1" styleClass="ERPActivityNameFormHeading"/>
+                                        </af:gridCell>
+                                        <af:gridCell marginStart="5px" width="50%" marginEnd="5px" id="gc8"
+                                                     halign="end">
+                                            <af:panelGroupLayout id="pgl5" layout="horizontal" halign="end">
+                                                <af:link actionListener="#{bindings.CreateWithParams.execute}"
+                                                         text="CreateWithParams"
+                                                         disabled="#{!bindings.CreateWithParams.enabled}" id="l1"
+                                                         rendered="false"/>
+                                                <af:link id="l4" icon="#{resource['images:imgCloseDialog.png']}"
+                                                         action="#{pageFlowScope.OracleERPBean.doBackFromEdit}"
+                                                         text="Close" iconPosition="top" partialSubmit="true"
+                                                         shortDesc="Close Form"/>
+                                                <af:link text="Delete" id="l9"
+                                                         icon="#{resource['images:imgDeleteRecord.png']}"
+                                                         iconPosition="top" partialSubmit="true"
+                                                         disabled="#{pageFlowScope.ERPMainTempBean.LERPAllowDelete=='N'}"
+                                                         shortDesc="Delete Record">
+                                                    <af:showPopupBehavior popupId="p1" triggerType="action"/>
+                                                </af:link>
+                                                <af:link actionListener="#{bindings.Delete.execute}" text="Delete"
+                                                         id="l8" rendered="false"/>
+                                                <af:link text="Add" id="l2"
+                                                         action="#{pageFlowScope.OracleERPBean.doERPAddRecordWithPara}"
+                                                         icon="#{resource['images:imgAddRecord.png']}"
+                                                         iconPosition="top" partialSubmit="true"
+                                                         disabled="#{pageFlowScope.ERPMainTempBean.LERPAllowAdd=='N'}"
+                                                         shortDesc="Add New Record"/>
+                                                <af:link actionListener="#{bindings.Rollback.execute}" text="Rollback"
+                                                         immediate="true" id="l6" rendered="false">
+                                                    <af:resetActionListener/>
+                                                </af:link>
+                                                <af:link text="Undo" id="l7"
+                                                         action="#{pageFlowScope.OracleERPBean.doErpUndoRecord}"
+                                                         icon="#{resource['images:imgUndo.png']}" iconPosition="top"
+                                                         partialSubmit="true" immediate="true" shortDesc="Undo Record">
+                                                    <af:resetActionListener/>
+                                                </af:link>
+                                                <af:link text="Save" id="l5" icon="#{resource['images:imgSave.png']}"
+                                                         iconPosition="top"
+                                                         action="#{pageFlowScope.OracleERPBean.doERPCommitRecord}"
+                                                         partialSubmit="true" shortDesc="Save Record"/>
+                                                <af:link actionListener="#{bindings.Commit.execute}" text="Save" id="l3"
+                                                         rendered="false"/>
+                                                <f:facet name="separator">
+                                                    <af:spacer width="10" height="10" id="s1"/>
+                                                </f:facet>
+                                            </af:panelGroupLayout>
+                                        </af:gridCell>
+                                    </af:gridRow>
+                                </af:panelGridLayout>
+                            </af:gridCell>
+                        </af:gridRow>
+                        <af:gridRow marginTop="5px" height="auto" id="gr5">
+                            <af:gridCell marginStart="5px" width="100%" marginEnd="5px" id="gc5"
+                                         styleClass="ERPCompanyInfoBackGround" halign="stretch" valign="stretch">
+                                <af:panelGroupLayout id="pgl1" layout="vertical" halign="center"
+                                                     styleClass="AFStretchWidth">
+                                    <af:panelFormLayout id="pfl1" rows="1" maxColumns="4">
+                                        <af:inputText value="#{bindings.CompCode.inputValue}"
+                                                      label="#{bindings.CompCode.hints.label}"
+                                                      required="#{bindings.CompCode.hints.mandatory}"
+                                                      columns="#{bindings.CompCode.hints.displayWidth}"
+                                                      maximumLength="#{bindings.CompCode.hints.precision}"
+                                                      shortDesc="#{bindings.CompCode.hints.tooltip}" id="it1"
+                                                      rendered="false" readOnly="true">
+                                            <f:validator binding="#{bindings.CompCode.validator}"/>
+                                            <af:convertNumber groupingUsed="false"
+                                                              pattern="#{bindings.CompCode.format}"/>
+                                        </af:inputText>
+                                        <af:inputText value="#{bindings.CompanyName.inputValue}"
+                                                      label="#{bindings.CompanyName.hints.label}"
+                                                      required="#{bindings.CompanyName.hints.mandatory}"
+                                                      columns="#{bindings.CompanyName.hints.displayWidth}"
+                                                      maximumLength="#{bindings.CompanyName.hints.precision}"
+                                                      shortDesc="#{bindings.CompanyName.hints.tooltip}" id="it2"
+                                                      readOnly="true">
+                                            <f:validator binding="#{bindings.CompanyName.validator}"/>
+                                        </af:inputText>
+                                        <af:inputText value="#{bindings.CompanyShortName.inputValue}"
+                                                      label="#{bindings.CompanyShortName.hints.label}"
+                                                      required="#{bindings.CompanyShortName.hints.mandatory}"
+                                                      columns="#{bindings.CompanyShortName.hints.displayWidth}"
+                                                      maximumLength="#{bindings.CompanyShortName.hints.precision}"
+                                                      shortDesc="#{bindings.CompanyShortName.hints.tooltip}" id="it3"
+                                                      readOnly="true">
+                                            <f:validator binding="#{bindings.CompanyShortName.validator}"/>
+                                        </af:inputText>
+                                        <af:inputText value="#{bindings.CompanyShortCode.inputValue}"
+                                                      label="#{bindings.CompanyShortCode.hints.label}"
+                                                      required="#{bindings.CompanyShortCode.hints.mandatory}"
+                                                      columns="#{bindings.CompanyShortCode.hints.displayWidth}"
+                                                      maximumLength="#{bindings.CompanyShortCode.hints.precision}"
+                                                      shortDesc="#{bindings.CompanyShortCode.hints.tooltip}" id="it4"
+                                                      readOnly="true">
+                                            <f:validator binding="#{bindings.CompanyShortCode.validator}"/>
+                                            <af:convertNumber groupingUsed="false"
+                                                              pattern="#{bindings.CompanyShortCode.format}"/>
+                                        </af:inputText>
+                                        <af:inputText label="#{bindings.txtCountryName.hints.label}" id="it9"
+                                                      columns="#{bindings.txtCountryName.hints.displayWidth}"
+                                                      value="#{bindings.txtCountryName.inputValue}" readOnly="true"/>
+                                        <af:inputComboboxListOfValues id="txtCountryNameId"
+                                                                      popupTitle="Search and Select: #{bindings.txtCountryName.hints.label}"
+                                                                      value="#{bindings.txtCountryName.inputValue}"
+                                                                      label="#{bindings.txtCountryName.hints.label}"
+                                                                      model="#{bindings.txtCountryName.listOfValuesModel}"
+                                                                      required="#{bindings.txtCountryName.hints.mandatory}"
+                                                                      columns="#{bindings.txtCountryName.hints.displayWidth}"
+                                                                      shortDesc="#{bindings.txtCountryName.hints.tooltip}"
+                                                                      readOnly="true" rendered="false">
+                                            <f:validator binding="#{bindings.txtCountryName.validator}"/>
+                                        </af:inputComboboxListOfValues>
+                                    </af:panelFormLayout>
+                                </af:panelGroupLayout>
+                            </af:gridCell>
+                        </af:gridRow>
+                        <af:gridRow marginTop="5px" height="auto" marginBottom="5px" id="gr6">
+                            <af:gridCell marginStart="5px" width="100%" marginEnd="5px" id="gc6" halign="stretch"
+                                         valign="stretch">
+                                <af:panelCollection id="pc1" styleClass="AFStretchWidth"
+                                                    partialTriggers="::l1 ::l4 ::l9 ::l8 ::l2 ::l6 ::l7 ::l5 ::l3">
+                                    <f:facet name="menus"/>
+                                    <f:facet name="toolbar"/>
+                                    <f:facet name="statusbar"/>
+                                    <af:table value="#{bindings.GlProjectsByCompanyCRUD.collectionModel}" var="row"
+                                              rows="#{bindings.GlProjectsByCompanyCRUD.rangeSize}"
+                                              emptyText="#{bindings.GlProjectsByCompanyCRUD.viewable ? 'No data to display.' : 'Access Denied.'}"
+                                              rowBandingInterval="0"
+                                              selectedRowKeys="#{bindings.GlProjectsByCompanyCRUD.collectionModel.selectedRow}"
+                                              selectionListener="#{bindings.GlProjectsByCompanyCRUD.collectionModel.makeCurrent}"
+                                              rowSelection="single"
+                                              fetchSize="#{bindings.GlProjectsByCompanyCRUD.rangeSize}"
+                                              filterModel="#{bindings.GlProjectsByCompanyCRUDQuery.queryDescriptor}"
+                                              queryListener="#{bindings.GlProjectsByCompanyCRUDQuery.processQuery}"
+                                              filterVisible="true" varStatus="vs" id="t1" columnStretching="column:c4"
+                                              partialTriggers=":::l1 :::l8 :::l6 :::l3" scrollPolicy="page"
+                                              autoHeightRows="#{pageFlowScope.OracleERPBean.erpScreenSize=='portrait'?8:15}">
+                                        <af:column sortProperty="#{bindings.GlProjectsByCompanyCRUD.hints.ProjectSno.name}"
+                                                   filterable="true"
+                                                   headerText="#{bindings.GlProjectsByCompanyCRUD.hints.ProjectSno.label}"
+                                                   id="c1" rendered="false">
+                                            <af:inputText value="#{row.bindings.ProjectSno.inputValue}"
+                                                          label="#{bindings.GlProjectsByCompanyCRUD.hints.ProjectSno.label}"
+                                                          required="#{bindings.GlProjectsByCompanyCRUD.hints.ProjectSno.mandatory}"
+                                                          columns="#{bindings.GlProjectsByCompanyCRUD.hints.ProjectSno.displayWidth}"
+                                                          maximumLength="#{bindings.GlProjectsByCompanyCRUD.hints.ProjectSno.precision}"
+                                                          shortDesc="#{bindings.GlProjectsByCompanyCRUD.hints.ProjectSno.tooltip}"
+                                                          id="it5">
+                                                <f:validator binding="#{row.bindings.ProjectSno.validator}"/>
+                                                <af:convertNumber groupingUsed="false"
+                                                                  pattern="#{bindings.GlProjectsByCompanyCRUD.hints.ProjectSno.format}"/>
+                                            </af:inputText>
+                                        </af:column>
+                                        <af:column sortProperty="#{bindings.GlProjectsByCompanyCRUD.hints.ProjectCode.name}"
+                                                   filterable="true"
+                                                   headerText="#{bindings.GlProjectsByCompanyCRUD.hints.ProjectCode.label}"
+                                                   id="c2" headerClass="ERPToolBarBackground">
+                                            <af:inputText value="#{row.bindings.ProjectCode.inputValue}"
+                                                          label="#{bindings.GlProjectsByCompanyCRUD.hints.ProjectCode.label}"
+                                                          required="#{bindings.GlProjectsByCompanyCRUD.hints.ProjectCode.mandatory}"
+                                                          columns="#{bindings.GlProjectsByCompanyCRUD.hints.ProjectCode.displayWidth}"
+                                                          maximumLength="#{bindings.GlProjectsByCompanyCRUD.hints.ProjectCode.precision}"
+                                                          shortDesc="#{bindings.GlProjectsByCompanyCRUD.hints.ProjectCode.tooltip}"
+                                                          id="it6" readOnly="true">
+                                                <f:validator binding="#{row.bindings.ProjectCode.validator}"/>
+                                                <af:convertNumber groupingUsed="false"
+                                                                  pattern="#{bindings.GlProjectsByCompanyCRUD.hints.ProjectCode.format}"/>
+                                            </af:inputText>
+                                        </af:column>
+                                        <af:column sortProperty="#{bindings.GlProjectsByCompanyCRUD.hints.ProjectShortName.name}"
+                                                   filterable="true"
+                                                   headerText="#{bindings.GlProjectsByCompanyCRUD.hints.ProjectShortName.label}"
+                                                   id="c3" headerClass="ERPToolBarBackground">
+                                            <af:inputText value="#{row.bindings.ProjectShortName.inputValue}"
+                                                          label="#{bindings.GlProjectsByCompanyCRUD.hints.ProjectShortName.label}"
+                                                          required="#{bindings.GlProjectsByCompanyCRUD.hints.ProjectShortName.mandatory}"
+                                                          columns="#{bindings.GlProjectsByCompanyCRUD.hints.ProjectShortName.displayWidth}"
+                                                          maximumLength="#{bindings.GlProjectsByCompanyCRUD.hints.ProjectShortName.precision}"
+                                                          shortDesc="#{bindings.GlProjectsByCompanyCRUD.hints.ProjectShortName.tooltip}"
+                                                          id="it7"
+                                                          readOnly="#{pageFlowScope.ERPMainTempBean.LERPAllowEdit=='N' &amp;&amp; row.bindings.ProjectSno.inputValue!=null}">
+                                                <f:validator binding="#{row.bindings.ProjectShortName.validator}"/>
+                                            </af:inputText>
+                                        </af:column>
+                                        <af:column sortProperty="#{bindings.GlProjectsByCompanyCRUD.hints.ProjectName.name}"
+                                                   filterable="true"
+                                                   headerText="#{bindings.GlProjectsByCompanyCRUD.hints.ProjectName.label}"
+                                                   id="c4" headerClass="ERPToolBarBackground">
+                                            <af:inputText value="#{row.bindings.ProjectName.inputValue}"
+                                                          label="#{bindings.GlProjectsByCompanyCRUD.hints.ProjectName.label}"
+                                                          required="#{bindings.GlProjectsByCompanyCRUD.hints.ProjectName.mandatory}"
+                                                          columns="#{bindings.GlProjectsByCompanyCRUD.hints.ProjectName.displayWidth}"
+                                                          maximumLength="#{bindings.GlProjectsByCompanyCRUD.hints.ProjectName.precision}"
+                                                          shortDesc="#{bindings.GlProjectsByCompanyCRUD.hints.ProjectName.tooltip}"
+                                                          id="it8" contentStyle="width:100%"
+                                                          readOnly="#{pageFlowScope.ERPMainTempBean.LERPAllowEdit=='N' &amp;&amp; row.bindings.ProjectSno.inputValue!=null}">
+                                                <f:validator binding="#{row.bindings.ProjectName.validator}"/>
+                                            </af:inputText>
+                                        </af:column>
+                                        <af:column sortProperty="#{bindings.GlProjectsByCompanyCRUD.hints.StartDate.name}"
+                                                   filterable="true"
+                                                   headerText="#{bindings.GlProjectsByCompanyCRUD.hints.StartDate.label}"
+                                                   id="c5" width="130" displayIndex="-1"
+                                                   headerClass="ERPToolBarBackground">
+                                            <f:facet name="filter">
+                                                <af:inputDate value="#{bindings.GlProjectsByCompanyCRUDQuery.queryDescriptor.filterConjunctionCriterion.criterionMap.StartDate.value}"
+                                                              id="id1">
+                                                    <af:convertDateTime pattern="#{bindings.GlProjectsByCompanyCRUD.hints.StartDate.format}"/>
+                                                </af:inputDate>
                                             </f:facet>
-                                        </af:panelGroupLayout>
-                                    </af:gridCell>
-                                </af:gridRow>
-                            </af:panelGridLayout>
-                        </f:facet>
-                    </af:decorativeBox>
+                                            <af:inputDate value="#{row.bindings.StartDate.inputValue}"
+                                                          label="#{bindings.GlProjectsByCompanyCRUD.hints.StartDate.label}"
+                                                          required="#{bindings.GlProjectsByCompanyCRUD.hints.StartDate.mandatory}"
+                                                          columns="#{bindings.GlProjectsByCompanyCRUD.hints.StartDate.displayWidth}"
+                                                          shortDesc="#{bindings.GlProjectsByCompanyCRUD.hints.StartDate.tooltip}"
+                                                          id="id2" contentStyle="width:60%"
+                                                          readOnly="#{pageFlowScope.ERPMainTempBean.LERPAllowEdit=='N' &amp;&amp; row.bindings.ProjectSno.inputValue!=null}">
+                                                <f:validator binding="#{row.bindings.StartDate.validator}"/>
+                                                <af:convertDateTime pattern="#{bindings.GlProjectsByCompanyCRUD.hints.StartDate.format}"/>
+                                            </af:inputDate>
+                                        </af:column>
+                                        <af:column sortProperty="#{bindings.GlProjectsByCompanyCRUD.hints.EndDate.name}"
+                                                   filterable="true"
+                                                   headerText="#{bindings.GlProjectsByCompanyCRUD.hints.EndDate.label}"
+                                                   id="c6" width="130" minimumWidth="12" displayIndex="-1"
+                                                   headerClass="ERPToolBarBackground">
+                                            <f:facet name="filter">
+                                                <af:inputDate value="#{bindings.GlProjectsByCompanyCRUDQuery.queryDescriptor.filterConjunctionCriterion.criterionMap.EndDate.value}"
+                                                              id="id3">
+                                                    <af:convertDateTime pattern="#{bindings.GlProjectsByCompanyCRUD.hints.EndDate.format}"/>
+                                                </af:inputDate>
+                                            </f:facet>
+                                            <af:inputDate value="#{row.bindings.EndDate.inputValue}"
+                                                          label="#{bindings.GlProjectsByCompanyCRUD.hints.EndDate.label}"
+                                                          required="#{bindings.GlProjectsByCompanyCRUD.hints.EndDate.mandatory}"
+                                                          columns="#{bindings.GlProjectsByCompanyCRUD.hints.EndDate.displayWidth}"
+                                                          shortDesc="#{bindings.GlProjectsByCompanyCRUD.hints.EndDate.tooltip}"
+                                                          id="id4" contentStyle="width:60%"
+                                                          readOnly="#{pageFlowScope.ERPMainTempBean.LERPAllowEdit=='N' &amp;&amp; row.bindings.ProjectSno.inputValue!=null}">
+                                                <f:validator binding="#{row.bindings.EndDate.validator}"/>
+                                                <af:convertDateTime pattern="#{bindings.GlProjectsByCompanyCRUD.hints.EndDate.format}"/>
+                                            </af:inputDate>
+                                        </af:column>
+                                        <af:column sortProperty="#{bindings.GlProjectsByCompanyCRUD.hints.IsActive.name}"
+                                                   filterable="true"
+                                                   headerText="#{bindings.GlProjectsByCompanyCRUD.hints.IsActive.label}"
+                                                   id="c7" headerClass="ERPToolBarBackground">
+                                            <af:selectOneChoice label="Label 1"
+                                                                value="#{row.bindings.IsActive.inputValue}" id="soc1"
+                                                                readOnly="#{pageFlowScope.ERPMainTempBean.LERPAllowEdit=='N' &amp;&amp; row.bindings.ProjectSno.inputValue!=null}">
+                                                <af:selectItem label="YES" value="Y" id="si1"/>
+                                                <af:selectItem label="NO" value="N" id="si2"/>
+                                            </af:selectOneChoice>
+                                        </af:column>
+                                    </af:table>
+                                </af:panelCollection>
+                            </af:gridCell>
+                        </af:gridRow>
+                    </af:panelGridLayout>
                 </f:facet>
                 <f:facet name="top"/>
             </af:decorativeBox>

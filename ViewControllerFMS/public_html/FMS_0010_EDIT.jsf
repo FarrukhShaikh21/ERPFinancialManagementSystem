@@ -10,264 +10,251 @@
                     <f:facet name="buttonBar"/>
                     <af:outputText value="Do you want to delete this record?" id="ot2" styleClass="ErpDeleteConfirmText"/>
                 </af:dialog>
-            </af:popup>        
-            <af:decorativeBox id="db2" dimensionsFrom="parent">
+            </af:popup>
+            <af:decorativeBox id="db1" dimensionsFrom="parent">
                 <f:facet name="center">
-                    <af:decorativeBox id="db1" dimensionsFrom="parent">
-                        <f:facet name="center">
-                            <af:panelGridLayout id="pgl3">
-                                <af:gridRow marginTop="5px" height="auto" id="gr5">
-                                    <af:gridCell marginStart="5px" width="100%" marginEnd="5px" id="gc5"
-                                                 styleClass="ERPCompanyInfoBackGround" halign="stretch"
-                                                 valign="stretch">
-                                        <af:panelGroupLayout id="pgl1" halign="center" layout="vertical">
-                                            <af:panelFormLayout id="pfl1" rows="1" maxColumns="4">
-                                                <af:inputText value="#{bindings.CompCode.inputValue}"
-                                                              label="#{bindings.CompCode.hints.label}"
-                                                              required="#{bindings.CompCode.hints.mandatory}"
-                                                              columns="#{bindings.CompCode.hints.displayWidth}"
-                                                              maximumLength="#{bindings.CompCode.hints.precision}"
-                                                              shortDesc="#{bindings.CompCode.hints.tooltip}" id="it1"
-                                                              rendered="false" readOnly="true">
-                                                    <f:validator binding="#{bindings.CompCode.validator}"/>
-                                                    <af:convertNumber groupingUsed="false"
-                                                                      pattern="#{bindings.CompCode.format}"/>
-                                                </af:inputText>
-                                                <af:inputText value="#{bindings.CompanyName.inputValue}"
-                                                              label="#{bindings.CompanyName.hints.label}"
-                                                              required="#{bindings.CompanyName.hints.mandatory}"
-                                                              columns="#{bindings.CompanyName.hints.displayWidth}"
-                                                              maximumLength="#{bindings.CompanyName.hints.precision}"
-                                                              shortDesc="#{bindings.CompanyName.hints.tooltip}" id="it2"
-                                                              readOnly="true">
-                                                    <f:validator binding="#{bindings.CompanyName.validator}"/>
-                                                </af:inputText>
-                                                <af:inputText value="#{bindings.CompanyShortName.inputValue}"
-                                                              label="#{bindings.CompanyShortName.hints.label}"
-                                                              required="#{bindings.CompanyShortName.hints.mandatory}"
-                                                              columns="#{bindings.CompanyShortName.hints.displayWidth}"
-                                                              maximumLength="#{bindings.CompanyShortName.hints.precision}"
-                                                              shortDesc="#{bindings.CompanyShortName.hints.tooltip}"
-                                                              id="it3" readOnly="true">
-                                                    <f:validator binding="#{bindings.CompanyShortName.validator}"/>
-                                                </af:inputText>
-                                                <af:inputText value="#{bindings.CompanyShortCode.inputValue}"
-                                                              label="#{bindings.CompanyShortCode.hints.label}"
-                                                              required="#{bindings.CompanyShortCode.hints.mandatory}"
-                                                              columns="#{bindings.CompanyShortCode.hints.displayWidth}"
-                                                              maximumLength="#{bindings.CompanyShortCode.hints.precision}"
-                                                              shortDesc="#{bindings.CompanyShortCode.hints.tooltip}"
-                                                              id="it4" readOnly="true">
-                                                    <f:validator binding="#{bindings.CompanyShortCode.validator}"/>
-                                                    <af:convertNumber groupingUsed="false"
-                                                                      pattern="#{bindings.CompanyShortCode.format}"/>
-                                                </af:inputText>
-                                                <af:inputText label="#{bindings.txtCountryName.hints.label}" id="it10"
-                                                              columns="#{bindings.txtCountryName.hints.displayWidth}"
-                                                              value="#{bindings.txtCountryName.inputValue}"
-                                                              readOnly="true"/>
-                                            </af:panelFormLayout>
-                                        </af:panelGroupLayout>
-                                    </af:gridCell>
-                                </af:gridRow>
-                                <af:gridRow marginTop="5px" height="auto" marginBottom="5px" id="gr6">
-                                    <af:gridCell marginStart="5px" width="100%" marginEnd="5px" id="gc6"
-                                                 valign="stretch" halign="stretch">
-                                        <af:panelCollection id="pc1" styleClass="AFStretchWidth">
-                                            <f:facet name="menus"/>
-                                            <f:facet name="toolbar"/>
-                                            <f:facet name="statusbar"/>
-                                            <af:table value="#{bindings.GlBatchSetupByCompanyCRUD.collectionModel}"
-                                                      var="row" rows="#{bindings.GlBatchSetupByCompanyCRUD.rangeSize}"
-                                                      emptyText="#{bindings.GlBatchSetupByCompanyCRUD.viewable ? 'No data to display.' : 'Access Denied.'}"
-                                                      rowBandingInterval="0"
-                                                      selectedRowKeys="#{bindings.GlBatchSetupByCompanyCRUD.collectionModel.selectedRow}"
-                                                      selectionListener="#{bindings.GlBatchSetupByCompanyCRUD.collectionModel.makeCurrent}"
-                                                      rowSelection="single"
-                                                      fetchSize="#{bindings.GlBatchSetupByCompanyCRUD.rangeSize}"
-                                                      filterModel="#{bindings.GlBatchSetupByCompanyCRUDQuery.queryDescriptor}"
-                                                      queryListener="#{bindings.GlBatchSetupByCompanyCRUDQuery.processQuery}"
-                                                      filterVisible="true" varStatus="vs" id="t1"
-                                                      partialTriggers=":::l1 :::l8" columnStretching="column:c5"
-                                                      autoHeightRows="10" scrollPolicy="page">
-                                                <af:column sortProperty="#{bindings.GlBatchSetupByCompanyCRUD.hints.BatchId.name}"
-                                                           filterable="true"
-                                                           headerText="#{bindings.GlBatchSetupByCompanyCRUD.hints.BatchId.label}"
-                                                           id="c1" rendered="false" headerClass="ERPToolBarBackground">
-                                                    <af:inputText value="#{row.bindings.BatchId.inputValue}"
-                                                                  label="#{bindings.GlBatchSetupByCompanyCRUD.hints.BatchId.label}"
-                                                                  required="#{bindings.GlBatchSetupByCompanyCRUD.hints.BatchId.mandatory}"
-                                                                  columns="#{bindings.GlBatchSetupByCompanyCRUD.hints.BatchId.displayWidth}"
-                                                                  maximumLength="#{bindings.GlBatchSetupByCompanyCRUD.hints.BatchId.precision}"
-                                                                  shortDesc="#{bindings.GlBatchSetupByCompanyCRUD.hints.BatchId.tooltip}"
-                                                                  id="it5">
-                                                        <f:validator binding="#{row.bindings.BatchId.validator}"/>
-                                                        <af:convertNumber groupingUsed="false"
-                                                                          pattern="#{bindings.GlBatchSetupByCompanyCRUD.hints.BatchId.format}"/>
-                                                    </af:inputText>
-                                                </af:column>
-                                                <af:column sortProperty="#{bindings.GlBatchSetupByCompanyCRUD.hints.BatchCode.name}"
-                                                           filterable="true"
-                                                           headerText="#{bindings.GlBatchSetupByCompanyCRUD.hints.BatchCode.label}"
-                                                           id="c2" width="80" displayIndex="-1"
-                                                           headerClass="ERPToolBarBackground">
-                                                    <af:inputText value="#{row.bindings.BatchCode.inputValue}"
-                                                                  label="#{bindings.GlBatchSetupByCompanyCRUD.hints.BatchCode.label}"
-                                                                  required="#{bindings.GlBatchSetupByCompanyCRUD.hints.BatchCode.mandatory}"
-                                                                  columns="#{bindings.GlBatchSetupByCompanyCRUD.hints.BatchCode.displayWidth}"
-                                                                  maximumLength="#{bindings.GlBatchSetupByCompanyCRUD.hints.BatchCode.precision}"
-                                                                  shortDesc="#{bindings.GlBatchSetupByCompanyCRUD.hints.BatchCode.tooltip}"
-                                                                  id="it6" readOnly="true">
-                                                        <f:validator binding="#{row.bindings.BatchCode.validator}"/>
-                                                        <af:convertNumber groupingUsed="false"
-                                                                          pattern="#{bindings.GlBatchSetupByCompanyCRUD.hints.BatchCode.format}"/>
-                                                    </af:inputText>
-                                                </af:column>
-                                                <af:column sortProperty="#{bindings.GlBatchSetupByCompanyCRUD.hints.BatchDate.name}"
-                                                           filterable="true"
-                                                           headerText="#{bindings.GlBatchSetupByCompanyCRUD.hints.BatchDate.label}"
-                                                           id="c3" width="130" displayIndex="-1"
-                                                           headerClass="ERPToolBarBackground">
-                                                    <f:facet name="filter">
-                                                        <af:inputDate value="#{bindings.GlBatchSetupByCompanyCRUDQuery.queryDescriptor.filterConjunctionCriterion.criterionMap.BatchDate.value}"
-                                                                      id="id1">
-                                                            <af:convertDateTime pattern="#{bindings.GlBatchSetupByCompanyCRUD.hints.BatchDate.format}"/>
-                                                        </af:inputDate>
-                                                    </f:facet>
-                                                    <af:inputDate value="#{row.bindings.BatchDate.inputValue}"
-                                                                  label="#{bindings.GlBatchSetupByCompanyCRUD.hints.BatchDate.label}"
-                                                                  required="#{bindings.GlBatchSetupByCompanyCRUD.hints.BatchDate.mandatory}"
-                                                                  columns="#{bindings.GlBatchSetupByCompanyCRUD.hints.BatchDate.displayWidth}"
-                                                                  shortDesc="#{bindings.GlBatchSetupByCompanyCRUD.hints.BatchDate.tooltip}"
-                                                                  id="id2" contentStyle="width:60%"
-                                                                  readOnly="#{pageFlowScope.ERPMainTempBean.LERPAllowEdit=='N' &amp;&amp; row.bindings.BatchId.inputValue!=null}">
-                                                        <f:validator binding="#{row.bindings.BatchDate.validator}"/>
-                                                        <af:convertDateTime pattern="#{bindings.GlBatchSetupByCompanyCRUD.hints.BatchDate.format}"/>
-                                                    </af:inputDate>
-                                                </af:column>
-                                                <af:column sortProperty="#{bindings.GlBatchSetupByCompanyCRUD.hints.BatchShortName.name}"
-                                                           filterable="true"
-                                                           headerText="#{bindings.GlBatchSetupByCompanyCRUD.hints.BatchShortName.label}"
-                                                           id="c4" headerClass="ERPToolBarBackground">
-                                                    <af:inputText value="#{row.bindings.BatchShortName.inputValue}"
-                                                                  label="#{bindings.GlBatchSetupByCompanyCRUD.hints.BatchShortName.label}"
-                                                                  required="#{bindings.GlBatchSetupByCompanyCRUD.hints.BatchShortName.mandatory}"
-                                                                  columns="#{bindings.GlBatchSetupByCompanyCRUD.hints.BatchShortName.displayWidth}"
-                                                                  maximumLength="#{bindings.GlBatchSetupByCompanyCRUD.hints.BatchShortName.precision}"
-                                                                  shortDesc="#{bindings.GlBatchSetupByCompanyCRUD.hints.BatchShortName.tooltip}"
-                                                                  id="it7"
-                                                                  readOnly="#{pageFlowScope.ERPMainTempBean.LERPAllowEdit=='N' &amp;&amp; row.bindings.BatchId.inputValue!=null}">
-                                                        <f:validator binding="#{row.bindings.BatchShortName.validator}"/>
-                                                    </af:inputText>
-                                                </af:column>
-                                                <af:column sortProperty="#{bindings.GlBatchSetupByCompanyCRUD.hints.BatchDescription.name}"
-                                                           filterable="true"
-                                                           headerText="#{bindings.GlBatchSetupByCompanyCRUD.hints.BatchDescription.label}"
-                                                           id="c5" width="200" headerClass="ERPToolBarBackground">
-                                                    <af:inputText value="#{row.bindings.BatchDescription.inputValue}"
-                                                                  label="#{bindings.GlBatchSetupByCompanyCRUD.hints.BatchDescription.label}"
-                                                                  required="#{bindings.GlBatchSetupByCompanyCRUD.hints.BatchDescription.mandatory}"
-                                                                  columns="#{bindings.GlBatchSetupByCompanyCRUD.hints.BatchDescription.displayWidth}"
-                                                                  maximumLength="#{bindings.GlBatchSetupByCompanyCRUD.hints.BatchDescription.precision}"
-                                                                  shortDesc="#{bindings.GlBatchSetupByCompanyCRUD.hints.BatchDescription.tooltip}"
-                                                                  id="it8" contentStyle="width:100%"
-                                                                  readOnly="#{pageFlowScope.ERPMainTempBean.LERPAllowEdit=='N' &amp;&amp; row.bindings.BatchId.inputValue!=null}">
-                                                        <f:validator binding="#{row.bindings.BatchDescription.validator}"/>
-                                                    </af:inputText>
-                                                </af:column>
-                                                <af:column sortProperty="#{bindings.GlBatchSetupByCompanyCRUD.hints.Remarks.name}"
-                                                           filterable="true"
-                                                           headerText="#{bindings.GlBatchSetupByCompanyCRUD.hints.Remarks.label}"
-                                                           id="c6" width="200" headerClass="ERPToolBarBackground">
-                                                    <af:inputText value="#{row.bindings.Remarks.inputValue}"
-                                                                  label="#{bindings.GlBatchSetupByCompanyCRUD.hints.Remarks.label}"
-                                                                  required="#{bindings.GlBatchSetupByCompanyCRUD.hints.Remarks.mandatory}"
-                                                                  columns="#{bindings.GlBatchSetupByCompanyCRUD.hints.Remarks.displayWidth}"
-                                                                  maximumLength="#{bindings.GlBatchSetupByCompanyCRUD.hints.Remarks.precision}"
-                                                                  shortDesc="#{bindings.GlBatchSetupByCompanyCRUD.hints.Remarks.tooltip}"
-                                                                  id="it9" contentStyle="width:100%"
-                                                                  readOnly="#{pageFlowScope.ERPMainTempBean.LERPAllowEdit=='N' &amp;&amp; row.bindings.BatchId.inputValue!=null}">
-                                                        <f:validator binding="#{row.bindings.Remarks.validator}"/>
-                                                    </af:inputText>
-                                                </af:column>
-                                                <af:column sortProperty="#{bindings.GlBatchSetupByCompanyCRUD.hints.IsActive.name}"
-                                                           filterable="true"
-                                                           headerText="#{bindings.GlBatchSetupByCompanyCRUD.hints.IsActive.label}"
-                                                           id="c7" headerClass="ERPToolBarBackground">
-                                                    <af:selectOneChoice label="Label 1"
-                                                                        value="#{row.bindings.IsActive.inputValue}"
-                                                                        id="soc1"
-                                                                        readOnly="#{pageFlowScope.ERPMainTempBean.LERPAllowEdit=='N' &amp;&amp; row.bindings.BatchId.inputValue!=null}">
-                                                        <af:selectItem label="YES" value="Y" id="si1"/>
-                                                        <af:selectItem label="NO" value="N" id="si2"/>
-                                                    </af:selectOneChoice>
-                                                </af:column>
-                                            </af:table>
-                                        </af:panelCollection>
-                                    </af:gridCell>
-                                </af:gridRow>
-                            </af:panelGridLayout>
-                        </f:facet>
-                        <f:facet name="top">
-                            <af:panelGridLayout id="pgl4" dimensionsFrom="parent" styleClass="ERPToolBarBackground">
-                                <af:gridRow marginTop="5px" height="auto" marginBottom="5px" id="gr7">
-                                    <af:gridCell marginStart="5px" width="50%" id="gc7" halign="stretch"
-                                                 valign="middle">
-                                        <af:spacer width="10" height="10" id="s2"/>
-                                        <af:outputText value="#{pageFlowScope.ERPMainTempBean.LErpActivityName}" id="ot1"
-                                                       styleClass="ERPActivityNameFormHeading"/>
-                                    </af:gridCell>
-                                    <af:gridCell marginStart="5px" width="50%" marginEnd="5px" id="gc8" halign="end">
-                                        <af:panelGroupLayout id="pgl5" layout="horizontal" halign="end">
-                                            <af:link actionListener="#{bindings.Delete.execute}" text="Delete"
-                                                     disabled="#{!bindings.Delete.enabled}" id="l8" rendered="false"/>
-                                            <af:link actionListener="#{bindings.CreateWithParams.execute}"
-                                                     text="CreateWithParams"
-                                                     disabled="#{!bindings.CreateWithParams.enabled}" id="l1"
-                                                     rendered="false"/>
-                                            <af:link id="l4" icon="#{resource['images:imgCloseDialog.png']}"
-                                                     action="#{pageFlowScope.OracleERPBean.doBackFromEdit}" text="Close" iconPosition="top"
-                                                     partialSubmit="true" shortDesc="Close Form"/>
-                                            <af:link text="Delete" id="l9"
-                                                     icon="#{resource['images:imgDeleteRecord.png']}"
-                                                     iconPosition="top" partialSubmit="true"
-                                                     disabled="#{pageFlowScope.ERPMainTempBean.LERPAllowDelete=='N'}"
-                                                     shortDesc="Delete Record">
-                                                <af:showPopupBehavior popupId="p1" triggerType="action"/>
-                                            </af:link>
-                                            <af:link text="Add" id="l2"
-                                                     action="#{pageFlowScope.OracleERPBean.doERPAddRecordWithPara}"
-                                                     icon="#{resource['images:imgAddRecord.png']}" iconPosition="top"
-                                                     partialSubmit="true"
-                                                     disabled="#{pageFlowScope.ERPMainTempBean.LERPAllowAdd=='N'}"
-                                                     shortDesc="Add New Record"/>
-                                            <af:link actionListener="#{bindings.Rollback.execute}" text="Rollback" immediate="true" id="l6"
-                                                     rendered="false">
-                                                <af:resetActionListener/>
-                                            </af:link>
-                                            <af:link text="Undo" id="l7"
-                                                     action="#{pageFlowScope.OracleERPBean.doErpUndoRecord}"
-                                                     icon="#{resource['images:imgUndo.png']}" iconPosition="top"
-                                                     partialSubmit="true" immediate="true" shortDesc="Undo Record">
-                                                <af:resetActionListener/>
-                                            </af:link>
-                                            <af:link text="Save" id="l5" icon="#{resource['images:imgSave.png']}"
-                                                     iconPosition="top"
-                                                     action="#{pageFlowScope.OracleERPBean.doERPCommitRecord}"
-                                                     partialSubmit="true" shortDesc="Save Record"/>
-                                            <af:link text="Commit" id="l3" rendered="false"
-                                                     actionListener="#{bindings.Commit.execute}"/>
-                                            <f:facet name="separator">
-                                                <af:spacer width="10" height="10" id="s1"/>
+                    <af:panelGridLayout id="pgl3">
+                        <af:gridRow marginTop="5px" height="auto" id="gr5">
+                            <af:gridCell marginStart="5px" width="100%" marginEnd="5px" id="gc5"
+                                         styleClass="ERPCompanyInfoBackGround" halign="stretch" valign="stretch">
+                                <af:panelGroupLayout id="pgl1" halign="center" layout="vertical">
+                                    <af:panelFormLayout id="pfl1" rows="1" maxColumns="4">
+                                        <af:inputText value="#{bindings.CompCode.inputValue}"
+                                                      label="#{bindings.CompCode.hints.label}"
+                                                      required="#{bindings.CompCode.hints.mandatory}"
+                                                      columns="#{bindings.CompCode.hints.displayWidth}"
+                                                      maximumLength="#{bindings.CompCode.hints.precision}"
+                                                      shortDesc="#{bindings.CompCode.hints.tooltip}" id="it1"
+                                                      rendered="false" readOnly="true">
+                                            <f:validator binding="#{bindings.CompCode.validator}"/>
+                                            <af:convertNumber groupingUsed="false"
+                                                              pattern="#{bindings.CompCode.format}"/>
+                                        </af:inputText>
+                                        <af:inputText value="#{bindings.CompanyName.inputValue}"
+                                                      label="#{bindings.CompanyName.hints.label}"
+                                                      required="#{bindings.CompanyName.hints.mandatory}"
+                                                      columns="#{bindings.CompanyName.hints.displayWidth}"
+                                                      maximumLength="#{bindings.CompanyName.hints.precision}"
+                                                      shortDesc="#{bindings.CompanyName.hints.tooltip}" id="it2"
+                                                      readOnly="true">
+                                            <f:validator binding="#{bindings.CompanyName.validator}"/>
+                                        </af:inputText>
+                                        <af:inputText value="#{bindings.CompanyShortName.inputValue}"
+                                                      label="#{bindings.CompanyShortName.hints.label}"
+                                                      required="#{bindings.CompanyShortName.hints.mandatory}"
+                                                      columns="#{bindings.CompanyShortName.hints.displayWidth}"
+                                                      maximumLength="#{bindings.CompanyShortName.hints.precision}"
+                                                      shortDesc="#{bindings.CompanyShortName.hints.tooltip}" id="it3"
+                                                      readOnly="true">
+                                            <f:validator binding="#{bindings.CompanyShortName.validator}"/>
+                                        </af:inputText>
+                                        <af:inputText value="#{bindings.CompanyShortCode.inputValue}"
+                                                      label="#{bindings.CompanyShortCode.hints.label}"
+                                                      required="#{bindings.CompanyShortCode.hints.mandatory}"
+                                                      columns="#{bindings.CompanyShortCode.hints.displayWidth}"
+                                                      maximumLength="#{bindings.CompanyShortCode.hints.precision}"
+                                                      shortDesc="#{bindings.CompanyShortCode.hints.tooltip}" id="it4"
+                                                      readOnly="true">
+                                            <f:validator binding="#{bindings.CompanyShortCode.validator}"/>
+                                            <af:convertNumber groupingUsed="false"
+                                                              pattern="#{bindings.CompanyShortCode.format}"/>
+                                        </af:inputText>
+                                        <af:inputText label="#{bindings.txtCountryName.hints.label}" id="it10"
+                                                      columns="#{bindings.txtCountryName.hints.displayWidth}"
+                                                      value="#{bindings.txtCountryName.inputValue}" readOnly="true"/>
+                                    </af:panelFormLayout>
+                                </af:panelGroupLayout>
+                            </af:gridCell>
+                        </af:gridRow>
+                        <af:gridRow marginTop="5px" height="auto" marginBottom="5px" id="gr6">
+                            <af:gridCell marginStart="5px" width="100%" marginEnd="5px" id="gc6" valign="stretch"
+                                         halign="stretch">
+                                <af:panelCollection id="pc1" styleClass="AFStretchWidth">
+                                    <f:facet name="menus"/>
+                                    <f:facet name="toolbar"/>
+                                    <f:facet name="statusbar"/>
+                                    <af:table value="#{bindings.GlBatchSetupByCompanyCRUD.collectionModel}" var="row"
+                                              rows="#{bindings.GlBatchSetupByCompanyCRUD.rangeSize}"
+                                              emptyText="#{bindings.GlBatchSetupByCompanyCRUD.viewable ? 'No data to display.' : 'Access Denied.'}"
+                                              rowBandingInterval="0"
+                                              selectedRowKeys="#{bindings.GlBatchSetupByCompanyCRUD.collectionModel.selectedRow}"
+                                              selectionListener="#{bindings.GlBatchSetupByCompanyCRUD.collectionModel.makeCurrent}"
+                                              rowSelection="single"
+                                              fetchSize="#{bindings.GlBatchSetupByCompanyCRUD.rangeSize}"
+                                              filterModel="#{bindings.GlBatchSetupByCompanyCRUDQuery.queryDescriptor}"
+                                              queryListener="#{bindings.GlBatchSetupByCompanyCRUDQuery.processQuery}"
+                                              filterVisible="true" varStatus="vs" id="t1" partialTriggers=":::l1 :::l8"
+                                              columnStretching="column:c5" autoHeightRows="10" scrollPolicy="page">
+                                        <af:column sortProperty="#{bindings.GlBatchSetupByCompanyCRUD.hints.BatchId.name}"
+                                                   filterable="true"
+                                                   headerText="#{bindings.GlBatchSetupByCompanyCRUD.hints.BatchId.label}"
+                                                   id="c1" rendered="false" headerClass="ERPToolBarBackground">
+                                            <af:inputText value="#{row.bindings.BatchId.inputValue}"
+                                                          label="#{bindings.GlBatchSetupByCompanyCRUD.hints.BatchId.label}"
+                                                          required="#{bindings.GlBatchSetupByCompanyCRUD.hints.BatchId.mandatory}"
+                                                          columns="#{bindings.GlBatchSetupByCompanyCRUD.hints.BatchId.displayWidth}"
+                                                          maximumLength="#{bindings.GlBatchSetupByCompanyCRUD.hints.BatchId.precision}"
+                                                          shortDesc="#{bindings.GlBatchSetupByCompanyCRUD.hints.BatchId.tooltip}"
+                                                          id="it5">
+                                                <f:validator binding="#{row.bindings.BatchId.validator}"/>
+                                                <af:convertNumber groupingUsed="false"
+                                                                  pattern="#{bindings.GlBatchSetupByCompanyCRUD.hints.BatchId.format}"/>
+                                            </af:inputText>
+                                        </af:column>
+                                        <af:column sortProperty="#{bindings.GlBatchSetupByCompanyCRUD.hints.BatchCode.name}"
+                                                   filterable="true"
+                                                   headerText="#{bindings.GlBatchSetupByCompanyCRUD.hints.BatchCode.label}"
+                                                   id="c2" width="80" displayIndex="-1"
+                                                   headerClass="ERPToolBarBackground">
+                                            <af:inputText value="#{row.bindings.BatchCode.inputValue}"
+                                                          label="#{bindings.GlBatchSetupByCompanyCRUD.hints.BatchCode.label}"
+                                                          required="#{bindings.GlBatchSetupByCompanyCRUD.hints.BatchCode.mandatory}"
+                                                          columns="#{bindings.GlBatchSetupByCompanyCRUD.hints.BatchCode.displayWidth}"
+                                                          maximumLength="#{bindings.GlBatchSetupByCompanyCRUD.hints.BatchCode.precision}"
+                                                          shortDesc="#{bindings.GlBatchSetupByCompanyCRUD.hints.BatchCode.tooltip}"
+                                                          id="it6" readOnly="true">
+                                                <f:validator binding="#{row.bindings.BatchCode.validator}"/>
+                                                <af:convertNumber groupingUsed="false"
+                                                                  pattern="#{bindings.GlBatchSetupByCompanyCRUD.hints.BatchCode.format}"/>
+                                            </af:inputText>
+                                        </af:column>
+                                        <af:column sortProperty="#{bindings.GlBatchSetupByCompanyCRUD.hints.BatchDate.name}"
+                                                   filterable="true"
+                                                   headerText="#{bindings.GlBatchSetupByCompanyCRUD.hints.BatchDate.label}"
+                                                   id="c3" width="130" displayIndex="-1"
+                                                   headerClass="ERPToolBarBackground">
+                                            <f:facet name="filter">
+                                                <af:inputDate value="#{bindings.GlBatchSetupByCompanyCRUDQuery.queryDescriptor.filterConjunctionCriterion.criterionMap.BatchDate.value}"
+                                                              id="id1">
+                                                    <af:convertDateTime pattern="#{bindings.GlBatchSetupByCompanyCRUD.hints.BatchDate.format}"/>
+                                                </af:inputDate>
                                             </f:facet>
-                                        </af:panelGroupLayout>
-                                    </af:gridCell>
-                                </af:gridRow>
-                            </af:panelGridLayout>
-                        </f:facet>
-                    </af:decorativeBox>
+                                            <af:inputDate value="#{row.bindings.BatchDate.inputValue}"
+                                                          label="#{bindings.GlBatchSetupByCompanyCRUD.hints.BatchDate.label}"
+                                                          required="#{bindings.GlBatchSetupByCompanyCRUD.hints.BatchDate.mandatory}"
+                                                          columns="#{bindings.GlBatchSetupByCompanyCRUD.hints.BatchDate.displayWidth}"
+                                                          shortDesc="#{bindings.GlBatchSetupByCompanyCRUD.hints.BatchDate.tooltip}"
+                                                          id="id2" contentStyle="width:60%"
+                                                          readOnly="#{pageFlowScope.ERPMainTempBean.LERPAllowEdit=='N' &amp;&amp; row.bindings.BatchId.inputValue!=null}">
+                                                <f:validator binding="#{row.bindings.BatchDate.validator}"/>
+                                                <af:convertDateTime pattern="#{bindings.GlBatchSetupByCompanyCRUD.hints.BatchDate.format}"/>
+                                            </af:inputDate>
+                                        </af:column>
+                                        <af:column sortProperty="#{bindings.GlBatchSetupByCompanyCRUD.hints.BatchShortName.name}"
+                                                   filterable="true"
+                                                   headerText="#{bindings.GlBatchSetupByCompanyCRUD.hints.BatchShortName.label}"
+                                                   id="c4" headerClass="ERPToolBarBackground">
+                                            <af:inputText value="#{row.bindings.BatchShortName.inputValue}"
+                                                          label="#{bindings.GlBatchSetupByCompanyCRUD.hints.BatchShortName.label}"
+                                                          required="#{bindings.GlBatchSetupByCompanyCRUD.hints.BatchShortName.mandatory}"
+                                                          columns="#{bindings.GlBatchSetupByCompanyCRUD.hints.BatchShortName.displayWidth}"
+                                                          maximumLength="#{bindings.GlBatchSetupByCompanyCRUD.hints.BatchShortName.precision}"
+                                                          shortDesc="#{bindings.GlBatchSetupByCompanyCRUD.hints.BatchShortName.tooltip}"
+                                                          id="it7"
+                                                          readOnly="#{pageFlowScope.ERPMainTempBean.LERPAllowEdit=='N' &amp;&amp; row.bindings.BatchId.inputValue!=null}">
+                                                <f:validator binding="#{row.bindings.BatchShortName.validator}"/>
+                                            </af:inputText>
+                                        </af:column>
+                                        <af:column sortProperty="#{bindings.GlBatchSetupByCompanyCRUD.hints.BatchDescription.name}"
+                                                   filterable="true"
+                                                   headerText="#{bindings.GlBatchSetupByCompanyCRUD.hints.BatchDescription.label}"
+                                                   id="c5" width="200" headerClass="ERPToolBarBackground">
+                                            <af:inputText value="#{row.bindings.BatchDescription.inputValue}"
+                                                          label="#{bindings.GlBatchSetupByCompanyCRUD.hints.BatchDescription.label}"
+                                                          required="#{bindings.GlBatchSetupByCompanyCRUD.hints.BatchDescription.mandatory}"
+                                                          columns="#{bindings.GlBatchSetupByCompanyCRUD.hints.BatchDescription.displayWidth}"
+                                                          maximumLength="#{bindings.GlBatchSetupByCompanyCRUD.hints.BatchDescription.precision}"
+                                                          shortDesc="#{bindings.GlBatchSetupByCompanyCRUD.hints.BatchDescription.tooltip}"
+                                                          id="it8" contentStyle="width:100%"
+                                                          readOnly="#{pageFlowScope.ERPMainTempBean.LERPAllowEdit=='N' &amp;&amp; row.bindings.BatchId.inputValue!=null}">
+                                                <f:validator binding="#{row.bindings.BatchDescription.validator}"/>
+                                            </af:inputText>
+                                        </af:column>
+                                        <af:column sortProperty="#{bindings.GlBatchSetupByCompanyCRUD.hints.Remarks.name}"
+                                                   filterable="true"
+                                                   headerText="#{bindings.GlBatchSetupByCompanyCRUD.hints.Remarks.label}"
+                                                   id="c6" width="200" headerClass="ERPToolBarBackground">
+                                            <af:inputText value="#{row.bindings.Remarks.inputValue}"
+                                                          label="#{bindings.GlBatchSetupByCompanyCRUD.hints.Remarks.label}"
+                                                          required="#{bindings.GlBatchSetupByCompanyCRUD.hints.Remarks.mandatory}"
+                                                          columns="#{bindings.GlBatchSetupByCompanyCRUD.hints.Remarks.displayWidth}"
+                                                          maximumLength="#{bindings.GlBatchSetupByCompanyCRUD.hints.Remarks.precision}"
+                                                          shortDesc="#{bindings.GlBatchSetupByCompanyCRUD.hints.Remarks.tooltip}"
+                                                          id="it9" contentStyle="width:100%"
+                                                          readOnly="#{pageFlowScope.ERPMainTempBean.LERPAllowEdit=='N' &amp;&amp; row.bindings.BatchId.inputValue!=null}">
+                                                <f:validator binding="#{row.bindings.Remarks.validator}"/>
+                                            </af:inputText>
+                                        </af:column>
+                                        <af:column sortProperty="#{bindings.GlBatchSetupByCompanyCRUD.hints.IsActive.name}"
+                                                   filterable="true"
+                                                   headerText="#{bindings.GlBatchSetupByCompanyCRUD.hints.IsActive.label}"
+                                                   id="c7" headerClass="ERPToolBarBackground">
+                                            <af:selectOneChoice label="Label 1"
+                                                                value="#{row.bindings.IsActive.inputValue}" id="soc1"
+                                                                readOnly="#{pageFlowScope.ERPMainTempBean.LERPAllowEdit=='N' &amp;&amp; row.bindings.BatchId.inputValue!=null}">
+                                                <af:selectItem label="YES" value="Y" id="si1"/>
+                                                <af:selectItem label="NO" value="N" id="si2"/>
+                                            </af:selectOneChoice>
+                                        </af:column>
+                                    </af:table>
+                                </af:panelCollection>
+                            </af:gridCell>
+                        </af:gridRow>
+                    </af:panelGridLayout>
                 </f:facet>
-                <f:facet name="top"/>
+                <f:facet name="top">
+                    <af:panelGridLayout id="pgl4" dimensionsFrom="parent" styleClass="ERPToolBarBackground">
+                        <af:gridRow marginTop="5px" height="auto" marginBottom="5px" id="gr7">
+                            <af:gridCell marginStart="5px" width="50%" id="gc7" halign="stretch" valign="middle">
+                                <af:spacer width="10" height="10" id="s2"/>
+                                <af:outputText value="#{pageFlowScope.ERPMainTempBean.LErpActivityName}" id="ot1"
+                                               styleClass="ERPActivityNameFormHeading"/>
+                            </af:gridCell>
+                            <af:gridCell marginStart="5px" width="50%" marginEnd="5px" id="gc8" halign="end">
+                                <af:panelGroupLayout id="pgl5" layout="horizontal" halign="end">
+                                    <af:link actionListener="#{bindings.Delete.execute}" text="Delete"
+                                             disabled="#{!bindings.Delete.enabled}" id="l8" rendered="false"/>
+                                    <af:link actionListener="#{bindings.CreateWithParams.execute}"
+                                             text="CreateWithParams" disabled="#{!bindings.CreateWithParams.enabled}"
+                                             id="l1" rendered="false"/>
+                                    <af:link id="l4" icon="#{resource['images:imgCloseDialog.png']}"
+                                             action="#{pageFlowScope.OracleERPBean.doBackFromEdit}" text="Close"
+                                             iconPosition="top" partialSubmit="true" shortDesc="Close Form"/>
+                                    <af:link text="Delete" id="l9" icon="#{resource['images:imgDeleteRecord.png']}"
+                                             iconPosition="top" partialSubmit="true"
+                                             disabled="#{pageFlowScope.ERPMainTempBean.LERPAllowDelete=='N'}"
+                                             shortDesc="Delete Record">
+                                        <af:showPopupBehavior popupId="p1" triggerType="action"/>
+                                    </af:link>
+                                    <af:link text="Add" id="l2"
+                                             action="#{pageFlowScope.OracleERPBean.doERPAddRecordWithPara}"
+                                             icon="#{resource['images:imgAddRecord.png']}" iconPosition="top"
+                                             partialSubmit="true"
+                                             disabled="#{pageFlowScope.ERPMainTempBean.LERPAllowAdd=='N'}"
+                                             shortDesc="Add New Record"/>
+                                    <af:link actionListener="#{bindings.Rollback.execute}" text="Rollback"
+                                             immediate="true" id="l6" rendered="false">
+                                        <af:resetActionListener/>
+                                    </af:link>
+                                    <af:link text="Undo" id="l7" action="#{pageFlowScope.OracleERPBean.doErpUndoRecord}"
+                                             icon="#{resource['images:imgUndo.png']}" iconPosition="top"
+                                             partialSubmit="true" immediate="true" shortDesc="Undo Record">
+                                        <af:resetActionListener/>
+                                    </af:link>
+                                    <af:link text="Save" id="l5" icon="#{resource['images:imgSave.png']}"
+                                             iconPosition="top"
+                                             action="#{pageFlowScope.OracleERPBean.doERPCommitRecord}"
+                                             partialSubmit="true" shortDesc="Save Record"/>
+                                    <af:link text="Commit" id="l3" rendered="false"
+                                             actionListener="#{bindings.Commit.execute}"/>
+                                    <f:facet name="separator">
+                                        <af:spacer width="10" height="10" id="s1"/>
+                                    </f:facet>
+                                </af:panelGroupLayout>
+                            </af:gridCell>
+                        </af:gridRow>
+                    </af:panelGridLayout>
+                </f:facet>
             </af:decorativeBox>
         </af:form>
      <f:facet name="metaContainer">

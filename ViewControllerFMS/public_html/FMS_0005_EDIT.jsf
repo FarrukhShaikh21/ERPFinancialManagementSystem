@@ -76,12 +76,134 @@
                                       topHeight="60px">
                         <f:facet name="center">
                             <af:panelGridLayout id="pgl2">
+                                <af:gridRow id="gr10">
+                                    <af:gridCell id="gc26" halign="stretch" width="100%">
+                                        <af:panelGridLayout id="pgl1" styleClass="ERPToolBarBackground">
+                                            <af:gridRow marginTop="5px" height="auto" marginBottom="5px" id="gr1">
+                                                <af:gridCell width="50%" id="gc1" valign="middle">
+                                                    <af:spacer width="10" height="10" id="s5"/>
+                                                    <af:outputText value="#{pageFlowScope.ERPMainTempBean.LErpActivityName}"
+                                                                   id="ot7" styleClass="ERPActivityNameFormHeading"/>
+                                                </af:gridCell>
+                                                <af:gridCell width="50%" id="gc2"
+                                                             halign="stretch">
+                                                    <af:panelGroupLayout id="pgl4" layout="horizontal" halign="end">
+                                                        <af:link actionListener="#{bindings.executeEmptyRowSet.execute}"
+                                                                 text="executeEmptyRowSet"
+                                                                 disabled="#{!bindings.executeEmptyRowSet.enabled}"
+                                                                 id="l14" rendered="false"/>
+                                                        <af:link id="l5" partialSubmit="true"
+                                                                 icon="#{resource['images:imgCloseDialog.png']}"
+                                                                 text="Close" iconPosition="top"
+                                                                 action="#{pageFlowScope.OracleERPBean.doBackFromEdit}"
+                                                                 shortDesc="Close Form">
+                                                            <af:setActionListener from="#{'GlVoucherHeaderByVoucherIDCRUDIterator'}"
+                                                                                  to="#{pageFlowScope.OracleERPBean.LIteratorName}"/>
+                                                            <af:setActionListener from="#{'ERPBACKCRUD'}"
+                                                                                  to="#{pageFlowScope.OracleERPBean.ERPBackActionName}"/>
+                                                        </af:link>
+                                                        <af:link text="Print Preview" id="l22" iconPosition="top"
+                                                                 icon="#{resource['images:imgPrintPreview.png']}"
+                                                                 partialSubmit="true"
+                                                                 action="#{pageFlowScope.OracleERPBean.doExecuteFinanceReport}"
+                                                                 shortDesc="Print Preview">
+                                                            <af:setActionListener from="#{'GlVoucherHeaderByVoucherIDCRUDIterator'}"
+                                                                                  to="#{pageFlowScope.OracleERPBean.LIteratorName}"/>
+                                                            <af:setActionListener from="#{bindings.VoucherHeaderSno.inputValue}"
+                                                                                  to="#{pageFlowScope.OracleERPBean.ERPFinanceReportName}"/>
+                                                            <af:setActionListener from="#{'RPT_FMS_0001.rptdesign'}"
+                                                                                  to="#{pageFlowScope.OracleERPBean.ERPFinanceReportName}"/>
+                                                        </af:link>
+                                                        <af:link text="UnSupervise" id="l18" partialSubmit="true"
+                                                                 icon="#{resource['images:imgUnSuperviseRecord.png']}"
+                                                                 iconPosition="top"
+                                                                 action="#{pageFlowScope.OracleERPBean.doERPPopUnSuperviseRecord}"
+                                                                 disabled="#{bindings.IsSupervised.inputValue=='N' || bindings.IsReversed.inputValue=='Y' ||bindings.ReversedVoucherId.inputValue!=null || bindings.VoucherHeaderCode.inputValue==null}"
+                                                                 shortDesc="Un Supervise Record">
+                                                            <af:setActionListener from="#{'GlVoucherHeaderByVoucherIDCRUDIterator'}"
+                                                                                  to="#{pageFlowScope.OracleERPBean.LIteratorName}"/>
+                                                        </af:link>
+                                                        <af:link text="Supervise" id="l17" partialSubmit="true"
+                                                                 icon="#{resource['images:imgSuperviseRecord.png']}"
+                                                                 iconPosition="top"
+                                                                 action="#{pageFlowScope.OracleERPBean.doERPPopSupervisedRecord}"
+                                                                 disabled="#{bindings.IsSupervised.inputValue=='Y' || bindings.VoucherHeaderCode.inputValue==null}"
+                                                                 shortDesc="Supervise Record">
+                                                            <af:setActionListener from="#{'GlVoucherHeaderByVoucherIDCRUDIterator'}"
+                                                                                  to="#{pageFlowScope.OracleERPBean.LIteratorName}"/>
+                                                        </af:link>
+                                                        <af:link text="Reversal" id="l20" iconPosition="top"
+                                                                 partialSubmit="true"
+                                                                 icon="#{resource['images:imgVoucherReverse.png']}"
+                                                                 disabled="#{bindings.IsSupervised.inputValue=='N' || bindings.ReversedVoucherId.inputValue!=null|| bindings.VoucherHeaderCode.inputValue==null}"
+                                                                 shortDesc="Reverse Record">
+                                                            <af:showPopupBehavior popupId="p4"/>
+                                                        </af:link>
+                                                        <af:link text="Delete" id="l11"
+                                                                 icon="#{resource['images:imgDeleteRecord.png']}"
+                                                                 iconPosition="top" partialSubmit="true"
+                                                                 disabled="#{bindings.GlVoucherHeaderByVoucherIDCRUDIterator.estimatedRowCount==0 || bindings.IsSupervised.inputValue=='Y'||pageFlowScope.ERPMainTempBean.LERPAllowDelete=='N'}"
+                                                                 partialTriggers="d3 d2"
+                                                                 actionListener="#{bindings.Delete.execute}"
+                                                                 shortDesc="Delete Record">
+                                                            <af:showPopupBehavior popupId="p1"/>
+                                                        </af:link>
+                                                        <af:link text="link 2" id="l16"
+                                                                 actionListener="#{bindings.Delete.execute}"
+                                                                 partialSubmit="true" rendered="false"/>
+                                                        <af:link actionListener="#{bindings.CreateWithParams.execute}"
+                                                                 text="CreateWithParams"
+                                                                 disabled="#{!bindings.CreateWithParams.enabled}"
+                                                                 id="l4" rendered="false"/>
+                                                        <af:link text="Add" id="l1"
+                                                                 icon="#{resource['images:imgAddRecord.png']}"
+                                                                 iconPosition="top" partialSubmit="true"
+                                                                 action="#{pageFlowScope.OracleERPBean.doERPAddRecordWithParaVouch}"
+                                                                 disabled="#{pageFlowScope.ERPMainTempBean.LERPAllowAdd=='N'}"
+                                                                 shortDesc="Add New Record">
+                                                            <af:setActionListener from="#{'GlVoucherHeaderByVoucherIDCRUDIterator'}"
+                                                                                  to="#{pageFlowScope.OracleERPBean.LIteratorName}"/>
+                                                        </af:link>
+                                                        <af:link text="Undo" immediate="true" id="l3"
+                                                                 icon="#{resource['images:imgUndo.png']}"
+                                                                 iconPosition="top" partialSubmit="true"
+                                                                 action="#{pageFlowScope.OracleERPBean.doErpUndoRecord}"
+                                                                 shortDesc="Undo Record">
+                                                            <af:resetActionListener/>
+                                                        </af:link>
+                                                        <af:link actionListener="#{bindings.Rollback.execute}"
+                                                                 text="Rollback" immediate="true" id="l7"
+                                                                 rendered="false">
+                                                            <af:resetActionListener/>
+                                                        </af:link>
+                                                        <af:link actionListener="#{bindings.Commit.execute}"
+                                                                 text="Commit" id="l6" rendered="false"/>
+                                                        <af:link text="Rollback 1" id="l13"
+                                                                 actionListener="#{bindings.Rollback.execute}"
+                                                                 rendered="false"/>
+                                                        <af:link text="Save 1" id="l12"
+                                                                 actionListener="#{bindings.Commit.execute}"
+                                                                 rendered="false"/>
+                                                        <af:link text="Save" id="l2"
+                                                                 icon="#{resource['images:imgSave.png']}"
+                                                                 iconPosition="top" partialSubmit="true"
+                                                                 action="#{pageFlowScope.OracleERPBean.doERPCommitRecord}"
+                                                                 shortDesc="Save Record"/>
+                                                        <f:facet name="separator">
+                                                            <af:spacer width="10" height="10" id="s1"/>
+                                                        </f:facet>
+                                                    </af:panelGroupLayout>
+                                                </af:gridCell>
+                                            </af:gridRow>
+                                        </af:panelGridLayout>
+                                    </af:gridCell>
+                                </af:gridRow>
                                 <af:gridRow marginTop="5px" id="gr2" marginBottom="5px">
-                                    <af:gridCell marginStart="5px" width="100%" marginEnd="5px" id="gc3"
+                                    <af:gridCell width="100%" id="gc3"
                                                  halign="stretch" valign="stretch">
                                         <af:panelGridLayout id="pgl3">
-                                            <af:gridRow id="gr8">
-                                                <af:gridCell id="gc24" columnSpan="8" rowSpan="1" width="100%"
+                                            <af:gridRow id="gr8" marginTop="5px" marginBottom="5px">
+                                                <af:gridCell id="gc24" columnSpan="8" width="100%"
                                                              styleClass="ERPEntryAreaHeading"
                                                              valign="stretch" halign="stretch">
                                                     <af:spacer width="10" height="10" id="s2"/>
@@ -91,24 +213,35 @@
                                                     <af:outputText value="This is Reversal of Voucher #{bindings.ReversedVoucherCode.inputValue}"
                                                                    id="ot4"
                                                                    visible="#{bindings.ReversedVoucherCode.inputValue!=null}"
-                                                                   inlineStyle="color:yellow;font-weight:bold"/>
-                                                </af:gridCell>
+                                                                   inlineStyle="color:yellow;font-weight:bold"/>                                                             
+                                                </af:gridCell>             
                                             </af:gridRow>
-                                            <af:gridRow marginTop="5px" height="auto" id="gr4">
-                                                <af:gridCell marginStart="5px" width="9%" id="gc5" rowSpan="1"
-                                                             halign="center">
+                                            <af:gridRow marginTop="5px" height="auto" id="gr4" marginBottom="5px">
+                                                <af:gridCell width="9%" id="gc5">
                                                     <af:outputLabel value="#{bindings.VoucherHeaderCode.hints.label}"
                                                                     id="ol2"/>
                                                 </af:gridCell>
-                                                <af:gridCell marginStart="5px" width="17%" id="gc6" marginEnd="5px"
-                                                             valign="middle">
+                                                <af:gridCell width="17%" id="gc6"
+                                                             valign="middle" halign="stretch">
+                                                    <af:inputText value="#{bindings.VoucherHeaderCode.inputValue}"
+                                                                  label="#{bindings.VoucherHeaderCode.hints.label}"
+                                                                  required="#{bindings.VoucherHeaderCode.hints.mandatory}"
+                                                                  columns="#{bindings.VoucherHeaderCode.hints.displayWidth}"
+                                                                  maximumLength="#{bindings.VoucherHeaderCode.hints.precision}"
+                                                                  shortDesc="#{bindings.VoucherHeaderCode.hints.tooltip}"
+                                                                  id="it2" simple="true"
+                                                                  contentStyle="width:100%" readOnly="true">
+                                                        <f:validator binding="#{bindings.VoucherHeaderCode.validator}"/>
+                                                        <af:convertNumber groupingUsed="false"
+                                                                          pattern="#{bindings.VoucherHeaderCode.format}"/>
+                                                    </af:inputText>
                                                     <af:inputText value="#{bindings.ReversedVoucherCode.inputValue}"
                                                                   label="#{bindings.ReversedVoucherCode.hints.label}"
                                                                   required="#{bindings.ReversedVoucherCode.hints.mandatory}"
                                                                   columns="#{bindings.ReversedVoucherCode.hints.displayWidth}"
                                                                   maximumLength="#{bindings.ReversedVoucherCode.hints.precision}"
                                                                   shortDesc="#{bindings.ReversedVoucherCode.hints.tooltip}"
-                                                                  id="it14" rendered="false">
+                                                                  id="it14" rendered="false" simple="true">
                                                         <f:validator binding="#{bindings.ReversedVoucherCode.validator}"/>
                                                         <af:convertNumber groupingUsed="false"
                                                                           pattern="#{bindings.ReversedVoucherCode.format}"/>
@@ -119,7 +252,7 @@
                                                                   columns="#{bindings.ReversedVoucherId.hints.displayWidth}"
                                                                   maximumLength="#{bindings.ReversedVoucherId.hints.precision}"
                                                                   shortDesc="#{bindings.ReversedVoucherId.hints.tooltip}"
-                                                                  id="it13" rendered="false">
+                                                                  id="it13" rendered="false" simple="true">
                                                         <f:validator binding="#{bindings.ReversedVoucherId.validator}"/>
                                                         <af:convertNumber groupingUsed="false"
                                                                           pattern="#{bindings.ReversedVoucherId.format}"/>
@@ -130,7 +263,7 @@
                                                                   columns="#{bindings.IsReversed.hints.displayWidth}"
                                                                   maximumLength="#{bindings.IsReversed.hints.precision}"
                                                                   shortDesc="#{bindings.IsReversed.hints.tooltip}"
-                                                                  id="it9" rendered="false">
+                                                                  id="it9" rendered="false" simple="true">
                                                         <f:validator binding="#{bindings.IsReversed.validator}"/>
                                                     </af:inputText>
                                                     <af:inputText value="#{bindings.IsUnsupervised.inputValue}"
@@ -139,7 +272,7 @@
                                                                   columns="#{bindings.IsUnsupervised.hints.displayWidth}"
                                                                   maximumLength="#{bindings.IsUnsupervised.hints.precision}"
                                                                   shortDesc="#{bindings.IsUnsupervised.hints.tooltip}"
-                                                                  id="it7" rendered="false">
+                                                                  id="it7" rendered="false" simple="true">
                                                         <f:validator binding="#{bindings.IsUnsupervised.validator}"/>
                                                     </af:inputText>
                                                     <af:inputText value="#{bindings.IsSupervised.inputValue}"
@@ -148,7 +281,7 @@
                                                                   columns="#{bindings.IsSupervised.hints.displayWidth}"
                                                                   maximumLength="#{bindings.IsSupervised.hints.precision}"
                                                                   shortDesc="#{bindings.IsSupervised.hints.tooltip}"
-                                                                  id="it8" rendered="false">
+                                                                  id="it8" rendered="false" simple="true">
                                                         <f:validator binding="#{bindings.IsSupervised.validator}"/>
                                                     </af:inputText>
                                                     <af:inputText value="#{bindings.VoucherHeaderSno.inputValue}"
@@ -157,21 +290,10 @@
                                                                   columns="#{bindings.VoucherHeaderSno.hints.displayWidth}"
                                                                   maximumLength="#{bindings.VoucherHeaderSno.hints.precision}"
                                                                   shortDesc="#{bindings.VoucherHeaderSno.hints.tooltip}"
-                                                                  id="it4" rendered="false">
+                                                                  id="it4" rendered="false" simple="true">
                                                         <f:validator binding="#{bindings.VoucherHeaderSno.validator}"/>
                                                         <af:convertNumber groupingUsed="false"
                                                                           pattern="#{bindings.VoucherHeaderSno.format}"/>
-                                                    </af:inputText>
-                                                    <af:inputText value="#{bindings.VoucherHeaderCode.inputValue}"
-                                                                  label="#{bindings.VoucherHeaderCode.hints.label}"
-                                                                  required="#{bindings.VoucherHeaderCode.hints.mandatory}"
-                                                                  columns="#{bindings.VoucherHeaderCode.hints.displayWidth}"
-                                                                  maximumLength="#{bindings.VoucherHeaderCode.hints.precision}"
-                                                                  shortDesc="#{bindings.VoucherHeaderCode.hints.tooltip}"
-                                                                  id="it2" simple="true" readOnly="true">
-                                                        <f:validator binding="#{bindings.VoucherHeaderCode.validator}"/>
-                                                        <af:convertNumber groupingUsed="false"
-                                                                          pattern="#{bindings.VoucherHeaderCode.format}"/>
                                                     </af:inputText>
                                                     <af:inputText value="#{bindings.txtSumDebit.inputValue}"
                                                                   label="#{bindings.txtSumDebit.hints.label}"
@@ -179,7 +301,7 @@
                                                                   columns="#{bindings.txtSumDebit.hints.displayWidth}"
                                                                   maximumLength="#{bindings.txtSumDebit.hints.precision}"
                                                                   shortDesc="#{bindings.txtSumDebit.hints.tooltip}"
-                                                                  id="it6" rendered="false">
+                                                                  id="it6" rendered="false" simple="true">
                                                         <f:validator binding="#{bindings.txtSumDebit.validator}"/>
                                                         <af:convertNumber groupingUsed="false"
                                                                           pattern="#{bindings.txtSumDebit.format}"/>
@@ -190,19 +312,17 @@
                                                                   columns="#{bindings.txtSumCredit.hints.displayWidth}"
                                                                   maximumLength="#{bindings.txtSumCredit.hints.precision}"
                                                                   shortDesc="#{bindings.txtSumCredit.hints.tooltip}"
-                                                                  id="it5" rendered="false">
+                                                                  id="it5" rendered="false" simple="true">
                                                         <f:validator binding="#{bindings.txtSumCredit.validator}"/>
                                                         <af:convertNumber groupingUsed="false"
                                                                           pattern="#{bindings.txtSumCredit.format}"/>
                                                     </af:inputText>
                                                 </af:gridCell>
-                                                <af:gridCell marginStart="5px" width="9%" id="gc7" rowSpan="1"
-                                                             halign="center">
+                                                <af:gridCell marginStart="5px" width="9%" id="gc7">
                                                     <af:outputLabel value="#{bindings.txtLocationName.hints.label}"
                                                                     id="ol3"/>
                                                 </af:gridCell>
-                                                <af:gridCell marginStart="5px" width="17%" id="gc8" marginEnd="5px"
-                                                             halign="stretch" valign="middle">
+                                                <af:gridCell marginStart="5px" width="17%" id="gc8" valign="middle">
                                                     <af:inputComboboxListOfValues id="txtLocationNameId"
                                                                                   popupTitle="Search and Select: #{bindings.txtLocationName.hints.label}"
                                                                                   value="#{bindings.txtLocationName.inputValue}"
@@ -219,13 +339,11 @@
                                                         <f:validator binding="#{bindings.txtLocationName.validator}"/>
                                                     </af:inputComboboxListOfValues>
                                                 </af:gridCell>
-                                                <af:gridCell marginStart="5px" width="8%" id="gc9" marginEnd="5px"
-                                                             halign="center">
+                                                <af:gridCell marginStart="5px" width="8%" id="gc9" marginEnd="5px">
                                                     <af:outputLabel value="#{bindings.txtPeriodName.hints.label}"
                                                                     id="ol5"/>
                                                 </af:gridCell>
-                                                <af:gridCell marginStart="5px" width="16%" id="gc10" halign="stretch"
-                                                             marginEnd="5px" valign="middle">
+                                                <af:gridCell marginStart="5px" width="16%" id="gc10" valign="middle">
                                                     <af:inputComboboxListOfValues id="txtPeriodNameId"
                                                                                   popupTitle="Search and Select: #{bindings.txtPeriodName.hints.label}"
                                                                                   value="#{bindings.txtPeriodName.inputValue}"
@@ -241,13 +359,12 @@
                                                         <f:validator binding="#{bindings.txtPeriodName.validator}"/>
                                                     </af:inputComboboxListOfValues>
                                                 </af:gridCell>
-                                                <af:gridCell marginStart="5px" width="8%" id="gc11" halign="center"
+                                                <af:gridCell marginStart="5px" width="8%" id="gc11"
                                                              marginEnd="5px">
                                                     <af:outputLabel value="#{bindings.VoucherDate.hints.label}"
                                                                     id="ol4"/>
                                                 </af:gridCell>
-                                                <af:gridCell marginStart="5px" width="16%" marginEnd="5px" id="gc12"
-                                                             halign="stretch" valign="middle">
+                                                <af:gridCell marginStart="5px" width="16%" id="gc12" valign="middle">
                                                     <af:inputDate value="#{bindings.VoucherDate.inputValue}"
                                                                   label="#{bindings.VoucherDate.hints.label}"
                                                                   required="#{bindings.VoucherDate.hints.mandatory}"
@@ -262,7 +379,7 @@
                                                 </af:gridCell>
                                             </af:gridRow>
                                             <af:gridRow marginTop="5px" height="auto" marginBottom="5px" id="gr5">
-                                                <af:gridCell marginStart="5px" width="9%" id="gc13" halign="center"
+                                                <af:gridCell width="9%" id="gc13" halign="center"
                                                              marginEnd="5px">
                                                     <af:outputLabel value="#{bindings.txtVoucherTypeName.hints.label}"
                                                                     id="ol1"/>
@@ -331,7 +448,7 @@
                                                     <af:outputLabel value="#{bindings.txtTempDepartmentName.hints.label}"
                                                                     id="ol9"/>
                                                 </af:gridCell>
-                                                <af:gridCell marginStart="5px" width="16%" marginEnd="5px" id="gc20"
+                                                <af:gridCell marginStart="5px" width="16%" id="gc20"
                                                              halign="stretch" valign="middle">
                                                     <af:inputComboboxListOfValues id="txtTempDepartmentNameId"
                                                                                   popupTitle="Search and Select: #{bindings.txtTempDepartmentName.hints.label}"
@@ -350,13 +467,13 @@
                                                     </af:inputComboboxListOfValues>
                                                 </af:gridCell>
                                             </af:gridRow>
-                                            <af:gridRow id="gr6">
-                                                <af:gridCell id="gc22" marginStart="5px" marginEnd="5px" width="9%"
+                                            <af:gridRow id="gr6" marginTop="5px" marginBottom="5px">
+                                                <af:gridCell id="gc22" marginEnd="5px" width="9%"
                                                              halign="center">
                                                     <af:outputLabel value="#{bindings.Remarks.hints.label}" id="ol8"/>
                                                 </af:gridCell>
-                                                <af:gridCell id="gc21" marginStart="5px" marginEnd="5px" width="91%"
-                                                             columnSpan="7" halign="stretch">
+                                                <af:gridCell id="gc21" marginStart="5px" width="91%"
+                                                             columnSpan="7" halign="stretch" valign="middle">
                                                     <af:inputText value="#{bindings.Remarks.inputValue}" simple="true"
                                                                   required="#{bindings.Remarks.hints.mandatory}"
                                                                   columns="#{bindings.Remarks.hints.displayWidth}"
@@ -369,10 +486,6 @@
                                                 </af:gridCell>
                                             </af:gridRow>
                                         </af:panelGridLayout>
-                                        <af:panelBox text="Voucher Header #{bindings.IsReversed.inputValue=='Y'?'(This Voucher Is Reversed)':''}" id="pb1"
-                                                     showDisclosure="false" rendered="false">
-                                            <f:facet name="toolbar"/>
-                                        </af:panelBox>
                                     </af:gridCell>
                                 </af:gridRow>
                                 <af:gridRow id="gr9">
@@ -383,7 +496,7 @@
                                     </af:gridCell>
                                 </af:gridRow>
                                 <af:gridRow marginTop="5px" marginBottom="5px" id="gr3">
-                                    <af:gridCell marginStart="5px" width="100%" marginEnd="5px" id="gc4"
+                                    <af:gridCell width="100%" id="gc4"
                                                  halign="stretch" valign="stretch">
                                         <af:link actionListener="#{bindings.CreateInsert.execute}" text="CreateInsert"
                                                  disabled="#{!bindings.CreateInsert.enabled}" id="l9" rendered="false"/>
@@ -597,7 +710,7 @@
                                     </af:gridCell>
                                 </af:gridRow>
                                 <af:gridRow id="gr7">
-                                    <af:gridCell id="gc23" halign="stretch">
+                                    <af:gridCell id="gc23" halign="stretch" valign="stretch">
                                         <af:panelFormLayout id="pfl1" maxColumns="4" rows="1" fieldWidth="0"
                                                             labelWidth="0">
                                             <f:facet name="footer"/>
@@ -641,123 +754,7 @@
                                 </af:gridRow>
                             </af:panelGridLayout>
                         </f:facet>
-                        <f:facet name="top">
-                            <af:panelGridLayout id="pgl1" styleClass="ERPToolBarBackground">
-                                <af:gridRow marginTop="5px" height="auto" marginBottom="5px" id="gr1">
-                                    <af:gridCell marginStart="5px" width="50%" id="gc1" valign="middle">
-                                        <af:spacer width="10" height="10" id="s5"/>
-                                        <af:outputText value="#{pageFlowScope.ERPMainTempBean.LErpActivityName}" id="ot7"
-                                                       styleClass="ERPActivityNameFormHeading"/>
-                                    </af:gridCell>
-                                    <af:gridCell marginStart="5px" width="50%" marginEnd="5px" id="gc2"
-                                                 halign="stretch">
-                                        <af:panelGroupLayout id="pgl4" layout="horizontal" halign="end">
-                                            <af:link actionListener="#{bindings.executeEmptyRowSet.execute}"
-                                                     text="executeEmptyRowSet"
-                                                     disabled="#{!bindings.executeEmptyRowSet.enabled}" id="l14"
-                                                     rendered="false"/>
-                                            <af:link id="l5" partialSubmit="true"
-                                                     icon="#{resource['images:imgCloseDialog.png']}"
-                                                     text="Close"
-                                                     iconPosition="top"
-                                                     action="#{pageFlowScope.OracleERPBean.doBackFromEdit}"
-                                                     shortDesc="Close Form">
-                                                <af:setActionListener from="#{'GlVoucherHeaderByVoucherIDCRUDIterator'}"
-                                                                      to="#{pageFlowScope.OracleERPBean.LIteratorName}"/>
-                                                <af:setActionListener from="#{'ERPBACKCRUD'}"
-                                                                      to="#{pageFlowScope.OracleERPBean.ERPBackActionName}"/>
-                                            </af:link>
-                                            <af:link text="Print Preview" id="l22" iconPosition="top"
-                                                     icon="#{resource['images:imgPrintPreview.png']}"
-                                                     partialSubmit="true"
-                                                     action="#{pageFlowScope.OracleERPBean.doExecuteFinanceReport}"
-                                                     shortDesc="Print Preview">
-                                                <af:setActionListener from="#{'GlVoucherHeaderByVoucherIDCRUDIterator'}"
-                                                                      to="#{pageFlowScope.OracleERPBean.LIteratorName}"/>
-                                                <af:setActionListener from="#{bindings.VoucherHeaderSno.inputValue}"
-                                                                      to="#{pageFlowScope.OracleERPBean.ERPFinanceReportName}"/>
-                                                <af:setActionListener from="#{'RPT_FMS_0001.rptdesign'}"
-                                                                      to="#{pageFlowScope.OracleERPBean.ERPFinanceReportName}"/>
-                                            </af:link>
-                                            <af:link text="UnSupervise" id="l18" partialSubmit="true"
-                                                     icon="#{resource['images:imgUnSuperviseRecord.png']}"
-                                                     iconPosition="top"
-                                                     action="#{pageFlowScope.OracleERPBean.doERPPopUnSuperviseRecord}"
-                                                     disabled="#{bindings.IsSupervised.inputValue=='N' || bindings.IsReversed.inputValue=='Y' ||bindings.ReversedVoucherId.inputValue!=null || bindings.VoucherHeaderCode.inputValue==null}"
-                                                     shortDesc="Un Supervise Record">
-                                                <af:setActionListener from="#{'GlVoucherHeaderByVoucherIDCRUDIterator'}"
-                                                                      to="#{pageFlowScope.OracleERPBean.LIteratorName}"/>
-                                            </af:link>                                            
-                                            <af:link text="Supervise" id="l17" partialSubmit="true"
-                                                     icon="#{resource['images:imgSuperviseRecord.png']}"
-                                                     iconPosition="top"
-                                                     action="#{pageFlowScope.OracleERPBean.doERPPopSupervisedRecord}"
-                                                     disabled="#{bindings.IsSupervised.inputValue=='Y' || bindings.VoucherHeaderCode.inputValue==null}"
-                                                     shortDesc="Supervise Record">
-                                                <af:setActionListener from="#{'GlVoucherHeaderByVoucherIDCRUDIterator'}"
-                                                                      to="#{pageFlowScope.OracleERPBean.LIteratorName}"/>
-                                            </af:link>
-                                            <af:link text="Reversal" id="l20" iconPosition="top" partialSubmit="true"
-                                                     icon="#{resource['images:imgVoucherReverse.png']}"
-                                                     disabled="#{bindings.IsSupervised.inputValue=='N' || bindings.ReversedVoucherId.inputValue!=null|| bindings.VoucherHeaderCode.inputValue==null}"
-                                                     shortDesc="Reverse Record">
-                                                <af:showPopupBehavior popupId="p4"/>
-                                            </af:link>
-                                            <af:link text="Delete" id="l11"
-                                                     icon="#{resource['images:imgDeleteRecord.png']}"
-                                                     iconPosition="top" partialSubmit="true"
-                                                     disabled="#{bindings.GlVoucherHeaderByVoucherIDCRUDIterator.estimatedRowCount==0 || bindings.IsSupervised.inputValue=='Y'||pageFlowScope.ERPMainTempBean.LERPAllowDelete=='N'}"
-                                                     partialTriggers="d3 d2"
-                                                     actionListener="#{bindings.Delete.execute}"
-                                                     shortDesc="Delete Record">
-                                                <af:showPopupBehavior popupId="p1"/>
-                                            </af:link>
-                                            <af:link text="link 2" id="l16"
-                                                     actionListener="#{bindings.Delete.execute}" partialSubmit="true"
-                                                     rendered="false"/>
-                                            <af:link actionListener="#{bindings.CreateWithParams.execute}"
-                                                     text="CreateWithParams"
-                                                     disabled="#{!bindings.CreateWithParams.enabled}" id="l4"
-                                                     rendered="false"/>
-                                            <af:link
-                                                     text="Add"
-                                                     id="l1" icon="#{resource['images:imgAddRecord.png']}"
-                                                     iconPosition="top" partialSubmit="true"
-                                                     action="#{pageFlowScope.OracleERPBean.doERPAddRecordWithParaVouch}"
-                                                     disabled="#{pageFlowScope.ERPMainTempBean.LERPAllowAdd=='N'}"
-                                                     shortDesc="Add New Record">
-                                                <af:setActionListener from="#{'GlVoucherHeaderByVoucherIDCRUDIterator'}"
-                                                                      to="#{pageFlowScope.OracleERPBean.LIteratorName}"/>
-                                            </af:link>
-                                            <af:link text="Undo" immediate="true" id="l3"
-                                                     icon="#{resource['images:imgUndo.png']}" iconPosition="top"
-                                                     partialSubmit="true"
-                                                     action="#{pageFlowScope.OracleERPBean.doErpUndoRecord}"
-                                                     shortDesc="Undo Record">
-                                                <af:resetActionListener/>
-                                            </af:link>
-                                            <af:link actionListener="#{bindings.Rollback.execute}" text="Rollback" immediate="true" id="l7"
-                                                     rendered="false">
-                                                <af:resetActionListener/>
-                                            </af:link>
-                                            <af:link actionListener="#{bindings.Commit.execute}" text="Commit" id="l6" rendered="false"/>
-                                            <af:link text="Rollback 1" id="l13"
-                                                     actionListener="#{bindings.Rollback.execute}" rendered="false"/>
-                                            <af:link text="Save 1" id="l12"
-                                                     actionListener="#{bindings.Commit.execute}" rendered="false"/>
-                                            <af:link text="Save" id="l2"
-                                                     icon="#{resource['images:imgSave.png']}" iconPosition="top"
-                                                     partialSubmit="true"
-                                                     action="#{pageFlowScope.OracleERPBean.doERPCommitRecord}"
-                                                     shortDesc="Save Record"/>
-                                            <f:facet name="separator">
-                                                <af:spacer width="10" height="10" id="s1"/>
-                                            </f:facet>
-                                        </af:panelGroupLayout>                                    
-                                    </af:gridCell>
-                                </af:gridRow>
-                            </af:panelGridLayout>
-                        </f:facet>
+                        <f:facet name="top"/>
                     </af:decorativeBox>
                 </f:facet>
                 <f:facet name="top"/>

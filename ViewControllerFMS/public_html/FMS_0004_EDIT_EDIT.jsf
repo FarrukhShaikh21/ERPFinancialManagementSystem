@@ -28,404 +28,390 @@
           <af:outputText value="Do you want to UnSupervise this transaction?" id="ot9" inlineStyle="font-size:large;"/>
           <f:facet name="buttonBar"/>
                 </af:dialog>
-    </af:popup>            
-            <af:decorativeBox id="db2" dimensionsFrom="parent">
+    </af:popup>
+            <af:decorativeBox id="db1" partialTriggers="l7" dimensionsFrom="parent">
                 <f:facet name="center">
-                    <af:decorativeBox id="db1" partialTriggers="l7" dimensionsFrom="parent">
-                        <f:facet name="center">
-                            <af:panelGridLayout id="pgl1"
-                                                partialTriggers="l1 l3 l2 l4 l6 l5 l7 l8">
-                                <af:gridRow marginTop="5px" height="100%" marginBottom="5px" id="gr1">
-                                    <af:gridCell marginStart="5px" width="25%" id="gc1" marginEnd="5px"
-                                                 halign="stretch" valign="stretch" rowSpan="1">
-                                        <af:panelGridLayout id="pgl5">
-                                            <af:gridRow marginTop="5px" height="auto" id="gr3">
-                                                <af:gridCell marginStart="5px" width="100%" marginEnd="5px" id="gc5"
-                                                             valign="stretch" halign="stretch"
-                                                             styleClass="ERPEntryAreaHeading">
-                                                    <af:spacer width="10" height="10" id="s2"/>
-                                                    <af:outputText value="Fiscal Year" id="ot3"
-                                                                   styleClass="ERPEntryAreaFont"/>
-                                                </af:gridCell>
-                                            </af:gridRow>
-                                            <af:gridRow marginTop="5px" height="auto" marginBottom="5px" id="gr4">
-                                                <af:gridCell marginStart="5px" width="100%" marginEnd="5px" id="gc6"
-                                                             halign="stretch" valign="stretch">
-                                                    <af:panelFormLayout id="pfl1" labelAlignment="top">
-                                                        <af:inputText value="#{bindings.FiscalYearSno.inputValue}"
-                                                                      label="#{bindings.FiscalYearSno.hints.label}"
-                                                                      required="#{bindings.FiscalYearSno.hints.mandatory}"
-                                                                      columns="#{bindings.FiscalYearSno.hints.displayWidth}"
-                                                                      maximumLength="#{bindings.FiscalYearSno.hints.precision}"
-                                                                      shortDesc="#{bindings.FiscalYearSno.hints.tooltip}"
-                                                                      id="it1" readOnly="true">
-                                                            <f:validator binding="#{bindings.FiscalYearSno.validator}"/>
+                    <af:panelGridLayout id="pgl1" partialTriggers="l1 l3 l2 l4 l6 l5 l7 l8">
+                        <af:gridRow id="gr7">
+                            <af:gridCell id="gc9" columnSpan="2" halign="stretch" valign="stretch" marginStart="5px"
+                                         marginEnd="5px">
+                                <af:panelGridLayout id="pgl3" styleClass="ERPToolBarBackground">
+                                    <af:gridRow id="gr2">
+                                        <af:gridCell width="50%" id="gc3" valign="middle" marginStart="5px"
+                                                     marginEnd="5px">
+                                            <af:spacer width="10" height="10" id="s4"/>
+                                            <af:outputText value="#{pageFlowScope.ERPMainTempBean.LErpActivityName}"
+                                                           id="ot1" styleClass="ERPActivityNameFormHeading"/>
+                                        </af:gridCell>
+                                        <af:gridCell marginStart="5px" width="50%" marginEnd="5px" id="gc4"
+                                                     halign="end">
+                                            <af:panelGroupLayout id="pgl4" layout="horizontal" halign="end">
+                                                <af:link id="l1" text="Close" partialSubmit="true"
+                                                         icon="#{resource['images:imgCloseDialog.png']}"
+                                                         iconPosition="top"
+                                                         action="#{pageFlowScope.OracleERPBean.doBackFromEdit}"
+                                                         shortDesc="Close Form">
+                                                    <af:setActionListener from="#{'GlFiscalYearCRUDIterator'}"
+                                                                          to="#{pageFlowScope.OracleERPBean.LIteratorName}"/>
+                                                </af:link>
+                                                <af:link text="Delete" id="l10"
+                                                         actionListener="#{bindings.Delete.execute}" rendered="false"/>
+                                                <af:link text="UnSupervise" id="l12" partialSubmit="true"
+                                                         icon="#{resource['images:imgUnSuperviseRecord.png']}"
+                                                         iconPosition="top"
+                                                         action="#{pageFlowScope.OracleERPBean.doERPPopUnSuperviseRecord}"
+                                                         disabled="#{bindings.IsSupervised.inputValue=='N' || pageFlowScope.ERPMainTempBean.LERPAllowUnsupervise=='N'}"
+                                                         shortDesc="Un Supervise Record">
+                                                    <af:setActionListener from="#{'GlFiscalYearCRUDIterator'}"
+                                                                          to="#{pageFlowScope.OracleERPBean.LIteratorName}"/>
+                                                </af:link>
+                                                <af:link text="Supervise" id="l11" partialSubmit="true"
+                                                         icon="#{resource['images:imgSuperviseRecord.png']}"
+                                                         iconPosition="top"
+                                                         action="#{pageFlowScope.OracleERPBean.doERPPopSupervisedRecord}"
+                                                         disabled="#{bindings.IsSupervised.inputValue=='Y' || pageFlowScope.ERPMainTempBean.LERPAllowSupervise=='N'}"
+                                                         shortDesc="Supervise Record">
+                                                    <af:setActionListener from="#{'GlFiscalYearCRUDIterator'}"
+                                                                          to="#{pageFlowScope.OracleERPBean.LIteratorName}"/>
+                                                </af:link>
+                                                <af:link text="Delete" id="l3" iconPosition="top"
+                                                         icon="#{resource['images:imgDeleteRecord.png']}"
+                                                         partialSubmit="true"
+                                                         disabled="#{bindings.IsSupervised.inputValue=='Y' || pageFlowScope.ERPMainTempBean.LERPAllowDelete=='N'}"
+                                                         shortDesc="Delete Record">
+                                                    <af:showPopupBehavior popupId="p1"/>
+                                                </af:link>
+                                                <af:link actionListener="#{bindings.CreateWithParams.execute}"
+                                                         text="CreateWithParams"
+                                                         disabled="#{!bindings.CreateWithParams.enabled}" id="l9"
+                                                         rendered="false"/>
+                                                <af:link text="Add" id="l2" partialSubmit="true"
+                                                         icon="#{resource['images:imgAddRecord.png']}"
+                                                         iconPosition="top"
+                                                         action="#{pageFlowScope.OracleERPBean.doERPAddRecordWithPara}"
+                                                         disabled="#{pageFlowScope.ERPMainTempBean.LERPAllowAdd=='N'}"
+                                                         shortDesc="Add New Record">
+                                                    <af:setActionListener from="#{'GlFiscalYearCRUDIterator'}"
+                                                                          to="#{pageFlowScope.OracleERPBean.LIteratorName}"/>
+                                                </af:link>
+                                                <af:link actionListener="#{bindings.Commit.execute}" text="Save" id="l4"
+                                                         rendered="false"/>
+                                                <af:link text="Undo" id="l6"
+                                                         actionListener="#{bindings.Rollback.execute}"
+                                                         rendered="false"/>
+                                                <af:link text="Undo" immediate="true" id="l5"
+                                                         icon="#{resource['images:imgUndo.png']}" iconPosition="top"
+                                                         partialSubmit="true"
+                                                         action="#{pageFlowScope.OracleERPBean.doErpUndoRecord}"
+                                                         shortDesc="Undo Record">
+                                                    <af:resetActionListener/>
+                                                </af:link>
+                                                <af:link text="Save" id="l7" icon="#{resource['images:imgSave.png']}"
+                                                         iconPosition="top" partialSubmit="true"
+                                                         action="#{pageFlowScope.OracleERPBean.doERPCommitRecord}"
+                                                         shortDesc="Save Record"/>
+                                                <f:facet name="separator">
+                                                    <af:spacer width="10" height="10" id="s1"/>
+                                                </f:facet>
+                                            </af:panelGroupLayout>
+                                        </af:gridCell>
+                                    </af:gridRow>
+                                </af:panelGridLayout>
+                            </af:gridCell>
+                        </af:gridRow>
+                        <af:gridRow height="100%" marginBottom="5px" id="gr1">
+                            <af:gridCell marginStart="5px" width="25%" id="gc1" marginEnd="5px" halign="stretch"
+                                         valign="stretch" rowSpan="1">
+                                <af:panelGridLayout id="pgl5">
+                                    <af:gridRow marginTop="5px" height="auto" id="gr3">
+                                        <af:gridCell width="100%" marginEnd="5px" id="gc5"
+                                                     valign="stretch" halign="stretch" styleClass="ERPEntryAreaHeading">
+                                            <af:spacer width="10" height="10" id="s2"/>
+                                            <af:outputText value="Fiscal Year" id="ot3" styleClass="ERPEntryAreaFont"/>
+                                        </af:gridCell>
+                                    </af:gridRow>
+                                    <af:gridRow marginTop="5px" height="auto" marginBottom="5px" id="gr4">
+                                        <af:gridCell width="100%" marginEnd="5px" id="gc6"
+                                                     halign="stretch" valign="stretch">
+                                            <af:panelFormLayout id="pfl1" labelAlignment="top">
+                                                <af:inputText value="#{bindings.FiscalYearSno.inputValue}"
+                                                              label="#{bindings.FiscalYearSno.hints.label}"
+                                                              required="#{bindings.FiscalYearSno.hints.mandatory}"
+                                                              columns="#{bindings.FiscalYearSno.hints.displayWidth}"
+                                                              maximumLength="#{bindings.FiscalYearSno.hints.precision}"
+                                                              shortDesc="#{bindings.FiscalYearSno.hints.tooltip}"
+                                                              id="it1" readOnly="true">
+                                                    <f:validator binding="#{bindings.FiscalYearSno.validator}"/>
+                                                    <af:convertNumber groupingUsed="false"
+                                                                      pattern="#{bindings.FiscalYearSno.format}"/>
+                                                </af:inputText>
+                                                <af:inputText value="#{bindings.FiscalYearCode.inputValue}"
+                                                              label="#{bindings.FiscalYearCode.hints.label}"
+                                                              required="#{bindings.FiscalYearCode.hints.mandatory}"
+                                                              columns="#{bindings.FiscalYearCode.hints.displayWidth}"
+                                                              maximumLength="#{bindings.FiscalYearCode.hints.precision}"
+                                                              shortDesc="#{bindings.FiscalYearCode.hints.tooltip}"
+                                                              id="it2" readOnly="true">
+                                                    <f:validator binding="#{bindings.FiscalYearCode.validator}"/>
+                                                    <af:convertNumber groupingUsed="false"
+                                                                      pattern="#{bindings.FiscalYearCode.format}"/>
+                                                </af:inputText>
+                                                <af:inputText value="#{bindings.YearDescription.inputValue}"
+                                                              label="#{bindings.YearDescription.hints.label}"
+                                                              required="#{bindings.YearDescription.hints.mandatory}"
+                                                              columns="#{bindings.YearDescription.hints.displayWidth}"
+                                                              maximumLength="#{bindings.YearDescription.hints.precision}"
+                                                              shortDesc="#{bindings.YearDescription.hints.tooltip}"
+                                                              id="it3" contentStyle="width:100%"
+                                                              styleClass="AFStretchWidth"
+                                                              readOnly="#{bindings.IsSupervised.inputValue=='Y' || (pageFlowScope.ERPMainTempBean.LERPAllowEdit=='N' &amp;&amp; bindings.FiscalYearSno.inputValue!=0)}"
+                                                              autoSubmit="true">
+                                                    <f:validator binding="#{bindings.YearDescription.validator}"/>
+                                                </af:inputText>
+                                                <af:inputText value="#{bindings.FiscalYearr.inputValue}"
+                                                              label="#{bindings.FiscalYearr.hints.label}"
+                                                              required="#{bindings.FiscalYearr.hints.mandatory}"
+                                                              columns="#{bindings.FiscalYearr.hints.displayWidth}"
+                                                              maximumLength="#{bindings.FiscalYearr.hints.precision}"
+                                                              shortDesc="#{bindings.FiscalYearr.hints.tooltip}" id="it4"
+                                                              contentStyle="width:100%" styleClass="AFStretchWidth"
+                                                              readOnly="#{bindings.IsSupervised.inputValue=='Y' || (pageFlowScope.ERPMainTempBean.LERPAllowEdit=='N' &amp;&amp; bindings.FiscalYearSno.inputValue!=0)}">
+                                                    <f:validator binding="#{bindings.FiscalYearr.validator}"/>
+                                                    <af:convertNumber groupingUsed="false"
+                                                                      pattern="#{bindings.FiscalYearr.format}"/>
+                                                </af:inputText>
+                                                <af:inputDate value="#{bindings.StartDate.inputValue}"
+                                                              label="#{bindings.StartDate.hints.label}"
+                                                              required="#{bindings.StartDate.hints.mandatory}"
+                                                              columns="#{bindings.StartDate.hints.displayWidth}"
+                                                              shortDesc="#{bindings.StartDate.hints.tooltip}" id="id1"
+                                                              contentStyle="width:80%" styleClass="AFStretchWidth"
+                                                              readOnly="#{bindings.IsSupervised.inputValue=='Y' || (pageFlowScope.ERPMainTempBean.LERPAllowEdit=='N' &amp;&amp; bindings.FiscalYearSno.inputValue!=0)}">
+                                                    <f:validator binding="#{bindings.StartDate.validator}"/>
+                                                    <af:convertDateTime pattern="#{bindings.StartDate.format}"/>
+                                                </af:inputDate>
+                                                <af:inputDate value="#{bindings.EndDate.inputValue}"
+                                                              label="#{bindings.EndDate.hints.label}"
+                                                              required="#{bindings.EndDate.hints.mandatory}"
+                                                              columns="#{bindings.EndDate.hints.displayWidth}"
+                                                              shortDesc="#{bindings.EndDate.hints.tooltip}" id="id2"
+                                                              contentStyle="width:80%" styleClass="AFStretchWidth"
+                                                              readOnly="#{bindings.IsSupervised.inputValue=='Y' || (pageFlowScope.ERPMainTempBean.LERPAllowEdit=='N' &amp;&amp; bindings.FiscalYearSno.inputValue!=0)}">
+                                                    <f:validator binding="#{bindings.EndDate.validator}"/>
+                                                    <af:convertDateTime pattern="#{bindings.EndDate.format}"/>
+                                                </af:inputDate>
+                                                <af:selectOneChoice value="#{bindings.IsActive.inputValue}"
+                                                                    label="#{bindings.IsActive.label}"
+                                                                    required="#{bindings.IsActive.hints.mandatory}"
+                                                                    shortDesc="#{bindings.IsActive.hints.tooltip}"
+                                                                    id="soc1" styleClass="AFStretchWidth"
+                                                                    contentStyle="width:100%"
+                                                                    readOnly="#{bindings.IsSupervised.inputValue=='Y' || (pageFlowScope.ERPMainTempBean.LERPAllowEdit=='N' &amp;&amp; bindings.FiscalYearSno.inputValue!=0)}">
+                                                    <f:selectItems value="#{bindings.IsActive.items}" id="si1"/>
+                                                    <f:validator binding="#{bindings.IsActive.validator}"/>
+                                                </af:selectOneChoice>
+                                                <af:inputText value="#{bindings.IsSupervised.inputValue}"
+                                                              label="#{bindings.IsSupervised.hints.label}"
+                                                              required="#{bindings.IsSupervised.hints.mandatory}"
+                                                              columns="#{bindings.IsSupervised.hints.displayWidth}"
+                                                              maximumLength="#{bindings.IsSupervised.hints.precision}"
+                                                              shortDesc="#{bindings.IsSupervised.hints.tooltip}"
+                                                              id="it5" rendered="false">
+                                                    <f:validator binding="#{bindings.IsSupervised.validator}"/>
+                                                </af:inputText>
+                                                <af:inputText value="#{bindings.IsUnsupervised.inputValue}"
+                                                              label="#{bindings.IsUnsupervised.hints.label}"
+                                                              required="#{bindings.IsUnsupervised.hints.mandatory}"
+                                                              columns="#{bindings.IsUnsupervised.hints.displayWidth}"
+                                                              maximumLength="#{bindings.IsUnsupervised.hints.precision}"
+                                                              shortDesc="#{bindings.IsUnsupervised.hints.tooltip}"
+                                                              id="it6" rendered="false">
+                                                    <f:validator binding="#{bindings.IsUnsupervised.validator}"/>
+                                                </af:inputText>
+                                                <af:panelGroupLayout id="pgl2" layout="vertical"
+                                                                     styleClass="AFStretchWidth" halign="center">
+                                                    <af:link actionListener="#{bindings.doErpGenerateFYPeriods.execute}"
+                                                             text="Generate Periods"
+                                                             disabled="#{bindings.FiscalYearCode.inputValue==null || bindings.IsSupervised.inputValue=='Y' || (pageFlowScope.ERPMainTempBean.LERPAllowEdit=='N' &amp;&amp; bindings.GlPeriodsDetCRUDIterator.estimatedRowCount>0)}"
+                                                             id="l8" partialSubmit="true"/>
+                                                </af:panelGroupLayout>
+                                            </af:panelFormLayout>
+                                        </af:gridCell>
+                                    </af:gridRow>
+                                </af:panelGridLayout>
+                            </af:gridCell>
+                            <af:gridCell marginStart="5px" width="75%" marginEnd="5px" id="gc2" halign="stretch"
+                                         rowSpan="1" valign="stretch">
+                                <af:panelGridLayout id="pgl6">
+                                    <af:gridRow marginTop="5px" height="auto" id="gr5">
+                                        <af:gridCell marginStart="5px" width="100%" id="gc7"
+                                                     styleClass="ERPEntryAreaHeading" halign="stretch" valign="stretch">
+                                            <af:spacer width="10" height="10" id="s3"/>
+                                            <af:outputText value="GL Periods" id="ot4" styleClass="ERPEntryAreaFont"/>
+                                        </af:gridCell>
+                                    </af:gridRow>
+                                    <af:gridRow marginTop="5px" height="auto" marginBottom="5px" id="gr6">
+                                        <af:gridCell marginStart="5px" width="100%" id="gc8"
+                                                     halign="stretch" valign="stretch">
+                                            <af:panelCollection id="pc1" styleClass="AFStretchWidth">
+                                                <f:facet name="menus"/>
+                                                <f:facet name="toolbar"/>
+                                                <f:facet name="statusbar"/>
+                                                <af:table value="#{bindings.GlPeriodsDetCRUD.collectionModel}" var="row"
+                                                          rows="#{bindings.GlPeriodsDetCRUD.rangeSize}"
+                                                          emptyText="#{bindings.GlPeriodsDetCRUD.viewable ? 'No data to display.' : 'Access Denied.'}"
+                                                          rowBandingInterval="0"
+                                                          selectedRowKeys="#{bindings.GlPeriodsDetCRUD.collectionModel.selectedRow}"
+                                                          selectionListener="#{bindings.GlPeriodsDetCRUD.collectionModel.makeCurrent}"
+                                                          rowSelection="single"
+                                                          fetchSize="#{bindings.GlPeriodsDetCRUD.rangeSize}" id="t1"
+                                                          scrollPolicy="page"
+                                                          autoHeightRows="#{pageFlowScope.OracleERPBean.erpScreenSize=='portrait'?10:18}"
+                                                          columnStretching="column:c2" styleClass="AFStretchWidth">
+                                                    <af:column headerText="#{bindings.GlPeriodsDetCRUD.hints.FiscalYearSno.label}"
+                                                               id="c10" rendered="false">
+                                                        <af:inputText value="#{row.bindings.FiscalYearSno.inputValue}"
+                                                                      label="#{bindings.GlPeriodsDetCRUD.hints.FiscalYearSno.label}"
+                                                                      required="#{bindings.GlPeriodsDetCRUD.hints.FiscalYearSno.mandatory}"
+                                                                      columns="#{bindings.GlPeriodsDetCRUD.hints.FiscalYearSno.displayWidth}"
+                                                                      maximumLength="#{bindings.GlPeriodsDetCRUD.hints.FiscalYearSno.precision}"
+                                                                      shortDesc="#{bindings.GlPeriodsDetCRUD.hints.FiscalYearSno.tooltip}"
+                                                                      id="it11" readOnly="true">
+                                                            <f:validator binding="#{row.bindings.FiscalYearSno.validator}"/>
                                                             <af:convertNumber groupingUsed="false"
-                                                                              pattern="#{bindings.FiscalYearSno.format}"/>
+                                                                              pattern="#{bindings.GlPeriodsDetCRUD.hints.FiscalYearSno.format}"/>
                                                         </af:inputText>
-                                                        <af:inputText value="#{bindings.FiscalYearCode.inputValue}"
-                                                                      label="#{bindings.FiscalYearCode.hints.label}"
-                                                                      required="#{bindings.FiscalYearCode.hints.mandatory}"
-                                                                      columns="#{bindings.FiscalYearCode.hints.displayWidth}"
-                                                                      maximumLength="#{bindings.FiscalYearCode.hints.precision}"
-                                                                      shortDesc="#{bindings.FiscalYearCode.hints.tooltip}"
-                                                                      id="it2" readOnly="true">
-                                                            <f:validator binding="#{bindings.FiscalYearCode.validator}"/>
+                                                    </af:column>
+                                                    <af:column headerText="#{bindings.GlPeriodsDetCRUD.hints.PeriodSno.label}"
+                                                               id="c9" rendered="false">
+                                                        <af:inputText value="#{row.bindings.PeriodSno.inputValue}"
+                                                                      label="#{bindings.GlPeriodsDetCRUD.hints.PeriodSno.label}"
+                                                                      required="#{bindings.GlPeriodsDetCRUD.hints.PeriodSno.mandatory}"
+                                                                      columns="#{bindings.GlPeriodsDetCRUD.hints.PeriodSno.displayWidth}"
+                                                                      maximumLength="#{bindings.GlPeriodsDetCRUD.hints.PeriodSno.precision}"
+                                                                      shortDesc="#{bindings.GlPeriodsDetCRUD.hints.PeriodSno.tooltip}"
+                                                                      id="it10" readOnly="true">
+                                                            <f:validator binding="#{row.bindings.PeriodSno.validator}"/>
                                                             <af:convertNumber groupingUsed="false"
-                                                                              pattern="#{bindings.FiscalYearCode.format}"/>
+                                                                              pattern="#{bindings.GlPeriodsDetCRUD.hints.PeriodSno.format}"/>
                                                         </af:inputText>
-                                                        <af:inputText value="#{bindings.YearDescription.inputValue}"
-                                                                      label="#{bindings.YearDescription.hints.label}"
-                                                                      required="#{bindings.YearDescription.hints.mandatory}"
-                                                                      columns="#{bindings.YearDescription.hints.displayWidth}"
-                                                                      maximumLength="#{bindings.YearDescription.hints.precision}"
-                                                                      shortDesc="#{bindings.YearDescription.hints.tooltip}"
-                                                                      id="it3" contentStyle="width:100%"
-                                                                      styleClass="AFStretchWidth"
-                                                                      readOnly="#{bindings.IsSupervised.inputValue=='Y' || (pageFlowScope.ERPMainTempBean.LERPAllowEdit=='N' &amp;&amp; bindings.FiscalYearSno.inputValue!=0)}"
-                                                                      autoSubmit="true">
-                                                            <f:validator binding="#{bindings.YearDescription.validator}"/>
-                                                        </af:inputText>
-                                                        <af:inputText value="#{bindings.FiscalYearr.inputValue}"
-                                                                      label="#{bindings.FiscalYearr.hints.label}"
-                                                                      required="#{bindings.FiscalYearr.hints.mandatory}"
-                                                                      columns="#{bindings.FiscalYearr.hints.displayWidth}"
-                                                                      maximumLength="#{bindings.FiscalYearr.hints.precision}"
-                                                                      shortDesc="#{bindings.FiscalYearr.hints.tooltip}"
-                                                                      id="it4" contentStyle="width:100%"
-                                                                      styleClass="AFStretchWidth"
-                                                                      readOnly="#{bindings.IsSupervised.inputValue=='Y' || (pageFlowScope.ERPMainTempBean.LERPAllowEdit=='N' &amp;&amp; bindings.FiscalYearSno.inputValue!=0)}">
-                                                            <f:validator binding="#{bindings.FiscalYearr.validator}"/>
+                                                    </af:column>
+                                                    <af:column headerText="#{bindings.GlPeriodsDetCRUD.hints.PeriodNo.label}"
+                                                               id="c1" width="70" displayIndex="-1"
+                                                               headerClass="ERPToolBarBackground">
+                                                        <af:inputText value="#{row.bindings.PeriodNo.inputValue}"
+                                                                      label="#{bindings.GlPeriodsDetCRUD.hints.PeriodNo.label}"
+                                                                      required="#{bindings.GlPeriodsDetCRUD.hints.PeriodNo.mandatory}"
+                                                                      columns="#{bindings.GlPeriodsDetCRUD.hints.PeriodNo.displayWidth}"
+                                                                      maximumLength="#{bindings.GlPeriodsDetCRUD.hints.PeriodNo.precision}"
+                                                                      shortDesc="#{bindings.GlPeriodsDetCRUD.hints.PeriodNo.tooltip}"
+                                                                      id="it7" readOnly="true">
+                                                            <f:validator binding="#{row.bindings.PeriodNo.validator}"/>
                                                             <af:convertNumber groupingUsed="false"
-                                                                              pattern="#{bindings.FiscalYearr.format}"/>
+                                                                              pattern="#{bindings.GlPeriodsDetCRUD.hints.PeriodNo.format}"/>
                                                         </af:inputText>
-                                                        <af:inputDate value="#{bindings.StartDate.inputValue}"
-                                                                      label="#{bindings.StartDate.hints.label}"
-                                                                      required="#{bindings.StartDate.hints.mandatory}"
-                                                                      columns="#{bindings.StartDate.hints.displayWidth}"
-                                                                      shortDesc="#{bindings.StartDate.hints.tooltip}"
-                                                                      id="id1" contentStyle="width:80%"
-                                                                      styleClass="AFStretchWidth"
-                                                                      readOnly="#{bindings.IsSupervised.inputValue=='Y' || (pageFlowScope.ERPMainTempBean.LERPAllowEdit=='N' &amp;&amp; bindings.FiscalYearSno.inputValue!=0)}">
-                                                            <f:validator binding="#{bindings.StartDate.validator}"/>
-                                                            <af:convertDateTime pattern="#{bindings.StartDate.format}"/>
+                                                    </af:column>
+                                                    <af:column headerText="#{bindings.GlPeriodsDetCRUD.hints.PeriodName.label}"
+                                                               id="c2" width="90" minimumWidth="12"
+                                                               headerClass="ERPToolBarBackground">
+                                                        <af:inputText value="#{row.bindings.PeriodName.inputValue}"
+                                                                      label="#{bindings.GlPeriodsDetCRUD.hints.PeriodName.label}"
+                                                                      required="#{bindings.GlPeriodsDetCRUD.hints.PeriodName.mandatory}"
+                                                                      columns="#{bindings.GlPeriodsDetCRUD.hints.PeriodName.displayWidth}"
+                                                                      maximumLength="#{bindings.GlPeriodsDetCRUD.hints.PeriodName.precision}"
+                                                                      shortDesc="#{bindings.GlPeriodsDetCRUD.hints.PeriodName.tooltip}"
+                                                                      id="it8" readOnly="true">
+                                                            <f:validator binding="#{row.bindings.PeriodName.validator}"/>
+                                                        </af:inputText>
+                                                    </af:column>
+                                                    <af:column headerText="#{bindings.GlPeriodsDetCRUD.hints.QuarterNo.label}"
+                                                               id="c3" width="75" minimumWidth="12"
+                                                               headerClass="ERPToolBarBackground">
+                                                        <af:inputText value="#{row.bindings.QuarterNo.inputValue}"
+                                                                      label="#{bindings.GlPeriodsDetCRUD.hints.QuarterNo.label}"
+                                                                      required="#{bindings.GlPeriodsDetCRUD.hints.QuarterNo.mandatory}"
+                                                                      columns="#{bindings.GlPeriodsDetCRUD.hints.QuarterNo.displayWidth}"
+                                                                      maximumLength="#{bindings.GlPeriodsDetCRUD.hints.QuarterNo.precision}"
+                                                                      shortDesc="#{bindings.GlPeriodsDetCRUD.hints.QuarterNo.tooltip}"
+                                                                      id="it9" readOnly="true">
+                                                            <f:validator binding="#{row.bindings.QuarterNo.validator}"/>
+                                                            <af:convertNumber groupingUsed="false"
+                                                                              pattern="#{bindings.GlPeriodsDetCRUD.hints.QuarterNo.format}"/>
+                                                        </af:inputText>
+                                                    </af:column>
+                                                    <af:column headerText="#{bindings.GlPeriodsDetCRUD.hints.StartDate.label}"
+                                                               id="c4" width="75" displayIndex="-1"
+                                                               headerClass="ERPToolBarBackground">
+                                                        <af:inputDate value="#{row.bindings.StartDate.inputValue}"
+                                                                      label="#{bindings.GlPeriodsDetCRUD.hints.StartDate.label}"
+                                                                      required="#{bindings.GlPeriodsDetCRUD.hints.StartDate.mandatory}"
+                                                                      columns="#{bindings.GlPeriodsDetCRUD.hints.StartDate.displayWidth}"
+                                                                      shortDesc="#{bindings.GlPeriodsDetCRUD.hints.StartDate.tooltip}"
+                                                                      id="id3" readOnly="true">
+                                                            <f:validator binding="#{row.bindings.StartDate.validator}"/>
+                                                            <af:convertDateTime pattern="#{bindings.GlPeriodsDetCRUD.hints.StartDate.format}"/>
                                                         </af:inputDate>
-                                                        <af:inputDate value="#{bindings.EndDate.inputValue}"
-                                                                      label="#{bindings.EndDate.hints.label}"
-                                                                      required="#{bindings.EndDate.hints.mandatory}"
-                                                                      columns="#{bindings.EndDate.hints.displayWidth}"
-                                                                      shortDesc="#{bindings.EndDate.hints.tooltip}"
-                                                                      id="id2" contentStyle="width:80%"
-                                                                      styleClass="AFStretchWidth"
-                                                                      readOnly="#{bindings.IsSupervised.inputValue=='Y' || (pageFlowScope.ERPMainTempBean.LERPAllowEdit=='N' &amp;&amp; bindings.FiscalYearSno.inputValue!=0)}">
-                                                            <f:validator binding="#{bindings.EndDate.validator}"/>
-                                                            <af:convertDateTime pattern="#{bindings.EndDate.format}"/>
+                                                    </af:column>
+                                                    <af:column headerText="#{bindings.GlPeriodsDetCRUD.hints.EndDate.label}"
+                                                               id="c5" width="75" displayIndex="-1" minimumWidth="12"
+                                                               headerClass="ERPToolBarBackground">
+                                                        <af:inputDate value="#{row.bindings.EndDate.inputValue}"
+                                                                      label="#{bindings.GlPeriodsDetCRUD.hints.EndDate.label}"
+                                                                      required="#{bindings.GlPeriodsDetCRUD.hints.EndDate.mandatory}"
+                                                                      columns="#{bindings.GlPeriodsDetCRUD.hints.EndDate.displayWidth}"
+                                                                      shortDesc="#{bindings.GlPeriodsDetCRUD.hints.EndDate.tooltip}"
+                                                                      id="id4" readOnly="true">
+                                                            <f:validator binding="#{row.bindings.EndDate.validator}"/>
+                                                            <af:convertDateTime pattern="#{bindings.GlPeriodsDetCRUD.hints.EndDate.format}"/>
                                                         </af:inputDate>
-                                                        <af:selectOneChoice value="#{bindings.IsActive.inputValue}"
-                                                                            label="#{bindings.IsActive.label}"
-                                                                            required="#{bindings.IsActive.hints.mandatory}"
-                                                                            shortDesc="#{bindings.IsActive.hints.tooltip}"
-                                                                            id="soc1" styleClass="AFStretchWidth"
-                                                                            contentStyle="width:100%"
-                                                                            readOnly="#{bindings.IsSupervised.inputValue=='Y' || (pageFlowScope.ERPMainTempBean.LERPAllowEdit=='N' &amp;&amp; bindings.FiscalYearSno.inputValue!=0)}">
-                                                            <f:selectItems value="#{bindings.IsActive.items}" id="si1"/>
-                                                            <f:validator binding="#{bindings.IsActive.validator}"/>
+                                                    </af:column>
+                                                    <af:column headerText="#{bindings.GlPeriodsDetCRUD.hints.IsOpen.label}"
+                                                               id="c6" width="60" headerClass="ERPToolBarBackground">
+                                                        <af:selectOneChoice value="#{row.bindings.IsOpen.inputValue}"
+                                                                            label="#{row.bindings.IsOpen.label}"
+                                                                            required="#{bindings.GlPeriodsDetCRUD.hints.IsOpen.mandatory}"
+                                                                            shortDesc="#{bindings.GlPeriodsDetCRUD.hints.IsOpen.tooltip}"
+                                                                            id="soc2" autoSubmit="true"
+                                                                            readOnly="#{pageFlowScope.ERPMainTempBean.LERPAllowEdit=='N'}">
+                                                            <f:selectItems value="#{row.bindings.IsOpen.items}"
+                                                                           id="si2"/>
+                                                            <f:validator binding="#{row.bindings.IsOpen.validator}"/>
                                                         </af:selectOneChoice>
-                                                        <af:inputText value="#{bindings.IsSupervised.inputValue}"
-                                                                      label="#{bindings.IsSupervised.hints.label}"
-                                                                      required="#{bindings.IsSupervised.hints.mandatory}"
-                                                                      columns="#{bindings.IsSupervised.hints.displayWidth}"
-                                                                      maximumLength="#{bindings.IsSupervised.hints.precision}"
-                                                                      shortDesc="#{bindings.IsSupervised.hints.tooltip}"
-                                                                      id="it5" rendered="false">
-                                                            <f:validator binding="#{bindings.IsSupervised.validator}"/>
-                                                        </af:inputText>
-                                                        <af:inputText value="#{bindings.IsUnsupervised.inputValue}"
-                                                                      label="#{bindings.IsUnsupervised.hints.label}"
-                                                                      required="#{bindings.IsUnsupervised.hints.mandatory}"
-                                                                      columns="#{bindings.IsUnsupervised.hints.displayWidth}"
-                                                                      maximumLength="#{bindings.IsUnsupervised.hints.precision}"
-                                                                      shortDesc="#{bindings.IsUnsupervised.hints.tooltip}"
-                                                                      id="it6" rendered="false">
-                                                            <f:validator binding="#{bindings.IsUnsupervised.validator}"/>
-                                                        </af:inputText>
-                                                        <af:panelGroupLayout id="pgl2" layout="vertical"
-                                                                             styleClass="AFStretchWidth"
-                                                                             halign="center">
-                                                            <af:link actionListener="#{bindings.doErpGenerateFYPeriods.execute}"
-                                                                     text="Generate Periods"
-                                                                     disabled="#{bindings.FiscalYearCode.inputValue==null || bindings.IsSupervised.inputValue=='Y' || (pageFlowScope.ERPMainTempBean.LERPAllowEdit=='N' &amp;&amp; bindings.GlPeriodsDetCRUDIterator.estimatedRowCount>0)}"
-                                                                     id="l8" partialSubmit="true"/>
-                                                        </af:panelGroupLayout>
-                                                    </af:panelFormLayout>
-                                                </af:gridCell>
-                                            </af:gridRow>
-                                        </af:panelGridLayout>
-                                    </af:gridCell>
-                                    <af:gridCell marginStart="5px" width="75%" marginEnd="5px" id="gc2"
-                                                 halign="stretch" rowSpan="1" valign="stretch">
-                                        <af:panelGridLayout id="pgl6">
-                                            <af:gridRow marginTop="5px" height="auto" id="gr5">
-                                                <af:gridCell marginStart="5px" width="100%" marginEnd="5px" id="gc7"
-                                                             styleClass="ERPEntryAreaHeading" halign="stretch"
-                                                             valign="stretch">
-                                                    <af:spacer width="10" height="10" id="s3"/>
-                                                    <af:outputText value="GL Periods" id="ot4"
-                                                                   styleClass="ERPEntryAreaFont"/>
-                                                </af:gridCell>
-                                            </af:gridRow>
-                                            <af:gridRow marginTop="5px" height="auto" marginBottom="5px" id="gr6">
-                                                <af:gridCell marginStart="5px" width="100%" marginEnd="5px" id="gc8"
-                                                             halign="stretch" valign="stretch">
-                                                    <af:panelCollection id="pc1" styleClass="AFStretchWidth">
-                                                        <f:facet name="menus"/>
-                                                        <f:facet name="toolbar"/>
-                                                        <f:facet name="statusbar"/>
-                                                        <af:table value="#{bindings.GlPeriodsDetCRUD.collectionModel}"
-                                                                  var="row"
-                                                                  rows="#{bindings.GlPeriodsDetCRUD.rangeSize}"
-                                                                  emptyText="#{bindings.GlPeriodsDetCRUD.viewable ? 'No data to display.' : 'Access Denied.'}"
-                                                                  rowBandingInterval="0"
-                                                                  selectedRowKeys="#{bindings.GlPeriodsDetCRUD.collectionModel.selectedRow}"
-                                                                  selectionListener="#{bindings.GlPeriodsDetCRUD.collectionModel.makeCurrent}"
-                                                                  rowSelection="single"
-                                                                  fetchSize="#{bindings.GlPeriodsDetCRUD.rangeSize}"
-                                                                  id="t1" scrollPolicy="page"
-                                                                  autoHeightRows="#{pageFlowScope.OracleERPBean.erpScreenSize=='portrait'?10:18}"
-                                                                  columnStretching="column:c2"
-                                                                  styleClass="AFStretchWidth">
-                                                            <af:column headerText="#{bindings.GlPeriodsDetCRUD.hints.FiscalYearSno.label}"
-                                                                       id="c10" rendered="false">
-                                                                <af:inputText value="#{row.bindings.FiscalYearSno.inputValue}"
-                                                                              label="#{bindings.GlPeriodsDetCRUD.hints.FiscalYearSno.label}"
-                                                                              required="#{bindings.GlPeriodsDetCRUD.hints.FiscalYearSno.mandatory}"
-                                                                              columns="#{bindings.GlPeriodsDetCRUD.hints.FiscalYearSno.displayWidth}"
-                                                                              maximumLength="#{bindings.GlPeriodsDetCRUD.hints.FiscalYearSno.precision}"
-                                                                              shortDesc="#{bindings.GlPeriodsDetCRUD.hints.FiscalYearSno.tooltip}"
-                                                                              id="it11" readOnly="true">
-                                                                    <f:validator binding="#{row.bindings.FiscalYearSno.validator}"/>
-                                                                    <af:convertNumber groupingUsed="false"
-                                                                                      pattern="#{bindings.GlPeriodsDetCRUD.hints.FiscalYearSno.format}"/>
-                                                                </af:inputText>
-                                                            </af:column>
-                                                            <af:column headerText="#{bindings.GlPeriodsDetCRUD.hints.PeriodSno.label}"
-                                                                       id="c9" rendered="false">
-                                                                <af:inputText value="#{row.bindings.PeriodSno.inputValue}"
-                                                                              label="#{bindings.GlPeriodsDetCRUD.hints.PeriodSno.label}"
-                                                                              required="#{bindings.GlPeriodsDetCRUD.hints.PeriodSno.mandatory}"
-                                                                              columns="#{bindings.GlPeriodsDetCRUD.hints.PeriodSno.displayWidth}"
-                                                                              maximumLength="#{bindings.GlPeriodsDetCRUD.hints.PeriodSno.precision}"
-                                                                              shortDesc="#{bindings.GlPeriodsDetCRUD.hints.PeriodSno.tooltip}"
-                                                                              id="it10" readOnly="true">
-                                                                    <f:validator binding="#{row.bindings.PeriodSno.validator}"/>
-                                                                    <af:convertNumber groupingUsed="false"
-                                                                                      pattern="#{bindings.GlPeriodsDetCRUD.hints.PeriodSno.format}"/>
-                                                                </af:inputText>
-                                                            </af:column>
-                                                            <af:column headerText="#{bindings.GlPeriodsDetCRUD.hints.PeriodNo.label}"
-                                                                       id="c1" width="70" displayIndex="-1"
-                                                                       headerClass="ERPToolBarBackground">
-                                                                <af:inputText value="#{row.bindings.PeriodNo.inputValue}"
-                                                                              label="#{bindings.GlPeriodsDetCRUD.hints.PeriodNo.label}"
-                                                                              required="#{bindings.GlPeriodsDetCRUD.hints.PeriodNo.mandatory}"
-                                                                              columns="#{bindings.GlPeriodsDetCRUD.hints.PeriodNo.displayWidth}"
-                                                                              maximumLength="#{bindings.GlPeriodsDetCRUD.hints.PeriodNo.precision}"
-                                                                              shortDesc="#{bindings.GlPeriodsDetCRUD.hints.PeriodNo.tooltip}"
-                                                                              id="it7" readOnly="true">
-                                                                    <f:validator binding="#{row.bindings.PeriodNo.validator}"/>
-                                                                    <af:convertNumber groupingUsed="false"
-                                                                                      pattern="#{bindings.GlPeriodsDetCRUD.hints.PeriodNo.format}"/>
-                                                                </af:inputText>
-                                                            </af:column>
-                                                            <af:column headerText="#{bindings.GlPeriodsDetCRUD.hints.PeriodName.label}"
-                                                                       id="c2" width="90" minimumWidth="12"
-                                                                       headerClass="ERPToolBarBackground">
-                                                                <af:inputText value="#{row.bindings.PeriodName.inputValue}"
-                                                                              label="#{bindings.GlPeriodsDetCRUD.hints.PeriodName.label}"
-                                                                              required="#{bindings.GlPeriodsDetCRUD.hints.PeriodName.mandatory}"
-                                                                              columns="#{bindings.GlPeriodsDetCRUD.hints.PeriodName.displayWidth}"
-                                                                              maximumLength="#{bindings.GlPeriodsDetCRUD.hints.PeriodName.precision}"
-                                                                              shortDesc="#{bindings.GlPeriodsDetCRUD.hints.PeriodName.tooltip}"
-                                                                              id="it8" readOnly="true">
-                                                                    <f:validator binding="#{row.bindings.PeriodName.validator}"/>
-                                                                </af:inputText>
-                                                            </af:column>
-                                                            <af:column headerText="#{bindings.GlPeriodsDetCRUD.hints.QuarterNo.label}"
-                                                                       id="c3" width="75" minimumWidth="12"
-                                                                       headerClass="ERPToolBarBackground">
-                                                                <af:inputText value="#{row.bindings.QuarterNo.inputValue}"
-                                                                              label="#{bindings.GlPeriodsDetCRUD.hints.QuarterNo.label}"
-                                                                              required="#{bindings.GlPeriodsDetCRUD.hints.QuarterNo.mandatory}"
-                                                                              columns="#{bindings.GlPeriodsDetCRUD.hints.QuarterNo.displayWidth}"
-                                                                              maximumLength="#{bindings.GlPeriodsDetCRUD.hints.QuarterNo.precision}"
-                                                                              shortDesc="#{bindings.GlPeriodsDetCRUD.hints.QuarterNo.tooltip}"
-                                                                              id="it9" readOnly="true">
-                                                                    <f:validator binding="#{row.bindings.QuarterNo.validator}"/>
-                                                                    <af:convertNumber groupingUsed="false"
-                                                                                      pattern="#{bindings.GlPeriodsDetCRUD.hints.QuarterNo.format}"/>
-                                                                </af:inputText>
-                                                            </af:column>
-                                                            <af:column headerText="#{bindings.GlPeriodsDetCRUD.hints.StartDate.label}"
-                                                                       id="c4" width="75" displayIndex="-1"
-                                                                       headerClass="ERPToolBarBackground">
-                                                                <af:inputDate value="#{row.bindings.StartDate.inputValue}"
-                                                                              label="#{bindings.GlPeriodsDetCRUD.hints.StartDate.label}"
-                                                                              required="#{bindings.GlPeriodsDetCRUD.hints.StartDate.mandatory}"
-                                                                              columns="#{bindings.GlPeriodsDetCRUD.hints.StartDate.displayWidth}"
-                                                                              shortDesc="#{bindings.GlPeriodsDetCRUD.hints.StartDate.tooltip}"
-                                                                              id="id3" readOnly="true">
-                                                                    <f:validator binding="#{row.bindings.StartDate.validator}"/>
-                                                                    <af:convertDateTime pattern="#{bindings.GlPeriodsDetCRUD.hints.StartDate.format}"/>
-                                                                </af:inputDate>
-                                                            </af:column>
-                                                            <af:column headerText="#{bindings.GlPeriodsDetCRUD.hints.EndDate.label}"
-                                                                       id="c5" width="75" displayIndex="-1"
-                                                                       minimumWidth="12"
-                                                                       headerClass="ERPToolBarBackground">
-                                                                <af:inputDate value="#{row.bindings.EndDate.inputValue}"
-                                                                              label="#{bindings.GlPeriodsDetCRUD.hints.EndDate.label}"
-                                                                              required="#{bindings.GlPeriodsDetCRUD.hints.EndDate.mandatory}"
-                                                                              columns="#{bindings.GlPeriodsDetCRUD.hints.EndDate.displayWidth}"
-                                                                              shortDesc="#{bindings.GlPeriodsDetCRUD.hints.EndDate.tooltip}"
-                                                                              id="id4" readOnly="true">
-                                                                    <f:validator binding="#{row.bindings.EndDate.validator}"/>
-                                                                    <af:convertDateTime pattern="#{bindings.GlPeriodsDetCRUD.hints.EndDate.format}"/>
-                                                                </af:inputDate>
-                                                            </af:column>
-                                                            <af:column headerText="#{bindings.GlPeriodsDetCRUD.hints.IsOpen.label}"
-                                                                       id="c6" width="60"
-                                                                       headerClass="ERPToolBarBackground">
-                                                                <af:selectOneChoice value="#{row.bindings.IsOpen.inputValue}"
-                                                                                    label="#{row.bindings.IsOpen.label}"
-                                                                                    required="#{bindings.GlPeriodsDetCRUD.hints.IsOpen.mandatory}"
-                                                                                    shortDesc="#{bindings.GlPeriodsDetCRUD.hints.IsOpen.tooltip}"
-                                                                                    id="soc2" autoSubmit="true"
-                                                                                    readOnly="#{pageFlowScope.ERPMainTempBean.LERPAllowEdit=='N'}">
-                                                                    <f:selectItems value="#{row.bindings.IsOpen.items}"
-                                                                                   id="si2"/>
-                                                                    <f:validator binding="#{row.bindings.IsOpen.validator}"/>
-                                                                </af:selectOneChoice>
-                                                            </af:column>
-                                                            <af:column headerText="#{bindings.GlPeriodsDetCRUD.hints.IsClosed.label}"
-                                                                       id="c7" width="60"
-                                                                       headerClass="ERPToolBarBackground">
-                                                                <af:selectOneChoice value="#{row.bindings.IsClosed.inputValue}"
-                                                                                    label="#{row.bindings.IsClosed.label}"
-                                                                                    required="#{bindings.GlPeriodsDetCRUD.hints.IsClosed.mandatory}"
-                                                                                    shortDesc="#{bindings.GlPeriodsDetCRUD.hints.IsClosed.tooltip}"
-                                                                                    id="soc3" partialTriggers="soc2"
-                                                                                    autoSubmit="true"
-                                                                                    readOnly="#{row.bindings.IsOpen.inputValue=='2' || pageFlowScope.ERPMainTempBean.LERPAllowEdit=='N'}">
-                                                                    <f:selectItems value="#{row.bindings.IsClosed.items}"
-                                                                                   id="si3"/>
-                                                                    <f:validator binding="#{row.bindings.IsClosed.validator}"/>
-                                                                </af:selectOneChoice>
-                                                            </af:column>
-                                                            <af:column headerText="#{bindings.GlPeriodsDetCRUD.hints.IsAdjustment.label}"
-                                                                       id="c8" headerClass="ERPToolBarBackground">
-                                                                <af:selectOneChoice value="#{row.bindings.IsAdjustment.inputValue}"
-                                                                                    label="#{row.bindings.IsAdjustment.label}"
-                                                                                    required="#{bindings.GlPeriodsDetCRUD.hints.IsAdjustment.mandatory}"
-                                                                                    shortDesc="#{bindings.GlPeriodsDetCRUD.hints.IsAdjustment.tooltip}"
-                                                                                    id="soc4" readOnly="true">
-                                                                    <f:selectItems value="#{row.bindings.IsAdjustment.items}"
-                                                                                   id="si4"/>
-                                                                    <f:validator binding="#{row.bindings.IsAdjustment.validator}"/>
-                                                                </af:selectOneChoice>
-                                                            </af:column>
-                                                        </af:table>
-                                                    </af:panelCollection>
-                                                </af:gridCell>
-                                            </af:gridRow>
-                                        </af:panelGridLayout>
-                                    </af:gridCell>
-                                </af:gridRow>
-                            </af:panelGridLayout>
-                        </f:facet>
-                        <f:facet name="top">
-                            <af:panelGridLayout id="pgl3" dimensionsFrom="parent" styleClass="ERPToolBarBackground">
-                                <af:gridRow id="gr2">
-                                    <af:gridCell width="50%" id="gc3" valign="middle" marginStart="5px" marginEnd="5px">
-                                        <af:spacer width="10" height="10" id="s4"/>
-                                        <af:outputText value="#{pageFlowScope.ERPMainTempBean.LErpActivityName}" id="ot1"
-                                                       styleClass="ERPActivityNameFormHeading"/>
-                                    </af:gridCell>
-                                    <af:gridCell marginStart="5px" width="50%" marginEnd="5px" id="gc4" halign="end">
-                                        <af:panelGroupLayout id="pgl4" layout="horizontal" halign="end">
-                                            <af:link id="l1" text="Close" partialSubmit="true"
-                                                     icon="#{resource['images:imgCloseDialog.png']}"
-                                                     iconPosition="top"
-                                                     action="#{pageFlowScope.OracleERPBean.doBackFromEdit}"
-                                                     shortDesc="Close Form">
-                                                <af:setActionListener from="#{'GlFiscalYearCRUDIterator'}"
-                                                                      to="#{pageFlowScope.OracleERPBean.LIteratorName}"/>
-                                            </af:link>
-                                            <af:link text="Delete" id="l10"
-                                                     actionListener="#{bindings.Delete.execute}" rendered="false"/>
-                                            <af:link text="UnSupervise" id="l12" partialSubmit="true"
-                                                     icon="#{resource['images:imgUnSuperviseRecord.png']}"
-                                                     iconPosition="top"
-                                                     action="#{pageFlowScope.OracleERPBean.doERPPopUnSuperviseRecord}"
-                                                     disabled="#{bindings.IsSupervised.inputValue=='N' || pageFlowScope.ERPMainTempBean.LERPAllowUnsupervise=='N'}"
-                                                     shortDesc="Un Supervise Record">
-                                                <af:setActionListener from="#{'GlFiscalYearCRUDIterator'}"
-                                                                      to="#{pageFlowScope.OracleERPBean.LIteratorName}"/>
-                                            </af:link>
-                                            <af:link text="Supervise" id="l11" partialSubmit="true"
-                                                     icon="#{resource['images:imgSuperviseRecord.png']}"
-                                                     iconPosition="top"
-                                                     action="#{pageFlowScope.OracleERPBean.doERPPopSupervisedRecord}"
-                                                     disabled="#{bindings.IsSupervised.inputValue=='Y' || pageFlowScope.ERPMainTempBean.LERPAllowSupervise=='N'}"
-                                                     shortDesc="Supervise Record">
-                                                <af:setActionListener from="#{'GlFiscalYearCRUDIterator'}"
-                                                                      to="#{pageFlowScope.OracleERPBean.LIteratorName}"/>
-                                            </af:link>
-                                            <af:link text="Delete" id="l3" iconPosition="top"
-                                                     icon="#{resource['images:imgDeleteRecord.png']}"
-                                                     partialSubmit="true"
-                                                     disabled="#{bindings.IsSupervised.inputValue=='Y' || pageFlowScope.ERPMainTempBean.LERPAllowDelete=='N'}"
-                                                     shortDesc="Delete Record">
-                                                <af:showPopupBehavior popupId="p1"/>
-                                            </af:link>
-                                            <af:link actionListener="#{bindings.CreateWithParams.execute}"
-                                                     text="CreateWithParams"
-                                                     disabled="#{!bindings.CreateWithParams.enabled}" id="l9"
-                                                     rendered="false"/>
-                                            <af:link
-                                                     text="Add"
-                                                     id="l2" partialSubmit="true"
-                                                     icon="#{resource['images:imgAddRecord.png']}" iconPosition="top"
-                                                     action="#{pageFlowScope.OracleERPBean.doERPAddRecordWithPara}"
-                                                     disabled="#{pageFlowScope.ERPMainTempBean.LERPAllowAdd=='N'}"
-                                                     shortDesc="Add New Record">
-                                                <af:setActionListener from="#{'GlFiscalYearCRUDIterator'}"
-                                                                      to="#{pageFlowScope.OracleERPBean.LIteratorName}"/>
-                                            </af:link>
-                                            <af:link actionListener="#{bindings.Commit.execute}" text="Save" id="l4"
-                                                     rendered="false"/>
-                                            <af:link text="Undo" id="l6" actionListener="#{bindings.Rollback.execute}"
-                                                     rendered="false"/>
-                                            <af:link text="Undo" immediate="true" id="l5"
-                                                     icon="#{resource['images:imgUndo.png']}" iconPosition="top"
-                                                     partialSubmit="true"
-                                                     action="#{pageFlowScope.OracleERPBean.doErpUndoRecord}"
-                                                     shortDesc="Undo Record">
-                                                <af:resetActionListener/>
-                                            </af:link>
-                                            <af:link text="Save" id="l7" icon="#{resource['images:imgSave.png']}"
-                                                     iconPosition="top"
-                                                     partialSubmit="true"
-                                                     action="#{pageFlowScope.OracleERPBean.doERPCommitRecord}"
-                                                     shortDesc="Save Record"/>
-                                            <f:facet name="separator">
-                                                <af:spacer width="10" height="10" id="s1"/>
-                                            </f:facet>
-                                        </af:panelGroupLayout>
-                                    </af:gridCell>
-                                </af:gridRow>
-                            </af:panelGridLayout>
-                        </f:facet>
-                    </af:decorativeBox>
+                                                    </af:column>
+                                                    <af:column headerText="#{bindings.GlPeriodsDetCRUD.hints.IsClosed.label}"
+                                                               id="c7" width="60" headerClass="ERPToolBarBackground">
+                                                        <af:selectOneChoice value="#{row.bindings.IsClosed.inputValue}"
+                                                                            label="#{row.bindings.IsClosed.label}"
+                                                                            required="#{bindings.GlPeriodsDetCRUD.hints.IsClosed.mandatory}"
+                                                                            shortDesc="#{bindings.GlPeriodsDetCRUD.hints.IsClosed.tooltip}"
+                                                                            id="soc3" partialTriggers="soc2"
+                                                                            autoSubmit="true"
+                                                                            readOnly="#{row.bindings.IsOpen.inputValue=='2' || pageFlowScope.ERPMainTempBean.LERPAllowEdit=='N'}">
+                                                            <f:selectItems value="#{row.bindings.IsClosed.items}"
+                                                                           id="si3"/>
+                                                            <f:validator binding="#{row.bindings.IsClosed.validator}"/>
+                                                        </af:selectOneChoice>
+                                                    </af:column>
+                                                    <af:column headerText="#{bindings.GlPeriodsDetCRUD.hints.IsAdjustment.label}"
+                                                               id="c8" headerClass="ERPToolBarBackground">
+                                                        <af:selectOneChoice value="#{row.bindings.IsAdjustment.inputValue}"
+                                                                            label="#{row.bindings.IsAdjustment.label}"
+                                                                            required="#{bindings.GlPeriodsDetCRUD.hints.IsAdjustment.mandatory}"
+                                                                            shortDesc="#{bindings.GlPeriodsDetCRUD.hints.IsAdjustment.tooltip}"
+                                                                            id="soc4" readOnly="true">
+                                                            <f:selectItems value="#{row.bindings.IsAdjustment.items}"
+                                                                           id="si4"/>
+                                                            <f:validator binding="#{row.bindings.IsAdjustment.validator}"/>
+                                                        </af:selectOneChoice>
+                                                    </af:column>
+                                                </af:table>
+                                            </af:panelCollection>
+                                        </af:gridCell>
+                                    </af:gridRow>
+                                </af:panelGridLayout>
+                            </af:gridCell>
+                        </af:gridRow>
+                    </af:panelGridLayout>
                 </f:facet>
                 <f:facet name="top"/>
             </af:decorativeBox>

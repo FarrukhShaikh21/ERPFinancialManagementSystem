@@ -4,360 +4,339 @@
     <af:document title="FMS_0002_EDIT.jsf" id="d1">
         <af:messages id="m1"/>
         <af:form id="f1">
-            <af:decorativeBox id="db1" dimensionsFrom="parent">
+            <af:decorativeBox id="db2" dimensionsFrom="parent">
                 <f:facet name="center">
-                    <af:decorativeBox id="db2" dimensionsFrom="parent">
-                        <f:facet name="center">
-                            <af:panelGridLayout id="pgl1">
-                                <af:gridRow marginTop="5px" height="auto" id="gr1">
-                                    <af:gridCell marginStart="5px" width="100%" marginEnd="5px" id="gc1"
-                                                 halign="stretch" columnSpan="2" styleClass="ERPCompanyInfoBackGround"
-                                                 valign="stretch">
-                                        <af:panelGroupLayout id="pgl5" layout="vertical" halign="center">
-                                            <af:panelFormLayout id="pfl1" maxColumns="4" rows="1">
-                                                <af:inputText value="#{bindings.CompCode.inputValue}"
-                                                              label="#{bindings.CompCode.hints.label}"
-                                                              required="#{bindings.CompCode.hints.mandatory}"
-                                                              columns="#{bindings.CompCode.hints.displayWidth}"
-                                                              maximumLength="#{bindings.CompCode.hints.precision}"
-                                                              shortDesc="#{bindings.CompCode.hints.tooltip}" id="it1"
-                                                              rendered="false">
-                                                    <f:validator binding="#{bindings.CompCode.validator}"/>
-                                                    <af:convertNumber groupingUsed="false"
-                                                                      pattern="#{bindings.CompCode.format}"/>
-                                                </af:inputText>
-                                                <af:inputText value="#{bindings.CompanyShortCode.inputValue}"
-                                                              label="#{bindings.CompanyShortCode.hints.label}"
-                                                              required="#{bindings.CompanyShortCode.hints.mandatory}"
-                                                              columns="#{bindings.CompanyShortCode.hints.displayWidth}"
-                                                              maximumLength="#{bindings.CompanyShortCode.hints.precision}"
-                                                              shortDesc="#{bindings.CompanyShortCode.hints.tooltip}"
-                                                              id="it2" readOnly="true"
-                                                              contentStyle="font-weight:bold;color:black">
-                                                    <f:validator binding="#{bindings.CompanyShortCode.validator}"/>
-                                                    <af:convertNumber groupingUsed="false"
-                                                                      pattern="#{bindings.CompanyShortCode.format}"/>
-                                                </af:inputText>
-                                                <af:inputText value="#{bindings.CompanyShortName.inputValue}"
-                                                              label="#{bindings.CompanyShortName.hints.label}"
-                                                              required="#{bindings.CompanyShortName.hints.mandatory}"
-                                                              columns="#{bindings.CompanyShortName.hints.displayWidth}"
-                                                              maximumLength="#{bindings.CompanyShortName.hints.precision}"
-                                                              shortDesc="#{bindings.CompanyShortName.hints.tooltip}"
-                                                              id="it3" readOnly="true"
-                                                              contentStyle="font-weight:bold;color:black">
-                                                    <f:validator binding="#{bindings.CompanyShortName.validator}"/>
-                                                </af:inputText>
-                                                <af:inputText value="#{bindings.CompanyName.inputValue}"
-                                                              label="#{bindings.CompanyName.hints.label}"
-                                                              required="#{bindings.CompanyName.hints.mandatory}"
-                                                              columns="#{bindings.CompanyName.hints.displayWidth}"
-                                                              maximumLength="#{bindings.CompanyName.hints.precision}"
-                                                              shortDesc="#{bindings.CompanyName.hints.tooltip}" id="it4"
-                                                              readOnly="true"
-                                                              contentStyle="font-weight:bold;color:black">
-                                                    <f:validator binding="#{bindings.CompanyName.validator}"/>
-                                                </af:inputText>
-                                            </af:panelFormLayout>
-                                        </af:panelGroupLayout>
-                                    </af:gridCell>
-                                </af:gridRow>
-                                <af:gridRow marginTop="5px" height="auto" marginBottom="5px" id="gr2">
-                                    <af:gridCell id="gc5" marginStart="5px" marginEnd="5px" width="50%"
-                                                 halign="stretch">
-                                        <af:panelGridLayout id="pgl7">
-                                            <af:gridRow marginTop="5px" height="auto" id="gr6">
-                                                <af:gridCell marginStart="5px" width="100%" marginEnd="5px" id="gc8"
-                                                             styleClass="ERPEntryAreaHeading" halign="stretch">
-                                                    <af:spacer width="10" height="10" id="s3"/>
-                                                    <af:outputText value="Available Users" id="ot2"
-                                                                   styleClass="ERPEntryAreaFont"/>
-                                                </af:gridCell>
-                                            </af:gridRow>
-                                            <af:gridRow id="gr8">
-                                                <af:gridCell id="gc10"/>
-                                            </af:gridRow>
-                                            <af:gridRow marginTop="5px" height="auto" marginBottom="5px" id="gr7">
-                                                <af:gridCell marginStart="5px" width="100%" marginEnd="5px" id="gc9">
-                                                    <af:panelCollection id="pc2" styleClass="AFStretchWidth"
-                                                                        featuresOff="detach viewMenu">
-                                                        <f:facet name="menus"/>
-                                                        <f:facet name="toolbar">
-                                                            <af:toolbar id="t4">
-                                                                <af:quickQuery label="Search" searchDesc="Search"
-                                                                               id="qryId2"
-                                                                               value="#{bindings.ImplicitViewCriteriaQuery1.quickQueryDescriptor}"
-                                                                               model="#{bindings.ImplicitViewCriteriaQuery1.queryModel}"
-                                                                               queryListener="#{bindings.ImplicitViewCriteriaQuery1.processQuery}">
-                                                                    <f:facet name="end">
-                                                                        <af:commandLink text="Advanced" rendered="false"
-                                                                                        id="cl2"/>
-                                                                    </f:facet>
-                                                                </af:quickQuery>
-                                                            </af:toolbar>
-                                                        </f:facet>
-                                                        <f:facet name="statusbar"/>
-                                                        <af:table value="#{bindings.SysUsersForAssignCOAUserRightsRO.collectionModel}"
-                                                                  var="row"
-                                                                  rows="#{bindings.SysUsersForAssignCOAUserRightsRO.rangeSize}"
-                                                                  emptyText="#{bindings.SysUsersForAssignCOAUserRightsRO.viewable ? 'No data to display.' : 'Access Denied.'}"
-                                                                  rowBandingInterval="0"
-                                                                  selectedRowKeys="#{bindings.SysUsersForAssignCOAUserRightsRO.collectionModel.selectedRow}"
-                                                                  selectionListener="#{bindings.SysUsersForAssignCOAUserRightsRO.collectionModel.makeCurrent}"
-                                                                  rowSelection="single"
-                                                                  fetchSize="#{bindings.SysUsersForAssignCOAUserRightsRO.rangeSize}"
-                                                                  id="t2" columnStretching="column:c5"
-                                                                  partialTriggers="::qryId2 l6 ::l7">
-                                                            <af:column headerText="#{bindings.SysUsersForAssignCOAUserRightsRO.hints.UserId.label}"
-                                                                       id="c4" rendered="false"
-                                                                       headerClass="ERPToolBarBackground">
-                                                                <af:inputText value="#{row.bindings.UserId.inputValue}"
-                                                                              label="#{bindings.SysUsersForAssignCOAUserRightsRO.hints.UserId.label}"
-                                                                              required="#{bindings.SysUsersForAssignCOAUserRightsRO.hints.UserId.mandatory}"
-                                                                              columns="#{bindings.SysUsersForAssignCOAUserRightsRO.hints.UserId.displayWidth}"
-                                                                              maximumLength="#{bindings.SysUsersForAssignCOAUserRightsRO.hints.UserId.precision}"
-                                                                              shortDesc="#{bindings.SysUsersForAssignCOAUserRightsRO.hints.UserId.tooltip}"
-                                                                              id="it8">
-                                                                    <f:validator binding="#{row.bindings.UserId.validator}"/>
-                                                                    <af:convertNumber groupingUsed="false"
-                                                                                      pattern="#{bindings.SysUsersForAssignCOAUserRightsRO.hints.UserId.format}"/>
-                                                                </af:inputText>
-                                                            </af:column>
-                                                            <af:column headerText="#{bindings.SysUsersForAssignCOAUserRightsRO.hints.UserCode.label}"
-                                                                       id="c6" headerClass="ERPToolBarBackground">
-                                                                <af:inputText value="#{row.bindings.UserCode.inputValue}"
-                                                                              label="#{bindings.SysUsersForAssignCOAUserRightsRO.hints.UserCode.label}"
-                                                                              required="#{bindings.SysUsersForAssignCOAUserRightsRO.hints.UserCode.mandatory}"
-                                                                              columns="#{bindings.SysUsersForAssignCOAUserRightsRO.hints.UserCode.displayWidth}"
-                                                                              maximumLength="#{bindings.SysUsersForAssignCOAUserRightsRO.hints.UserCode.precision}"
-                                                                              shortDesc="#{bindings.SysUsersForAssignCOAUserRightsRO.hints.UserCode.tooltip}"
-                                                                              id="it10">
-                                                                    <f:validator binding="#{row.bindings.UserCode.validator}"/>
-                                                                </af:inputText>
-                                                            </af:column>
-                                                            <af:column headerText="#{bindings.SysUsersForAssignCOAUserRightsRO.hints.UserName.label}"
-                                                                       id="c5" headerClass="ERPToolBarBackground">
-                                                                <af:inputText value="#{row.bindings.UserName.inputValue}"
-                                                                              label="#{bindings.SysUsersForAssignCOAUserRightsRO.hints.UserName.label}"
-                                                                              required="#{bindings.SysUsersForAssignCOAUserRightsRO.hints.UserName.mandatory}"
-                                                                              columns="#{bindings.SysUsersForAssignCOAUserRightsRO.hints.UserName.displayWidth}"
-                                                                              maximumLength="#{bindings.SysUsersForAssignCOAUserRightsRO.hints.UserName.precision}"
-                                                                              shortDesc="#{bindings.SysUsersForAssignCOAUserRightsRO.hints.UserName.tooltip}"
-                                                                              id="it9">
-                                                                    <f:validator binding="#{row.bindings.UserName.validator}"/>
-                                                                </af:inputText>
-                                                            </af:column>
-                                                            <af:column id="c7" width="150" headerText=""
-                                                                       headerClass="ERPToolBarBackground">
-                                                                <af:inputText value="#{row.bindings.txtSelected.inputValue}"
-                                                                              label="#{bindings.SysUsersForAssignCOAUserRightsRO.hints.txtSelected.label}"
-                                                                              required="#{bindings.SysUsersForAssignCOAUserRightsRO.hints.txtSelected.mandatory}"
-                                                                              columns="#{bindings.SysUsersForAssignCOAUserRightsRO.hints.txtSelected.displayWidth}"
-                                                                              maximumLength="#{bindings.SysUsersForAssignCOAUserRightsRO.hints.txtSelected.precision}"
-                                                                              shortDesc="#{bindings.SysUsersForAssignCOAUserRightsRO.hints.txtSelected.tooltip}"
-                                                                              id="it11" rendered="false">
-                                                                    <f:validator binding="#{row.bindings.txtSelected.validator}"/>
-                                                                </af:inputText>
-                                                                <af:link actionListener="#{bindings.doErpAssignSingleUserToCOA.execute}"
-                                                                         text="Assign To This Company"
-                                                                         disabled="#{row.bindings.txtSelected.inputValue=='Y' || pageFlowScope.ERPMainTempBean.LERPAllowAdd=='N'}"
-                                                                         id="l6" partialSubmit="true"/>
-                                                            </af:column>
-                                                        </af:table>
-                                                        <f:facet name="secondaryToolbar">
-                                                            <af:toolbar id="t5">
-                                                                <af:link actionListener="#{bindings.doErpAssignAllUserToCOA.execute}"
-                                                                         text="Assign All"
-                                                                         disabled="#{bindings.AdminCompanyVOByCompanyROIterator.estimatedRowCount==0 || pageFlowScope.ERPMainTempBean.LERPAllowAdd=='N'}"
-                                                                         id="l7" partialSubmit="true"/>
-                                                            </af:toolbar>
-                                                        </f:facet>
-                                                    </af:panelCollection>
-                                                </af:gridCell>
-                                            </af:gridRow>
-                                        </af:panelGridLayout>
-                                    </af:gridCell>
-                                    <af:gridCell marginStart="5px" width="50%" marginEnd="5px" id="gc2"
-                                                 halign="stretch">
-                                        <af:panelGridLayout id="pgl6">
-                                            <af:gridRow marginTop="5px" height="auto" id="gr4">
-                                                <af:gridCell marginStart="5px" width="100%" marginEnd="5px" id="gc6"
-                                                             styleClass="ERPEntryAreaHeading" halign="stretch">
-                                                    <af:spacer width="10" height="10" id="s2"/>
-                                                    <af:outputText value="Assigned Users" id="ot1"
-                                                                   styleClass="ERPEntryAreaFont"/>
-                                                </af:gridCell>
-                                            </af:gridRow>
-                                            <af:gridRow marginTop="5px" height="auto" marginBottom="5px" id="gr5">
-                                                <af:gridCell marginStart="5px" width="100%" marginEnd="5px" id="gc7">
-                                                    <af:panelCollection id="pc1" featuresOff="viewMenu detach"
-                                                                        partialTriggers="::l3 ::l4"
-                                                                        styleClass="AFStretchWidth">
-                                                        <f:facet name="menus"/>
-                                                        <f:facet name="toolbar">
-                                                            <af:toolbar id="t3" flex="1">
-                                                                <af:quickQuery label="Search" searchDesc="Search"
-                                                                               id="qryId1"
-                                                                               value="#{bindings.ImplicitViewCriteriaQuery.quickQueryDescriptor}"
-                                                                               model="#{bindings.ImplicitViewCriteriaQuery.queryModel}"
-                                                                               queryListener="#{bindings.ImplicitViewCriteriaQuery.processQuery}">
-                                                                    <f:facet name="end">
-                                                                        <af:commandLink text="Advanced" rendered="false"
-                                                                                        id="cl1"/>
-                                                                    </f:facet>
-                                                                </af:quickQuery>
-                                                            </af:toolbar>
-                                                        </f:facet>
-                                                        <f:facet name="statusbar"/>
-                                                        <af:table value="#{bindings.GlCoaUserCompanyCRUD.collectionModel}"
-                                                                  var="row"
-                                                                  rows="#{bindings.GlCoaUserCompanyCRUD.rangeSize}"
-                                                                  emptyText="#{bindings.GlCoaUserCompanyCRUD.viewable ? 'No data to display.' : 'Access Denied.'}"
-                                                                  rowBandingInterval="0"
-                                                                  selectedRowKeys="#{bindings.GlCoaUserCompanyCRUD.collectionModel.selectedRow}"
-                                                                  selectionListener="#{bindings.GlCoaUserCompanyCRUD.collectionModel.makeCurrent}"
-                                                                  rowSelection="single"
-                                                                  fetchSize="#{bindings.GlCoaUserCompanyCRUD.rangeSize}"
-                                                                  id="t1"
-                                                                  partialTriggers=":::pc2:t2:l6 ::qryId1 :::l4 :::l3 :::l2 :::pc2:l7"
-                                                                  columnStretching="column:c1" scrollPolicy="page"
-                                                                  autoHeightRows="6">
-                                                            <af:column headerText="#{bindings.GlCoaUserCompanyCRUD.hints.UserCode.label}"
-                                                                       id="c8" width="101"
-                                                                       headerClass="ERPToolBarBackground">
-                                                                <af:inputText value="#{row.bindings.UserCode.inputValue}"
-                                                                              label="#{bindings.GlCoaUserCompanyCRUD.hints.UserCode.label}"
-                                                                              required="#{bindings.GlCoaUserCompanyCRUD.hints.UserCode.mandatory}"
-                                                                              columns="#{bindings.GlCoaUserCompanyCRUD.hints.UserCode.displayWidth}"
-                                                                              maximumLength="#{bindings.GlCoaUserCompanyCRUD.hints.UserCode.precision}"
-                                                                              shortDesc="#{bindings.GlCoaUserCompanyCRUD.hints.UserCode.tooltip}"
-                                                                              id="it13" readOnly="true">
-                                                                    <f:validator binding="#{row.bindings.UserCode.validator}"/>
-                                                                </af:inputText>
-                                                            </af:column>
-                                                            <af:column headerText="#{bindings.GlCoaUserCompanyCRUD.hints.UserName.label}"
-                                                                       id="c1" width="99"
-                                                                       headerClass="ERPToolBarBackground">
-                                                                <af:inputText value="#{row.bindings.UserName.inputValue}"
-                                                                              label="#{bindings.GlCoaUserCompanyCRUD.hints.UserName.label}"
-                                                                              required="#{bindings.GlCoaUserCompanyCRUD.hints.UserName.mandatory}"
-                                                                              columns="#{bindings.GlCoaUserCompanyCRUD.hints.UserName.displayWidth}"
-                                                                              maximumLength="#{bindings.GlCoaUserCompanyCRUD.hints.UserName.precision}"
-                                                                              shortDesc="#{bindings.GlCoaUserCompanyCRUD.hints.UserName.tooltip}"
-                                                                              id="it12" readOnly="true">
-                                                                    <f:validator binding="#{row.bindings.UserName.validator}"/>
-                                                                </af:inputText>
-                                                            </af:column>
-                                                            <af:column headerText="#{bindings.GlCoaUserCompanyCRUD.hints.CoaUserCompanySno.label}"
-                                                                       id="c3" rendered="false">
-                                                                <af:inputText value="#{row.bindings.CoaUserCompanySno.inputValue}"
-                                                                              label="#{bindings.GlCoaUserCompanyCRUD.hints.CoaUserCompanySno.label}"
-                                                                              required="#{bindings.GlCoaUserCompanyCRUD.hints.CoaUserCompanySno.mandatory}"
-                                                                              columns="#{bindings.GlCoaUserCompanyCRUD.hints.CoaUserCompanySno.displayWidth}"
-                                                                              maximumLength="#{bindings.GlCoaUserCompanyCRUD.hints.CoaUserCompanySno.precision}"
-                                                                              shortDesc="#{bindings.GlCoaUserCompanyCRUD.hints.CoaUserCompanySno.tooltip}"
-                                                                              id="it7">
-                                                                    <f:validator binding="#{row.bindings.CoaUserCompanySno.validator}"/>
-                                                                    <af:convertNumber groupingUsed="false"
-                                                                                      pattern="#{bindings.GlCoaUserCompanyCRUD.hints.CoaUserCompanySno.format}"/>
-                                                                </af:inputText>
-                                                            </af:column>
-                                                            <af:column headerText="#{bindings.GlCoaUserCompanyCRUD.hints.IsActive.label}"
-                                                                       id="c2" width="100"
-                                                                       headerClass="ERPToolBarBackground">
-                                                                <af:selectOneChoice value="#{row.bindings.IsActive.inputValue}"
-                                                                                    label="#{row.bindings.IsActive.label}"
-                                                                                    required="#{bindings.GlCoaUserCompanyCRUD.hints.IsActive.mandatory}"
-                                                                                    shortDesc="#{bindings.GlCoaUserCompanyCRUD.hints.IsActive.tooltip}"
-                                                                                    id="soc1" autoSubmit="true"
-                                                                                    readOnly="#{pageFlowScope.ERPMainTempBean.LERPAllowEdit=='N'}">
-                                                                    <f:selectItems value="#{row.bindings.IsActive.items}"
-                                                                                   id="si1"/>
-                                                                    <f:validator binding="#{row.bindings.IsActive.validator}"/>
-                                                                </af:selectOneChoice>
-                                                            </af:column>
-                                                        </af:table>
-                                                    </af:panelCollection>
-                                                </af:gridCell>
-                                            </af:gridRow>
-                                        </af:panelGridLayout>
-                                    </af:gridCell>
-                                </af:gridRow>
-                            </af:panelGridLayout>
-                        </f:facet>
-                        <f:facet name="top">
-                            <af:panelGridLayout id="pgl2" styleClass="ERPToolBarBackground">
-                                <af:gridRow marginTop="5px" height="auto" marginBottom="5px" id="gr3">
-                                    <af:gridCell marginStart="5px" width="50%" id="gc3" valign="middle">
-                                        <af:outputText value="#{pageFlowScope.ERPMainTempBean.LErpActivityName}" id="ot3"
-                                                       styleClass="ERPActivityNameFormHeading"/>
-                                        <af:panelGroupLayout id="pgl4" layout="horizontal" rendered="false">
-                                            <af:inputText value="#{bindings.txtGetMinEntityState.inputValue}"
-                                                          label="#{bindings.txtGetMinEntityState.hints.label}"
-                                                          required="#{bindings.txtGetMinEntityState.hints.mandatory}"
-                                                          columns="#{bindings.txtGetMinEntityState.hints.displayWidth}"
-                                                          maximumLength="#{bindings.txtGetMinEntityState.hints.precision}"
-                                                          shortDesc="#{bindings.txtGetMinEntityState.hints.tooltip}"
-                                                          id="it6">
-                                                <f:validator binding="#{bindings.txtGetMinEntityState.validator}"/>
-                                                <af:convertNumber groupingUsed="false"
-                                                                  pattern="#{bindings.txtGetMinEntityState.format}"/>
-                                            </af:inputText>
-                                            <af:inputText value="#{bindings.txtGetMaxEntityState.inputValue}"
-                                                          label="#{bindings.txtGetMaxEntityState.hints.label}"
-                                                          required="#{bindings.txtGetMaxEntityState.hints.mandatory}"
-                                                          columns="#{bindings.txtGetMaxEntityState.hints.displayWidth}"
-                                                          maximumLength="#{bindings.txtGetMaxEntityState.hints.precision}"
-                                                          shortDesc="#{bindings.txtGetMaxEntityState.hints.tooltip}"
-                                                          id="it5">
-                                                <f:validator binding="#{bindings.txtGetMaxEntityState.validator}"/>
-                                                <af:convertNumber groupingUsed="false"
-                                                                  pattern="#{bindings.txtGetMaxEntityState.format}"/>
-                                            </af:inputText>
-                                        </af:panelGroupLayout>
-                                    </af:gridCell>
-                                    <af:gridCell marginStart="5px" width="50%" marginEnd="5px" id="gc4"
-                                                 halign="stretch">
-                                        <af:panelGroupLayout id="pgl3" layout="horizontal" halign="end">
-                                        <af:link id="l5" partialSubmit="true"
-                                                     icon="#{resource['images:imgCloseDialog.png']}" text="Close"
-                                                     iconPosition="top"
-                                                     action="#{pageFlowScope.OracleERPBean.doBackFromEdit}"
-                                                 disabled="#{bindings.txtGetMaxEntityState.inputValue==2 || bindings.txtGetMinEntityState.inputValue==0}"
-                                                 partialTriggers="l2 pc1:t1:soc1" shortDesc="Close Form">
-                                                <af:setActionListener from="#{'GlCoaUserCompanyCRUDIterator'}"
-                                                                      to="#{pageFlowScope.OracleERPBean.LIteratorName}"/>
-                                                <af:setActionListener from="#{'ERPBACKCRUD'}"
-                                                                      to="#{pageFlowScope.OracleERPBean.ERPBackActionName}"/>
-                                            </af:link>
-                                            <af:link actionListener="#{bindings.Delete.execute}"
-                                                     disabled="#{pageFlowScope.ERPMainTempBean.LERPAllowDelete=='N'}" id="l4" iconPosition="top"
-                                                     icon="#{resource['images:imgDeleteRecord.png']}" text="Delete"
-                                                     partialSubmit="true" shortDesc="Delete Record"/>
-                                            <af:link actionListener="#{bindings.CreateWithParams.execute}"
-                                                     text="Add"
-                                                     disabled="#{!bindings.CreateWithParams.enabled}" id="l3"
-                                                     partialSubmit="true" iconPosition="top"
-                                                     icon="#{resource['images:imgAddRecord.png']}" rendered="false"/>
-                                            <af:link actionListener="#{bindings.Rollback.execute}" text="Undo" immediate="true" id="l1"
-                                                     partialSubmit="true" icon="#{resource['images:imgUndo.png']}"
-                                                     iconPosition="top" shortDesc="Undo Record">
-                                                <af:resetActionListener/>
-                                            </af:link>
-                                            <af:link actionListener="#{bindings.Commit.execute}" text="Save" id="l2"
-                                                     icon="#{resource['images:imgSave.png']}" iconPosition="top"
-                                                     partialSubmit="true" shortDesc="Save Record"/>
-                                            <f:facet name="separator">
-                                                <af:spacer width="10" height="10" id="s1"/>
-                                            </f:facet>
-                                        </af:panelGroupLayout>
-                                    </af:gridCell>
-                                </af:gridRow>
-                            </af:panelGridLayout>
-                        </f:facet>
-                    </af:decorativeBox>
+                    <af:panelGridLayout id="pgl1">
+                        <af:gridRow id="gr9">
+                            <af:gridCell id="gc11" columnSpan="2" halign="stretch" valign="stretch"/>
+                        </af:gridRow>
+                        <af:gridRow marginTop="5px" height="auto" id="gr1">
+                            <af:gridCell marginStart="5px" width="100%" marginEnd="5px" id="gc1" halign="stretch"
+                                         columnSpan="2" styleClass="ERPCompanyInfoBackGround" valign="stretch">
+                                <af:panelGroupLayout id="pgl5" layout="vertical" halign="center">
+                                    <af:panelFormLayout id="pfl1" maxColumns="4" rows="1">
+                                        <af:inputText value="#{bindings.CompCode.inputValue}"
+                                                      label="#{bindings.CompCode.hints.label}"
+                                                      required="#{bindings.CompCode.hints.mandatory}"
+                                                      columns="#{bindings.CompCode.hints.displayWidth}"
+                                                      maximumLength="#{bindings.CompCode.hints.precision}"
+                                                      shortDesc="#{bindings.CompCode.hints.tooltip}" id="it1"
+                                                      rendered="false">
+                                            <f:validator binding="#{bindings.CompCode.validator}"/>
+                                            <af:convertNumber groupingUsed="false"
+                                                              pattern="#{bindings.CompCode.format}"/>
+                                        </af:inputText>
+                                        <af:inputText value="#{bindings.CompanyShortCode.inputValue}"
+                                                      label="#{bindings.CompanyShortCode.hints.label}"
+                                                      required="#{bindings.CompanyShortCode.hints.mandatory}"
+                                                      columns="#{bindings.CompanyShortCode.hints.displayWidth}"
+                                                      maximumLength="#{bindings.CompanyShortCode.hints.precision}"
+                                                      shortDesc="#{bindings.CompanyShortCode.hints.tooltip}" id="it2"
+                                                      readOnly="true" contentStyle="font-weight:bold;color:black">
+                                            <f:validator binding="#{bindings.CompanyShortCode.validator}"/>
+                                            <af:convertNumber groupingUsed="false"
+                                                              pattern="#{bindings.CompanyShortCode.format}"/>
+                                        </af:inputText>
+                                        <af:inputText value="#{bindings.CompanyShortName.inputValue}"
+                                                      label="#{bindings.CompanyShortName.hints.label}"
+                                                      required="#{bindings.CompanyShortName.hints.mandatory}"
+                                                      columns="#{bindings.CompanyShortName.hints.displayWidth}"
+                                                      maximumLength="#{bindings.CompanyShortName.hints.precision}"
+                                                      shortDesc="#{bindings.CompanyShortName.hints.tooltip}" id="it3"
+                                                      readOnly="true" contentStyle="font-weight:bold;color:black">
+                                            <f:validator binding="#{bindings.CompanyShortName.validator}"/>
+                                        </af:inputText>
+                                        <af:inputText value="#{bindings.CompanyName.inputValue}"
+                                                      label="#{bindings.CompanyName.hints.label}"
+                                                      required="#{bindings.CompanyName.hints.mandatory}"
+                                                      columns="#{bindings.CompanyName.hints.displayWidth}"
+                                                      maximumLength="#{bindings.CompanyName.hints.precision}"
+                                                      shortDesc="#{bindings.CompanyName.hints.tooltip}" id="it4"
+                                                      readOnly="true" contentStyle="font-weight:bold;color:black">
+                                            <f:validator binding="#{bindings.CompanyName.validator}"/>
+                                        </af:inputText>
+                                    </af:panelFormLayout>
+                                </af:panelGroupLayout>
+                            </af:gridCell>
+                        </af:gridRow>
+                        <af:gridRow marginTop="5px" height="auto" marginBottom="5px" id="gr2">
+                            <af:gridCell id="gc5" marginStart="5px" marginEnd="5px" width="50%" halign="stretch">
+                                <af:panelGridLayout id="pgl7">
+                                    <af:gridRow marginTop="5px" height="auto" id="gr6">
+                                        <af:gridCell marginStart="5px" width="100%" marginEnd="5px" id="gc8"
+                                                     styleClass="ERPEntryAreaHeading" halign="stretch">
+                                            <af:spacer width="10" height="10" id="s3"/>
+                                            <af:outputText value="Available Users" id="ot2"
+                                                           styleClass="ERPEntryAreaFont"/>
+                                        </af:gridCell>
+                                    </af:gridRow>
+                                    <af:gridRow id="gr8">
+                                        <af:gridCell id="gc10"/>
+                                    </af:gridRow>
+                                    <af:gridRow marginTop="5px" height="auto" marginBottom="5px" id="gr7">
+                                        <af:gridCell marginStart="5px" width="100%" marginEnd="5px" id="gc9">
+                                            <af:panelCollection id="pc2" styleClass="AFStretchWidth"
+                                                                featuresOff="detach viewMenu">
+                                                <f:facet name="menus"/>
+                                                <f:facet name="toolbar">
+                                                    <af:toolbar id="t4">
+                                                        <af:quickQuery label="Search" searchDesc="Search" id="qryId2"
+                                                                       value="#{bindings.ImplicitViewCriteriaQuery1.quickQueryDescriptor}"
+                                                                       model="#{bindings.ImplicitViewCriteriaQuery1.queryModel}"
+                                                                       queryListener="#{bindings.ImplicitViewCriteriaQuery1.processQuery}">
+                                                            <f:facet name="end">
+                                                                <af:commandLink text="Advanced" rendered="false"
+                                                                                id="cl2"/>
+                                                            </f:facet>
+                                                        </af:quickQuery>
+                                                    </af:toolbar>
+                                                </f:facet>
+                                                <f:facet name="statusbar"/>
+                                                <af:table value="#{bindings.SysUsersForAssignCOAUserRightsRO.collectionModel}"
+                                                          var="row"
+                                                          rows="#{bindings.SysUsersForAssignCOAUserRightsRO.rangeSize}"
+                                                          emptyText="#{bindings.SysUsersForAssignCOAUserRightsRO.viewable ? 'No data to display.' : 'Access Denied.'}"
+                                                          rowBandingInterval="0"
+                                                          selectedRowKeys="#{bindings.SysUsersForAssignCOAUserRightsRO.collectionModel.selectedRow}"
+                                                          selectionListener="#{bindings.SysUsersForAssignCOAUserRightsRO.collectionModel.makeCurrent}"
+                                                          rowSelection="single"
+                                                          fetchSize="#{bindings.SysUsersForAssignCOAUserRightsRO.rangeSize}"
+                                                          id="t2" columnStretching="column:c5"
+                                                          partialTriggers="::qryId2 l6 ::l7">
+                                                    <af:column headerText="#{bindings.SysUsersForAssignCOAUserRightsRO.hints.UserId.label}"
+                                                               id="c4" rendered="false"
+                                                               headerClass="ERPToolBarBackground">
+                                                        <af:inputText value="#{row.bindings.UserId.inputValue}"
+                                                                      label="#{bindings.SysUsersForAssignCOAUserRightsRO.hints.UserId.label}"
+                                                                      required="#{bindings.SysUsersForAssignCOAUserRightsRO.hints.UserId.mandatory}"
+                                                                      columns="#{bindings.SysUsersForAssignCOAUserRightsRO.hints.UserId.displayWidth}"
+                                                                      maximumLength="#{bindings.SysUsersForAssignCOAUserRightsRO.hints.UserId.precision}"
+                                                                      shortDesc="#{bindings.SysUsersForAssignCOAUserRightsRO.hints.UserId.tooltip}"
+                                                                      id="it8">
+                                                            <f:validator binding="#{row.bindings.UserId.validator}"/>
+                                                            <af:convertNumber groupingUsed="false"
+                                                                              pattern="#{bindings.SysUsersForAssignCOAUserRightsRO.hints.UserId.format}"/>
+                                                        </af:inputText>
+                                                    </af:column>
+                                                    <af:column headerText="#{bindings.SysUsersForAssignCOAUserRightsRO.hints.UserCode.label}"
+                                                               id="c6" headerClass="ERPToolBarBackground">
+                                                        <af:inputText value="#{row.bindings.UserCode.inputValue}"
+                                                                      label="#{bindings.SysUsersForAssignCOAUserRightsRO.hints.UserCode.label}"
+                                                                      required="#{bindings.SysUsersForAssignCOAUserRightsRO.hints.UserCode.mandatory}"
+                                                                      columns="#{bindings.SysUsersForAssignCOAUserRightsRO.hints.UserCode.displayWidth}"
+                                                                      maximumLength="#{bindings.SysUsersForAssignCOAUserRightsRO.hints.UserCode.precision}"
+                                                                      shortDesc="#{bindings.SysUsersForAssignCOAUserRightsRO.hints.UserCode.tooltip}"
+                                                                      id="it10">
+                                                            <f:validator binding="#{row.bindings.UserCode.validator}"/>
+                                                        </af:inputText>
+                                                    </af:column>
+                                                    <af:column headerText="#{bindings.SysUsersForAssignCOAUserRightsRO.hints.UserName.label}"
+                                                               id="c5" headerClass="ERPToolBarBackground">
+                                                        <af:inputText value="#{row.bindings.UserName.inputValue}"
+                                                                      label="#{bindings.SysUsersForAssignCOAUserRightsRO.hints.UserName.label}"
+                                                                      required="#{bindings.SysUsersForAssignCOAUserRightsRO.hints.UserName.mandatory}"
+                                                                      columns="#{bindings.SysUsersForAssignCOAUserRightsRO.hints.UserName.displayWidth}"
+                                                                      maximumLength="#{bindings.SysUsersForAssignCOAUserRightsRO.hints.UserName.precision}"
+                                                                      shortDesc="#{bindings.SysUsersForAssignCOAUserRightsRO.hints.UserName.tooltip}"
+                                                                      id="it9">
+                                                            <f:validator binding="#{row.bindings.UserName.validator}"/>
+                                                        </af:inputText>
+                                                    </af:column>
+                                                    <af:column id="c7" width="150" headerText=""
+                                                               headerClass="ERPToolBarBackground">
+                                                        <af:inputText value="#{row.bindings.txtSelected.inputValue}"
+                                                                      label="#{bindings.SysUsersForAssignCOAUserRightsRO.hints.txtSelected.label}"
+                                                                      required="#{bindings.SysUsersForAssignCOAUserRightsRO.hints.txtSelected.mandatory}"
+                                                                      columns="#{bindings.SysUsersForAssignCOAUserRightsRO.hints.txtSelected.displayWidth}"
+                                                                      maximumLength="#{bindings.SysUsersForAssignCOAUserRightsRO.hints.txtSelected.precision}"
+                                                                      shortDesc="#{bindings.SysUsersForAssignCOAUserRightsRO.hints.txtSelected.tooltip}"
+                                                                      id="it11" rendered="false">
+                                                            <f:validator binding="#{row.bindings.txtSelected.validator}"/>
+                                                        </af:inputText>
+                                                        <af:link actionListener="#{bindings.doErpAssignSingleUserToCOA.execute}"
+                                                                 text="Assign To This Company"
+                                                                 disabled="#{row.bindings.txtSelected.inputValue=='Y' || pageFlowScope.ERPMainTempBean.LERPAllowAdd=='N'}"
+                                                                 id="l6" partialSubmit="true"/>
+                                                    </af:column>
+                                                </af:table>
+                                                <f:facet name="secondaryToolbar">
+                                                    <af:toolbar id="t5">
+                                                        <af:link actionListener="#{bindings.doErpAssignAllUserToCOA.execute}"
+                                                                 text="Assign All"
+                                                                 disabled="#{bindings.AdminCompanyVOByCompanyROIterator.estimatedRowCount==0 || pageFlowScope.ERPMainTempBean.LERPAllowAdd=='N'}"
+                                                                 id="l7" partialSubmit="true"/>
+                                                    </af:toolbar>
+                                                </f:facet>
+                                            </af:panelCollection>
+                                        </af:gridCell>
+                                    </af:gridRow>
+                                </af:panelGridLayout>
+                            </af:gridCell>
+                            <af:gridCell marginStart="5px" width="50%" marginEnd="5px" id="gc2" halign="stretch">
+                                <af:panelGridLayout id="pgl6">
+                                    <af:gridRow marginTop="5px" height="auto" id="gr4">
+                                        <af:gridCell marginStart="5px" width="100%" marginEnd="5px" id="gc6"
+                                                     styleClass="ERPEntryAreaHeading" halign="stretch">
+                                            <af:spacer width="10" height="10" id="s2"/>
+                                            <af:outputText value="Assigned Users" id="ot1"
+                                                           styleClass="ERPEntryAreaFont"/>
+                                        </af:gridCell>
+                                    </af:gridRow>
+                                    <af:gridRow marginTop="5px" height="auto" marginBottom="5px" id="gr5">
+                                        <af:gridCell marginStart="5px" width="100%" marginEnd="5px" id="gc7">
+                                            <af:panelCollection id="pc1" featuresOff="viewMenu detach"
+                                                                partialTriggers="::l3 ::l4" styleClass="AFStretchWidth">
+                                                <f:facet name="menus"/>
+                                                <f:facet name="toolbar">
+                                                    <af:toolbar id="t3" flex="1">
+                                                        <af:quickQuery label="Search" searchDesc="Search" id="qryId1"
+                                                                       value="#{bindings.ImplicitViewCriteriaQuery.quickQueryDescriptor}"
+                                                                       model="#{bindings.ImplicitViewCriteriaQuery.queryModel}"
+                                                                       queryListener="#{bindings.ImplicitViewCriteriaQuery.processQuery}">
+                                                            <f:facet name="end">
+                                                                <af:commandLink text="Advanced" rendered="false"
+                                                                                id="cl1"/>
+                                                            </f:facet>
+                                                        </af:quickQuery>
+                                                    </af:toolbar>
+                                                </f:facet>
+                                                <f:facet name="statusbar"/>
+                                                <af:table value="#{bindings.GlCoaUserCompanyCRUD.collectionModel}"
+                                                          var="row" rows="#{bindings.GlCoaUserCompanyCRUD.rangeSize}"
+                                                          emptyText="#{bindings.GlCoaUserCompanyCRUD.viewable ? 'No data to display.' : 'Access Denied.'}"
+                                                          rowBandingInterval="0"
+                                                          selectedRowKeys="#{bindings.GlCoaUserCompanyCRUD.collectionModel.selectedRow}"
+                                                          selectionListener="#{bindings.GlCoaUserCompanyCRUD.collectionModel.makeCurrent}"
+                                                          rowSelection="single"
+                                                          fetchSize="#{bindings.GlCoaUserCompanyCRUD.rangeSize}" id="t1"
+                                                          partialTriggers=":::pc2:t2:l6 ::qryId1 :::l4 :::l3 :::l2 :::pc2:l7"
+                                                          columnStretching="column:c1" scrollPolicy="page"
+                                                          autoHeightRows="6">
+                                                    <af:column headerText="#{bindings.GlCoaUserCompanyCRUD.hints.UserCode.label}"
+                                                               id="c8" width="101" headerClass="ERPToolBarBackground">
+                                                        <af:inputText value="#{row.bindings.UserCode.inputValue}"
+                                                                      label="#{bindings.GlCoaUserCompanyCRUD.hints.UserCode.label}"
+                                                                      required="#{bindings.GlCoaUserCompanyCRUD.hints.UserCode.mandatory}"
+                                                                      columns="#{bindings.GlCoaUserCompanyCRUD.hints.UserCode.displayWidth}"
+                                                                      maximumLength="#{bindings.GlCoaUserCompanyCRUD.hints.UserCode.precision}"
+                                                                      shortDesc="#{bindings.GlCoaUserCompanyCRUD.hints.UserCode.tooltip}"
+                                                                      id="it13" readOnly="true">
+                                                            <f:validator binding="#{row.bindings.UserCode.validator}"/>
+                                                        </af:inputText>
+                                                    </af:column>
+                                                    <af:column headerText="#{bindings.GlCoaUserCompanyCRUD.hints.UserName.label}"
+                                                               id="c1" width="99" headerClass="ERPToolBarBackground">
+                                                        <af:inputText value="#{row.bindings.UserName.inputValue}"
+                                                                      label="#{bindings.GlCoaUserCompanyCRUD.hints.UserName.label}"
+                                                                      required="#{bindings.GlCoaUserCompanyCRUD.hints.UserName.mandatory}"
+                                                                      columns="#{bindings.GlCoaUserCompanyCRUD.hints.UserName.displayWidth}"
+                                                                      maximumLength="#{bindings.GlCoaUserCompanyCRUD.hints.UserName.precision}"
+                                                                      shortDesc="#{bindings.GlCoaUserCompanyCRUD.hints.UserName.tooltip}"
+                                                                      id="it12" readOnly="true">
+                                                            <f:validator binding="#{row.bindings.UserName.validator}"/>
+                                                        </af:inputText>
+                                                    </af:column>
+                                                    <af:column headerText="#{bindings.GlCoaUserCompanyCRUD.hints.CoaUserCompanySno.label}"
+                                                               id="c3" rendered="false">
+                                                        <af:inputText value="#{row.bindings.CoaUserCompanySno.inputValue}"
+                                                                      label="#{bindings.GlCoaUserCompanyCRUD.hints.CoaUserCompanySno.label}"
+                                                                      required="#{bindings.GlCoaUserCompanyCRUD.hints.CoaUserCompanySno.mandatory}"
+                                                                      columns="#{bindings.GlCoaUserCompanyCRUD.hints.CoaUserCompanySno.displayWidth}"
+                                                                      maximumLength="#{bindings.GlCoaUserCompanyCRUD.hints.CoaUserCompanySno.precision}"
+                                                                      shortDesc="#{bindings.GlCoaUserCompanyCRUD.hints.CoaUserCompanySno.tooltip}"
+                                                                      id="it7">
+                                                            <f:validator binding="#{row.bindings.CoaUserCompanySno.validator}"/>
+                                                            <af:convertNumber groupingUsed="false"
+                                                                              pattern="#{bindings.GlCoaUserCompanyCRUD.hints.CoaUserCompanySno.format}"/>
+                                                        </af:inputText>
+                                                    </af:column>
+                                                    <af:column headerText="#{bindings.GlCoaUserCompanyCRUD.hints.IsActive.label}"
+                                                               id="c2" width="100" headerClass="ERPToolBarBackground">
+                                                        <af:selectOneChoice value="#{row.bindings.IsActive.inputValue}"
+                                                                            label="#{row.bindings.IsActive.label}"
+                                                                            required="#{bindings.GlCoaUserCompanyCRUD.hints.IsActive.mandatory}"
+                                                                            shortDesc="#{bindings.GlCoaUserCompanyCRUD.hints.IsActive.tooltip}"
+                                                                            id="soc1" autoSubmit="true"
+                                                                            readOnly="#{pageFlowScope.ERPMainTempBean.LERPAllowEdit=='N'}">
+                                                            <f:selectItems value="#{row.bindings.IsActive.items}"
+                                                                           id="si1"/>
+                                                            <f:validator binding="#{row.bindings.IsActive.validator}"/>
+                                                        </af:selectOneChoice>
+                                                    </af:column>
+                                                </af:table>
+                                            </af:panelCollection>
+                                        </af:gridCell>
+                                    </af:gridRow>
+                                </af:panelGridLayout>
+                            </af:gridCell>
+                        </af:gridRow>
+                    </af:panelGridLayout>
                 </f:facet>
-                <f:facet name="top"/>
+                <f:facet name="top">
+                    <af:panelGridLayout id="pgl2" styleClass="ERPToolBarBackground">
+                        <af:gridRow marginTop="5px" height="auto" marginBottom="5px" id="gr3">
+                            <af:gridCell marginStart="5px" width="50%" id="gc3" valign="middle">
+                                <af:outputText value="#{pageFlowScope.ERPMainTempBean.LErpActivityName}" id="ot3"
+                                               styleClass="ERPActivityNameFormHeading"/>
+                                <af:panelGroupLayout id="pgl4" layout="horizontal" rendered="false">
+                                    <af:inputText value="#{bindings.txtGetMinEntityState.inputValue}"
+                                                  label="#{bindings.txtGetMinEntityState.hints.label}"
+                                                  required="#{bindings.txtGetMinEntityState.hints.mandatory}"
+                                                  columns="#{bindings.txtGetMinEntityState.hints.displayWidth}"
+                                                  maximumLength="#{bindings.txtGetMinEntityState.hints.precision}"
+                                                  shortDesc="#{bindings.txtGetMinEntityState.hints.tooltip}" id="it6">
+                                        <f:validator binding="#{bindings.txtGetMinEntityState.validator}"/>
+                                        <af:convertNumber groupingUsed="false"
+                                                          pattern="#{bindings.txtGetMinEntityState.format}"/>
+                                    </af:inputText>
+                                    <af:inputText value="#{bindings.txtGetMaxEntityState.inputValue}"
+                                                  label="#{bindings.txtGetMaxEntityState.hints.label}"
+                                                  required="#{bindings.txtGetMaxEntityState.hints.mandatory}"
+                                                  columns="#{bindings.txtGetMaxEntityState.hints.displayWidth}"
+                                                  maximumLength="#{bindings.txtGetMaxEntityState.hints.precision}"
+                                                  shortDesc="#{bindings.txtGetMaxEntityState.hints.tooltip}" id="it5">
+                                        <f:validator binding="#{bindings.txtGetMaxEntityState.validator}"/>
+                                        <af:convertNumber groupingUsed="false"
+                                                          pattern="#{bindings.txtGetMaxEntityState.format}"/>
+                                    </af:inputText>
+                                </af:panelGroupLayout>
+                            </af:gridCell>
+                            <af:gridCell marginStart="5px" width="50%" marginEnd="5px" id="gc4" halign="stretch">
+                                <af:panelGroupLayout id="pgl3" layout="horizontal" halign="end">
+                                    <af:link id="l5" partialSubmit="true"
+                                             icon="#{resource['images:imgCloseDialog.png']}" text="Close"
+                                             iconPosition="top" action="#{pageFlowScope.OracleERPBean.doBackFromEdit}"
+                                             disabled="#{bindings.txtGetMaxEntityState.inputValue==2 || bindings.txtGetMinEntityState.inputValue==0}"
+                                             partialTriggers="l2 pc1:t1:soc1" shortDesc="Close Form">
+                                        <af:setActionListener from="#{'GlCoaUserCompanyCRUDIterator'}"
+                                                              to="#{pageFlowScope.OracleERPBean.LIteratorName}"/>
+                                        <af:setActionListener from="#{'ERPBACKCRUD'}"
+                                                              to="#{pageFlowScope.OracleERPBean.ERPBackActionName}"/>
+                                    </af:link>
+                                    <af:link actionListener="#{bindings.Delete.execute}"
+                                             disabled="#{pageFlowScope.ERPMainTempBean.LERPAllowDelete=='N'}" id="l4"
+                                             iconPosition="top" icon="#{resource['images:imgDeleteRecord.png']}"
+                                             text="Delete" partialSubmit="true" shortDesc="Delete Record"/>
+                                    <af:link actionListener="#{bindings.CreateWithParams.execute}" text="Add"
+                                             disabled="#{!bindings.CreateWithParams.enabled}" id="l3"
+                                             partialSubmit="true" iconPosition="top"
+                                             icon="#{resource['images:imgAddRecord.png']}" rendered="false"/>
+                                    <af:link actionListener="#{bindings.Rollback.execute}" text="Undo" immediate="true"
+                                             id="l1" partialSubmit="true" icon="#{resource['images:imgUndo.png']}"
+                                             iconPosition="top" shortDesc="Undo Record">
+                                        <af:resetActionListener/>
+                                    </af:link>
+                                    <af:link actionListener="#{bindings.Commit.execute}" text="Save" id="l2"
+                                             icon="#{resource['images:imgSave.png']}" iconPosition="top"
+                                             partialSubmit="true" shortDesc="Save Record"/>
+                                    <f:facet name="separator">
+                                        <af:spacer width="10" height="10" id="s1"/>
+                                    </f:facet>
+                                </af:panelGroupLayout>
+                            </af:gridCell>
+                        </af:gridRow>
+                    </af:panelGridLayout>
+                </f:facet>
             </af:decorativeBox>
         </af:form>
     </af:document>

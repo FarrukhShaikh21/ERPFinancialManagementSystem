@@ -36,7 +36,8 @@
                                                                 marginBottom="5px">
                                                         <af:gridCell marginStart="5px" width="100%" marginEnd="5px"
                                                                      id="gc1" halign="stretch"
-                                                                     styleClass="AFStretchWidth ERPHeroBackground">
+                                                                     styleClass="AFStretchWidth ERPHeroBackground"
+                                                                     valign="stretch">
                                                             <af:panelGroupLayout id="pgl6" layout="horizontal">
                                                                 <af:link id="l3" partialSubmit="true"
                                                                          action="DO-ACT-QUERY-FMS_0006"
