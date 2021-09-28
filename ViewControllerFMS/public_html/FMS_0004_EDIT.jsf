@@ -101,6 +101,18 @@
                                         </af:panelGroupLayout>
                                     </af:gridCell>
                                 </af:gridRow>
+                                <af:gridRow id="gr6">
+                                    <af:gridCell id="gc6">
+                                        <af:quickQuery label="Search" searchDesc="Search" id="qryId1"
+                                                       value="#{bindings.ImplicitViewCriteriaQuery.quickQueryDescriptor}"
+                                                       model="#{bindings.ImplicitViewCriteriaQuery.queryModel}"
+                                                       queryListener="#{bindings.ImplicitViewCriteriaQuery.processQuery}">
+                                            <f:facet name="end">
+                                                <af:commandLink text="Advanced" rendered="false" id="cl1"/>
+                                            </f:facet>
+                                        </af:quickQuery>
+                                    </af:gridCell>
+                                </af:gridRow>
                             </af:panelGridLayout>
                         </f:facet>
                         <f:facet name="second">
