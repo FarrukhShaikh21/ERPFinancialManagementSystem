@@ -6,7 +6,7 @@
         <af:form id="f1">
             <af:decorativeBox id="db1" inlineStyle="border:none" dimensionsFrom="parent">
                 <f:facet name="center">
-                    <af:panelSplitter id="ps1" orientation="vertical" splitterPosition="100">
+                    <af:panelSplitter id="ps1" orientation="vertical" splitterPosition="130">
                         <f:facet name="first">
                             <af:panelGridLayout id="pgl3">
                                 <af:gridRow id="gr8">
@@ -36,7 +36,7 @@
                                         </af:panelGridLayout>
                                     </af:gridCell>
                                 </af:gridRow>
-                                <af:gridRow marginTop="5px" height="auto" id="gr5">
+                                <af:gridRow marginTop="5px" height="auto" id="gr5" marginBottom="5px">
                                     <af:gridCell marginStart="5px" width="100%" marginEnd="5px" id="gc5"
                                                  styleClass="ERPCompanyInfoBackGround" halign="stretch"
                                                  valign="stretch">
@@ -101,114 +101,122 @@
                                         </af:panelGroupLayout>
                                     </af:gridCell>
                                 </af:gridRow>
-                                <af:gridRow id="gr6">
-                                    <af:gridCell id="gc6">
-                                        <af:quickQuery label="Search" searchDesc="Search" id="qryId1"
-                                                       value="#{bindings.ImplicitViewCriteriaQuery.quickQueryDescriptor}"
-                                                       model="#{bindings.ImplicitViewCriteriaQuery.queryModel}"
-                                                       queryListener="#{bindings.ImplicitViewCriteriaQuery.processQuery}">
-                                            <f:facet name="end">
-                                                <af:commandLink text="Advanced" rendered="false" id="cl1"/>
-                                            </f:facet>
-                                        </af:quickQuery>
+                                <af:gridRow id="gr6" marginTop="5px">
+                                    <af:gridCell id="gc6" halign="stretch" valign="stretch"
+                                                 styleClass="ERPToolBarBackground">
+                                        <af:panelGroupLayout id="pgl1" layout="horizontal" halign="center">
+                                            <af:quickQuery label="Search" searchDesc="Search" id="qryId1"
+                                                           value="#{bindings.ImplicitViewCriteriaQuery.quickQueryDescriptor}"
+                                                           model="#{bindings.ImplicitViewCriteriaQuery.queryModel}"
+                                                           queryListener="#{bindings.ImplicitViewCriteriaQuery.processQuery}">
+                                                <f:facet name="end">
+                                                    <af:commandLink text="Advanced" rendered="false" id="cl1"/>
+                                                </f:facet>
+                                            </af:quickQuery>
+                                        </af:panelGroupLayout>
                                     </af:gridCell>
                                 </af:gridRow>
                             </af:panelGridLayout>
                         </f:facet>
                         <f:facet name="second">
-                            <af:listView value="#{bindings.GlFiscalYearByCompanyRO.collectionModel}" var="item"
-                                         emptyText="#{bindings.GlFiscalYearByCompanyRO.viewable ? 'No data to display.' : 'Access Denied.'}"
-                                         fetchSize="#{bindings.GlFiscalYearByCompanyRO.rangeSize}" id="lv1"
-                                         styleClass="WBDisplayBlockCenter" selection="single"
-                                         selectedRowKeys="#{bindings.GlFiscalYearByCompanyRO.collectionModel.selectedRow}"
-                                         selectionListener="#{bindings.GlFiscalYearByCompanyRO.treeModel.makeCurrent}">
-                                <af:listItem id="li1"
-                                             styleClass="WBDisplayBlock WBDisplayBlockPadding WBDisplayBlockCenterUndo">
-                                    <af:panelGroupLayout id="pgl2" styleClass="WBCardSize" layout="vertical">
-                                        <af:panelBox text="PanelBox1" id="pb1" showHeader="never">
-                                            <f:facet name="toolbar"/>
-                                            <af:inputText value="#{bindings.FiscalYearSno.inputValue}"
-                                                          label="#{bindings.FiscalYearSno.hints.label}"
-                                                          required="#{bindings.FiscalYearSno.hints.mandatory}"
-                                                          columns="#{bindings.FiscalYearSno.hints.displayWidth}"
-                                                          maximumLength="#{bindings.FiscalYearSno.hints.precision}"
-                                                          shortDesc="#{bindings.FiscalYearSno.hints.tooltip}" id="it5"
-                                                          rendered="false">
-                                                <f:validator binding="#{bindings.FiscalYearSno.validator}"/>
-                                                <af:convertNumber groupingUsed="false"
-                                                                  pattern="#{bindings.FiscalYearSno.format}"/>
-                                            </af:inputText>
-                                            <af:panelGridLayout id="pgl19">
-                                                <af:gridRow marginTop="5px" height="auto" id="gr1" marginBottom="5px">
-                                                    <af:gridCell marginStart="5px" width="100%" marginEnd="5px" id="gc1"
-                                                                 halign="stretch" valign="stretch"
-                                                                 styleClass="AFStretchWidth ERPHeroBackground">
-                                                        <af:panelGroupLayout id="pgl6" layout="horizontal">
-                                                            <af:link id="l5" icon="#{resource['images:imgView.png']}"
-                                                                     action="DO-ACT-QUERY-FISCAL-YEAR-BY-FISCAL-YEAR-SNO"
-                                                                     styleClass="ERPLink"
-                                                                     shortDesc="Fiscal Year, Click To View Record"/>
-                                                            <af:outputFormatted value="#{item.bindings.YearDescription.inputValue}"
-                                                                                id="of5"
-                                                                                styleClass="ERPHeroBannerFont"/>
-                                                        </af:panelGroupLayout>
-                                                    </af:gridCell>
-                                                </af:gridRow>
-                                                <af:gridRow marginTop="5px" height="auto" id="gr2">
-                                                    <af:gridCell marginStart="5px" width="100%" marginEnd="5px"
-                                                                 id="gc2">
-                                                        <af:panelGroupLayout id="pgl7" layout="horizontal">
-                                                            <af:image source="#{resource['images:imgDocumentNumber.png']}"
-                                                                      id="i1" shortDesc="Fiscal Year Code"/>
-                                                            <af:outputFormatted value="#{item.bindings.FiscalYearCode.inputValue}"
-                                                                                id="of1"
-                                                                                styleClass="ERPHeroDetailColor">
-                                                                <af:convertNumber groupingUsed="false"
-                                                                                  pattern="#{bindings.GlFiscalYearByCompanyRO.hints.FiscalYearCode.format}"/>
-                                                            </af:outputFormatted>
-                                                            <f:facet name="separator">
-                                                                <af:spacer width="10" height="10" id="s2"/>
-                                                            </f:facet>
-                                                        </af:panelGroupLayout>
-                                                    </af:gridCell>
-                                                </af:gridRow>
-                                                <af:gridRow marginTop="5px" height="auto" id="gr3">
-                                                    <af:gridCell marginStart="5px" width="100%" marginEnd="5px"
-                                                                 id="gc3">
-                                                        <af:panelGroupLayout id="pgl8" layout="horizontal">
-                                                            <af:image source="#{resource['images:imgStartDate.png']}"
-                                                                      id="i2" shortDesc="Start Date"/>
-                                                            <af:spacer width="10" height="10" id="s3"/>
-                                                            <af:outputFormatted value="#{item.bindings.StartDate.inputValue}"
-                                                                                id="of3"
-                                                                                styleClass="ERPHeroDetailColor">
-                                                                <af:convertDateTime pattern="#{bindings.GlFiscalYearByCompanyRO.hints.StartDate.format}"/>
-                                                            </af:outputFormatted>
-                                                        </af:panelGroupLayout>
-                                                    </af:gridCell>
-                                                </af:gridRow>
-                                                <af:gridRow marginTop="5px" height="auto" marginBottom="5px" id="gr4">
-                                                    <af:gridCell marginStart="5px" width="100%" marginEnd="5px"
-                                                                 id="gc4">
-                                                        <af:panelGroupLayout id="pgl9" layout="horizontal">
-                                                            <af:image source="#{resource['images:imgCalendar.png']}"
-                                                                      id="i3" shortDesc="End Date"/>
-                                                            <af:outputFormatted value="#{item.bindings.EndDate.inputValue}"
-                                                                                id="of4"
-                                                                                styleClass="ERPHeroDetailColor">
-                                                                <af:convertDateTime pattern="#{bindings.GlFiscalYearByCompanyRO.hints.EndDate.format}"/>
-                                                            </af:outputFormatted>
-                                                            <f:facet name="separator">
-                                                                <af:spacer width="10" height="10" id="s4"/>
-                                                            </f:facet>
-                                                        </af:panelGroupLayout>
-                                                    </af:gridCell>
-                                                </af:gridRow>
-                                            </af:panelGridLayout>
-                                        </af:panelBox>
-                                    </af:panelGroupLayout>
-                                </af:listItem>
-                            </af:listView>
+                            <af:panelGroupLayout id="pgl11" halign="center" layout="scroll">
+                                <af:listView value="#{bindings.GlFiscalYearByCompanyRO.collectionModel}" var="item"
+                                             emptyText="#{bindings.GlFiscalYearByCompanyRO.viewable ? 'No data to display.' : 'Access Denied.'}"
+                                             fetchSize="#{bindings.GlFiscalYearByCompanyRO.rangeSize}" id="lv1"
+                                             styleClass="WBDisplayBlockCenter" selection="single"
+                                             selectedRowKeys="#{bindings.GlFiscalYearByCompanyRO.collectionModel.selectedRow}"
+                                             selectionListener="#{bindings.GlFiscalYearByCompanyRO.treeModel.makeCurrent}">
+                                    <af:listItem id="li1"
+                                                 styleClass="WBDisplayBlock WBDisplayBlockPadding WBDisplayBlockCenterUndo">
+                                        <af:panelGroupLayout id="pgl2" styleClass="WBCardSize" layout="vertical">
+                                            <af:panelBox text="PanelBox1" id="pb1" showHeader="never">
+                                                <f:facet name="toolbar"/>
+                                                <af:inputText value="#{bindings.FiscalYearSno.inputValue}"
+                                                              label="#{bindings.FiscalYearSno.hints.label}"
+                                                              required="#{bindings.FiscalYearSno.hints.mandatory}"
+                                                              columns="#{bindings.FiscalYearSno.hints.displayWidth}"
+                                                              maximumLength="#{bindings.FiscalYearSno.hints.precision}"
+                                                              shortDesc="#{bindings.FiscalYearSno.hints.tooltip}"
+                                                              id="it5" rendered="false">
+                                                    <f:validator binding="#{bindings.FiscalYearSno.validator}"/>
+                                                    <af:convertNumber groupingUsed="false"
+                                                                      pattern="#{bindings.FiscalYearSno.format}"/>
+                                                </af:inputText>
+                                                <af:panelGridLayout id="pgl19">
+                                                    <af:gridRow marginTop="5px" height="auto" id="gr1"
+                                                                marginBottom="5px">
+                                                        <af:gridCell marginStart="5px" width="100%" marginEnd="5px"
+                                                                     id="gc1" halign="stretch" valign="stretch"
+                                                                     styleClass="AFStretchWidth ERPHeroBackground">
+                                                            <af:panelGroupLayout id="pgl6" layout="horizontal">
+                                                                <af:link id="l5"
+                                                                         icon="#{resource['images:imgView.png']}"
+                                                                         action="DO-ACT-QUERY-FISCAL-YEAR-BY-FISCAL-YEAR-SNO"
+                                                                         styleClass="ERPLink"
+                                                                         shortDesc="Fiscal Year, Click To View Record"/>
+                                                                <af:outputFormatted value="#{item.bindings.YearDescription.inputValue}"
+                                                                                    id="of5"
+                                                                                    styleClass="ERPHeroBannerFont"/>
+                                                            </af:panelGroupLayout>
+                                                        </af:gridCell>
+                                                    </af:gridRow>
+                                                    <af:gridRow marginTop="5px" height="auto" id="gr2">
+                                                        <af:gridCell marginStart="5px" width="100%" marginEnd="5px"
+                                                                     id="gc2">
+                                                            <af:panelGroupLayout id="pgl7" layout="horizontal">
+                                                                <af:image source="#{resource['images:imgDocumentNumber.png']}"
+                                                                          id="i1" shortDesc="Fiscal Year Code"/>
+                                                                <af:outputFormatted value="#{item.bindings.FiscalYearCode.inputValue}"
+                                                                                    id="of1"
+                                                                                    styleClass="ERPHeroDetailColor">
+                                                                    <af:convertNumber groupingUsed="false"
+                                                                                      pattern="#{bindings.GlFiscalYearByCompanyRO.hints.FiscalYearCode.format}"/>
+                                                                </af:outputFormatted>
+                                                                <f:facet name="separator">
+                                                                    <af:spacer width="10" height="10" id="s2"/>
+                                                                </f:facet>
+                                                            </af:panelGroupLayout>
+                                                        </af:gridCell>
+                                                    </af:gridRow>
+                                                    <af:gridRow marginTop="5px" height="auto" id="gr3">
+                                                        <af:gridCell marginStart="5px" width="100%" marginEnd="5px"
+                                                                     id="gc3">
+                                                            <af:panelGroupLayout id="pgl8" layout="horizontal">
+                                                                <af:image source="#{resource['images:imgStartDate.png']}"
+                                                                          id="i2" shortDesc="Start Date"/>
+                                                                <af:spacer width="10" height="10" id="s3"/>
+                                                                <af:outputFormatted value="#{item.bindings.StartDate.inputValue}"
+                                                                                    id="of3"
+                                                                                    styleClass="ERPHeroDetailColor">
+                                                                    <af:convertDateTime pattern="#{bindings.GlFiscalYearByCompanyRO.hints.StartDate.format}"/>
+                                                                </af:outputFormatted>
+                                                            </af:panelGroupLayout>
+                                                        </af:gridCell>
+                                                    </af:gridRow>
+                                                    <af:gridRow marginTop="5px" height="auto" marginBottom="5px"
+                                                                id="gr4">
+                                                        <af:gridCell marginStart="5px" width="100%" marginEnd="5px"
+                                                                     id="gc4">
+                                                            <af:panelGroupLayout id="pgl9" layout="horizontal">
+                                                                <af:image source="#{resource['images:imgCalendar.png']}"
+                                                                          id="i3" shortDesc="End Date"/>
+                                                                <af:outputFormatted value="#{item.bindings.EndDate.inputValue}"
+                                                                                    id="of4"
+                                                                                    styleClass="ERPHeroDetailColor">
+                                                                    <af:convertDateTime pattern="#{bindings.GlFiscalYearByCompanyRO.hints.EndDate.format}"/>
+                                                                </af:outputFormatted>
+                                                                <f:facet name="separator">
+                                                                    <af:spacer width="10" height="10" id="s4"/>
+                                                                </f:facet>
+                                                            </af:panelGroupLayout>
+                                                        </af:gridCell>
+                                                    </af:gridRow>
+                                                </af:panelGridLayout>
+                                            </af:panelBox>
+                                        </af:panelGroupLayout>
+                                    </af:listItem>
+                                </af:listView>
+                            </af:panelGroupLayout>
                         </f:facet>
                     </af:panelSplitter>
                 </f:facet>

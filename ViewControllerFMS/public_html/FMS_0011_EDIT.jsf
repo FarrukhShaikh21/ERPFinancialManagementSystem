@@ -6,7 +6,7 @@
         <af:form id="f1">
             <af:decorativeBox id="db2" dimensionsFrom="parent">
                 <f:facet name="center">
-                    <af:panelSplitter id="ps1" orientation="vertical" splitterPosition="150">
+                    <af:panelSplitter id="ps1" orientation="vertical" splitterPosition="130">
                         <f:facet name="first">
                             <af:panelGridLayout id="pgl3" partialTriggers="l4">
                                 <af:gridRow id="gr8">
