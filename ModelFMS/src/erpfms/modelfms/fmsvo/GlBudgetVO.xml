@@ -166,4 +166,10 @@
     EntityAttrName="CompanyId"
     EntityUsage="GlBudget"
     AliasName="COMPANY_ID"/>
+  <ViewAttribute
+    Name="GlobalCompanyId"
+    PrecisionRule="true"
+    EntityAttrName="GlobalCompanyId"
+    EntityUsage="GlBudget"
+    AliasName="GLOBAL_COMPANY_ID"/>
 </ViewObject>

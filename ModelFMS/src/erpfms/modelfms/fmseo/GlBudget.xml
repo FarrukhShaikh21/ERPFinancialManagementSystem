@@ -228,6 +228,15 @@
     Type="java.lang.Integer"
     ColumnType="NUMBER"
     TableName="GL_BUDGET"/>
+  <Attribute
+    Name="GlobalCompanyId"
+    Precision="5"
+    Scale="0"
+    ColumnName="GLOBAL_COMPANY_ID"
+    SQLType="NUMERIC"
+    Type="java.lang.Integer"
+    ColumnType="NUMBER"
+    TableName="GL_BUDGET"/>
   <Key
     Name="PkGlBudget"
     PrimaryKey="true">

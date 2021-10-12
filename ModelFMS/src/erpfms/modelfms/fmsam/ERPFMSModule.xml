@@ -4,7 +4,7 @@
 <AppModule
   xmlns="http://xmlns.oracle.com/bc4j"
   Name="ERPFMSModule"
-  Version="12.1.3.2.1"
+  Version="12.1.3.10.47"
   InheritPersonalization="merge"
   ClearCacheOnRollback="true">
   <Properties>
@@ -290,6 +290,12 @@
       Name="GlTaxTypeVOByTaxTypeIDVC"
       FullName="erpfms.modelfms.fmsvo.GlTaxTypeVO.GlTaxTypeVOByTaxTypeIDVC"/>
   </ViewUsage>
+  <ViewUsage
+    Name="GlBudgetByCompanyRO"
+    ViewObjectName="erpfms.modelfms.fmsvo.GlBudgetVO"/>
+  <ViewUsage
+    Name="GlBudgetByBudgetIdCRUD"
+    ViewObjectName="erpfms.modelfms.fmsvo.GlBudgetVO"/>
   <ViewLinkUsage
     Name="GlChartOfAccountGlChartOfAccountCoaidParentidVL1"
     ViewLinkObjectName="erpfms.modelfms.fmsvo.GlChartOfAccountGlChartOfAccountCoaidParentidVL"
