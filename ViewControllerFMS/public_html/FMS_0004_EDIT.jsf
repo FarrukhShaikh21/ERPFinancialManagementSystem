@@ -119,7 +119,7 @@
                             </af:panelGridLayout>
                         </f:facet>
                         <f:facet name="second">
-                            <af:panelGroupLayout id="pgl11" halign="center" layout="scroll">
+                            <af:panelGroupLayout id="pgl11" halign="center" layout="scroll" partialTriggers="qryId1">
                                 <af:listView value="#{bindings.GlFiscalYearByCompanyRO.collectionModel}" var="item"
                                              emptyText="#{bindings.GlFiscalYearByCompanyRO.viewable ? 'No data to display.' : 'Access Denied.'}"
                                              fetchSize="#{bindings.GlFiscalYearByCompanyRO.rangeSize}" id="lv1"

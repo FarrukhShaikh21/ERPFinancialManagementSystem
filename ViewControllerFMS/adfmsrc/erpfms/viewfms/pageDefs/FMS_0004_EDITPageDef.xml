@@ -8,8 +8,8 @@
               id="GlFiscalYearByCompanyROIterator"/>
     <iterator Binds="AdminCompanyVOByCompanyRO" RangeSize="25" DataControl="ERPFMSModuleDataControl"
               id="AdminCompanyVOByCompanyROIterator"/>
-    <searchRegion Criteria="__ImplicitViewCriteria__" Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer"
-                  Binds="GlFiscalYearByCompanyROIterator" id="ImplicitViewCriteriaQuery"/>
+    <searchRegion Criteria="GlFiscalYearVOFindVC" Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer"
+                  Binds="GlFiscalYearByCompanyROIterator" id="ImplicitViewCriteriaQuery" InitialQueryOverridden="true"/>
   </executables>
   <bindings>
     <tree IterBinding="GlFiscalYearByCompanyROIterator" id="GlFiscalYearByCompanyRO">
