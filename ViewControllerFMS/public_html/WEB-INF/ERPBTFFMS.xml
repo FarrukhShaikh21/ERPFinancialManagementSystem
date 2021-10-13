@@ -573,6 +573,15 @@
         <fixed-outcome>ERP-FMS-DOGOTO-MAIN</fixed-outcome>
       </outcome>
     </method-call>
+    <view id="FMS_0014">
+      <page>/FMS_0014.jsf</page>
+    </view>
+    <method-call id="ExeAdminCompFMS_0014">
+      <method>#{bindings.Execute.execute}</method>
+      <outcome>
+        <fixed-outcome>ERP-ACT-FMS_0013</fixed-outcome>
+      </outcome>
+    </method-call>
     <control-flow-rule id="__8">
       <from-activity-id>doFMSGotoErpActivity</from-activity-id>
       <control-flow-case id="__9">
@@ -626,6 +635,10 @@
       <control-flow-case id="__206">
         <from-outcome>ERP-ACT-FMS_0013</from-outcome>
         <to-activity-id>ExeAdminCompFMS_0013</to-activity-id>
+      </control-flow-case>
+      <control-flow-case id="__238">
+        <from-outcome>ERP-ACT-FMS_0013</from-outcome>
+        <to-activity-id>ExeAdminCompFMS_0014</to-activity-id>
       </control-flow-case>
     </control-flow-rule>
     <control-flow-rule id="__12">
@@ -1364,6 +1377,13 @@
       <control-flow-case id="__234">
         <from-outcome>ERP-FMS-DOGOTO-MAIN</from-outcome>
         <to-activity-id>ERPdoInsertAccessDepartment</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__235">
+      <from-activity-id>ExeAdminCompFMS_0014</from-activity-id>
+      <control-flow-case id="__236">
+        <from-outcome>ERP-ACT-FMS_0013</from-outcome>
+        <to-activity-id>FMS_0014</to-activity-id>
       </control-flow-case>
     </control-flow-rule>
     <visibility>

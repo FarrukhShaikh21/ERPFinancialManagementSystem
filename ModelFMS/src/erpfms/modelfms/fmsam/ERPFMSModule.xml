@@ -292,7 +292,11 @@
   </ViewUsage>
   <ViewUsage
     Name="GlBudgetByCompanyRO"
-    ViewObjectName="erpfms.modelfms.fmsvo.GlBudgetVO"/>
+    ViewObjectName="erpfms.modelfms.fmsvo.GlBudgetVO">
+    <ViewCriteriaUsage
+      Name="GlBudgetVOByCompanyVC"
+      FullName="erpfms.modelfms.fmsvo.GlBudgetVO.GlBudgetVOByCompanyVC"/>
+  </ViewUsage>
   <ViewUsage
     Name="GlBudgetByBudgetIdCRUD"
     ViewObjectName="erpfms.modelfms.fmsvo.GlBudgetVO"/>

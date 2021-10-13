@@ -5,6 +5,25 @@
   <executables>
     <variableIterator id="variables"/>
     <page path="erptemplate.viewtemp.pageDefs.ERPTemplatePageDef" id="ptb1" Refresh="ifNeeded"/>
+    <iterator Binds="AdminCompanyVORO" RangeSize="25" DataControl="ERPFMSModuleDataControl"
+              id="AdminCompanyVOROIterator"/>
   </executables>
-  <bindings/>
+  <bindings>
+    <tree IterBinding="AdminCompanyVOROIterator" id="AdminCompanyVORO">
+      <nodeDefinition DefName="erpadm.modeladm.admvo.AdminCompanyVO" Name="AdminCompanyVORO0">
+        <AttrNames>
+          <Item Value="CompanyShortName"/>
+          <Item Value="CompanyShortCode"/>
+          <Item Value="CompanyName"/>
+          <Item Value="CompCode"/>
+          <Item Value="txtCountryName"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <attributeValues IterBinding="AdminCompanyVOROIterator" id="CompCode">
+      <AttrNames>
+        <Item Value="CompCode"/>
+      </AttrNames>
+    </attributeValues>
+  </bindings>
 </pageDefinition>
