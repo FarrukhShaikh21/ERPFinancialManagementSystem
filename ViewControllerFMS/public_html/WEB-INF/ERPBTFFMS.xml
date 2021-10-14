@@ -582,6 +582,15 @@
         <fixed-outcome>ERP-ACT-FMS_0013</fixed-outcome>
       </outcome>
     </method-call>
+    <method-call id="ExeAdminCompanyByCompIdFMS_0014">
+      <method>#{bindings.ExecuteWithParams.execute}</method>
+      <outcome>
+        <fixed-outcome>ExecuteWithParams</fixed-outcome>
+      </outcome>
+    </method-call>
+    <view id="FMS_0014_EDIT">
+      <page>/FMS_0014_EDIT.jsf</page>
+    </view>
     <control-flow-rule id="__8">
       <from-activity-id>doFMSGotoErpActivity</from-activity-id>
       <control-flow-case id="__9">
@@ -1384,6 +1393,20 @@
       <control-flow-case id="__236">
         <from-outcome>ERP-ACT-FMS_0013</from-outcome>
         <to-activity-id>FMS_0014</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__237">
+      <from-activity-id>FMS_0014</from-activity-id>
+      <control-flow-case id="__239">
+        <from-outcome>ERP-QRY-ACT-FMS_0013</from-outcome>
+        <to-activity-id>ExeAdminCompanyByCompIdFMS_0014</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__240">
+      <from-activity-id>FMS_0014_EDIT</from-activity-id>
+      <control-flow-case id="__241">
+        <from-outcome>ERPBACKCRUD</from-outcome>
+        <to-activity-id>ExeAdminCompanyByCompIdFMS_0014</to-activity-id>
       </control-flow-case>
     </control-flow-rule>
     <visibility>

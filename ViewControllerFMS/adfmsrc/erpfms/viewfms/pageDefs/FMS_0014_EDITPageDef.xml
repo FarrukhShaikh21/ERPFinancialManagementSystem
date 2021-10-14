@@ -4,7 +4,69 @@
   <parameters/>
   <executables>
     <variableIterator id="variables"/>
-    <page path="erptemplate.viewtemp.pageDefs.ERPTemplatePageDef" id="ptb1" Refresh="ifNeeded"/>
+    <iterator Binds="AdminCompanyVOByCompanyRO" RangeSize="25" DataControl="ERPFMSModuleDataControl"
+              id="AdminCompanyVOByCompanyROIterator"/>
+    <iterator Binds="GlBankByCompanyRO" RangeSize="25" DataControl="ERPFMSModuleDataControl"
+              id="GlBankByCompanyROIterator"/>
+    <searchRegion Criteria="GlBankVOFindVC" Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer"
+                  Binds="GlBankByCompanyROIterator" id="ImplicitViewCriteriaQuery" InitialQueryOverridden="true"/>
+    <iterator Binds="GlBudgetByCompanyRO" RangeSize="25" DataControl="ERPFMSModuleDataControl"
+              id="GlBudgetByCompanyROIterator"/>
   </executables>
-  <bindings/>
+  <bindings>
+    <listOfValues IterBinding="AdminCompanyVOByCompanyROIterator" StaticList="false" Uses="LovtxtCountryName"
+                  id="txtCountryName"/>
+    <attributeValues IterBinding="AdminCompanyVOByCompanyROIterator" id="CompCode">
+      <AttrNames>
+        <Item Value="CompCode"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="AdminCompanyVOByCompanyROIterator" id="CompanyName">
+      <AttrNames>
+        <Item Value="CompanyName"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="AdminCompanyVOByCompanyROIterator" id="CompanyShortName">
+      <AttrNames>
+        <Item Value="CompanyShortName"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="AdminCompanyVOByCompanyROIterator" id="CompanyShortCode">
+      <AttrNames>
+        <Item Value="CompanyShortCode"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="AdminCompanyVOByCompanyROIterator" id="GlobalCompCode">
+      <AttrNames>
+        <Item Value="GlobalCompCode"/>
+      </AttrNames>
+    </attributeValues>
+    <tree IterBinding="GlBankByCompanyROIterator" id="GlBankByCompanyRO">
+      <nodeDefinition DefName="erpfms.modelfms.fmsvo.GlBankVO" Name="GlBankByCompanyRO0">
+        <AttrNames>
+          <Item Value="BankName"/>
+          <Item Value="BankShortCode"/>
+          <Item Value="BankShortName"/>
+          <Item Value="OpeningDate"/>
+          <Item Value="Website"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <tree IterBinding="GlBudgetByCompanyROIterator" id="GlBudgetByCompanyRO">
+      <nodeDefinition DefName="erpfms.modelfms.fmsvo.GlBudgetVO" Name="GlBudgetByCompanyRO0">
+        <AttrNames>
+          <Item Value="BudgetShortName"/>
+          <Item Value="BudgetShortCode"/>
+          <Item Value="BudgetName"/>
+          <Item Value="PeriodStartDate"/>
+          <Item Value="PeriodEndDate"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <attributeValues IterBinding="GlBudgetByCompanyROIterator" id="BudgetSno">
+      <AttrNames>
+        <Item Value="BudgetSno"/>
+      </AttrNames>
+    </attributeValues>
+  </bindings>
 </pageDefinition>

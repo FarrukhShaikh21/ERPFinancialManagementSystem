@@ -161,6 +161,8 @@
     <page path="/WEB-INF/ERPBTFFMS.xml#ERPBTFFMS@ExeAdminCompFMS_0014"
           usageId="erpfms_viewfms_ERPBTFFMS_ERPBTFFMS_Execute1PageDef11111111"/>
     <page path="/FMS_0014_EDIT.jsf" usageId="erpfms_viewfms_FMS_0014_EDITPageDef"/>
+    <page path="/WEB-INF/ERPBTFFMS.xml#ERPBTFFMS@ExeAdminCompanyByCompIdFMS_0014"
+          usageId="erpfms_viewfms_ERPBTFFMS_ERPBTFFMS_ExecuteWithParams1PageDef111111111111111111111111111111111111"/>
   </pageMap>
   <pageDefinitionUsages>
     <page id="erpfms_viewfms_FMSMainPageDef" path="erpfms.viewfms.pageDefs.FMSMainPageDef"/>
@@ -323,6 +325,8 @@
     <page id="erpfms_viewfms_ERPBTFFMS_ERPBTFFMS_Execute1PageDef11111111"
           path="erpfms.viewfms.pageDefs.ERPBTFFMS_ERPBTFFMS_Execute1PageDef11111111"/>
     <page id="erpfms_viewfms_FMS_0014_EDITPageDef" path="erpfms.viewfms.pageDefs.FMS_0014_EDITPageDef"/>
+    <page id="erpfms_viewfms_ERPBTFFMS_ERPBTFFMS_ExecuteWithParams1PageDef111111111111111111111111111111111111"
+          path="erpfms.viewfms.pageDefs.ERPBTFFMS_ERPBTFFMS_ExecuteWithParams1PageDef111111111111111111111111111111111111"/>
   </pageDefinitionUsages>
   <dataControlUsages>
     <BC4JDataControl id="ERPTemModuleDataControl" Package="erptemplate.modeltemp.temam"
