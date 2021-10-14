@@ -36,7 +36,9 @@ public class GlPeriodsImpl extends ERPEntityImpl {
         IsOpen,
         GlFiscalYear,
         GlVoucherHeader,
-        GlUserClosedPeriodRight;
+        GlUserClosedPeriodRight,
+        GlBudget,
+        GlBudget1;
         private static AttributesEnum[] vals = null;
         private static final int firstIndex = 0;
 
@@ -78,6 +80,8 @@ public class GlPeriodsImpl extends ERPEntityImpl {
     public static final int GLFISCALYEAR = AttributesEnum.GlFiscalYear.index();
     public static final int GLVOUCHERHEADER = AttributesEnum.GlVoucherHeader.index();
     public static final int GLUSERCLOSEDPERIODRIGHT = AttributesEnum.GlUserClosedPeriodRight.index();
+    public static final int GLBUDGET = AttributesEnum.GlBudget.index();
+    public static final int GLBUDGET1 = AttributesEnum.GlBudget1.index();
 
     /**
      * This is the default constructor (do not remove).
@@ -350,6 +354,21 @@ public class GlPeriodsImpl extends ERPEntityImpl {
      */
     public RowIterator getGlUserClosedPeriodRight() {
         return (RowIterator) getAttributeInternal(GLUSERCLOSEDPERIODRIGHT);
+    }
+
+
+    /**
+     * @return the associated entity oracle.jbo.RowIterator.
+     */
+    public RowIterator getGlBudget() {
+        return (RowIterator) getAttributeInternal(GLBUDGET);
+    }
+
+    /**
+     * @return the associated entity oracle.jbo.RowIterator.
+     */
+    public RowIterator getGlBudget1() {
+        return (RowIterator) getAttributeInternal(GLBUDGET1);
     }
 
 

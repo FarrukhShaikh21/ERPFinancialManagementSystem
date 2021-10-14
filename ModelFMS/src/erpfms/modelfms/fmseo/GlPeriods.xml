@@ -299,6 +299,20 @@
     AssociationOtherEnd="erpfms.modelfms.fmseo.GlPeriodGlClosedPeriodRightPeriodSnoAsso.GlPeriods"
     Type="oracle.jbo.RowIterator"
     IsUpdateable="false"/>
+  <AccessorAttribute
+    Name="GlBudget"
+    Association="erpfms.modelfms.fmseo.GlPeriodsGlBudgetStartPeriodSnoAsso"
+    AssociationEnd="erpfms.modelfms.fmseo.GlPeriodsGlBudgetStartPeriodSnoAsso.GlBudget"
+    AssociationOtherEnd="erpfms.modelfms.fmseo.GlPeriodsGlBudgetStartPeriodSnoAsso.GlPeriods"
+    Type="oracle.jbo.RowIterator"
+    IsUpdateable="false"/>
+  <AccessorAttribute
+    Name="GlBudget1"
+    Association="erpfms.modelfms.fmseo.GlPeriodsGlBudgetEndPeriodSnoAsso"
+    AssociationEnd="erpfms.modelfms.fmseo.GlPeriodsGlBudgetEndPeriodSnoAsso.GlBudget1"
+    AssociationOtherEnd="erpfms.modelfms.fmseo.GlPeriodsGlBudgetEndPeriodSnoAsso.GlPeriods1"
+    Type="oracle.jbo.RowIterator"
+    IsUpdateable="false"/>
   <Key
     Name="GlPeriodsIsOpenCheck">
     <DesignTime>

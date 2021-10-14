@@ -9,10 +9,15 @@
   DBObjectType="table"
   DBObjectName="GL_BUDGET"
   AliasName="GlBudget"
-  BindingStyle="OracleName">
+  BindingStyle="OracleName"
+  RowClass="erpfms.modelfms.fmseo.GlBudgetImpl">
+  <DesignTime>
+    <Attr Name="_codeGenFlag2" Value="Init|Delete|Access|DML"/>
+    <Attr Name="_superClass" Value="erpglobals.modelglobals.ERPEntityImpl"/>
+    <Attr Name="_isCodegen" Value="true"/>
+  </DesignTime>
   <Attribute
     Name="BudgetSno"
-    IsNotNull="true"
     Precision="10"
     Scale="0"
     ColumnName="BUDGET_SNO"
@@ -39,8 +44,7 @@
     SQLType="NUMERIC"
     Type="java.lang.Integer"
     ColumnType="NUMBER"
-    TableName="GL_BUDGET"
-    IsNotNull="true">
+    TableName="GL_BUDGET">
     <Properties>
       <SchemaBasedProperties>
         <LABEL
@@ -52,13 +56,13 @@
   </Attribute>
   <Attribute
     Name="BudgetShortName"
-    IsNotNull="true"
     Precision="20"
     ColumnName="BUDGET_SHORT_NAME"
     SQLType="VARCHAR"
     Type="java.lang.String"
     ColumnType="VARCHAR2"
-    TableName="GL_BUDGET">
+    TableName="GL_BUDGET"
+    IsNotNull="true">
     <DesignTime>
       <Attr Name="_DisplaySize" Value="20"/>
     </DesignTime>
@@ -73,13 +77,13 @@
   </Attribute>
   <Attribute
     Name="BudgetName"
-    IsNotNull="true"
     Precision="50"
     ColumnName="BUDGET_NAME"
     SQLType="VARCHAR"
     Type="java.lang.String"
     ColumnType="VARCHAR2"
-    TableName="GL_BUDGET">
+    TableName="GL_BUDGET"
+    IsNotNull="true">
     <DesignTime>
       <Attr Name="_DisplaySize" Value="50"/>
     </DesignTime>
@@ -100,8 +104,7 @@
     ColumnType="NUMBER"
     TableName="GL_BUDGET"
     IsNotNull="true">
-    <TransientExpression
-      trustMode="trusted"><![CDATA[adf.currentDate]]></TransientExpression>
+    <TransientExpression><![CDATA[adf.currentDate]]></TransientExpression>
     <Properties>
       <SchemaBasedProperties>
         <LABEL
@@ -113,7 +116,6 @@
   </Attribute>
   <Attribute
     Name="CreatedBy"
-    IsNotNull="true"
     Precision="5"
     Scale="0"
     ColumnName="CREATED_BY"
@@ -132,7 +134,6 @@
   </Attribute>
   <Attribute
     Name="CreatedDate"
-    IsNotNull="true"
     ColumnName="CREATED_DATE"
     SQLType="DATE"
     Type="java.sql.Timestamp"
@@ -207,7 +208,6 @@
   </Attribute>
   <Attribute
     Name="FiscalYearSno"
-    IsNotNull="true"
     Precision="10"
     Scale="0"
     ColumnName="FISCAL_YEAR_SNO"
@@ -226,7 +226,6 @@
   </Attribute>
   <Attribute
     Name="StartPeriodSno"
-    IsNotNull="true"
     Precision="10"
     Scale="0"
     ColumnName="START_PERIOD_SNO"
@@ -245,12 +244,12 @@
   </Attribute>
   <Attribute
     Name="PeriodStartDate"
-    IsNotNull="true"
     ColumnName="PERIOD_START_DATE"
     SQLType="DATE"
     Type="oracle.jbo.domain.Date"
     ColumnType="DATE"
-    TableName="GL_BUDGET">
+    TableName="GL_BUDGET"
+    IsNotNull="true">
     <Properties>
       <SchemaBasedProperties>
         <LABEL
@@ -262,7 +261,6 @@
   </Attribute>
   <Attribute
     Name="EndPeriodSno"
-    IsNotNull="true"
     Precision="10"
     Scale="0"
     ColumnName="END_PERIOD_SNO"
@@ -281,12 +279,12 @@
   </Attribute>
   <Attribute
     Name="PeriodEndDate"
-    IsNotNull="true"
     ColumnName="PERIOD_END_DATE"
     SQLType="DATE"
     Type="oracle.jbo.domain.Date"
     ColumnType="DATE"
-    TableName="GL_BUDGET">
+    TableName="GL_BUDGET"
+    IsNotNull="true">
     <Properties>
       <SchemaBasedProperties>
         <LABEL
@@ -333,7 +331,6 @@
   </Attribute>
   <Attribute
     Name="IsSupervised"
-    IsNotNull="true"
     Precision="1"
     ColumnName="IS_SUPERVISED"
     SQLType="VARCHAR"
@@ -413,7 +410,6 @@
   <Attribute
     Name="CompanyId"
     IsUnique="true"
-    IsNotNull="true"
     Precision="5"
     Scale="0"
     ColumnName="COMPANY_ID"
@@ -449,16 +445,82 @@
       </SchemaBasedProperties>
     </Properties>
   </Attribute>
+  <Attribute
+    Name="txtStartPeriodName"
+    Precision="80"
+    ColumnName="TXT_START_PERIOD_NAME"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    IsPersistent="false"
+    IsQueriable="false">
+    <TransientExpression
+      trustMode="untrusted"><![CDATA[GlPeriods?.PeriodName]]></TransientExpression>
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="erpfms.modelfms.fmseo.GlBudget.txtStartPeriodName_LABEL"/>
+        <DISPLAYWIDTH
+          Value="20"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </Attribute>
+  <Attribute
+    Name="txtEndPeriodName"
+    Precision="80"
+    ColumnName="TXT_END_PERIOD_NAME"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    IsPersistent="false"
+    IsQueriable="false">
+    <TransientExpression
+      trustMode="untrusted"><![CDATA[GlPeriods1?.PeriodName]]></TransientExpression>
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="erpfms.modelfms.fmseo.GlBudget.txtEndPeriodName_LABEL"/>
+        <DISPLAYWIDTH
+          Value="20"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </Attribute>
+  <AccessorAttribute
+    Name="GlPeriods"
+    Association="erpfms.modelfms.fmseo.GlPeriodsGlBudgetStartPeriodSnoAsso"
+    AssociationEnd="erpfms.modelfms.fmseo.GlPeriodsGlBudgetStartPeriodSnoAsso.GlPeriods"
+    AssociationOtherEnd="erpfms.modelfms.fmseo.GlPeriodsGlBudgetStartPeriodSnoAsso.GlBudget"
+    Type="erpfms.modelfms.fmseo.GlPeriodsImpl"
+    IsUpdateable="true"/>
+  <AccessorAttribute
+    Name="GlPeriods1"
+    Association="erpfms.modelfms.fmseo.GlPeriodsGlBudgetEndPeriodSnoAsso"
+    AssociationEnd="erpfms.modelfms.fmseo.GlPeriodsGlBudgetEndPeriodSnoAsso.GlPeriods1"
+    AssociationOtherEnd="erpfms.modelfms.fmseo.GlPeriodsGlBudgetEndPeriodSnoAsso.GlBudget1"
+    Type="erpfms.modelfms.fmseo.GlPeriodsImpl"
+    IsUpdateable="true"/>
   <Key
-    Name="GlBudgetBudgetShortCodeCheck">
+    Name="GlBudgetBudgetNameCheck">
     <DesignTime>
       <Attr Name="_isNotNull" Value="true"/>
-      <Attr Name="_DBObjectName" Value="GL_BUDGET_BUDGET_SHORT_CODE_CH"/>
-      <Attr Name="_checkCondition" Value='"BUDGET_SHORT_CODE" IS NOT NULL'/>
+      <Attr Name="_DBObjectName" Value="GL_BUDGET_BUDGET_NAME_CHECK"/>
+      <Attr Name="_checkCondition" Value='"BUDGET_NAME" IS NOT NULL'/>
       <Attr Name="_isCheck" Value="true"/>
     </DesignTime>
     <AttrArray Name="Attributes">
-      <Item Value="erpfms.modelfms.fmseo.GlBudget.BudgetShortCode"/>
+      <Item Value="erpfms.modelfms.fmseo.GlBudget.BudgetName"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="GlBudgetBudgetShortNameCheck">
+    <DesignTime>
+      <Attr Name="_isNotNull" Value="true"/>
+      <Attr Name="_DBObjectName" Value="GL_BUDGET_BUDGET_SHORT_NAME_CH"/>
+      <Attr Name="_checkCondition" Value='"BUDGET_SHORT_NAME" IS NOT NULL'/>
+      <Attr Name="_isCheck" Value="true"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="erpfms.modelfms.fmseo.GlBudget.BudgetShortName"/>
     </AttrArray>
   </Key>
   <Key
@@ -471,6 +533,30 @@
     </DesignTime>
     <AttrArray Name="Attributes">
       <Item Value="erpfms.modelfms.fmseo.GlBudget.DocumentDate"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="GlBudgetPeriodEndDateCheck">
+    <DesignTime>
+      <Attr Name="_isNotNull" Value="true"/>
+      <Attr Name="_DBObjectName" Value="GL_BUDGET_PERIOD_END_DATE_CHEC"/>
+      <Attr Name="_checkCondition" Value='"PERIOD_END_DATE" IS NOT NULL'/>
+      <Attr Name="_isCheck" Value="true"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="erpfms.modelfms.fmseo.GlBudget.PeriodEndDate"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="GlBudgetPeriodStartDateCheck">
+    <DesignTime>
+      <Attr Name="_isNotNull" Value="true"/>
+      <Attr Name="_DBObjectName" Value="GL_BUDGET_PERIOD_START_DATE_CH"/>
+      <Attr Name="_checkCondition" Value='"PERIOD_START_DATE" IS NOT NULL'/>
+      <Attr Name="_isCheck" Value="true"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="erpfms.modelfms.fmseo.GlBudget.PeriodStartDate"/>
     </AttrArray>
   </Key>
   <Key
@@ -492,6 +578,28 @@
     <AttrArray Name="Attributes">
       <Item Value="erpfms.modelfms.fmseo.GlBudget.BudgetShortCode"/>
       <Item Value="erpfms.modelfms.fmseo.GlBudget.CompanyId"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="fk_GlBudget">
+    <DesignTime>
+      <Attr Name="_referencedKey" Value="PK_GL_PERIODS"/>
+      <Attr Name="_isForeign" Value="true"/>
+      <Attr Name="_DBObjectName" Value="FK_GL_BUDGET"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="erpfms.modelfms.fmseo.GlBudget.StartPeriodSno"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="fk_GlBudget1">
+    <DesignTime>
+      <Attr Name="_referencedKey" Value="PK_GL_PERIODS"/>
+      <Attr Name="_isForeign" Value="true"/>
+      <Attr Name="_DBObjectName" Value="FK_GL_BUDGET1"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="erpfms.modelfms.fmseo.GlBudget.EndPeriodSno"/>
     </AttrArray>
   </Key>
   <ResourceBundle>

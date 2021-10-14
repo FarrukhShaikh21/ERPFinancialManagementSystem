@@ -271,6 +271,22 @@
     EntityAttrName="GlobalCompanyId"
     EntityUsage="GlBudget"
     AliasName="GLOBAL_COMPANY_ID"/>
+  <ViewAttribute
+    Name="txtStartPeriodName"
+    IsQueriable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    EntityAttrName="txtStartPeriodName"
+    EntityUsage="GlBudget"
+    AliasName="TXT_START_PERIOD_NAME"/>
+  <ViewAttribute
+    Name="txtEndPeriodName"
+    IsQueriable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    EntityAttrName="txtEndPeriodName"
+    EntityUsage="GlBudget"
+    AliasName="TXT_END_PERIOD_NAME"/>
   <ViewCriteria
     Name="GlBudgetVOFindVC"
     ViewObjectName="erpfms.modelfms.fmsvo.GlBudgetVO"
@@ -411,4 +427,16 @@
         Required="Optional"/>
     </ViewCriteriaRow>
   </ViewCriteria>
+  <ViewLinkAccessor
+    Name="GlPeriodsVO"
+    ViewLink="erpfms.modelfms.fmsvo.GlPeriodsGlBudgetEndPeriodSnoVL"
+    Type="oracle.jbo.Row"
+    Reversed="true"
+    IsUpdateable="false"/>
+  <ViewLinkAccessor
+    Name="GlPeriodsVO1"
+    ViewLink="erpfms.modelfms.fmsvo.GlPeriodsGlBudgetStartPeriodSnoVL"
+    Type="oracle.jbo.Row"
+    Reversed="true"
+    IsUpdateable="false"/>
 </ViewObject>

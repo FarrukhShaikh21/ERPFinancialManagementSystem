@@ -2832,7 +2832,7 @@
       <property
          name="fromOutcome">ERP-QRY-ACT-FMS_0014</property>
       <property
-         name="sdm:polyPoints">L54,-936.3115,1489.4941,-1150.6465,1520.8447,R46</property>
+         name="sdm:polyPoints">L50,-936.3115,1485.9941,-1150.6465,1520.8447,R46</property>
    </ControlFlowCase>
    <ControlFlowCase
       islink="true"
@@ -2842,7 +2842,7 @@
       <property
          name="fromOutcome">ERP-EDIT-ACT-FMS_0014</property>
       <property
-         name="sdm:polyPoints">B44,-1195.1465,1580.3022,-1190.3115,1659.3965,T50</property>
+         name="sdm:polyPoints">B44,-1195.1465,1580.2866,-1190.3115,1659.3965,T50</property>
    </ControlFlowCase>
    <ControlFlowCase
       islink="true"
@@ -2862,7 +2862,7 @@
       <property
          name="fromOutcome">ERPBACKCRUD</property>
       <property
-         name="sdm:polyPoints">T44,-953.1426,1738.0459,-1188.1465,1578.3447,B56</property>
+         name="sdm:polyPoints">T39,-956.6426,1738.0459,-1188.1465,1578.3447,B56</property>
    </ControlFlowCase>
    <MethodCall
       id="MethodCall260">
@@ -2895,6 +2895,6 @@
       <property
          name="fromOutcome">ERP-ADD-ACT-FMS_0014</property>
       <property
-         name="sdm:polyPoints">B50,-906.98535,1650.3965,-946.1426,1738.0459,T56</property>
+         name="sdm:polyPoints">B50,-906.98535,1650.3965,-942.6426,1738.0459,T61</property>
    </ControlFlowCase>
 </SDM>

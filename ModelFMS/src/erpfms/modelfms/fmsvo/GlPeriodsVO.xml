@@ -429,4 +429,14 @@
     ViewLink="erpfms.modelfms.fmsvo.GlPeriodGlClosedPeriodRightPeriodSnoVL"
     Type="oracle.jbo.RowIterator"
     IsUpdateable="false"/>
+  <ViewLinkAccessor
+    Name="GlBudgetVO"
+    ViewLink="erpfms.modelfms.fmsvo.GlPeriodsGlBudgetEndPeriodSnoVL"
+    Type="oracle.jbo.RowIterator"
+    IsUpdateable="false"/>
+  <ViewLinkAccessor
+    Name="GlBudgetVO1"
+    ViewLink="erpfms.modelfms.fmsvo.GlPeriodsGlBudgetStartPeriodSnoVL"
+    Type="oracle.jbo.RowIterator"
+    IsUpdateable="false"/>
 </ViewObject>
