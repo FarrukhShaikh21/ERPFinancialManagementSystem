@@ -579,18 +579,27 @@
     <method-call id="ExeAdminCompFMS_0014">
       <method>#{bindings.Execute.execute}</method>
       <outcome>
-        <fixed-outcome>ERP-ACT-FMS_0013</fixed-outcome>
+        <fixed-outcome>ERP-ACT-FMS_0014</fixed-outcome>
       </outcome>
     </method-call>
     <method-call id="ExeAdminCompanyByCompIdFMS_0014">
       <method>#{bindings.ExecuteWithParams.execute}</method>
       <outcome>
-        <fixed-outcome>ExecuteWithParams</fixed-outcome>
+        <fixed-outcome>ERP-QRY-ACT-FMS_0014</fixed-outcome>
       </outcome>
     </method-call>
     <view id="FMS_0014_EDIT">
       <page>/FMS_0014_EDIT.jsf</page>
     </view>
+    <view id="FMS_0014_EDIT_EDIT">
+      <page>/FMS_0014_EDIT_EDIT.jsf</page>
+    </view>
+    <method-call id="ExeGLBudgetByBudgetIDFMS_0014">
+      <method>#{bindings.ExecuteWithParams.execute}</method>
+      <outcome>
+        <fixed-outcome>ERP-EDIT-ACT-FMS_0014</fixed-outcome>
+      </outcome>
+    </method-call>
     <control-flow-rule id="__8">
       <from-activity-id>doFMSGotoErpActivity</from-activity-id>
       <control-flow-case id="__9">
@@ -646,7 +655,7 @@
         <to-activity-id>ExeAdminCompFMS_0013</to-activity-id>
       </control-flow-case>
       <control-flow-case id="__238">
-        <from-outcome>ERP-ACT-FMS_0013</from-outcome>
+        <from-outcome>ERP-ACT-FMS_0014</from-outcome>
         <to-activity-id>ExeAdminCompFMS_0014</to-activity-id>
       </control-flow-case>
     </control-flow-rule>
@@ -1391,22 +1400,40 @@
     <control-flow-rule id="__235">
       <from-activity-id>ExeAdminCompFMS_0014</from-activity-id>
       <control-flow-case id="__236">
-        <from-outcome>ERP-ACT-FMS_0013</from-outcome>
+        <from-outcome>ERP-ACT-FMS_0014</from-outcome>
         <to-activity-id>FMS_0014</to-activity-id>
       </control-flow-case>
     </control-flow-rule>
     <control-flow-rule id="__237">
       <from-activity-id>FMS_0014</from-activity-id>
       <control-flow-case id="__239">
-        <from-outcome>ERP-QRY-ACT-FMS_0013</from-outcome>
+        <from-outcome>ERP-QRY-ACT-FMS_0014</from-outcome>
         <to-activity-id>ExeAdminCompanyByCompIdFMS_0014</to-activity-id>
       </control-flow-case>
     </control-flow-rule>
-    <control-flow-rule id="__240">
+    <control-flow-rule id="__242">
       <from-activity-id>FMS_0014_EDIT</from-activity-id>
-      <control-flow-case id="__241">
+      <control-flow-case id="__243">
         <from-outcome>ERPBACKCRUD</from-outcome>
-        <to-activity-id>ExeAdminCompanyByCompIdFMS_0014</to-activity-id>
+        <to-activity-id>FMS_0014</to-activity-id>
+      </control-flow-case>
+      <control-flow-case id="__246">
+        <from-outcome>ERP-EDIT-ACT-FMS_0014</from-outcome>
+        <to-activity-id>ExeGLBudgetByBudgetIDFMS_0014</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__244">
+      <from-activity-id>ExeAdminCompanyByCompIdFMS_0014</from-activity-id>
+      <control-flow-case id="__245">
+        <from-outcome>ERP-QRY-ACT-FMS_0014</from-outcome>
+        <to-activity-id>FMS_0014_EDIT</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__247">
+      <from-activity-id>ExeGLBudgetByBudgetIDFMS_0014</from-activity-id>
+      <control-flow-case id="__248">
+        <from-outcome>ERP-EDIT-ACT-FMS_0014</from-outcome>
+        <to-activity-id>FMS_0014_EDIT_EDIT</to-activity-id>
       </control-flow-case>
     </control-flow-rule>
     <visibility>

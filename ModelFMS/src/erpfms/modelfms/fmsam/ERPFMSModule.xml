@@ -299,7 +299,11 @@
   </ViewUsage>
   <ViewUsage
     Name="GlBudgetByBudgetIdCRUD"
-    ViewObjectName="erpfms.modelfms.fmsvo.GlBudgetVO"/>
+    ViewObjectName="erpfms.modelfms.fmsvo.GlBudgetVO">
+    <ViewCriteriaUsage
+      Name="GlBudgetByBudgetIdVC"
+      FullName="erpfms.modelfms.fmsvo.GlBudgetVO.GlBudgetByBudgetIdVC"/>
+  </ViewUsage>
   <ViewLinkUsage
     Name="GlChartOfAccountGlChartOfAccountCoaidParentidVL1"
     ViewLinkObjectName="erpfms.modelfms.fmsvo.GlChartOfAccountGlChartOfAccountCoaidParentidVL"
