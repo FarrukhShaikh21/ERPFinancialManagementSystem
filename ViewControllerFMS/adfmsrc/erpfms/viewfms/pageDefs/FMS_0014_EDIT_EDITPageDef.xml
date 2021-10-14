@@ -33,5 +33,19 @@
         <Item Value="BudgetShortName"/>
       </AttrNames>
     </attributeValues>
+    <attributeValues IterBinding="GlBudgetByBudgetIdCRUDIterator" id="DocumentDate">
+      <AttrNames>
+        <Item Value="DocumentDate"/>
+      </AttrNames>
+    </attributeValues>
+    <list IterBinding="GlBudgetByBudgetIdCRUDIterator" StaticList="false" Uses="LovIsActive" id="IsActive"
+          DTSupportsMRU="true" SelectItemValueMode="ListObject"/>
+    <action IterBinding="GlBudgetByBudgetIdCRUDIterator" id="Delete" RequiresUpdateModel="false"
+            Action="removeCurrentRow"/>
+    <action IterBinding="GlBudgetByBudgetIdCRUDIterator" id="CreateWithParams" RequiresUpdateModel="true"
+            Action="createWithParams">
+      <NamedData NDName="CompanyId" NDValue="#{data.erpfms_viewfms_FMS_0014_EDITPageDef.CompCode.inputValue}"
+                 NDType="java.lang.String"/>
+    </action>
   </bindings>
 </pageDefinition>

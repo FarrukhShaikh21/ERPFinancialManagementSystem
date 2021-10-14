@@ -8,6 +8,10 @@
   </executables>
   <bindings>
     <action IterBinding="GlBudgetByBudgetIdCRUDIterator" id="CreateInsert" RequiresUpdateModel="true"
-            Action="createInsertRow"/>
+            Action="createWithParams" InstanceName="ERPFMSModuleDataControl.GlBudgetByBudgetIdCRUD"
+            DataControl="ERPFMSModuleDataControl">
+      <NamedData NDName="CompanyId" NDValue="#{data.erpfms_viewfms_FMS_0014_EDITPageDef.CompCode.inputValue}"
+                 NDType="java.lang.String"/>
+    </action>
   </bindings>
 </pageDefinition>

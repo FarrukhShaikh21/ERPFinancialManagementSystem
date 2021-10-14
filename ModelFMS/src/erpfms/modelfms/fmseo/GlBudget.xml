@@ -192,7 +192,7 @@
     Type="java.lang.String"
     ColumnType="VARCHAR2"
     TableName="GL_BUDGET"
-    DefaultValue="N">
+    DefaultValue="Y">
     <DesignTime>
       <Attr Name="_DisplaySize" Value="1"/>
     </DesignTime>

@@ -53,7 +53,7 @@
                                                 </af:link>
                                                 <af:link actionListener="#{bindings.CreateWithParams.execute}"
                                                          text="CreateWithParams"
-                                                         disabled="#{!bindings.CreateWithParams.enabled}" id="l4"
+                                                         disabled="#{!bindings.CreateWithParams.enabled}" id="l9"
                                                          rendered="false"/>
                                                 <af:link text="UnSupervise" id="l18" partialSubmit="true"
                                                          icon="#{resource['images:imgUnSuperviseRecord.png']}"
@@ -192,24 +192,24 @@
                                               columns="#{bindings.BudgetShortName.hints.displayWidth}"
                                               maximumLength="#{bindings.BudgetShortName.hints.precision}"
                                               shortDesc="#{bindings.BudgetShortName.hints.tooltip}" id="it4"
-                                              simple="true">
+                                              simple="true" contentStyle="width:100%">
                                     <f:validator binding="#{bindings.BudgetShortName.validator}"/>
                                 </af:inputText>
                             </af:gridCell>
                         </af:gridRow>
                         <af:gridRow id="gr5" marginTop="5px" marginBottom="5px">
                             <af:gridCell id="gc5" width="15%" marginStart="5px" marginEnd="5px" halign="center">
-                                <af:outputLabel value="#{bindings.OpenDate.hints.label}" id="ol4"/>
+                                <af:outputLabel value="#{bindings.DocumentDate.hints.label}" id="ol4"/>
                             </af:gridCell>
                             <af:gridCell id="gc6" width="85%" marginStart="5px" marginEnd="5px" halign="stretch">
-                                <af:inputDate value="#{bindings.OpenDate.inputValue}"
-                                              label="#{bindings.OpenDate.hints.label}"
-                                              required="#{bindings.OpenDate.hints.mandatory}"
-                                              columns="#{bindings.OpenDate.hints.displayWidth}"
-                                              shortDesc="#{bindings.OpenDate.hints.tooltip}" id="id1" simple="true"
-                                              readOnly="#{bindings.IsSupervised.inputValue=='Y' || (pageFlowScope.ERPMainTempBean.LERPAllowEdit=='N' &amp;&amp; bindings.TaxTypeCode.inputValue>0)}">
-                                    <f:validator binding="#{bindings.OpenDate.validator}"/>
-                                    <af:convertDateTime pattern="#{bindings.OpenDate.format}"/>
+                                <af:inputDate value="#{bindings.DocumentDate.inputValue}"
+                                              label="#{bindings.DocumentDate.hints.label}"
+                                              required="#{bindings.DocumentDate.hints.mandatory}"
+                                              columns="#{bindings.DocumentDate.hints.displayWidth}"
+                                              shortDesc="#{bindings.DocumentDate.hints.tooltip}" id="id1" simple="true"
+                                              contentStyle="width:90%">
+                                    <f:validator binding="#{bindings.DocumentDate.validator}"/>
+                                    <af:convertDateTime pattern="#{bindings.DocumentDate.format}"/>
                                 </af:inputDate>
                             </af:gridCell>
                         </af:gridRow>
@@ -233,7 +233,7 @@
                             <af:gridCell id="gc26" columnSpan="2" styleClass="ERPEntryAreaHeading" halign="stretch"
                                          width="100%">
                                 <af:spacer width="10" height="10" id="s4"/>
-                                <af:outputText value="Other Tax Information" id="ot4" styleClass="ERPEntryAreaFont"/>
+                                <af:outputText value="GL Period Information" id="ot4" styleClass="ERPEntryAreaFont"/>
                             </af:gridCell>
                         </af:gridRow>
                         <af:gridRow marginTop="5px" height="auto" marginBottom="5px" id="gr6">
