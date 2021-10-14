@@ -2862,7 +2862,7 @@
       <property
          name="fromOutcome">ERPBACKCRUD</property>
       <property
-         name="sdm:polyPoints">T44,-953.1426,1738.7471,-1188.1465,1578.3447,B56</property>
+         name="sdm:polyPoints">T44,-953.1426,1738.0459,-1188.1465,1578.3447,B56</property>
    </ControlFlowCase>
    <MethodCall
       id="MethodCall260">

@@ -2,6 +2,341 @@
 <!DOCTYPE html>
 <f:view xmlns:f="http://java.sun.com/jsf/core" xmlns:af="http://xmlns.oracle.com/adf/faces/rich">
     <af:document title="FMS_0014_EDIT_EDIT.jsf" id="d1">
-        <af:form id="f1"></af:form>
+        <af:messages id="m1"/>
+        <af:form id="f1">
+            <af:popup childCreation="deferred" autoCancel="disabled" id="p1">
+                <af:dialog id="d2" title="Confirmation!" type="yesNo"
+                           dialogListener="#{pageFlowScope.OracleERPBean.doERPConfirmDelete}">
+                    <f:facet name="buttonBar"/>
+                    <af:outputText value="Do you want to delete this record?" id="ot2" styleClass="ErpDeleteConfirmText"/>
+                </af:dialog>
+            </af:popup>
+            <af:popup childCreation="deferred" autoCancel="disabled" id="p2"
+                            binding="#{pageFlowScope.OracleERPBean.lerpSupervisePopupConfirm}" contentDelivery="lazyUncached">
+                    <af:dialog id="d3" type="yesNo" closeIconVisible="false" title="Supervise"
+                               dialogListener="#{pageFlowScope.OracleERPBean.doERPConfirmSuperviseDialog}">
+                      <af:outputText value="Do you want to Supervise this transaction?" id="ot8" inlineStyle="font-size:large;"/>
+                      <f:facet name="buttonBar"/>
+                            </af:dialog>
+                </af:popup>
+            
+                <af:popup childCreation="deferred" autoCancel="disabled" id="p3"
+                            binding="#{pageFlowScope.OracleERPBean.lerpUnSupervisePopupConfirm}" contentDelivery="lazyUncached">
+                    <af:dialog id="d4" type="yesNo" closeIconVisible="false" title="UnSupervise"
+                               dialogListener="#{pageFlowScope.OracleERPBean.doERPConfirmUnSuperviseDialog}">
+                      <af:outputText value="Do you want to UnSupervise this transaction?" id="ot9" inlineStyle="font-size:large;"/>
+                      <f:facet name="buttonBar"/>
+                            </af:dialog>
+                </af:popup>
+            <af:decorativeBox id="db2" dimensionsFrom="parent" partialTriggers="l2 l1 l3">
+                <f:facet name="center">
+                    <af:panelGridLayout id="pgl2">
+                        <af:gridRow id="gr15" marginTop="5px" marginBottom="5px">
+                            <af:gridCell id="gc27" columnSpan="2" rowSpan="1" halign="stretch" valign="stretch">
+                                <af:panelGridLayout id="pgl1" styleClass="ERPToolBarBackground">
+                                    <af:gridRow marginTop="5px" height="auto" marginBottom="5px" id="gr1">
+                                        <af:gridCell marginStart="5px" width="50%" id="gc1" valign="middle">
+                                            <af:spacer width="10" height="10" id="s2"/>
+                                            <af:outputText value="#{pageFlowScope.ERPMainTempBean.LErpActivityName}"
+                                                           id="ot1" styleClass="ERPActivityNameFormHeading"/>
+                                        </af:gridCell>
+                                        <af:gridCell marginStart="5px" width="50%" marginEnd="5px" id="gc2"
+                                                     halign="stretch">
+                                            <af:panelGroupLayout id="pgl4" layout="horizontal" halign="end">
+                                                <af:link id="l5" partialSubmit="true"
+                                                         icon="#{resource['images:imgCloseDialog.png']}" text="Close"
+                                                         iconPosition="top"
+                                                         action="#{pageFlowScope.OracleERPBean.doBackFromEdit}"
+                                                         shortDesc="Close Form">
+                                                    <af:setActionListener from="#{'ERPBACKCRUD'}"
+                                                                          to="#{pageFlowScope.OracleERPBean.ERPBackActionName}"/>
+                                                </af:link>
+                                                <af:link actionListener="#{bindings.CreateWithParams.execute}"
+                                                         text="CreateWithParams"
+                                                         disabled="#{!bindings.CreateWithParams.enabled}" id="l4"
+                                                         rendered="false"/>
+                                                <af:link text="UnSupervise" id="l18" partialSubmit="true"
+                                                         icon="#{resource['images:imgUnSuperviseRecord.png']}"
+                                                         iconPosition="top"
+                                                         action="#{pageFlowScope.OracleERPBean.doERPPopUnSuperviseRecord}"
+                                                         disabled="#{bindings.IsSupervised.inputValue=='N' || pageFlowScope.ERPMainTempBean.LERPAllowUnsupervise=='N'}"
+                                                         shortDesc="Un Supervise Record">
+                                                    <af:setActionListener from="#{'GlTaxTypeCRUDIterator'}"
+                                                                          to="#{pageFlowScope.OracleERPBean.LIteratorName}"/>
+                                                </af:link>
+                                                <af:link text="Supervise" id="l19" partialSubmit="true"
+                                                         icon="#{resource['images:imgSuperviseRecord.png']}"
+                                                         iconPosition="top"
+                                                         action="#{pageFlowScope.OracleERPBean.doERPPopSupervisedRecord}"
+                                                         disabled="#{bindings.IsSupervised.inputValue=='Y' || pageFlowScope.ERPMainTempBean.LERPAllowSupervise=='N' || bindings.TaxTypeCode.inputValue==null}"
+                                                         shortDesc="Supervise Record">
+                                                    <af:setActionListener from="#{'GlTaxTypeCRUDIterator'}"
+                                                                          to="#{pageFlowScope.OracleERPBean.LIteratorName}"/>
+                                                </af:link>
+                                                <af:link actionListener="#{bindings.Delete.execute}" text="Delete"
+                                                         id="l8" rendered="false"/>
+                                                <af:link text="Delete" id="l12" partialSubmit="true"
+                                                         icon="#{resource['images:imgDeleteRecord.png']}"
+                                                         iconPosition="top"
+                                                         disabled="#{pageFlowScope.ERPMainTempBean.LERPAllowDelete=='N' || bindings.IsSupervised.inputValue=='Y' }"
+                                                         shortDesc="Delete Record">
+                                                    <af:showPopupBehavior popupId="p1"/>
+                                                </af:link>
+                                                <af:link text="Add" id="l1"
+                                                         icon="#{resource['images:imgAddRecord.png']}"
+                                                         iconPosition="top" partialSubmit="true"
+                                                         action="#{pageFlowScope.OracleERPBean.doERPAddRecordWithPara}"
+                                                         disabled="#{pageFlowScope.ERPMainTempBean.LERPAllowAdd=='N'}"
+                                                         shortDesc="Add New Record">
+                                                    <af:setActionListener from="#{'GlChartOfAccountsByCOIDCRUDIterator'}"
+                                                                          to="#{pageFlowScope.OracleERPBean.LIteratorName}"/>
+                                                </af:link>
+                                                <af:link actionListener="#{bindings.Rollback.execute}" text="Rollback"
+                                                         immediate="true" id="l6" rendered="false">
+                                                    <af:resetActionListener/>
+                                                </af:link>
+                                                <af:link actionListener="#{bindings.Rollback.execute}" text="Undo"
+                                                         immediate="true" id="l3"
+                                                         icon="#{resource['images:imgUndo.png']}" iconPosition="top"
+                                                         partialSubmit="true"
+                                                         disabled="#{bindings.IsSupervised.inputValue=='Y' }"
+                                                         shortDesc="Undo Record">
+                                                    <af:resetActionListener/>
+                                                </af:link>
+                                                <af:link actionListener="#{bindings.Commit.execute}" text="Commit"
+                                                         id="l7" rendered="false"/>
+                                                <af:link actionListener="#{bindings.Commit.execute}" text="Save" id="l2"
+                                                         icon="#{resource['images:imgSave.png']}" iconPosition="top"
+                                                         partialSubmit="true"
+                                                         disabled="#{bindings.IsSupervised.inputValue=='Y' }"
+                                                         shortDesc="Save Record"/>
+                                                <f:facet name="separator">
+                                                    <af:spacer width="10" height="10" id="s1"/>
+                                                </f:facet>
+                                            </af:panelGroupLayout>
+                                        </af:gridCell>
+                                    </af:gridRow>
+                                </af:panelGridLayout>
+                            </af:gridCell>
+                        </af:gridRow>
+                        <af:gridRow id="gr13">
+                            <af:gridCell id="gc25" columnSpan="2" rowSpan="1" styleClass="ERPEntryAreaHeading"
+                                         halign="stretch">
+                                <af:spacer width="10" height="10" id="s3"/>
+                                <af:outputText value="Basic Information" id="ot3" styleClass="ERPEntryAreaFont"/>
+                            </af:gridCell>
+                        </af:gridRow>
+                        <af:gridRow marginTop="5px" height="auto" id="gr2">
+                            <af:gridCell marginStart="5px" width="15%" id="gc3" marginEnd="5px" halign="center">
+                                <af:outputLabel value="#{bindings.BudgetName.hints.label}" id="ol1"/>
+                            </af:gridCell>
+                            <af:gridCell marginStart="5px" width="85%" id="gc4" columnSpan="1" rowSpan="1"
+                                         halign="stretch">
+                                <af:inputText value="#{bindings.BudgetName.inputValue}"
+                                              label="#{bindings.BudgetName.hints.label}"
+                                              required="#{bindings.BudgetName.hints.mandatory}"
+                                              columns="#{bindings.BudgetName.hints.displayWidth}"
+                                              maximumLength="#{bindings.BudgetName.hints.precision}"
+                                              shortDesc="#{bindings.BudgetName.hints.tooltip}" id="it1" simple="true"
+                                              contentStyle="width:100%">
+                                    <f:validator binding="#{bindings.BudgetName.validator}"/>
+                                </af:inputText>
+                                <af:inputText value="#{bindings.IsUnsupervised.inputValue}"
+                                              label="#{bindings.IsUnsupervised.hints.label}"
+                                              required="#{bindings.IsUnsupervised.hints.mandatory}"
+                                              columns="#{bindings.IsUnsupervised.hints.displayWidth}"
+                                              maximumLength="#{bindings.IsUnsupervised.hints.precision}"
+                                              shortDesc="#{bindings.IsUnsupervised.hints.tooltip}" id="it5"
+                                              rendered="false">
+                                    <f:validator binding="#{bindings.IsUnsupervised.validator}"/>
+                                </af:inputText>
+                                <af:inputText value="#{bindings.IsSupervised.inputValue}"
+                                              label="#{bindings.IsSupervised.hints.label}"
+                                              required="#{bindings.IsSupervised.hints.mandatory}"
+                                              columns="#{bindings.IsSupervised.hints.displayWidth}"
+                                              maximumLength="#{bindings.IsSupervised.hints.precision}"
+                                              shortDesc="#{bindings.IsSupervised.hints.tooltip}" id="it6"
+                                              rendered="false">
+                                    <f:validator binding="#{bindings.IsSupervised.validator}"/>
+                                </af:inputText>
+                            </af:gridCell>
+                        </af:gridRow>
+                        <af:gridRow marginTop="5px" height="auto" id="gr3">
+                            <af:gridCell marginStart="5px" width="15%" id="gc7" marginEnd="5px" halign="center">
+                                <af:outputLabel value="#{bindings.BudgetShortCode.hints.label}" id="ol2"/>
+                            </af:gridCell>
+                            <af:gridCell marginStart="5px" width="85%" id="gc8" marginEnd="5px" columnSpan="1"
+                                         rowSpan="1" halign="stretch">
+                                <af:inputText value="#{bindings.BudgetShortCode.inputValue}"
+                                              label="#{bindings.BudgetShortCode.hints.label}"
+                                              required="#{bindings.BudgetShortCode.hints.mandatory}"
+                                              columns="#{bindings.BudgetShortCode.hints.displayWidth}"
+                                              maximumLength="#{bindings.BudgetShortCode.hints.precision}"
+                                              shortDesc="#{bindings.BudgetShortCode.hints.tooltip}" id="it2"
+                                              simple="true" readOnly="true">
+                                    <f:validator binding="#{bindings.BudgetShortCode.validator}"/>
+                                    <af:convertNumber groupingUsed="false"
+                                                      pattern="#{bindings.BudgetShortCode.format}"/>
+                                </af:inputText>
+                            </af:gridCell>
+                        </af:gridRow>
+                        <af:gridRow marginTop="5px" height="auto" marginBottom="5px" id="gr4">
+                            <af:gridCell marginStart="5px" width="15%" id="gc11" halign="center">
+                                <af:outputLabel value="#{bindings.BudgetShortName.hints.label}" id="ol3"/>
+                            </af:gridCell>
+                            <af:gridCell marginStart="5px" width="85%" id="gc12" marginEnd="5px" columnSpan="1"
+                                         rowSpan="1" halign="stretch">
+                                <af:inputText value="#{bindings.BudgetShortName.inputValue}"
+                                              label="#{bindings.BudgetShortName.hints.label}"
+                                              required="#{bindings.BudgetShortName.hints.mandatory}"
+                                              columns="#{bindings.BudgetShortName.hints.displayWidth}"
+                                              maximumLength="#{bindings.BudgetShortName.hints.precision}"
+                                              shortDesc="#{bindings.BudgetShortName.hints.tooltip}" id="it4"
+                                              simple="true">
+                                    <f:validator binding="#{bindings.BudgetShortName.validator}"/>
+                                </af:inputText>
+                            </af:gridCell>
+                        </af:gridRow>
+                        <af:gridRow id="gr5" marginTop="5px" marginBottom="5px">
+                            <af:gridCell id="gc5" width="15%" marginStart="5px" marginEnd="5px" halign="center">
+                                <af:outputLabel value="#{bindings.OpenDate.hints.label}" id="ol4"/>
+                            </af:gridCell>
+                            <af:gridCell id="gc6" width="85%" marginStart="5px" marginEnd="5px" halign="stretch">
+                                <af:inputDate value="#{bindings.OpenDate.inputValue}"
+                                              label="#{bindings.OpenDate.hints.label}"
+                                              required="#{bindings.OpenDate.hints.mandatory}"
+                                              columns="#{bindings.OpenDate.hints.displayWidth}"
+                                              shortDesc="#{bindings.OpenDate.hints.tooltip}" id="id1" simple="true"
+                                              readOnly="#{bindings.IsSupervised.inputValue=='Y' || (pageFlowScope.ERPMainTempBean.LERPAllowEdit=='N' &amp;&amp; bindings.TaxTypeCode.inputValue>0)}">
+                                    <f:validator binding="#{bindings.OpenDate.validator}"/>
+                                    <af:convertDateTime pattern="#{bindings.OpenDate.format}"/>
+                                </af:inputDate>
+                            </af:gridCell>
+                        </af:gridRow>
+                        <af:gridRow id="gr8">
+                            <af:gridCell id="gc15" width="15%" marginStart="5px" marginEnd="5px" halign="center">
+                                <af:outputLabel value="#{bindings.IsActive.label}" id="ol5"/>
+                            </af:gridCell>
+                            <af:gridCell id="gc16" halign="stretch">
+                                <af:selectOneChoice value="#{bindings.IsActive.inputValue}"
+                                                    label="#{bindings.IsActive.label}"
+                                                    required="#{bindings.IsActive.hints.mandatory}"
+                                                    shortDesc="#{bindings.IsActive.hints.tooltip}" id="soc1"
+                                                    simple="true" contentStyle="width:100%"
+                                                    readOnly="#{bindings.IsSupervised.inputValue=='Y' || (pageFlowScope.ERPMainTempBean.LERPAllowEdit=='N' &amp;&amp; bindings.TaxTypeCode.inputValue>0)}">
+                                    <f:selectItems value="#{bindings.IsActive.items}" id="si1"/>
+                                    <f:validator binding="#{bindings.IsActive.validator}"/>
+                                </af:selectOneChoice>
+                            </af:gridCell>
+                        </af:gridRow>
+                        <af:gridRow id="gr14" marginTop="5px" marginBottom="5px">
+                            <af:gridCell id="gc26" columnSpan="2" styleClass="ERPEntryAreaHeading" halign="stretch"
+                                         width="100%">
+                                <af:spacer width="10" height="10" id="s4"/>
+                                <af:outputText value="Other Tax Information" id="ot4" styleClass="ERPEntryAreaFont"/>
+                            </af:gridCell>
+                        </af:gridRow>
+                        <af:gridRow marginTop="5px" height="auto" marginBottom="5px" id="gr6">
+                            <af:gridCell marginStart="5px" width="15%" id="gc9" marginEnd="5px" halign="center">
+                                <af:outputLabel value="#{bindings.IsStandard.label}" id="ol6"/>
+                            </af:gridCell>
+                            <af:gridCell marginStart="5px" width="85%" id="gc10" halign="stretch">
+                                <af:selectOneChoice value="#{bindings.IsStandard.inputValue}"
+                                                    label="#{bindings.IsStandard.label}"
+                                                    required="#{bindings.IsStandard.hints.mandatory}"
+                                                    shortDesc="#{bindings.IsStandard.hints.tooltip}" id="soc2"
+                                                    simple="true" contentStyle="width:100%"
+                                                    readOnly="#{bindings.IsSupervised.inputValue=='Y' || (pageFlowScope.ERPMainTempBean.LERPAllowEdit=='N' &amp;&amp; bindings.TaxTypeCode.inputValue>0)}">
+                                    <f:selectItems value="#{bindings.IsStandard.items}" id="si2"/>
+                                    <f:validator binding="#{bindings.IsStandard.validator}"/>
+                                </af:selectOneChoice>
+                            </af:gridCell>
+                        </af:gridRow>
+                        <af:gridRow id="gr7" marginTop="5px" marginBottom="5px">
+                            <af:gridCell marginStart="5px" width="15%" id="gc13" marginEnd="5px" halign="center">
+                                <af:outputLabel value="#{bindings.IsProduct.label}" id="ol7"/>
+                            </af:gridCell>
+                            <af:gridCell marginStart="5px" width="85%" marginEnd="5px" id="gc14" halign="stretch">
+                                <af:selectOneChoice value="#{bindings.IsProduct.inputValue}"
+                                                    label="#{bindings.IsProduct.label}"
+                                                    required="#{bindings.IsProduct.hints.mandatory}"
+                                                    shortDesc="#{bindings.IsProduct.hints.tooltip}" id="soc3"
+                                                    simple="true" contentStyle="width:100%"
+                                                    readOnly="#{bindings.IsSupervised.inputValue=='Y' || (pageFlowScope.ERPMainTempBean.LERPAllowEdit=='N' &amp;&amp; bindings.TaxTypeCode.inputValue>0)}">
+                                    <f:selectItems value="#{bindings.IsProduct.items}" id="si3"/>
+                                    <f:validator binding="#{bindings.IsProduct.validator}"/>
+                                </af:selectOneChoice>
+                            </af:gridCell>
+                        </af:gridRow>
+                        <af:gridRow id="gr9">
+                            <af:gridCell id="gc17" halign="center">
+                                <af:outputLabel value="#{bindings.IsLocationWise.label}" id="ol8"/>
+                            </af:gridCell>
+                            <af:gridCell id="gc18" halign="stretch">
+                                <af:selectOneChoice value="#{bindings.IsLocationWise.inputValue}"
+                                                    label="#{bindings.IsLocationWise.label}"
+                                                    required="#{bindings.IsLocationWise.hints.mandatory}"
+                                                    shortDesc="#{bindings.IsLocationWise.hints.tooltip}" id="soc4"
+                                                    simple="true" contentStyle="width:100%"
+                                                    readOnly="#{bindings.IsSupervised.inputValue=='Y' || (pageFlowScope.ERPMainTempBean.LERPAllowEdit=='N' &amp;&amp; bindings.TaxTypeCode.inputValue>0)}">
+                                    <f:selectItems value="#{bindings.IsLocationWise.items}" id="si4"/>
+                                    <f:validator binding="#{bindings.IsLocationWise.validator}"/>
+                                </af:selectOneChoice>
+                            </af:gridCell>
+                        </af:gridRow>
+                        <af:gridRow id="gr10" marginTop="5px" marginBottom="5px">
+                            <af:gridCell id="gc19" width="15%" marginStart="5px" marginEnd="5px" halign="center">
+                                <af:outputLabel value="#{bindings.IsExempted.label}" id="ol9"/>
+                            </af:gridCell>
+                            <af:gridCell id="gc20" marginStart="5px" marginEnd="5px" width="85%" halign="stretch">
+                                <af:selectOneChoice value="#{bindings.IsExempted.inputValue}"
+                                                    label="#{bindings.IsExempted.label}"
+                                                    required="#{bindings.IsExempted.hints.mandatory}"
+                                                    shortDesc="#{bindings.IsExempted.hints.tooltip}" id="soc5"
+                                                    simple="true" contentStyle="width:100%"
+                                                    readOnly="#{bindings.IsSupervised.inputValue=='Y' || (pageFlowScope.ERPMainTempBean.LERPAllowEdit=='N' &amp;&amp; bindings.TaxTypeCode.inputValue>0)}">
+                                    <f:selectItems value="#{bindings.IsExempted.items}" id="si5"/>
+                                    <f:validator binding="#{bindings.IsExempted.validator}"/>
+                                </af:selectOneChoice>
+                            </af:gridCell>
+                        </af:gridRow>
+                        <af:gridRow id="gr11">
+                            <af:gridCell id="gc21" halign="center">
+                                <af:outputLabel value="#{bindings.IsCustTypeWise.label}" id="ol10"/>
+                            </af:gridCell>
+                            <af:gridCell id="gc22" halign="stretch">
+                                <af:selectOneChoice value="#{bindings.IsCustTypeWise.inputValue}"
+                                                    label="#{bindings.IsCustTypeWise.label}"
+                                                    required="#{bindings.IsCustTypeWise.hints.mandatory}"
+                                                    shortDesc="#{bindings.IsCustTypeWise.hints.tooltip}" id="soc6"
+                                                    simple="true" contentStyle="width:100%"
+                                                    readOnly="#{bindings.IsSupervised.inputValue=='Y' || (pageFlowScope.ERPMainTempBean.LERPAllowEdit=='N' &amp;&amp; bindings.TaxTypeCode.inputValue>0)}">
+                                    <f:selectItems value="#{bindings.IsCustTypeWise.items}" id="si6"/>
+                                    <f:validator binding="#{bindings.IsCustTypeWise.validator}"/>
+                                </af:selectOneChoice>
+                            </af:gridCell>
+                        </af:gridRow>
+                        <af:gridRow id="gr12" marginTop="5px" marginBottom="5px">
+                            <af:gridCell id="gc23" width="15%" marginStart="5px" marginEnd="5px" halign="center">
+                                <af:outputLabel value="#{bindings.IsCustCategoryWise.label}" id="ol11"/>
+                            </af:gridCell>
+                            <af:gridCell id="gc24" halign="stretch" marginStart="5px" marginEnd="5px" width="85%">
+                                <af:selectOneChoice value="#{bindings.IsCustCategoryWise.inputValue}"
+                                                    label="#{bindings.IsCustCategoryWise.label}"
+                                                    required="#{bindings.IsCustCategoryWise.hints.mandatory}"
+                                                    shortDesc="#{bindings.IsCustCategoryWise.hints.tooltip}" id="soc7"
+                                                    simple="true" contentStyle="width:100%"
+                                                    readOnly="#{bindings.IsSupervised.inputValue=='Y' || (pageFlowScope.ERPMainTempBean.LERPAllowEdit=='N' &amp;&amp; bindings.TaxTypeCode.inputValue>0)}">
+                                    <f:selectItems value="#{bindings.IsCustCategoryWise.items}" id="si7"/>
+                                    <f:validator binding="#{bindings.IsCustCategoryWise.validator}"/>
+                                </af:selectOneChoice>
+                            </af:gridCell>
+                        </af:gridRow>
+                    </af:panelGridLayout>
+                </f:facet>
+                <f:facet name="top"/>
+            </af:decorativeBox>
+        </af:form>
+        <f:facet name="metaContainer"/>
     </af:document>
 </f:view>

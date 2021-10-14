@@ -24,7 +24,7 @@
                                                                  shortDesc="Close Form"/>
                                                         <af:link id="l2" partialSubmit="true"
                                                                  icon="#{resource['images:imgNewDocument.png']}"
-                                                                 iconPosition="top" action="ERPADDFMS_0012_EDIT_EDIT"
+                                                                 iconPosition="top" action="ERP-ADD-ACT-FMS_0014"
                                                                  shortDesc="Add New Record"/>
                                                         <f:facet name="separator">
                                                             <af:spacer width="10" height="10" id="s1"/>

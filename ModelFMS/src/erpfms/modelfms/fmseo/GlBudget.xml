@@ -33,14 +33,14 @@
   <Attribute
     Name="BudgetShortCode"
     IsUnique="true"
-    IsNotNull="true"
     Precision="10"
     Scale="0"
     ColumnName="BUDGET_SHORT_CODE"
     SQLType="NUMERIC"
-    Type="java.lang.Long"
+    Type="java.lang.Integer"
     ColumnType="NUMBER"
-    TableName="GL_BUDGET">
+    TableName="GL_BUDGET"
+    IsNotNull="true">
     <Properties>
       <SchemaBasedProperties>
         <LABEL
@@ -94,12 +94,14 @@
   </Attribute>
   <Attribute
     Name="DocumentDate"
-    IsNotNull="true"
     ColumnName="DOCUMENT_DATE"
     SQLType="DATE"
-    Type="java.sql.Timestamp"
-    ColumnType="DATE"
-    TableName="GL_BUDGET">
+    Type="oracle.jbo.domain.Date"
+    ColumnType="NUMBER"
+    TableName="GL_BUDGET"
+    IsNotNull="true">
+    <TransientExpression
+      trustMode="trusted"><![CDATA[adf.currentDate]]></TransientExpression>
     <Properties>
       <SchemaBasedProperties>
         <LABEL
@@ -135,7 +137,8 @@
     SQLType="DATE"
     Type="java.sql.Timestamp"
     ColumnType="DATE"
-    TableName="GL_BUDGET">
+    TableName="GL_BUDGET"
+    RetrievedOnInsert="true">
     <Properties>
       <SchemaBasedProperties>
         <LABEL
@@ -169,7 +172,8 @@
     SQLType="DATE"
     Type="java.sql.Timestamp"
     ColumnType="DATE"
-    TableName="GL_BUDGET">
+    TableName="GL_BUDGET"
+    RetrievedOnUpdate="true">
     <Properties>
       <SchemaBasedProperties>
         <LABEL
@@ -187,7 +191,8 @@
     SQLType="VARCHAR"
     Type="java.lang.String"
     ColumnType="VARCHAR2"
-    TableName="GL_BUDGET">
+    TableName="GL_BUDGET"
+    DefaultValue="N">
     <DesignTime>
       <Attr Name="_DisplaySize" Value="1"/>
     </DesignTime>
@@ -207,7 +212,7 @@
     Scale="0"
     ColumnName="FISCAL_YEAR_SNO"
     SQLType="NUMERIC"
-    Type="java.lang.Long"
+    Type="java.lang.Integer"
     ColumnType="NUMBER"
     TableName="GL_BUDGET">
     <Properties>
@@ -226,7 +231,7 @@
     Scale="0"
     ColumnName="START_PERIOD_SNO"
     SQLType="NUMERIC"
-    Type="java.lang.Long"
+    Type="java.lang.Integer"
     ColumnType="NUMBER"
     TableName="GL_BUDGET">
     <Properties>
@@ -243,7 +248,7 @@
     IsNotNull="true"
     ColumnName="PERIOD_START_DATE"
     SQLType="DATE"
-    Type="java.sql.Timestamp"
+    Type="oracle.jbo.domain.Date"
     ColumnType="DATE"
     TableName="GL_BUDGET">
     <Properties>
@@ -262,7 +267,7 @@
     Scale="0"
     ColumnName="END_PERIOD_SNO"
     SQLType="NUMERIC"
-    Type="java.lang.Long"
+    Type="java.lang.Integer"
     ColumnType="NUMBER"
     TableName="GL_BUDGET">
     <Properties>
@@ -279,7 +284,7 @@
     IsNotNull="true"
     ColumnName="PERIOD_END_DATE"
     SQLType="DATE"
-    Type="java.sql.Timestamp"
+    Type="oracle.jbo.domain.Date"
     ColumnType="DATE"
     TableName="GL_BUDGET">
     <Properties>
@@ -313,9 +318,10 @@
     Name="SupervisedDate"
     ColumnName="SUPERVISED_DATE"
     SQLType="DATE"
-    Type="java.sql.Timestamp"
+    Type="oracle.jbo.domain.Date"
     ColumnType="DATE"
-    TableName="GL_BUDGET">
+    TableName="GL_BUDGET"
+    RetrievedOnUpdate="true">
     <Properties>
       <SchemaBasedProperties>
         <LABEL
@@ -333,7 +339,8 @@
     SQLType="VARCHAR"
     Type="java.lang.String"
     ColumnType="VARCHAR2"
-    TableName="GL_BUDGET">
+    TableName="GL_BUDGET"
+    DefaultValue="N">
     <DesignTime>
       <Attr Name="_DisplaySize" Value="1"/>
     </DesignTime>
@@ -368,9 +375,10 @@
     Name="UnSupervisedDate"
     ColumnName="UN_SUPERVISED_DATE"
     SQLType="DATE"
-    Type="java.sql.Timestamp"
+    Type="oracle.jbo.domain.Date"
     ColumnType="DATE"
-    TableName="GL_BUDGET">
+    TableName="GL_BUDGET"
+    RetrievedOnUpdate="true">
     <Properties>
       <SchemaBasedProperties>
         <LABEL
@@ -388,7 +396,8 @@
     SQLType="VARCHAR"
     Type="java.lang.String"
     ColumnType="VARCHAR2"
-    TableName="GL_BUDGET">
+    TableName="GL_BUDGET"
+    DefaultValue="N">
     <DesignTime>
       <Attr Name="_DisplaySize" Value="1"/>
     </DesignTime>
@@ -430,8 +439,7 @@
     Type="java.lang.Integer"
     ColumnType="NUMBER"
     TableName="GL_BUDGET">
-    <TransientExpression
-      trustMode="untrusted"><![CDATA[erpglobals.modelglobals.ERPGlobalPLSQLClass.doGetModelGlobalDefCompany()]]></TransientExpression>
+    <TransientExpression><![CDATA[erpglobals.modelglobals.ERPGlobalPLSQLClass.doGetModelGlobalDefCompany()]]></TransientExpression>
     <Properties>
       <SchemaBasedProperties>
         <LABEL
@@ -441,6 +449,30 @@
       </SchemaBasedProperties>
     </Properties>
   </Attribute>
+  <Key
+    Name="GlBudgetBudgetShortCodeCheck">
+    <DesignTime>
+      <Attr Name="_isNotNull" Value="true"/>
+      <Attr Name="_DBObjectName" Value="GL_BUDGET_BUDGET_SHORT_CODE_CH"/>
+      <Attr Name="_checkCondition" Value='"BUDGET_SHORT_CODE" IS NOT NULL'/>
+      <Attr Name="_isCheck" Value="true"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="erpfms.modelfms.fmseo.GlBudget.BudgetShortCode"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="GlBudgetDocumentDateCheck">
+    <DesignTime>
+      <Attr Name="_isNotNull" Value="true"/>
+      <Attr Name="_DBObjectName" Value="GL_BUDGET_DOCUMENT_DATE_CHECK"/>
+      <Attr Name="_checkCondition" Value='"DOCUMENT_DATE" IS NOT NULL'/>
+      <Attr Name="_isCheck" Value="true"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="erpfms.modelfms.fmseo.GlBudget.DocumentDate"/>
+    </AttrArray>
+  </Key>
   <Key
     Name="PkGlBudget"
     PrimaryKey="true">
