@@ -165,6 +165,8 @@
           usageId="erpfms_viewfms_ERPBTFFMS_ERPBTFFMS_ExecuteWithParams1PageDef111111111111111111111111111111111111"/>
     <page path="/WEB-INF/ERPBTFFMS.xml#ERPBTFFMS@ExeGLBudgetByBudgetIDFMS_0014"
           usageId="erpfms_viewfms_ERPBTFFMS_ERPBTFFMS_ExecuteWithParams1PageDef1111111111111111111111111111111111111"/>
+    <page path="/WEB-INF/ERPBTFFMS.xml#ERPBTFFMS@CWPGLBudgetFMS_0014_EDIT_EDIT"
+          usageId="erpfms_viewfms_ERPBTFFMS_ERPBTFFMS_CreateInsertPageDef1"/>
   </pageMap>
   <pageDefinitionUsages>
     <page id="erpfms_viewfms_FMSMainPageDef" path="erpfms.viewfms.pageDefs.FMSMainPageDef"/>
@@ -331,6 +333,8 @@
           path="erpfms.viewfms.pageDefs.ERPBTFFMS_ERPBTFFMS_ExecuteWithParams1PageDef111111111111111111111111111111111111"/>
     <page id="erpfms_viewfms_ERPBTFFMS_ERPBTFFMS_ExecuteWithParams1PageDef1111111111111111111111111111111111111"
           path="erpfms.viewfms.pageDefs.ERPBTFFMS_ERPBTFFMS_ExecuteWithParams1PageDef1111111111111111111111111111111111111"/>
+    <page id="erpfms_viewfms_ERPBTFFMS_ERPBTFFMS_CreateInsertPageDef1"
+          path="erpfms.viewfms.pageDefs.ERPBTFFMS_ERPBTFFMS_CreateInsertPageDef1"/>
   </pageDefinitionUsages>
   <dataControlUsages>
     <BC4JDataControl id="ERPTemModuleDataControl" Package="erptemplate.modeltemp.temam"

@@ -600,6 +600,12 @@
         <fixed-outcome>ERP-EDIT-ACT-FMS_0014</fixed-outcome>
       </outcome>
     </method-call>
+    <method-call id="CWPGLBudgetFMS_0014_EDIT_EDIT">
+      <method>#{bindings.CreateInsert.execute}</method>
+      <outcome>
+        <fixed-outcome>ERP-ADD-ACT-FMS_0014</fixed-outcome>
+      </outcome>
+    </method-call>
     <control-flow-rule id="__8">
       <from-activity-id>doFMSGotoErpActivity</from-activity-id>
       <control-flow-case id="__9">
@@ -1421,6 +1427,10 @@
         <from-outcome>ERP-EDIT-ACT-FMS_0014</from-outcome>
         <to-activity-id>ExeGLBudgetByBudgetIDFMS_0014</to-activity-id>
       </control-flow-case>
+      <control-flow-case id="__251">
+        <from-outcome>ERP-ADD-ACT-FMS_0014</from-outcome>
+        <to-activity-id>CWPGLBudgetFMS_0014_EDIT_EDIT</to-activity-id>
+      </control-flow-case>
     </control-flow-rule>
     <control-flow-rule id="__244">
       <from-activity-id>ExeAdminCompanyByCompIdFMS_0014</from-activity-id>
@@ -1433,6 +1443,20 @@
       <from-activity-id>ExeGLBudgetByBudgetIDFMS_0014</from-activity-id>
       <control-flow-case id="__248">
         <from-outcome>ERP-EDIT-ACT-FMS_0014</from-outcome>
+        <to-activity-id>FMS_0014_EDIT_EDIT</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__249">
+      <from-activity-id>FMS_0014_EDIT_EDIT</from-activity-id>
+      <control-flow-case id="__250">
+        <from-outcome>ERPBACKCRUD</from-outcome>
+        <to-activity-id>FMS_0014_EDIT</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__252">
+      <from-activity-id>CWPGLBudgetFMS_0014_EDIT_EDIT</from-activity-id>
+      <control-flow-case id="__253">
+        <from-outcome>ERP-ADD-ACT-FMS_0014</from-outcome>
         <to-activity-id>FMS_0014_EDIT_EDIT</to-activity-id>
       </control-flow-case>
     </control-flow-rule>
