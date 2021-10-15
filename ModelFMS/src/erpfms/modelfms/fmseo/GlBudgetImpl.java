@@ -47,8 +47,10 @@ public class GlBudgetImpl extends ERPEntityImpl {
         GlobalCompanyId,
         txtStartPeriodName,
         txtEndPeriodName,
+        txtFiscalYearName,
         GlPeriods,
-        GlPeriods1;
+        GlPeriods1,
+        GlFiscalYear;
         private static AttributesEnum[] vals = null;
         private static final int firstIndex = 0;
 
@@ -98,8 +100,10 @@ public class GlBudgetImpl extends ERPEntityImpl {
     public static final int GLOBALCOMPANYID = AttributesEnum.GlobalCompanyId.index();
     public static final int TXTSTARTPERIODNAME = AttributesEnum.txtStartPeriodName.index();
     public static final int TXTENDPERIODNAME = AttributesEnum.txtEndPeriodName.index();
+    public static final int TXTFISCALYEARNAME = AttributesEnum.txtFiscalYearName.index();
     public static final int GLPERIODS = AttributesEnum.GlPeriods.index();
     public static final int GLPERIODS1 = AttributesEnum.GlPeriods1.index();
+    public static final int GLFISCALYEAR = AttributesEnum.GlFiscalYear.index();
 
     /**
      * This is the default constructor (do not remove).
@@ -517,6 +521,22 @@ public class GlBudgetImpl extends ERPEntityImpl {
     }
 
     /**
+     * Gets the attribute value for txtFiscalYearName, using the alias name txtFiscalYearName.
+     * @return the value of txtFiscalYearName
+     */
+    public String gettxtFiscalYearName() {
+        return (String) getAttributeInternal(TXTFISCALYEARNAME);
+    }
+
+    /**
+     * Sets <code>value</code> as the attribute value for txtFiscalYearName.
+     * @param value value to set the txtFiscalYearName
+     */
+    public void settxtFiscalYearName(String value) {
+        setAttributeInternal(TXTFISCALYEARNAME, value);
+    }
+
+    /**
      * @return the associated entity GlPeriodsImpl.
      */
     public GlPeriodsImpl getGlPeriods() {
@@ -542,6 +562,21 @@ public class GlBudgetImpl extends ERPEntityImpl {
      */
     public void setGlPeriods1(GlPeriodsImpl value) {
         setAttributeInternal(GLPERIODS1, value);
+    }
+
+
+    /**
+     * @return the associated entity GlFiscalYearImpl.
+     */
+    public GlFiscalYearImpl getGlFiscalYear() {
+        return (GlFiscalYearImpl) getAttributeInternal(GLFISCALYEAR);
+    }
+
+    /**
+     * Sets <code>value</code> as the associated entity GlFiscalYearImpl.
+     */
+    public void setGlFiscalYear(GlFiscalYearImpl value) {
+        setAttributeInternal(GLFISCALYEAR, value);
     }
 
 

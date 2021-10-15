@@ -51,6 +51,7 @@ public class GlFiscalYearVORowImpl extends ERPViewRowImpl implements GlFiscalYea
         UnSupervisedBy,
         SupervisedBy,
         GlPeriodsVO,
+        GlBudgetVO,
         AccSysGeneralValueVO;
         static AttributesEnum[] vals = null;
         ;
@@ -97,6 +98,7 @@ public class GlFiscalYearVORowImpl extends ERPViewRowImpl implements GlFiscalYea
     public static final int UNSUPERVISEDBY = AttributesEnum.UnSupervisedBy.index();
     public static final int SUPERVISEDBY = AttributesEnum.SupervisedBy.index();
     public static final int GLPERIODSVO = AttributesEnum.GlPeriodsVO.index();
+    public static final int GLBUDGETVO = AttributesEnum.GlBudgetVO.index();
     public static final int ACCSYSGENERALVALUEVO = AttributesEnum.AccSysGeneralValueVO.index();
 
     /**
@@ -422,6 +424,13 @@ public class GlFiscalYearVORowImpl extends ERPViewRowImpl implements GlFiscalYea
      */
     public RowIterator getGlPeriodsVO() {
         return (RowIterator) getAttributeInternal(GLPERIODSVO);
+    }
+
+    /**
+     * Gets the associated <code>RowIterator</code> using master-detail link GlBudgetVO.
+     */
+    public RowIterator getGlBudgetVO() {
+        return (RowIterator) getAttributeInternal(GLBUDGETVO);
     }
 
     /**

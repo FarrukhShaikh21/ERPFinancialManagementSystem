@@ -50,5 +50,11 @@
     <action id="Rollback" RequiresUpdateModel="false" Action="rollbackTransaction"
             DataControl="ERPFMSModuleDataControl"/>
     <action id="Commit" RequiresUpdateModel="true" Action="commitTransaction" DataControl="ERPFMSModuleDataControl"/>
+    <listOfValues IterBinding="GlBudgetByBudgetIdCRUDIterator" StaticList="false" Uses="LovtxtFiscalYearName"
+                  id="txtFiscalYearName"/>
+    <listOfValues IterBinding="GlBudgetByBudgetIdCRUDIterator" StaticList="false" Uses="LovtxtStartPeriodName"
+                  id="txtStartPeriodName"/>
+    <listOfValues IterBinding="GlBudgetByBudgetIdCRUDIterator" StaticList="false" Uses="LovtxtEndPeriodName"
+                  id="txtEndPeriodName"/>
   </bindings>
 </pageDefinition>

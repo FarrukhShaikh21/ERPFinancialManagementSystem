@@ -34,6 +34,24 @@
       </PIMap>
     </ParameterMap>
   </ViewAccessor>
+  <ViewAccessor
+    Name="AccGlFiscalYearVO"
+    ViewObjectName="erpfms.modelfms.fmsvo.GlFiscalYearVO"
+    RowLevelBinds="true"/>
+  <ViewAccessor
+    Name="AccGlPeriodsVO"
+    ViewObjectName="erpfms.modelfms.fmsvo.GlPeriodsVO"
+    RowLevelBinds="true">
+    <ViewCriteriaUsage
+      Name="GlPeriodsByFiscalYearVC"
+      FullName="erpfms.modelfms.fmsvo.GlPeriodsVO.GlPeriodsByFiscalYearVC"/>
+    <ParameterMap>
+      <PIMap Variable="P_ADF_FISCAL_YEAR_SNO">
+        <TransientExpression
+          trustMode="untrusted"><![CDATA[FiscalYearSno==null?-1:FiscalYearSno]]></TransientExpression>
+      </PIMap>
+    </ParameterMap>
+  </ViewAccessor>
   <ListBinding
     Name="LovIsUnsupervised"
     ListVOName="AccSysGeneralValueVO"
@@ -85,6 +103,77 @@
     </AttrArray>
     <AttrArray Name="ListDisplayAttrNames">
       <Item Value="ValueDescription"/>
+    </AttrArray>
+    <DisplayCriteria/>
+  </ListBinding>
+  <ListBinding
+    Name="LovtxtFiscalYearName"
+    ListVOName="AccGlFiscalYearVO"
+    ListRangeSize="-1"
+    ComboRowCountHint="10"
+    NullValueFlag="none"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="txtFiscalYearName"/>
+    </AttrArray>
+    <AttrArray Name="AttrExpressions"/>
+    <AttrArray Name="DerivedAttrNames">
+      <Item Value="txtFiscalYearName"/>
+    </AttrArray>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="YearDescription"/>
+      <Item Value="FiscalYearSno"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="YearDescription"/>
+    </AttrArray>
+    <DisplayCriteria
+      Name="GlFiscalYearVOFindVC"/>
+  </ListBinding>
+  <ListBinding
+    Name="LovtxtStartPeriodName"
+    ListVOName="AccGlPeriodsVO"
+    ListRangeSize="-1"
+    ComboRowCountHint="10"
+    NullValueFlag="none"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="txtStartPeriodName"/>
+    </AttrArray>
+    <AttrArray Name="AttrExpressions"/>
+    <AttrArray Name="DerivedAttrNames">
+      <Item Value="StartPeriodSno"/>
+    </AttrArray>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="PeriodName"/>
+      <Item Value="PeriodSno"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="PeriodName"/>
+    </AttrArray>
+    <DisplayCriteria
+      Name="GlPeriodsVOFindVC"/>
+  </ListBinding>
+  <ListBinding
+    Name="LovtxtEndPeriodName"
+    ListVOName="AccGlPeriodsVO"
+    ListRangeSize="-1"
+    ComboRowCountHint="10"
+    NullValueFlag="none"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="txtEndPeriodName"/>
+    </AttrArray>
+    <AttrArray Name="AttrExpressions"/>
+    <AttrArray Name="DerivedAttrNames">
+      <Item Value="EndPeriodSno"/>
+    </AttrArray>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="EndDate"/>
+      <Item Value="PeriodSno"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="PeriodName"/>
     </AttrArray>
     <DisplayCriteria/>
   </ListBinding>
@@ -278,7 +367,15 @@
     PrecisionRule="true"
     EntityAttrName="txtStartPeriodName"
     EntityUsage="GlBudget"
-    AliasName="TXT_START_PERIOD_NAME"/>
+    AliasName="TXT_START_PERIOD_NAME"
+    LOVName="LovtxtStartPeriodName">
+    <Properties>
+      <SchemaBasedProperties>
+        <CONTROLTYPE
+          Value="combo_lov"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="txtEndPeriodName"
     IsQueriable="false"
@@ -286,7 +383,31 @@
     PrecisionRule="true"
     EntityAttrName="txtEndPeriodName"
     EntityUsage="GlBudget"
-    AliasName="TXT_END_PERIOD_NAME"/>
+    AliasName="TXT_END_PERIOD_NAME"
+    LOVName="LovtxtEndPeriodName">
+    <Properties>
+      <SchemaBasedProperties>
+        <CONTROLTYPE
+          Value="combo_lov"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="txtFiscalYearName"
+    IsQueriable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    EntityAttrName="txtFiscalYearName"
+    EntityUsage="GlBudget"
+    AliasName="TXT_FISCAL_YEAR_NAME"
+    LOVName="LovtxtFiscalYearName">
+    <Properties>
+      <SchemaBasedProperties>
+        <CONTROLTYPE
+          Value="combo_lov"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewCriteria
     Name="GlBudgetVOFindVC"
     ViewObjectName="erpfms.modelfms.fmsvo.GlBudgetVO"
@@ -436,6 +557,12 @@
   <ViewLinkAccessor
     Name="GlPeriodsVO1"
     ViewLink="erpfms.modelfms.fmsvo.GlPeriodsGlBudgetStartPeriodSnoVL"
+    Type="oracle.jbo.Row"
+    Reversed="true"
+    IsUpdateable="false"/>
+  <ViewLinkAccessor
+    Name="GlFiscalYearVO"
+    ViewLink="erpfms.modelfms.fmsvo.GlFiscalYearGlBudgerFiscalYearSnoVL"
     Type="oracle.jbo.Row"
     Reversed="true"
     IsUpdateable="false"/>

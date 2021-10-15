@@ -356,6 +356,13 @@
     AssociationOtherEnd="erpfms.modelfms.fmseo.FkGlPerFisYearAssoc.GlFiscalYear"
     Type="oracle.jbo.RowIterator"
     IsUpdateable="false"/>
+  <AccessorAttribute
+    Name="GlBudget"
+    Association="erpfms.modelfms.fmseo.GlFiscalYearGlBudgerFiscalYearSnoAsso"
+    AssociationEnd="erpfms.modelfms.fmseo.GlFiscalYearGlBudgerFiscalYearSnoAsso.GlBudget"
+    AssociationOtherEnd="erpfms.modelfms.fmseo.GlFiscalYearGlBudgerFiscalYearSnoAsso.GlFiscalYear"
+    Type="oracle.jbo.RowIterator"
+    IsUpdateable="false"/>
   <Key
     Name="GlFiscalYearFiscalYearChe">
     <DesignTime>

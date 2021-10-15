@@ -233,20 +233,64 @@
                             <af:gridCell id="gc26" columnSpan="2" styleClass="ERPEntryAreaHeading" halign="stretch"
                                          width="100%">
                                 <af:spacer width="10" height="10" id="s4"/>
-                                <af:outputText value="GL Period Information" id="ot4" styleClass="ERPEntryAreaFont"/>
+                                <af:outputText value="Fiscal Year Information" id="ot4" styleClass="ERPEntryAreaFont"/>
                             </af:gridCell>
                         </af:gridRow>
                         <af:gridRow marginTop="5px" height="auto" marginBottom="5px" id="gr6">
-                            <af:gridCell marginStart="5px" width="15%" id="gc9" marginEnd="5px" halign="center"/>
-                            <af:gridCell marginStart="5px" width="85%" id="gc10" halign="stretch"/>
+                            <af:gridCell marginStart="5px" width="15%" id="gc9" marginEnd="5px" halign="center">
+                                <af:outputLabel value="#{bindings.txtFiscalYearName.hints.label}" id="ol6"/>
+                            </af:gridCell>
+                            <af:gridCell marginStart="5px" width="85%" id="gc10" halign="stretch">
+                                <af:inputComboboxListOfValues id="txtFiscalYearNameId"
+                                                              popupTitle="Search and Select: #{bindings.txtFiscalYearName.hints.label}"
+                                                              value="#{bindings.txtFiscalYearName.inputValue}"
+                                                              label="#{bindings.txtFiscalYearName.hints.label}"
+                                                              model="#{bindings.txtFiscalYearName.listOfValuesModel}"
+                                                              required="#{bindings.txtFiscalYearName.hints.mandatory}"
+                                                              columns="#{bindings.txtFiscalYearName.hints.displayWidth}"
+                                                              shortDesc="#{bindings.txtFiscalYearName.hints.tooltip}"
+                                                              simple="true" contentStyle="width:100%" autoSubmit="true">
+                                    <f:validator binding="#{bindings.txtFiscalYearName.validator}"/>
+                                </af:inputComboboxListOfValues>
+                            </af:gridCell>
                         </af:gridRow>
                         <af:gridRow id="gr7" marginTop="5px" marginBottom="5px">
-                            <af:gridCell marginStart="5px" width="15%" id="gc13" marginEnd="5px" halign="center"/>
-                            <af:gridCell marginStart="5px" width="85%" marginEnd="5px" id="gc14" halign="stretch"/>
+                            <af:gridCell marginStart="5px" width="15%" id="gc13" marginEnd="5px" halign="center">
+                                <af:outputLabel value="#{bindings.txtStartPeriodName.hints.label}" id="ol7"/>
+                            </af:gridCell>
+                            <af:gridCell marginStart="5px" width="85%" marginEnd="5px" id="gc14" halign="stretch">
+                                <af:inputComboboxListOfValues id="txtStartPeriodNameId"
+                                                              popupTitle="Search and Select: #{bindings.txtStartPeriodName.hints.label}"
+                                                              value="#{bindings.txtStartPeriodName.inputValue}"
+                                                              label="#{bindings.txtStartPeriodName.hints.label}"
+                                                              model="#{bindings.txtStartPeriodName.listOfValuesModel}"
+                                                              required="#{bindings.txtStartPeriodName.hints.mandatory}"
+                                                              columns="#{bindings.txtStartPeriodName.hints.displayWidth}"
+                                                              shortDesc="#{bindings.txtStartPeriodName.hints.tooltip}"
+                                                              simple="true" contentStyle="width:100%"
+                                                              partialTriggers="txtFiscalYearNameId">
+                                    <f:validator binding="#{bindings.txtStartPeriodName.validator}"/>
+                                </af:inputComboboxListOfValues>
+                            </af:gridCell>
                         </af:gridRow>
                         <af:gridRow id="gr9">
-                            <af:gridCell id="gc17" halign="center"/>
-                            <af:gridCell id="gc18" halign="stretch"/>
+                            <af:gridCell id="gc17" halign="center">
+                                <af:outputLabel value="#{bindings.txtEndPeriodName.hints.label}" id="ol8"/>
+                            </af:gridCell>
+                            <af:gridCell id="gc18" halign="stretch">
+                                <af:inputComboboxListOfValues id="txtEndPeriodNameId"
+                                                              popupTitle="Search and Select: #{bindings.txtEndPeriodName.hints.label}"
+                                                              value="#{bindings.txtEndPeriodName.inputValue}"
+                                                              label="#{bindings.txtEndPeriodName.hints.label}"
+                                                              model="#{bindings.txtEndPeriodName.listOfValuesModel}"
+                                                              required="#{bindings.txtEndPeriodName.hints.mandatory}"
+                                                              columns="#{bindings.txtEndPeriodName.hints.displayWidth}"
+                                                              shortDesc="#{bindings.txtEndPeriodName.hints.tooltip}"
+                                                              simple="true" contentStyle="width:100%"
+                                                              partialTriggers="txtFiscalYearNameId">
+                                    <f:validator binding="#{bindings.txtEndPeriodName.validator}"/>
+                                </af:inputComboboxListOfValues>
+                            </af:gridCell>
                         </af:gridRow>
                         <af:gridRow id="gr10" marginTop="5px" marginBottom="5px">
                             <af:gridCell id="gc19" width="15%" marginStart="5px" marginEnd="5px" halign="center"/>

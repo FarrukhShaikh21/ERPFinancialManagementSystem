@@ -40,7 +40,8 @@ public class GlFiscalYearImpl extends ERPEntityImpl {
         FiscalYearCode,
         SupervisedBy,
         UnSupervisedBy,
-        GlPeriods;
+        GlPeriods,
+        GlBudget;
         private static AttributesEnum[] vals = null;
         private static final int firstIndex = 0;
 
@@ -85,6 +86,7 @@ public class GlFiscalYearImpl extends ERPEntityImpl {
     public static final int SUPERVISEDBY = AttributesEnum.SupervisedBy.index();
     public static final int UNSUPERVISEDBY = AttributesEnum.UnSupervisedBy.index();
     public static final int GLPERIODS = AttributesEnum.GlPeriods.index();
+    public static final int GLBUDGET = AttributesEnum.GlBudget.index();
 
     /**
      * This is the default constructor (do not remove).
@@ -409,6 +411,14 @@ public class GlFiscalYearImpl extends ERPEntityImpl {
      */
     public RowIterator getGlPeriods() {
         return (RowIterator) getAttributeInternal(GLPERIODS);
+    }
+
+
+    /**
+     * @return the associated entity oracle.jbo.RowIterator.
+     */
+    public RowIterator getGlBudget() {
+        return (RowIterator) getAttributeInternal(GLBUDGET);
     }
 
 

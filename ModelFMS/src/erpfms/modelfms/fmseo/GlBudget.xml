@@ -241,6 +241,10 @@
           Value="20"/>
       </SchemaBasedProperties>
     </Properties>
+    <Dependencies>
+      <Item
+        Value="FiscalYearSno"/>
+    </Dependencies>
   </Attribute>
   <Attribute
     Name="PeriodStartDate"
@@ -258,6 +262,12 @@
           Value="20"/>
       </SchemaBasedProperties>
     </Properties>
+    <Dependencies>
+      <Item
+        Value="FiscalYearSno"/>
+      <Item
+        Value="StartPeriodSno"/>
+    </Dependencies>
   </Attribute>
   <Attribute
     Name="EndPeriodSno"
@@ -276,6 +286,10 @@
           Value="20"/>
       </SchemaBasedProperties>
     </Properties>
+    <Dependencies>
+      <Item
+        Value="FiscalYearSno"/>
+    </Dependencies>
   </Attribute>
   <Attribute
     Name="PeriodEndDate"
@@ -293,6 +307,12 @@
           Value="20"/>
       </SchemaBasedProperties>
     </Properties>
+    <Dependencies>
+      <Item
+        Value="EndPeriodSno"/>
+      <Item
+        Value="FiscalYearSno"/>
+    </Dependencies>
   </Attribute>
   <Attribute
     Name="SupervisedBy"
@@ -464,6 +484,12 @@
           Value="20"/>
       </SchemaBasedProperties>
     </Properties>
+    <Dependencies>
+      <Item
+        Value="FiscalYearSno"/>
+      <Item
+        Value="StartPeriodSno"/>
+    </Dependencies>
   </Attribute>
   <Attribute
     Name="txtEndPeriodName"
@@ -484,6 +510,36 @@
           Value="20"/>
       </SchemaBasedProperties>
     </Properties>
+    <Dependencies>
+      <Item
+        Value="EndPeriodSno"/>
+      <Item
+        Value="FiscalYearSno"/>
+    </Dependencies>
+  </Attribute>
+  <Attribute
+    Name="txtFiscalYearName"
+    Precision="80"
+    ColumnName="TXT_FISCAL_YEAR_NAME"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    IsPersistent="false"
+    IsQueriable="false">
+    <TransientExpression
+      trustMode="untrusted"><![CDATA[GlFiscalYear?.YearDescription]]></TransientExpression>
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="erpfms.modelfms.fmseo.GlBudget.txtFiscalYearName_LABEL"/>
+        <DISPLAYWIDTH
+          Value="20"/>
+      </SchemaBasedProperties>
+    </Properties>
+    <Dependencies>
+      <Item
+        Value="FiscalYearSno"/>
+    </Dependencies>
   </Attribute>
   <AccessorAttribute
     Name="GlPeriods"
@@ -498,6 +554,13 @@
     AssociationEnd="erpfms.modelfms.fmseo.GlPeriodsGlBudgetEndPeriodSnoAsso.GlPeriods1"
     AssociationOtherEnd="erpfms.modelfms.fmseo.GlPeriodsGlBudgetEndPeriodSnoAsso.GlBudget1"
     Type="erpfms.modelfms.fmseo.GlPeriodsImpl"
+    IsUpdateable="true"/>
+  <AccessorAttribute
+    Name="GlFiscalYear"
+    Association="erpfms.modelfms.fmseo.GlFiscalYearGlBudgerFiscalYearSnoAsso"
+    AssociationEnd="erpfms.modelfms.fmseo.GlFiscalYearGlBudgerFiscalYearSnoAsso.GlFiscalYear"
+    AssociationOtherEnd="erpfms.modelfms.fmseo.GlFiscalYearGlBudgerFiscalYearSnoAsso.GlBudget"
+    Type="erpfms.modelfms.fmseo.GlFiscalYearImpl"
     IsUpdateable="true"/>
   <Key
     Name="GlBudgetBudgetNameCheck">
@@ -600,6 +663,17 @@
     </DesignTime>
     <AttrArray Name="Attributes">
       <Item Value="erpfms.modelfms.fmseo.GlBudget.EndPeriodSno"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="fk_GlBudget2">
+    <DesignTime>
+      <Attr Name="_referencedKey" Value="PK_GL_FISCAL_YEAR"/>
+      <Attr Name="_isForeign" Value="true"/>
+      <Attr Name="_DBObjectName" Value="FK_GL_BUDGET2"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="erpfms.modelfms.fmseo.GlBudget.FiscalYearSno"/>
     </AttrArray>
   </Key>
   <ResourceBundle>

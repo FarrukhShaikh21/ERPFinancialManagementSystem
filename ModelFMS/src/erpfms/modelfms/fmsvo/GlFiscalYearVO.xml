@@ -408,6 +408,11 @@
     ViewLink="erpfms.modelfms.fmsvo.FkGlPerFisYearLink"
     Type="oracle.jbo.RowIterator"
     IsUpdateable="false"/>
+  <ViewLinkAccessor
+    Name="GlBudgetVO"
+    ViewLink="erpfms.modelfms.fmsvo.GlFiscalYearGlBudgerFiscalYearSnoVL"
+    Type="oracle.jbo.RowIterator"
+    IsUpdateable="false"/>
   <ClientRowInterface
     Name="__rowClientInterface">
     <Method
