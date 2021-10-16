@@ -56,5 +56,15 @@
                   id="txtStartPeriodName"/>
     <listOfValues IterBinding="GlBudgetByBudgetIdCRUDIterator" StaticList="false" Uses="LovtxtEndPeriodName"
                   id="txtEndPeriodName"/>
+    <attributeValues IterBinding="GlBudgetByBudgetIdCRUDIterator" id="PeriodStartDate">
+      <AttrNames>
+        <Item Value="PeriodStartDate"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="GlBudgetByBudgetIdCRUDIterator" id="PeriodEndDate">
+      <AttrNames>
+        <Item Value="PeriodEndDate"/>
+      </AttrNames>
+    </attributeValues>
   </bindings>
 </pageDefinition>

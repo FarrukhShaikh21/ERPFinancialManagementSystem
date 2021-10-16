@@ -32,7 +32,7 @@
                 <f:facet name="center">
                     <af:panelGridLayout id="pgl2">
                         <af:gridRow id="gr15" marginTop="5px" marginBottom="5px">
-                            <af:gridCell id="gc27" columnSpan="2" rowSpan="1" halign="stretch" valign="stretch">
+                            <af:gridCell id="gc27" columnSpan="4" rowSpan="1" halign="stretch" valign="stretch">
                                 <af:panelGridLayout id="pgl1" styleClass="ERPToolBarBackground">
                                     <af:gridRow marginTop="5px" height="auto" marginBottom="5px" id="gr1">
                                         <af:gridCell marginStart="5px" width="50%" id="gc1" valign="middle">
@@ -120,7 +120,7 @@
                             </af:gridCell>
                         </af:gridRow>
                         <af:gridRow id="gr13">
-                            <af:gridCell id="gc25" columnSpan="2" rowSpan="1" styleClass="ERPEntryAreaHeading"
+                            <af:gridCell id="gc25" columnSpan="4" rowSpan="1" styleClass="ERPEntryAreaHeading"
                                          halign="stretch">
                                 <af:spacer width="10" height="10" id="s3"/>
                                 <af:outputText value="Basic Information" id="ot3" styleClass="ERPEntryAreaFont"/>
@@ -130,7 +130,7 @@
                             <af:gridCell marginStart="5px" width="15%" id="gc3" marginEnd="5px" halign="center">
                                 <af:outputLabel value="#{bindings.BudgetName.hints.label}" id="ol1"/>
                             </af:gridCell>
-                            <af:gridCell marginStart="5px" width="85%" id="gc4" columnSpan="1" rowSpan="1"
+                            <af:gridCell marginStart="5px" width="85%" id="gc4" columnSpan="3" rowSpan="1"
                                          halign="stretch">
                                 <af:inputText value="#{bindings.BudgetName.inputValue}"
                                               label="#{bindings.BudgetName.hints.label}"
@@ -165,7 +165,7 @@
                             <af:gridCell marginStart="5px" width="15%" id="gc7" marginEnd="5px" halign="center">
                                 <af:outputLabel value="#{bindings.BudgetShortCode.hints.label}" id="ol2"/>
                             </af:gridCell>
-                            <af:gridCell marginStart="5px" width="85%" id="gc8" marginEnd="5px" columnSpan="1"
+                            <af:gridCell marginStart="5px" width="85%" id="gc8" marginEnd="5px" columnSpan="3"
                                          rowSpan="1" halign="stretch">
                                 <af:inputText value="#{bindings.BudgetShortCode.inputValue}"
                                               label="#{bindings.BudgetShortCode.hints.label}"
@@ -184,7 +184,7 @@
                             <af:gridCell marginStart="5px" width="15%" id="gc11" halign="center">
                                 <af:outputLabel value="#{bindings.BudgetShortName.hints.label}" id="ol3"/>
                             </af:gridCell>
-                            <af:gridCell marginStart="5px" width="85%" id="gc12" marginEnd="5px" columnSpan="1"
+                            <af:gridCell marginStart="5px" width="85%" id="gc12" marginEnd="5px" columnSpan="3"
                                          rowSpan="1" halign="stretch">
                                 <af:inputText value="#{bindings.BudgetShortName.inputValue}"
                                               label="#{bindings.BudgetShortName.hints.label}"
@@ -201,7 +201,8 @@
                             <af:gridCell id="gc5" width="15%" marginStart="5px" marginEnd="5px" halign="center">
                                 <af:outputLabel value="#{bindings.DocumentDate.hints.label}" id="ol4"/>
                             </af:gridCell>
-                            <af:gridCell id="gc6" width="85%" marginStart="5px" marginEnd="5px" halign="stretch">
+                            <af:gridCell id="gc6" width="85%" marginStart="5px" marginEnd="5px" halign="stretch"
+                                         columnSpan="3">
                                 <af:inputDate value="#{bindings.DocumentDate.inputValue}"
                                               label="#{bindings.DocumentDate.hints.label}"
                                               required="#{bindings.DocumentDate.hints.mandatory}"
@@ -217,7 +218,7 @@
                             <af:gridCell id="gc15" width="15%" marginStart="5px" marginEnd="5px" halign="center">
                                 <af:outputLabel value="#{bindings.IsActive.label}" id="ol5"/>
                             </af:gridCell>
-                            <af:gridCell id="gc16" halign="stretch">
+                            <af:gridCell id="gc16" halign="stretch" columnSpan="3" rowSpan="1">
                                 <af:selectOneChoice value="#{bindings.IsActive.inputValue}"
                                                     label="#{bindings.IsActive.label}"
                                                     required="#{bindings.IsActive.hints.mandatory}"
@@ -230,8 +231,8 @@
                             </af:gridCell>
                         </af:gridRow>
                         <af:gridRow id="gr14" marginTop="5px" marginBottom="5px">
-                            <af:gridCell id="gc26" columnSpan="2" styleClass="ERPEntryAreaHeading" halign="stretch"
-                                         width="100%">
+                            <af:gridCell id="gc26" columnSpan="4" styleClass="ERPEntryAreaHeading" halign="stretch"
+                                         width="100%" rowSpan="1">
                                 <af:spacer width="10" height="10" id="s4"/>
                                 <af:outputText value="Fiscal Year Information" id="ot4" styleClass="ERPEntryAreaFont"/>
                             </af:gridCell>
@@ -240,7 +241,8 @@
                             <af:gridCell marginStart="5px" width="15%" id="gc9" marginEnd="5px" halign="center">
                                 <af:outputLabel value="#{bindings.txtFiscalYearName.hints.label}" id="ol6"/>
                             </af:gridCell>
-                            <af:gridCell marginStart="5px" width="85%" id="gc10" halign="stretch">
+                            <af:gridCell marginStart="5px" width="85%" id="gc10" halign="stretch" columnSpan="3"
+                                         rowSpan="1">
                                 <af:inputComboboxListOfValues id="txtFiscalYearNameId"
                                                               popupTitle="Search and Select: #{bindings.txtFiscalYearName.hints.label}"
                                                               value="#{bindings.txtFiscalYearName.inputValue}"
@@ -258,7 +260,8 @@
                             <af:gridCell marginStart="5px" width="15%" id="gc13" marginEnd="5px" halign="center">
                                 <af:outputLabel value="#{bindings.txtStartPeriodName.hints.label}" id="ol7"/>
                             </af:gridCell>
-                            <af:gridCell marginStart="5px" width="85%" marginEnd="5px" id="gc14" halign="stretch">
+                            <af:gridCell marginStart="5px" width="20%" id="gc14" halign="stretch"
+                                         valign="stretch">
                                 <af:inputComboboxListOfValues id="txtStartPeriodNameId"
                                                               popupTitle="Search and Select: #{bindings.txtStartPeriodName.hints.label}"
                                                               value="#{bindings.txtStartPeriodName.inputValue}"
@@ -267,17 +270,32 @@
                                                               required="#{bindings.txtStartPeriodName.hints.mandatory}"
                                                               columns="#{bindings.txtStartPeriodName.hints.displayWidth}"
                                                               shortDesc="#{bindings.txtStartPeriodName.hints.tooltip}"
-                                                              simple="true" contentStyle="width:100%"
-                                                              partialTriggers="txtFiscalYearNameId">
+                                                              simple="true"
+                                                              partialTriggers="txtFiscalYearNameId"
+                                                              contentStyle="width:100%">
                                     <f:validator binding="#{bindings.txtStartPeriodName.validator}"/>
                                 </af:inputComboboxListOfValues>
                             </af:gridCell>
+                            <af:gridCell id="gc19" width="15%">
+                                <af:outputLabel value="#{bindings.PeriodStartDate.hints.label}" id="ol9"/>
+                            </af:gridCell>
+                            <af:gridCell id="gc28" width="50%" halign="stretch" valign="middle">
+                                <af:inputDate value="#{bindings.PeriodStartDate.inputValue}"
+                                              label="#{bindings.PeriodStartDate.hints.label}"
+                                              required="#{bindings.PeriodStartDate.hints.mandatory}"
+                                              columns="#{bindings.PeriodStartDate.hints.displayWidth}"
+                                              shortDesc="#{bindings.PeriodStartDate.hints.tooltip}" id="id2"
+                                              simple="true" readOnly="true">
+                                    <f:validator binding="#{bindings.PeriodStartDate.validator}"/>
+                                    <af:convertDateTime pattern="#{bindings.PeriodStartDate.format}"/>
+                                </af:inputDate>
+                            </af:gridCell>
                         </af:gridRow>
                         <af:gridRow id="gr9">
-                            <af:gridCell id="gc17" halign="center">
+                            <af:gridCell id="gc17" halign="center" width="15%">
                                 <af:outputLabel value="#{bindings.txtEndPeriodName.hints.label}" id="ol8"/>
                             </af:gridCell>
-                            <af:gridCell id="gc18" halign="stretch">
+                            <af:gridCell id="gc18" halign="stretch" width="20%">
                                 <af:inputComboboxListOfValues id="txtEndPeriodNameId"
                                                               popupTitle="Search and Select: #{bindings.txtEndPeriodName.hints.label}"
                                                               value="#{bindings.txtEndPeriodName.inputValue}"
@@ -291,18 +309,20 @@
                                     <f:validator binding="#{bindings.txtEndPeriodName.validator}"/>
                                 </af:inputComboboxListOfValues>
                             </af:gridCell>
-                        </af:gridRow>
-                        <af:gridRow id="gr10" marginTop="5px" marginBottom="5px">
-                            <af:gridCell id="gc19" width="15%" marginStart="5px" marginEnd="5px" halign="center"/>
-                            <af:gridCell id="gc20" marginStart="5px" marginEnd="5px" width="85%" halign="stretch"/>
-                        </af:gridRow>
-                        <af:gridRow id="gr11">
-                            <af:gridCell id="gc21" halign="center"/>
-                            <af:gridCell id="gc22" halign="stretch"/>
-                        </af:gridRow>
-                        <af:gridRow id="gr12" marginTop="5px" marginBottom="5px">
-                            <af:gridCell id="gc23" width="15%" marginStart="5px" marginEnd="5px" halign="center"/>
-                            <af:gridCell id="gc24" halign="stretch" marginStart="5px" marginEnd="5px" width="85%"/>
+                            <af:gridCell id="gc20" width="15%">
+                                <af:outputLabel value="#{bindings.PeriodEndDate.hints.label}" id="ol10"/>
+                            </af:gridCell>
+                            <af:gridCell id="gc21" width="50%" halign="stretch" valign="middle">
+                                <af:inputDate value="#{bindings.PeriodEndDate.inputValue}"
+                                              label="#{bindings.PeriodEndDate.hints.label}"
+                                              required="#{bindings.PeriodEndDate.hints.mandatory}"
+                                              columns="#{bindings.PeriodEndDate.hints.displayWidth}"
+                                              shortDesc="#{bindings.PeriodEndDate.hints.tooltip}" id="id3"
+                                              simple="true" readOnly="true">
+                                    <f:validator binding="#{bindings.PeriodEndDate.validator}"/>
+                                    <af:convertDateTime pattern="#{bindings.PeriodEndDate.format}"/>
+                                </af:inputDate>
+                            </af:gridCell>
                         </af:gridRow>
                     </af:panelGridLayout>
                 </f:facet>
