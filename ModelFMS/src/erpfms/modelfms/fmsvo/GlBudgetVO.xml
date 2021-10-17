@@ -9,12 +9,23 @@
   SelectListFlags="1"
   FromListFlags="1"
   WhereFlags="1"
-  BindingStyle="OracleName"
+  BindingStyle="JDBC"
   CustomQuery="false"
   SelectAllAttributes="false"
-  PageIterMode="Full">
+  PageIterMode="Full"
+  RowClass="erpglobals.modelglobals.ERPViewRowImpl"
+  ComponentClass="erpfms.modelfms.fmsvo.GlBudgetVOImpl">
+  <DesignTime>
+    <Attr Name="_codeGenFlag2" Value="Coll|VarAccess"/>
+    <Attr Name="_objectSuperClassName" Value="erpglobals.modelglobals.ERPViewObjectImpl"/>
+    <Attr Name="_rowSuperClassName" Value="erpglobals.modelglobals.ERPViewRowImpl"/>
+  </DesignTime>
   <Variable
     Name="P_ADF_BUDGET_SNO"
+    Kind="viewcriteria"
+    Type="java.lang.Integer"/>
+  <Variable
+    Name="P_ADF_COMPANY_ID"
     Kind="viewcriteria"
     Type="java.lang.Integer"/>
   <ViewAccessor
@@ -513,7 +524,9 @@
         ViewAttribute="CompanyId"
         Operator="="
         Conjunction="AND"
-        Required="Optional"/>
+        Required="Optional"
+        Value=":P_ADF_COMPANY_ID"
+        IsBindVarValue="true"/>
     </ViewCriteriaRow>
   </ViewCriteria>
   <ViewCriteria

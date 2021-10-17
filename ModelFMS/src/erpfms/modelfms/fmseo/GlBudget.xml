@@ -9,7 +9,7 @@
   DBObjectType="table"
   DBObjectName="GL_BUDGET"
   AliasName="GlBudget"
-  BindingStyle="OracleName"
+  BindingStyle="JDBC"
   RowClass="erpfms.modelfms.fmseo.GlBudgetImpl">
   <DesignTime>
     <Attr Name="_codeGenFlag2" Value="Init|Delete|Access|DML"/>

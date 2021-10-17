@@ -30,7 +30,7 @@
                 </af:popup>
             <af:decorativeBox id="db2" dimensionsFrom="parent" partialTriggers="l2 l1 l3">
                 <f:facet name="center">
-                    <af:panelGridLayout id="pgl2">
+                    <af:panelGridLayout id="pgl2" partialTriggers="l2">
                         <af:gridRow id="gr15" marginTop="5px" marginBottom="5px">
                             <af:gridCell id="gc27" columnSpan="4" rowSpan="1" halign="stretch" valign="stretch">
                                 <af:panelGridLayout id="pgl1" styleClass="ERPToolBarBackground">
