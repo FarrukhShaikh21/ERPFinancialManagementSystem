@@ -118,7 +118,7 @@
     </AttrArray>
     <AttrArray Name="AttrExpressions"/>
     <AttrArray Name="DerivedAttrNames">
-      <Item Value="txtFiscalYearName"/>
+      <Item Value="FiscalYearSno"/>
     </AttrArray>
     <AttrArray Name="ListAttrNames">
       <Item Value="YearDescription"/>
@@ -143,10 +143,12 @@
     <AttrArray Name="AttrExpressions"/>
     <AttrArray Name="DerivedAttrNames">
       <Item Value="StartPeriodSno"/>
+      <Item Value="PeriodStartDate"/>
     </AttrArray>
     <AttrArray Name="ListAttrNames">
       <Item Value="PeriodName"/>
       <Item Value="PeriodSno"/>
+      <Item Value="StartDate"/>
     </AttrArray>
     <AttrArray Name="ListDisplayAttrNames">
       <Item Value="PeriodName"/>
@@ -167,10 +169,12 @@
     <AttrArray Name="AttrExpressions"/>
     <AttrArray Name="DerivedAttrNames">
       <Item Value="EndPeriodSno"/>
+      <Item Value="PeriodEndDate"/>
     </AttrArray>
     <AttrArray Name="ListAttrNames">
-      <Item Value="EndDate"/>
+      <Item Value="PeriodName"/>
       <Item Value="PeriodSno"/>
+      <Item Value="EndDate"/>
     </AttrArray>
     <AttrArray Name="ListDisplayAttrNames">
       <Item Value="PeriodName"/>
