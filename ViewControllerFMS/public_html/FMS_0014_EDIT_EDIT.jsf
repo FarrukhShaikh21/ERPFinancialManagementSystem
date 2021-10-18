@@ -30,7 +30,7 @@
                 </af:popup>
             <af:decorativeBox id="db2" dimensionsFrom="parent" partialTriggers="l2 l1 l3">
                 <f:facet name="center">
-                    <af:panelGridLayout id="pgl2" partialTriggers="l2">
+                    <af:panelGridLayout id="pgl2" partialTriggers="l2 d4 d3 d2">
                         <af:gridRow id="gr15" marginTop="5px" marginBottom="5px">
                             <af:gridCell id="gc27" columnSpan="4" rowSpan="1" halign="stretch" valign="stretch">
                                 <af:panelGridLayout id="pgl1" styleClass="ERPToolBarBackground">
@@ -61,16 +61,16 @@
                                                          action="#{pageFlowScope.OracleERPBean.doERPPopUnSuperviseRecord}"
                                                          disabled="#{bindings.IsSupervised.inputValue=='N' || pageFlowScope.ERPMainTempBean.LERPAllowUnsupervise=='N'}"
                                                          shortDesc="Un Supervise Record">
-                                                    <af:setActionListener from="#{'GlTaxTypeCRUDIterator'}"
+                                                    <af:setActionListener from="#{'GlBudgetByBudgetIdCRUDIterator'}"
                                                                           to="#{pageFlowScope.OracleERPBean.LIteratorName}"/>
                                                 </af:link>
                                                 <af:link text="Supervise" id="l19" partialSubmit="true"
                                                          icon="#{resource['images:imgSuperviseRecord.png']}"
                                                          iconPosition="top"
                                                          action="#{pageFlowScope.OracleERPBean.doERPPopSupervisedRecord}"
-                                                         disabled="#{bindings.IsSupervised.inputValue=='Y' || pageFlowScope.ERPMainTempBean.LERPAllowSupervise=='N' || bindings.TaxTypeCode.inputValue==null}"
+                                                         disabled="#{bindings.IsSupervised.inputValue=='Y' || pageFlowScope.ERPMainTempBean.LERPAllowSupervise=='N' || bindings.BudgetShortCode.inputValue==null}"
                                                          shortDesc="Supervise Record">
-                                                    <af:setActionListener from="#{'GlTaxTypeCRUDIterator'}"
+                                                    <af:setActionListener from="#{'GlBudgetByBudgetIdCRUDIterator'}"
                                                                           to="#{pageFlowScope.OracleERPBean.LIteratorName}"/>
                                                 </af:link>
                                                 <af:link actionListener="#{bindings.Delete.execute}" text="Delete"
@@ -88,7 +88,7 @@
                                                          action="#{pageFlowScope.OracleERPBean.doERPAddRecordWithPara}"
                                                          disabled="#{pageFlowScope.ERPMainTempBean.LERPAllowAdd=='N'}"
                                                          shortDesc="Add New Record">
-                                                    <af:setActionListener from="#{'GlChartOfAccountsByCOIDCRUDIterator'}"
+                                                    <af:setActionListener from="#{'GlBudgetByBudgetIdCRUDIterator'}"
                                                                           to="#{pageFlowScope.OracleERPBean.LIteratorName}"/>
                                                 </af:link>
                                                 <af:link actionListener="#{bindings.Rollback.execute}" text="Rollback"
@@ -105,11 +105,12 @@
                                                 </af:link>
                                                 <af:link actionListener="#{bindings.Commit.execute}" text="Commit"
                                                          id="l7" rendered="false"/>
-                                                <af:link actionListener="#{bindings.Commit.execute}" text="Save" id="l2"
+                                                <af:link text="Save" id="l2"
                                                          icon="#{resource['images:imgSave.png']}" iconPosition="top"
                                                          partialSubmit="true"
                                                          disabled="#{bindings.IsSupervised.inputValue=='Y' }"
-                                                         shortDesc="Save Record"/>
+                                                         shortDesc="Save Record"
+                                                         action="#{pageFlowScope.OracleERPBean.doERPCommitRecord}"/>
                                                 <f:facet name="separator">
                                                     <af:spacer width="10" height="10" id="s1"/>
                                                 </f:facet>
@@ -138,7 +139,8 @@
                                               columns="#{bindings.BudgetName.hints.displayWidth}"
                                               maximumLength="#{bindings.BudgetName.hints.precision}"
                                               shortDesc="#{bindings.BudgetName.hints.tooltip}" id="it1" simple="true"
-                                              contentStyle="width:100%">
+                                              contentStyle="width:100%"
+                                              readOnly="#{bindings.IsSupervised.inputValue=='Y' || (pageFlowScope.ERPMainTempBean.LERPAllowEdit=='N' &amp;&amp; bindings.BudgetShortCode.inputValue>0)}">
                                     <f:validator binding="#{bindings.BudgetName.validator}"/>
                                 </af:inputText>
                                 <af:inputText value="#{bindings.IsUnsupervised.inputValue}"
@@ -192,7 +194,8 @@
                                               columns="#{bindings.BudgetShortName.hints.displayWidth}"
                                               maximumLength="#{bindings.BudgetShortName.hints.precision}"
                                               shortDesc="#{bindings.BudgetShortName.hints.tooltip}" id="it4"
-                                              simple="true" contentStyle="width:100%">
+                                              simple="true" contentStyle="width:100%"
+                                              readOnly="#{bindings.IsSupervised.inputValue=='Y' || (pageFlowScope.ERPMainTempBean.LERPAllowEdit=='N' &amp;&amp; bindings.BudgetShortCode.inputValue>0)}">
                                     <f:validator binding="#{bindings.BudgetShortName.validator}"/>
                                 </af:inputText>
                             </af:gridCell>
@@ -208,7 +211,8 @@
                                               required="#{bindings.DocumentDate.hints.mandatory}"
                                               columns="#{bindings.DocumentDate.hints.displayWidth}"
                                               shortDesc="#{bindings.DocumentDate.hints.tooltip}" id="id1" simple="true"
-                                              contentStyle="width:90%">
+                                              contentStyle="width:90%"
+                                              readOnly="#{bindings.IsSupervised.inputValue=='Y' || (pageFlowScope.ERPMainTempBean.LERPAllowEdit=='N' &amp;&amp; bindings.BudgetShortCode.inputValue>0)}">
                                     <f:validator binding="#{bindings.DocumentDate.validator}"/>
                                     <af:convertDateTime pattern="#{bindings.DocumentDate.format}"/>
                                 </af:inputDate>
@@ -224,7 +228,7 @@
                                                     required="#{bindings.IsActive.hints.mandatory}"
                                                     shortDesc="#{bindings.IsActive.hints.tooltip}" id="soc1"
                                                     simple="true" contentStyle="width:100%"
-                                                    readOnly="#{bindings.IsSupervised.inputValue=='Y' || (pageFlowScope.ERPMainTempBean.LERPAllowEdit=='N' &amp;&amp; bindings.TaxTypeCode.inputValue>0)}">
+                                                    readOnly="#{bindings.IsSupervised.inputValue=='Y' || (pageFlowScope.ERPMainTempBean.LERPAllowEdit=='N' &amp;&amp; bindings.BudgetShortCode.inputValue>0)}">
                                     <f:selectItems value="#{bindings.IsActive.items}" id="si1"/>
                                     <f:validator binding="#{bindings.IsActive.validator}"/>
                                 </af:selectOneChoice>
@@ -251,7 +255,8 @@
                                                               required="#{bindings.txtFiscalYearName.hints.mandatory}"
                                                               columns="#{bindings.txtFiscalYearName.hints.displayWidth}"
                                                               shortDesc="#{bindings.txtFiscalYearName.hints.tooltip}"
-                                                              simple="true" contentStyle="width:100%" autoSubmit="true">
+                                                              simple="true" contentStyle="width:100%" autoSubmit="true"
+                                                              readOnly="#{bindings.IsSupervised.inputValue=='Y' || (pageFlowScope.ERPMainTempBean.LERPAllowEdit=='N' &amp;&amp; bindings.BudgetShortCode.inputValue>0)}">
                                     <f:validator binding="#{bindings.txtFiscalYearName.validator}"/>
                                 </af:inputComboboxListOfValues>
                             </af:gridCell>
@@ -272,7 +277,8 @@
                                                               shortDesc="#{bindings.txtStartPeriodName.hints.tooltip}"
                                                               simple="true"
                                                               partialTriggers="txtFiscalYearNameId"
-                                                              contentStyle="width:100%">
+                                                              contentStyle="width:100%"
+                                                              readOnly="#{bindings.IsSupervised.inputValue=='Y' || (pageFlowScope.ERPMainTempBean.LERPAllowEdit=='N' &amp;&amp; bindings.BudgetShortCode.inputValue>0)}">
                                     <f:validator binding="#{bindings.txtStartPeriodName.validator}"/>
                                 </af:inputComboboxListOfValues>
                             </af:gridCell>
@@ -305,7 +311,8 @@
                                                               columns="#{bindings.txtEndPeriodName.hints.displayWidth}"
                                                               shortDesc="#{bindings.txtEndPeriodName.hints.tooltip}"
                                                               simple="true" contentStyle="width:100%"
-                                                              partialTriggers="txtFiscalYearNameId">
+                                                              partialTriggers="txtFiscalYearNameId"
+                                                              readOnly="#{bindings.IsSupervised.inputValue=='Y' || (pageFlowScope.ERPMainTempBean.LERPAllowEdit=='N' &amp;&amp; bindings.BudgetShortCode.inputValue>0)}">
                                     <f:validator binding="#{bindings.txtEndPeriodName.validator}"/>
                                 </af:inputComboboxListOfValues>
                             </af:gridCell>
@@ -329,6 +336,10 @@
                 <f:facet name="top"/>
             </af:decorativeBox>
         </af:form>
-        <f:facet name="metaContainer"/>
+        <f:facet name="metaContainer">
+        <af:resource type="javascript" source="/resources/js/ERPFMSJavaScript.js"/>
+         <af:resource type="css" source="/resources/css/ERPFMSStyleSheet.css"/>
+        <af:resource type="javascript" source="http://code.jquery.com/jquery-1.10.2.js"/>
+        </f:facet>
     </af:document>
 </f:view>
