@@ -27,7 +27,20 @@
   <Variable
     Name="P_ADF_COMPANY_ID"
     Kind="viewcriteria"
-    Type="java.lang.Integer"/>
+    Type="java.lang.Integer">
+    <AttrArray Name="ExtendedDataInts">
+      <Item Value="0"/>
+    </AttrArray>
+  </Variable>
+  <Variable
+    Name="P_ADF_DATE"
+    Kind="viewcriteria"
+    Type="java.sql.Timestamp">
+    <AttrArray Name="ExtendedDataInts">
+      <Item Value="0"/>
+      <Item Value="1"/>
+    </AttrArray>
+  </Variable>
   <ViewAccessor
     Name="AccSysGeneralValueVO"
     ViewObjectName="erpadm.modeladm.admvo.SysGeneralValueVO"
@@ -577,6 +590,50 @@
         Operator="="
         Conjunction="AND"
         Value=":P_ADF_BUDGET_SNO"
+        IsBindVarValue="true"
+        Required="Optional"/>
+    </ViewCriteriaRow>
+  </ViewCriteria>
+  <ViewCriteria
+    Name="GlBudgetPeriodOverLapVC"
+    ViewObjectName="erpfms.modelfms.fmsvo.GlBudgetVO"
+    Conjunction="AND">
+    <Properties>
+      <CustomProperties>
+        <Property
+          Name="displayOperators"
+          Value="InAdvancedMode"/>
+        <Property
+          Name="autoExecute"
+          Value="false"/>
+        <Property
+          Name="allowConjunctionOverride"
+          Value="true"/>
+        <Property
+          Name="showInList"
+          Value="true"/>
+        <Property
+          Name="mode"
+          Value="Basic"/>
+      </CustomProperties>
+    </Properties>
+    <ViewCriteriaRow
+      Name="GlBudgetPeriodOverLapVC_row_0"
+      UpperColumns="1">
+      <ViewCriteriaItem
+        Name="PeriodStartDate"
+        ViewAttribute="PeriodStartDate"
+        Operator="ONORBEFORE"
+        Conjunction="AND"
+        Required="Optional"
+        Value=":P_ADF_DATE"
+        IsBindVarValue="true"/>
+      <ViewCriteriaItem
+        Name="PeriodEndDate"
+        ViewAttribute="PeriodEndDate"
+        Operator="ONORAFTER"
+        Conjunction="AND"
+        Value=":P_ADF_DATE"
         IsBindVarValue="true"
         Required="Optional"/>
     </ViewCriteriaRow>

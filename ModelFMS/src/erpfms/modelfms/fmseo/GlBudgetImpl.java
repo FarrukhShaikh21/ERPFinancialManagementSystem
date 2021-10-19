@@ -8,6 +8,7 @@ import java.sql.Timestamp;
 
 import oracle.jbo.AttributeList;
 import oracle.jbo.Key;
+import oracle.jbo.RowSet;
 import oracle.jbo.domain.Date;
 import oracle.jbo.server.EntityDefImpl;
 import oracle.jbo.server.TransactionEvent;
@@ -52,7 +53,9 @@ public class GlBudgetImpl extends ERPEntityImpl {
         txtFiscalYearEnd,
         GlPeriods,
         GlPeriods1,
-        GlFiscalYear;
+        GlFiscalYear,
+        AccGlBudgetStartPeriodVO,
+        AccGlBudgetEndPeriodVO;
         private static AttributesEnum[] vals = null;
         private static final int firstIndex = 0;
 
@@ -108,6 +111,8 @@ public class GlBudgetImpl extends ERPEntityImpl {
     public static final int GLPERIODS = AttributesEnum.GlPeriods.index();
     public static final int GLPERIODS1 = AttributesEnum.GlPeriods1.index();
     public static final int GLFISCALYEAR = AttributesEnum.GlFiscalYear.index();
+    public static final int ACCGLBUDGETSTARTPERIODVO = AttributesEnum.AccGlBudgetStartPeriodVO.index();
+    public static final int ACCGLBUDGETENDPERIODVO = AttributesEnum.AccGlBudgetEndPeriodVO.index();
 
     /**
      * This is the default constructor (do not remove).
@@ -191,15 +196,15 @@ public class GlBudgetImpl extends ERPEntityImpl {
      * Gets the attribute value for DocumentDate, using the alias name DocumentDate.
      * @return the value of DocumentDate
      */
-    public Date getDocumentDate() {
-        return (Date) getAttributeInternal(DOCUMENTDATE);
+    public Timestamp getDocumentDate() {
+        return (Timestamp) getAttributeInternal(DOCUMENTDATE);
     }
 
     /**
      * Sets <code>value</code> as the attribute value for DocumentDate.
      * @param value value to set the DocumentDate
      */
-    public void setDocumentDate(Date value) {
+    public void setDocumentDate(Timestamp value) {
         setAttributeInternal(DOCUMENTDATE, value);
     }
 
@@ -319,16 +324,23 @@ public class GlBudgetImpl extends ERPEntityImpl {
      * Gets the attribute value for PeriodStartDate, using the alias name PeriodStartDate.
      * @return the value of PeriodStartDate
      */
-    public Date getPeriodStartDate() {
-        return (Date) getAttributeInternal(PERIODSTARTDATE);
+    public Timestamp getPeriodStartDate() {
+        return (Timestamp) getAttributeInternal(PERIODSTARTDATE);
     }
 
     /**
      * Sets <code>value</code> as the attribute value for PeriodStartDate.
      * @param value value to set the PeriodStartDate
      */
-    public void setPeriodStartDate(Date value) {
+    public void setPeriodStartDate(Timestamp value) {
         setAttributeInternal(PERIODSTARTDATE, value);
+//        getAccGlBudgetStartPeriodVO().setNamedWhereClauseParam("P_ADF_DATE",getPeriodStartDate());
+        System.out.println(getPeriodStartDate());
+        getAccGlBudgetStartPeriodVO().executeQuery();
+
+        System.out.println(getAccGlBudgetStartPeriodVO().getRowCount());
+        System.out.println("start");
+
     }
 
     /**
@@ -351,15 +363,15 @@ public class GlBudgetImpl extends ERPEntityImpl {
      * Gets the attribute value for PeriodEndDate, using the alias name PeriodEndDate.
      * @return the value of PeriodEndDate
      */
-    public Date getPeriodEndDate() {
-        return (Date) getAttributeInternal(PERIODENDDATE);
+    public Timestamp getPeriodEndDate() {
+        return (Timestamp) getAttributeInternal(PERIODENDDATE);
     }
 
     /**
      * Sets <code>value</code> as the attribute value for PeriodEndDate.
      * @param value value to set the PeriodEndDate
      */
-    public void setPeriodEndDate(Date value) {
+    public void setPeriodEndDate(Timestamp value) {
         setAttributeInternal(PERIODENDDATE, value);
     }
 
@@ -383,15 +395,15 @@ public class GlBudgetImpl extends ERPEntityImpl {
      * Gets the attribute value for SupervisedDate, using the alias name SupervisedDate.
      * @return the value of SupervisedDate
      */
-    public Date getSupervisedDate() {
-        return (Date) getAttributeInternal(SUPERVISEDDATE);
+    public Timestamp getSupervisedDate() {
+        return (Timestamp) getAttributeInternal(SUPERVISEDDATE);
     }
 
     /**
      * Sets <code>value</code> as the attribute value for SupervisedDate.
      * @param value value to set the SupervisedDate
      */
-    public void setSupervisedDate(Date value) {
+    public void setSupervisedDate(Timestamp value) {
         setAttributeInternal(SUPERVISEDDATE, value);
     }
 
@@ -431,15 +443,15 @@ public class GlBudgetImpl extends ERPEntityImpl {
      * Gets the attribute value for UnSupervisedDate, using the alias name UnSupervisedDate.
      * @return the value of UnSupervisedDate
      */
-    public Date getUnSupervisedDate() {
-        return (Date) getAttributeInternal(UNSUPERVISEDDATE);
+    public Timestamp getUnSupervisedDate() {
+        return (Timestamp) getAttributeInternal(UNSUPERVISEDDATE);
     }
 
     /**
      * Sets <code>value</code> as the attribute value for UnSupervisedDate.
      * @param value value to set the UnSupervisedDate
      */
-    public void setUnSupervisedDate(Date value) {
+    public void setUnSupervisedDate(Timestamp value) {
         setAttributeInternal(UNSUPERVISEDDATE, value);
     }
 
@@ -613,6 +625,21 @@ public class GlBudgetImpl extends ERPEntityImpl {
      */
     public void setGlFiscalYear(GlFiscalYearImpl value) {
         setAttributeInternal(GLFISCALYEAR, value);
+    }
+
+
+    /**
+     * Gets the view accessor <code>RowSet</code> AccGlBudgetStartPeriodVO.
+     */
+    public RowSet getAccGlBudgetStartPeriodVO() {
+        return (RowSet) getAttributeInternal(ACCGLBUDGETSTARTPERIODVO);
+    }
+
+    /**
+     * Gets the view accessor <code>RowSet</code> AccGlBudgetEndPeriodVO.
+     */
+    public RowSet getAccGlBudgetEndPeriodVO() {
+        return (RowSet) getAttributeInternal(ACCGLBUDGETENDPERIODVO);
     }
 
 

@@ -10,12 +10,34 @@
   DBObjectName="GL_BUDGET"
   AliasName="GlBudget"
   BindingStyle="JDBC"
-  RowClass="erpfms.modelfms.fmseo.GlBudgetImpl">
+  RowClass="erpfms.modelfms.fmseo.GlBudgetImpl"
+  xmlns:validation="http://xmlns.oracle.com/adfm/validation">
   <DesignTime>
     <Attr Name="_codeGenFlag2" Value="Init|Delete|Access|DML"/>
     <Attr Name="_superClass" Value="erpglobals.modelglobals.ERPEntityImpl"/>
     <Attr Name="_isCodegen" Value="true"/>
   </DesignTime>
+  <ViewAccessor
+    Name="AccGlBudgetStartPeriodVO"
+    ViewObjectName="erpfms.modelfms.fmsvo.GlBudgetVO"
+    RowLevelBinds="true">
+    <ViewCriteriaUsage
+      Name="GlBudgetPeriodOverLapVC"
+      FullName="erpfms.modelfms.fmsvo.GlBudgetVO.GlBudgetPeriodOverLapVC"/>
+  </ViewAccessor>
+  <ViewAccessor
+    Name="AccGlBudgetEndPeriodVO"
+    ViewObjectName="erpfms.modelfms.fmsvo.GlBudgetVO"
+    RowLevelBinds="true">
+    <ViewCriteriaUsage
+      Name="GlBudgetPeriodOverLapVC"
+      FullName="erpfms.modelfms.fmsvo.GlBudgetVO.GlBudgetPeriodOverLapVC"/>
+    <ParameterMap>
+      <PIMap Variable="P_ADF_DATE">
+        <TransientExpression><![CDATA[PeriodEndDate]]></TransientExpression>
+      </PIMap>
+    </ParameterMap>
+  </ViewAccessor>
   <Attribute
     Name="BudgetSno"
     Precision="10"
@@ -100,7 +122,7 @@
     Name="DocumentDate"
     ColumnName="DOCUMENT_DATE"
     SQLType="DATE"
-    Type="oracle.jbo.domain.Date"
+    Type="java.sql.Timestamp"
     ColumnType="NUMBER"
     TableName="GL_BUDGET"
     IsNotNull="true">
@@ -250,7 +272,7 @@
     Name="PeriodStartDate"
     ColumnName="PERIOD_START_DATE"
     SQLType="DATE"
-    Type="oracle.jbo.domain.Date"
+    Type="java.sql.Timestamp"
     ColumnType="DATE"
     TableName="GL_BUDGET"
     IsNotNull="true">
@@ -295,7 +317,7 @@
     Name="PeriodEndDate"
     ColumnName="PERIOD_END_DATE"
     SQLType="DATE"
-    Type="oracle.jbo.domain.Date"
+    Type="java.sql.Timestamp"
     ColumnType="DATE"
     TableName="GL_BUDGET"
     IsNotNull="true">
@@ -336,7 +358,7 @@
     Name="SupervisedDate"
     ColumnName="SUPERVISED_DATE"
     SQLType="DATE"
-    Type="oracle.jbo.domain.Date"
+    Type="java.sql.Timestamp"
     ColumnType="DATE"
     TableName="GL_BUDGET"
     RetrievedOnUpdate="true">
@@ -392,7 +414,7 @@
     Name="UnSupervisedDate"
     ColumnName="UN_SUPERVISED_DATE"
     SQLType="DATE"
-    Type="oracle.jbo.domain.Date"
+    Type="java.sql.Timestamp"
     ColumnType="DATE"
     TableName="GL_BUDGET"
     RetrievedOnUpdate="true">
@@ -455,7 +477,7 @@
     Type="java.lang.Integer"
     ColumnType="NUMBER"
     TableName="GL_BUDGET">
-    <TransientExpression><![CDATA[erpglobals.modelglobals.ERPGlobalPLSQLClass.doGetModelGlobalDefCompany()]]></TransientExpression>
+    <TransientExpression><![CDATA[return 1;]]></TransientExpression>
     <Properties>
       <SchemaBasedProperties>
         <LABEL
@@ -474,8 +496,7 @@
     ColumnType="VARCHAR2"
     IsPersistent="false"
     IsQueriable="false">
-    <TransientExpression
-      trustMode="trusted"><![CDATA[GlPeriods?.PeriodName]]></TransientExpression>
+    <TransientExpression><![CDATA[GlPeriods?.PeriodName]]></TransientExpression>
     <Properties>
       <SchemaBasedProperties>
         <LABEL
@@ -500,8 +521,7 @@
     ColumnType="VARCHAR2"
     IsPersistent="false"
     IsQueriable="false">
-    <TransientExpression
-      trustMode="trusted"><![CDATA[GlPeriods1?.PeriodName]]></TransientExpression>
+    <TransientExpression><![CDATA[GlPeriods1?.PeriodName]]></TransientExpression>
     <Properties>
       <SchemaBasedProperties>
         <LABEL
@@ -526,8 +546,7 @@
     ColumnType="VARCHAR2"
     IsPersistent="false"
     IsQueriable="false">
-    <TransientExpression
-      trustMode="trusted"><![CDATA[GlFiscalYear?.YearDescription]]></TransientExpression>
+    <TransientExpression><![CDATA[GlFiscalYear?.YearDescription]]></TransientExpression>
     <Properties>
       <SchemaBasedProperties>
         <LABEL
@@ -547,11 +566,9 @@
     SQLType="DATE"
     Type="oracle.jbo.domain.Date"
     ColumnType="DATE"
-    TableName="GL_BUDGET"
     IsQueriable="false"
     IsPersistent="false">
-    <TransientExpression
-      trustMode="trusted"><![CDATA[GlFiscalYear?.StartDate]]></TransientExpression>
+    <TransientExpression><![CDATA[GlFiscalYear?.StartDate]]></TransientExpression>
     <Dependencies>
       <Item
         Value="FiscalYearSno"/>
@@ -571,11 +588,9 @@
     SQLType="DATE"
     Type="oracle.jbo.domain.Date"
     ColumnType="DATE"
-    TableName="GL_BUDGET"
     IsPersistent="false"
     IsQueriable="false">
-    <TransientExpression
-      trustMode="trusted"><![CDATA[GlFiscalYear?.EndDate]]></TransientExpression>
+    <TransientExpression><![CDATA[GlFiscalYear?.EndDate]]></TransientExpression>
     <Dependencies>
       <Item
         Value="FiscalYearSno"/>
@@ -724,6 +739,33 @@
       <Item Value="erpfms.modelfms.fmseo.GlBudget.FiscalYearSno"/>
     </AttrArray>
   </Key>
+  <validation:ExpressionValidationBean
+    Name="GLBudgetPeriodOverLapBC"
+    OperandType="EXPR"
+    Inverse="false">
+    <validation:MsgIds>
+      <validation:Item
+        Value="ERR_START_DATE"/>
+      <validation:Item
+        Value="ERR_END_DATE"/>
+    </validation:MsgIds>
+    <validation:TransientExpression><![CDATA[AccGlBudgetStartPeriodVO.setNamedWhereClauseParam("P_ADF_DATE",getPeriodStartDate());
+AccGlBudgetStartPeriodVO.executeQuery();
+
+print('period start');
+if(AccGlBudgetStartPeriodVO.getRowCount()>0)
+{
+adf.error.raise("ERR_START_DATE");
+return false;
+}
+else if (AccGlBudgetEndPeriodVO.getRowCount()>0)
+{
+adf.error.raise("ERR_END_DATE");
+return false;
+
+}
+return true;]]></validation:TransientExpression>
+  </validation:ExpressionValidationBean>
   <ResourceBundle>
     <PropertiesBundle
       PropertiesFile="erpfms.modelfms.ModelFMSBundle"/>

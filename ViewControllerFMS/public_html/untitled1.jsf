@@ -5,11 +5,7 @@
         <af:messages id="m1"/>       
         <af:form id="f1" clientComponent="true">
             <af:decorativeBox id="db1" dimensionsFrom="parent">
-                <f:facet name="center">
-                    <af:panelGroupLayout id="pgl1">
-                        <af:button text="button 1" id="b1"/>
-                    </af:panelGroupLayout>
-                </f:facet>
+                <f:facet name="center"/>
                 <f:facet name="top"/>
             </af:decorativeBox>
         </af:form>
