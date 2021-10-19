@@ -423,6 +423,20 @@
       </SchemaBasedProperties>
     </Properties>
   </ViewAttribute>
+  <ViewAttribute
+    Name="txtFiscalYearStart"
+    PrecisionRule="true"
+    EntityAttrName="txtFiscalYearStart"
+    EntityUsage="GlBudget"
+    AliasName="TXT_FISCAL_YEAR_START"/>
+  <ViewAttribute
+    Name="txtFiscalYearEnd"
+    PrecisionRule="true"
+    EntityAttrName="txtFiscalYearEnd"
+    EntityUsage="GlBudget"
+    AliasName="TXT_FISCAL_YEAR_END"
+    IsQueriable="false"
+    IsPersistent="false"/>
   <ViewCriteria
     Name="GlBudgetVOFindVC"
     ViewObjectName="erpfms.modelfms.fmsvo.GlBudgetVO"

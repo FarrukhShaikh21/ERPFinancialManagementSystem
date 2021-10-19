@@ -541,6 +541,54 @@
         Value="FiscalYearSno"/>
     </Dependencies>
   </Attribute>
+  <Attribute
+    Name="txtFiscalYearStart"
+    ColumnName="TXT_FISCAL_YEAR_START"
+    SQLType="DATE"
+    Type="oracle.jbo.domain.Date"
+    ColumnType="DATE"
+    TableName="GL_BUDGET"
+    IsPersistent="false"
+    IsQueriable="false">
+    <TransientExpression
+      trustMode="untrusted"><![CDATA[GlFiscalYear?.StartDate]]></TransientExpression>
+    <Dependencies>
+      <Item
+        Value="FiscalYearSno"/>
+    </Dependencies>
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="erpfms.modelfms.fmseo.GlBudget.txtFiscalYearStart_LABEL"/>
+        <DISPLAYWIDTH
+          Value="20"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </Attribute>
+  <Attribute
+    Name="txtFiscalYearEnd"
+    ColumnName="TXT_FISCAL_YEAR_END"
+    SQLType="DATE"
+    Type="oracle.jbo.domain.Date"
+    ColumnType="DATE"
+    TableName="GL_BUDGET"
+    IsPersistent="false"
+    IsQueriable="false">
+    <TransientExpression
+      trustMode="untrusted"><![CDATA[GlFiscalYear?.EndDate]]></TransientExpression>
+    <Dependencies>
+      <Item
+        Value="FiscalYearSno"/>
+    </Dependencies>
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="erpfms.modelfms.fmseo.GlBudget.txtFiscalYearEnd_LABEL"/>
+        <DISPLAYWIDTH
+          Value="20"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </Attribute>
   <AccessorAttribute
     Name="GlPeriods"
     Association="erpfms.modelfms.fmseo.GlPeriodsGlBudgetStartPeriodSnoAsso"

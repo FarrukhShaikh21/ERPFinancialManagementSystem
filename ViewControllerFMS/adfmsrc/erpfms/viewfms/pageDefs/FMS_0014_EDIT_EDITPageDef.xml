@@ -66,5 +66,15 @@
         <Item Value="PeriodEndDate"/>
       </AttrNames>
     </attributeValues>
+    <attributeValues IterBinding="GlBudgetByBudgetIdCRUDIterator" id="txtFiscalYearStart">
+      <AttrNames>
+        <Item Value="txtFiscalYearStart"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="GlBudgetByBudgetIdCRUDIterator" id="txtFiscalYearEnd">
+      <AttrNames>
+        <Item Value="txtFiscalYearEnd"/>
+      </AttrNames>
+    </attributeValues>
   </bindings>
 </pageDefinition>

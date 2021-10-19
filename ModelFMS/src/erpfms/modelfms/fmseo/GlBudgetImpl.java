@@ -48,6 +48,8 @@ public class GlBudgetImpl extends ERPEntityImpl {
         txtStartPeriodName,
         txtEndPeriodName,
         txtFiscalYearName,
+        txtFiscalYearStart,
+        txtFiscalYearEnd,
         GlPeriods,
         GlPeriods1,
         GlFiscalYear;
@@ -101,6 +103,8 @@ public class GlBudgetImpl extends ERPEntityImpl {
     public static final int TXTSTARTPERIODNAME = AttributesEnum.txtStartPeriodName.index();
     public static final int TXTENDPERIODNAME = AttributesEnum.txtEndPeriodName.index();
     public static final int TXTFISCALYEARNAME = AttributesEnum.txtFiscalYearName.index();
+    public static final int TXTFISCALYEARSTART = AttributesEnum.txtFiscalYearStart.index();
+    public static final int TXTFISCALYEAREND = AttributesEnum.txtFiscalYearEnd.index();
     public static final int GLPERIODS = AttributesEnum.GlPeriods.index();
     public static final int GLPERIODS1 = AttributesEnum.GlPeriods1.index();
     public static final int GLFISCALYEAR = AttributesEnum.GlFiscalYear.index();
@@ -534,6 +538,38 @@ public class GlBudgetImpl extends ERPEntityImpl {
      */
     public void settxtFiscalYearName(String value) {
         setAttributeInternal(TXTFISCALYEARNAME, value);
+    }
+
+    /**
+     * Gets the attribute value for txtFiscalYearStart, using the alias name txtFiscalYearStart.
+     * @return the value of txtFiscalYearStart
+     */
+    public Date gettxtFiscalYearStart() {
+        return (Date) getAttributeInternal(TXTFISCALYEARSTART);
+    }
+
+    /**
+     * Sets <code>value</code> as the attribute value for txtFiscalYearStart.
+     * @param value value to set the txtFiscalYearStart
+     */
+    public void settxtFiscalYearStart(Date value) {
+        setAttributeInternal(TXTFISCALYEARSTART, value);
+    }
+
+    /**
+     * Gets the attribute value for txtFiscalYearEnd, using the alias name txtFiscalYearEnd.
+     * @return the value of txtFiscalYearEnd
+     */
+    public Date gettxtFiscalYearEnd() {
+        return (Date) getAttributeInternal(TXTFISCALYEAREND);
+    }
+
+    /**
+     * Sets <code>value</code> as the attribute value for txtFiscalYearEnd.
+     * @param value value to set the txtFiscalYearEnd
+     */
+    public void settxtFiscalYearEnd(Date value) {
+        setAttributeInternal(TXTFISCALYEAREND, value);
     }
 
     /**
