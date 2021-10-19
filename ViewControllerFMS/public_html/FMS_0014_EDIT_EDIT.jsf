@@ -95,12 +95,13 @@
                                                          immediate="true" id="l6" rendered="false">
                                                     <af:resetActionListener/>
                                                 </af:link>
-                                                <af:link actionListener="#{bindings.Rollback.execute}" text="Undo"
+                                                <af:link text="Undo"
                                                          immediate="true" id="l3"
                                                          icon="#{resource['images:imgUndo.png']}" iconPosition="top"
                                                          partialSubmit="true"
                                                          disabled="#{bindings.IsSupervised.inputValue=='Y' }"
-                                                         shortDesc="Undo Record">
+                                                         shortDesc="Undo Record"
+                                                         action="#{pageFlowScope.OracleERPBean.doErpUndoRecord}">
                                                     <af:resetActionListener/>
                                                 </af:link>
                                                 <af:link actionListener="#{bindings.Commit.execute}" text="Commit"
@@ -201,11 +202,12 @@
                             </af:gridCell>
                         </af:gridRow>
                         <af:gridRow id="gr5" marginTop="5px" marginBottom="5px">
-                            <af:gridCell id="gc5" width="15%" marginStart="5px" marginEnd="5px" halign="center">
+                            <af:gridCell id="gc5" width="15%" marginStart="5px" marginEnd="5px" halign="center"
+                                         valign="middle">
                                 <af:outputLabel value="#{bindings.DocumentDate.hints.label}" id="ol4"/>
                             </af:gridCell>
                             <af:gridCell id="gc6" width="85%" marginStart="5px" marginEnd="5px" halign="stretch"
-                                         columnSpan="5">
+                                         columnSpan="5" valign="stretch">
                                 <af:inputDate value="#{bindings.DocumentDate.inputValue}"
                                               label="#{bindings.DocumentDate.hints.label}"
                                               required="#{bindings.DocumentDate.hints.mandatory}"
@@ -260,10 +262,10 @@
                                     <f:validator binding="#{bindings.txtFiscalYearName.validator}"/>
                                 </af:inputComboboxListOfValues>
                             </af:gridCell>
-                            <af:gridCell id="gc22" width="15%" halign="center">
+                            <af:gridCell id="gc22" width="15%" halign="center" valign="stretch">
                                 <af:outputLabel value="#{bindings.txtFiscalYearStart.hints.label}" id="ol11"/>
                             </af:gridCell>
-                            <af:gridCell id="gc23" width="20%" valign="middle">
+                            <af:gridCell id="gc23" width="20%" valign="middle" halign="stretch">
                                 <af:inputDate value="#{bindings.txtFiscalYearStart.inputValue}"
                                               label="#{bindings.txtFiscalYearStart.hints.label}"
                                               required="#{bindings.txtFiscalYearStart.hints.mandatory}"
@@ -274,10 +276,10 @@
                                     <af:convertDateTime pattern="#{bindings.txtFiscalYearStart.format}"/>
                                 </af:inputDate>
                             </af:gridCell>
-                            <af:gridCell id="gc24" width="15%" halign="center">
+                            <af:gridCell id="gc24" width="15%">
                                 <af:outputLabel value="#{bindings.txtFiscalYearEnd.hints.label}" id="ol12"/>
                             </af:gridCell>
-                            <af:gridCell id="gc29" valign="middle">
+                            <af:gridCell id="gc29" valign="middle" halign="start">
                                 <af:inputDate value="#{bindings.txtFiscalYearEnd.inputValue}"
                                               label="#{bindings.txtFiscalYearEnd.hints.label}"
                                               required="#{bindings.txtFiscalYearEnd.hints.mandatory}"

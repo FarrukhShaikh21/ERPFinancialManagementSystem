@@ -428,7 +428,9 @@
     PrecisionRule="true"
     EntityAttrName="txtFiscalYearStart"
     EntityUsage="GlBudget"
-    AliasName="TXT_FISCAL_YEAR_START"/>
+    AliasName="TXT_FISCAL_YEAR_START"
+    IsQueriable="false"
+    IsPersistent="false"/>
   <ViewAttribute
     Name="txtFiscalYearEnd"
     PrecisionRule="true"

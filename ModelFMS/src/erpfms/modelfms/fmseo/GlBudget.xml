@@ -475,7 +475,7 @@
     IsPersistent="false"
     IsQueriable="false">
     <TransientExpression
-      trustMode="untrusted"><![CDATA[GlPeriods?.PeriodName]]></TransientExpression>
+      trustMode="trusted"><![CDATA[GlPeriods?.PeriodName]]></TransientExpression>
     <Properties>
       <SchemaBasedProperties>
         <LABEL
@@ -501,7 +501,7 @@
     IsPersistent="false"
     IsQueriable="false">
     <TransientExpression
-      trustMode="untrusted"><![CDATA[GlPeriods1?.PeriodName]]></TransientExpression>
+      trustMode="trusted"><![CDATA[GlPeriods1?.PeriodName]]></TransientExpression>
     <Properties>
       <SchemaBasedProperties>
         <LABEL
@@ -527,7 +527,7 @@
     IsPersistent="false"
     IsQueriable="false">
     <TransientExpression
-      trustMode="untrusted"><![CDATA[GlFiscalYear?.YearDescription]]></TransientExpression>
+      trustMode="trusted"><![CDATA[GlFiscalYear?.YearDescription]]></TransientExpression>
     <Properties>
       <SchemaBasedProperties>
         <LABEL
@@ -548,10 +548,10 @@
     Type="oracle.jbo.domain.Date"
     ColumnType="DATE"
     TableName="GL_BUDGET"
-    IsPersistent="false"
-    IsQueriable="false">
+    IsQueriable="false"
+    IsPersistent="false">
     <TransientExpression
-      trustMode="untrusted"><![CDATA[GlFiscalYear?.StartDate]]></TransientExpression>
+      trustMode="trusted"><![CDATA[GlFiscalYear?.StartDate]]></TransientExpression>
     <Dependencies>
       <Item
         Value="FiscalYearSno"/>
@@ -575,7 +575,7 @@
     IsPersistent="false"
     IsQueriable="false">
     <TransientExpression
-      trustMode="untrusted"><![CDATA[GlFiscalYear?.EndDate]]></TransientExpression>
+      trustMode="trusted"><![CDATA[GlFiscalYear?.EndDate]]></TransientExpression>
     <Dependencies>
       <Item
         Value="FiscalYearSno"/>
