@@ -88,7 +88,7 @@
         <Contents>ORAERP</Contents>
       </StringRefAddr>
       <StringRefAddr addrType="hostname">
-        <Contents>localhost</Contents>
+        <Contents>127.0.0.1</Contents>
       </StringRefAddr>
       <StringRefAddr addrType="port">
         <Contents>1521</Contents>
