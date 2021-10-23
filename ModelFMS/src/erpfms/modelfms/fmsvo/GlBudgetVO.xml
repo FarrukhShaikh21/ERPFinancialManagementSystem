@@ -61,7 +61,17 @@
   <ViewAccessor
     Name="AccGlFiscalYearVO"
     ViewObjectName="erpfms.modelfms.fmsvo.GlFiscalYearVO"
-    RowLevelBinds="true"/>
+    RowLevelBinds="true">
+    <ViewCriteriaUsage
+      Name="GlFiscalYearVOCompanyWiseVC"
+      FullName="erpfms.modelfms.fmsvo.GlFiscalYearVO.GlFiscalYearVOCompanyWiseVC"/>
+    <ParameterMap>
+      <PIMap Variable="P_ADF_COMPANY_ID">
+        <TransientExpression
+          trustMode="untrusted"><![CDATA[CompanyId==null?-1:CompanyId]]></TransientExpression>
+      </PIMap>
+    </ParameterMap>
+  </ViewAccessor>
   <ViewAccessor
     Name="AccGlPeriodsVO"
     ViewObjectName="erpfms.modelfms.fmsvo.GlPeriodsVO"
