@@ -620,6 +620,37 @@
     <ViewCriteriaRow
       Name="GlBudgetPeriodOverLapVC_row_0"
       UpperColumns="1">
+      <ViewCriteriaItemCompound
+        Name="BudgetSno"
+        ViewAttribute="BudgetSno">
+        <ViewCriteria
+          Name="GlBudgetPeriodOverLapVC_GlBudgetPeriodOverLapVC_row_0_BudgetSno_itemHolder"
+          ViewObjectName="erpfms.modelfms.fmsvo.GlBudgetVO"
+          Conjunction="OR">
+          <ViewCriteriaRow
+            Name="GlBudgetPeriodOverLapVC_GlBudgetPeriodOverLapVC_row_0_BudgetSno_itemHolder_row_0"
+            Conjunction="AND">
+            <ViewCriteriaItem
+              Name="BudgetSno"
+              ViewAttribute="BudgetSno"
+              Operator="ISNOTBLANK"
+              Conjunction="AND"
+              Required="Optional"/>
+          </ViewCriteriaRow>
+          <ViewCriteriaRow
+            Name="GlBudgetPeriodOverLapVC_GlBudgetPeriodOverLapVC_row_0_BudgetSno_itemHolder_row_1"
+            Conjunction="AND">
+            <ViewCriteriaItem
+              Name="GlBudgetPeriodOverLapVC_GlBudgetPeriodOverLapVC_row_0_BudgetSno_GlBudgetPeriodOverLapVC_GlBudgetPeriodOverLapVC_row_0_BudgetSno_itemHolder_GlBudgetPeriodOverLapVC_GlBudgetPeriodOverLapVC_row_0_BudgetSno_itemHolder_row_1_BudgetSno"
+              ViewAttribute="BudgetSno"
+              Operator="&lt;>"
+              Conjunction="AND"
+              Value=":P_ADF_BUDGET_SNO"
+              IsBindVarValue="true"
+              Required="Optional"/>
+          </ViewCriteriaRow>
+        </ViewCriteria>
+      </ViewCriteriaItemCompound>
       <ViewCriteriaItem
         Name="PeriodStartDate"
         ViewAttribute="PeriodStartDate"
@@ -634,6 +665,14 @@
         Operator="ONORAFTER"
         Conjunction="AND"
         Value=":P_ADF_DATE"
+        IsBindVarValue="true"
+        Required="Optional"/>
+      <ViewCriteriaItem
+        Name="CompanyId"
+        ViewAttribute="CompanyId"
+        Operator="="
+        Conjunction="AND"
+        Value=":P_ADF_COMPANY_ID"
         IsBindVarValue="true"
         Required="Optional"/>
     </ViewCriteriaRow>

@@ -749,17 +749,26 @@
       <validation:Item
         Value="ERR_END_DATE"/>
     </validation:MsgIds>
-    <validation:TransientExpression><![CDATA[AccGlBudgetStartPeriodVO.setNamedWhereClauseParam("P_ADF_DATE",getPeriodStartDate());
+    <validation:TransientExpression
+      trustMode="trusted"><![CDATA[AccGlBudgetStartPeriodVO.setNamedWhereClauseParam("P_ADF_DATE",getPeriodStartDate());
+AccGlBudgetStartPeriodVO.setNamedWhereClauseParam("P_ADF_BUDGET_SNO",getBudgetSno());
+AccGlBudgetStartPeriodVO.setNamedWhereClauseParam("P_ADF_COMPANY_ID",getCompanyId());
 AccGlBudgetStartPeriodVO.executeQuery();
+AccGlBudgetEndPeriodVO.setNamedWhereClauseParam("P_ADF_DATE",getPeriodEndDate());
+AccGlBudgetEndPeriodVO.setNamedWhereClauseParam("P_ADF_BUDGET_SNO",getBudgetSno());
+AccGlBudgetEndPeriodVO.setNamedWhereClauseParam("P_ADF_COMPANY_ID",getCompanyId());
+AccGlBudgetEndPeriodVO.executeQuery();
 
 print('period start');
 if(AccGlBudgetStartPeriodVO.getRowCount()>0)
 {
+print('IN CONDITION');
 adf.error.raise("ERR_START_DATE");
 return false;
 }
 else if (AccGlBudgetEndPeriodVO.getRowCount()>0)
 {
+print('IN CONDITION 2');
 adf.error.raise("ERR_END_DATE");
 return false;
 
