@@ -679,6 +679,12 @@
     ViewLink="erpfms.modelfms.fmsvo.GlChartOfAccountGlBankBranchCOAIDVL"
     Type="oracle.jbo.RowIterator"
     IsUpdateable="false"/>
+  <ViewLinkAccessor
+    Name="GlParameterVO"
+    ViewLink="erpfms.modelfms.fmsvo.GlParameterGlChartOfAccountsCompanyIdVL"
+    Type="oracle.jbo.Row"
+    Reversed="true"
+    IsUpdateable="false"/>
   <SortCriteria>
     <Sort
       Attribute="ChartOfAccountCode"/>

@@ -316,6 +316,11 @@
         Required="Optional"/>
     </ViewCriteriaRow>
   </ViewCriteria>
+  <ViewLinkAccessor
+    Name="GlChartOfAccountsVO"
+    ViewLink="erpfms.modelfms.fmsvo.GlParameterGlChartOfAccountsCompanyIdVL"
+    Type="oracle.jbo.RowIterator"
+    IsUpdateable="false"/>
   <ResourceBundle>
     <PropertiesBundle
       PropertiesFile="erpfms.modelfms.ModelFMSBundle"/>

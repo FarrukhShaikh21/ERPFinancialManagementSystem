@@ -29,9 +29,9 @@ public class GlParameterImpl extends ERPEntityImpl {
         LastUpdatedBy,
         LastUpdatedDate,
         GlobalCompanyId,
-        IsActive,
-        AdminCompany;
-        private static AttributesEnum[] vals = null;
+        IsActive;
+        static AttributesEnum[] vals = null;
+        ;
         private static final int firstIndex = 0;
 
         public int index() {
@@ -65,7 +65,6 @@ public class GlParameterImpl extends ERPEntityImpl {
     public static final int LASTUPDATEDDATE = AttributesEnum.LastUpdatedDate.index();
     public static final int GLOBALCOMPANYID = AttributesEnum.GlobalCompanyId.index();
     public static final int ISACTIVE = AttributesEnum.IsActive.index();
-    public static final int ADMINCOMPANY = AttributesEnum.AdminCompany.index();
 
     /**
      * This is the default constructor (do not remove).

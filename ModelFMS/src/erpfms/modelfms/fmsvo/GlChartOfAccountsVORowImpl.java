@@ -47,6 +47,7 @@ public class GlChartOfAccountsVORowImpl extends ViewRowImpl {
         GlVoucherLinesVO,
         GlBankVO,
         GlBankBranchVO,
+        GlParameterVO,
         AccSysGeneralValueVO,
         AccGlCoaTypeVO,
         AccGlChartOfAccountsVO,
@@ -101,6 +102,7 @@ public class GlChartOfAccountsVORowImpl extends ViewRowImpl {
     public static final int GLVOUCHERLINESVO = AttributesEnum.GlVoucherLinesVO.index();
     public static final int GLBANKVO = AttributesEnum.GlBankVO.index();
     public static final int GLBANKBRANCHVO = AttributesEnum.GlBankBranchVO.index();
+    public static final int GLPARAMETERVO = AttributesEnum.GlParameterVO.index();
     public static final int ACCSYSGENERALVALUEVO = AttributesEnum.AccSysGeneralValueVO.index();
     public static final int ACCGLCOATYPEVO = AttributesEnum.AccGlCoaTypeVO.index();
     public static final int ACCGLCHARTOFACCOUNTSVO = AttributesEnum.AccGlChartOfAccountsVO.index();
@@ -473,6 +475,20 @@ public class GlChartOfAccountsVORowImpl extends ViewRowImpl {
      */
     public RowIterator getGlBankBranchVO() {
         return (RowIterator) getAttributeInternal(GLBANKBRANCHVO);
+    }
+
+    /**
+     * Gets the associated <code>Row</code> using master-detail link GlParameterVO.
+     */
+    public Row getGlParameterVO() {
+        return (Row) getAttributeInternal(GLPARAMETERVO);
+    }
+
+    /**
+     * Sets the master-detail link GlParameterVO between this object and <code>value</code>.
+     */
+    public void setGlParameterVO(Row value) {
+        setAttributeInternal(GLPARAMETERVO, value);
     }
 
     /**
