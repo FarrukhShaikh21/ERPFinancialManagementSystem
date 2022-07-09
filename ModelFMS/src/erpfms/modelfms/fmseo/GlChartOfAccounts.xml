@@ -419,6 +419,13 @@
     AssociationOtherEnd="erpfms.modelfms.fmseo.GlChartOfAccountGlBankBranchCOAIDAsso.GlChartOfAccounts"
     Type="oracle.jbo.RowIterator"
     IsUpdateable="false"/>
+  <AccessorAttribute
+    Name="GlParameter"
+    Association="erpfms.modelfms.fmseo.GlParameterGlChartOfAccountsCompanyLevelNoAsso"
+    AssociationEnd="erpfms.modelfms.fmseo.GlParameterGlChartOfAccountsCompanyLevelNoAsso.GlParameter"
+    AssociationOtherEnd="erpfms.modelfms.fmseo.GlParameterGlChartOfAccountsCompanyLevelNoAsso.GlChartOfAccounts"
+    Type="erpfms.modelfms.fmseo.GlParameterImpl"
+    IsUpdateable="true"/>
   <Key
     Name="PkGlChartOfAccounts"
     PrimaryKey="true">

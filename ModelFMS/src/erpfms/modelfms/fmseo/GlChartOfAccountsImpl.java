@@ -52,6 +52,7 @@ public class GlChartOfAccountsImpl extends ERPEntityImpl {
         GlVoucherLines,
         GlBank,
         GlBankBranch,
+        GlParameter,
         AccGlParameterVO;
         private static AttributesEnum[] vals = null;
         private static final int firstIndex = 0;
@@ -101,6 +102,7 @@ public class GlChartOfAccountsImpl extends ERPEntityImpl {
     public static final int GLVOUCHERLINES = AttributesEnum.GlVoucherLines.index();
     public static final int GLBANK = AttributesEnum.GlBank.index();
     public static final int GLBANKBRANCH = AttributesEnum.GlBankBranch.index();
+    public static final int GLPARAMETER = AttributesEnum.GlParameter.index();
     public static final int ACCGLPARAMETERVO = AttributesEnum.AccGlParameterVO.index();
 
     /**
@@ -447,6 +449,20 @@ public class GlChartOfAccountsImpl extends ERPEntityImpl {
      */
     public RowIterator getGlBankBranch() {
         return (RowIterator) getAttributeInternal(GLBANKBRANCH);
+    }
+
+    /**
+     * @return the associated entity GlParameterImpl.
+     */
+    public GlParameterImpl getGlParameter() {
+        return (GlParameterImpl) getAttributeInternal(GLPARAMETER);
+    }
+
+    /**
+     * Sets <code>value</code> as the associated entity GlParameterImpl.
+     */
+    public void setGlParameter(GlParameterImpl value) {
+        setAttributeInternal(GLPARAMETER, value);
     }
 
     /**

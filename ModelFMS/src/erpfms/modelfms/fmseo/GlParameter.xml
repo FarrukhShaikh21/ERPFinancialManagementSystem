@@ -204,6 +204,13 @@
       </SchemaBasedProperties>
     </Properties>
   </Attribute>
+  <AccessorAttribute
+    Name="GlChartOfAccounts"
+    Association="erpfms.modelfms.fmseo.GlParameterGlChartOfAccountsCompanyLevelNoAsso"
+    AssociationEnd="erpfms.modelfms.fmseo.GlParameterGlChartOfAccountsCompanyLevelNoAsso.GlChartOfAccounts"
+    AssociationOtherEnd="erpfms.modelfms.fmseo.GlParameterGlChartOfAccountsCompanyLevelNoAsso.GlParameter"
+    Type="oracle.jbo.RowIterator"
+    IsUpdateable="false"/>
   <Key
     Name="PkGlParameter"
     PrimaryKey="true">

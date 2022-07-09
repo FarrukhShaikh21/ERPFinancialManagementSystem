@@ -7,6 +7,7 @@ import erpglobals.modelglobals.ERPEntityImpl;
 import java.sql.Timestamp;
 
 import oracle.jbo.Key;
+import oracle.jbo.RowIterator;
 import oracle.jbo.server.EntityDefImpl;
 import oracle.jbo.server.TransactionEvent;
 // ---------------------------------------------------------------------
@@ -29,9 +30,9 @@ public class GlParameterImpl extends ERPEntityImpl {
         LastUpdatedBy,
         LastUpdatedDate,
         GlobalCompanyId,
-        IsActive;
-        static AttributesEnum[] vals = null;
-        ;
+        IsActive,
+        GlChartOfAccounts;
+        private static AttributesEnum[] vals = null;
         private static final int firstIndex = 0;
 
         public int index() {
@@ -65,6 +66,7 @@ public class GlParameterImpl extends ERPEntityImpl {
     public static final int LASTUPDATEDDATE = AttributesEnum.LastUpdatedDate.index();
     public static final int GLOBALCOMPANYID = AttributesEnum.GlobalCompanyId.index();
     public static final int ISACTIVE = AttributesEnum.IsActive.index();
+    public static final int GLCHARTOFACCOUNTS = AttributesEnum.GlChartOfAccounts.index();
 
     /**
      * This is the default constructor (do not remove).
@@ -240,6 +242,13 @@ public class GlParameterImpl extends ERPEntityImpl {
         setAttributeInternal(ISACTIVE, value);
     }
 
+
+    /**
+     * @return the associated entity oracle.jbo.RowIterator.
+     */
+    public RowIterator getGlChartOfAccounts() {
+        return (RowIterator) getAttributeInternal(GLCHARTOFACCOUNTS);
+    }
 
     /**
      * @param parameterId key constituent
