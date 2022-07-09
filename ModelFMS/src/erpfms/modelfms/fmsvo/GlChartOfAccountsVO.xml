@@ -653,6 +653,66 @@
         Required="Optional"/>
     </ViewCriteriaRow>
   </ViewCriteria>
+  <ViewCriteria
+    Name="GlChartOfAccountsLastLevelVC"
+    ViewObjectName="erpfms.modelfms.fmsvo.GlChartOfAccountsVO"
+    Conjunction="AND">
+    <Properties>
+      <CustomProperties>
+        <Property
+          Name="displayOperators"
+          Value="InAdvancedMode"/>
+        <Property
+          Name="autoExecute"
+          Value="false"/>
+        <Property
+          Name="allowConjunctionOverride"
+          Value="true"/>
+        <Property
+          Name="showInList"
+          Value="true"/>
+        <Property
+          Name="mode"
+          Value="Basic"/>
+      </CustomProperties>
+    </Properties>
+    <ViewCriteriaRow
+      Name="GlChartOfAccountsVOCriteria_row_0"
+      UpperColumns="1">
+      <ViewCriteriaItem
+        Name="CompanyId"
+        ViewAttribute="CompanyId"
+        Operator="="
+        Conjunction="AND"
+        Value=":P_ADF_COMPANY_ID"
+        IsBindVarValue="true"
+        Required="Optional"/>
+      <ViewCriteriaItem
+        Name="GlParameterVO"
+        ViewAttribute="GlParameterVO"
+        Operator="EXISTS"
+        Conjunction="AND"
+        IsNestedCriteria="true"
+        Required="Optional">
+        <ViewCriteria
+          Name="GlParameterVONestedCriteria"
+          ViewObjectName="erpfms.modelfms.fmsvo.GlParameterVO"
+          Conjunction="AND">
+          <ViewCriteriaRow
+            Name="GlParameterVONestedCriteria_row_0"
+            UpperColumns="1">
+            <ViewCriteriaItem
+              Name="GlParameterVONestedCriteria_GlParameterVONestedCriteria_row_0_ParameterId"
+              ViewAttribute="ParameterId"
+              Operator="="
+              Conjunction="AND"
+              Value="COA_LEVELS"
+              Required="Optional"/>
+          </ViewCriteriaRow>
+        </ViewCriteria>
+      </ViewCriteriaItem>
+    </ViewCriteriaRow>
+  </ViewCriteria>
   <ViewLinkAccessor
     Name="ParentChartOfAccountIdGlChartOfAccountsVO"
     ViewLink="erpfms.modelfms.fmsvo.GlChartOfAccountGlChartOfAccountCoaidParentidVL"
@@ -685,6 +745,10 @@
     Type="oracle.jbo.Row"
     Reversed="true"
     IsUpdateable="false"/>
+  <SortCriteria>
+    <Sort
+      Attribute="ChartOfAccountCode"/>
+  </SortCriteria>
   <SortCriteria>
     <Sort
       Attribute="ChartOfAccountCode"/>

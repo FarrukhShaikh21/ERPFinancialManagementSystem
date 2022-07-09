@@ -5,7 +5,8 @@
   xmlns="http://xmlns.oracle.com/bc4j"
   Name="GlParameterGlChartOfAccountsCompanyIdVL"
   Version="12.1.3.10.47"
-  InheritPersonalization="merge">
+  InheritPersonalization="merge"
+  EntityAssociation="erpfms.modelfms.fmseo.GlParameterGlChartOfAccountsCompanyLevelNoAsso">
   <Properties>
     <SchemaBasedProperties>
       <LABEL
@@ -21,9 +22,11 @@
       <Attr Name="_accessor" Value="true"/>
       <Attr Name="_finderName" Value="GlParameterVO"/>
       <Attr Name="_isUpdateable" Value="true"/>
+      <Attr Name="_minCardinality" Value="1"/>
     </DesignTime>
     <AttrArray Name="Attributes">
       <Item Value="erpfms.modelfms.fmsvo.GlParameterVO.CompanyId"/>
+      <Item Value="erpfms.modelfms.fmsvo.GlParameterVO.ParameterValue"/>
     </AttrArray>
   </ViewLinkDefEnd>
   <ViewLinkDefEnd
@@ -36,6 +39,7 @@
     </DesignTime>
     <AttrArray Name="Attributes">
       <Item Value="erpfms.modelfms.fmsvo.GlChartOfAccountsVO.CompanyId"/>
+      <Item Value="erpfms.modelfms.fmsvo.GlChartOfAccountsVO.LevelNo"/>
     </AttrArray>
   </ViewLinkDefEnd>
   <ResourceBundle>
