@@ -131,7 +131,7 @@
                                                           maximumLength="#{bindings.Description.hints.precision}"
                                                           shortDesc="#{bindings.Description.hints.tooltip}" id="it1"
                                                           contentStyle="width:100%"
-                                                          readOnly="#{pageFlowScope.ERPMainTempBean.LERPAllowEdit=='N' &amp;&amp; bindings.ChartOfAccountId.inputValue!=null}">
+                                                          readOnly="#{pageFlowScope.ERPMainTempBean.LERPAllowEdit=='N' &amp;&amp; bindings.ChartOfAccountCode.inputValue!=null}">
                                                 <f:validator binding="#{bindings.Description.validator}"/>
                                             </af:inputText>
                                         </af:gridCell>
@@ -167,7 +167,7 @@
                                                                 shortDesc="#{bindings.CoaTypeSno.hints.tooltip}"
                                                                 id="soc1" simple="true" contentStyle="width:100%"
                                                                 autoSubmit="true"
-                                                                readOnly="#{pageFlowScope.ERPMainTempBean.LERPAllowEdit=='N' &amp;&amp; bindings.ChartOfAccountId.inputValue!=null}">
+                                                                readOnly="#{pageFlowScope.ERPMainTempBean.LERPAllowEdit=='N' &amp;&amp; bindings.ChartOfAccountCode.inputValue!=null}">
                                                 <f:selectItems value="#{bindings.CoaTypeSno.items}" id="si1"/>
                                                 <f:validator binding="#{bindings.CoaTypeSno.validator}"/>
                                             </af:selectOneChoice>
@@ -184,7 +184,7 @@
                                                                 required="#{bindings.IsActive.hints.mandatory}"
                                                                 shortDesc="#{bindings.IsActive.hints.tooltip}" id="soc2"
                                                                 simple="true" contentStyle="width:100%"
-                                                                readOnly="#{pageFlowScope.ERPMainTempBean.LERPAllowEdit=='N' &amp;&amp; bindings.ChartOfAccountId.inputValue!=null}">
+                                                                readOnly="#{pageFlowScope.ERPMainTempBean.LERPAllowEdit=='N' &amp;&amp; bindings.ChartOfAccountCode.inputValue!=null}">
                                                 <f:selectItems value="#{bindings.IsActive.items}" id="si2"/>
                                                 <f:validator binding="#{bindings.IsActive.validator}"/>
                                             </af:selectOneChoice>
@@ -224,9 +224,9 @@
                                                                           columns="#{bindings.txtParentCOADescription.hints.displayWidth}"
                                                                           shortDesc="#{bindings.txtParentCOADescription.hints.tooltip}"
                                                                           simple="true" contentStyle="width:200%"
-                                                                          disabled="#{bindings.ChartOfAccountId.inputValue!=null}"
+                                                                          disabled="#{pageFlowScope.ERPMainTempBean.LERPAllowEdit=='N' &amp;&amp; bindings.ChartOfAccountCode.inputValue!=null}"
                                                                           partialTriggers="soc1 l2" autoSubmit="true"
-                                                                          readOnly="#{bindings.ChartOfAccountCode.inputValue!=null}">
+                                                                          readOnly="#{pageFlowScope.ERPMainTempBean.LERPAllowEdit=='N' &amp;&amp; bindings.ChartOfAccountCode.inputValue!=null}">
                                                 <f:validator binding="#{bindings.txtParentCOADescription.validator}"/>
                                                 <af:autoSuggestBehavior maxSuggestedItems="5"
                                                                         smartList="#{bindings.txtParentCOADescription.smartList}"

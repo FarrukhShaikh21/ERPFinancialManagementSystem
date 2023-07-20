@@ -1,23 +1,26 @@
 <References xmlns="http://xmlns.oracle.com/adf/jndi">
-  <Reference name="ERPConnADM" className="oracle.jdeveloper.db.adapter.DatabaseProvider" credentialStoreKey="ERPConnADM"
+  <Reference name="ERPFmsConn" className="oracle.jdeveloper.db.adapter.DatabaseProvider" credentialStoreKey="ERPFmsConn"
              xmlns="">
     <Factory className="oracle.jdevimpl.db.adapter.DatabaseProviderFactory1212"/>
     <RefAddresses>
+      <StringRefAddr addrType="sid">
+        <Contents>ELEVENG</Contents>
+      </StringRefAddr>
       <StringRefAddr addrType="subtype">
-        <Contents>MYSQL</Contents>
+        <Contents>oraJDBC</Contents>
       </StringRefAddr>
       <StringRefAddr addrType="user">
-        <Contents>root</Contents>
+        <Contents>ORALINKS</Contents>
       </StringRefAddr>
       <StringRefAddr addrType="hostname">
         <Contents>localhost</Contents>
       </StringRefAddr>
-      <SecureRefAddr addrType="password"/>
-      <StringRefAddr addrType="driver">
-        <Contents>com.mysql.jdbc.Driver</Contents>
+      <StringRefAddr addrType="port">
+        <Contents>1521</Contents>
       </StringRefAddr>
-      <StringRefAddr addrType="dataSourceName">
-        <Contents>erporacle</Contents>
+      <SecureRefAddr addrType="password"/>
+      <StringRefAddr addrType="oraDriverType">
+        <Contents>thin</Contents>
       </StringRefAddr>
     </RefAddresses>
   </Reference>
@@ -35,15 +38,15 @@
         <Contents>localhost</Contents>
       </StringRefAddr>
       <SecureRefAddr addrType="password"/>
-      <StringRefAddr addrType="driver">
-        <Contents>com.mysql.jdbc.Driver</Contents>
-      </StringRefAddr>
       <StringRefAddr addrType="dataSourceName">
         <Contents>erporacle</Contents>
       </StringRefAddr>
+      <StringRefAddr addrType="driver">
+        <Contents>com.mysql.jdbc.Driver</Contents>
+      </StringRefAddr>
     </RefAddresses>
   </Reference>
-  <Reference name="ERPFmsConn" className="oracle.jdeveloper.db.adapter.DatabaseProvider" credentialStoreKey="ERPFmsConn"
+  <Reference name="ERPConnADM" className="oracle.jdeveloper.db.adapter.DatabaseProvider" credentialStoreKey="ERPConnADM"
              xmlns="">
     <Factory className="oracle.jdevimpl.db.adapter.DatabaseProviderFactory1212"/>
     <RefAddresses>
@@ -57,11 +60,11 @@
         <Contents>localhost</Contents>
       </StringRefAddr>
       <SecureRefAddr addrType="password"/>
-      <StringRefAddr addrType="driver">
-        <Contents>com.mysql.jdbc.Driver</Contents>
-      </StringRefAddr>
       <StringRefAddr addrType="dataSourceName">
         <Contents>erporacle</Contents>
+      </StringRefAddr>
+      <StringRefAddr addrType="driver">
+        <Contents>com.mysql.jdbc.Driver</Contents>
       </StringRefAddr>
     </RefAddresses>
   </Reference>
@@ -79,11 +82,11 @@
         <Contents>localhost</Contents>
       </StringRefAddr>
       <SecureRefAddr addrType="password"/>
-      <StringRefAddr addrType="driver">
-        <Contents>com.mysql.jdbc.Driver</Contents>
-      </StringRefAddr>
       <StringRefAddr addrType="dataSourceName">
         <Contents>erporacle</Contents>
+      </StringRefAddr>
+      <StringRefAddr addrType="driver">
+        <Contents>com.mysql.jdbc.Driver</Contents>
       </StringRefAddr>
     </RefAddresses>
   </Reference>

@@ -160,7 +160,17 @@
          <hash n="Default">
             <value n="custom" v="false"/>
             <value n="name" v="Default"/>
-            <value n="targetURL"/>
+            <hash n="oracle.adfdt.controller.adfc.source.runner.AdfcRunnerLaunchSettings">
+               <hash n="inputParameterValues">
+                  <value n="P_ADF_MODULE_RIGHTS" v=""/>
+                  <value n="P_ADF_USER_ATTRIBUTE" v=""/>
+                  <value n="P_ADF_USER_CODE" v="FARRUKH"/>
+                  <value n="P_ADF_USER_SNO" v="1"/>
+               </hash>
+               <value n="taskFlowId" v="ERPBTFFMS"/>
+               <value n="unboundedTaskFlow" v="false"/>
+            </hash>
+            <url n="targetURL" path="public_html/WEB-INF/ERPBTFFMS.xml"/>
          </hash>
       </hash>
    </hash>
